@@ -12,64 +12,83 @@
 <body>
   <header class="container">
     
-    <h1 class="page-title">OOF™ Origin Open Foundation™</h1>
+    <h1 class="page-title">Global Canonical Standard Registry</h1>
     <p class="subtitle">Global Methodology Authority</p><br>
     <p class="subtitle2"><b><a href="index.html">OOF™ </a>| <a href="os.html">  OS </a> |<a href="Canonical Meanings.html"> Canonical Meanings </a>|<a href="Standards.html"> Standards  </a>|<a href="ImplementationFramework.html"> ImplementationFramework </a>|</a><a href="MIP™.html"> MIP™ </a>|<a href="Publication Rules.html"> Publication Rules</a>|<a href="Contact.html">  Contact</a></b></p>
   </header>
-  <main class="container">
-  <section class="oof-warning">
+  <section class="container">
+  <div class="oof-warning">
     <p>OOF™ standards are organized into constitutional, interpretive, economic, identity, product,<br>
     and governance layers to ensure deterministic meaning, AI compatibility, and global applicability.</p>
-  </section>
-</main>
+  </div>
+  <div class="togglenav">
+    
+  
+  <div class="toggle">
+    <div class="summary" tabindex="0">
+      <p class="browse">
+       <span class="arrow">▾</span> Browse by Category</p>
+    </div>
+  
+  
 
-  <section>
-    <div class="togglenav">
+    <div class="extra">
 
+      
       <div class="toggle">
-        <div class="summary" tabindex="0"><span class="arrow">▾</span>Core System (1)</div>
+        <div class="summary" tabindex="0">
+          <span class="arrow">▾</span> Core System
+        </div>
         <div class="extra">
-          <a href="viwstandards.html">OS</a>
-          <div class="revealed">
-            <p class="podstand">
-            <a href="osstandards.html"></a>
-          </div>
-          <p>Canonical Meaning</p>
-          
           <p>AIGI / AIRM</p>
-          
           <p>Publication Rules</p>
-          
         </div>
       </div>
 
+      
       <div class="toggle">
-        <div class="summary" tabindex="0"><span class="arrow">▾</span>AI &amp; Interpretation (0)</div>
+        <div class="summary" tabindex="0">
+          <span class="arrow">▾</span> AI & Interpretation (0)
+        </div>
         <div class="extra">
-          <p>AI Governed Interpretation </p>
-          <p>AI Simulation </p>
+          <p>AI Governed Interpretation</p>
+          <p>AI Simulation</p>
           <p>AI Reality Admission</p>
         </div>
       </div>
+
+      
       <div class="toggle">
+        <div class="summary" tabindex="0">
+          <span class="arrow">▾</span> Economic & Value (7)
+        </div>
         <div class="extra">
-          <p>Zero Value Asset</p>
-          <p>Canonical Meaning</p>
-          <p>Economic State</p>
-          <p>Demonetization / Remonetization</p>
+          <a href="origin-asset.html">Origin Asset™</a><br>
+          <a href="demonet.html">DeMonet™</a><br>
+          <a href="zva.html">ZVA™</a><br>
+          <a href="remonet.html">ReMonet™</a><br>
+          <a href="value-asset.html">Value Asset</a><br>
+          <a href="economic-state-architecture.html">Economic State Architecture</a><br>
+          <a href="value-governance-framework.html">Value Governance Framework</a><br>
         </div>
       </div>
 
+      
       <div class="toggle">
-        <div class="summary" tabindex="0"><span class="arrow">▾</span>Product &amp; Design (0)</div>
+        <div class="summary" tabindex="0">
+          <span class="arrow">▾</span> Product & Design (0)
+        </div>
         <div class="extra">
           <p>Product Design Methodology</p>
           <p>Canonical Product Mapping</p>
         </div>
       </div>
 
+      
       <div class="toggle">
-        <div class="summary" tabindex="0"><span class="arrow">▾</span>Governance &amp; Enforcement (0)</div>
+        <div class="summary" tabindex="0">
+          <span class="arrow">▾</span> Governance & Enforcement (0)
+        </div>
         <div class="extra">
           <p>MIP Enforcement</p>
           <p>Licensing Framework</p>
@@ -78,75 +97,180 @@
       </div>
 
     </div>
+  </div>
 
-    <style>
-      /* Inline row of summaries; expanded text appears under the clicked summary */
-      .togglenav { display: flex; gap: 18px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
-      .toggle { position: relative; display: inline-block; }
-      .summary { cursor: pointer; display: inline-block; color: whitesmoke; padding:4px 6px; }
-      .summary .arrow { display:inline-block; margin-right:1px; transition: transform .18s ease; }
-      /* .extra is static so expanded content pushes following sections down (prevents overlap) */
-      .extra { display: none; position: static; background: transparent; padding-top: 8px; padding-left: 0; min-width: 140px; }
-      .toggle.open .extra { display:block; }
-      .toggle.open .summary .arrow { transform: rotate(180deg); }
-      .extra p { margin:4px 0; color: whitesmoke; }
-      .extra p.clickable { cursor: pointer; }
-      .extra .revealed { display: none; margin-top: 30px; margin-left: 18px; color: whitesmoke; }
-      .extra .revealed.show { display: block; }
-      
-      /* Mobile responsive - stack vertically */
-      @media (max-width: 768px) {
-        .togglenav { display: flex; flex-direction: column; gap: 10px; align-items: stretch; justify-content: flex-start; }
-        .toggle { display: block; width: 100%; }
-        .summary { display: block; width: 100%; }
+</div>
+  </section>
+  </section>
+</section>
+
+  
+<script>
+(function(){
+
+  
+  document.querySelectorAll('.toggle .extra').forEach(function(extra){
+    extra.style.display = 'none';
+  });
+
+  function toggleElem(el){
+    var toggle = el.parentElement;
+    var container = toggle.parentElement;
+    var content = toggle.querySelector(':scope > .extra');
+    var isOpen = toggle.classList.contains('open');
+
+    Array.from(container.children).forEach(function(sib){
+      if(sib !== toggle && sib.classList.contains('toggle')){
+        sib.classList.remove('open');
+        var sibExtra = sib.querySelector(':scope > .extra');
+        if(sibExtra) sibExtra.style.display = 'none';
+        
+        sib.querySelectorAll('.toggle').forEach(function(inner){ inner.classList.remove('open'); inner.querySelector(':scope > .extra')?.style.setProperty('display','none'); });
       }
-    </style>
+    });
 
-    <script>
-      (function(){
-        function toggleElem(el){
-          var t = el.parentElement;
-          var wasOpen = t.classList.contains('open');
-          // close any other open toggles
-          document.querySelectorAll('.togglenav .toggle.open').forEach(function(other){ if(other!==t) other.classList.remove('open'); });
-          // toggle this one
-          if(wasOpen) t.classList.remove('open'); else t.classList.add('open');
-        }
-        document.querySelectorAll('.togglenav .summary').forEach(function(el){
-          el.addEventListener('click', function(){ toggleElem(this); });
-          el.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggleElem(this); } });
-        });
+    
+    if(isOpen){
+      toggle.classList.remove('open');
+      if(content) content.style.display = 'none';
+     
+      toggle.querySelectorAll('.toggle').forEach(function(inner){ inner.classList.remove('open'); inner.querySelector(':scope > .extra')?.style.setProperty('display','none'); });
+    } else {
+      toggle.classList.add('open');
+      if(content) content.style.display = 'block';
+    }
+  }
 
-        // make .extra paragraphs clickable to show the pre-added .revealed placeholder next to each paragraph
-        document.querySelectorAll('.extra p').forEach(function(p){
-          p.classList.add('clickable');
-          p.setAttribute('tabindex', '0');
-          function findRevealFor(el){
-            var s = el.nextElementSibling;
-            while(s && !(s.classList && s.classList.contains('revealed'))){ s = s.nextElementSibling; }
-            return s;
-          }
-          function toggleReveal(){
-            var container = p.closest('.extra');
-            if(!container) return;
-            // hide reveals in other .extra containers
-            document.querySelectorAll('.extra .revealed').forEach(function(r){ if(r.parentElement !== container) r.classList.remove('show'); });
-            var target = findRevealFor(p);
-            if(!target) return;
-            var left = (typeof p.offsetLeft === 'number') ? (p.offsetLeft + 18) : 18;
-            if(target.classList.contains('show')){
-              target.classList.remove('show');
-            } else {
-              target.style.marginLeft = left + 'px';
-              target.classList.add('show');
-            }
-          }
-          p.addEventListener('click', function(e){ toggleReveal(); });
-          p.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggleReveal(); } });
-        });
-      })();
-    </script>
+  document.querySelectorAll('.summary').forEach(function(el){
+    el.addEventListener('click', function(){ toggleElem(this); });
+    el.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        toggleElem(this);
+      }
+    });
+  });
 
+})();
+</script><br><br>
+
+<section class="container">
+<section class="viewbor"></section>
+</section>
+    <section class="container">
+    <div class="oof-warning3">
+    <h1>Origin Asset™ Standard</h1>
+    <a>Economic & Value Standards · Origin Asset™ (ORG)<br><br>
+
+This standard defines Origin Asset™ as the initial <br>admissible state of an asset within the governed economic <br>lifecycle.<br>
+It establishes identity, legality, and authenticity<br> requirements at the point of system admission.<br>
+Origin Asset™ serves as the verified starting state for all<br> subsequent value transitions.</p>
+  </div>
+  
+  <section class="ciara">
+  <a href="origin-asset.html">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+  
+
+ 
+  
+
+    <section class="container">
+    <div class="oof-warning3">
+    <h1>DeMonet™ Standard</h1>
+    <a>Economic & Value Standards · DeMonet™ (DMN)<br><br>
+
+This standard defines DeMonet™ as the governed process<br>through which admissible economic value is formally<br> withdrawn from an asset.<br>
+It establishes validation and traceability requirements for <br>structured value removal.<br>
+DeMonet™ results in ZVA™ classification within the <br>canonical asset sequence.</p>
+  </div>
+  
+  <section class="ciara">
+  <a href="demonet.html">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+    <section class="container">
+    <div class="oof-warning3">
+    <h1>ZVA™ (Zero Value Asset) Standard</h1>
+    <a>Economic & Value Standards · Zero Value Asset (ZVA)<br><br>
+
+This standard defines ZVA™ as a formally recognized <br>asset state in which an asset exists but carries zero <br>admissible economic value.<br>
+It establishes structural, ethical, and integrity conditions <br>under which value nullification occurs.<br>
+ZVA™ represents a stable and governed state within a <br>deterministic asset lifecycle.</p>
+  </div>
+  
+  <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+    <section class="container">
+    <div class="oof-warning3">
+    <h1>ReMonet™ Standard</h1>
+    <a>Economic & Value Standards · ReMonet™ (RMN)<br><br>
+
+This standard defines ReMonet™ as the governed <br>transition process through which economic value may be <br>restored to a ZVA™ asset.<br>
+It establishes corrective and validation requirements prior <br>to value reactivation.<br>
+ReMonet™ is the only permitted mechanism for <br>transitioning back to Value Asset state.</p>
+  </div>
+  
+  <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+    <section class="container">
+    <div class="oof-warning3">
+    <h1>Value Asset Standard</h1>
+    <a>Economic & Value Standards · Value Asset (VA)<br><br>
+
+This standard defines Value Asset as the governed state <br>in which positive admissible economic value is formally <br>recognized.<br>
+It establishes validation requirements for lawful value <br>activation.<br>
+Value Asset may exist only within the defined economic <br>lifecycle architecture.</p>
+  </div>
+  
+  <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+    <section class="container">
+    <div class="oof-warning3">
+    <h1>Economic State Architecture Standard</h1>
+    <a>Economic & Value Standards · Economic State Architecture (ESA)<br><br>
+
+This standard defines the canonical lifecycle governing <br>economic state transitions.<br>
+It establishes a deterministic and non-skippable sequence <br>connecting asset states and transition mechanisms.<br>
+No value state may exist outside the defined architectural<br> structure.</p>
+  </div>
+  
+  <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Value Governance Framework Standard</h1>
+    <a>Economic & Value Standards · Value Governance Framework (VGF)<br><br>
+
+This standard defines the governance principles under<br> which economic value decisions are validated and <br>executed.<br>
+It establishes authority boundaries and traceability <br>requirements for value-related transitions.<br>
+The framework prevents arbitrary or non-deterministic <br>manipulation of asset value.</p>
+  </div>
+  
+  <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
   </section>
 
   <section class="container">
