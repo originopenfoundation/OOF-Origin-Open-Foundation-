@@ -11,189 +11,101 @@
 </head>
 <body>
   <header class="container">
-   <h1 class="page-title">OOF™ Origin Open Foundation™</h1>
+<h1 class="page-title">OOF™ Origin Open Foundation™</h1>
 <p class="subtitle">Global Methodology Authority</p>
+
 <p class="subtitle3">
 <b>
-<a href="index.html">OOF™</a> |
+
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleOOF()" style="cursor:pointer;">
+<a>OOF™ ▾</a>
+</span>
+
+<span id="oofMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+<a href="index.html">OOF</a><br>
+<a href="abouthautority.html">About autorithy</a>
+
+</span>
+</span>
+
+|
+
 <a href="os.html">OS</a> |
 <a href="Canonical Meanings.html">Canonical Meanings</a> |
-<span class="dropdown" style="position:relative; ">
-  <span onclick="toggleMenu()" style="cursor:pointer;">
-  <a> ▾Standards</a>
-  </span>
-  <span id="standardsMenu" 
-        style="
-        display:none;
-        position:absolute;
-        top:30px;
-        left:0;
-        background:#808080;
-        padding:20px;
-        border-radius:5px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.5);">
-        <a  href="Standards.html">View All Standards  </a><br>
-<a href="aboutstandards.html">About Standards </a>        
-  </span>
+
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleStandards()" style="cursor:pointer;">
+<a>▾ Standards</a>
 </span>
+
+<span id="standardsMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+<a href="standardinde.html">Standards Index</a><br>
+<a href="aboutstandards.html">About Standards</a><br>
+<a href="Standards.html">View All Standards</a><br>
+
+</span>
+</span>
+
 | <a href="Licencing.html">Licencing</a> |
 <a href="ImplementationFramework.html">ImplementationFramework</a> |
 <a href="MIP™.html">MIP™</a> |
 <a href="Publication Rules.html">Publication Rules</a> |
 <a href="Contact.html">Contact</a>
+
 </b>
 </p>
 
-
-
 <script>
-function toggleMenu() {
-  var menu = document.getElementById("standardsMenu");
-  if (menu.style.display === "none") {
-    menu.style.display = "block";
-  } else {
-    menu.style.display = "none";
-  }
+
+function toggleStandards(){
+var menu = document.getElementById("standardsMenu");
+
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
 }
+}
+
+function toggleOOF(){
+var menu = document.getElementById("oofMenu");
+
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
+}
+}
+
 </script>
   </header>
   <section class="container">
   <div class="oof-warning">
     <a>OOF™ standards define structured methodological conditions across identity, validation,<br> value, and governance architectures.<br>
   Each standard operates as an independent, non-executable structural framework.</a>
-  </div>
-  <div class="togglenav">
-    
-  
-  <div class="toggle">
-    <div class="summary" tabindex="0">
-      <p class="browse">
-       <span class="arrow">▾</span> Browse by Category</p>
-    </div>
-  
-  
-
-    <div class="extra">
-
-      
-      <div class="toggle">
-        <div class="summary" tabindex="0">
-          <span class="arrow">▾</span> Core System
-        </div>
-        <div class="extra">
-          <p>AIGI / AIRM</p>
-          <p>Publication Rules</p>
-        </div>
-      </div>
-
-      
-      <div class="toggle">
-        <div class="summary" tabindex="0">
-          <span class="arrow">▾</span> AI & Interpretation (0)
-        </div>
-        <div class="extra">
-          <p>AI Governed Interpretation</p>
-          <p>AI Simulation</p>
-          <p>AI Reality Admission</p>
-        </div>
-      </div>
-
-      
-      <div class="toggle">
-        <div class="summary" tabindex="0">
-          <span class="arrow">▾</span> Economic & Value (7)
-        </div>
-        <div class="extra">
-          <a href="origin-asset.html">Origin Asset™</a><br>
-          <a href="demonet.html">DeMonet™</a><br>
-          <a href="zva.html">ZVA™</a><br>
-          <a href="remonet.html">ReMonet™</a><br>
-          <a href="value-asset.html">Value Asset</a><br>
-          <a href="economic-state-architecture.html">Economic State Architecture</a><br>
-          <a href="value-governance-framework.html">Value Governance Framework</a><br>
-        </div>
-      </div>
-
-      
-      <div class="toggle">
-        <div class="summary" tabindex="0">
-          <span class="arrow">▾</span> Product & Design (0)
-        </div>
-        <div class="extra">
-          <p>Product Design Methodology</p>
-          <p>Canonical Product Mapping</p>
-        </div>
-      </div>
-
-      
-      <div class="toggle">
-        <div class="summary" tabindex="0">
-          <span class="arrow">▾</span> Governance & Enforcement (0)
-        </div>
-        <div class="extra">
-          <p>MIP Enforcement</p>
-          <p>Licensing Framework</p>
-          <p>Regional Operators</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
+  </div><br>
   </section>
-  </section>
-</section>
-
-  
-<script>
-(function(){
-
-  
-  document.querySelectorAll('.toggle .extra').forEach(function(extra){
-    extra.style.display = 'none';
-  });
-
-  function toggleElem(el){
-    var toggle = el.parentElement;
-    var container = toggle.parentElement;
-    var content = toggle.querySelector(':scope > .extra');
-    var isOpen = toggle.classList.contains('open');
-
-    Array.from(container.children).forEach(function(sib){
-      if(sib !== toggle && sib.classList.contains('toggle')){
-        sib.classList.remove('open');
-        var sibExtra = sib.querySelector(':scope > .extra');
-        if(sibExtra) sibExtra.style.display = 'none';
-        
-        sib.querySelectorAll('.toggle').forEach(function(inner){ inner.classList.remove('open'); inner.querySelector(':scope > .extra')?.style.setProperty('display','none'); });
-      }
-    });
-
-    
-    if(isOpen){
-      toggle.classList.remove('open');
-      if(content) content.style.display = 'none';
-     
-      toggle.querySelectorAll('.toggle').forEach(function(inner){ inner.classList.remove('open'); inner.querySelector(':scope > .extra')?.style.setProperty('display','none'); });
-    } else {
-      toggle.classList.add('open');
-      if(content) content.style.display = 'block';
-    }
-  }
-
-  document.querySelectorAll('.summary').forEach(function(el){
-    el.addEventListener('click', function(){ toggleElem(this); });
-    el.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        toggleElem(this);
-      }
-    });
-  });
-
-})();
-</script><br><br>
 
 <section class="container">
 <section class="viewbor"></section>
@@ -207,8 +119,9 @@ This standard defines Origin Asset™ as the initial <br>admissible state of an 
 It establishes identity, legality, and authenticity<br> requirements at the point of system admission.<br>
 Origin Asset™ serves as the verified starting state for all<br> subsequent value transitions.</p>
   </div>
-  
-  <section class="ciara">
+    </section> 
+    
+      <section class="ciara">
   <a href="origin-asset.html">→ View standard</a>
   </section><br>
   <section class="viewbor"></section>
