@@ -11,51 +11,93 @@
 </head>
 <body>
   <header class="container">
-   <h1 class="page-title">OOF™ Origin Open Foundation™</h1>
+<h1 class="page-title">OOF™ Origin Open Foundation™</h1>
 <p class="subtitle">Global Methodology Authority</p>
+
 <p class="subtitle3">
 <b>
-<a href="index.html">OOF™</a> |
+
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleOOF()" style="cursor:pointer;">
+<a>OOF™ ▾</a>
+</span>
+
+<span id="oofMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+<a href="index.html">OOF</a><br>
+<a href="abouthautority.html">About autorithy</a>
+
+</span>
+</span>
+
+|
+
 <a href="os.html">OS</a> |
 <a href="Canonical Meanings.html">Canonical Meanings</a> |
-<span class="dropdown" style="position:relative; ">
-  <span onclick="toggleMenu()" style="cursor:pointer;">
-  <a> ▾Standards</a>
-  </span>
-  <span id="standardsMenu" 
-        style="
-        display:none;
-        position:absolute;
-        top:30px;
-        left:0;
-        background:#808080;
-        padding:20px;
-        border-radius:5px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.5);">
-        <a  href="Standards.html">View All Standards  </a><br>
-<a href="aboutstandards.html">About Standards </a>        
-        
-  </span>
+
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleStandards()" style="cursor:pointer;">
+<a>▾ Standards</a>
 </span>
+
+<span id="standardsMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+<a href="standardinde.html">Standards Index</a><br>
+<a href="aboutstandards.html">About Standards</a><br>
+<a href="Standards.html">View All Standards</a><br>
+
+</span>
+</span>
+
 | <a href="Licencing.html">Licencing</a> |
 <a href="ImplementationFramework.html">ImplementationFramework</a> |
 <a href="MIP™.html">MIP™</a> |
 <a href="Publication Rules.html">Publication Rules</a> |
 <a href="Contact.html">Contact</a>
+
 </b>
 </p>
 
-
-
 <script>
-function toggleMenu() {
-  var menu = document.getElementById("standardsMenu");
-  if (menu.style.display === "none") {
-    menu.style.display = "block";
-  } else {
-    menu.style.display = "none";
-  }
+
+function toggleStandards(){
+var menu = document.getElementById("standardsMenu");
+
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
 }
+}
+
+function toggleOOF(){
+var menu = document.getElementById("oofMenu");
+
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
+}
+}
+
 </script>
   </header>
 
