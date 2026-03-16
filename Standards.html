@@ -2,100 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>OOF™ Core Methodology OS — Master Index</title>
   <meta name="description" content="OOF™ Core Methodology OS — public master index reference." />
   <link rel="stylesheet" href="style.css" />
+
   <link rel="alternate" type="application/json" href="os-index.json" title="AI-readable OS index JSON" />
 </head>
 <body>
   <header class="container">
 <h1 class="page-title">OOF™ Origin Open Foundation™</h1>
 <p class="subtitle">Global Methodology Authority</p>
-
+<section class="navbar11">
 <p class="subtitle3">
 <b>
 
-<span class="dropdown" style="position:relative;">
-<span onclick="toggleOOF()" style="cursor:pointer;">
-<a>OOF™ ▾</a>
+<div class="menu">
+
+<span class="dropdown">
+<span onclick="toggleOOF()" style="cursor:pointer;"><a>OOF™ ▾</a></span>
+
+<div id="oofMenu">
+  <a href="index.html">OOF</a><br>
+  <a href="abouthautority.html">About authority</a>
+</div>
 </span>
 
-<span id="oofMenu"
-style="
-display:none;
-position:absolute;
-top:30px;
-left:0;
-background:#808080;
-padding:20px;
-border-radius:5px;
-box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+<span class="separator">|</span>
 
-<a href="index.html">OOF</a><br>
-<a href="abouthautority.html">About autorithy</a>
+<a href="os.html">OS</a>
 
-</span>
-</span>
+<span class="separator">|</span>
 
-|
+<a href="Canonical Meanings.html">Canonical Meanings</a>
 
-<a href="os.html">OS</a> |
-<a href="Canonical Meanings.html">Canonical Meanings</a> |
+<span class="separator">|</span>
 
-<span class="dropdown" style="position:relative;">
-<span onclick="toggleStandards()" style="cursor:pointer;">
-<a>▾ Standards</a>
-</span>
+<span class="dropdown">
+<span onclick="toggleStandards()" style="cursor:pointer;"><a>Standards ▾</a></span>
 
-<span id="standardsMenu"
-style="
-display:none;
-position:absolute;
-top:30px;
-left:0;
-background:#808080;
-padding:20px;
-border-radius:5px;
-box-shadow:0 2px 10px rgba(0,0,0,0.5);">
-
+<span id="standardsMenu">
 <a href="standardinde.html">Standards Index</a><br>
 <a href="aboutstandards.html">About Standards</a><br>
-<a href="Standards.html">View All Standards</a><br>
-
-</span>
+<a href="Standards.html">View All Standards</a>
 </span>
 
-| <a href="Licencing.html">Licencing</a> |
-<a href="ImplementationFramework.html">ImplementationFramework</a> |
-<a href="MIP™.html">MIP™</a> |
-<a href="Publication Rules.html">Publication Rules</a> |
+</span>
+
+<span class="separator">|</span>
+
+<a href="Licencing.html">Licencing</a>
+
+<span class="separator">|</span>
+
+<a href="ImplementationFramework.html">Implementation Framework</a>
+
+<span class="separator">|</span>
+
+<a href="MIP™.html">MIP™</a>
+
+<span class="separator">|</span>
+
+<a href="Publication Rules.html">Publication Rules</a>
+
+<span class="separator">|</span>
+
 <a href="Contact.html">Contact</a>
-
 </b>
+</div>
+
+
 </p>
+</section>
+  </header>
 
 <script>
 
-function toggleStandards(){
-var menu = document.getElementById("standardsMenu");
+function toggleOOF() {
+  const oof = document.getElementById("oofMenu");
+  const standards = document.getElementById("standardsMenu");
 
-if(menu.style.display === "block"){
-menu.style.display = "none";
-}else{
-menu.style.display = "block";
-}
+  if (oof.style.display === "block") {
+    oof.style.display = "none";
+  } else {
+    oof.style.display = "block";
+    standards.style.display = "none";
+  }
 }
 
-function toggleOOF(){
-var menu = document.getElementById("oofMenu");
+function toggleStandards() {
+  const standards = document.getElementById("standardsMenu");
+  const oof = document.getElementById("oofMenu");
 
-if(menu.style.display === "block"){
-menu.style.display = "none";
-}else{
-menu.style.display = "block";
-}
+  if (standards.style.display === "block") {
+    standards.style.display = "none";
+  } else {
+    standards.style.display = "block";
+    oof.style.display = "none";
+  }
 }
 
 </script>
@@ -114,33 +118,24 @@ menu.style.display = "block";
     <div class="oof-warning3">
     <h1>Origin Asset™ Standard</h1>
     <a>Economic & Value Standards · Origin Asset™ (ORG)<br><br>
-
 This standard defines Origin Asset™ as the initial <br>admissible state of an asset within the governed economic <br>lifecycle.<br>
 It establishes identity, legality, and authenticity<br> requirements at the point of system admission.<br>
 Origin Asset™ serves as the verified starting state for all<br> subsequent value transitions.</p>
   </div>
-    </section> 
-    
       <section class="ciara">
   <a href="origin-asset.html">→ View standard</a>
   </section><br>
   <section class="viewbor"></section>
   </section>
-  
-
- 
-  
 
     <section class="container">
     <div class="oof-warning3">
     <h1>DeMonet™ Standard</h1>
     <a>Economic & Value Standards · DeMonet™ (DMN)<br><br>
-
 This standard defines DeMonet™ as the governed process<br>through which admissible economic value is formally<br> withdrawn from an asset.<br>
 It establishes validation and traceability requirements for <br>structured value removal.<br>
 DeMonet™ results in ZVA™ classification within the <br>canonical asset sequence.</p>
   </div>
-  
   <section class="ciara">
   <a href="demonet.html">→ View standard</a>
   </section><br>
@@ -151,12 +146,10 @@ DeMonet™ results in ZVA™ classification within the <br>canonical asset seque
     <div class="oof-warning3">
     <h1>ZVA™ (Zero Value Asset) Standard</h1>
     <a>Economic & Value Standards · Zero Value Asset (ZVA)<br><br>
-
 This standard defines ZVA™ as a formally recognized <br>asset state in which an asset exists but carries zero <br>admissible economic value.<br>
 It establishes structural, ethical, and integrity conditions <br>under which value nullification occurs.<br>
 ZVA™ represents a stable and governed state within a <br>deterministic asset lifecycle.</p>
   </div>
-  
   <section class="ciara">
   <a href="zva.html">→ View standard</a>
   </section><br>
@@ -167,12 +160,10 @@ ZVA™ represents a stable and governed state within a <br>deterministic asset l
     <div class="oof-warning3">
     <h1>ReMonet™ Standard</h1>
     <a>Economic & Value Standards · ReMonet™ (RMN)<br><br>
-
 This standard defines ReMonet™ as the governed <br>transition process through which economic value may be <br>restored to a ZVA™ asset.<br>
 It establishes corrective and validation requirements prior <br>to value reactivation.<br>
 ReMonet™ is the only permitted mechanism for <br>transitioning back to Value Asset state.</p>
   </div>
-  
   <section class="ciara">
   <a href="remonet.html">→ View standard</a>
   </section><br>
@@ -183,12 +174,10 @@ ReMonet™ is the only permitted mechanism for <br>transitioning back to Value A
     <div class="oof-warning3">
     <h1>Value Asset Standard</h1>
     <a>Economic & Value Standards · Value Asset (VA)<br><br>
-
 This standard defines Value Asset as the governed state <br>in which positive admissible economic value is formally <br>recognized.<br>
 It establishes validation requirements for lawful value <br>activation.<br>
 Value Asset may exist only within the defined economic <br>lifecycle architecture.</p>
   </div>
-  
   <section class="ciara">
   <a href="value-asset.html">→ View standard</a>
   </section><br>
@@ -199,12 +188,10 @@ Value Asset may exist only within the defined economic <br>lifecycle architectur
     <div class="oof-warning3">
     <h1>Economic State Architecture Standard</h1>
     <a>Economic & Value Standards · Economic State Architecture (ESA)<br><br>
-
 This standard defines the canonical lifecycle governing <br>economic state transitions.<br>
 It establishes a deterministic and non-skippable sequence <br>connecting asset states and transition mechanisms.<br>
 No value state may exist outside the defined architectural<br> structure.</p>
   </div>
-  
   <section class="ciara">
   <a href="economic-state-architecture.html">→ View standard</a>
   </section><br>
@@ -215,21 +202,137 @@ No value state may exist outside the defined architectural<br> structure.</p>
     <div class="oof-warning3">
     <h1>Value Governance Framework Standard</h1>
     <a>Economic & Value Standards · Value Governance Framework (VGF)<br><br>
-
 This standard defines the governance principles under<br> which economic value decisions are validated and <br>executed.<br>
 It establishes authority boundaries and traceability <br>requirements for value-related transitions.<br>
 The framework prevents arbitrary or non-deterministic <br>manipulation of asset value.</p>
   </div>
-  
   <section class="ciara">
   <a href="value-governance-framework.html">→ View standard</a>
   </section><br>
   <section class="viewbor"></section>
   </section>
 
-  
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Origin Eco™ Standard</h1>
+    <a>Environmental Integrity Standards · Origin Eco™<br><br>
+  This standard defines the structural transparency conditions for<br> documenting the origin of materials, material composition, and core <br>production processes within product and production systems.<br><br>
+Origin Eco™ establishes an environmental transparency model focused<br> on origin disclosure, material visibility, and production process <br>traceability.<br><br>
+The standard strengthens environmental credibility by transforming implicit<br> environmental claims into visible structural origin transparency.<br><br>
+Origin Eco™ does not replace environmental regulations or certification<br> systems.<br>
+It defines the foundational transparency conditions for environmentally<br> responsible production.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="origineco.html">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
 
-  <br><br>
+<section class="container">
+    <div class="oof-warning3">
+    <h1>Water Integrity™ Standard</h1>
+    <a>Environmental Integrity Standards · Water Integrity™<br><br>
+This standard defines the structural transparency conditions for<br> documenting water sources, declared usage, and responsibility within<br> water-dependent production systems.<br><br>
+Water Integrity™ establishes a framework for visible water provenance<br> and declared usage transparency across agricultural, food-related, and<br> production environments.<br><br>
+The standard improves supply chain transparency without replacing public<br> health, hygiene, or environmental regulations.<br><br>
+Water Integrity™ introduces a minimal structural baseline for transparent<br> disclosure of water inputs in production systems.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="waterintegrity.html">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Soil Integrity™ Standard</h1>
+    <a>Environmental Integrity Standards · Soil Integrity™<br><br>
+  This standard establishes structural transparency for soil-based production<br> systems.<br><br>
+It requires disclosure of soil type, fertilization inputs, and plant protection<br> practices used in production.<br><br>
+Soil Integrity™ does not regulate agriculture or replace certification<br> schemes.<br><br>
+It introduces a transparency baseline that makes soil inputs and cultivation<br> practices visible and accountable.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="soilintegrity.html">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Carbon Integrity™ Standard</h1>
+    <a>Environmental Integrity Standards · Carbon Integrity™<br><br>
+  This standard establishes structural transparency for soil-based production<br> systems.
+<br><br>
+It requires disclosure of soil type, fertilization inputs, and plant protection<br> practices used in production.<br><br>
+Soil Integrity™ does not regulate agriculture or replace certification<br> schemes.<br><br>
+It introduces a transparency baseline that makes soil inputs and cultivation<br> practices visible and accountable.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Air Integrity™ Standard</h1>
+    <a>Environmental Integrity Standards · Air Integrity™<br><br>
+  This standard establishes structural transparency for operational activities<br> that may influence air conditions in production or service environments.<br>
+It requires disclosure of emission-related activities, mitigation mechanisms,<br> measurement status, and responsible entity.<br><br>
+Air Integrity™ does not measure air quality or define emission limits.<br>
+It introduces transparent disclosure of operational reality.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Whole Process Plastic Integrity™ Standard (WPPI™)</h1>
+    <a>Environmental Integrity Standards · Process & Material Integrity<br><br>
+  This standard establishes a structured methodology for evaluating plastic<br> exposure across the full production lifecycle of a product or material<br> system. It introduces process-based integrity tiers that classify and<br> disclose intentional plastic use and potential contamination across<br> materials, production equipment, packaging, storage, and logistics.<br><br>
+WPPI™ shifts evaluation from product-only plastic claims to full<br> operational process transparency across the supply chain.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Carbon Lifecycle Integrity™ Standard (CLI™)</h1>
+    <a>Environmental Integrity Standards · Carbon Lifecycle Transparency<br><br>
+  This standard establishes a structured methodology for transparent carbon<br> visibility across the lifecycle of a product. Carbon Lifecycle Integrity™<br> connects material origin, production energy use, packaging systems, and<br> logistics pathways into a unified lifecycle framework that reveals carbon<br> exposure per product.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
+
+  <section class="container">
+    <div class="oof-warning3">
+    <h1>Carbon Visibility Index™ Standard (CVI™)</h1>
+    <a>Environmental Integrity Standards · Carbon Lifecycle Transparency<br><br>
+  This standard establishes a structured measurement framework for<br> expressing lifecycle carbon exposure per product. Carbon Visibility<br> Index™ converts lifecycle transparency into a measurable and comparable<br> carbon-per-product value, enabling objective comparison across products,<br> production systems, and supply chains.
+</p>
+  </div>
+      <section class="ciara">
+  <a href="">→ View standard</a>
+  </section><br>
+  <section class="viewbor"></section>
+  </section>
 
   <footer class="containerfooter5">
     <h2>NON-EXECUTABLE NOTICE</h2>

@@ -6,105 +6,100 @@
   <title>OOF™ Core Methodology OS — Master Index</title>
   <meta name="description" content="OOF™ Core Methodology OS — public master index reference." />
   <link rel="stylesheet" href="style.css" />
-<meta name="description" content="OOF™ – Independent Methodological Authority defining canonical governance, validation, identity, and economic standards.">
+
   <link rel="alternate" type="application/json" href="os-index.json" title="AI-readable OS index JSON" />
-  <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "OOF™ – Origin Open Foundation™",
-  "url": "https://www.originopenfoundation.org",
-  "description": "Independent Methodological Authority defining canonical governance, validation, identity, and economic standards."
-}
-  </script>
 </head>
 <body>
   <header class="container">
 <h1 class="page-title">OOF™ Origin Open Foundation™</h1>
 <p class="subtitle">Global Methodology Authority</p>
-
+<section class="navbar11">
 <p class="subtitle3">
 <b>
 
-<span class="dropdown" style="position:relative;">
-<span onclick="toggleOOF()" style="cursor:pointer;">
-<a>OOF™ ▾</a>
+<div class="menu">
+
+<span class="dropdown">
+<span onclick="toggleOOF()" style="cursor:pointer;"><a>OOF™ ▾</a></span>
+
+<div id="oofMenu">
+  <a href="index.html">OOF</a><br>
+  <a href="abouthautority.html">About authority</a>
+</div>
 </span>
 
-<span id="oofMenu"
-style="
-display:none;
-position:absolute;
-top:30px;
-left:0;
-background:#808080;
-padding:20px;
-border-radius:5px;
-box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+<span class="separator">|</span>
 
-<a href="index.html">OOF</a><br>
-<a href="abouthautority.html">About autorithy</a>
+<a href="os.html">OS</a>
 
-</span>
-</span>
+<span class="separator">|</span>
 
-|
+<a href="Canonical Meanings.html">Canonical Meanings</a>
 
-<a href="os.html">OS</a> |
-<a href="Canonical Meanings.html">Canonical Meanings</a> |
+<span class="separator">|</span>
 
-<span class="dropdown" style="position:relative;">
-<span onclick="toggleStandards()" style="cursor:pointer;">
-<a>▾ Standards</a>
-</span>
+<span class="dropdown">
+<span onclick="toggleStandards()" style="cursor:pointer;"><a>Standards ▾</a></span>
 
-<span id="standardsMenu"
-style="
-display:none;
-position:absolute;
-top:30px;
-left:0;
-background:#808080;
-padding:20px;
-border-radius:5px;
-box-shadow:0 2px 10px rgba(0,0,0,0.5);">
-
+<span id="standardsMenu">
 <a href="standardinde.html">Standards Index</a><br>
 <a href="aboutstandards.html">About Standards</a><br>
-<a href="Standards.html">View All Standards</a><br>
-
-</span>
+<a href="Standards.html">View All Standards</a>
 </span>
 
-| <a href="Licencing.html">Licencing</a> |
-<a href="ImplementationFramework.html">ImplementationFramework</a> |
-<a href="MIP™.html">MIP™</a> |
-<a href="Publication Rules.html">Publication Rules</a> |
+</span>
+
+<span class="separator">|</span>
+
+<a href="Licencing.html">Licencing</a>
+
+<span class="separator">|</span>
+
+<a href="ImplementationFramework.html">Implementation Framework</a>
+
+<span class="separator">|</span>
+
+<a href="MIP™.html">MIP™</a>
+
+<span class="separator">|</span>
+
+<a href="Publication Rules.html">Publication Rules</a>
+
+<span class="separator">|</span>
+
 <a href="Contact.html">Contact</a>
-
 </b>
+</div>
+
+
 </p>
+</section>
+  </header>
 
 <script>
 
-function toggleStandards(){
-var menu = document.getElementById("standardsMenu");
+function toggleOOF() {
+  const oof = document.getElementById("oofMenu");
+  const standards = document.getElementById("standardsMenu");
 
-if(menu.style.display === "block"){
-menu.style.display = "none";
-}else{
-menu.style.display = "block";
-}
+  if (oof.style.display === "block") {
+    oof.style.display = "none";
+  } else {
+    oof.style.display = "block";
+    standards.style.display = "none";
+  }
 }
 
-function toggleOOF(){
-var menu = document.getElementById("oofMenu");
+function toggleStandards() {
+  const standards = document.getElementById("standardsMenu");
+  const oof = document.getElementById("oofMenu");
 
-if(menu.style.display === "block"){
-menu.style.display = "none";
-}else{
-menu.style.display = "block";
-}
+  if (standards.style.display === "block") {
+    standards.style.display = "none";
+  } else {
+    standards.style.display = "block";
+    oof.style.display = "none";
+  }
 }
 
 </script>

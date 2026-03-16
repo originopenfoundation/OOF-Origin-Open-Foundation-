@@ -13,7 +13,6 @@ body {
   padding: 0 10px;
 }
 
-
 .container {
   padding: 0;
   width: 100%;
@@ -521,7 +520,7 @@ header {
 }
 
 #standardsMenu {
-  display: flex;
+  display: none;
   white-space: nowrap;
   padding:0px 4px;  
 }
@@ -532,6 +531,8 @@ header {
   border-radius: 12px;
   border: 0.3px solid transparent;
   font-size: 10px;
+  max-width: 90vw;
+  right: 0;
 
 }
 
@@ -540,9 +541,10 @@ header {
 }
 
 #oofMenu {
-  display: flex;
+  display: none;
   white-space: nowrap;
-  padding:0px 4px;  
+  padding:0px 4px; 
+   
 }
 
 #oofMenu a {
@@ -557,3 +559,142 @@ header {
 #oofMenu a:hover {
   border: 0.3px solid whitesmoke;
 }
+.dropdown{
+position:absolute;
+display:inline-block;
+}
+
+#oofMenu,
+#standardsMenu{
+display:none;
+position:absolute;
+top:30px;
+left:0;
+
+background:#808080;
+padding:15px;
+
+border-radius:6px;
+border:1px solid rgba(255,255,255,0.15);
+
+z-index:9999;
+
+flex-direction:column;
+}
+
+
+
+.navbar11 a {
+ text-decoration: none;
+ color: white;
+}
+
+
+
+#oofMenu a:hover,
+#standardsMenu a:hover{
+background:#6f6f6f;
+border-radius:14px;
+padding: 3px 8px;
+}
+
+.menu a:hover{
+background:#6f6f6f;
+border-radius:14px;
+padding: 3px 8px;
+border: 0.3px solid whitesmoke;
+}
+
+.menu a{
+  font-size: 15px;
+  margin: 0 4px;
+  color: whitesmoke;
+  text-decoration: none;
+  transition: 0.2s ease;
+  display: inline;
+  padding: 3px 2px;
+  border-radius: 999px;
+}
+
+
+.menu a:hover{
+  border: 1px solid whitesmoke;
+}
+
+.menu a{
+  font-size: 15px;
+  margin: 0 4px;
+  color: whitesmoke;
+  text-decoration: none;
+  transition: 0.2s ease;
+  display: inline;
+  padding: 3px 2px;
+  border-radius: 999px;
+}
+
+nav {
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown button {
+  background: #555;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  background: #6f6f6f;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #6a717a; 
+  z-index: 9999;             
+}
+
+.dropdown-menu a {
+  display: block;
+  background-color: #6a717a; 
+}
+
+.menu {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  font-size: medium;
+}
+.dropdown-content {
+  display: none; /* hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #808080;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.15);
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 9999;
+}
+
+.dropdown-content a {
+  display: block; /* block ensures menu is under each other */
+  color: white;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.dropdown-content a:hover {
+  background: #6f6f6f;
+  }
