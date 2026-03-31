@@ -2,436 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OOF™ Core Methodology OS — Master Index</title>
   <meta name="description" content="OOF™ Core Methodology OS — public master index reference." />
   <link rel="stylesheet" href="style.css" />
-
   <link rel="alternate" type="application/json" href="os-index.json" title="AI-readable OS index JSON" />
 </head>
 <body>
   <header class="container">
 <h1 class="page-title">OOF™ Origin Open Foundation™</h1>
 <p class="subtitle">Global Methodology Authority</p>
-<section class="navbar11">
+
 <p class="subtitle3">
 <b>
 
-<div class="menu">
-
-<span class="dropdown">
-<span onclick="toggleOOF()" style="cursor:pointer;"><a>OOF™ ▾</a></span>
-
-<div id="oofMenu">
-  <a href="index.html">OOF</a><br>
-  <a href="abouthautority.html">About authority</a>
-</div>
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleOOF()" style="cursor:pointer;">
+<a>OOF™ ▾</a>
 </span>
 
-<span class="separator">|</span>
+<span id="oofMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
 
-<a href="os.html">OS</a>
+<a href="index.html">OOF</a><br>
+<a href="abouthautority.html">About autorithy</a>
 
-<span class="separator">|</span>
+</span>
+</span>
 
-<a href="Canonical Meanings.html">Canonical Meanings</a>
+|
 
-<span class="separator">|</span>
+<a href="os.html">OS</a> |
+<a href="Canonical Meanings.html">Canonical Meanings</a> |
 
-<span class="dropdown">
-<span onclick="toggleStandards()" style="cursor:pointer;"><a>Standards ▾</a></span>
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleStandards()" style="cursor:pointer;">
+<a>▾ Standards</a>
+</span>
 
-<span id="standardsMenu">
+<span id="standardsMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
 <a href="standardinde.html">Standards Index</a><br>
 <a href="aboutstandards.html">About Standards</a><br>
-<a href="Standards.html">View All Standards</a>
-</span>
+<a href="Standards.html">View All Standards</a><br>
 
 </span>
+</span>
 
-<span class="separator">|</span>
-
-<a href="Licencing.html">Licencing</a>
-
-<span class="separator">|</span>
-
-<a href="ImplementationFramework.html">Implementation Framework</a>
-
-<span class="separator">|</span>
-
-<a href="MIP™.html">MIP™</a>
-
-<span class="separator">|</span>
-
-<a href="Publication Rules.html">Publication Rules</a>
-
-<span class="separator">|</span>
-
+| <a href="Licencing.html">Licencing</a> |
+<a href="ImplementationFramework.html">ImplementationFramework</a> |
+<a href="MIP™.html">MIP™</a> |
+<a href="Publication Rules.html">Publication Rules</a> |
 <a href="Contact.html">Contact</a>
+
 </b>
-</div>
-
-
 </p>
-</section>
-  </header>
 
 <script>
 
-function toggleOOF() {
-  const oof = document.getElementById("oofMenu");
-  const standards = document.getElementById("standardsMenu");
+function toggleStandards(){
+var menu = document.getElementById("standardsMenu");
 
-  if (oof.style.display === "block") {
-    oof.style.display = "none";
-  } else {
-    oof.style.display = "block";
-    standards.style.display = "none";
-  }
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
+}
 }
 
-function toggleStandards() {
-  const standards = document.getElementById("standardsMenu");
-  const oof = document.getElementById("oofMenu");
+function toggleOOF(){
+var menu = document.getElementById("oofMenu");
 
-  if (standards.style.display === "block") {
-    standards.style.display = "none";
-  } else {
-    standards.style.display = "block";
-    oof.style.display = "none";
-  }
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
+}
 }
 
 </script>
   </header>
-<section class="container">
-    <h2>Whole Process Plastic Integrity™ Standard (WPPI™)</h2>
-    <div class="oof-warning3">
-    <p><b>OOF™ Origin Open Foundation™</b></p>
-    <p>Independent Methodological Authority</p>
-    <p class="podstand">
-<b>OriginID:</b> OOF-OID-ENV-PMI-WPPI-2026-02-25-0013<br>
-<b>Category:</b> Environmental Integrity Standards (ENV)<br>
-<b>Subcategory:</b> Process & Material Integrity<br>
-<b>Version:</b> 1.0<br>
-<b>Status:</b> Canonical · Open Standard<br>
-<b>Effective Date:</b> 25 February 2026<br>
-<b>Authority:</b> OOF™ Origin Open Foundation™<br>
-<b>Protection:</b> MIP™ — Methodological Intellectual Property<br>
-<b>Canonical Language:</b> English
-</p><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
 
-<section class="container">
-  <div class="oof-warning3">
-    <h1>A. Standard Abstract</h1>
-    <a>The Whole Process Plastic Integrity™ (WPPI™) Standard establishes a structured methodology for<br>
-    evaluating plastic exposure across the full operational lifecycle of a product or material system.<br><br>
-    Unlike product-only plastic claims, WPPI™ evaluates plastic interaction across the entire production chain including<br>
-    raw materials, production systems, equipment contact, auxiliary materials, packaging, storage, and logistics.<br><br>
-    The standard introduces transparent classification tiers that allow organizations to declare the level of plastic exposure control<br>
-    within their operational processes.<br><br>
-    WPPI™ is designed for cross-industry application including manufacturing, food production, agriculture, pharmaceuticals,<br>
-    textiles, industrial materials, and supply chain systems.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>B. Canonical Definition</h1>
-    <a>Whole Process Plastic Integrity™ (WPPI™) is a structured process and material integrity standard defining conditions for<br>
-    transparent disclosure and structural control of plastic exposure across all operational layers involved in the creation,<br>
-    handling, storage, and distribution of a product.<br><br>
-    Plastic integrity under WPPI™ is defined as the measurable minimization, documentation, and management of both intentional plastic use<br>
-    and non-intentional plastic contamination throughout the production lifecycle.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>C. Scope</h1>
-    <a>WPPI™ applies to operational systems including:</a><br>
-    <ul>
-      <li>manufacturing processes</li>
-      <li>food and beverage production</li>
-      <li>agricultural and herbal processing</li>
-      <li>pharmaceutical production</li>
-      <li>textile and fiber systems</li>
-      <li>industrial component manufacturing</li>
-      <li>packaging production</li>
-      <li>raw material processing</li>
-      <li>B2B supply chains</li>
-    </ul>
-    <a>Evaluation may include:</a><br>
-    <ul>
-      <li>raw material inputs</li>
-      <li>production equipment contact</li>
-      <li>auxiliary materials</li>
-      <li>packaging systems</li>
-      <li>storage environments</li>
-      <li>transport and distribution systems</li>
-    </ul>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>D. Plastic Integrity Classification Model</h1>
-    <a>WPPI™ introduces three process-based classification tiers.</a><br><br>
-    <b>Tier 1 — Process Plastic Controlled (PPC)</b><br>
-    At least 95% plastic-free across the documented production process.<br>
-    Plastic components may be used where technically unavoidable, provided they are transparently disclosed.<br><br>
-    <b>Tier 2 — Process Plastic Minimal (PPM)</b><br>
-    At least 98% plastic-free across the documented production process.<br>
-    No intentional plastic components in the primary product structure.<br>
-    Trace contamination must be documented.<br><br>
-    <b>Tier 3 — Whole Process Plastic-Free (WPPF)</b><br>
-    At least 99.5% plastic-free across the documented production process.<br>
-    No intentional plastic components permitted.<br>
-    Only analytically negligible contamination may exist.<br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>E. Intentional vs Non-Intentional Plastic Exposure</h1>
-    <a>WPPI™ distinguishes between two structural exposure categories.</a><br><br>
-    <b>Intentional Plastic Use</b><br>
-    <a>Examples include:</a>
-    <ul>
-      <li>structural plastic components</li>
-      <li>plastic packaging</li>
-      <li>polymer coatings or liners</li>
-      <li>polymer processing aids</li>
-      <li>synthetic composite materials</li>
-    </ul>
-    <b>Non-Intentional Plastic Contamination</b><br>
-    <a>Examples include:</a>
-    <ul>
-      <li>microplastic transfer</li>
-      <li>equipment abrasion</li>
-      <li>transport contamination</li>
-      <li>environmental particulate exposure</li>
-      <li>auxiliary system cross-contact</li>
-    </ul>
-    <a>Integrity classification depends on declared presence and documented control.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>F. Process Integrity Layers</h1>
-    <a>WPPI™ evaluates six operational integrity layers:</a>
-    <ul>
-      <li>Raw Material Integrity Layer</li>
-      <li>Production Integrity Layer</li>
-      <li>Equipment Contact Layer</li>
-      <li>Auxiliary Materials Layer</li>
-      <li>Packaging Integrity Layer</li>
-      <li>Logistics &amp; Storage Layer</li>
-    </ul>
-    <a>Integrity classification depends on transparency across all relevant layers.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>G. Fail-State Conditions</h1>
-    <a>A WPPI™ classification becomes invalid if:</a>
-    <ul>
-      <li>intentional plastic exceeds the declared threshold</li>
-      <li>undisclosed plastic components are identified</li>
-      <li>process boundaries are not clearly defined</li>
-      <li>process documentation is incomplete</li>
-      <li>declared exposure controls cannot be demonstrated</li>
-    </ul>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>H. Implementation Modes</h1>
-    <a>WPPI™ may be applied under three operational models:</a>
-    <ul>
-      <li>Self-Declaration Transparency</li>
-      <li>Structured Implementation</li>
-      <li>Third-Party Laboratory-Supported Verification</li>
-    </ul>
-    <a>The standard itself does not require certification.<br>
-    It establishes a structural framework for transparent process disclosure.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>I. Compatibility</h1>
-    <a>WPPI™ operates within the Environmental Integrity Standards architecture<br>
-    and may function alongside:</a>
-    <ul>
-      <li>Origin Eco™ Standard</li>
-      <li>Soil Integrity™ Standard</li>
-      <li>Water Integrity™ Standard</li>
-      <li>Carbon Integrity™ Standard</li>
-      <li>Air Integrity™ Standard</li>
-    </ul>
-    <a>WPPI™ introduces a Process &amp; Material Integrity layer complementing environmental transparency standards.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>Canonical Closing Statement</h1>
-    <a>Plastic integrity is not defined by the final product alone.<br><br>
-    It is defined by transparency across the entire production process.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>Whole Process Plastic Integrity™</h1>
-    <h2>Minimal Self-Declaration Framework (WPPI-SD v1.0)</h2>
-    <a>Category: Environmental Integrity Standards<br>
-    Subcategory: Process &amp; Material Integrity<br>
-    Status: Open Transparency Model<br>
-    Effective Date: 25 February 2026</a><br><br>
-    <a>This framework enables organizations to publicly declare Whole Process Plastic Integrity™<br>
-    using a simple transparency model.<br><br>
-    It does not certify plastic-free status.<br>
-    It does not require laboratory testing.<br><br>
-    It establishes structured responsibility for plastic exposure disclosure across the operational process.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>Implementation Steps</h1>
-    <h2>Step 1 — Define Process Boundary</h2>
-    <a>The declaring entity must define the operational scope of the declaration.</a><br>
-    <a>Examples:</a>
-    <ul>
-      <li>single production facility</li>
-      <li>multiple facilities</li>
-      <li>production only</li>
-      <li>production and packaging</li>
-      <li>full chain including logistics</li>
-    </ul>
-    <a>Undefined process boundaries invalidate the declaration.</a><br><br>
-    <section class="viewbor"></section>
-
-    <h2>Step 2 — Identify Plastic Exposure Points</h2>
-    <a>The entity reviews the production chain and identifies any plastic interaction points.</a><br>
-    <a>Examples include:</a>
-    <ul>
-      <li>raw material packaging</li>
-      <li>processing equipment contact</li>
-      <li>auxiliary materials</li>
-      <li>storage systems</li>
-      <li>product packaging</li>
-      <li>transport and handling systems</li>
-    </ul>
-    <a>If no intentional plastic components exist, this must be explicitly declared.</a><br><br>
-    <section class="viewbor"></section>
-
-    <h2>Step 3 — Declare Plastic Integrity Tier</h2>
-    <a>The entity must select and declare one classification tier:</a><br>
-    <b>Process Plastic Controlled (PPC)</b><br>
-    Plastic exposure minimized with declared control mechanisms.<br><br>
-    <b>Process Plastic Minimal (PPM)</b><br>
-    Very limited plastic interaction within the process chain.<br><br>
-    <b>Whole Process Plastic-Free (WPPF)</b><br>
-    No intentional plastic components present within the declared process boundary.<br><br>
-    <a>Undeclared classification invalidates the claim.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h2>Step 4 — Contamination Awareness Statement</h2>
-    <a>The entity must acknowledge whether potential contamination pathways exist.</a><br>
-    <a>Examples include:</a>
-    <ul>
-      <li>equipment abrasion</li>
-      <li>transport exposure</li>
-      <li>environmental contamination</li>
-    </ul>
-    <a>If no known contamination risks are identified, this must be declared.</a><br><br>
-
-    <h2>Step 5 — Responsibility Declaration</h2>
-    <a>A public declaration must be issued confirming responsibility for the disclosure.</a><br>
-    <a>Example statement:</a><br>
-    <a>“This Whole Process Plastic Integrity™ declaration is made under the WPPI™ Standard.<br>
-    The declaring entity accepts responsibility for the transparency and accuracy of the disclosed process information.”</a><br><br>
-    <a>The declaration should include:</a>
-    <ul>
-      <li>legal entity name</li>
-      <li>responsible person</li>
-      <li>declaration date</li>
-      <li>public contact reference</li>
-    </ul>
-    <a>The declaration may be published:</a>
-    <ul>
-      <li>on a website</li>
-      <li>on product documentation</li>
-      <li>in supply chain documentation</li>
-      <li>via QR code reference</li>
-    </ul>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>Documentation Requirements</h1>
-    <a>Implementation requires only:</a>
-    <ul>
-      <li>a defined process boundary</li>
-      <li>a list of identified plastic exposure points</li>
-      <li>a selected integrity tier</li>
-      <li>a public responsibility declaration</li>
-    </ul>
-    <a>No external certification required under the minimal self-declaration model.</a><br><br>
-
-    <h1>Structural Value</h1>
-    <a>WPPI™ Self-Declaration transforms:</a><br><br>
-    <a>uncertain plastic claims<br>into<br>transparent process accountability.</a><br><br>
-    <a>This supports:</a>
-    <ul>
-      <li>supply chain transparency</li>
-      <li>contamination awareness</li>
-      <li>credible plastic reduction claims</li>
-      <li>future certification readiness.</li>
-    </ul>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
-    <h1>Closing Principle</h1>
-    <a>Plastic integrity is not determined by a label.<br><br>
-    It emerges from transparent control of the entire production process.</a><br><br>
-  </div>
-  <section class="viewbor"></section>
-</section>
-
-<section class="container">
-  <div class="oof-warning3">
+  <section class="container">
+  <div class="oof-warning3"><br>
     <h1>About Whole Process Plastic Integrity™ (WPPI™)</h1>
     <a>Plastic exposure is rarely limited to the final product.<br><br>
     In modern production systems, plastic may appear across many operational layers including<br>
@@ -608,8 +279,8 @@ function toggleStandards() {
   <section class="viewbor"></section>
 </section><br><br><br><br>
 
-
-<footer class="container footer2">
+    <br><br><br><br><br>
+    <footer class="container footer2">
     <h2>NON-EXECUTABLE NOTICE</h2>
     <p>OOF™ Origin Open FoundationTM is a non-executable authority. This website and all publications are reference-only.<br>
 
