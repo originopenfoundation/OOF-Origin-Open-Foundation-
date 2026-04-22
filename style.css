@@ -19,8 +19,11 @@ body {
   max-width: 100%;
 }
 
+.artdata{
+  text-decoration: none;
+}
 
-header {
+.header {
   font-size: 18px;
 }
 
@@ -592,7 +595,10 @@ flex-direction:column;
 
 
 #oofMenu a:hover,
-#standardsMenu a:hover{
+#standardsMenu a:hover,
+#mipMenu a:hover,
+#osMenu a:hover,
+#AccMenu a:hover{
 background:#6f6f6f;
 border-radius:14px;
 padding: 3px 8px;
@@ -698,3 +704,92 @@ nav {
 .dropdown-content a:hover {
   background: #6f6f6f;
   }
+
+  #mipMenu a {
+  display: inline-block;
+  padding:-20px 0px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
+  font-size: 10px;
+
+}
+
+#mipMenu {
+  display: none;
+  white-space: nowrap;
+  padding:0px 4px; 
+   
+}
+
+#mipMenu a {
+  display: inline-block;
+  padding:-20px 0px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
+  font-size: 10px;
+
+}
+
+#mipMenu a:hover {
+  border: 0.3px solid whitesmoke;
+}
+
+#osMenu {
+  display: none;
+  white-space: nowrap;
+  padding:0px 4px; 
+   
+}
+
+#osMenu a {
+  display: inline-block;
+  padding:-20px 0px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
+  font-size: 10px;
+
+}
+
+#osMenu a:hover {
+  border: 0.3px solid whitesmoke;
+}
+
+#AccMenu {
+  display: none;
+  white-space: nowrap;
+  padding:0px 4px; 
+   
+}
+
+#AccMenu a {
+  display: inline-block;
+  padding:-20px 0px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
+  font-size: 10px;
+
+}
+
+#AccMenu a:hover {
+  border: 0.3px solid whitesmoke;
+}
+
+#standardsMenu,
+#oofMenu,
+#mipMenu,
+#osMenu,
+#AccMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background: #000000;
+  opacity: 1;
+
+  z-index: 9999;
+
+  min-width: 180px;
+}
+
+
+
