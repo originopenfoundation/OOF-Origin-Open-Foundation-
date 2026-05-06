@@ -11,7 +11,17 @@
 </head>
 <body>
  <div id="site-header"></div>
-  <script src="/includes.js"></script>
+  <div id="header"></div>
+
+<script src="header.js"></script>
+
+<script>
+fetch("header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
+</script>
   
     <main class="container">
 
