@@ -5,8 +5,11 @@ function toggleMenu(menuId) {
     const el = document.getElementById(id);
     if (!el) return;
 
-    el.style.display = (id === menuId && el.style.display !== "block") 
-      ? "block" 
-      : "none";
+    if (id === menuId) {
+      const isOpen = el.style.display === "block";
+      el.style.display = isOpen ? "none" : "block";
+    } else {
+      el.style.display = "none";
+    }
   });
 }
