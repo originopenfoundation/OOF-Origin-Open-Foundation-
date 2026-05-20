@@ -1,12 +1,13 @@
 function toggleMenu(menuId) {
-  const menus = ["standardsMenu", "oofMenu", "mipMenu", "osMenu", "AccMenu", "GovernanceMenu"];
+  const menus = ["standardsMenu", "oofMenu", "mipMenu", "osMenu", "AccMenu", "GovernanceMenu", "burgerMenu"];
 
   menus.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
 
     if (id === menuId) {
-      el.style.display = (el.style.display === "block") ? "none" : "block";
+      const isOpen = el.style.display === "block";
+      el.style.display = isOpen ? "none" : "block";
     } else {
       el.style.display = "none";
     }
@@ -15,6 +16,8 @@ function toggleMenu(menuId) {
 
 function toggleBurger() {
   const menu = document.getElementById("burgerMenu");
+  if (!menu) return;
+
   menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 
@@ -22,7 +25,7 @@ document.addEventListener("click", function(e) {
   const menu = document.getElementById("burgerMenu");
   const burger = document.querySelector(".burger");
 
-  if (!menu.contains(e.target) && !burger.contains(e.target)) {
+  if (menu && burger && !menu.contains(e.target) && !burger.contains(e.target)) {
     menu.style.display = "none";
   }
 });
