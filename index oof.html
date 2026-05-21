@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="header"></div>
+
+
+<section class="container">
+<h2>OOF™ Structured Reality Standards Index</h2>
+<div class="oof-warning3">
+<p class="podstand">
+<b>Official Public Index of OOF™ Standards</b>
+</p><br>
+</div>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>OOF™ Structured Reality Standards Index</h1>
+<a><b>Official Public Index of OOF™ Standards</b></a><br><br>
+<a>This index contains the currently published OOF™ standards,<br>
+organized by canonical category.</a><br><br>
+<a>Each standard defines a structured condition for validation,<br>
+integrity, governance, meaning, value, or system reliability within<br>
+the OOF™ Methodology OS.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<div id="footer"></div>
+
+<script src="header.js"></script>
+
+<script>
+fetch("header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
+
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
+</body>
+</html>
