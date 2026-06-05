@@ -846,4 +846,35 @@ nav {
   border: 0.3px solid whitesmoke;
 }
 
+@media (max-width: 768px) {
 
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    display: block;
+    padding: 8px 0;
+  }
+
+  .dropdown,
+  .dropdown-content {
+    position: static;
+  }
+
+  .dropdown-content {
+    display: none;
+    padding-left: 15px;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+}
