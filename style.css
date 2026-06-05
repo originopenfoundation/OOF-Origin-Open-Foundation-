@@ -7,7 +7,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   color: #111;
-  background: linear-gradient(to bottom, #808080, #383737);
+  background: linear-gradient(to bottom, #808080, #262424);
   color: whitesmoke;
   font-size: 14px;
   padding: 0 10px;
@@ -594,11 +594,15 @@ flex-direction:column;
 
 
 
-#oofMenu a:hover,
+
 #standardsMenu a:hover,
+#GovernanceMenu a:hover,
+#oofMenu a:hover,
 #mipMenu a:hover,
 #osMenu a:hover,
-#AccMenu a:hover{
+#FADMenu a:hover,
+#AccMenu a:hover
+{
 background:#6f6f6f;
 border-radius:14px;
 padding: 3px 8px;
@@ -779,6 +783,7 @@ nav {
 #oofMenu,
 #mipMenu,
 #osMenu,
+#FADMenu,
 #AccMenu {
   position: absolute;
   top: 100%;
@@ -812,101 +817,32 @@ nav {
   border: 0.3px solid whitesmoke;
 }
 
-
-
-.burger {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-  position: absolute;
-  top: 25px;
-  right: 15px;
-  z-index: 2000;
-}
-
-.burger-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 280px;
-  height: 100vh;
-  background: #949494;
-  padding: 20px;
-  overflow-y: auto;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
-  z-index: 1500;
-  right: -10px;
-}
-
-.burger-menu a {
-  display: block;
-  color: white;
-  padding: 10px 0;
-  text-decoration: none;
+#mipMenu a {
+  display: inline-block;
+  padding:-20px 0px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
   font-size: 10px;
+
 }
 
-.burger-menu hr {
-  border: 0;
-  border-top: 1px solid rgba(255,255,255,0.3);
-  margin: 10px 0;
+#FADMenu {
+  display: none;
+  white-space: nowrap;
+  padding:0px 4px; 
+   
 }
 
-/* mobile */
-@media (max-width: 900px) {
-  
-  header.container .subtitle3 {
-    display: none;
-  }
+#FADMenu a {
+  display: inline-block;
+  padding:-20px 0px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
+  font-size: 10px;
 
-  .burger {
-  display: flex;
-  top: 10px;
-  right: 5px;
-  z-index: 2000;
-  }
-  .podstranka a{
-background: #949494;
-font-size: 16px;
-padding:10px;
-  }
 }
 
-.subtitle{
-    display: fixed;
-  }
-
-  .burger a{
-  display:none;
-position:absolute;
-top:30px;
-left:0;
-background:#808080;
-padding:20px;
-border-radius:5px;
-box-shadow:0 2px 10px rgba(0,0,0,0.5);
-}
-.burger-menu a:hover{
+#FADMenu a:hover {
   border: 0.3px solid whitesmoke;
-  border-radius: 15px;
-  
-}
-
-.burgerMenu .burger-menu .nadp {
-  font-size: 30px;
-  color: white;
-  text-decoration: none;
-}
-
-.podstranka h3:hover{
-  border: 0.3px solid whitesmoke;
-  border-radius: 15px;
-}
-
-.podstranka a{
-background: #949494;
-font-size: 16px;
-padding:10px;
 }
 
