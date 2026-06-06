@@ -6,29 +6,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header class="container">
-<h1 class="page-title">OOF™ Origin Open Foundation™</h1>
-<p class="subtitle">Global Methodology Authority</p>
-<section class="navbar11">
-<p class="subtitle3"><b><div class="menu">
-<span class="dropdown"><span onclick="toggleOOF()" style="cursor:pointer;"><a>OOF™ ▾</a></span>
-<div id="oofMenu"><a href="index.html">OOF</a><br><a href="abouthautority.html">About authority</a></div>
-</span>
-<span class="separator">|</span><a href="os.html">OS</a>
-<span class="separator">|</span><a href="Canonical Meanings.html">Canonical Meanings</a>
-<span class="separator">|</span>
-<span class="dropdown"><span onclick="toggleStandards()" style="cursor:pointer;"><a>Standards ▾</a></span>
-<span id="standardsMenu"><a href="standardinde.html">Standards Index</a><br><a href="aboutstandards.html">About Standards</a><br><a href="Standards.html">View All Standards</a></span>
-</span>
-<span class="separator">|</span><a href="Licencing.html">Licencing</a>
-<span class="separator">|</span><a href="ImplementationFramework.html">Implementation Framework</a>
-<span class="separator">|</span><a href="MIP™.html">MIP™</a>
-<span class="separator">|</span><a href="Publication Rules.html">Publication Rules</a>
-<span class="separator">|</span><a href="Contact.html">Contact</a>
-</div></b></p>
-</section>
-</header>
-
+<div id="header"></div>
 <section class="container">
 <h2>CIBM — Continuous Interaction Balance Module</h2>
 <div class="oof-warning3">
@@ -368,5 +346,15 @@ Protected under MIP™ — Methodological Intellectual Property.<br>
 All rights reserved. No copying, redistribution, paraphrasing, extraction,<br>
 or derivative use without explicit written authorization.</p>
 </footer>
+
+<script src="header.js"></script>
+<script>
+fetch("header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
+</script>
+
 </body>
 </html>
