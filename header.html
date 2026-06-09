@@ -101,6 +101,38 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
   </span>
 </span>
  |
+
+  <span class="dropdown" style="position:relative;">
+<span onclick="toggleMenu('govMenu')" style="cursor:pointer;">
+<a>▾ Governance Navigation</a>
+</span>
+
+<span id="govMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+  <a href="governance-1.html">About Governance Navigation™</a><br>
+  <a href="governance-2.html">Problem Identification™</a><br>
+  <a href="governance-3.html">Problem Classification™</a><br>
+  <a href="governance-4.html">Problem Localization™</a><br>
+  <a href="governance-5.html">Governance Mapping™</a><br>
+  <a href="governance-6.html">Dependency Discovery™</a><br>
+  <a href="governance-7.html">Problem Propagation™</a><br>
+  <a href="governance-8.html">Governance Diagnostics™</a><br>
+
+
+</span>
+</span>
+
+|
+
   <span class="dropdown" style="position:relative;">
 <span onclick="toggleMenu('FADMenu')" style="cursor:pointer;">
   <a>▾ Foundational Architectural Distinctions</a>
@@ -273,6 +305,17 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
   <a href="ucl-how-it-works.html">UCL™ — How It Works</a>
 
   <hr>
+  <h3 class="nadp">Governance Navigation</h3>
+  <a href="governance-1.html">About Governance Navigation™</a>
+  <a href="governance-2.html">Problem Identification™</a>
+  <a href="governance-3.html">Problem Classification™</a>
+  <a href="governance-4.html">Problem Localization™</a>
+  <a href="governance-5.html">Governance Mapping™</a>
+  <a href="governance-6.html">Dependency Discovery™</a>
+  <a href="governance-7.html">Problem Propagation™</a>
+  <a href="governance-8.html">Governance Diagnostics™</a>
+
+  <hr>
   <h3 class="nadp">Foundational Architectural Distinctions</h3>
   <a href="StructuralRealityandOperationalReality.html">Structural Reality and Operational Reality</a>
   <a href="StructuralValidityvsOperationalReality.html">Structural Validity vs Operational Reality</a>
@@ -368,6 +411,17 @@ function toggleOS(){
     menu.style.display = "block";
   }
 }
+
+function toggleGOV(){
+  var menu = document.getElementById("govMenu");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+}
+  
 function toggleAcc(){
   var menu = document.getElementById("AccMenu");
 
