@@ -253,6 +253,37 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
 </span>
 
 |  
+
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleMenu('artdMenu')" style="cursor:pointer;">
+<a>▾ ArtData®</a>
+</span>
+
+<span id="artdMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+  <a href="artdata-1-AA.html">About ArtData®</a><br>
+  <a href="artdata-2-AQ.html">ArtData Qualification™</a><br>
+  <a href="artdata-3-AR.html">ArtData Registry™</a><br>
+  <a href="artdata-4-AI.html">ArtData Intelligence™</a><br>
+  <a href="artdata-5-AV.html">ArtData Value™</a><br>
+  <a href="artdata-6-AE.html">ArtData Exchange™</a><br>
+  <a href="artdata-7-AG.html">ArtData Governance™</a><br>
+  <a href="artdata-8-AD.html">ArtData Diagnostics™</a><br>
+
+
+</span>
+</span>
+
+|
   
 
   <span class="dropdown" style="position:relative;">
@@ -478,6 +509,17 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
   <a href="resim-7-FRS.html">Failure Re-Simulation™</a>
   <a href="resim-8-RSD.html">Re-Simulation Diagnostics™</a>
 
+  <hr>
+  <h3 class="nadp">ArtData®</h3>
+  <a href="artdata-1-AA.html">About ArtData®</a>
+  <a href="artdata-2-AQ.html">ArtData Qualification™</a>
+  <a href="artdata-3-AR.html">ArtData Registry™</a>
+  <a href="artdata-4-AI.html">ArtData Intelligence™</a>
+  <a href="artdata-5-AV.html">ArtData Value™</a>
+  <a href="artdata-6-AE.html">ArtData Exchange™</a>
+  <a href="artdata-7-AG.html">ArtData Governance™</a>
+  <a href="artdata-8-AD.html">ArtData Diagnostics™</a>
+
 
   <hr>
   <h3 class="nadp">Foundational Architectural Distinctions</h3>
@@ -628,6 +670,16 @@ function toggleAcc(){
 
 function toggleRSim(){
   var menu = document.getElementById("resimMenu");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+}  
+
+function toggleArtD(){
+  var menu = document.getElementById("artdMenu");
 
   if(menu.style.display === "block"){
     menu.style.display = "none";
