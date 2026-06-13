@@ -1,5 +1,5 @@
 function toggleMenu(menuId) {
-  const menus = ["standardsMenu", "authMenu", "oofMenu", "mipMenu", "osMenu", "AccMenu", "GovernanceMenu", "govMenu", "engineMenu", "burgerMenu", "archMenu", "simMenu", "FADMenu"];
+  const menus = ["standardsMenu", "authMenu", "oofMenu", "mipMenu", "resimMenu", "osMenu", "AccMenu", "GovernanceMenu", "govMenu", "engineMenu", "burgerMenu", "archMenu", "simMenu", "FADMenu"];
 
   menus.forEach(id => {
     const el = document.getElementById(id);
