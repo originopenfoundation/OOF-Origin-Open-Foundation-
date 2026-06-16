@@ -345,6 +345,35 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
 
 |
   
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleMenu('oprealMenu')" style="cursor:pointer;">
+<a>▾ Operational Reality™</a>
+</span>
+
+<span id="oprealMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+  <a href="opreal-1-AOR.html">About Operational Reality™</a><br>
+  <a href="opreal-2-RO.html">Reality Observation™</a><br>
+  <a href="opreal-3-RD.html">Reality Detection™</a><br>
+  <a href="opreal-4-RC.html">Reality Context™</a><br>
+  <a href="opreal-5-RI.html">Reality Interpretation™</a><br>
+  <a href="opreal-6-RCOMP.html">Reality Comparison™</a><br>
+  <a href="opreal-7-RDA.html">Reality Deviation Analysis™</a><br>
+  <a href="opreal-8-ORD.html">Operational Reality Diagnostics™</a><br>
+
+</span>
+</span>
+
+|
   
 
   <span class="dropdown" style="position:relative;">
@@ -605,6 +634,17 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
   <a href="artfam-7-AI.html">Audit Integrity™</a>
   <a href="artfam-8-AD.html">ART Diagnostics™</a>
 
+  <hr>
+  <h3 class="nadp">Operational Reality™</h3>
+  <a href="opreal-1-AOR.html">About Operational Reality™</a>
+  <a href="opreal-2-RO.html">Reality Observation™</a>
+  <a href="opreal-3-RD.html">Reality Detection™</a>
+  <a href="opreal-4-RC.html">Reality Context™</a>
+  <a href="opreal-5-RI.html">Reality Interpretation™</a>
+  <a href="opreal-6-RCOMP.html">Reality Comparison™</a>
+  <a href="opreal-7-RDA.html">Reality Deviation Analysis™</a>
+  <a href="opreal-8-ORD.html">Operational Reality Diagnostics™</a>
+
 
   <hr>
   <h3 class="nadp">Foundational Architectural Distinctions</h3>
@@ -784,6 +824,16 @@ function toggleArtD(){
 
 function toggleArtF(){
   var menu = document.getElementById("artfMenu");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+} 
+
+function toggleOpreal(){
+  var menu = document.getElementById("oprealMenu");
 
   if(menu.style.display === "block"){
     menu.style.display = "none";
