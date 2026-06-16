@@ -314,6 +314,37 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
 </span>
 
 |
+
+<span class="dropdown" style="position:relative;">
+<span onclick="toggleMenu('artfMenu')" style="cursor:pointer;">
+<a>▾ ART™ Audit in Real Time™</a>
+</span>
+
+<span id="artfMenu"
+style="
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#808080;
+padding:20px;
+border-radius:5px;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+
+  <a href="artfam-1-AART.html">About ART™ Audit in Real Time™</a><br>
+  <a href="artfam-2-EC.html">Evidence Collection™</a><br>
+  <a href="artfam-3-EV.html">Evidence Validation™</a><br>
+  <a href="artfam-4-ET.html">Evidence Traceability™</a><br>
+  <a href="artfam-5-RV.html">Reality Verification™</a><br>
+  <a href="artfam-6-AC.html">Audit Continuity™</a><br>
+  <a href="artfam-7-AI.html">Audit Integrity™</a><br>
+  <a href="artfam-8-AD.html">ART Diagnostics™</a><br>
+
+</span>
+</span>
+
+|
+  
   
 
   <span class="dropdown" style="position:relative;">
@@ -563,6 +594,17 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
   <a href="artdata-7-AG.html">ArtData Governance™</a>
   <a href="artdata-8-AD.html">ArtData Diagnostics™</a>
 
+  <hr>
+  <h3 class="nadp">ART™ Audit in Real Time™</h3>
+  <a href="artfam-1-AART.html">About ART™ Audit in Real Time™</a>
+  <a href="artfam-2-EC.html">Evidence Collection™</a>
+  <a href="artfam-3-EV.html">Evidence Validation™</a>
+  <a href="artfam-4-ET.html">Evidence Traceability™</a>
+  <a href="artfam-5-RV.html">Reality Verification™</a>
+  <a href="artfam-6-AC.html">Audit Continuity™</a>
+  <a href="artfam-7-AI.html">Audit Integrity™</a>
+  <a href="artfam-8-AD.html">ART Diagnostics™</a>
+
 
   <hr>
   <h3 class="nadp">Foundational Architectural Distinctions</h3>
@@ -739,6 +781,16 @@ function toggleArtD(){
     menu.style.display = "block";
   }
 }  
+
+function toggleArtF(){
+  var menu = document.getElementById("artfMenu");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+}   
 
 function toggleFAD(){
   var menu = document.getElementById("FADMenu");
