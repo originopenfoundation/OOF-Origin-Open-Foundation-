@@ -136,6 +136,38 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
   </span>
 </span>
  |
+
+  <span class="dropdown" style="position:relative;">
+<span onclick="toggleMenu('AISMenu')" style="cursor:pointer;">
+  <a>▾ Assessment & Intelligence Services</a>
+</span>
+
+  <span id="AISMenu"
+    style="
+    display:none;
+    position:absolute;
+    top:30px;
+    left:10px;
+    background:#808080;
+    padding:20px;
+    border-radius:5px;
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.5);">
+
+    <a href="Governance Architecture Analysis.html">Governance Architecture Analysis™</a><br>
+    <a href="Governance Intelligence Report.html">Governance Intelligence Report™</a><br>
+    <a href="Methodology Existence Validation.html">Methodology Existence Validation™</a><br>
+    <a href="Methodology Protection & Positioning.html">Methodology Protection & Positioning™</a><br>
+    <a href="Methodology Space Discovery.html">Methodology Space Discovery™</a><br>
+    <a href="MethodologyDueDiligence.html">Methodology Due Diligence™</a><br>
+    <a href="MethodologyEngineering.html">Methodology Engineering™</a><br>
+    <a href="MethodologyModernization.html">Methodology Modernization™</a><br>
+    <a href="MethodologyValuation.html">Methodology Valuation™</a><br>
+    <a href="Problem Space Mapping.html">Problem Space Mapping™</a><br>
+    <a href="Responsibility Mapping Analysis.html">Responsibility Mapping Analysis™</a><br>
+    <a href="Semantic Governance Analysis.html">Semantic Governance Analysis™</a>
+  </span>
+</span>
+ |
   
 <span class="dropdown" style="position:relative;">
 <span onclick="toggleMenu('semanticMenu')" style="cursor:pointer;">
@@ -597,6 +629,21 @@ box-shadow:0 2px 10px rgba(0,0,0,0.5);">
   <a href="AbouttheUCL-UniversalCanonicalLanguage.html">UCL™ — Universal Canonical Language</a>
   <a href="ucl-how-it-works.html">UCL™ — How It Works</a>
 
+<hr>
+  <h3 class="nadp">Assessment & Intelligence Services</h3>
+    <a href="Governance Architecture Analysis.html">Governance Architecture Analysis™</a>
+    <a href="Governance Intelligence Report.html">Governance Intelligence Report™</a>
+    <a href="Methodology Existence Validation.html">Methodology Existence Validation™</a>
+    <a href="Methodology Protection & Positioning.html">Methodology Protection & Positioning™</a>
+    <a href="Methodology Space Discovery.html">Methodology Space Discovery™</a>
+    <a href="MethodologyDueDiligence.html">Methodology Due Diligence™</a>
+    <a href="MethodologyEngineering.html">Methodology Engineering™</a>
+    <a href="MethodologyModernization.html">Methodology Modernization™</a>
+    <a href="MethodologyValuation.html">Methodology Valuation™</a>
+    <a href="Problem Space Mapping.html">Problem Space Mapping™</a>
+    <a href="Responsibility Mapping Analysis.html">Responsibility Mapping Analysis™</a>
+    <a href="Semantic Governance Analysis.html">Semantic Governance Analysis™</a>
+  
   <hr>
   <h3 class="nadp">Semantic Governance™</h3>
   <a href="AboutSemanticGovernanceArchitecture.html">About Semantic Governance Architecture™</a>
@@ -874,6 +921,15 @@ function toggleArtD(){
 
 function toggleFAD(){
   var menu = document.getElementById("FADMenu");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+}
+  function toggleMenu(){
+  var menu = document.getElementById("AISMenu");
 
   if(menu.style.display === "block"){
     menu.style.display = "none";
