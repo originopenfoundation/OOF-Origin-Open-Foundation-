@@ -35,6 +35,11 @@
 </div>
 
 <div id="burgerMenu" class="burger-menu">
+  <div class="burger-search">
+    <label class="burger-search-label" for="burgerSearchInput">⌕ Search</label>
+    <input id="burgerSearchInput" class="site-search-input" type="search" placeholder="Search OOF®..." onfocus="loadSiteSearchIndex('burgerSearchResults')" oninput="runSiteSearch(this.value, 'burgerSearchResults')" autocomplete="off">
+    <div id="burgerSearchResults" class="site-search-results"></div>
+  </div>
   <br><br><h3 class="nadp">OOF®</h3>
   <a href="index.html">Home</a>
   <a href="oof-overview.html">OOF® Overview</a>

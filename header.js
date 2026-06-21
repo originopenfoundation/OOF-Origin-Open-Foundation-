@@ -52,6 +52,7 @@ function organizeMegaMenuContent(target) {
     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === "") return;
     if (node.nodeName === "BR") return;
     if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("podstranka")) return;
+    if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("burger-search")) return;
 
     if (node.nodeName === "HR") {
       currentBody = null;
@@ -148,36 +149,36 @@ function closeSiteSearch() {
   setDisplay(getById("siteSearchPanel"), "none");
 }
 
-async function loadSiteSearchIndex() {
+async function loadSiteSearchIndex(resultsId = "siteSearchResults") {
   if (siteSearchIndex || siteSearchLoading) return;
 
   siteSearchLoading = true;
-  renderSearchStatus("Loading search...");
+  renderSearchStatus("Loading search...", resultsId);
 
   try {
     const response = await fetch("search-index.json", { cache: "no-store" });
     if (!response.ok) throw new Error("Search index not found");
     siteSearchIndex = await response.json();
-    renderSearchStatus("Type to search.");
+    renderSearchStatus("Type to search.", resultsId);
   } catch (error) {
-    renderSearchStatus("Search index is not available.");
+    renderSearchStatus("Search index is not available.", resultsId);
   } finally {
     siteSearchLoading = false;
   }
 }
 
-function runSiteSearch(query) {
-  const results = getById("siteSearchResults");
+function runSiteSearch(query, resultsId = "siteSearchResults") {
+  const results = getById(resultsId);
   if (!results) return;
 
   const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   if (words.join("").length < 2) {
-    renderSearchStatus("Type at least 2 characters.");
+    renderSearchStatus("Type at least 2 characters.", resultsId);
     return;
   }
 
   if (!siteSearchIndex) {
-    loadSiteSearchIndex().then(() => runSiteSearch(query));
+    loadSiteSearchIndex(resultsId).then(() => runSiteSearch(query, resultsId));
     return;
   }
 
@@ -188,7 +189,7 @@ function runSiteSearch(query) {
     .slice(0, 12);
 
   if (matches.length === 0) {
-    renderSearchStatus("No results found.");
+    renderSearchStatus("No results found.", resultsId);
     return;
   }
 
@@ -210,8 +211,8 @@ function getSearchScore(page, words) {
   }, 0);
 }
 
-function renderSearchStatus(message) {
-  const results = getById("siteSearchResults");
+function renderSearchStatus(message, resultsId = "siteSearchResults") {
+  const results = getById(resultsId);
   if (results) results.innerHTML = `<p class="site-search-status">${escapeHtml(message)}</p>`;
 }
 
