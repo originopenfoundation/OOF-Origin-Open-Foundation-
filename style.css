@@ -68,6 +68,19 @@ body {
   padding-top: 14px;
 }
 
+.site-index-links a {
+  color: white;
+  text-decoration: underline;
+  display: inline;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.site-index-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 .subtitle3{
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,0.6);
@@ -87,6 +100,7 @@ body {
   display: inline;
   padding: 3px 2px;
   border-radius: 999px;
+  border: 1px solid transparent;
 }
 
 .subtitle3 a{
@@ -98,6 +112,7 @@ body {
   display: inline;
   padding: 3px 2px;
   border-radius: 999px;
+  border: 1px solid transparent;
 }
 .subtitle2 a:hover{
   border: 1px solid whitesmoke;
@@ -842,6 +857,120 @@ display:inline-block;
   padding: 3px 8px;
 }
 
+#toolsMenu {
+  display: none;
+  white-space: nowrap;
+  padding:15px;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#000000;
+  opacity:1;
+  min-width:250px;
+  z-index:10;
+  box-shadow:0 2px 10px rgba(0,0,0,0.4);
+  border-radius:12px;
+}
+
+.tools-menu-item {
+  position: relative;
+  display: block;
+  width: max-content;
+}
+
+#toolsMenu a,
+#mappingMenu a,
+#mapsMenu a {
+  display: block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+#toolsMenu a:hover,
+#mappingMenu a:hover,
+#mapsMenu a:hover {
+  border: 0.3px solid whitesmoke;
+  background:#6f6f6f;
+  border-radius:14px;
+  padding: 4px 8px;
+}
+
+.tools-group-title {
+  display: block;
+  cursor: pointer;
+  color: white;
+  font-size: 10px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  border: 0.3px solid transparent;
+  white-space: nowrap;
+}
+
+.tools-group-title:hover {
+  border: 0.3px solid whitesmoke;
+  background:#6f6f6f;
+}
+
+.tools-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 8px;
+  background:#808080;
+  padding: 15px;
+  min-width:250px;
+  z-index:11;
+  box-shadow:0 2px 10px rgba(0,0,0,0.4);
+  border-radius:5px;
+}
+
+.tools-submenu .tools-submenu {
+  z-index:12;
+}
+
+#toolsMenu .tools-submenu a,
+#mapsMenu .tools-submenu a {
+  display: block;
+  padding: 4px 8px !important;
+  margin: 0 !important;
+  line-height: 1.15 !important;
+  text-align: left;
+}
+
+#toolsMenu .tools-submenu a:hover,
+#mapsMenu .tools-submenu a:hover {
+  padding: 4px 8px !important;
+}
+
+#toolsMenu .tools-submenu br,
+#mapsMenu .tools-submenu br {
+  display: none;
+}
+
+#mappingMenu a {
+  display: block;
+  padding: 4px 8px !important;
+  margin: 0 !important;
+  line-height: 1.15 !important;
+  text-align: left;
+}
+
+#mappingMenu {
+  z-index: 9999 !important;
+}
+
+#mappingMenu a:hover {
+  padding: 4px 8px !important;
+}
+
+#mappingMenu br {
+  display: none;
+}
+
 #mapsMenu {
   display: none;
   white-space: nowrap;
@@ -1251,6 +1380,48 @@ nav {
   border: 0;
   border-top: 1px solid rgba(255,255,255,0.3);
   margin: 10px 0;
+}
+
+.burger-toggle {
+  cursor: pointer;
+  user-select: none;
+}
+
+.burger-submenu {
+  display: none;
+}
+
+.burger-submenu b {
+  display: block;
+  font-size: 10px;
+  padding: 10px 0 3px;
+  color: white;
+}
+
+.burger-subtitle {
+  font-size: 12px;
+  color: white;
+  margin: 8px 0;
+  padding: 8px 0;
+}
+
+.burger-subtitle:hover {
+  border: 0.3px solid whitesmoke;
+  border-radius: 15px;
+}
+
+.burger-subsection-title {
+  font-size: 11px;
+  margin: 4px 0;
+  padding: 6px 0;
+}
+
+.burger-subsection {
+  padding-left: 10px;
+}
+
+.burger-subsection a {
+  padding: 6px 0;
 }
 /* mobile */
 @media (max-width: 900px) {
