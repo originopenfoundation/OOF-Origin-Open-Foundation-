@@ -1781,6 +1781,30 @@ nav {
   margin: 10px 0;
 }
 
+.burger-main-toggle {
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: white;
+  margin: 6px 0;
+  padding: 8px 0;
+}
+
+.burger-main-toggle::after {
+  content: " ▾";
+  float: right;
+}
+
+.burger-main-active::after {
+  content: " ›";
+}
+
+.burger-main-section {
+  display: none;
+  padding: 0 0 8px 8px;
+}
+
 .burger-toggle {
   cursor: pointer;
   user-select: none;
@@ -1821,6 +1845,29 @@ nav {
 
 .burger-subsection a {
   padding: 6px 0;
+}
+
+.burger-main-toggle {
+  font-weight: 700;
+}
+
+.burger-main-toggle::after {
+  content: " ▾";
+}
+
+.burger-main-active::after {
+  content: " ›";
+}
+
+.burger-main-section a,
+.burger-main-section b,
+.burger-main-section .burger-subtitle,
+.burger-main-section .burger-subsection-title {
+  font-weight: 400;
+}
+
+.burger-menu a {
+  font-weight: 400;
 }
 @media (max-width: 900px) {
   

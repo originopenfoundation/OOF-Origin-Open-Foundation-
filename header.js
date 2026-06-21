@@ -20,6 +20,7 @@ function toggleElement(id) {
 }
 
 function toggleBurger() {
+  setupBurgerMainSections();
   toggleElement("burgerMenu");
 }
 
@@ -32,7 +33,7 @@ function buildMegaMenu() {
   const target = getById("megaMenuContent");
   if (!source || !target || target.dataset.ready === "true") return;
 
-  const html = source.innerHTML
+  const html = (source.dataset.originalHtml || source.innerHTML)
     .replace(/toggleBurgerSub\('([^']+)'\)/g, "toggleMegaSub('mega-$1')")
     .replace(/id="([^"]+)"/g, 'id="mega-$1"');
 
@@ -140,6 +141,58 @@ function showMegaSection(index) {
   content.querySelectorAll(".mega-section-body").forEach(body => {
     body.style.display = body.dataset.sectionIndex === String(index) ? "block" : "none";
   });
+}
+
+function setupBurgerMainSections() {
+  const menu = getById("burgerMenu");
+  if (!menu || menu.dataset.ready === "true") return;
+  menu.dataset.originalHtml = menu.innerHTML;
+
+  const nodes = Array.from(menu.childNodes);
+  const fragment = document.createDocumentFragment();
+  let currentBody = null;
+
+  nodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === "") return;
+    if (node.nodeName === "BR" || node.nodeName === "HR") return;
+
+    if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("podstranka")) {
+      Array.from(node.children).forEach(child => {
+        if (child.nodeName === "A") fragment.appendChild(child);
+      });
+      currentBody = null;
+      return;
+    }
+
+    if (node.nodeName === "H3") {
+      const toggle = document.createElement("h3");
+      toggle.className = "nadp burger-main-toggle";
+      toggle.textContent = node.textContent.trim();
+
+      const sectionBody = document.createElement("div");
+      sectionBody.className = "burger-main-section";
+      currentBody = sectionBody;
+
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("burger-main-active");
+        sectionBody.style.display = sectionBody.style.display === "block" ? "none" : "block";
+      });
+
+      fragment.appendChild(toggle);
+      fragment.appendChild(sectionBody);
+      return;
+    }
+
+    if (currentBody) {
+      currentBody.appendChild(node);
+    } else {
+      fragment.appendChild(node);
+    }
+  });
+
+  menu.textContent = "";
+  menu.appendChild(fragment);
+  menu.dataset.ready = "true";
 }
 
 function toggleSiteSearch() {
@@ -282,4 +335,7 @@ document.addEventListener("click", event => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", buildMegaMenu);
+document.addEventListener("DOMContentLoaded", () => {
+  buildMegaMenu();
+  setupBurgerMainSections();
+});
