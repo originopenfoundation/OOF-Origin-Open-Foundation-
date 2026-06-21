@@ -283,6 +283,21 @@ header.container > .subtitle3 {
   content: " ›";
 }
 
+.mega-menu-content .mega-direct-link {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.15;
+  margin: 0;
+  padding: 7px 9px;
+  box-sizing: border-box;
+}
+
+.mega-menu-content .mega-direct-link::after {
+  content: "" !important;
+  display: none;
+}
+
 .mega-section-body {
   display: none;
   margin: 0;
@@ -332,6 +347,30 @@ header.container > .subtitle3 {
 
 .mega-menu-content a:hover {
   background: #6f6f6f;
+}
+
+.mega-menu-content a.mega-direct-link {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.15;
+  margin: 0;
+  padding: 7px 9px;
+  box-sizing: border-box;
+}
+
+.mega-menu-content a.mega-direct-link::after {
+  content: "" !important;
+  display: none;
+}
+
+.mega-menu-content a.mega-direct-link b {
+  display: inline;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .site-search-panel {

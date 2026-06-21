@@ -46,13 +46,20 @@ function organizeMegaMenuContent(target) {
   target.textContent = "";
 
   const sections = [];
+  const directLinks = [];
   let currentBody = null;
 
   nodes.forEach(node => {
     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === "") return;
     if (node.nodeName === "BR") return;
-    if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("podstranka")) return;
     if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("burger-search")) return;
+
+    if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("podstranka")) {
+      Array.from(node.children).forEach(child => {
+        if (child.nodeName === "A") directLinks.push(child);
+      });
+      return;
+    }
 
     if (node.nodeName === "HR") {
       currentBody = null;
@@ -96,6 +103,11 @@ function organizeMegaMenuContent(target) {
     section.body.dataset.sectionIndex = String(index);
     detail.appendChild(section.body);
     tabs.appendChild(button);
+  });
+
+  directLinks.forEach(link => {
+    link.className = "mega-section-tab mega-direct-link";
+    tabs.appendChild(link);
   });
 
   target.appendChild(tabs);
