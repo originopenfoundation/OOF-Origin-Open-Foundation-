@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OOF Structured Architecture Index</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <section class="container">
+    <div class="oof-warning20">
+      <h1>CLIA® Architecture</h1>
+      <a href="CIS.html">Cognitive Integrity Standard (CIS)</a><br>
+      <a href="HCIS.html">Human Cognition Integrity Standard (HCIS)</a><br>
+      <a href="ACIS.html">Agent Cognition Integrity Standard (ACIS)</a><br>
+      <a href="MCIS.html">Multi-Agent Cognition Integrity Standard (MCIS)</a><br>
+      <a href="CIIS.html">Cognitive Interpretation Integrity Standard (CIIS)</a><br>
+      <a href="CRIS.html">Cognitive Reasoning Integrity Standard (CRIS)</a><br>
+      <a href="CRMS.html">Cognitive Reality Modeling Standard (CRMS)</a><br>
+      <a href="CCIS.html">Collective Cognition Integrity Standard (CCIS)</a><br>
+      <a href="HAICS.html">Human-AI Cognition Integrity Standard (HAICS)</a><br>
+      <a href="CEGS.html">Cognitive Evolution Governance Standard (CEGS)</a><br>
+    </div>
+    <section class="viewbor"></section>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="header.js"></script>
+  <script>
+    fetch("header.html").then(res => res.text()).then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+    fetch("footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+  </script>
+</body>
+</html>

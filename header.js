@@ -20,6 +20,7 @@ function toggleElement(id) {
 }
 
 function toggleBurger() {
+  ensureStructuredArchitectureLink();
   setupBurgerMainSections();
   toggleElement("burgerMenu");
 }
@@ -29,6 +30,7 @@ function toggleBurgerSub(submenuId) {
 }
 
 function buildMegaMenu() {
+  ensureStructuredArchitectureLink();
   const source = getById("burgerMenu");
   const target = getById("megaMenuContent");
   if (!source || !target || target.dataset.ready === "true") return;
@@ -40,6 +42,19 @@ function buildMegaMenu() {
   target.innerHTML = html;
   organizeMegaMenuContent(target);
   target.dataset.ready = "true";
+}
+
+function ensureStructuredArchitectureLink() {
+  const menu = getById("burgerMenu");
+  if (!menu || menu.querySelector('a[href="oof-structured-architecture-index.html"]')) return;
+
+  const standardsIndex = menu.querySelector('a[href="standardinde.html"]');
+  if (!standardsIndex) return;
+
+  const link = document.createElement("a");
+  link.href = "oof-structured-architecture-index.html";
+  link.textContent = "OOF Structured Architecture Index";
+  standardsIndex.insertAdjacentElement("afterend", link);
 }
 
 function organizeMegaMenuContent(target) {
