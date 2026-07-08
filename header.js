@@ -61,8 +61,8 @@ function organizeMegaMenuContent(target) {
   const nodes = Array.from(target.childNodes);
   target.textContent = "";
 
+  const entries = [];
   const sections = [];
-  const directLinks = [];
   let currentBody = null;
 
   nodes.forEach(node => {
@@ -72,7 +72,7 @@ function organizeMegaMenuContent(target) {
 
     if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("podstranka")) {
       Array.from(node.children).forEach(child => {
-        if (child.nodeName === "A") directLinks.push(child);
+        if (child.nodeName === "A") entries.push({ type: "direct", link: child });
       });
       return;
     }
@@ -89,6 +89,7 @@ function organizeMegaMenuContent(target) {
         title: node.textContent.trim(),
         body: currentBody
       });
+      entries.push({ type: "section", index: sections.length - 1 });
       return;
     }
 
@@ -110,20 +111,24 @@ function organizeMegaMenuContent(target) {
   detail.className = "mega-menu-detail";
 
   sections.forEach((section, index) => {
+    section.body.dataset.sectionIndex = String(index);
+    detail.appendChild(section.body);
+  });
+
+  entries.forEach(entry => {
+    if (entry.type === "direct") {
+      entry.link.className = "mega-section-tab mega-direct-link";
+      tabs.appendChild(entry.link);
+      return;
+    }
+
+    const section = sections[entry.index];
     const button = document.createElement("button");
     button.type = "button";
     button.className = "mega-section-tab";
     button.textContent = section.title;
-    button.addEventListener("click", () => showMegaSection(index));
-
-    section.body.dataset.sectionIndex = String(index);
-    detail.appendChild(section.body);
+    button.addEventListener("click", () => showMegaSection(entry.index));
     tabs.appendChild(button);
-  });
-
-  directLinks.forEach(link => {
-    link.className = "mega-section-tab mega-direct-link";
-    tabs.appendChild(link);
   });
 
   target.appendChild(tabs);
@@ -149,7 +154,7 @@ function showMegaSection(index) {
   const content = getById("megaMenuContent");
   if (!content) return;
 
-  content.querySelectorAll(".mega-section-tab").forEach((button, buttonIndex) => {
+  content.querySelectorAll("button.mega-section-tab").forEach((button, buttonIndex) => {
     button.classList.toggle("mega-section-active", buttonIndex === index);
   });
 
