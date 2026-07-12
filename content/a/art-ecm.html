@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+<div id="header"></div>
+
+<section class="container">
+<h2>ECM — Event Capture Module</h2>
+<div class="oof-warning3">
+<p class="podstand">
+<b>Parent Standard:</b> ART — Audit in Real Time Standard<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Real-Time Event Capture<br>
+<b>Type:</b> Audit Integrity Module<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Module<br>
+<b>Effective Date:</b> 7 May 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · ART · INTEGROS® · TVL® · OBIDENITY® · UCL™<br>
+<b>Authority:</b> OOF®<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)
+</p><br>
+</div>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<a><b>Event Capture Module</b> defines the structural conditions under which<br>
+an event is captured at the moment it occurs in a form that remains<br>
+traceable, verifiable, and linked to the originating system condition.</a><br><br>
+<a>An event capture condition is valid only if:
+<ul>
+<li>the event is captured at occurrence time</li>
+<li>the source of the event is identifiable</li>
+<li>the capture path is traceable</li>
+<li>the captured record remains linked to the originating system condition</li>
+<li>the event is not reconstructed as a substitute for live capture</li>
+<li>A captured record that is detached from the originating event does not satisfy ECM.</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Module Function</h1>
+<a>ECM defines how event capture becomes structurally valid before<br>
+later audit, validation, or operational reliance takes place.</a><br><br>
+<a>The module applies where a system must prove not only that an event<br>
+was recorded, but that it was captured as a real occurrence rather<br>
+than reconstructed history.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 1 — Define the Event Boundary</h1>
+<a>The organization must define what qualifies as an auditable event.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>event type is explicit</li>
+<li>event start condition is defined</li>
+<li>event boundary is distinguishable from background system activity</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 2 — Define Capture Timing</h1>
+<a>The system must define when capture occurs.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>capture occurs at event time or within structurally valid live linkage</li>
+<li>delayed reconstruction is not treated as event capture</li>
+<li>timing logic is explicit</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 3 — Define Event Source</h1>
+<a>The originating source of the event must be identifiable.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>actor, system, process, or trigger source is defined</li>
+<li>source identity is traceable</li>
+<li>anonymous or detached event origin is excluded from valid capture</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 4 — Define Capture Path</h1>
+<a>The route from event occurrence to captured record must remain visible.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>capture path is traceable</li>
+<li>no hidden capture substitution exists</li>
+<li>event does not enter the record through undefined intermediary logic</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 5 — Preserve Event-State Linkage</h1>
+<a>The captured event must remain linked to the system condition<br>
+present at occurrence.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>state linkage exists</li>
+<li>the captured event is not detached from its originating condition</li>
+<li>later interpretation does not replace structural linkage</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 6 — Restrict Invalid Substitution</h1>
+<a>The system must not treat inferred, summarized, or reconstructed<br>
+history as valid event capture.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>reconstructed records are distinguishable from live-captured events</li>
+<li>missing live capture is not silently replaced</li>
+<li>structural validity is not claimed without event-time linkage</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Scenario</h1>
+<a>A production system must prove that a critical operational event<br>
+occurred under a valid condition at the exact point of execution.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Application</h1>
+<a>ECM is used to ensure:
+<ul>
+<li>the event boundary is defined</li>
+<li>the event is captured at occurrence time</li>
+<li>the source process is identifiable</li>
+<li>the capture path remains traceable</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Result</h1>
+<a>The organization gains stronger audit defensibility and a materially<br>
+stronger basis for proving that the event was captured as<br>
+operational reality rather than reconstructed after the fact.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Scenario</h1>
+<a>An organization uses AI-assisted workflows and must verify when an<br>
+AI-triggered action, recommendation, or system event actually occurred.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Application</h1>
+<a>ECM is used to ensure:
+<ul>
+<li>the AI-related event is captured when triggered</li>
+<li>the originating source and condition are identifiable</li>
+<li>the event record remains linked to real runtime conditions</li>
+<li>later summaries do not replace live event capture</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Result</h1>
+<a>The organization gains a stronger basis for validating AI-related<br>
+event history, accountability, and audit reliability in environments<br>
+where delayed reconstruction would be too weak.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Canonical Closing Statement</h1>
+<a><b>If an event is not captured at the point of occurrence, it is not</b><br>
+<b>structurally captured as reality.</b></a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<h1>Related Documents</h1>
+<div class="oof-warning20">
+<a href="art.html">→ ART — Audit in Real Time Standard</a>
+</div><br><br><br><br>
+</section>
+
+<div id="footer"></div>
+
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  if (window.normalizePageLinks) window.normalizePageLinks();
+  });
+
+fetch("../../footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  if (window.normalizePageLinks) window.normalizePageLinks();
+  });
+</script>
+</body>
+</html>

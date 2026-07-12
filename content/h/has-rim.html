@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+<div id="header"></div>
+
+<section class="container">
+<h2>RIM — Runtime Isolation Module</h2>
+<div class="oof-warning3">
+<p class="podstand">
+<b>Parent Standard:</b> <b>Harness Architecture Standard</b><br>
+<b>Parent Architecture:</b> <b><b>Execution Layer</b> — Enforcement Standard</b><br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Runtime Isolation<br>
+<b>Type:</b> Execution Containment Module<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Module<br>
+<b>Effective Date:</b> 9 May 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · <b>Harness Architecture Standard</b> · <br><b><b>Execution Layer</b> — Enforcement Standard</b> · <b>RIS</b> · <b>INTEGROS®</b> · <b>OGL™</b> · <b>ART</b> · <b>OIB™</b><br>
+<b>Authority:</b> OOF®<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)
+</p><br>
+</div>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<a><b>Runtime Isolation Module</b> defines the structural conditions under<br>
+which execution remains isolated from unrelated runtimes, sessions,<br>
+processes, memory zones, contexts, or operational environments inside a<br>
+<b>contained execution</b> architecture.</a><br><br>
+<a>A system satisfies RIM only if:
+<ul>
+<li>runtime separation is explicitly defined</li>
+<li>isolated execution zones are distinguishable</li>
+<li>cross-runtime interference is restricted</li>
+<li>containment between sessions, tasks, or processes remains governed</li>
+<li>execution does not silently cross from one runtime context into another without controlled boundary conditions</li>
+</ul>
+</a><br><br>
+<a>A system that allows execution to move across runtime contexts without<br>
+governed isolation does not satisfy RIM.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Module Function</h1>
+<a>RIM defines the isolation layer of <b>contained execution</b>.</a><br><br>
+<a>It ensures that execution does not remain merely bounded in theory, but<br>
+also separated in practice from adjacent runtimes, unrelated sessions,<br>
+unapproved contexts, or uncontrolled operational pathways.</a><br><br>
+<a>The module applies wherever systems must preserve separation between:
+<ul>
+<li>concurrent execution sessions</li>
+<li>distinct agents or workflows</li>
+<li>internal and external runtimes</li>
+<li>restricted and unrestricted operational contexts</li>
+<li>isolated task environments</li>
+<li>bounded memory and process spaces</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Minimum Implementation Framework (MIF)</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 1 — Define Runtime Domains</h1>
+<a>The organization must define which runtime domains exist inside the<br>
+execution environment.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>runtime domains are explicit</li>
+<li>isolated and non-isolated contexts are distinguishable</li>
+<li>undefined runtime zones are excluded from valid operation</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 2 — Define Isolation Boundaries</h1>
+<a>The system must define how runtime contexts are separated.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>isolation boundaries are explicit</li>
+<li>session, process, or task separation is identifiable</li>
+<li>silent boundary collapse is excluded from valid containment</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 3 — Define Cross-Context Restrictions</h1>
+<a>The system must define when and how execution may interact across<br>
+runtime boundaries.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>cross-context interaction conditions are explicit</li>
+<li>unrestricted runtime crossover is excluded</li>
+<li>interaction between isolated zones does not occur by default</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 4 — Define Containment Integrity Conditions</h1>
+<a>The system must define how isolation remains preserved during execution.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>containment remains active during runtime</li>
+<li>boundary weakening, bleed, or shared-path leakage is detectable</li>
+<li>isolated execution does not silently merge into adjacent operational space</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 5 — Preserve Runtime Traceability</h1>
+<a>The system must preserve visibility of where execution occurred and<br>
+whether it crossed isolation boundaries.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>runtime location and transition path are traceable</li>
+<li>later review can reconstruct execution relative to isolated context</li>
+<li>isolation does not depend on hidden assumptions</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Step 6 — Restrict Invalid Runtime Operation</h1>
+<a>The system must not be treated as valid if execution proceeds across<br>
+runtime boundaries without governed separation, controlled transfer, or<br>
+traceable containment logic.</a><br><br>
+<a>Minimum requirement:
+<ul>
+<li>invalid isolation conditions are identifiable</li>
+<li>cross-runtime spillover is blocked or invalidated</li>
+<li>permission alone does not override runtime isolation</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Use Case 1 — Multi-Agent Session Containment</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Scenario</h1>
+<a>Multiple agents operate inside the same broader environment, but each<br>
+must remain isolated from unrelated tasks, runtime state, and execution<br>
+context unless controlled transfer is explicitly allowed.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Application</h1>
+<a>RIM is used to ensure:
+<ul>
+<li>runtime domains are clearly defined</li>
+<li>each execution session remains isolated</li>
+<li>uncontrolled cross-session interaction is restricted</li>
+<li>execution cannot silently move between agent contexts</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Result</h1>
+<a>The organization gains a stronger basis for preventing <b>contained<br>
+execution</b> from collapsing into shared uncontrolled runtime behavior.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Use Case 2 — Enterprise Runtime with Restricted Zones</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Scenario</h1>
+<a>A system operates across internal execution areas with different levels<br>
+of access, sensitivity, or operational role, and must ensure that<br>
+execution inside one zone does not automatically affect another.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Application</h1>
+<a>RIM is used to ensure:
+<ul>
+<li>runtime zones remain separated</li>
+<li>boundary conditions are explicit</li>
+<li>cross-zone execution is controlled</li>
+<li>containment integrity remains visible during operation</li>
+</ul>
+</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Result</h1>
+<a>The organization gains a structurally governed runtime isolation layer<br>
+instead of relying on assumed separation between execution contexts.</a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<div class="oof-warning3">
+<h1>Canonical Closing Statement</h1>
+<a><b>If execution is not isolated, execution containment is not<br>
+structurally real.</b></a><br><br>
+</div>
+<section class="viewbor"></section>
+</section>
+
+<section class="container">
+<h1>Related Documents</h1>
+<div class="oof-warning20">
+<a href="has.html">→ Harness Architecture Standard</a>
+</div><br><br><br><br>
+</section>
+
+<div id="footer"></div>
+
+<script src="../../header.js"></script>
+
+<script>
+fetch("../../header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  if (window.normalizePageLinks) window.normalizePageLinks();
+  });
+
+fetch("../../footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  if (window.normalizePageLinks) window.normalizePageLinks();
+  });
+</script>
+</body>
+</html>

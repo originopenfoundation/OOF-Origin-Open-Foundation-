@@ -19,6 +19,28 @@ function toggleElement(id) {
   element.style.display = isOpen(element) ? "none" : "block";
 }
 
+
+function getSiteRootPrefix() {
+  const path = window.location.pathname.replace(/\\/g, "/");
+  const parts = path.split("/").filter(Boolean);
+  if (parts.length <= 1) return "";
+  return "../".repeat(parts.length - 1);
+}
+
+function withSiteRoot(url) {
+  if (!url || /^(?:[a-z]+:|#|\/)/i.test(url)) return url;
+  return getSiteRootPrefix() + url.replace(/^\.\//, "");
+}
+
+function normalizePageLinks(root = document) {
+  root.querySelectorAll("a[href]").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href && !/^(?:[a-z]+:|#|\/|\.\.\/)/i.test(href)) {
+      link.setAttribute("href", withSiteRoot(href));
+    }
+  });
+}
+
 function toggleBurger() {
   ensureStructuredArchitectureLink();
   setupBurgerMainSections();
@@ -52,7 +74,7 @@ function ensureStructuredArchitectureLink() {
   if (!standardsIndex) return;
 
   const link = document.createElement("a");
-  link.href = "oof-structured-architecture-index.html";
+  link.href = withSiteRoot("oof-structured-architecture-index.html");
   link.textContent = "OOF Structured Architecture Index";
   standardsIndex.insertAdjacentElement("afterend", link);
 }
@@ -241,7 +263,7 @@ async function loadSiteSearchIndex(resultsId = "siteSearchResults") {
   renderSearchStatus("Loading search...", resultsId);
 
   try {
-    const response = await fetch("search-index.json", { cache: "no-store" });
+    const response = await fetch(withSiteRoot("search-index.json"), { cache: "no-store" });
     if (!response.ok) throw new Error("Search index not found");
     siteSearchIndex = await response.json();
     renderSearchStatus("Type to search.", resultsId);
@@ -281,7 +303,7 @@ function runSiteSearch(query, resultsId = "siteSearchResults") {
   results.innerHTML = matches.map(({ page }) => {
     const title = highlightSearchTerms(page.title || page.url, words);
     const excerpt = highlightSearchTerms(makeSearchExcerpt(page.text || "", words), words);
-    return `<a class="site-search-result" href="${page.url}"><b>${title}</b><span>${excerpt}</span></a>`;
+    return `<a class="site-search-result" href="${withSiteRoot(page.url)}"><b>${title}</b><span>${excerpt}</span></a>`;
   }).join("");
 }
 
@@ -358,4 +380,5 @@ document.addEventListener("click", event => {
 document.addEventListener("DOMContentLoaded", () => {
   buildMegaMenu();
   setupBurgerMainSections();
+  normalizePageLinks();
 });

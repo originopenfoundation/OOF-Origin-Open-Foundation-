@@ -167,12 +167,14 @@ fetch("header.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("header").innerHTML = data;
+  if (window.normalizePageLinks) window.normalizePageLinks();
   });
 
 fetch("footer.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
+  if (window.normalizePageLinks) window.normalizePageLinks();
   });
 </script>
 </body>
