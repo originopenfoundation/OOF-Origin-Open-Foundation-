@@ -377,8 +377,31 @@ document.addEventListener("click", event => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+function initializeHeaderNavigation() {
+  normalizePageLinks();
   buildMegaMenu();
   setupBurgerMainSections();
-  normalizePageLinks();
-});
+}
+
+function watchHeaderNavigation() {
+  const headerRoot = getById("header");
+  if (!headerRoot || headerRoot.dataset.navigationWatcher === "true") return;
+
+  headerRoot.dataset.navigationWatcher = "true";
+
+  if (headerRoot.querySelector("header")) {
+    initializeHeaderNavigation();
+    return;
+  }
+
+  const observer = new MutationObserver(() => {
+    if (!headerRoot.querySelector("header")) return;
+    initializeHeaderNavigation();
+    observer.disconnect();
+  });
+
+  observer.observe(headerRoot, { childList: true });
+}
+
+watchHeaderNavigation();
+document.addEventListener("DOMContentLoaded", watchHeaderNavigation);
