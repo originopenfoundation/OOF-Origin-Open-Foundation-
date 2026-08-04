@@ -237,6 +237,56 @@ function setupBurgerMainSections() {
   menu.dataset.ready = "true";
 }
 
+function createPageAnchor(heading, index) {
+  if (heading.id) return heading.id;
+
+  const base = heading.textContent
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "") || `section-${index + 1}`;
+  let id = base;
+  let suffix = 2;
+
+  while (document.getElementById(id)) {
+    id = `${base}-${suffix}`;
+    suffix += 1;
+  }
+
+  heading.id = id;
+  return id;
+}
+
+function setupPageContentsNavigation() {
+  if (getById("pageContents")) return;
+
+  const headings = Array.from(document.querySelectorAll(
+    "body > section.container .oof-warning3 > h1, body > section.container > h1"
+  )).filter(heading => !heading.closest("#header, #footer"));
+
+  if (headings.length < 2) return;
+
+  const aside = document.createElement("aside");
+  aside.id = "pageContents";
+  aside.className = "page-contents";
+  aside.setAttribute("aria-label", "On this page");
+
+  const title = document.createElement("h2");
+  title.textContent = "On this page";
+  aside.appendChild(title);
+
+  const navigation = document.createElement("nav");
+  headings.forEach((heading, index) => {
+    const link = document.createElement("a");
+    link.href = `#${createPageAnchor(heading, index)}`;
+    link.textContent = heading.textContent.trim();
+    navigation.appendChild(link);
+  });
+
+  aside.appendChild(navigation);
+  document.body.appendChild(aside);
+}
+
 function toggleSiteSearch() {
   const panel = getById("siteSearchPanel");
   const input = getById("siteSearchInput");
@@ -381,6 +431,8 @@ function initializeHeaderNavigation() {
   normalizePageLinks();
   buildMegaMenu();
   setupBurgerMainSections();
+  setupPageContentsNavigation();
+  document.body.classList.add("oof-sidebar-layout");
 }
 
 function watchHeaderNavigation() {
