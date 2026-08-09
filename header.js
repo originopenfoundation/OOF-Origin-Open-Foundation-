@@ -1,5 +1,66 @@
 let siteSearchIndex = null;
 let siteSearchLoading = false;
+const navigationStateKey = "oof-navigation-expanded";
+const navigationScrollKey = "oof-navigation-scroll";
+
+function getNavigationState() {
+  try {
+    return JSON.parse(sessionStorage.getItem(navigationStateKey) || "{}");
+  } catch (error) {
+    return {};
+  }
+}
+
+function getNavigationStateId(id) {
+  return id.replace(/^mega-/, "");
+}
+
+function saveNavigationState(id, expanded) {
+  try {
+    const state = getNavigationState();
+    const stateId = getNavigationStateId(id);
+    if (expanded) state[stateId] = true;
+    else delete state[stateId];
+    sessionStorage.setItem(navigationStateKey, JSON.stringify(state));
+  } catch (error) {
+    return;
+  }
+}
+
+function restoreNavigationState(menu) {
+  const state = getNavigationState();
+
+  menu.querySelectorAll("[aria-controls]").forEach(toggle => {
+    const controlledId = toggle.getAttribute("aria-controls");
+    if (!controlledId || !state[getNavigationStateId(controlledId)]) return;
+
+    const controlled = getById(controlledId);
+    if (!controlled) return;
+
+    controlled.style.display = "block";
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.classList.toggle("burger-main-active", toggle.classList.contains("burger-main-toggle"));
+    toggle.classList.toggle("menu-toggle-open", toggle.classList.contains("burger-toggle"));
+  });
+}
+
+function setupNavigationScrollPersistence(menu) {
+  if (menu.dataset.scrollPersistenceReady === "true") return;
+  menu.dataset.scrollPersistenceReady = "true";
+
+  requestAnimationFrame(() => {
+    const savedScroll = Number(sessionStorage.getItem(navigationScrollKey));
+    if (Number.isFinite(savedScroll) && savedScroll > 0) menu.scrollTop = savedScroll;
+  });
+
+  menu.addEventListener("scroll", () => {
+    try {
+      sessionStorage.setItem(navigationScrollKey, String(menu.scrollTop));
+    } catch (error) {
+      return;
+    }
+  }, { passive: true });
+}
 
 function getById(id) {
   return document.getElementById(id);
@@ -57,6 +118,7 @@ function toggleSubmenu(submenuId, toggle) {
 
   const opening = !isOpen(submenu);
   submenu.style.display = opening ? "block" : "none";
+  saveNavigationState(submenuId, opening);
   if (toggle) {
     toggle.classList.toggle("menu-toggle-open", opening);
     toggle.setAttribute("aria-expanded", String(opening));
@@ -261,6 +323,7 @@ function setupBurgerMainSections() {
         toggle.classList.toggle("burger-main-active", opening);
         toggle.setAttribute("aria-expanded", String(opening));
         sectionBody.style.display = opening ? "block" : "none";
+        saveNavigationState(sectionBody.id, opening);
       });
 
       fragment.appendChild(toggle);
@@ -282,6 +345,8 @@ function setupBurgerMainSections() {
     if (sectionBody?.id) configureMenuToggle(toggle, sectionBody.id);
   });
   initializeSubmenuControls(menu);
+  restoreNavigationState(menu);
+  setupNavigationScrollPersistence(menu);
   menu.dataset.ready = "true";
 }
 
