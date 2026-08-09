@@ -57,7 +57,36 @@ function toggleSubmenu(submenuId, toggle) {
 
   const opening = !isOpen(submenu);
   submenu.style.display = opening ? "block" : "none";
-  if (toggle) toggle.classList.toggle("menu-toggle-open", opening);
+  if (toggle) {
+    toggle.classList.toggle("menu-toggle-open", opening);
+    toggle.setAttribute("aria-expanded", String(opening));
+  }
+}
+
+function configureMenuToggle(toggle, controlledId) {
+  const controlled = getById(controlledId);
+  if (!toggle || !controlled) return;
+
+  toggle.setAttribute("role", "button");
+  toggle.setAttribute("tabindex", "0");
+  toggle.setAttribute("aria-controls", controlledId);
+  toggle.setAttribute("aria-expanded", String(isOpen(controlled)));
+
+  if (toggle.dataset.keyboardReady === "true") return;
+  toggle.dataset.keyboardReady = "true";
+  toggle.addEventListener("keydown", event => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    toggle.click();
+  });
+}
+
+function initializeSubmenuControls(root) {
+  root.querySelectorAll(".burger-toggle[onclick]").forEach(toggle => {
+    const handler = toggle.getAttribute("onclick") || "";
+    const match = handler.match(/toggle(?:Burger|Mega)Sub\('([^']+)'/);
+    if (match) configureMenuToggle(toggle, match[1]);
+  });
 }
 
 function buildMegaMenu() {
@@ -72,6 +101,7 @@ function buildMegaMenu() {
 
   target.innerHTML = html;
   organizeMegaMenuContent(target);
+  initializeSubmenuControls(target);
   target.dataset.ready = "true";
 }
 
@@ -202,6 +232,7 @@ function setupBurgerMainSections() {
   const nodes = Array.from(menu.childNodes);
   const fragment = document.createDocumentFragment();
   let currentBody = null;
+  let sectionIndex = 0;
 
   nodes.forEach(node => {
     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === "") return;
@@ -222,11 +253,14 @@ function setupBurgerMainSections() {
 
       const sectionBody = document.createElement("div");
       sectionBody.className = "burger-main-section";
+      sectionBody.id = `burger-main-section-${sectionIndex++}`;
       currentBody = sectionBody;
 
       toggle.addEventListener("click", () => {
-        toggle.classList.toggle("burger-main-active");
-        sectionBody.style.display = sectionBody.style.display === "block" ? "none" : "block";
+        const opening = sectionBody.style.display !== "block";
+        toggle.classList.toggle("burger-main-active", opening);
+        toggle.setAttribute("aria-expanded", String(opening));
+        sectionBody.style.display = opening ? "block" : "none";
       });
 
       fragment.appendChild(toggle);
@@ -243,6 +277,11 @@ function setupBurgerMainSections() {
 
   menu.textContent = "";
   menu.appendChild(fragment);
+  menu.querySelectorAll(".burger-main-toggle").forEach(toggle => {
+    const sectionBody = toggle.nextElementSibling;
+    if (sectionBody?.id) configureMenuToggle(toggle, sectionBody.id);
+  });
+  initializeSubmenuControls(menu);
   menu.dataset.ready = "true";
 }
 
