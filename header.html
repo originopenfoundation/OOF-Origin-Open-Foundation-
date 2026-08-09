@@ -27,7 +27,7 @@
   </div>
 
   <div id="siteSearchPanel" class="site-search-panel">
-    <input id="siteSearchInput" class="site-search-input" type="search" placeholder="Search OOF®..." oninput="runSiteSearch(this.value)" autocomplete="off">
+    <input id="siteSearchInput" class="site-search-input" type="search" placeholder="Search OOF Site" oninput="runSiteSearch(this.value)" autocomplete="off">
     <div id="siteSearchResults" class="site-search-results"></div>
   </div>
 </nav>
@@ -41,7 +41,7 @@
 <div id="burgerMenu" class="burger-menu">
   <div class="burger-search">
     <label class="burger-search-label" for="burgerSearchInput">⌕ Search</label>
-    <input id="burgerSearchInput" class="site-search-input" type="search" placeholder="Search OOF®..." onfocus="loadSiteSearchIndex('burgerSearchResults')" oninput="runSiteSearch(this.value, 'burgerSearchResults')" autocomplete="off">
+    <input id="burgerSearchInput" class="site-search-input" type="search" placeholder="Search OOF Site" onfocus="loadSiteSearchIndex('burgerSearchResults')" oninput="runSiteSearch(this.value, 'burgerSearchResults')" autocomplete="off">
     <div id="burgerSearchResults" class="site-search-results"></div>
   </div>
   <br><br><h3 class="nadp">OOF®</h3>
@@ -97,7 +97,7 @@
   <a href="content/m/minfra-2-OOR.html">Origin Open Registry™ (OOR™)</a>
   <a href="content/m/minfra-3-ESA.html">Emerging Spaces Atlas™ (ESA™)</a>
   <a href="content/m/minfra-4-OOFCMR.html">OOF Canonical Meaning Registry™ (OOFCMR™)</a>
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerPsiiMenu')">OOF Problem Space Intelligence Index™ (PSII™) ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerPsiiMenu', this)">OOF Problem Space Intelligence Index™ (PSII™)</h4>
 <div id="burgerPsiiMenu" class="burger-submenu burger-subsection">
   <a href="content/m/minfra-5-PSII.html">OOF Problem Space Intelligence Index™ (PSII™)</a>
   <a href="content/p/psii-governance-architecture-questions.html">Governance Architecture Questions</a>
@@ -139,9 +139,9 @@
 
   <hr>
   <h3 class="nadp">Methodology Intelligence Tools™</h3>
-<h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerIntelligenceMenu')">Governance Intelligence Engine™ ▾</h4>
+<h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerIntelligenceMenu', this)">Governance Intelligence Engine™</h4>
 <div id="burgerIntelligenceMenu" class="burger-submenu">
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerEngineMenu')">About Governance Intelligence Engine™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerEngineMenu', this)">About Governance Intelligence Engine™</h5>
   <div id="burgerEngineMenu" class="burger-submenu burger-subsection">
   <a href="content/e/engine-1.html">Governance Intelligence Engine™</a>
   <a href="content/e/engine-2.html">Governance Intelligence Analytics™</a>
@@ -150,7 +150,7 @@
   <a href="content/e/engine-5.html">Modular Architecture™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerSemanticMenu')">Semantic Governance™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerSemanticMenu', this)">Semantic Governance™</h5>
   <div id="burgerSemanticMenu" class="burger-submenu burger-subsection">
   <a href="content/a/AboutSemanticGovernanceArchitecture.html">About Semantic Governance Architecture™</a>
   <a href="content/a/ActiveSemanticLayer.html">Active Semantic Layer™</a>
@@ -164,7 +164,7 @@
   <a href="content/s/SharedSemanticLayer.html">Shared Semantic Layer™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerGovernanceNavMenu')">Governance Navigation™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerGovernanceNavMenu', this)">Governance Navigation™</h5>
   <div id="burgerGovernanceNavMenu" class="burger-submenu burger-subsection">
   <a href="content/g/governance-1.html">About Governance Navigation™</a>
   <a href="content/g/governance-2.html">Problem Identification™</a>
@@ -176,7 +176,7 @@
   <a href="content/g/governance-8.html">Governance Diagnostics™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerSimulationMenu')">Governance Simulation™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerSimulationMenu', this)">Governance Simulation™</h5>
   <div id="burgerSimulationMenu" class="burger-submenu burger-subsection">
   <a href="content/s/sim-1-AGS.html">About Governance Simulation™</a>
   <a href="content/s/sim-2-SM.html">Scenario Modeling™</a>
@@ -188,7 +188,7 @@
   <a href="content/s/sim-8-SD.html">Simulation Diagnostics™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerGaodMenu')">Governance Architecture On Demand™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerGaodMenu', this)">Governance Architecture On Demand™</h5>
   <div id="burgerGaodMenu" class="burger-submenu burger-subsection">
   <a href="content/g/gaod-1-AGAOD.html">About Governance Architecture On Demand™</a>
   <a href="content/g/gaod-2-GLD.html">Governance Logic Design™</a>
@@ -200,7 +200,7 @@
   <a href="content/g/gaod-8-AR.html">Architecture Recommendation™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerResimMenu')">Governance Re-Simulation™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerResimMenu', this)">Governance Re-Simulation™</h5>
   <div id="burgerResimMenu" class="burger-submenu burger-subsection">
   <a href="content/r/resim-1-AGRS.html">About Governance Re-Simulation™</a>
   <a href="content/r/resim-2-ARS.html">Architecture Re-Simulation™</a>
@@ -212,7 +212,7 @@
   <a href="content/r/resim-8-RSD.html">Re-Simulation Diagnostics™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerOperationalRealityMenu')">Operational Reality™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerOperationalRealityMenu', this)">Operational Reality™</h5>
   <div id="burgerOperationalRealityMenu" class="burger-submenu burger-subsection">
   <a href="content/o/opreal-1-AOR.html">About Operational Reality™</a>
   <a href="content/o/opreal-2-RO.html">Reality Observation™</a>
@@ -224,7 +224,7 @@
   <a href="content/o/opreal-8-ORD.html">Operational Reality Diagnostics™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerArtMenu')">ART™ Audit in Real Time™ ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerArtMenu', this)">ART™ Audit in Real Time™</h5>
   <div id="burgerArtMenu" class="burger-submenu burger-subsection">
   <a href="content/a/artfam-1-AART.html">About ART™ Audit in Real Time™</a>
   <a href="content/a/artfam-2-EC.html">Evidence Collection™</a>
@@ -236,7 +236,7 @@
   <a href="content/a/artfam-8-AD.html">ART Diagnostics™</a>
   </div>
 
-  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerArtDataMenu')">ArtData® ▾</h5>
+  <h5 class="burger-toggle burger-subtitle burger-subsection-title" onclick="toggleBurgerSub('burgerArtDataMenu', this)">ArtData®</h5>
   <div id="burgerArtDataMenu" class="burger-submenu burger-subsection">
   <a href="content/a/artdata-1-AA.html">About ArtData®</a>
   <a href="content/a/artdata-2-AQ.html">ArtData Qualification™</a>
@@ -249,7 +249,7 @@
   </div>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerMvfMenu')">MVF™ — Methodology Assessment &amp; Valuation Framework™ ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerMvfMenu', this)">MVF™ — Methodology Assessment &amp; Valuation Framework™</h4>
   <div id="burgerMvfMenu" class="burger-submenu">
   <a href="content/m/mvf-1-AMVF.html">MVF™ — Methodology Assessment &amp; Valuation Framework™</a>
   <a href="content/m/mvf-2-WMVM.html">Why Methodology Valuation Matters™</a>
@@ -291,7 +291,7 @@
   <a href="reference-architectures.html">OOF® Reference Architectures</a>
   <a href="content/r/ris.html">Runtime Integrity Standard™ (RIS™)</a>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefIntegrosMenu')"> INTEGROS® Integrity Governance Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefIntegrosMenu', this)"> INTEGROS® Integrity Governance Architecture</h4>
   <div id="burgerRefIntegrosMenu" class="burger-submenu burger-subsection">
   <a href="content/integros/INTEGROS® Architecture Map.html">INTEGROS® Architecture Map</a>
   <a href="content/integros/INTEGROS® Complete Standards & Modules Index.html">INTEGROS® Complete Standards & Modules Index</a>
@@ -299,7 +299,7 @@
   <a href="content/integros/INTEGROS® Integrity Governance Architecture - Integrity Governance Layer.html">INTEGROS® Integrity Governance Architecture - Integrity Governance Layer</a>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefAigMenu')"> AIG® - Governance Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefAigMenu', this)"> AIG® - Governance Architecture</h4>
   <div id="burgerRefAigMenu" class="burger-submenu burger-subsection">
   <a href="content/aig/AIG® Architecture Map.html">AIG® Architecture Map</a>
   <a href="content/aig/About AI Governance Architecture (AIG®).html">About AI Governance Architecture (AIG®)</a>
@@ -307,7 +307,7 @@
   <a href="content/aig/AIG® Complete Standards &amp; Modules Index.html">AIG® Complete Standards &amp; Modules Index</a>
   </div>
   
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefGoaMenu')"> GOA™ - Governance Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefGoaMenu', this)"> GOA™ - Governance Architecture</h4>
   <div id="burgerRefGoaMenu" class="burger-submenu burger-subsection">
   <a href="content/a/About Governance Architecture (GOA™).html">About Governance Architecture (GOA™)</a>
   <a href="content/g/GOA™ Architecture Map.html">GOA™ Architecture Map</a>
@@ -316,7 +316,7 @@
   <a href="content/o/OOF® Official Architecture Map Template.html">OOF® Official Architecture Map Template</a>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefOraMenu')">ORA™ - Operational Reality Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefOraMenu', this)">ORA™ - Operational Reality Architecture</h4>
   <div id="burgerRefOraMenu" class="burger-submenu burger-subsection">
   <a href="content/a/ais-ora-map.html">ORA™ Architecture Map</a>
   <a href="content/o/ora-about.html">About Operational Reality Architecture (ORA™)</a>
@@ -324,21 +324,21 @@
   <a href="content/o/ora-complete-index.html">ORA™ Complete Standards &amp; Modules Index</a>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefCliaMenu')">CLIA® — Cognitive Layer Integrity Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefCliaMenu', this)">CLIA® — Cognitive Layer Integrity Architecture</h4>
   <div id="burgerRefCliaMenu" class="burger-submenu burger-subsection">
   <a href="content/a/ais-clia-map.html">CLIA® Architecture Map</a>
   <a href="content/r/ref-clia-architecture-index.html">CLIA® Architecture Index</a>
   <a href="content/r/ref-clia-complete-index.html">CLIA® Complete Standards &amp; Modules Index</a>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefMgiaMenu')">MGIA™ — Memory Governance Intelligence Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefMgiaMenu', this)">MGIA™ — Memory Governance Intelligence Architecture</h4>
   <div id="burgerRefMgiaMenu" class="burger-submenu burger-subsection">
   <a href="content/a/ais-mgia-map.html">MGIA™ Architecture Map</a>
   <a href="content/r/ref-mgia-architecture-index.html">MGIA™ Architecture Index</a>
   <a href="content/r/ref-mgia-complete-index.html">MGIA™ Complete Standards &amp; Modules Index</a>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefAgaMenu')">AGA™ — Accountability Governance Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefAgaMenu', this)">AGA™ — Accountability Governance Architecture</h4>
   <div id="burgerRefAgaMenu" class="burger-submenu burger-subsection">
   <a href="content/a/ais-aga-map.html">AGA™ Architecture Map</a>
   <a href="content/r/ref-aga-architecture-index.html">AGA™ Architecture Index</a>
@@ -347,7 +347,7 @@
 <a href="content/c/cap.html">Chain Accountability Protocol - (CAP)</a>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefAsgaMenu')">ASGA™ — Autonomous Systems Governance Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefAsgaMenu', this)">ASGA™ — Autonomous Systems Governance Architecture</h4>
   <div id="burgerRefAsgaMenu" class="burger-submenu burger-subsection">
   <a href="content/a/asga-architecture-map.html">ASGA™ Architecture Map</a>
   <a href="content/a/asga-about.html">About Autonomous Systems Governance Architecture (ASGA™)</a>
@@ -355,7 +355,7 @@
   <a href="content/a/asga-complete-index.html">ASGA™ Complete Standards &amp; Modules Index</a>
   </div>
 
-  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefObidenityMenu')">OBIDENITY® — Origin-Bound Identity Governance Architecture ▾</h4>
+  <h4 class="burger-toggle burger-subtitle" onclick="toggleBurgerSub('burgerRefObidenityMenu', this)">OBIDENITY® — Origin-Bound Identity Governance Architecture</h4>
   <div id="burgerRefObidenityMenu" class="burger-submenu burger-subsection">
   <a href="content/o/obidenity-architecture-map.html">OBIDENITY® Architecture Map</a>
   <a href="content/o/obidenity-about.html">About Origin-Bound Identity Governance Architecture (OBIDENITY®)</a>

@@ -316,12 +316,12 @@ header.container > .subtitle3 {
 }
 
 .mega-section-tab::after {
-  content: " ▾";
+  content: "+";
   float: right;
 }
 
 .mega-section-active::after {
-  content: " ›";
+  content: "−";
 }
 
 .mega-menu-content .mega-direct-link {
@@ -1844,12 +1844,12 @@ nav {
 }
 
 .burger-main-toggle::after {
-  content: " ▾";
+  content: "+";
   float: right;
 }
 
 .burger-main-active::after {
-  content: " ›";
+  content: "−";
 }
 
 .burger-main-section {
@@ -1860,6 +1860,16 @@ nav {
 .burger-toggle {
   cursor: pointer;
   user-select: none;
+}
+
+.burger-toggle::after {
+  content: "+";
+  float: right;
+  margin-left: 10px;
+}
+
+.burger-toggle.menu-toggle-open::after {
+  content: "−";
 }
 
 .burger-submenu {
@@ -1906,11 +1916,11 @@ nav {
 }
 
 .burger-main-toggle::after {
-  content: " ▾";
+  content: "+";
 }
 
 .burger-main-active::after {
-  content: " ›";
+  content: "−";
 }
 
 .burger-main-section a,

@@ -47,8 +47,17 @@ function toggleBurger() {
   toggleElement("burgerMenu");
 }
 
-function toggleBurgerSub(submenuId) {
-  toggleElement(submenuId);
+function toggleBurgerSub(submenuId, toggle) {
+  toggleSubmenu(submenuId, toggle);
+}
+
+function toggleSubmenu(submenuId, toggle) {
+  const submenu = getById(submenuId);
+  if (!submenu) return;
+
+  const opening = !isOpen(submenu);
+  submenu.style.display = opening ? "block" : "none";
+  if (toggle) toggle.classList.toggle("menu-toggle-open", opening);
 }
 
 function buildMegaMenu() {
@@ -58,7 +67,7 @@ function buildMegaMenu() {
   if (!source || !target || target.dataset.ready === "true") return;
 
   const html = (source.dataset.originalHtml || source.innerHTML)
-    .replace(/toggleBurgerSub\('([^']+)'\)/g, "toggleMegaSub('mega-$1')")
+    .replace(/toggleBurgerSub\('([^']+)', this\)/g, "toggleMegaSub('mega-$1', this)")
     .replace(/id="([^"]+)"/g, 'id="mega-$1"');
 
   target.innerHTML = html;
@@ -168,8 +177,8 @@ function closeMegaMenu() {
   setDisplay(getById("megaMenu"), "none");
 }
 
-function toggleMegaSub(submenuId) {
-  toggleElement(submenuId);
+function toggleMegaSub(submenuId, toggle) {
+  toggleSubmenu(submenuId, toggle);
 }
 
 function showMegaSection(index) {
