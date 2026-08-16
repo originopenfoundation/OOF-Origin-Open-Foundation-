@@ -1810,13 +1810,19 @@ nav {
   right: 0;
   width: clamp(320px, 86vw, 420px);
   height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   background: #949494;
 
-  padding: 22px 24px;
+  padding: 22px 24px calc(34px + env(safe-area-inset-bottom));
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   box-shadow: -2px 0 10px rgba(0,0,0,0.5);
   z-index: 1500;
-  right: 0;
 }
 
 .burger-search {
