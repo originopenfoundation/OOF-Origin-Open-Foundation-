@@ -2055,8 +2055,19 @@ nav {
   }
 
   .burger-menu {
+    top: 0;
+    right: 0;
+    bottom: 0;
     width: min(92vw, 420px);
     padding: 22px 22px 34px;
+    height: auto;
+    max-height: none;
+    padding: 22px 22px calc(34px + env(safe-area-inset-bottom));
+    overflow-x: hidden;
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
 
   .burger-menu a {
