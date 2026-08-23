@@ -3,6 +3,16 @@ let siteSearchLoading = false;
 const navigationStateKey = "oof-navigation-expanded";
 const navigationScrollKey = "oof-navigation-scroll";
 
+function loadCloudflareAnalytics() {
+  if (document.querySelector('script[data-cf-beacon]')) return;
+
+  const beacon = document.createElement("script");
+  beacon.type = "module";
+  beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  beacon.dataset.cfBeacon = JSON.stringify({ token: "358af31e8be84a238826900e0aba2cc3" });
+  document.body.appendChild(beacon);
+}
+
 function getNavigationState() {
   try {
     return JSON.parse(sessionStorage.getItem(navigationStateKey) || "{}");
@@ -570,3 +580,4 @@ function watchHeaderNavigation() {
 
 watchHeaderNavigation();
 document.addEventListener("DOMContentLoaded", watchHeaderNavigation);
+loadCloudflareAnalytics();
