@@ -2469,6 +2469,31 @@ padding:10px;
   }
 }
 
+.oof-semantic-main,
+.oof-semantic-article {
+  display: contents;
+}
+
+.psii-reader-active > .oof-semantic-main > .oof-semantic-article > .container {
+  width: min(760px, 100%);
+  max-width: 760px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.psii-reader-active > .oof-semantic-main > .oof-semantic-article > .container:first-of-type {
+  padding-bottom: 4px;
+}
+
+.faq-page > .oof-semantic-main > .oof-semantic-article > section.container {
+  margin-bottom: 18px;
+}
+
+.faq-page > .oof-semantic-main > .oof-semantic-article > section.container > h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
 @media (min-width: 960px) {
   body.oof-sidebar-layout {
     padding: 0;
@@ -2630,7 +2655,8 @@ padding:10px;
   }
 
   .oof-sidebar-layout > section.container,
-  .oof-sidebar-layout > main {
+  .oof-sidebar-layout > main,
+  .oof-sidebar-layout > .oof-semantic-main > .oof-semantic-article > section.container {
     width: min(860px, calc(100vw - 650px));
     max-width: 860px;
     margin-left: max(380px, calc((100vw - 760px) / 2));
@@ -2638,6 +2664,10 @@ padding:10px;
   }
 
   .oof-sidebar-layout > section.container:first-of-type {
+    padding-top: 28px;
+  }
+
+  .oof-sidebar-layout > .oof-semantic-main > .oof-semantic-article > section.container:first-of-type {
     padding-top: 28px;
   }
 
@@ -2717,7 +2747,8 @@ padding:10px;
 
 @media (min-width: 960px) and (max-width: 1199px) {
   .oof-sidebar-layout > section.container,
-  .oof-sidebar-layout > main {
+  .oof-sidebar-layout > main,
+  .oof-sidebar-layout > .oof-semantic-main > .oof-semantic-article > section.container {
     width: calc(100vw - 390px);
     max-width: none;
     margin-left: 360px;

@@ -18,6 +18,9 @@ SITE_NAME = "OOF® — OriginOpen® Foundation"
 START = "<!-- OOF AI DISCOVERY START -->"
 END = "<!-- OOF AI DISCOVERY END -->"
 BLOCK_RE = re.compile(re.escape(START) + r".*?" + re.escape(END) + r"\s*", re.S)
+SECTION_ID_MARKER = "data-oof-section-id"
+SEMANTIC_START = "<!-- OOF SEMANTIC CONTENT START -->"
+SEMANTIC_END = "<!-- OOF SEMANTIC CONTENT END -->"
 FIELD_NAMES = (
     "OriginID",
     "Architecture",
@@ -27,6 +30,9 @@ FIELD_NAMES = (
     "Subcategory",
     "Type",
     "Governed Space",
+    "Version",
+    "Publication Date",
+    "Superseded By",
     "Status",
     "Canonical Language",
 )
@@ -86,6 +92,13 @@ class PageParser(HTMLParser):
 
 def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(value)).strip()
+
+
+def section_slug(value: str) -> str:
+    value = clean_text(re.sub(r"<[^>]+>", " ", value)).casefold()
+    value = value.replace("&", " and ")
+    value = re.sub(r"[^a-z0-9]+", "-", value).strip("-")
+    return value[:80] or "section"
 
 
 def public_pages() -> list[Path]:
@@ -185,9 +198,57 @@ def inspect_pages(paths: list[Path]) -> list[dict]:
                 "fields": fields,
                 "links": resolve_internal_links(path, parser.hrefs, known_urls),
                 "visibleText": parser.visible_text(),
+                "source": source,
             }
         )
+    add_typed_relations(records)
     return records
+
+
+def relation_type(context: str) -> str:
+    value = context.casefold()
+    if "cross-architecture" in value or "cross architecture" in value:
+        return "crossArchitectureInterface"
+    if "standards compatibility" in value or "compatible standard" in value:
+        return "standardsCompatibility"
+    if "internal module flow" in value or "module architecture" in value:
+        return "moduleFlow"
+    if "parent resource" in value or "parent standard" in value:
+        return "parentResource"
+    if "related document" in value or "related resource" in value:
+        return "relatedDocument"
+    return "relatedLink"
+
+
+def add_typed_relations(records: list[dict]) -> None:
+    by_relative = {record["relative"]: record for record in records}
+    known = set(by_relative)
+    for record in records:
+        source = record["source"]
+        current_heading = ""
+        relations: list[dict] = []
+        seen: set[tuple[str, str]] = set()
+        token_re = re.compile(r"<(h[1-6])\b[^>]*>(.*?)</\1>|<a\b[^>]*href\s*=\s*([\"'])(.*?)\3", re.I | re.S)
+        for match in token_re.finditer(source):
+            if match.group(1):
+                current_heading = clean_text(re.sub(r"<[^>]+>", " ", match.group(2)))
+                continue
+            href = html.unescape(match.group(4)).strip()
+            if not href or href.startswith(("#", "mailto:", "tel:", "javascript:", "data:")):
+                continue
+            parsed = urlparse(urljoin(record["canonical"], href))
+            if parsed.netloc.lower() not in {"", "originopenfoundation.org", "www.originopenfoundation.org"}:
+                continue
+            relative = unquote(parsed.path.lstrip("/")) or "index.html"
+            if relative not in known or relative == record["relative"]:
+                continue
+            kind = relation_type(current_heading)
+            target = canonical_url(relative)
+            key = (kind, target)
+            if key not in seen:
+                seen.add(key)
+                relations.append({"type": kind, "target": target})
+        record["relations"] = relations
 
 
 def page_json_ld(record: dict) -> dict:
@@ -200,6 +261,14 @@ def page_json_ld(record: dict) -> dict:
         "inLanguage": record["language"],
         "isPartOf": {"@id": BASE_URL + "#website"},
         "publisher": {"@id": BASE_URL + "#organization"},
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "@id": record["canonical"] + "#breadcrumb",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": BASE_URL},
+                {"@type": "ListItem", "position": 2, "name": record["title"], "item": record["canonical"]},
+            ],
+        },
     }
     if record["schemaType"] == "TechArticle":
         data["headline"] = record["title"]
@@ -215,8 +284,23 @@ def page_json_ld(record: dict) -> dict:
         data["about"] = [{"@type": "Thing", "name": topic} for topic in topics]
     if record["links"]:
         data["relatedLink"] = record["links"]
+    citations = [item["target"] for item in record["relations"] if item["type"] in {"standardsCompatibility", "relatedDocument"}]
+    parts = [item["target"] for item in record["relations"] if item["type"] == "moduleFlow"]
+    parents = [item["target"] for item in record["relations"] if item["type"] == "parentResource"]
+    if citations:
+        data["citation"] = citations
+    if parts:
+        data["hasPart"] = [{"@id": target + "#webpage"} for target in parts]
+    if parents:
+        data["isPartOf"] = [{"@id": BASE_URL + "#website"}] + [
+            {"@id": target + "#webpage"} for target in parents
+        ]
     if record["fields"].get("OriginID"):
         data["identifier"] = record["fields"]["OriginID"]
+    if record["fields"].get("Version"):
+        data["version"] = record["fields"]["Version"]
+    if record["fields"].get("Status"):
+        data["creativeWorkStatus"] = record["fields"]["Status"]
     if record["fields"]:
         data["additionalProperty"] = [
             {"@type": "PropertyValue", "name": key, "value": value}
@@ -257,6 +341,93 @@ def inject_metadata(record: dict) -> None:
     path.write_text(source, encoding="utf-8", newline="\n")
 
 
+def inject_section_ids(path: Path) -> None:
+    source = path.read_text(encoding="utf-8")
+    used = set(re.findall(r'\bid=["\']([^"\']+)["\']', source, re.I))
+    counters: dict[str, int] = {}
+
+    def add_id(match: re.Match) -> str:
+        opening, body = match.group(1), match.group(2)
+        if re.search(r'\bid\s*=', opening, re.I):
+            return match.group(0)
+        base = section_slug(body)
+        counters[base] = counters.get(base, 0) + 1
+        candidate = base
+        while candidate in used:
+            counters[base] += 1
+            candidate = f"{base}-{counters[base]}"
+        used.add(candidate)
+        opening = opening[:-1] + f' id="{candidate}" {SECTION_ID_MARKER}="true">'
+        return opening + body
+
+    # Match only the opening tag and its immediate text. This also handles a few
+    # legacy pages whose heading closing tag is malformed, without rewriting it.
+    source = re.sub(r'(<h[1-6]\b[^>]*>)([^<]*)', add_id, source, flags=re.I)
+    path.write_text(source, encoding="utf-8", newline="\n")
+
+
+def inject_semantic_structure(path: Path) -> None:
+    source = path.read_text(encoding="utf-8")
+    source = re.sub(
+        re.escape(SEMANTIC_START) + r'\s*<main class="oof-semantic-main"><article class="oof-semantic-article">\s*',
+        "",
+        source,
+        flags=re.I,
+    )
+    source = re.sub(r"</article></main>\s*" + re.escape(SEMANTIC_END) + r"\s*", "", source, flags=re.I)
+    source = re.sub(
+        re.escape(SEMANTIC_START) + r'\s*<article class=\\?"oof-semantic-article\\?">\s*',
+        "",
+        source,
+        flags=re.I,
+    )
+    source = re.sub(r"</article>\s*" + re.escape(SEMANTIC_END) + r"\s*", "", source, flags=re.I)
+
+    if re.search(r"<main\b", source, re.I):
+            source = re.sub(
+                r"(<main\b[^>]*>)",
+                rf'\1\n{SEMANTIC_START}\n<article class="oof-semantic-article">',
+                source,
+                count=1,
+                flags=re.I,
+            )
+            matches = list(re.finditer(r"</main>", source, re.I))
+            if matches:
+                position = matches[-1].start()
+                source = source[:position] + f"</article>\n{SEMANTIC_END}\n" + source[position:]
+    else:
+            header = re.search(r'<div\s+id=["\']header["\'][^>]*>\s*</div>', source, re.I)
+            if header:
+                opening = f'\n{SEMANTIC_START}\n<main class="oof-semantic-main"><article class="oof-semantic-article">\n'
+                source = source[: header.end()] + opening + source[header.end() :]
+                boundaries = [
+                    (re.search(r'<div\s+id=["\']footer["\'][^>]*>', source[header.end() :], re.I), True),
+                    (re.search(r"<footer\b", source[header.end() :], re.I), True),
+                    (re.search(r"</main>", source[header.end() :], re.I), False),
+                    (re.search(r"<script\b[^>]*src=[\"'][^\"']*header\.js", source[header.end() :], re.I), True),
+                ]
+                positions = [(header.end() + match.start(), close_main) for match, close_main in boundaries if match]
+                if positions:
+                    position, close_main = min(positions, key=lambda item: item[0])
+                    closing = "</article></main>" if close_main else "</article>"
+                    source = source[:position] + f"{closing}\n{SEMANTIC_END}\n" + source[position:]
+
+    heading_index = 0
+
+    def add_heading_semantics(match: re.Match) -> str:
+        nonlocal heading_index
+        opening = match.group(0)
+        if "aria-level" in opening.casefold():
+            heading_index += 1
+            return opening
+        heading_index += 1
+        level = 1 if heading_index == 1 else 2
+        return opening[:-1] + f' role="heading" aria-level="{level}">'
+
+    source = re.sub(r"<h[1-6]\b[^>]*>", add_heading_semantics, source, flags=re.I)
+    path.write_text(source, encoding="utf-8", newline="\n")
+
+
 def graph_record(record: dict) -> dict:
     item: dict = {
         "@type": record["schemaType"],
@@ -280,8 +451,13 @@ def graph_record(record: dict) -> dict:
         item["about"] = [{"@type": "Thing", "name": topic} for topic in topics]
     if record["links"]:
         item["relatedLink"] = record["links"]
+    item["oofRelationships"] = record["relations"]
     if record["fields"].get("OriginID"):
         item["identifier"] = record["fields"]["OriginID"]
+    if record["fields"].get("Version"):
+        item["version"] = record["fields"]["Version"]
+    if record["fields"].get("Status"):
+        item["creativeWorkStatus"] = record["fields"]["Status"]
     if record["fields"]:
         item["additionalProperty"] = [
             {"@type": "PropertyValue", "name": key, "value": value}
@@ -316,6 +492,30 @@ def write_knowledge_graph(records: list[dict]) -> None:
     path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
+def write_typed_relationships(records: list[dict]) -> None:
+    relationships = []
+    for record in records:
+        for relation in record["relations"]:
+            relationships.append(
+                {"source": record["canonical"], "type": relation["type"], "target": relation["target"]}
+            )
+    output = {
+        "schemaVersion": "1.0",
+        "baseUrl": BASE_URL,
+        "relationshipTypes": [
+            "parentResource",
+            "standardsCompatibility",
+            "moduleFlow",
+            "crossArchitectureInterface",
+            "relatedDocument",
+            "relatedLink",
+        ],
+        "relationships": relationships,
+    }
+    path = ROOT / "data" / "oof-typed-relationships.json"
+    path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+
 def write_sitemap(records: list[dict]) -> None:
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for record in records:
@@ -325,7 +525,9 @@ def write_sitemap(records: list[dict]) -> None:
 
 
 def write_robots() -> None:
-    text = "\n".join(["User-agent: *", "Allow: /", "", f"Sitemap: {BASE_URL}sitemap.xml", ""])
+    text = "\n".join(
+        ["User-agent: OAI-SearchBot", "Allow: /", "", "User-agent: *", "Allow: /", "", f"Sitemap: {BASE_URL}sitemap.xml", ""]
+    )
     (ROOT / "robots.txt").write_text(text, encoding="utf-8", newline="\n")
 
 
@@ -361,6 +563,10 @@ def write_llm_indexes(records: list[dict]) -> None:
             "",
             f"- [XML Sitemap]({BASE_URL}sitemap.xml)",
             f"- [OOF Site Knowledge Graph]({BASE_URL}data/oof-site-knowledge-graph.json)",
+            f"- [OOF Typed Relationship Graph]({BASE_URL}data/oof-typed-relationships.json)",
+            f"- [OOF URL Registry]({BASE_URL}data/oof-url-registry.json)",
+            f"- [OOF URL Alias Registry]({BASE_URL}data/oof-url-alias-registry.json)",
+            f"- [OOF Version Registry]({BASE_URL}data/oof-version-registry.json)",
             f"- [OOF Governed Relationship Registry]({BASE_URL}data/oof-relationship-registry.json)",
             f"- [Site Search Index]({BASE_URL}search-index.json)",
             f"- [Complete Page Catalog]({BASE_URL}llms-full.txt)",
@@ -413,7 +619,10 @@ def main() -> None:
     records = inspect_pages(paths)
     for record in records:
         inject_metadata(record)
+        inject_section_ids(record["path"])
+        inject_semantic_structure(record["path"])
     write_knowledge_graph(records)
+    write_typed_relationships(records)
     write_sitemap(records)
     write_robots()
     write_llm_indexes(records)

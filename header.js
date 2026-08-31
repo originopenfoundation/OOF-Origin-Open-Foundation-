@@ -106,7 +106,9 @@ function withSiteRoot(url) {
 function normalizePageLinks(root = document) {
   root.querySelectorAll("a[href]").forEach(link => {
     const href = link.getAttribute("href");
-    if (href && !/^(?:[a-z]+:|#|\/|\.\.\/)/i.test(href)) {
+    const sharedNavigationLink = Boolean(link.closest("#header, #footer"));
+    const siteRootPath = href && href.includes("/");
+    if (href && !/^(?:[a-z]+:|#|\/|\.\.\/)/i.test(href) && (sharedNavigationLink || siteRootPath)) {
       link.setAttribute("href", withSiteRoot(href));
     }
   });
@@ -384,7 +386,7 @@ function setupPageContentsNavigation() {
   if (getById("pageContents")) return;
 
   const headings = Array.from(document.querySelectorAll(
-    "body > section.container .oof-warning3 > h1, body > section.container > h1"
+    "body .container .oof-warning3 > h1, body .container > h1"
   )).filter(heading => !heading.closest("#header, #footer"));
 
   if (headings.length < 2) return;

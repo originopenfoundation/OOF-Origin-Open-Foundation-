@@ -20,6 +20,13 @@ BLOCK_RE = re.compile(re.escape(START) + r".*?" + re.escape(END) + r"\s*", re.S)
 BASE_URL = "https://originopenfoundation.org/"
 
 
+def text_content(source: str) -> str:
+    source = BLOCK_RE.sub("", source)
+    source = re.sub(r"<(script|style|noscript)\b.*?</\1>", " ", source, flags=re.I | re.S)
+    source = re.sub(r"<[^>]+>", " ", source)
+    return re.sub(r"\s+", " ", html.unescape(source)).strip()
+
+
 def public_pages() -> list[Path]:
     pages = []
     candidates = sorted(ROOT.rglob("*.html"), key=lambda item: item.relative_to(ROOT).as_posix().casefold())
@@ -74,8 +81,30 @@ def main() -> int:
                         errors.append(f"{relative(path)}: JSON-LD name differs from the page title")
                 if not data.get("name") or not data.get("inLanguage"):
                     errors.append(f"{relative(path)}: incomplete JSON-LD identity")
+                version_match = re.search(
+                    r"<(?:b|strong)>\s*Version\s*:\s*</(?:b|strong)>\s*(.*?)(?=<br\s*/?>|</p>|</a>|</div>)",
+                    source,
+                    re.I | re.S,
+                )
+                if version_match:
+                    expected_version = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", version_match.group(1)))).strip()
+                    if expected_version and data.get("version") != expected_version:
+                        errors.append(f"{relative(path)}: JSON-LD version differs from the explicit page version")
+                breadcrumb = data.get("breadcrumb", {})
+                if breadcrumb.get("@type") != "BreadcrumbList" or len(breadcrumb.get("itemListElement", [])) < 2:
+                    errors.append(f"{relative(path)}: missing machine-readable breadcrumb")
             except json.JSONDecodeError as exc:
                 errors.append(f"{relative(path)}: invalid JSON-LD: {exc}")
+
+        headings = re.findall(r"<h[1-6]\b([^>]*)>", source, re.I)
+        for heading in headings:
+            if "data-oof-section-id" not in heading or not re.search(r'\bid=["\'][^"\']+["\']', heading, re.I):
+                errors.append(f"{relative(path)}: heading without a stable section ID")
+                break
+        if "<main" not in source.casefold() or "<article" not in source.casefold():
+            errors.append(f"{relative(path)}: missing main/article semantic structure")
+        if headings and not all("aria-level" in heading and "role=" in heading for heading in headings):
+            errors.append(f"{relative(path)}: heading hierarchy is not machine-readable")
 
         try:
             baseline = subprocess.check_output(
@@ -83,8 +112,8 @@ def main() -> int:
             ).decode("utf-8")
         except subprocess.CalledProcessError:
             baseline = None
-        if baseline is not None and BLOCK_RE.sub("", source) != BLOCK_RE.sub("", baseline):
-            errors.append(f"{relative(path)}: content outside the AI metadata block changed")
+        if baseline is not None and text_content(source) != text_content(baseline):
+            errors.append(f"{relative(path)}: visible page text changed")
 
     graph = json.loads((ROOT / "data" / "oof-site-knowledge-graph.json").read_text(encoding="utf-8"))
     graph_pages = [item for item in graph.get("@graph", []) if str(item.get("@id", "")).endswith("#webpage")]
@@ -102,6 +131,18 @@ def main() -> int:
             if not (ROOT / target).is_file():
                 errors.append(f'Knowledge graph link target is missing: {item.get("url")} -> {link}')
 
+    typed = json.loads((ROOT / "data" / "oof-typed-relationships.json").read_text(encoding="utf-8"))
+    allowed_types = set(typed.get("relationshipTypes", []))
+    if not allowed_types or not typed.get("relationships"):
+        errors.append("Typed relationship graph is empty")
+    for relation in typed.get("relationships", []):
+        if relation.get("type") not in allowed_types:
+            errors.append(f"Unknown typed relationship: {relation}")
+        for field in ("source", "target"):
+            target = unquote(urlparse(relation.get(field, "")).path.lstrip("/")) or "index.html"
+            if not (ROOT / target).is_file():
+                errors.append(f"Typed relationship has missing {field}: {relation}")
+
     sitemap_root = ET.parse(ROOT / "sitemap.xml").getroot()
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     sitemap_urls = {element.text for element in sitemap_root.findall("sm:url/sm:loc", namespace)}
@@ -109,11 +150,20 @@ def main() -> int:
         errors.append("Sitemap and canonical page sets differ")
 
     robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
-    if f"Sitemap: {BASE_URL}sitemap.xml" not in robots or "Allow: /" not in robots:
+    if f"Sitemap: {BASE_URL}sitemap.xml" not in robots or "Allow: /" not in robots or "OAI-SearchBot" not in robots:
         errors.append("robots.txt does not expose the sitemap and full crawl access")
 
     llms = (ROOT / "llms.txt").read_text(encoding="utf-8")
-    for required in ("sitemap.xml", "oof-site-knowledge-graph.json", "search-index.json", "llms-full.txt"):
+    for required in (
+        "sitemap.xml",
+        "oof-site-knowledge-graph.json",
+        "oof-typed-relationships.json",
+        "oof-url-registry.json",
+        "oof-url-alias-registry.json",
+        "oof-version-registry.json",
+        "search-index.json",
+        "llms-full.txt",
+    ):
         if required not in llms:
             errors.append(f"llms.txt is missing {required}")
 
@@ -133,7 +183,8 @@ def main() -> int:
 
     print(
         f"AI compatibility validation passed: {len(pages)} pages, unique canonicals, valid JSON-LD, "
-        "complete sitemap, knowledge graph, LLM indexes, search coverage, and unchanged page content."
+        "complete sitemap, typed knowledge graph, stable section IDs, breadcrumbs, LLM indexes, search coverage, "
+        "and unchanged visible page text."
     )
     return 0
 
