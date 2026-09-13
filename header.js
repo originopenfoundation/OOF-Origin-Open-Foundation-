@@ -4,6 +4,7 @@ const navigationStateKey = "oof-navigation-expanded";
 const navigationScrollKey = "oof-navigation-scroll";
 
 function loadCloudflareAnalytics() {
+  if (location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
   if (document.querySelector('script[data-cf-beacon]')) return;
 
   const beacon = document.createElement("script");
