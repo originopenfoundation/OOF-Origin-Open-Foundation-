@@ -19,12 +19,12 @@ from validate_global_interest_heat_map import validate
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
-INTEREST_ALGORITHM_VERSION = "1.0"
+INTEREST_ALGORITHM_VERSION = "1.1"
 GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql"
 POPULATION_METADATA_URL = "https://api.worldbank.org/v2/country?format=json&per_page=400"
 POPULATION_VALUES_URL = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=5000&date=2020:2025"
 HOST = "originopenfoundation.org"
-WINDOW_DAYS = 28
+WINDOW_DAYS = 14
 MIN_ENGAGEMENT = 10.0
 MIN_ACTIVE_DAYS = 3
 
