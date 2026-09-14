@@ -35,6 +35,8 @@
   let hoveredFeature = null;
   let selectedFeature = null;
   let resizeFrame = 0;
+  let renderIdleTimer = 0;
+  let globeInViewport = true;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobileViewport = window.matchMedia("(max-width: 959px)");
   const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -94,6 +96,29 @@
     if (globe && globe.controls()) globe.controls().autoRotate = false;
   }
 
+  function pauseGlobe() {
+    clearTimeout(renderIdleTimer);
+    renderIdleTimer = 0;
+    if (globe && globe.pauseAnimation) globe.pauseAnimation();
+  }
+
+  function scheduleMobilePause(delay = 750) {
+    if (!mobileViewport.matches || !globe || !globe.pauseAnimation) return;
+    clearTimeout(renderIdleTimer);
+    renderIdleTimer = window.setTimeout(() => {
+      if (!document.hidden && globeInViewport) globe.pauseAnimation();
+      renderIdleTimer = 0;
+    }, delay);
+  }
+
+  function wakeGlobe(idleDelay = 0) {
+    if (!globe || document.hidden || !globeInViewport) return;
+    clearTimeout(renderIdleTimer);
+    renderIdleTimer = 0;
+    if (globe.resumeAnimation) globe.resumeAnimation();
+    if (idleDelay) scheduleMobilePause(idleDelay);
+  }
+
   function initialView() {
     return mobileViewport.matches ? MOBILE_INITIAL_VIEW : INITIAL_VIEW;
   }
@@ -108,11 +133,15 @@
 
   function focusFeature(feature) {
     const view = featureView(feature);
-    if (globe && view) globe.pointOfView(view, reducedMotion ? 0 : 650);
+    if (globe && view) {
+      wakeGlobe(reducedMotion ? 100 : 850);
+      globe.pointOfView(view, reducedMotion ? 0 : 650);
+    }
   }
 
   function changeZoom(delta) {
     if (!globe) return;
+    wakeGlobe(reducedMotion ? 100 : 500);
     const current = globe.pointOfView();
     const altitude = Math.min(3.5, Math.max(0.72, Number(current.altitude || initialView().altitude) + delta));
     globe.pointOfView({ lat: current.lat, lng: current.lng, altitude }, reducedMotion ? 0 : 260);
@@ -150,6 +179,7 @@
   }
 
   function showFallback(message) {
+    clearTimeout(renderIdleTimer);
     container.classList.add("is-fallback");
     container.innerHTML = `<p>${message}</p>`;
     if (viewControls) viewControls.hidden = true;
@@ -180,7 +210,14 @@
     }
 
     container.innerHTML = "";
-    globe = window.Globe({ animateIn: !reducedMotion })(container)
+    globe = window.Globe({
+      animateIn: !reducedMotion && !mobileViewport.matches,
+      rendererConfig: {
+        alpha: true,
+        antialias: !mobileViewport.matches,
+        powerPreference: "high-performance"
+      }
+    })(container)
       .backgroundColor("rgba(0,0,0,0)")
       .showAtmosphere(!mobileViewport.matches)
       .atmosphereColor("#f5f5f5")
@@ -194,7 +231,10 @@
       })
       .polygonSideColor(() => "rgba(60,60,60,0.58)")
       .polygonStrokeColor(() => "rgba(255,255,255,0.48)")
-      .polygonAltitude(feature => feature === selectedFeature ? 0.018 : feature === hoveredFeature ? 0.012 : 0.006)
+      .polygonAltitude(feature => {
+        if (mobileViewport.matches) return feature === selectedFeature ? 0.008 : 0.001;
+        return feature === selectedFeature ? 0.018 : feature === hoveredFeature ? 0.012 : 0.006;
+      })
       .polygonLabel(() => "")
       .onPolygonHover(feature => {
         if (!precisePointer) return;
@@ -219,7 +259,7 @@
     const controls = globe.controls();
     const renderer = globe.renderer && globe.renderer();
     if (renderer && renderer.setPixelRatio) {
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobileViewport.matches ? 1.35 : 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobileViewport.matches ? 1.1 : 2));
     }
     globe.pointOfView(initialView(), 0);
     controls.enablePan = false;
@@ -231,7 +271,12 @@
     controls.maxDistance = 460;
     controls.autoRotate = !reducedMotion && !mobileViewport.matches;
     controls.autoRotateSpeed = 0.18;
+    if (controls.addEventListener) {
+      controls.addEventListener("start", () => wakeGlobe());
+      controls.addEventListener("end", () => scheduleMobilePause(700));
+    }
     setGlobeSize();
+    scheduleMobilePause(900);
 
     if (viewControls) {
       viewControls.addEventListener("click", event => {
@@ -241,6 +286,7 @@
         if (action === "zoom-in") changeZoom(-0.28);
         if (action === "zoom-out") changeZoom(0.28);
         if (action === "reset") {
+          wakeGlobe(reducedMotion ? 100 : 750);
           selectedFeature = null;
           hoveredFeature = null;
           select.value = "";
@@ -252,17 +298,35 @@
       });
     }
 
-    ["pointerdown", "touchstart", "wheel"].forEach(eventName => {
-      container.addEventListener(eventName, stopRotation, { passive: true, once: true });
-    });
+    container.addEventListener("pointerdown", () => {
+      stopRotation();
+      wakeGlobe();
+    }, { capture: true, passive: true });
+    container.addEventListener("pointerup", () => scheduleMobilePause(700), { passive: true });
+    container.addEventListener("pointercancel", () => scheduleMobilePause(200), { passive: true });
+    container.addEventListener("wheel", () => {
+      stopRotation();
+      wakeGlobe(500);
+    }, { passive: true });
     window.addEventListener("resize", () => {
       cancelAnimationFrame(resizeFrame);
-      resizeFrame = requestAnimationFrame(setGlobeSize);
+      resizeFrame = requestAnimationFrame(() => {
+        wakeGlobe(300);
+        setGlobeSize();
+      });
     });
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden && globe.pauseAnimation) globe.pauseAnimation();
-      if (!document.hidden && globe.resumeAnimation) globe.resumeAnimation();
+      if (document.hidden) pauseGlobe();
+      else wakeGlobe(500);
     });
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        globeInViewport = Boolean(entries[0] && entries[0].isIntersecting);
+        if (globeInViewport) wakeGlobe(500);
+        else pauseGlobe();
+      }, { rootMargin: "80px 0px" });
+      observer.observe(container);
+    }
   }).catch(error => {
     showFallback("The public map could not be loaded. The last valid dataset remains unavailable in this preview.");
     console.error("OOF Global Interest Heat Map:", error);
