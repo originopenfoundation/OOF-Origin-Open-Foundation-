@@ -168,7 +168,7 @@
       stopRotation();
       if (globe) {
         focusFeature(feature);
-        globe.polygonCapColor(globe.polygonCapColor());
+        refreshHighlights();
       }
     });
   }
@@ -176,6 +176,15 @@
   function setGlobeSize() {
     if (!globe) return;
     globe.width(container.clientWidth).height(container.clientHeight);
+  }
+
+  function refreshHighlights() {
+    if (!globe) return;
+    globe
+      .polygonCapColor(globe.polygonCapColor())
+      .polygonAltitude(globe.polygonAltitude())
+      .pointColor(globe.pointColor())
+      .pointRadius(globe.pointRadius());
   }
 
   function showFallback(message) {
@@ -194,15 +203,31 @@
     fetch("data/oof-global-interest-heat-map.json", { cache: "no-cache" }).then(response => {
       if (!response.ok) throw new Error("Public interest dataset unavailable");
       return response.json();
+    }),
+    fetch("assets/data/ne_110m_missing_country_centers.json", { cache: "force-cache" }).then(response => {
+      if (!response.ok) throw new Error("Small-country coordinates unavailable");
+      return response.json();
     })
-  ]).then(([world, dataset]) => {
+  ]).then(([world, dataset, countryCenters]) => {
     const publicCountries = new Map((dataset.countries || []).map(item => [String(item.iso || "").toUpperCase(), item]));
     const features = (world.features || []).filter(feature => countryCode(feature));
     features.forEach(feature => {
       const state = publicCountries.get(countryCode(feature));
       feature.__oofInterest = state && STATUS_LABELS[state.status] ? state : { status: "insufficient" };
     });
-    populateCountrySelector(features);
+    const featureCodes = new Set(features.map(countryCode));
+    const missingFeatures = (countryCenters.countries || [])
+      .filter(country => publicCountries.has(String(country.iso || "").toUpperCase()) && !featureCodes.has(String(country.iso || "").toUpperCase()))
+      .map(country => ({
+        properties: {
+          ADMIN: country.name,
+          ISO_A2_EH: String(country.iso || "").toUpperCase(),
+          LABEL_X: Number(country.lng),
+          LABEL_Y: Number(country.lat)
+        },
+        __oofInterest: publicCountries.get(String(country.iso || "").toUpperCase())
+      }));
+    populateCountrySelector([...features, ...missingFeatures]);
 
     if (!supportsWebGL() || typeof window.Globe !== "function") {
       showFallback("The 3D globe is unavailable in this browser. Use the country selector below.");
@@ -241,7 +266,7 @@
         hoveredFeature = feature || null;
         if (feature) showCountry(feature);
         else if (selectedFeature) showCountry(selectedFeature);
-        globe.polygonCapColor(globe.polygonCapColor()).polygonAltitude(globe.polygonAltitude());
+        refreshHighlights();
       })
       .onPolygonClick(feature => {
         selectedFeature = feature;
@@ -249,6 +274,30 @@
         select.value = countryCode(feature);
         stopRotation();
         focusFeature(feature);
+        refreshHighlights();
+      })
+      .pointsData(missingFeatures)
+      .pointLat(feature => Number(feature.properties.LABEL_Y))
+      .pointLng(feature => Number(feature.properties.LABEL_X))
+      .pointColor(feature => feature === hoveredFeature ? COLORS.hover : COLORS[publicState(feature).status])
+      .pointAltitude(0.02)
+      .pointRadius(feature => feature === selectedFeature ? 0.7 : feature === hoveredFeature ? 0.58 : 0.48)
+      .pointResolution(mobileViewport.matches ? 8 : 12)
+      .pointLabel(() => "")
+      .onPointHover(feature => {
+        if (!precisePointer) return;
+        hoveredFeature = feature || null;
+        if (feature) showCountry(feature);
+        else if (selectedFeature) showCountry(selectedFeature);
+        refreshHighlights();
+      })
+      .onPointClick(feature => {
+        selectedFeature = feature;
+        showCountry(feature);
+        select.value = countryCode(feature);
+        stopRotation();
+        focusFeature(feature);
+        refreshHighlights();
       });
 
     const material = globe.globeMaterial();
@@ -293,7 +342,7 @@
           showCountry(null);
           stopRotation();
           globe.pointOfView(initialView(), reducedMotion ? 0 : 550);
-          globe.polygonCapColor(globe.polygonCapColor()).polygonAltitude(globe.polygonAltitude());
+          refreshHighlights();
         }
       });
     }
