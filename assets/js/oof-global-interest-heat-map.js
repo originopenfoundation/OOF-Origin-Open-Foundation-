@@ -37,6 +37,7 @@
   let resizeFrame = 0;
   let renderIdleTimer = 0;
   let globeInViewport = true;
+  let dataInitialView = null;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobileViewport = window.matchMedia("(max-width: 959px)");
   const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -120,7 +121,8 @@
   }
 
   function initialView() {
-    return mobileViewport.matches ? MOBILE_INITIAL_VIEW : INITIAL_VIEW;
+    const fallbackView = mobileViewport.matches ? MOBILE_INITIAL_VIEW : INITIAL_VIEW;
+    return dataInitialView ? { ...fallbackView, ...dataInitialView } : fallbackView;
   }
 
   function featureView(feature) {
@@ -129,6 +131,30 @@
     const lng = Number(properties.LABEL_X);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
     return { lat, lng, altitude: mobileViewport.matches ? 1.95 : 1.75 };
+  }
+
+  function centeredView(features) {
+    const vectors = features.map(featureView).filter(Boolean).map(view => {
+      const lat = view.lat * Math.PI / 180;
+      const lng = view.lng * Math.PI / 180;
+      return {
+        x: Math.cos(lat) * Math.cos(lng),
+        y: Math.cos(lat) * Math.sin(lng),
+        z: Math.sin(lat)
+      };
+    });
+    if (!vectors.length) return null;
+    const average = vectors.reduce((sum, vector) => ({
+      x: sum.x + vector.x,
+      y: sum.y + vector.y,
+      z: sum.z + vector.z
+    }), { x: 0, y: 0, z: 0 });
+    const horizontal = Math.hypot(average.x, average.y);
+    if (horizontal < 0.001 && Math.abs(average.z) < 0.001) return null;
+    return {
+      lat: Math.atan2(average.z, horizontal) * 180 / Math.PI,
+      lng: Math.atan2(average.y, average.x) * 180 / Math.PI
+    };
   }
 
   function focusFeature(feature) {
@@ -227,6 +253,10 @@
         },
         __oofInterest: publicCountries.get(String(country.iso || "").toUpperCase())
       }));
+    dataInitialView = centeredView([
+      ...features.filter(feature => publicState(feature).status !== "insufficient"),
+      ...missingFeatures
+    ]);
     populateCountrySelector([...features, ...missingFeatures]);
 
     if (!supportsWebGL() || typeof window.Globe !== "function") {
