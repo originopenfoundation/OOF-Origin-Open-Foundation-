@@ -2859,6 +2859,7 @@ padding:10px;
   min-height: 620px;
   cursor: grab;
   touch-action: none;
+  overscroll-behavior: contain;
 }
 
 .oof-global-interest-globe:active {
@@ -2903,6 +2904,40 @@ padding:10px;
 
 .oof-global-interest-country-card strong {
   font-size: 18px;
+}
+
+.oof-global-interest-view-controls {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  gap: 7px;
+  z-index: 2;
+}
+
+.oof-global-interest-view-controls button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.72);
+  border-radius: 4px;
+  background: rgba(58,58,58,0.92);
+  color: #fff;
+  font: 700 24px/1 Arial, sans-serif;
+  cursor: pointer;
+}
+
+.oof-global-interest-view-controls button:last-child {
+  font-size: 22px;
+}
+
+.oof-global-interest-view-controls button:hover,
+.oof-global-interest-view-controls button:focus-visible {
+  background: #4c4c4c;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .oof-global-interest-controls {
@@ -2985,17 +3020,34 @@ padding:10px;
 
   .oof-global-interest-globe-shell,
   .oof-global-interest-globe {
-    min-height: 500px;
+    min-height: 0;
   }
 
   .oof-global-interest-globe {
-    height: 68vh;
+    height: 58vh;
+    height: 58svh;
+    min-height: 390px;
+    max-height: 560px;
   }
 
   .oof-global-interest-country-card {
-    left: 10px;
-    bottom: 10px;
-    width: calc(100% - 20px);
+    position: static;
+    width: 100%;
+    min-height: 82px;
+    padding: 12px 14px;
+    border-width: 1px 0 0;
+    background: rgba(64,64,64,0.98);
+  }
+
+  .oof-global-interest-view-controls {
+    top: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .oof-global-interest-view-controls button {
+    width: 46px;
+    height: 46px;
   }
 
   .oof-global-interest-controls {
@@ -3006,6 +3058,25 @@ padding:10px;
 
   .oof-global-interest-controls select {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .oof-global-interest-globe {
+    height: 52vh;
+    height: 52svh;
+    min-height: 340px;
+    max-height: 470px;
+  }
+
+  .oof-global-interest-heading h1 {
+    font-size: 21px;
+  }
+
+  .oof-global-interest-legend {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 12px;
   }
 }
 

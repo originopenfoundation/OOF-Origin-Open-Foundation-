@@ -28,6 +28,7 @@
   const countryName = document.getElementById("global-interest-country-name");
   const countryStatus = document.getElementById("global-interest-country-status");
   const countryMomentum = document.getElementById("global-interest-country-momentum");
+  const viewControls = document.querySelector(".oof-global-interest-view-controls");
   if (!container || !select || !card) return;
 
   let globe;
@@ -35,6 +36,10 @@
   let selectedFeature = null;
   let resizeFrame = 0;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mobileViewport = window.matchMedia("(max-width: 959px)");
+  const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const INITIAL_VIEW = { lat: 20, lng: 8, altitude: 2.05 };
+  const MOBILE_INITIAL_VIEW = { lat: 20, lng: 8, altitude: 2.3 };
 
   function countryCode(feature) {
     const properties = feature && feature.properties ? feature.properties : {};
@@ -89,6 +94,31 @@
     if (globe && globe.controls()) globe.controls().autoRotate = false;
   }
 
+  function initialView() {
+    return mobileViewport.matches ? MOBILE_INITIAL_VIEW : INITIAL_VIEW;
+  }
+
+  function featureView(feature) {
+    const properties = feature && feature.properties ? feature.properties : {};
+    const lat = Number(properties.LABEL_Y);
+    const lng = Number(properties.LABEL_X);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    return { lat, lng, altitude: mobileViewport.matches ? 1.95 : 1.75 };
+  }
+
+  function focusFeature(feature) {
+    const view = featureView(feature);
+    if (globe && view) globe.pointOfView(view, reducedMotion ? 0 : 650);
+  }
+
+  function changeZoom(delta) {
+    if (!globe) return;
+    const current = globe.pointOfView();
+    const altitude = Math.min(3.5, Math.max(0.72, Number(current.altitude || initialView().altitude) + delta));
+    globe.pointOfView({ lat: current.lat, lng: current.lng, altitude }, reducedMotion ? 0 : 260);
+    stopRotation();
+  }
+
   function populateCountrySelector(features) {
     const sorted = [...features].sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), "en"));
     const fragment = document.createDocumentFragment();
@@ -108,12 +138,7 @@
       showCountry(feature);
       stopRotation();
       if (globe) {
-        const centroid = feature.properties && feature.properties.LABEL_Y != null
-          ? { lat: Number(feature.properties.LABEL_Y), lng: Number(feature.properties.LABEL_X) }
-          : null;
-        if (centroid && Number.isFinite(centroid.lat) && Number.isFinite(centroid.lng)) {
-          globe.pointOfView({ ...centroid, altitude: 1.75 }, 700);
-        }
+        focusFeature(feature);
         globe.polygonCapColor(globe.polygonCapColor());
       }
     });
@@ -127,6 +152,7 @@
   function showFallback(message) {
     container.classList.add("is-fallback");
     container.innerHTML = `<p>${message}</p>`;
+    if (viewControls) viewControls.hidden = true;
     if (fallback) fallback.hidden = false;
   }
 
@@ -156,7 +182,7 @@
     container.innerHTML = "";
     globe = window.Globe({ animateIn: !reducedMotion })(container)
       .backgroundColor("rgba(0,0,0,0)")
-      .showAtmosphere(true)
+      .showAtmosphere(!mobileViewport.matches)
       .atmosphereColor("#f5f5f5")
       .atmosphereAltitude(0.08)
       .showGraticules(false)
@@ -171,6 +197,7 @@
       .polygonAltitude(feature => feature === selectedFeature ? 0.018 : feature === hoveredFeature ? 0.012 : 0.006)
       .polygonLabel(() => "")
       .onPolygonHover(feature => {
+        if (!precisePointer) return;
         hoveredFeature = feature || null;
         if (feature) showCountry(feature);
         else if (selectedFeature) showCountry(selectedFeature);
@@ -181,6 +208,7 @@
         showCountry(feature);
         select.value = countryCode(feature);
         stopRotation();
+        focusFeature(feature);
       });
 
     const material = globe.globeMaterial();
@@ -188,13 +216,41 @@
     material.emissive.set("#292929");
     material.emissiveIntensity = 0.16;
     material.shininess = 0.6;
-    globe.pointOfView({ lat: 20, lng: 8, altitude: 2.05 }, 0);
-    globe.controls().enablePan = false;
-    globe.controls().minDistance = 150;
-    globe.controls().maxDistance = 420;
-    globe.controls().autoRotate = !reducedMotion;
-    globe.controls().autoRotateSpeed = 0.18;
+    const controls = globe.controls();
+    const renderer = globe.renderer && globe.renderer();
+    if (renderer && renderer.setPixelRatio) {
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobileViewport.matches ? 1.35 : 2));
+    }
+    globe.pointOfView(initialView(), 0);
+    controls.enablePan = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = mobileViewport.matches ? 0.09 : 0.06;
+    controls.rotateSpeed = mobileViewport.matches ? 0.62 : 0.8;
+    controls.zoomSpeed = mobileViewport.matches ? 0.72 : 1;
+    controls.minDistance = 130;
+    controls.maxDistance = 460;
+    controls.autoRotate = !reducedMotion && !mobileViewport.matches;
+    controls.autoRotateSpeed = 0.18;
     setGlobeSize();
+
+    if (viewControls) {
+      viewControls.addEventListener("click", event => {
+        const button = event.target.closest("button[data-globe-action]");
+        if (!button) return;
+        const action = button.dataset.globeAction;
+        if (action === "zoom-in") changeZoom(-0.28);
+        if (action === "zoom-out") changeZoom(0.28);
+        if (action === "reset") {
+          selectedFeature = null;
+          hoveredFeature = null;
+          select.value = "";
+          showCountry(null);
+          stopRotation();
+          globe.pointOfView(initialView(), reducedMotion ? 0 : 550);
+          globe.polygonCapColor(globe.polygonCapColor()).polygonAltitude(globe.polygonAltitude());
+        }
+      });
+    }
 
     ["pointerdown", "touchstart", "wheel"].forEach(eventName => {
       container.addEventListener(eventName, stopRotation, { passive: true, once: true });
@@ -202,6 +258,10 @@
     window.addEventListener("resize", () => {
       cancelAnimationFrame(resizeFrame);
       resizeFrame = requestAnimationFrame(setGlobeSize);
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && globe.pauseAnimation) globe.pauseAnimation();
+      if (!document.hidden && globe.resumeAnimation) globe.resumeAnimation();
     });
   }).catch(error => {
     showFallback("The public map could not be loaded. The last valid dataset remains unavailable in this preview.");
