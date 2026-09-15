@@ -20,6 +20,7 @@
     stable: "→ Stable",
     declining: "↘ Declining"
   };
+  const WORLD_BOUNDS = [[-58, -180], [84, 180]];
 
   const container = document.getElementById("global-interest-globe");
   const fallback = document.getElementById("global-interest-fallback");
@@ -31,28 +32,30 @@
   const viewControls = document.querySelector(".oof-global-interest-view-controls");
   if (!container || !select || !card) return;
 
-  let globe;
-  let hoveredFeature = null;
+  let map;
   let selectedFeature = null;
-  let resizeFrame = 0;
-  let renderIdleTimer = 0;
-  let globeInViewport = true;
-  let dataInitialView = null;
+  let hoveredFeature = null;
+  let countryLayers = [];
+  let labelLayers = [];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const mobileViewport = window.matchMedia("(max-width: 959px)");
   const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  const INITIAL_VIEW = { lat: 20, lng: 8, altitude: 2.05 };
-  const MOBILE_INITIAL_VIEW = { lat: 20, lng: 8, altitude: 2.3 };
 
   function countryCode(feature) {
     const properties = feature && feature.properties ? feature.properties : {};
-    const candidates = [properties.ISO_A2_EH, properties.ISO_A2, properties.WB_A2, properties.POSTAL];
+    const candidates = [properties.ISO_A2_EH, properties.ISO_A2];
     return String(candidates.find(code => code && code !== "-99") || "").toUpperCase();
   }
 
   function countryLabel(feature) {
     const properties = feature && feature.properties ? feature.properties : {};
-    return properties.ADMIN || properties.NAME_LONG || properties.NAME || "Unknown country";
+    return properties.NAME_EN || properties.ADMIN || properties.NAME_LONG || properties.NAME || "Unknown country";
+  }
+
+  function featureCenter(feature) {
+    const properties = feature && feature.properties ? feature.properties : {};
+    const lat = Number(properties.LABEL_Y);
+    const lng = Number(properties.LABEL_X);
+    return Number.isFinite(lat) && Number.isFinite(lng) ? [lat, lng] : null;
   }
 
   function flagFor(iso) {
@@ -60,17 +63,14 @@
     return String.fromCodePoint(...iso.split("").map(letter => 127397 + letter.charCodeAt(0)));
   }
 
-  function supportsWebGL() {
-    try {
-      const canvas = document.createElement("canvas");
-      return Boolean(window.WebGLRenderingContext && (canvas.getContext("webgl2") || canvas.getContext("webgl")));
-    } catch (_) {
-      return false;
-    }
-  }
-
   function publicState(feature) {
     return feature.__oofInterest || { status: "insufficient" };
+  }
+
+  function escapeHtml(value) {
+    const span = document.createElement("span");
+    span.textContent = value;
+    return span.innerHTML;
   }
 
   function showCountry(feature) {
@@ -93,89 +93,74 @@
     }
   }
 
-  function stopRotation() {
-    if (globe && globe.controls()) globe.controls().autoRotate = false;
-  }
-
-  function pauseGlobe() {
-    clearTimeout(renderIdleTimer);
-    renderIdleTimer = 0;
-    if (globe && globe.pauseAnimation) globe.pauseAnimation();
-  }
-
-  function scheduleMobilePause(delay = 750) {
-    if (!mobileViewport.matches || !globe || !globe.pauseAnimation) return;
-    clearTimeout(renderIdleTimer);
-    renderIdleTimer = window.setTimeout(() => {
-      if (!document.hidden && globeInViewport) globe.pauseAnimation();
-      renderIdleTimer = 0;
-    }, delay);
-  }
-
-  function wakeGlobe(idleDelay = 0) {
-    if (!globe || document.hidden || !globeInViewport) return;
-    clearTimeout(renderIdleTimer);
-    renderIdleTimer = 0;
-    if (globe.resumeAnimation) globe.resumeAnimation();
-    if (idleDelay) scheduleMobilePause(idleDelay);
-  }
-
-  function initialView() {
-    const fallbackView = mobileViewport.matches ? MOBILE_INITIAL_VIEW : INITIAL_VIEW;
-    return dataInitialView ? { ...fallbackView, ...dataInitialView } : fallbackView;
-  }
-
-  function featureView(feature) {
-    const properties = feature && feature.properties ? feature.properties : {};
-    const lat = Number(properties.LABEL_Y);
-    const lng = Number(properties.LABEL_X);
-    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-    return { lat, lng, altitude: mobileViewport.matches ? 1.95 : 1.75 };
-  }
-
-  function centeredView(features) {
-    const vectors = features.map(featureView).filter(Boolean).map(view => {
-      const lat = view.lat * Math.PI / 180;
-      const lng = view.lng * Math.PI / 180;
-      return {
-        x: Math.cos(lat) * Math.cos(lng),
-        y: Math.cos(lat) * Math.sin(lng),
-        z: Math.sin(lat)
-      };
-    });
-    if (!vectors.length) return null;
-    const average = vectors.reduce((sum, vector) => ({
-      x: sum.x + vector.x,
-      y: sum.y + vector.y,
-      z: sum.z + vector.z
-    }), { x: 0, y: 0, z: 0 });
-    const horizontal = Math.hypot(average.x, average.y);
-    if (horizontal < 0.001 && Math.abs(average.z) < 0.001) return null;
+  function countryStyle(feature) {
+    const state = publicState(feature);
+    const highlighted = feature === selectedFeature || feature === hoveredFeature;
     return {
-      lat: Math.atan2(average.z, horizontal) * 180 / Math.PI,
-      lng: Math.atan2(average.y, average.x) * 180 / Math.PI
+      color: highlighted ? "#ffffff" : "rgba(255,255,255,0.68)",
+      weight: feature === selectedFeature ? 2.2 : highlighted ? 1.5 : 0.7,
+      opacity: 1,
+      fillColor: feature === hoveredFeature ? COLORS.hover : COLORS[state.status] || COLORS.insufficient,
+      fillOpacity: state.status === "insufficient" ? 0.7 : 0.92
     };
   }
 
-  function focusFeature(feature) {
-    const view = featureView(feature);
-    if (globe && view) {
-      wakeGlobe(reducedMotion ? 100 : 850);
-      globe.pointOfView(view, reducedMotion ? 0 : 650);
+  function refreshHighlights() {
+    countryLayers.forEach(({ feature, layer }) => layer.setStyle(countryStyle(feature)));
+  }
+
+  function selectFeature(feature, focus) {
+    selectedFeature = feature;
+    showCountry(feature);
+    select.value = countryCode(feature);
+    refreshHighlights();
+    const center = featureCenter(feature);
+    if (focus && center) {
+      map.flyTo(center, Math.max(map.getZoom(), 4), {
+        animate: !reducedMotion,
+        duration: reducedMotion ? 0 : 0.55
+      });
     }
   }
 
-  function changeZoom(delta) {
-    if (!globe) return;
-    wakeGlobe(reducedMotion ? 100 : 500);
-    const current = globe.pointOfView();
-    const altitude = Math.min(3.5, Math.max(0.72, Number(current.altitude || initialView().altitude) + delta));
-    globe.pointOfView({ lat: current.lat, lng: current.lng, altitude }, reducedMotion ? 0 : 260);
-    stopRotation();
+  function minimumLabelZoom(feature) {
+    const properties = feature.properties || {};
+    const sourceZoom = Number(properties.MIN_LABEL);
+    const rank = Number(properties.LABELRANK);
+    const suggested = Number.isFinite(sourceZoom) && sourceZoom > 0 ? sourceZoom : rank;
+    return Math.max(3, Math.min(6, Number.isFinite(suggested) ? suggested : 5));
+  }
+
+  function createLabel(feature, minimumZoom) {
+    const center = featureCenter(feature);
+    if (!center) return;
+    const icon = L.divIcon({
+      className: "oof-country-label-marker",
+      html: `<span>${escapeHtml(countryLabel(feature))}</span>`,
+      iconSize: null
+    });
+    labelLayers.push({
+      minimumZoom,
+      layer: L.marker(center, { icon, interactive: false, keyboard: false })
+    });
+  }
+
+  function updateLabels() {
+    const zoom = map.getZoom();
+    labelLayers.forEach(item => {
+      const shouldShow = zoom >= item.minimumZoom;
+      if (shouldShow && !map.hasLayer(item.layer)) item.layer.addTo(map);
+      if (!shouldShow && map.hasLayer(item.layer)) item.layer.removeFrom(map);
+    });
   }
 
   function populateCountrySelector(features) {
-    const sorted = [...features].sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), "en"));
+    const unique = new Map();
+    features.forEach(feature => {
+      const iso = countryCode(feature);
+      if (iso && !unique.has(iso)) unique.set(iso, feature);
+    });
+    const sorted = [...unique.values()].sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), "en"));
     const fragment = document.createDocumentFragment();
     sorted.forEach(feature => {
       const option = document.createElement("option");
@@ -187,34 +172,16 @@
     select.appendChild(fragment);
     select.addEventListener("change", () => {
       const option = select.options[select.selectedIndex];
-      const feature = option && option.__feature;
-      if (!feature) return showCountry(null);
-      selectedFeature = feature;
-      showCountry(feature);
-      stopRotation();
-      if (globe) {
-        focusFeature(feature);
+      if (option && option.__feature) selectFeature(option.__feature, true);
+      else {
+        selectedFeature = null;
+        showCountry(null);
         refreshHighlights();
       }
     });
   }
 
-  function setGlobeSize() {
-    if (!globe) return;
-    globe.width(container.clientWidth).height(container.clientHeight);
-  }
-
-  function refreshHighlights() {
-    if (!globe) return;
-    globe
-      .polygonCapColor(globe.polygonCapColor())
-      .polygonAltitude(globe.polygonAltitude())
-      .pointColor(globe.pointColor())
-      .pointRadius(globe.pointRadius());
-  }
-
   function showFallback(message) {
-    clearTimeout(renderIdleTimer);
     container.classList.add("is-fallback");
     container.innerHTML = `<p>${message}</p>`;
     if (viewControls) viewControls.hidden = true;
@@ -222,189 +189,94 @@
   }
 
   Promise.all([
-    fetch("assets/data/ne_110m_admin_0_countries.geojson", { cache: "force-cache" }).then(response => {
+    fetch("assets/data/ne_50m_admin_0_countries.geojson", { cache: "force-cache" }).then(response => {
       if (!response.ok) throw new Error("Country geometry unavailable");
       return response.json();
     }),
     fetch("data/oof-global-interest-heat-map.json", { cache: "no-cache" }).then(response => {
       if (!response.ok) throw new Error("Public interest dataset unavailable");
       return response.json();
-    }),
-    fetch("assets/data/ne_110m_missing_country_centers.json", { cache: "force-cache" }).then(response => {
-      if (!response.ok) throw new Error("Small-country coordinates unavailable");
-      return response.json();
     })
-  ]).then(([world, dataset, countryCenters]) => {
+  ]).then(([world, dataset]) => {
+    if (typeof window.L !== "object") throw new Error("2D map library unavailable");
+
     const publicCountries = new Map((dataset.countries || []).map(item => [String(item.iso || "").toUpperCase(), item]));
     const features = (world.features || []).filter(feature => countryCode(feature));
     features.forEach(feature => {
       const state = publicCountries.get(countryCode(feature));
       feature.__oofInterest = state && STATUS_LABELS[state.status] ? state : { status: "insufficient" };
     });
-    const featureCodes = new Set(features.map(countryCode));
-    const missingFeatures = (countryCenters.countries || [])
-      .filter(country => publicCountries.has(String(country.iso || "").toUpperCase()) && !featureCodes.has(String(country.iso || "").toUpperCase()))
-      .map(country => ({
-        properties: {
-          ADMIN: country.name,
-          ISO_A2_EH: String(country.iso || "").toUpperCase(),
-          LABEL_X: Number(country.lng),
-          LABEL_Y: Number(country.lat)
-        },
-        __oofInterest: publicCountries.get(String(country.iso || "").toUpperCase())
-      }));
-    dataInitialView = centeredView([
-      ...features.filter(feature => publicState(feature).status !== "insufficient"),
-      ...missingFeatures
-    ]);
-    populateCountrySelector([...features, ...missingFeatures]);
-
-    if (!supportsWebGL() || typeof window.Globe !== "function") {
-      showFallback("The 3D globe is unavailable in this browser. Use the country selector below.");
-      return;
-    }
-
     container.innerHTML = "";
-    globe = window.Globe({
-      animateIn: !reducedMotion && !mobileViewport.matches,
-      rendererConfig: {
-        alpha: true,
-        antialias: !mobileViewport.matches,
-        powerPreference: "high-performance"
-      }
-    })(container)
-      .backgroundColor("rgba(0,0,0,0)")
-      .showAtmosphere(!mobileViewport.matches)
-      .atmosphereColor("#f5f5f5")
-      .atmosphereAltitude(0.08)
-      .showGraticules(false)
-      .polygonsData(features)
-      .polygonCapColor(feature => {
-        if (feature === hoveredFeature) return COLORS.hover;
-        const status = publicState(feature).status;
-        return COLORS[status] || COLORS.insufficient;
-      })
-      .polygonSideColor(() => "rgba(60,60,60,0.58)")
-      .polygonStrokeColor(() => "rgba(255,255,255,0.48)")
-      .polygonAltitude(feature => {
-        if (mobileViewport.matches) return feature === selectedFeature ? 0.008 : 0.001;
-        return feature === selectedFeature ? 0.018 : feature === hoveredFeature ? 0.012 : 0.006;
-      })
-      .polygonLabel(() => "")
-      .onPolygonHover(feature => {
-        if (!precisePointer) return;
-        hoveredFeature = feature || null;
-        if (feature) showCountry(feature);
-        else if (selectedFeature) showCountry(selectedFeature);
-        refreshHighlights();
-      })
-      .onPolygonClick(feature => {
-        selectedFeature = feature;
-        showCountry(feature);
-        select.value = countryCode(feature);
-        stopRotation();
-        focusFeature(feature);
-        refreshHighlights();
-      })
-      .pointsData(missingFeatures)
-      .pointLat(feature => Number(feature.properties.LABEL_Y))
-      .pointLng(feature => Number(feature.properties.LABEL_X))
-      .pointColor(feature => feature === hoveredFeature ? COLORS.hover : COLORS[publicState(feature).status])
-      .pointAltitude(0.02)
-      .pointRadius(feature => feature === selectedFeature ? 0.7 : feature === hoveredFeature ? 0.58 : 0.48)
-      .pointResolution(mobileViewport.matches ? 8 : 12)
-      .pointLabel(() => "")
-      .onPointHover(feature => {
-        if (!precisePointer) return;
-        hoveredFeature = feature || null;
-        if (feature) showCountry(feature);
-        else if (selectedFeature) showCountry(selectedFeature);
-        refreshHighlights();
-      })
-      .onPointClick(feature => {
-        selectedFeature = feature;
-        showCountry(feature);
-        select.value = countryCode(feature);
-        stopRotation();
-        focusFeature(feature);
-        refreshHighlights();
-      });
+    map = L.map(container, {
+      attributionControl: true,
+      zoomControl: false,
+      minZoom: 1,
+      maxZoom: 7,
+      zoomSnap: 0.25,
+      zoomDelta: 0.5,
+      wheelPxPerZoomLevel: 90,
+      maxBounds: [[-85, -190], [85, 190]],
+      maxBoundsViscosity: 1,
+      worldCopyJump: false,
+      preferCanvas: true
+    });
+    map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
+    map.attributionControl.addAttribution('<a href="https://www.naturalearthdata.com" target="_blank" rel="noopener">Natural Earth</a>');
+    map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: false });
 
-    const material = globe.globeMaterial();
-    material.color.set("#656565");
-    material.emissive.set("#292929");
-    material.emissiveIntensity = 0.16;
-    material.shininess = 0.6;
-    const controls = globe.controls();
-    const renderer = globe.renderer && globe.renderer();
-    if (renderer && renderer.setPixelRatio) {
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobileViewport.matches ? 1.1 : 2));
-    }
-    globe.pointOfView(initialView(), 0);
-    controls.enablePan = false;
-    controls.enableDamping = true;
-    controls.dampingFactor = mobileViewport.matches ? 0.09 : 0.06;
-    controls.rotateSpeed = mobileViewport.matches ? 0.62 : 0.8;
-    controls.zoomSpeed = mobileViewport.matches ? 0.72 : 1;
-    controls.minDistance = 130;
-    controls.maxDistance = 460;
-    controls.autoRotate = !reducedMotion && !mobileViewport.matches;
-    controls.autoRotateSpeed = 0.18;
-    if (controls.addEventListener) {
-      controls.addEventListener("start", () => wakeGlobe());
-      controls.addEventListener("end", () => scheduleMobilePause(700));
-    }
-    setGlobeSize();
-    scheduleMobilePause(900);
+    L.geoJSON(features, {
+      style: countryStyle,
+      onEachFeature(feature, layer) {
+        countryLayers.push({ feature, layer });
+        layer.on({
+          click: () => selectFeature(feature, false),
+          mouseover: () => {
+            if (!precisePointer) return;
+            hoveredFeature = feature;
+            showCountry(feature);
+            refreshHighlights();
+            layer.bringToFront();
+          },
+          mouseout: () => {
+            if (!precisePointer) return;
+            hoveredFeature = null;
+            showCountry(selectedFeature);
+            refreshHighlights();
+          }
+        });
+        createLabel(feature, minimumLabelZoom(feature));
+      }
+    }).addTo(map);
+
+    populateCountrySelector(features);
+    updateLabels();
+    map.on("zoomend", () => {
+      updateLabels();
+      refreshHighlights();
+    });
 
     if (viewControls) {
       viewControls.addEventListener("click", event => {
-        const button = event.target.closest("button[data-globe-action]");
+        const button = event.target.closest("button[data-map-action]");
         if (!button) return;
-        const action = button.dataset.globeAction;
-        if (action === "zoom-in") changeZoom(-0.28);
-        if (action === "zoom-out") changeZoom(0.28);
-        if (action === "reset") {
-          wakeGlobe(reducedMotion ? 100 : 750);
+        if (button.dataset.mapAction === "zoom-in") map.zoomIn(0.5);
+        if (button.dataset.mapAction === "zoom-out") map.zoomOut(0.5);
+        if (button.dataset.mapAction === "reset") {
           selectedFeature = null;
           hoveredFeature = null;
           select.value = "";
           showCountry(null);
-          stopRotation();
-          globe.pointOfView(initialView(), reducedMotion ? 0 : 550);
           refreshHighlights();
+          map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: !reducedMotion });
         }
       });
     }
 
-    container.addEventListener("pointerdown", () => {
-      stopRotation();
-      wakeGlobe();
-    }, { capture: true, passive: true });
-    container.addEventListener("pointerup", () => scheduleMobilePause(700), { passive: true });
-    container.addEventListener("pointercancel", () => scheduleMobilePause(200), { passive: true });
-    container.addEventListener("wheel", () => {
-      stopRotation();
-      wakeGlobe(500);
-    }, { passive: true });
-    window.addEventListener("resize", () => {
-      cancelAnimationFrame(resizeFrame);
-      resizeFrame = requestAnimationFrame(() => {
-        wakeGlobe(300);
-        setGlobeSize();
-      });
-    });
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) pauseGlobe();
-      else wakeGlobe(500);
-    });
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(entries => {
-        globeInViewport = Boolean(entries[0] && entries[0].isIntersecting);
-        if (globeInViewport) wakeGlobe(500);
-        else pauseGlobe();
-      }, { rootMargin: "80px 0px" });
+    if ("ResizeObserver" in window) {
+      const observer = new ResizeObserver(() => map.invalidateSize({ pan: false }));
       observer.observe(container);
+    } else {
+      window.addEventListener("resize", () => map.invalidateSize({ pan: false }));
     }
   }).catch(error => {
     showFallback("The public map could not be loaded. The last valid dataset remains unavailable in this preview.");

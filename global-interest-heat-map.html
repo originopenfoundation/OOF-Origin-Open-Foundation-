@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>OOF® Global Interest Heat Map™</title>
+<link rel="stylesheet" href="assets/vendor/leaflet-1.9.4/leaflet.css" />
 <link rel="stylesheet" href="style.css" />
 <!-- OOF AI DISCOVERY START -->
 <link rel="canonical" href="https://originopenfoundation.org/global-interest-heat-map.html" />
@@ -32,14 +33,14 @@
   </header>
 
   <div class="oof-global-interest-globe-shell">
-    <div id="global-interest-globe" class="oof-global-interest-globe" role="img" aria-label="Interactive globe showing country-level interest in OOF governance methodology. Drag to rotate, scroll to zoom, or choose a country below.">
+    <div id="global-interest-globe" class="oof-global-interest-globe" role="application" aria-label="Interactive two-dimensional world map showing country-level interest in OOF governance methodology. Drag to move, zoom to reveal English country names, or choose a country below.">
       <div class="oof-global-interest-loading" role="status">Loading global interest map...</div>
     </div>
 
-    <div class="oof-global-interest-view-controls" aria-label="Globe view controls">
-      <button type="button" data-globe-action="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
-      <button type="button" data-globe-action="zoom-out" aria-label="Zoom out" title="Zoom out">−</button>
-      <button type="button" data-globe-action="reset" aria-label="Reset globe view" title="Reset globe view">↺</button>
+    <div class="oof-global-interest-view-controls" aria-label="Map view controls">
+      <button type="button" data-map-action="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
+      <button type="button" data-map-action="zoom-out" aria-label="Zoom out" title="Zoom out">−</button>
+      <button type="button" data-map-action="reset" aria-label="Reset map view" title="Reset map view">↺</button>
     </div>
 
     <aside id="global-interest-country-card" class="oof-global-interest-country-card" aria-live="polite" aria-atomic="true">
@@ -67,7 +68,7 @@
 
   <div id="global-interest-fallback" class="oof-global-interest-fallback" hidden>
     <h2 id="accessible-country-interest-view" data-oof-section-id="true" role="heading" aria-level="2">Accessible country interest view</h2>
-    <p>The interactive globe is unavailable. Use the country selector to read each public classification.</p>
+    <p>The interactive map is unavailable. Use the country selector to read each public classification.</p>
   </div>
 
   <noscript>
@@ -86,7 +87,7 @@
 fetch("header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
 fetch("footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
 </script>
-<script defer src="assets/vendor/globe.gl-2.46.2.min.js"></script>
-<script defer src="assets/js/oof-global-interest-heat-map.js?v=20260914.3"></script>
+<script defer src="assets/vendor/leaflet-1.9.4/leaflet.js"></script>
+<script defer src="assets/js/oof-global-interest-heat-map.js?v=20260915.2"></script>
 </body>
 </html>
