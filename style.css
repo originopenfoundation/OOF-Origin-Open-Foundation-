@@ -2221,8 +2221,31 @@ padding:10px;
 
 .footer-socials {
   display: flex;
-  justify-content: center; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   padding: 15px 0;
+}
+
+.footer-email,
+.footer-email:visited {
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1.4;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.footer-email:hover,
+.footer-email:focus-visible {
+  color: #ffffff;
+  text-decoration-thickness: 2px;
+}
+
+.footer-contact {
+  margin: 0;
+  font-style: normal;
 }
 
 .x-footer-icon {
