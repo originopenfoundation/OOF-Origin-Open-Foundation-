@@ -201,7 +201,10 @@
     if (typeof window.L !== "object") throw new Error("2D map library unavailable");
 
     const publicCountries = new Map((dataset.countries || []).map(item => [String(item.iso || "").toUpperCase(), item]));
-    const features = (world.features || []).filter(feature => countryCode(feature));
+    const features = (world.features || []).filter(feature => {
+      const iso = countryCode(feature);
+      return iso && iso !== "AQ";
+    });
     features.forEach(feature => {
       const state = publicCountries.get(countryCode(feature));
       feature.__oofInterest = state && STATUS_LABELS[state.status] ? state : { status: "insufficient" };

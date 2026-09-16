@@ -74,7 +74,8 @@ def cloudflare_rows(account_id: str, site_tag: str, token: str, start: datetime,
 def resolve_iso(value: str) -> str | None:
     candidate = (value or "").strip()
     if re.fullmatch(r"[A-Za-z]{2}", candidate):
-        return candidate.upper()
+        iso = candidate.upper()
+        return None if iso == "AQ" else iso
     return None
 
 

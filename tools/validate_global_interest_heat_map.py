@@ -45,6 +45,8 @@ def validate(path: Path) -> dict:
             raise ValueError(f"countries[{index}].iso must be an ISO alpha-2 code")
         if iso in seen:
             raise ValueError(f"Duplicate country code: {iso}")
+        if iso == "AQ":
+            raise ValueError("Antarctica must not be published in the interest heat map")
         seen.add(iso)
         if country.get("status") not in STATUSES:
             raise ValueError(f"Invalid public status for {iso}")
