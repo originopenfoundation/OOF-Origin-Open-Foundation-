@@ -58,6 +58,11 @@
     return Number.isFinite(lat) && Number.isFinite(lng) ? [lat, lng] : null;
   }
 
+  function isTinyFeature(feature) {
+    const properties = feature && feature.properties ? feature.properties : {};
+    return Number(properties.TINY) > 0;
+  }
+
   function flagFor(iso) {
     if (!/^[A-Z]{2}$/.test(iso)) return "";
     return String.fromCodePoint(...iso.split("").map(letter => 127397 + letter.charCodeAt(0)));
@@ -96,9 +101,10 @@
   function countryStyle(feature) {
     const state = publicState(feature);
     const highlighted = feature === selectedFeature || feature === hoveredFeature;
+    const activeTiny = isTinyFeature(feature) && state.status !== "insufficient";
     return {
       color: highlighted ? "#ffffff" : "rgba(255,255,255,0.68)",
-      weight: feature === selectedFeature ? 2.2 : highlighted ? 1.5 : 0.7,
+      weight: feature === selectedFeature ? 3.4 : highlighted ? 2.4 : activeTiny ? 3 : 0.7,
       opacity: 1,
       fillColor: feature === hoveredFeature ? COLORS.hover : COLORS[state.status] || COLORS.insufficient,
       fillOpacity: state.status === "insufficient" ? 0.7 : 0.92
@@ -116,7 +122,7 @@
     refreshHighlights();
     const center = featureCenter(feature);
     if (focus && center) {
-      map.flyTo(center, Math.max(map.getZoom(), 4), {
+      map.flyTo(center, Math.max(map.getZoom(), isTinyFeature(feature) ? 9 : 4), {
         animate: !reducedMotion,
         duration: reducedMotion ? 0 : 0.55
       });
@@ -124,6 +130,7 @@
   }
 
   function minimumLabelZoom(feature) {
+    if (isTinyFeature(feature) && publicState(feature).status !== "insufficient") return 1;
     const properties = feature.properties || {};
     const sourceZoom = Number(properties.MIN_LABEL);
     const rank = Number(properties.LABELRANK);
@@ -214,7 +221,7 @@
       attributionControl: true,
       zoomControl: false,
       minZoom: 1,
-      maxZoom: 7,
+      maxZoom: 10,
       zoomSnap: 0.25,
       zoomDelta: 0.5,
       wheelPxPerZoomLevel: 90,
@@ -248,6 +255,21 @@
           }
         });
         createLabel(feature, minimumLabelZoom(feature));
+
+        if (isTinyFeature(feature)) {
+          const center = featureCenter(feature);
+          if (center) {
+            L.circleMarker(center, {
+              radius: 18,
+              stroke: false,
+              fill: true,
+              fillColor: "#000000",
+              fillOpacity: 0.001,
+              interactive: true,
+              keyboard: false
+            }).on("click", () => selectFeature(feature, true)).addTo(map);
+          }
+        }
       }
     }).addTo(map);
 
