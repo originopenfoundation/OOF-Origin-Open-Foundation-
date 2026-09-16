@@ -22,6 +22,7 @@ BASE_URL = "https://originopenfoundation.org/"
 
 def text_content(source: str) -> str:
     source = BLOCK_RE.sub("", source)
+    source = re.sub(r"<head\b.*?</head>", " ", source, flags=re.I | re.S)
     source = re.sub(r"<(script|style|noscript)\b.*?</\1>", " ", source, flags=re.I | re.S)
     source = re.sub(r"<[^>]+>", " ", source)
     return re.sub(r"\s+", " ", html.unescape(source)).strip()
@@ -42,34 +43,80 @@ def relative(path: Path) -> str:
     return path.relative_to(ROOT).as_posix()
 
 
+def alias_target(page_relative: str) -> str | None:
+    if not page_relative.startswith("content/g/"):
+        return None
+    candidate = "content/aig/" + Path(page_relative).name
+    return candidate if (ROOT / candidate).is_file() else None
+
+
 def main() -> int:
     errors: list[str] = []
     pages = public_pages()
     canonicals: set[str] = set()
+    descriptions: set[str] = set()
+    titles: set[str] = set()
 
     for path in pages:
         source = path.read_text(encoding="utf-8")
+        page_relative = relative(path)
+        target_relative = alias_target(page_relative)
+        if target_relative is None:
+            title_matches = re.findall(r"<title\b[^>]*>(.*?)</title>", source, re.I | re.S)
+            if len(title_matches) != 1:
+                errors.append(f"{relative(path)}: expected one document title, found {len(title_matches)}")
+            else:
+                title = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", title_matches[0]))).strip()
+                if not title:
+                    errors.append(f"{relative(path)}: empty document title")
+                elif title.casefold() in titles:
+                    errors.append(f"{relative(path)}: duplicate document title")
+                titles.add(title.casefold())
+            if not re.search(r'<html\b[^>]*\blang=["\']en["\']', source, re.I):
+                errors.append(f"{relative(path)}: missing English document language")
+            if not re.search(r'<meta\s+name=["\']viewport["\']', source, re.I):
+                errors.append(f"{relative(path)}: missing viewport metadata")
         blocks = re.findall(re.escape(START) + r"(.*?)" + re.escape(END), source, re.S)
         if len(blocks) != 1:
             errors.append(f"{relative(path)}: expected one AI metadata block, found {len(blocks)}")
             continue
         block = blocks[0]
+        description_matches = re.findall(r'<meta name="description" content="([^"]+)"', source, re.I)
+        if len(description_matches) != 1:
+            errors.append(f"{relative(path)}: expected one meta description, found {len(description_matches)}")
+        else:
+            description = html.unescape(description_matches[0]).strip()
+            if not description:
+                errors.append(f"{relative(path)}: empty meta description")
+            elif target_relative is None and description.casefold() in descriptions:
+                errors.append(f"{relative(path)}: duplicate meta description")
+            if target_relative is None:
+                descriptions.add(description.casefold())
+        for required_meta in ('property="og:title"', 'property="og:description"', 'property="og:url"', 'name="twitter:card"'):
+            if required_meta not in block:
+                errors.append(f"{relative(path)}: missing social metadata {required_meta}")
         canonical_match = re.search(r'<link rel="canonical" href="([^"]+)"', block)
         if not canonical_match:
             errors.append(f"{relative(path)}: missing canonical URL")
         else:
             canonical = canonical_match.group(1)
-            page_relative = relative(path)
-            expected_canonical = BASE_URL if page_relative == "index.html" else BASE_URL + quote(unquote(page_relative), safe="/-._~()")
+            canonical_relative = target_relative or page_relative
+            expected_canonical = BASE_URL if canonical_relative == "index.html" else BASE_URL + quote(unquote(canonical_relative), safe="/-._~()")
             if canonical != expected_canonical:
                 errors.append(f"{relative(path)}: canonical URL does not match its file path")
-            if canonical in canonicals:
+            if target_relative is None and canonical in canonicals:
                 errors.append(f"{relative(path)}: duplicate canonical URL {canonical}")
-            canonicals.add(canonical)
-        json_match = re.search(r'<script type="application/ld\+json">(.*?)</script>', block, re.S)
-        if not json_match:
-            errors.append(f"{relative(path)}: missing JSON-LD")
+            if target_relative is None:
+                canonicals.add(canonical)
+        if target_relative is not None:
+            if 'content="noindex, follow"' not in block:
+                errors.append(f"{relative(path)}: alias is missing noindex, follow")
+            json_match = None
         else:
+            json_match = re.search(r'<script type="application/ld\+json">(.*?)</script>', block, re.S)
+        if target_relative is None and not json_match:
+            errors.append(f"{relative(path)}: missing JSON-LD")
+        elif json_match:
             try:
                 data = json.loads(json_match.group(1))
                 if data.get("url") != canonical_match.group(1) if canonical_match else False:
@@ -96,6 +143,18 @@ def main() -> int:
             except json.JSONDecodeError as exc:
                 errors.append(f"{relative(path)}: invalid JSON-LD: {exc}")
 
+        if relative(path) == "index.html":
+            scripts = re.findall(r'<script type="application/ld\+json">(.*?)</script>', block, re.S)
+            entities = []
+            for script in scripts:
+                try:
+                    entities.extend(json.loads(script).get("@graph", []))
+                except json.JSONDecodeError:
+                    pass
+            entity_types = {item.get("@type") for item in entities}
+            if not {"Organization", "WebSite"}.issubset(entity_types):
+                errors.append("index.html: missing Organization or WebSite structured data")
+
         headings = re.findall(r"<h[1-6]\b([^>]*)>", source, re.I)
         for heading in headings:
             if "data-oof-section-id" not in heading or not re.search(r'\bid=["\'][^"\']+["\']', heading, re.I):
@@ -117,8 +176,9 @@ def main() -> int:
 
     graph = json.loads((ROOT / "data" / "oof-site-knowledge-graph.json").read_text(encoding="utf-8"))
     graph_pages = [item for item in graph.get("@graph", []) if str(item.get("@id", "")).endswith("#webpage")]
-    if len(graph_pages) != len(pages):
-        errors.append(f"Knowledge graph has {len(graph_pages)} pages; expected {len(pages)}")
+    canonical_pages = [path for path in pages if alias_target(relative(path)) is None]
+    if len(graph_pages) != len(canonical_pages):
+        errors.append(f"Knowledge graph has {len(graph_pages)} pages; expected {len(canonical_pages)}")
     graph_urls = {item.get("url") for item in graph_pages}
     if graph_urls != canonicals:
         errors.append("Knowledge graph and canonical page sets differ")
@@ -169,7 +229,7 @@ def main() -> int:
 
     search_entries = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
     search_urls = {entry.get("url") for entry in search_entries}
-    missing_search = {relative(path) for path in pages} - search_urls
+    missing_search = {relative(path) for path in canonical_pages} - search_urls
     if missing_search:
         errors.append(f"Search index is missing {len(missing_search)} public pages")
 
@@ -182,7 +242,8 @@ def main() -> int:
         return 1
 
     print(
-        f"AI compatibility validation passed: {len(pages)} pages, unique canonicals, valid JSON-LD, "
+        f"AI compatibility validation passed: {len(canonical_pages)} canonical pages and "
+        f"{len(pages) - len(canonical_pages)} preserved aliases, unique titles/descriptions, valid JSON-LD, "
         "complete sitemap, typed knowledge graph, stable section IDs, breadcrumbs, LLM indexes, search coverage, "
         "and unchanged visible page text."
     )

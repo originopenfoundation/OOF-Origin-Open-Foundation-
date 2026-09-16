@@ -67,7 +67,8 @@ def normalized_entity_name(value: str) -> str:
 
 def main() -> None:
     paths = ai.public_pages()
-    records = ai.inspect_pages(paths)
+    all_records = ai.inspect_pages(paths)
+    records = [record for record in all_records if ai.alias_target(record["relative"]) is None]
     resources = []
     versions = []
     title_groups: dict[str, list[dict]] = defaultdict(list)
@@ -132,8 +133,19 @@ def main() -> None:
         "resources": resources,
     }
     preserved_aliases = []
-    if ALIAS_PATH.is_file():
-        preserved_aliases = json.loads(ALIAS_PATH.read_text(encoding="utf-8")).get("aliases", [])
+    for record in all_records:
+        target = ai.alias_target(record["relative"])
+        if target:
+            preserved_aliases.append(
+                {
+                    "sourcePath": record["relative"],
+                    "sourceUrl": ai.canonical_url(record["relative"]),
+                    "canonicalPath": target,
+                    "canonicalUrl": ai.canonical_url(target),
+                    "resolution": "canonical+noindex",
+                    "status": "active",
+                }
+            )
     alias_registry = {
         "schemaVersion": "1.0",
         "policy": "Only verified historical URLs may become aliases.",
@@ -149,7 +161,7 @@ def main() -> None:
         "schemaVersion": "1.0",
         "summary": {
             "publicUrls": len(resources),
-            "preservedUrls": len(resources),
+            "preservedUrls": len(all_records),
             "activatedAliases": len(preserved_aliases),
             "migrationCandidates": len(migration_candidates),
             "explicitVersionRecords": len(versions),
@@ -169,7 +181,8 @@ def main() -> None:
     ):
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(
-        f"URL governance built: {len(resources)} preserved URLs, {len(versions)} explicit version records, "
+        f"URL governance built: {len(resources)} canonical URLs, {len(all_records)} preserved files, "
+        f"{len(versions)} explicit version records, "
         f"{len(migration_candidates)} migration candidates, {len(preserved_aliases)} activated aliases."
     )
 

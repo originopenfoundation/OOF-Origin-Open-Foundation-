@@ -55,13 +55,14 @@ def main() -> int:
     errors = []
     pages = ai.public_pages()
     page_paths = {ai.relative_url(path) for path in pages}
+    canonical_page_paths = {path for path in page_paths if ai.alias_target(path) is None}
     registry = json.loads(governance.REGISTRY_PATH.read_text(encoding="utf-8"))
     aliases = json.loads(governance.ALIAS_PATH.read_text(encoding="utf-8"))
     versions = json.loads(governance.VERSION_PATH.read_text(encoding="utf-8"))
     resources = registry.get("resources", [])
     registry_paths = {item.get("path") for item in resources}
 
-    if registry_paths != page_paths:
+    if registry_paths != canonical_page_paths:
         errors.append("URL registry and public HTML page sets differ")
     if len(registry_paths) != len(resources):
         errors.append("URL registry contains duplicate paths")
@@ -93,12 +94,19 @@ def main() -> int:
         alias_targets.add(target)
         if source == target:
             errors.append(f"Self-referencing alias: {source}")
-        if target not in page_paths:
+        if target not in canonical_page_paths:
             errors.append(f"Alias target is not canonical public content: {target}")
-        if source in page_paths:
-            errors.append(f"Alias source still returns a duplicate public HTML page: {source}")
-        if item.get("redirectType") != 301:
-            errors.append(f"Alias lacks permanent 301 classification: {source}")
+        if source not in page_paths:
+            errors.append(f"Preserved alias source is missing: {source}")
+        elif item.get("resolution") != "canonical+noindex":
+            errors.append(f"Alias lacks canonical+noindex resolution: {source}")
+        else:
+            alias_source = (ROOT / source).read_text(encoding="utf-8")
+            if 'content="noindex, follow"' not in alias_source:
+                errors.append(f"Alias source is indexable: {source}")
+            expected = ai.canonical_url(target)
+            if f'<link rel="canonical" href="{expected}"' not in alias_source:
+                errors.append(f"Alias canonical target differs: {source}")
     if alias_sources & alias_targets:
         errors.append("Alias registry contains a redirect chain")
 
@@ -116,11 +124,11 @@ def main() -> int:
         if path in version_paths:
             errors.append(f"Duplicate current version record: {path}")
         version_paths.add(path)
-        if path not in page_paths:
+        if path not in canonical_page_paths:
             errors.append(f"Version record points to missing page: {path}")
         if not item.get("version"):
             errors.append(f"Version record lacks explicit version identity: {path}")
-        elif path in page_paths:
+        elif path in canonical_page_paths:
             explicit_version = governance.explicit_field((ROOT / path).read_text(encoding="utf-8"), "Version")
             if explicit_version != item.get("version"):
                 errors.append(f"Version registry differs from published source metadata: {path}")
@@ -130,6 +138,7 @@ def main() -> int:
     explicit_version_paths = {
         ai.relative_url(path)
         for path in pages
+        if ai.alias_target(ai.relative_url(path)) is None
         if governance.explicit_field(path.read_text(encoding="utf-8"), "Version")
     }
     if explicit_version_paths != version_paths:

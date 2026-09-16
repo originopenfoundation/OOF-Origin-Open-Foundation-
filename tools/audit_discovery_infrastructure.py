@@ -36,7 +36,13 @@ def public_pages() -> list[Path]:
         (
             path
             for path in ROOT.rglob("*.html")
-            if ".git" not in path.parts and "</head>" in path.read_text(encoding="utf-8").lower()
+            if ".git" not in path.parts
+            and "</head>" in path.read_text(encoding="utf-8").lower()
+            and not re.search(
+                r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex',
+                path.read_text(encoding="utf-8"),
+                re.I,
+            )
         ),
         key=lambda path: path.relative_to(ROOT).as_posix().casefold(),
     )

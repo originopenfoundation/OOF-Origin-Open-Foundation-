@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 import json
 import re
+from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote, unquote, urljoin, urlparse
@@ -45,8 +46,10 @@ class PageParser(HTMLParser):
         self.heading_parts: list[str] = []
         self.text_parts: list[str] = []
         self.hrefs: list[str] = []
+        self.meta_description = ""
         self.in_title = False
         self.in_heading = False
+        self.heading_complete = False
         self.ignored = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -55,12 +58,16 @@ class PageParser(HTMLParser):
             self.ignored += 1
         if tag == "title":
             self.in_title = True
-        if tag in {"h1", "h2"} and not self.heading_parts:
+        if tag in {"h1", "h2"} and not self.heading_complete:
             self.in_heading = True
         if tag == "a":
             href = dict(attrs).get("href")
             if href:
                 self.hrefs.append(href.strip())
+        if tag == "meta":
+            attributes = {key.casefold(): value for key, value in attrs if value is not None}
+            if attributes.get("name", "").casefold() == "description":
+                self.meta_description = clean_text(attributes.get("content", ""))
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
@@ -68,8 +75,9 @@ class PageParser(HTMLParser):
             self.ignored -= 1
         if tag == "title":
             self.in_title = False
-        if tag in {"h1", "h2"}:
+        if tag in {"h1", "h2"} and self.in_heading:
             self.in_heading = False
+            self.heading_complete = True
 
     def handle_data(self, data: str) -> None:
         value = data.strip()
@@ -77,7 +85,7 @@ class PageParser(HTMLParser):
             return
         if self.in_title:
             self.title_parts.append(value)
-        if self.in_heading and not self.heading_parts:
+        if self.in_heading:
             self.heading_parts.append(value)
         if not self.ignored:
             self.text_parts.append(value)
@@ -86,12 +94,88 @@ class PageParser(HTMLParser):
         value = " ".join(self.title_parts) or " ".join(self.heading_parts) or fallback
         return clean_text(value)
 
+    def document_title(self) -> str:
+        return clean_text(" ".join(self.title_parts))
+
+    def heading_title(self) -> str:
+        return clean_text(" ".join(self.heading_parts))
+
     def visible_text(self) -> str:
         return clean_text(" ".join(self.text_parts))
 
 
 def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(value)).strip()
+
+
+def truncate_description(value: str, limit: int = 160) -> str:
+    value = clean_text(value)
+    if len(value) <= limit:
+        return value
+    clipped = value[: limit + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return clipped + "." if clipped and clipped[-1] not in ".!?" else clipped
+
+
+def generated_description(record: dict) -> str:
+    title = record["title"]
+    body = record["visibleText"]
+    while body.casefold().startswith(title.casefold()):
+        body = body[len(title) :].lstrip(" .:-")
+    if not body:
+        body = f"Official canonical reference published by {SITE_NAME}."
+    return truncate_description(f"{title}. {body}")
+
+
+def assign_descriptions(records: list[dict]) -> None:
+    counts = Counter(record["existingDescription"].casefold() for record in records if record["existingDescription"])
+    used: set[str] = set()
+    for record in records:
+        existing = record["existingDescription"]
+        if record["relative"] == "index.html":
+            description = (
+                "OOF® — OriginOpen® Foundation publishes Structured Reality™ standards, governance architectures, "
+                "methodology infrastructure, and canonical references."
+            )
+        elif existing and counts[existing.casefold()] == 1:
+            description = truncate_description(existing)
+        else:
+            description = generated_description(record)
+        if description.casefold() in used:
+            page_name = Path(record["relative"]).stem.replace("-", " ").replace("_", " ")
+            description = truncate_description(
+                f'{record["title"]}. Official OOF canonical reference for {page_name}.'
+            )
+        used.add(description.casefold())
+        record["description"] = description
+
+
+def assign_titles(records: list[dict]) -> None:
+    counts = Counter(record["existingTitle"].casefold() for record in records if record["existingTitle"])
+    used: set[str] = set()
+    for record in records:
+        existing = record["existingTitle"]
+        heading = record["headingTitle"]
+        if record["relative"] == "index.html":
+            title = "OOF® — OriginOpen® Foundation | Methodology Infrastructure"
+        elif heading and existing and heading.casefold().startswith(existing.casefold()) and len(heading) > len(existing):
+            title = heading
+        elif not existing or counts[existing.casefold()] > 1:
+            title = heading or existing or Path(record["relative"]).stem.replace("-", " ")
+        else:
+            title = existing
+        title = clean_text(title)
+        if title.casefold() in used:
+            title = clean_text(f'{title} — {Path(record["relative"]).stem.replace("-", " ")}')
+        used.add(title.casefold())
+        record["title"] = title
+        record["schemaType"] = page_type(title, record["relative"])
+
+
+def alias_target(relative: str) -> str | None:
+    if not relative.startswith("content/g/"):
+        return None
+    candidate = "content/aig/" + Path(relative).name
+    return candidate if (ROOT / candidate).is_file() else None
 
 
 def section_slug(value: str) -> str:
@@ -193,15 +277,20 @@ def inspect_pages(paths: list[Path]) -> list[dict]:
                 "relative": relative,
                 "canonical": canonical_url(relative),
                 "title": title,
+                "existingTitle": parser.document_title(),
+                "headingTitle": parser.heading_title(),
                 "language": "en",
                 "schemaType": page_type(title, relative),
+                "existingDescription": parser.meta_description,
                 "fields": fields,
                 "links": resolve_internal_links(path, parser.hrefs, known_urls),
                 "visibleText": parser.visible_text(),
                 "source": source,
             }
         )
+    assign_titles(records)
     add_typed_relations(records)
+    assign_descriptions(records)
     return records
 
 
@@ -258,6 +347,7 @@ def page_json_ld(record: dict) -> dict:
         "@id": record["canonical"] + "#webpage",
         "url": record["canonical"],
         "name": record["title"],
+        "description": record["description"],
         "inLanguage": record["language"],
         "isPartOf": {"@id": BASE_URL + "#website"},
         "publisher": {"@id": BASE_URL + "#organization"},
@@ -312,10 +402,11 @@ def page_json_ld(record: dict) -> dict:
 def metadata_block(record: dict) -> str:
     canonical = html.escape(record["canonical"], quote=True)
     title = html.escape(record["title"], quote=True)
+    description = html.escape(record["description"], quote=True)
     json_ld = json.dumps(page_json_ld(record), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    return "\n".join(
-        [
+    lines = [
             START,
+            f'<meta name="description" content="{description}" />',
             f'<link rel="canonical" href="{canonical}" />',
             f'<link rel="alternate" hreflang="en" href="{canonical}" />',
             f'<link rel="alternate" hreflang="x-default" href="{canonical}" />',
@@ -324,20 +415,113 @@ def metadata_block(record: dict) -> str:
             '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />',
             '<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />',
             '<meta name="content-language" content="en" />',
+            f'<meta property="og:title" content="{title}" />',
+            f'<meta property="og:description" content="{description}" />',
+            f'<meta property="og:url" content="{canonical}" />',
+            f'<meta property="og:type" content="{"website" if record["relative"] == "index.html" else "article"}" />',
+            f'<meta property="og:site_name" content="{html.escape(SITE_NAME, quote=True)}" />',
+            '<meta property="og:locale" content="en_US" />',
+            '<meta name="twitter:card" content="summary" />',
+            f'<meta name="twitter:title" content="{title}" />',
+            f'<meta name="twitter:description" content="{description}" />',
             f'<meta name="DC.title" content="{title}" />',
             '<meta name="DC.language" content="en" />',
             f'<meta name="DC.identifier" content="{canonical}" />',
             f'<script type="application/ld+json">{json_ld}</script>',
-            END,
-        ]
-    )
+    ]
+    if record["relative"] == "index.html":
+        site_entities = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": BASE_URL + "#organization",
+                    "name": SITE_NAME,
+                    "url": BASE_URL,
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": canonical_url("favicon.png"),
+                        "width": 1254,
+                        "height": 1254,
+                    },
+                    "email": "contact@originopenfoundation.org",
+                    "sameAs": ["https://github.com/originopenfoundation"],
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": BASE_URL + "#website",
+                    "name": SITE_NAME,
+                    "url": BASE_URL,
+                    "inLanguage": "en",
+                    "publisher": {"@id": BASE_URL + "#organization"},
+                },
+            ],
+        }
+        site_json_ld = json.dumps(site_entities, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+        lines.append(f'<script type="application/ld+json">{site_json_ld}</script>')
+    lines.append(END)
+    return "\n".join(lines)
 
 
 def inject_metadata(record: dict) -> None:
     path = record["path"]
     source = path.read_text(encoding="utf-8")
     source = BLOCK_RE.sub("", source)
+    source = re.sub(
+        r'\s*<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>',
+        "",
+        source,
+        flags=re.I,
+    )
+    escaped_title = html.escape(record["title"])
+    if re.search(r"<title\b[^>]*>.*?</title>", source, re.I | re.S):
+        source = re.sub(
+            r"<title\b[^>]*>.*?</title>",
+            f"<title>{escaped_title}</title>",
+            source,
+            count=1,
+            flags=re.I | re.S,
+        )
+    else:
+        source = re.sub(r"<head\b[^>]*>", lambda match: match.group(0) + f"\n<title>{escaped_title}</title>", source, count=1, flags=re.I)
     source = re.sub(r"</head>", metadata_block(record) + "\n</head>", source, count=1, flags=re.I)
+    path.write_text(source, encoding="utf-8", newline="\n")
+
+
+def inject_alias_metadata(record: dict, target: dict) -> None:
+    path = record["path"]
+    source = path.read_text(encoding="utf-8")
+    source = BLOCK_RE.sub("", source)
+    source = re.sub(
+        r'\s*<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>',
+        "",
+        source,
+        flags=re.I,
+    )
+    target_url = html.escape(target["canonical"], quote=True)
+    description = html.escape(target["description"], quote=True)
+    title = html.escape(record["title"], quote=True)
+    block = "\n".join(
+        [
+            START,
+            f'<meta name="description" content="{description}" />',
+            f'<link rel="canonical" href="{target_url}" />',
+            f'<link rel="alternate" hreflang="en" href="{target_url}" />',
+            f'<link rel="alternate" hreflang="x-default" href="{target_url}" />',
+            '<meta name="robots" content="noindex, follow" />',
+            '<meta name="googlebot" content="noindex, follow" />',
+            f'<meta property="og:title" content="{title}" />',
+            f'<meta property="og:description" content="{description}" />',
+            f'<meta property="og:url" content="{target_url}" />',
+            '<meta property="og:type" content="article" />',
+            f'<meta property="og:site_name" content="{html.escape(SITE_NAME, quote=True)}" />',
+            '<meta name="twitter:card" content="summary" />',
+            f'<meta name="twitter:title" content="{title}" />',
+            f'<meta name="twitter:description" content="{description}" />',
+            END,
+        ]
+    )
+    source = re.sub(r"</head>", block + "\n</head>", source, count=1, flags=re.I)
     path.write_text(source, encoding="utf-8", newline="\n")
 
 
@@ -434,6 +618,7 @@ def graph_record(record: dict) -> dict:
         "@id": record["canonical"] + "#webpage",
         "url": record["canonical"],
         "name": record["title"],
+        "description": record["description"],
         "inLanguage": record["language"],
         "isPartOf": {"@id": BASE_URL + "#website"},
     }
@@ -602,6 +787,8 @@ def write_llm_indexes(records: list[dict]) -> None:
 def update_search_index(records: list[dict]) -> int:
     path = ROOT / "search-index.json"
     entries = json.loads(path.read_text(encoding="utf-8"))
+    canonical_relatives = {record["relative"] for record in records}
+    entries = [entry for entry in entries if entry.get("url") in canonical_relatives]
     existing = {entry.get("url") for entry in entries}
     added = 0
     for record in records:
@@ -616,11 +803,17 @@ def update_search_index(records: list[dict]) -> int:
 
 def main() -> None:
     paths = public_pages()
-    records = inspect_pages(paths)
+    all_records = inspect_pages(paths)
+    records = [record for record in all_records if alias_target(record["relative"]) is None]
+    by_relative = {record["relative"]: record for record in records}
     for record in records:
         inject_metadata(record)
         inject_section_ids(record["path"])
         inject_semantic_structure(record["path"])
+    for record in all_records:
+        target_relative = alias_target(record["relative"])
+        if target_relative:
+            inject_alias_metadata(record, by_relative[target_relative])
     write_knowledge_graph(records)
     write_typed_relationships(records)
     write_sitemap(records)
