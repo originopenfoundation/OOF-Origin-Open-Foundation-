@@ -122,7 +122,7 @@
     refreshHighlights();
     const center = featureCenter(feature);
     if (focus && center) {
-      map.flyTo(center, Math.max(map.getZoom(), isTinyFeature(feature) ? 9 : 4), {
+      map.flyTo(center, Math.max(map.getZoom(), isTinyFeature(feature) ? 8 : 4), {
         animate: !reducedMotion,
         duration: reducedMotion ? 0 : 0.55
       });
@@ -138,24 +138,34 @@
     return Math.max(3, Math.min(6, Number.isFinite(suggested) ? suggested : 5));
   }
 
-  function createLabel(feature, minimumZoom) {
+  function createLabel(feature, minimumZoom, maximumZoom, callout) {
     const center = featureCenter(feature);
     if (!center) return;
+    const state = publicState(feature);
     const icon = L.divIcon({
-      className: "oof-country-label-marker",
+      className: `oof-country-label-marker${callout ? ` is-tiny-callout is-${state.status}` : ""}`,
       html: `<span>${escapeHtml(countryLabel(feature))}</span>`,
-      iconSize: null
+      iconSize: callout ? [140, 32] : null,
+      iconAnchor: callout ? [0, 16] : undefined
     });
+    const marker = L.marker(center, {
+      icon,
+      interactive: Boolean(callout),
+      keyboard: Boolean(callout),
+      title: callout ? `Show ${countryLabel(feature)}` : undefined
+    });
+    if (callout) marker.on("click", () => selectFeature(feature, true));
     labelLayers.push({
       minimumZoom,
-      layer: L.marker(center, { icon, interactive: false, keyboard: false })
+      maximumZoom,
+      layer: marker
     });
   }
 
   function updateLabels() {
     const zoom = map.getZoom();
     labelLayers.forEach(item => {
-      const shouldShow = zoom >= item.minimumZoom;
+      const shouldShow = zoom >= item.minimumZoom && (!item.maximumZoom || zoom < item.maximumZoom);
       if (shouldShow && !map.hasLayer(item.layer)) item.layer.addTo(map);
       if (!shouldShow && map.hasLayer(item.layer)) item.layer.removeFrom(map);
     });
@@ -221,7 +231,7 @@
       attributionControl: true,
       zoomControl: false,
       minZoom: 1,
-      maxZoom: 10,
+      maxZoom: 9,
       zoomSnap: 0.25,
       zoomDelta: 0.5,
       wheelPxPerZoomLevel: 90,
@@ -254,21 +264,11 @@
             refreshHighlights();
           }
         });
-        createLabel(feature, minimumLabelZoom(feature));
-
-        if (isTinyFeature(feature)) {
-          const center = featureCenter(feature);
-          if (center) {
-            L.circleMarker(center, {
-              radius: 18,
-              stroke: false,
-              fill: true,
-              fillColor: "#000000",
-              fillOpacity: 0.001,
-              interactive: true,
-              keyboard: false
-            }).on("click", () => selectFeature(feature, true)).addTo(map);
-          }
+        if (isTinyFeature(feature) && publicState(feature).status !== "insufficient") {
+          createLabel(feature, 1, 4, true);
+          createLabel(feature, 4);
+        } else {
+          createLabel(feature, minimumLabelZoom(feature));
         }
       }
     }).addTo(map);
