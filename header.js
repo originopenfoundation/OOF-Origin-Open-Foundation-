@@ -10,7 +10,7 @@ function loadCloudflareAnalytics() {
   const beacon = document.createElement("script");
   beacon.type = "module";
   beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
-  beacon.dataset.cfBeacon = JSON.stringify({ token: "88e0764a9f0346fcba66f2e42dad19dd" });
+  beacon.dataset.cfBeacon = JSON.stringify({ token: "358af31e8be84a238826900e0aba2cc3" });
   document.body.appendChild(beacon);
 }
 
