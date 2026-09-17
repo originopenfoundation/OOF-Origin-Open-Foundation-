@@ -112,8 +112,10 @@ def truncate_description(value: str, limit: int = 160) -> str:
     value = clean_text(value)
     if len(value) <= limit:
         return value
-    clipped = value[: limit + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
-    return clipped + "." if clipped and clipped[-1] not in ".!?" else clipped
+    clipped = value[:limit].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    if clipped and clipped[-1] not in ".!?":
+        clipped = clipped[: limit - 1].rstrip(" ,;:-") + "."
+    return clipped
 
 
 def generated_description(record: dict) -> str:
