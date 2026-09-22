@@ -33,11 +33,12 @@ function renderSummary(summary) {
     : "Public dataset not yet synchronized";
 }
 
-function coverageColor(country) {
-  const values = country?.coverage || {};
-  if (values.NO_ARCHITECTURE_IDENTIFIED) return "#9f2130";
-  if (values.ARCHITECTURE_REVIEW_REQUIRED) return "#ad6c12";
-  if (values.ARCHITECTURE_IDENTIFIED) return "#08704a";
+function incidentCountColor(country) {
+  const count = Number(country?.incidentCount || 0);
+  if (count >= 15) return "#a52a35";
+  if (count >= 6) return "#c56b21";
+  if (count >= 3) return "#d1a928";
+  if (count >= 1) return "#0b6e4f";
   return "#777b79";
 }
 
@@ -46,23 +47,38 @@ async function renderMap(mapData) {
   const countryByCode = new Map(mapData.countries.map((country) => [country.countryCode, country]));
   const response = await fetch("/assets/data/ne_50m_admin_0_countries.geojson");
   const geojson = await response.json();
-  L.geoJSON(geojson, {
-    style(feature) {
-      const code = countryCodeForFeature(feature);
-      const country = countryByCode.get(code);
-      return { color: "#d6d6d6", weight: 0.55, fillColor: coverageColor(country), fillOpacity: country ? 0.92 : 0.6 };
-    },
+  let selectedLayer = null;
+  const styleForFeature = (feature) => {
+    const country = countryByCode.get(countryCodeForFeature(feature));
+    return { color: "#e7e7e7", weight: 0.65, fillColor: incidentCountColor(country), fillOpacity: country ? 0.94 : 0.55 };
+  };
+  const countriesLayer = L.geoJSON(geojson, {
+    style: styleForFeature,
     onEachFeature(feature, layer) {
       const code = countryCodeForFeature(feature);
       const country = countryByCode.get(code);
       const name = feature.properties.NAME_EN || feature.properties.NAME || "Country";
-      layer.bindTooltip(country ? `${name}: ${country.incidentCount} public incident${country.incidentCount === 1 ? "" : "s"}` : `${name}: no public incident data`, { sticky: true });
-    }
+      const label = country ? `${name}: ${country.incidentCount} public incident${country.incidentCount === 1 ? "" : "s"}` : `${name}: no public incident data`;
+      layer.bindTooltip(label, { sticky: true });
+      layer.bindPopup(`<strong>${name}</strong><br>${country ? `${country.incidentCount} public incident${country.incidentCount === 1 ? "" : "s"}` : "No public incident data"}`);
+      layer.on("click", () => {
+        if (selectedLayer && selectedLayer !== layer) countriesLayer.resetStyle(selectedLayer);
+        selectedLayer = layer;
+        layer.setStyle({ color: "#ffffff", weight: 2.2, fillOpacity: 1 });
+        layer.bringToFront();
+      });
+      layer.on("popupclose", () => {
+        if (selectedLayer === layer) {
+          countriesLayer.resetStyle(layer);
+          selectedLayer = null;
+        }
+      });
+    },
   }).addTo(map);
   mapData.incidents.forEach((incident) => {
     if (!incident.coordinates) return;
     L.circleMarker([incident.coordinates.latitude, incident.coordinates.longitude], {
-      radius: 5, color: "#fff", weight: 1, fillColor: coverageColor({ coverage: { [incident.architectureRelevance?.status || "NOT_ASSESSED"]: 1 } }), fillOpacity: 0.95
+      radius: 5, color: "#fff", weight: 1, fillColor: "#a52a35", fillOpacity: 0.95
     }).bindTooltip(incident.title).addTo(map);
   });
 }

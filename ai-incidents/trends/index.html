@@ -7,7 +7,7 @@
 <title>AI Incident Trends | OOF®</title>
 <link rel="stylesheet" href="/style.css" />
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css" />
-<link rel="stylesheet" href="/assets/css/oof-ai-incidents.css?v=2" />
+<link rel="stylesheet" href="/assets/css/oof-ai-incidents.css?v=3" />
 <!-- OOF AI DISCOVERY START -->
 <meta name="description" content="AI Incident Trends | OOF®. OOF® Global AI Incident Intelligence™ The world produces the incidents. OOF® turns them into governance intelligence. Public dataset." />
 <link rel="canonical" href="https://originopenfoundation.org/ai-incidents/trends/" />
@@ -82,12 +82,13 @@
 
 <div class="oof-incident-workspace">
 <section class="oof-incident-map-pane" aria-labelledby="incident-map-title">
-<div class="oof-incident-section-heading"><h2 id="incident-map-title" data-oof-section-id="true" role="heading" aria-level="2">Global Incident Map</h2><p>Architecture coverage and incident severity are displayed separately.</p></div>
+<div class="oof-incident-section-heading"><h2 id="incident-map-title" data-oof-section-id="true" role="heading" aria-level="2">Global Incident Map</h2><p>Countries are colored by the number of public incident records.</p></div>
 <div id="incident-map" aria-label="World map of public AI incidents"></div>
-<div class="oof-incident-map-legend" aria-label="Architecture coverage legend">
-<span><i class="identified"></i>Architecture Identified</span>
-<span><i class="review"></i>Review Required</span>
-<span><i class="unmatched"></i>No Architecture Identified</span>
+<div class="oof-incident-map-legend" aria-label="Incident count legend">
+<span><i class="low"></i>1–2 incidents</span>
+<span><i class="moderate"></i>3–5 incidents</span>
+<span><i class="high"></i>6–14 incidents</span>
+<span><i class="very-high"></i>15+ incidents</span>
 <span><i class="neutral"></i>No public incident data</span>
 </div>
 </section>
@@ -120,7 +121,7 @@
 <div id="footer"></div>
 <script src="/header.js"></script>
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script type="module" src="/assets/js/ai-incidents/app.js"></script>
+<script type="module" src="/assets/js/ai-incidents/app.js?v=3"></script>
 <script>
 fetch("/header.html").then(r => r.text()).then(v => { document.getElementById("header").innerHTML = v; if (window.normalizePageLinks) window.normalizePageLinks(); });
 fetch("/footer.html").then(r => r.text()).then(v => { document.getElementById("footer").innerHTML = v; if (window.normalizePageLinks) window.normalizePageLinks(); });
