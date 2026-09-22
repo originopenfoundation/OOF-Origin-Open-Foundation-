@@ -133,10 +133,21 @@ function renderIncidents(items) {
     const article = document.createElement("article");
     article.className = "oof-incident-row";
     const coverage = incident.architectureRelevance?.status || "NOT_ASSESSED";
-    article.innerHTML = `<div><span class="oof-incident-id"></span><h3></h3><p class="oof-incident-summary"></p><p class="oof-incident-source"><a target="_blank" rel="noopener noreferrer">View source record</a></p></div><dl><div><dt>Date</dt><dd></dd></div><div><dt>Country</dt><dd></dd></div><div><dt>Severity</dt><dd></dd></div><div><dt>Coverage</dt><dd></dd></div></dl>`;
+    article.innerHTML = `<div><span class="oof-incident-id"></span><h3></h3><p class="oof-incident-summary"></p><button class="oof-incident-summary-toggle" type="button" aria-expanded="false" hidden>Show full summary</button><p class="oof-incident-source"><a target="_blank" rel="noopener noreferrer">View source record</a></p></div><dl><div><dt>Date</dt><dd></dd></div><div><dt>Country</dt><dd></dd></div><div><dt>Severity</dt><dd></dd></div><div><dt>Coverage</dt><dd></dd></div></dl>`;
     article.querySelector(".oof-incident-id").textContent = incident.id;
     article.querySelector("h3").textContent = incident.title;
-    article.querySelector(".oof-incident-summary").textContent = incident.summary || "No public summary available.";
+    const summary = article.querySelector(".oof-incident-summary");
+    const summaryText = incident.summary || "No public summary available.";
+    summary.textContent = summaryText;
+    const summaryToggle = article.querySelector(".oof-incident-summary-toggle");
+    if (summaryText.length > 220) {
+      summaryToggle.hidden = false;
+      summaryToggle.addEventListener("click", () => {
+        const expanded = summary.classList.toggle("is-expanded");
+        summaryToggle.setAttribute("aria-expanded", expanded);
+        summaryToggle.textContent = expanded ? "Show less" : "Show full summary";
+      });
+    }
     const sourceLink = article.querySelector(".oof-incident-source a");
     const sourceUrl = incident.sources?.[0]?.url;
     if (sourceUrl) sourceLink.href = sourceUrl;
