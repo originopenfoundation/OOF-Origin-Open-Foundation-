@@ -43,36 +43,43 @@
 }
 
 .oof-map-territories {
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(130px, 1fr));
+  grid-template-areas:
+    "GOA INTEGROS AIG ORA"
+    "GOA ASGA CLIA MGIA"
+    "TREGA AGA OBIDENITY CLA"
+    "SIMULOS VFM VALIDOS VALIDOS";
+  gap: 2px;
   container-type: inline-size;
   width: 100%;
-  aspect-ratio: 10 / 7;
+  aspect-ratio: 4 / 3;
   min-height: 620px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  padding: 2px;
+  overflow: clip;
+  border: 1px solid rgba(255, 255, 255, 0.82);
   background: #737775;
   isolation: isolate;
 }
 
 .oof-map-territory {
-  position: absolute;
-  left: calc(var(--x) * 1%);
-  top: calc(var(--y) * 1%);
-  width: calc(var(--w) * 1%);
-  height: calc(var(--h) * 1%);
+  position: relative;
+  min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 8px;
   padding: clamp(7px, 1.35cqw, 17px);
-  border: 2px solid rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.92);
   color: #fff;
   text-align: left;
   cursor: pointer;
-  clip-path: var(--shape);
   background: #075938;
-  transition: filter 150ms ease, background-color 150ms ease;
+  overflow: hidden;
+  transition: filter 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
 }
 
 .oof-map-territory[data-status="development"] {
@@ -82,8 +89,8 @@
 .oof-map-territory:hover,
 .oof-map-territory:focus-visible {
   filter: brightness(1.22);
-  outline: 3px solid #fff;
-  outline-offset: -5px;
+  outline: 2px solid #fff;
+  outline-offset: -3px;
   z-index: 4;
 }
 
@@ -101,7 +108,7 @@
   display: block;
   max-width: 100%;
   white-space: nowrap;
-  font-size: clamp(14px, 3cqw, 36px);
+  font-size: clamp(17px, 2.8cqw, 34px);
   font-weight: 800;
   line-height: 1;
 }
@@ -110,7 +117,7 @@
   display: block;
   max-width: 28ch;
   overflow-wrap: anywhere;
-  font-size: clamp(10px, 1.8cqw, 17px);
+  font-size: clamp(11px, 1.65cqw, 16px);
   font-weight: 700;
   line-height: 1.25;
 }
@@ -185,7 +192,7 @@
   font-weight: 700;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 760px) {
   .oof-map-heading,
   .oof-map-selection-header {
     align-items: flex-start;
@@ -197,9 +204,12 @@
   }
 
   .oof-map-territories {
-    display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-template-areas: none;
+    grid-auto-rows: minmax(112px, auto);
     gap: 2px;
+    padding: 0;
     min-height: 0;
     aspect-ratio: auto;
     overflow: visible;
@@ -208,13 +218,10 @@
   }
 
   .oof-map-territory {
-    position: relative;
-    left: auto;
-    top: auto;
+    grid-area: auto !important;
     width: 100%;
     min-height: 112px;
     height: auto;
-    clip-path: polygon(0 0, 97% 0, 100% 30%, 98% 100%, 2% 100%, 0 72%);
   }
 
   .oof-map-acronym {
