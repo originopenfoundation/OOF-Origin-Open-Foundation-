@@ -5,6 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="assets/css/oof-architecture-map.css?v=4" />
 <link rel="image_src" href="https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png" />
 <meta property="og:image" content="https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png" />
 <meta property="og:image:width" content="1672" />
@@ -47,12 +48,28 @@
 <h2 id="oof-reference-architectures" data-oof-section-id="true" role="heading" aria-level="1">OOF® Reference Architectures</h2>
 </section>
 
-<section id="oof-governance-heat-map" class="container oof-heat-map-section" aria-label="OOF Governance Architecture Heat Map">
-<figure class="oof-architecture-heat-map">
-<a href="assets/images/oof-governance-architecture-heat-map-v3.png" aria-label="Open the OOF Governance Architecture Heat Map in full resolution">
-<img src="assets/images/oof-governance-architecture-heat-map-v3.png" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" alt="OOF Governance Architecture Heat Map showing GOA, INTEGROS, AIG, ORA, ASGA, CLIA, MGIA, ADIT, AGA, OBIDENITY, CLA, and VALIDOS architecture domains." />
-</a>
-</figure>
+<section id="oof-governance-heat-map" class="container oof-map-shell" aria-labelledby="architecture-map-title">
+<header class="oof-map-heading">
+<h1 id="architecture-map-title" data-oof-section-id="true" role="heading" aria-level="2">OOF® Architecture Map 2.0</h1>
+<div class="oof-map-legend" aria-label="Architecture status legend">
+<span><i class="oof-map-key oof-map-key-completed" aria-hidden="true"></i>Completed / Published Architecture</span>
+<span><i class="oof-map-key oof-map-key-development" aria-hidden="true"></i>In Development</span>
+</div>
+</header>
+<div id="oof-architecture-territories" class="oof-map-territories" role="group" aria-label="Interactive OOF architecture territories" aria-busy="true"></div>
+<p id="oof-map-status" class="oof-map-status" role="status">Loading the official Architecture Index…</p>
+</section>
+
+<section id="oof-selected-architecture" class="container oof-map-selection" aria-live="polite" hidden>
+<div class="oof-map-selection-header">
+<div>
+<p id="oof-selected-status" class="oof-map-selection-status"></p>
+<h2 id="oof-selected-title" data-oof-section-id="true" role="heading" aria-level="2"></h2>
+</div>
+<nav id="oof-selected-links" class="oof-map-selection-links" aria-label="Selected architecture pages"></nav>
+</div>
+<p id="oof-selected-development-note" class="oof-map-development-note" hidden>Official architecture information will become available upon completion.</p>
+<iframe id="oof-selected-page" class="oof-map-frame" title="Selected OOF architecture page" loading="lazy" hidden></iframe>
 </section>
 
 </article></main>
@@ -83,5 +100,6 @@ fetch("header.html")
   if (window.normalizePageLinks) window.normalizePageLinks();
   });
 </script>
+<script src="assets/js/oof-architecture-map.js?v=2" defer></script>
 </body>
 </html>

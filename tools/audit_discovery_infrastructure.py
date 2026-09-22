@@ -16,6 +16,7 @@ from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_PATH = ROOT / "data" / "oof-discovery-audit.json"
+PUBLIC_EXCLUDES = {"exports", ".tmp", "tmp"}
 
 
 class LinkParser(HTMLParser):
@@ -37,6 +38,7 @@ def public_pages() -> list[Path]:
             path
             for path in ROOT.rglob("*.html")
             if ".git" not in path.parts
+            and not (path.relative_to(ROOT).parts and path.relative_to(ROOT).parts[0] in PUBLIC_EXCLUDES)
             and "</head>" in path.read_text(encoding="utf-8").lower()
             and not re.search(
                 r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex',
@@ -96,7 +98,13 @@ def main() -> int:
 
     pages = public_pages()
     page_names = {relative(path) for path in pages}
-    all_files = {path.relative_to(ROOT).as_posix() for path in ROOT.rglob("*") if path.is_file() and ".git" not in path.parts}
+    all_files = {
+        path.relative_to(ROOT).as_posix()
+        for path in ROOT.rglob("*")
+        if path.is_file()
+        and ".git" not in path.parts
+        and not (path.relative_to(ROOT).parts and path.relative_to(ROOT).parts[0] in PUBLIC_EXCLUDES)
+    }
     casefold_files = {name.casefold(): name for name in all_files}
     shared_links = []
     for shared in (ROOT / "header.html", ROOT / "footer.html"):
@@ -132,6 +140,9 @@ def main() -> int:
             target = resolve_link(name, href, shared_navigation)
             if target is None:
                 continue
+            directory_index = f"{target.rstrip('/')}/index.html" if target != "index.html" else target
+            if target not in all_files and directory_index in all_files:
+                target = directory_index
             if target in all_files:
                 if target in page_names:
                     graph[name].add(target)

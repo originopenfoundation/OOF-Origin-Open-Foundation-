@@ -191,7 +191,8 @@ def public_pages() -> list[Path]:
     pages = []
     candidates = sorted(ROOT.rglob("*.html"), key=lambda item: item.relative_to(ROOT).as_posix().casefold())
     for path in candidates:
-        if ".git" in path.parts:
+        relative_parts = path.relative_to(ROOT).parts
+        if ".git" in path.parts or (relative_parts and relative_parts[0] in {"exports", ".tmp", "tmp"}):
             continue
         text = path.read_text(encoding="utf-8")
         if "</head>" in text.lower():
@@ -211,6 +212,8 @@ def canonical_url(path_or_relative: Path | str) -> str:
     relative = relative_url(path_or_relative) if isinstance(path_or_relative, Path) else path_or_relative
     if relative == "index.html":
         return BASE_URL
+    if relative.endswith("/index.html"):
+        return urljoin(BASE_URL, encoded_path(relative.removesuffix("index.html")))
     return urljoin(BASE_URL, encoded_path(relative))
 
 

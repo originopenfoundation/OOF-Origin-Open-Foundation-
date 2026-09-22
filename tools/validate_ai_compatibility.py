@@ -32,7 +32,8 @@ def public_pages() -> list[Path]:
     pages = []
     candidates = sorted(ROOT.rglob("*.html"), key=lambda item: item.relative_to(ROOT).as_posix().casefold())
     for path in candidates:
-        if ".git" in path.parts:
+        relative_parts = path.relative_to(ROOT).parts
+        if ".git" in path.parts or (relative_parts and relative_parts[0] in {"exports", ".tmp", "tmp"}):
             continue
         if "</head>" in path.read_text(encoding="utf-8").lower():
             pages.append(path)
@@ -101,7 +102,12 @@ def main() -> int:
         else:
             canonical = canonical_match.group(1)
             canonical_relative = target_relative or page_relative
-            expected_canonical = BASE_URL if canonical_relative == "index.html" else BASE_URL + quote(unquote(canonical_relative), safe="/-._~()")
+            if canonical_relative == "index.html":
+                expected_canonical = BASE_URL
+            elif canonical_relative.endswith("/index.html"):
+                expected_canonical = BASE_URL + quote(unquote(canonical_relative.removesuffix("index.html")), safe="/-._~()")
+            else:
+                expected_canonical = BASE_URL + quote(unquote(canonical_relative), safe="/-._~()")
             if canonical != expected_canonical:
                 errors.append(f"{relative(path)}: canonical URL does not match its file path")
             if target_relative is None and canonical in canonicals:
