@@ -12,6 +12,7 @@ import hashlib
 import io
 import json
 import re
+import unicodedata
 import urllib.request
 from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
@@ -37,6 +38,41 @@ ALLOWED_EVENT_TYPES = {"Incident", "Hazard", "Near Miss", "Emerging Risk"}
 ALLOWED_EVIDENCE = {"Verified", "High Confidence", "Moderate Confidence", "Unverified"}
 ALLOWED_SEVERITY = {"Low", "Moderate", "High", "Critical", "Unclassified"}
 
+COUNTRY_ALIASES = {
+    "u s": "US", "u s a": "US", "united states": "US", "united states of america": "US",
+    "american": "US", "britain": "GB", "great britain": "GB", "united kingdom": "GB",
+    "british": "GB", "russian": "RU", "chinese": "CN", "canadian": "CA", "australian": "AU",
+    "indian": "IN", "japanese": "JP", "south korean": "KR", "north korean": "KP",
+    "german": "DE", "french": "FR", "italian": "IT", "spanish": "ES", "brazilian": "BR",
+    "mexican": "MX", "ukrainian": "UA", "israeli": "IL", "iranian": "IR", "turkish": "TR",
+    "south african": "ZA", "new zealand": "NZ", "dutch": "NL", "swiss": "CH",
+}
+AMBIGUOUS_COUNTRY_NAMES = {"georgia"}
+US_STATE_NAMES = {
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut",
+    "delaware", "florida", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas",
+    "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota",
+    "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey",
+    "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon",
+    "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas",
+    "utah", "vermont", "virginia", "washington state", "west virginia", "wisconsin", "wyoming",
+    "district of columbia",
+}
+ARCHITECTURE_RULES = {
+    "validos": ("validation", "verify", "verification", "hallucination", "hallucinated", "misidentified", "misidentification", "misread", "incorrect", "inaccurate", "false citation", "fabricated citation", "error"),
+    "cla": ("classification", "classify", "classified", "screening", "recognition", "detection", "labeling", "ranking", "eligibility", "admission", "license plate reader"),
+    "obidenity": ("identity", "biometric", "facial", "impersonation", "impersonated", "deepfake", "cloned voice", "voice cloning", "identity theft"),
+    "asga": ("autonomous", "self driving", "self-driving", "autopilot", "robot", "drone", "agentic", "ai agent", "automated driving"),
+    "integros": ("cyber", "security", "hack", "malware", "phishing", "vulnerability", "data breach", "compromised", "ransomware"),
+    "aga": ("accountability", "responsibility", "oversight", "audit", "regulator", "governance failure"),
+    "mgia": ("memory", "memorized", "retention", "training data", "data provenance"),
+    "clia": ("intelligence", "cognitive", "decision support", "predictive", "reasoning", "chatbot", "large language model", "llm"),
+    "simulos": ("simulation", "simulated", "digital twin", "synthetic environment"),
+    "vfm": ("pricing", "credit", "loan", "insurance", "financial value", "valuation"),
+    "trega": ("tax", "taxation", "taxable", "revenue service"),
+    "ora": ("operational reality", "sensor", "perception", "physical environment", "location data"),
+}
+
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -56,6 +92,124 @@ def write_json(path: Path, value) -> None:
 def slugify(value: str) -> str:
     value = re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
     return value or "incident"
+
+
+def normalized_text(value) -> str:
+    text = unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^a-z0-9]+", " ", text.casefold()).strip()
+
+
+def country_aliases() -> dict[str, str]:
+    aliases = dict(COUNTRY_ALIASES)
+    for code, name in _country_names().items():
+        normalized_name = normalized_text(name)
+        if normalized_name not in AMBIGUOUS_COUNTRY_NAMES:
+            aliases[normalized_name] = code
+    for state in US_STATE_NAMES:
+        aliases[state] = "US"
+    return aliases
+
+
+def infer_country(record: dict) -> tuple[str, str | None]:
+    existing_code = _normalize_country_code(record.get("countryCode"))
+    names = _country_names()
+    if existing_code:
+        return names.get(existing_code, record.get("country") or existing_code), existing_code
+
+    aliases = sorted(country_aliases().items(), key=lambda item: len(item[0]), reverse=True)
+    weighted_fields = (
+        (record.get("title"), 4),
+        (record.get("organization"), 3),
+        (record.get("region"), 3),
+        (record.get("summary"), 1),
+        (" ".join(record.get("affectedParties") or []), 1),
+    )
+    scores: Counter[str] = Counter()
+    for value, weight in weighted_fields:
+        text = normalized_text(value)
+        if not text:
+            continue
+        occupied: list[tuple[int, int]] = []
+        for alias, code in aliases:
+            if not alias:
+                continue
+            pattern = re.compile(rf"(?<![a-z0-9]){re.escape(alias)}(?![a-z0-9])")
+            for match in pattern.finditer(text):
+                span = match.span()
+                if any(span[0] < end and span[1] > start for start, end in occupied):
+                    continue
+                scores[code] += weight
+                occupied.append(span)
+    if not scores:
+        return "Location not specified", None
+    ranked = scores.most_common()
+    if len(ranked) > 1 and ranked[0][1] == ranked[1][1]:
+        return "Multiple countries", None
+    code = ranked[0][0]
+    return names.get(code, code), code
+
+
+def classify_architecture(record: dict) -> dict:
+    registry = read_json(ARCHITECTURE_REGISTRY, {"architectures": []})
+    approved = {item["id"]: item for item in registry["architectures"]}
+    text = normalized_text(" ".join(str(record.get(key) or "") for key in (
+        "title", "summary", "organization", "system", "technology", "industry", "aiSystemType"
+    )))
+    scores: Counter[str] = Counter()
+    matches: dict[str, list[str]] = defaultdict(list)
+    padded_text = f" {text} "
+    for architecture_id, keywords in ARCHITECTURE_RULES.items():
+        if architecture_id not in approved:
+            continue
+        for keyword in keywords:
+            normalized_keyword = normalized_text(keyword)
+            if normalized_keyword and f" {normalized_keyword} " in padded_text:
+                scores[architecture_id] += 1
+                matches[architecture_id].append(keyword)
+
+    if scores:
+        ranked = sorted(scores, key=lambda architecture_id: (-scores[architecture_id], architecture_id))
+        primary = ranked[0]
+        secondary = ranked[1:3]
+        if primary != "aig" and "aig" in approved and "aig" not in secondary:
+            secondary = (secondary + ["aig"])[:3]
+        signals = ", ".join(matches[primary][:4])
+        confidence = min(0.92, 0.62 + 0.06 * scores[primary])
+        rationale = f"Automated mapping matched incident descriptors to {approved[primary]['displayName']} using signals: {signals}. Human review remains available."
+    else:
+        primary = "aig" if "aig" in approved else next(iter(approved), None)
+        secondary = []
+        confidence = 0.55
+        rationale = "Automated mapping assigned the general AI governance architecture because no more specific approved architecture signal was sufficiently explicit. Human review remains available."
+
+    if not primary:
+        return {
+            "status": "NO_ARCHITECTURE_IDENTIFIED", "classification": "Automated",
+            "primaryArchitectureId": None, "secondaryArchitectureIds": [],
+            "architectureIndexState": None, "classifiedAt": record.get("updatedAt") or now_iso(),
+            "confidence": 0.0, "rationale": "No approved architecture was available in the Architecture Index.",
+        }
+    return {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": primary,
+        "secondaryArchitectureIds": secondary,
+        "architectureIndexState": approved[primary].get("acronymLabel") or approved[primary].get("acronym"),
+        "classifiedAt": record.get("updatedAt") or now_iso(),
+        "confidence": round(confidence, 2),
+        "rationale": rationale,
+    }
+
+
+def enrich_incident(record: dict) -> dict:
+    enriched = dict(record)
+    country, country_code = infer_country(enriched)
+    enriched["country"] = country
+    enriched["countryCode"] = country_code
+    architecture = enriched.get("architectureRelevance") or {}
+    if architecture.get("classification") != "Human Approved":
+        enriched["architectureRelevance"] = classify_architecture(enriched)
+    return enriched
 
 
 def stable_incident_id(source_id: str) -> str:
@@ -292,12 +446,17 @@ def _country_names() -> dict[str, str]:
     result = {}
     for feature in features:
         properties = feature.get("properties") or {}
-        code = properties.get("ISO_A2") or properties.get("iso_a2")
+        primary_code = properties.get("ISO_A2") or properties.get("iso_a2")
+        code = primary_code
         if code == "-99":
             code = properties.get("ISO_A2_EH") or properties.get("iso_a2_eh")
         name = properties.get("NAME_EN") or properties.get("NAME")
         if code and name and code != "-99":
-            result[str(code).upper()] = str(name)
+            normalized_code = str(code).upper()
+            if primary_code == "-99":
+                result.setdefault(normalized_code, str(name))
+            else:
+                result[normalized_code] = str(name)
     return result
 
 
@@ -466,7 +625,7 @@ def sync() -> dict:
         source_state = state["sources"].get(adapter.name, {})
         try:
             raw = adapter.fetch_new_records(source_state.get("lastSuccessfulSync"))
-            normalized = [adapter.normalize(item) for item in raw]
+            normalized = [enrich_incident(adapter.normalize(item)) for item in raw]
             before = len(repository.list())
             created, updated = repository.upsert_sources(normalized)
             totals["recordsRetrieved"] += len(raw)

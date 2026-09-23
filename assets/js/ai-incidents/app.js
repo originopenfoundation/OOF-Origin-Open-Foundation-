@@ -132,7 +132,10 @@ function renderIncidents(items) {
   visibleItems.forEach((incident) => {
     const article = document.createElement("article");
     article.className = "oof-incident-row";
-    const coverage = incident.architectureRelevance?.status || "NOT_ASSESSED";
+    const architecture = incident.architectureRelevance || {};
+    const coverage = architecture.architectureIndexState
+      || architecture.primaryArchitectureId?.toUpperCase()
+      || (architecture.status || "REVIEW REQUIRED").replaceAll("_", " ");
     article.innerHTML = `<div><span class="oof-incident-id"></span><h3></h3><p class="oof-incident-summary"></p><button class="oof-incident-summary-toggle" type="button" aria-expanded="false" hidden>Show full summary</button><p class="oof-incident-source"><a target="_blank" rel="noopener noreferrer">View source record</a></p></div><dl><div><dt>Date</dt><dd></dd></div><div><dt>Country</dt><dd></dd></div><div><dt>Severity</dt><dd></dd></div><div><dt>Coverage</dt><dd></dd></div></dl>`;
     article.querySelector(".oof-incident-id").textContent = incident.id;
     article.querySelector("h3").textContent = incident.title;
@@ -154,9 +157,9 @@ function renderIncidents(items) {
     else sourceLink.parentElement.hidden = true;
     const values = article.querySelectorAll("dd");
     values[0].textContent = (incident.occurredAt || incident.reportedAt || "Unknown").slice(0, 10);
-    values[1].textContent = incident.country || "Unknown";
+    values[1].textContent = incident.country || "Location not specified";
     values[2].textContent = incident.severity || "Unclassified";
-    values[3].textContent = coverage.replaceAll("_", " ");
+    values[3].textContent = coverage;
     list.append(article);
   });
   if (items.length > pageSize) {

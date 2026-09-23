@@ -57,7 +57,7 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertEqual(result["architectureRelevance"]["status"], "ARCHITECTURE_REVIEW_REQUIRED")
         self.assertIsNone(result["architectureRelevance"]["primaryArchitectureId"])
 
-    def test_aiid_snapshot_keeps_provenance_without_architecture_claims(self):
+    def test_aiid_snapshot_keeps_provenance_and_can_be_enriched(self):
         workbook = Workbook()
         sheet = workbook.active
         sheet.title = "Incidents"
@@ -73,12 +73,39 @@ class IncidentDomainTests(unittest.TestCase):
         )
         raw = adapter.fetch_new_records(None)
         normalized = adapter.normalize(raw[0])
+        enriched = incidents.enrich_incident(normalized)
         self.assertEqual(normalized["title"], "Source title")
         self.assertEqual(normalized["summary"], "Source description")
         self.assertEqual(normalized["countryCode"], "US")
-        self.assertEqual(normalized["architectureRelevance"]["status"], "NOT_ASSESSED")
+        self.assertEqual(enriched["architectureRelevance"]["status"], "ARCHITECTURE_IDENTIFIED")
+        self.assertEqual(enriched["architectureRelevance"]["primaryArchitectureId"], "aig")
         self.assertEqual(normalized["sources"][0]["url"], "https://incidentdatabase.ai/cite/1702")
         self.assertEqual(normalized["sources"][0]["retrievedAt"], "2026-09-21T00:00:00Z")
+
+    def test_country_and_architecture_are_inferred_from_incident_context(self):
+        item = record(title="License plate reader misread a plate in New Mexico")
+        item["summary"] = "The automated system produced an incorrect match."
+        item["country"] = None
+        item["countryCode"] = None
+        item["system"] = "Automated License Plate Reader"
+        enriched = incidents.enrich_incident(item)
+        self.assertEqual(enriched["countryCode"], "US")
+        self.assertEqual(enriched["country"], "United States of America")
+        self.assertEqual(enriched["architectureRelevance"]["primaryArchitectureId"], "validos")
+        self.assertEqual(enriched["architectureRelevance"]["architectureIndexState"], "VALIDOS®")
+
+    def test_unresolved_country_is_explicit_without_fabricating_location(self):
+        item = record(title="Generic AI system incident")
+        enriched = incidents.enrich_incident(item)
+        self.assertEqual(enriched["country"], "Location not specified")
+        self.assertIsNone(enriched["countryCode"])
+
+    def test_country_names_prefer_sovereign_name_and_leave_ambiguous_names_unresolved(self):
+        self.assertEqual(incidents._country_names()["AU"], "Australia")
+        item = record(title="An incident was reported in Georgia")
+        enriched = incidents.enrich_incident(item)
+        self.assertEqual(enriched["country"], "Location not specified")
+        self.assertIsNone(enriched["countryCode"])
 
 
 if __name__ == "__main__":
