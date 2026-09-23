@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import tempfile
@@ -18,10 +19,14 @@ from validate_global_interest_heat_map import validate
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
-INTEREST_ALGORITHM_VERSION = "2.0"
+INTEREST_ALGORITHM_VERSION = "2.1"
 GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql"
+POPULATION_METADATA_URL = "https://api.worldbank.org/v2/country?format=json&per_page=400"
+POPULATION_VALUES_URL = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=5000&date=2020:2025"
 HOST = "originopenfoundation.org"
 WINDOW_DAYS = 14
+MIN_VISITS = 10.0
+MIN_ACTIVE_DAYS = 2
 
 
 def request_json(url: str, *, token: str | None = None, payload: dict | None = None) -> object:
@@ -71,20 +76,63 @@ def cloudflare_rows(account_id: str, site_tag: str, token: str, start: datetime,
     return accounts[0].get("rows", [])
 
 
-def resolve_iso(value: str) -> str | None:
+def population_data() -> tuple[dict[str, int], dict[str, str], str]:
+    metadata_response = request_json(POPULATION_METADATA_URL)
+    values_response = request_json(POPULATION_VALUES_URL)
+    metadata = metadata_response[1] if isinstance(metadata_response, list) and len(metadata_response) > 1 else []
+    values = values_response[1] if isinstance(values_response, list) and len(values_response) > 1 else []
+    iso3_to_iso2: dict[str, str] = {}
+    names_to_iso2: dict[str, str] = {}
+    for country in metadata:
+        iso2 = str(country.get("iso2Code") or "").upper()
+        iso3 = str(country.get("id") or "").upper()
+        region = country.get("region") or {}
+        if re.fullmatch(r"[A-Z]{2}", iso2) and region.get("value") != "Aggregates":
+            iso3_to_iso2[iso3] = iso2
+            names_to_iso2[str(country.get("name") or "").casefold()] = iso2
+    populations: dict[str, int] = {}
+    years: list[int] = []
+    for row in values:
+        value = row.get("value")
+        iso3 = str(row.get("countryiso3code") or "").upper()
+        iso2 = iso3_to_iso2.get(iso3)
+        if iso2 and value is not None and iso2 not in populations:
+            populations[iso2] = int(value)
+            years.append(int(row["date"]))
+    if not populations:
+        raise RuntimeError("Population source returned no usable country data")
+    return populations, names_to_iso2, str(max(years))
+
+
+def resolve_iso(value: str, names_to_iso2: dict[str, str]) -> str | None:
     candidate = (value or "").strip()
     if re.fullmatch(r"[A-Za-z]{2}", candidate):
         iso = candidate.upper()
         return None if iso == "AQ" else iso
-    return None
+    iso = names_to_iso2.get(candidate.casefold())
+    return None if iso == "AQ" else iso
 
 
-def classify(rows: list[dict], now: datetime) -> tuple[list[dict], dict]:
+def quantile(values: list[float], fraction: float) -> float:
+    if not values:
+        return math.inf
+    ordered = sorted(values)
+    position = (len(ordered) - 1) * fraction
+    lower = math.floor(position)
+    upper = math.ceil(position)
+    if lower == upper:
+        return ordered[lower]
+    return ordered[lower] * (upper - position) + ordered[upper] * (position - lower)
+
+
+def classify(
+    rows: list[dict], populations: dict[str, int], names_to_iso2: dict[str, str], now: datetime
+) -> tuple[list[dict], dict]:
     countries: dict[str, dict] = defaultdict(lambda: {"visits": 0.0, "days": set(), "daily": defaultdict(float)})
     for row in rows:
         dimensions = row.get("dimensions") or {}
-        iso = resolve_iso(str(dimensions.get("countryName") or ""))
-        if not iso:
+        iso = resolve_iso(str(dimensions.get("countryName") or ""), names_to_iso2)
+        if not iso or iso not in populations:
             continue
         visits = float((row.get("sum") or {}).get("visits") or 0)
         if visits <= 0:
@@ -95,7 +143,20 @@ def classify(rows: list[dict], now: datetime) -> tuple[list[dict], dict]:
             countries[iso]["days"].add(day)
             countries[iso]["daily"][day] += visits
 
-    peak_visits = max((metrics["visits"] for metrics in countries.values()), default=0)
+    eligible: dict[str, dict] = {}
+    for iso, metrics in countries.items():
+        visits = metrics["visits"]
+        active_days = len(metrics["days"])
+        if visits < MIN_VISITS or active_days < MIN_ACTIVE_DAYS:
+            continue
+        visits_per_million = visits / max(populations[iso], 1) * 1_000_000
+        reliability = min(1.0, visits / 30.0) * min(1.0, active_days / 5.0)
+        metrics["normalizedScore"] = visits_per_million * reliability
+        eligible[iso] = metrics
+
+    scores = [metrics["normalizedScore"] for metrics in eligible.values()]
+    high_cutoff = quantile(scores, 0.80)
+    moderate_cutoff = quantile(scores, 0.45)
     public: list[dict] = []
     internal: dict[str, dict] = {}
     recent_start = (now - timedelta(days=7)).date().isoformat()
@@ -104,23 +165,30 @@ def classify(rows: list[dict], now: datetime) -> tuple[list[dict], dict]:
         record = {
             "visits": round(metrics["visits"], 4),
             "activeDays": len(metrics["days"]),
-            "classification": "emerging",
+            "population": populations.get(iso),
+            "classification": "insufficient",
         }
-        relative_interest = metrics["visits"] / peak_visits if peak_visits else 0
-        status = "high" if relative_interest >= 0.5 else "moderate" if relative_interest >= 0.2 else "emerging"
-        item = {"iso": iso, "status": status}
-        recent = sum(value for day, value in metrics["daily"].items() if day >= recent_start)
-        prior = sum(value for day, value in metrics["daily"].items() if prior_start <= day < recent_start)
-        recent_days = sum(1 for day in metrics["daily"] if day >= recent_start)
-        prior_days = sum(1 for day in metrics["daily"] if prior_start <= day < recent_start)
-        if recent >= 8 and prior >= 8 and recent_days >= 3 and prior_days >= 3:
-            ratio = recent / prior
-            item["momentum"] = "rapidly-rising" if ratio >= 1.8 else "rising" if ratio >= 1.2 else "declining" if ratio <= 0.75 else "stable"
-        public.append(item)
-        record["classification"] = status
-        record["relativeInterest"] = round(relative_interest, 8)
-        record["recentVisits"] = round(recent, 4)
-        record["priorVisits"] = round(prior, 4)
+        if iso in eligible:
+            score = eligible[iso]["normalizedScore"]
+            if score >= high_cutoff and metrics["visits"] >= 30 and len(metrics["days"]) >= 4:
+                status = "high"
+            elif score >= moderate_cutoff and metrics["visits"] >= 20 and len(metrics["days"]) >= 3:
+                status = "moderate"
+            else:
+                status = "emerging"
+            item = {"iso": iso, "status": status}
+            recent = sum(value for day, value in metrics["daily"].items() if day >= recent_start)
+            prior = sum(value for day, value in metrics["daily"].items() if prior_start <= day < recent_start)
+            recent_days = sum(1 for day in metrics["daily"] if day >= recent_start)
+            prior_days = sum(1 for day in metrics["daily"] if prior_start <= day < recent_start)
+            if recent >= 8 and prior >= 8 and recent_days >= 3 and prior_days >= 3:
+                ratio = recent / prior
+                item["momentum"] = "rapidly-rising" if ratio >= 1.8 else "rising" if ratio >= 1.2 else "declining" if ratio <= 0.75 else "stable"
+            public.append(item)
+            record["classification"] = status
+            record["normalizedScore"] = round(score, 8)
+            record["recentVisits"] = round(recent, 4)
+            record["priorVisits"] = round(prior, 4)
         internal[iso] = record
     return public, internal
 
@@ -145,7 +213,8 @@ def main() -> None:
     now = datetime.now(timezone.utc).replace(microsecond=0)
     start = now - timedelta(days=WINDOW_DAYS)
     rows = cloudflare_rows(account_id, site_tag, token, start, now)
-    public_countries, internal_countries = classify(rows, now)
+    populations, names_to_iso2, population_year = population_data()
+    public_countries, internal_countries = classify(rows, populations, names_to_iso2, now)
     public_payload = {"generatedAt": now.isoformat().replace("+00:00", "Z"), "countries": public_countries}
     atomic_write(PUBLIC_DATASET, public_payload)
     if args.internal_output:
@@ -155,6 +224,7 @@ def main() -> None:
             "dataWindowStart": start.isoformat().replace("+00:00", "Z"),
             "dataWindowEnd": public_payload["generatedAt"],
             "algorithmVersion": INTEREST_ALGORITHM_VERSION,
+            "populationVersion": f"World Bank SP.POP.TOTL {population_year}",
             "countries": internal_countries,
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"Published {len(public_countries)} reliable country classifications from {len(rows)} aggregate rows")
