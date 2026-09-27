@@ -227,6 +227,10 @@ def main() -> int:
         "oof-url-registry.json",
         "oof-url-alias-registry.json",
         "oof-version-registry.json",
+        "data/knowledge/manifest.json",
+        "data/knowledge/objects-core.json",
+        "data/knowledge/representations.json",
+        "data/knowledge/relationships.json",
         "search-index.json",
         "llms-full.txt",
     ):

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://originopenfoundation.org/schemas/oof-knowledge-manifest.v1.schema.json",
+  "title": "OOF Knowledge Infrastructure Manifest 1.0",
+  "type": "object",
+  "required": ["schemaVersion", "generationMode", "extractorVersion", "buildFingerprint", "visibility", "allowedConsumers", "counts", "schemas", "files"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "generationMode": {"const": "report-only"},
+    "extractorVersion": {"type": "string"},
+    "buildFingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "visibility": {"const": "public"},
+    "allowedConsumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "sourceCommit": {"type": ["string", "null"]},
+    "generatedAt": {"type": ["string", "null"]},
+    "counts": {"type": "object", "required": ["objects", "representations", "relationships"]},
+    "schemas": {"type": "array", "items": {"type": "string"}, "minItems": 4},
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "bytes"],
+        "properties": {
+          "path": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "bytes": {"type": "integer", "minimum": 1}
+        }
+      }
+    }
+  }
+}

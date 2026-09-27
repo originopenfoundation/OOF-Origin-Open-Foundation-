@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://originopenfoundation.org/schemas/oof-knowledge-relationship.v1.schema.json",
+  "title": "OOF Knowledge Relationship 1.0",
+  "type": "object",
+  "required": ["id", "sourceId", "targetId", "relationshipType", "authorityState", "authorityBasis", "status", "provenance"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^OOF-REL-[A-F0-9]{20}$"},
+    "sourceId": {"type": "string", "minLength": 1},
+    "targetId": {"type": "string", "minLength": 1},
+    "relationshipType": {"type": "string", "minLength": 1},
+    "authorityState": {"enum": ["AUTHORITATIVE", "DISCOVERY"]},
+    "authorityBasis": {"type": "string", "minLength": 1},
+    "sourceUrl": {"type": ["string", "null"], "format": "uri"},
+    "status": {"type": "string", "minLength": 1},
+    "provenance": {"type": "object", "required": ["extractorVersion"]}
+  }
+}

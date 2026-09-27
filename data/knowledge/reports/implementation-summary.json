@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "implementation": "OOF Knowledge Infrastructure 1.0",
+  "mode": "report-only-parallel",
+  "objectRegistry": "objects-core.json",
+  "representationRegistry": "representations.json",
+  "relationshipRegistry": "relationships.json",
+  "authorityModel": "Authority is assigned per representation domain and only explicit registry or page metadata creates authoritative relationships.",
+  "representationModel": "Pages remain page identities and may represent a shared governed object; unresolved pages remain unmerged.",
+  "visibilityModel": "Public output is generated separately and contains public knowledge only; visibility and allowedConsumers are separate fields.",
+  "retrievalModel": [
+    "cache",
+    "exactLookup",
+    "relationshipLookup",
+    "lexicalRetrieval",
+    "optionalSemanticRetrieval",
+    "AIReasoningLater"
+  ],
+  "currentSearchStatus": "preserved-as-fallback",
+  "unresolvedGovernanceDecisions": [
+    "duplicateOriginIds",
+    "candidateEntityGroups",
+    "unresolvedRepresentationMappings"
+  ],
+  "phase6Recommendation": "Do not begin consumer cutover until duplicate OriginID and candidate entity reviews are resolved and retrieval parity is accepted by OOF authority."
+}

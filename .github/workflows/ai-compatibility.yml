@@ -29,6 +29,11 @@ jobs:
       - name: Rebuild URL and version governance files
         run: python tools/build_url_governance.py
 
+      - name: Rebuild architecture and knowledge registries
+        run: |
+          python tools/build_architecture_registry.py
+          python tools/build_knowledge_infrastructure.py
+
       - name: Validate AI compatibility
         run: python tools/validate_ai_compatibility.py
 
@@ -37,6 +42,12 @@ jobs:
 
       - name: Validate URL and version governance
         run: python tools/validate_url_governance.py
+
+      - name: Validate knowledge infrastructure
+        run: python tools/validate_knowledge_infrastructure.py
+
+      - name: Run knowledge retrieval tests
+        run: python -m unittest tests.test_knowledge_infrastructure
 
       - name: Verify generated files are current
         run: git diff --exit-code

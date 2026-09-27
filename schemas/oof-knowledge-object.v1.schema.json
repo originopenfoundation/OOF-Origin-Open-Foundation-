@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://originopenfoundation.org/schemas/oof-knowledge-object.v1.schema.json",
+  "title": "OOF Knowledge Object 1.0",
+  "type": "object",
+  "required": ["id", "canonicalName", "artifactType", "canonicalUrl", "representations", "language", "visibility", "allowedConsumers", "identityBasis", "provenance"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "canonicalName": {"type": "string", "minLength": 1},
+    "acronym": {"type": ["string", "null"]},
+    "artifactType": {"type": "string", "minLength": 1},
+    "subtype": {"type": ["string", "null"]},
+    "canonicalUrl": {"type": "string", "format": "uri"},
+    "representations": {"type": "array", "items": {"type": "string", "format": "uri-reference"}, "minItems": 1, "uniqueItems": true},
+    "architectureId": {"type": ["string", "null"]},
+    "parentObjectId": {"type": ["string", "null"]},
+    "category": {"type": ["string", "null"]},
+    "subcategory": {"type": ["string", "null"]},
+    "canonicalDefinition": {"type": ["string", "null"]},
+    "governedSpace": {"type": ["string", "null"]},
+    "coreQuestion": {"type": ["string", "null"]},
+    "status": {"type": ["string", "null"]},
+    "version": {"type": ["string", "null"]},
+    "dates": {"type": "object"},
+    "language": {"type": "string", "minLength": 2},
+    "visibility": {"enum": ["public", "restricted", "private"]},
+    "allowedConsumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "identityBasis": {"type": "string", "minLength": 1},
+    "provenance": {"$ref": "#/$defs/provenance"}
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "required": ["sourcePath", "sourceUrl", "contentHash", "extractorVersion"],
+      "properties": {
+        "sourcePath": {"type": "string"},
+        "sourceUrl": {"type": "string", "format": "uri"},
+        "contentHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "sourceCommit": {"type": ["string", "null"]},
+        "extractorVersion": {"type": "string"}
+      }
+    }
+  }
+}
