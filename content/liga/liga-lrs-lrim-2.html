@@ -1,0 +1,1509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LRIM — Liability Relationship Identification Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LRIM — Liability Relationship Identification Module. (LRIM) Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LRIM — Liability Relationship Identification Module" />
+<meta property="og:description" content="LRIM — Liability Relationship Identification Module. (LRIM) Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LRIM — Liability Relationship Identification Module" />
+<meta name="twitter:description" content="LRIM — Liability Relationship Identification Module. (LRIM) Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship." />
+<meta name="DC.title" content="LRIM — Liability Relationship Identification Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html","name":"LRIM — Liability Relationship Identification Module","description":"LRIM — Liability Relationship Identification Module. (LRIM) Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LRIM — Liability Relationship Identification Module","item":"https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html"}]},"headline":"LRIM — Liability Relationship Identification Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html#webpage"},"relatedLink":["https://originopenfoundation.org/content/liga/liga-lrs.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lrs-lrmm-3.html"]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lrim-liability-relationship-identification-module" data-oof-section-id="true" role="heading" aria-level="1">LRIM — Liability Relationship Identification Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lrim-liability-relationship-identification-module-3" data-oof-section-id="true" role="heading" aria-level="2">LRIM — Liability Relationship Identification Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="lrim" data-oof-section-id="true" role="heading" aria-level="2">(LRIM)</h1>
+<p>Architecture:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liga-liability-governance-architecture" data-oof-section-id="true" role="heading" aria-level="2">LIGA™ — Liability Governance Architecture</h1>
+<p>Parent Standard:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-relationship-standard-lrs" data-oof-section-id="true" role="heading" aria-level="2">Liability Relationship Standard (LRS)</h1>
+<p>Category:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-and-enforcement" data-oof-section-id="true" role="heading" aria-level="2">Governance &amp; Enforcement</h1>
+<p>Subcategory:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-governance" data-oof-section-id="true" role="heading" aria-level="2">Liability Governance</h1>
+<p>Type:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="core-module" data-oof-section-id="true" role="heading" aria-level="2">Core Module</h1>
+<p>Governed Space:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-relationship-identification" data-oof-section-id="true" role="heading" aria-level="2">Liability Relationship Identification</h1>
+<p>Module ID:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liga-lrs-lrim-001" data-oof-section-id="true" role="heading" aria-level="2">LIGA-LRS-LRIM-001</h1>
+<p>Origin ID:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="oof-cm-liga-04-02-01" data-oof-section-id="true" role="heading" aria-level="2">OOF.CM.LIGA.04.02.01</h1>
+<p>Version:</p>
+<p>1.0 Status:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-open-standard" data-oof-section-id="true" role="heading" aria-level="2">Canonical · Open Standard</h1>
+<p>Effective Date:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="21-september-2026" data-oof-section-id="true" role="heading" aria-level="2">21 September 2026</h1>
+<p>Compatibility:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="oof-methodology-os-modular-oof-architecture-ecosystem" data-oof-section-id="true" role="heading" aria-level="2">OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem</h1>
+<p>AI-Readable:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="yes" data-oof-section-id="true" role="heading" aria-level="2">Yes</h1>
+<p>Authority:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="oof-originopen-foundation" data-oof-section-id="true" role="heading" aria-level="2">OOF® — OriginOpen® Foundation</h1>
+<p>Protection:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="mip-methodological-intellectual-property" data-oof-section-id="true" role="heading" aria-level="2">MIP® — Methodological Intellectual Property</h1>
+<p>Canonical Language:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="english-ucl" data-oof-section-id="true" role="heading" aria-level="2">English (UCL™)</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Relationship Identification Module (LRIM) governs how materially relevant relationships among Identified Liability Subjects, and between those Subjects, the Governed Liability Object, and the Governed Liability Basis, are recognized, identified, typed, bounded, referenced, and represented as distinct Liability Relationship Candidates for subsequent relationship mapping and governance.</p>
+<p>LRIM determines which relationships must enter the Liability inquiry without converting relational relevance, contractual structure, ownership, control, authority, delegation, responsibility, accountability, operational participation, or other relationship characteristics into Liability.</p>
+<p>LRIM governs the transition:</p>
+<p>Identified Liability Subject Set → Potential Relationship Recognition → Relationship Candidate Identification → Relationship Identity → Relationship Type &amp; Direction → Identified Liability Relationship Set Its foundational distinction is:</p>
+<p>Liability Relationship ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LRIM is:</p>
+<p>to determine which relationships among the identified Subjects and relevant Liability structures must be explicitly represented for subsequent Liability governance.</p>
+<p>LSUIM establishes:</p>
+<p>Who or what must be examined?</p>
+<p>LRIM establishes:</p>
+<p>What Liability-relevant relationships involving those Subjects must be examined?</p>
+<p>LRIM does not determine whether any identified relationship produces Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-parent-standard-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the Parent Standard Flow</h1>
+<p>The internal LRS progression is:</p>
+<p>Liability Subject Identification → Liability Relationship Identification → Relationship Mapping → Relationship Distinction → Relationship Continuity LRIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-relationship-identification-3" data-oof-section-id="true" role="heading" aria-level="2">Liability Relationship Identification</h1>
+<p>Its principal input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-relationship-set" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Relationship Set</h1>
+<p>Its canonical handoff is:</p>
+<p>Identified Liability Relationship Set → Liability Relationship Mapping</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>What materially relevant relationships exist or may exist among the identified Liability Subjects and between those Subjects, the Governed Liability Object, and the Governed Liability Basis?</p>
+<p>The question concerns relationship identification.</p>
+<p>It does not ask whether those relationships establish Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-space" data-oof-section-id="true" role="heading" aria-level="2">Governed Space</h1>
+<p>LRIM governs:</p>
+<p>Potential Relationship Recognition, Relationship Candidate Identification, Relationship Identity, Relationship Origin, Relationship Type, Relationship Direction, Relationship Participants, Subject–Subject Relationships, Subject–Object Relationships, Subject–Basis Relationships, Direct Relationships, Indirect Relationships, Reciprocal Relationships, Multi-Subject Relationships, Multiple Relationships, Formal Relationships, Operational Relationships, Relationship Scope, Relationship Boundary, Relationship Relevance, Relationship Temporal State, Relationship Uncertainty, Relationship Conflict, Relationship Correction, Relationship Reassessment, and Relationship Identification Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-relationship-candidate" data-oof-section-id="true" role="heading" aria-level="2">Liability Relationship Candidate</h1>
+<p>A Liability Relationship Candidate is a potentially relevant governed relationship whose existence, identity, type, direction, scope, or participants require explicit representation within the Liability inquiry.</p>
+<p>Candidate status does not establish a final relationship state.</p>
+<p>Therefore:</p>
+<p>Potential Relationship ≠ Identified Liability Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-recognition" data-oof-section-id="true" role="heading" aria-level="2">Relationship Recognition</h1>
+<p>A potential Liability Relationship may become visible through:</p>
+<p>the Governed Liability Basis, the Governed Liability Object, Subject roles, contracts, ownership, control, authority, delegation, agency, service provision, manufacture, operation, maintenance, custody, insurance, guarantee, professional activity, organizational structure, Operational Reality, or another governed input.</p>
+<p>Recognition means the relationship requires evaluation.</p>
+<p>It does not establish Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-recognition-trigger" data-oof-section-id="true" role="heading" aria-level="2">Relationship Recognition Trigger</h1>
+<p>A Relationship Recognition Trigger is a governed signal indicating that a relationship may materially affect later Liability governance.</p>
+<p>The trigger may originate from:</p>
+<p>upstream LIGA™ governance, another OOF® architecture, evidence, a formal record, Operational Reality, or lifecycle re-entry.</p>
+<p>Therefore:</p>
+<p>Relationship Recognition Trigger ≠ Established Liability Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-identification" data-oof-section-id="true" role="heading" aria-level="2">Relationship Identification</h1>
+<p>A relationship becomes identified when its essential structure is sufficiently established for subsequent mapping.</p>
+<p>Identification should determine, where materially required:</p>
+<p>which Subjects participate, what relationship is involved, what type of relationship it is, which direction applies, which Object or Basis it concerns, what temporal state applies, and what uncertainty remains.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-identity" data-oof-section-id="true" role="heading" aria-level="2">Relationship Identity</h1>
+<p>Every materially distinct Liability Relationship should possess a sufficiently stable identity.</p>
+<p>Relationship Identity must remain distinguishable from the identities of its participating Subjects.</p>
+<p>Therefore:</p>
+<p>Subject Identity ≠ Relationship Identity.</p>
+<p>Two known Subjects do not automatically establish a known relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="same-subjects-different-relationships" data-oof-section-id="true" role="heading" aria-level="2">Same Subjects, Different Relationships</h1>
+<p>The same pair of Subjects may participate in several materially distinct relationships.</p>
+<p>For example:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-a-subject-b-contractual-relationship" data-oof-section-id="true" role="heading" aria-level="2">Subject A ↔ Subject B / Contractual Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-a-subject-b-ownership-relationship" data-oof-section-id="true" role="heading" aria-level="2">Subject A ↔ Subject B / Ownership Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-a-subject-b-control-relationship" data-oof-section-id="true" role="heading" aria-level="2">Subject A ↔ Subject B / Control Relationship</h1>
+<p>Therefore:</p>
+<p>Same Subjects ≠ Same Liability Relationship.</p>
+<p>Each materially distinct relationship should be separately identified.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-origin" data-oof-section-id="true" role="heading" aria-level="2">Relationship Origin</h1>
+<p>Relationship Origin identifies how the relationship entered the governed structure.</p>
+<p>Potential origins may include:</p>
+<p>contract, ownership, authority, delegation, control, agency, service provision, operation, maintenance, custody, guarantee, insurance, professional status, or another governed foundation.</p>
+<p>Therefore:</p>
+<p>Relationship Origin ≠ Liability Origin.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-type" data-oof-section-id="true" role="heading" aria-level="2">Relationship Type</h1>
+<p>LRIM should identify the methodological type of each relationship where type materially affects subsequent governance.</p>
+<p>Potential types may include:</p>
+<p>Contractual Relationship, Ownership Relationship, Control Relationship, Authority Relationship, Delegation Relationship, Agency Relationship, Operational Relationship, Service Relationship, Manufacturing Relationship, Maintenance Relationship, Custodial Relationship, Professional Relationship, Insurance Relationship, Guarantee Relationship, or another relevant type.</p>
+<p>Typing the relationship does not determine Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-type-and-liability" data-oof-section-id="true" role="heading" aria-level="2">Relationship Type and Liability</h1>
+<p>A relationship type describes the structure under examination.</p>
+<p>It does not determine the Liability outcome.</p>
+<p>Therefore:</p>
+<p>Contractual Relationship ≠ Contractual Liability.</p>
+<p>Ownership Relationship ≠ Owner Liability.</p>
+<p>Control Relationship ≠ Controller Liability.</p>
+<p>Agency Relationship ≠ Principal or Agent Liability.</p>
+<p>Operational Relationship ≠ Operational Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-participants" data-oof-section-id="true" role="heading" aria-level="2">Relationship Participants</h1>
+<p>Each relationship should identify its participating Subjects to the extent possible.</p>
+<p>A relationship may involve:</p>
+<p>two Subjects, multiple Subjects, a Subject and Liability Object, a Subject and Liability Basis, or another governed relational structure.</p>
+<p>Participants should remain independently identifiable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-subject-relationship" data-oof-section-id="true" role="heading" aria-level="2">Subject–Subject Relationship</h1>
+<p>A Subject–Subject Relationship connects two or more Liability Subjects.</p>
+<p>Examples may include:</p>
+<p>provider ↔ customer, principal ↔ agent, owner ↔ operator, manufacturer ↔ distributor, contractor ↔ subcontractor, organization ↔ employee, insurer ↔ insured.</p>
+<p>The relationship establishes structure.</p>
+<p>It does not establish Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-object-relationship" data-oof-section-id="true" role="heading" aria-level="2">Subject–Object Relationship</h1>
+<p>A Subject may have a Liability-relevant relationship to the Governed Liability Object.</p>
+<p>Examples may include:</p>
+<p>ownership, control, operation, manufacture, maintenance, custody, use, possession, or another relevant relation.</p>
+<p>Therefore:</p>
+<p>Subject–Object Relationship ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-basis-relationship" data-oof-section-id="true" role="heading" aria-level="2">Subject–Basis Relationship</h1>
+<p>A Subject may have a relevant relationship to the Governed Liability Basis.</p>
+<p>The Subject may be:</p>
+<p>bound by, benefited by, authorized under, obligated under, protected under, or otherwise referenced by the Basis.</p>
+<p>Therefore:</p>
+<p>Subject–Basis Relationship ≠ Liability Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="direct-relationship" data-oof-section-id="true" role="heading" aria-level="2">Direct Relationship</h1>
+<p>A Direct Relationship exists where the relevant relational structure connects participating Subjects without requiring an intermediate Subject.</p>
+<p>Example:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-a-subject-b" data-oof-section-id="true" role="heading" aria-level="2">Subject A ↔ Subject B</h1>
+<p>Directness is a structural property.</p>
+<p>Therefore:</p>
+<p>Direct Relationship ≠ Direct Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="indirect-relationship" data-oof-section-id="true" role="heading" aria-level="2">Indirect Relationship</h1>
+<p>A potentially relevant relationship may operate through one or more intermediate Subjects.</p>
+<p>Example:</p>
+<p>Subject A → Subject B → Subject C LRIM should identify the relevant relational segments without assuming Liability propagation.</p>
+<p>Therefore:</p>
+<p>Indirect Relationship ≠ Indirect Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-chain" data-oof-section-id="true" role="heading" aria-level="2">Relationship Chain</h1>
+<p>Several identified relationships may form an apparent chain.</p>
+<p>Example:</p>
+<p>Manufacturer → Distributor → Operator → User LRIM identifies the individual relationships.</p>
+<p>LRMM subsequently maps their complete structure.</p>
+<p>Therefore:</p>
+<p>Relationship Identification ≠ Relationship Network Mapping.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reciprocal-relationship" data-oof-section-id="true" role="heading" aria-level="2">Reciprocal Relationship</h1>
+<p>A relationship may operate in both directions while containing different rights, duties, authorities, dependencies, or functions in each direction.</p>
+<p>Therefore:</p>
+<p>Reciprocal Relationship ≠ Symmetrical Liability Position.</p>
+<p>LRIM should preserve direction-specific characteristics where materially relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-direction" data-oof-section-id="true" role="heading" aria-level="2">Relationship Direction</h1>
+<p>Direction should be identified where the relationship has directional meaning.</p>
+<p>Examples:</p>
+<p>Principal → delegates to → Agent Provider → supplies to → Customer Owner → authorizes → Operator Controller → directs → Operational Subject Direction describes the relationship.</p>
+<p>Therefore:</p>
+<p>Relationship Direction ≠ Liability Direction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="bidirectional-relationship" data-oof-section-id="true" role="heading" aria-level="2">Bidirectional Relationship</h1>
+<p>Some relationships may legitimately require bidirectional representation.</p>
+<p>Example:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-a-subject-b-3" data-oof-section-id="true" role="heading" aria-level="2">Subject A ↔ Subject B</h1>
+<p>Bidirectionality does not imply equal authority, equal responsibility, or equal Liability.</p>
+<p>Therefore:</p>
+<p>Bidirectional Relationship ≠ Equal Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-subject-relationship" data-oof-section-id="true" role="heading" aria-level="2">Multi-Subject Relationship</h1>
+<p>A relationship may involve more than two Subjects as one coherent relational structure.</p>
+<p>Example:</p>
+<p>Subject A + Subject B + Subject C → Relationship R LRIM should preserve the multi-subject structure where decomposing it would distort the relationship.</p>
+<p>Therefore:</p>
+<p>Multi-Subject Relationship ≠ Multiple Bilateral Relationships by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-relationships" data-oof-section-id="true" role="heading" aria-level="2">Multiple Relationships</h1>
+<p>A Liability inquiry may contain multiple relationships simultaneously.</p>
+<p>These should not be collapsed into a single generalized relationship merely because they concern the same Object or event.</p>
+<p>Therefore:</p>
+<p>Multiple Liability Relationships ≠ One Composite Relationship by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="composite-relationship" data-oof-section-id="true" role="heading" aria-level="2">Composite Relationship</h1>
+<p>A Composite Relationship may exist where several relational elements form one inseparable governed relationship.</p>
+<p>Composite status should be established explicitly.</p>
+<p>Therefore:</p>
+<p>Multiple Relationship Elements ≠ Composite Relationship by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-dependency" data-oof-section-id="true" role="heading" aria-level="2">Relationship Dependency</h1>
+<p>One relationship may depend upon another.</p>
+<p>Example:</p>
+<p>an agent relationship may depend on a valid delegation structure.</p>
+<p>A subcontracting relationship may depend upon an upstream contractual structure.</p>
+<p>Therefore:</p>
+<p>Relationship Dependency ≠ Relationship Identity.</p>
+<p>Dependency should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-hierarchy" data-oof-section-id="true" role="heading" aria-level="2">Relationship Hierarchy</h1>
+<p>Relationships may exist within hierarchical structures.</p>
+<p>Example:</p>
+<p>Principal → Contractor → Subcontractor → Operator Hierarchy may affect later governance.</p>
+<p>However:</p>
+<p>Relationship Hierarchy ≠ Liability Hierarchy.</p>
+<p>LRIM identifies the relationships without ranking Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="formal-relationship" data-oof-section-id="true" role="heading" aria-level="2">Formal Relationship</h1>
+<p>A Formal Relationship may be established through:</p>
+<p>contract, organizational record, legal instrument, delegation, appointment, ownership record, policy, or another formal structure.</p>
+<p>Formal existence may be relevant.</p>
+<p>It does not establish the complete operational relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-relationship" data-oof-section-id="true" role="heading" aria-level="2">Operational Relationship</h1>
+<p>Operational Reality may reveal relationships that differ from formal structures.</p>
+<p>Examples may include:</p>
+<p>actual control, actual operation, actual supervision, actual decision authority, or actual coordination.</p>
+<p>Therefore:</p>
+<p>Formal Relationship ≠ Operational Relationship by default.</p>
+<p>Both may require separate identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="nominal-and-operational-relationship" data-oof-section-id="true" role="heading" aria-level="2">Nominal and Operational Relationship</h1>
+<p>A formally named relationship may not accurately represent the relationship that operated in practice.</p>
+<p>Therefore:</p>
+<p>Nominal Relationship ≠ Operational Relationship by default.</p>
+<p>LRIM should preserve both where materially relevant rather than silently replacing one with the other.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="contractual-relationship" data-oof-section-id="true" role="heading" aria-level="2">Contractual Relationship</h1>
+<p>A contractual relationship may be relevant where a contract establishes a governed connection among Subjects.</p>
+<p>LRIM identifies the contractual relationship.</p>
+<p>It does not determine:</p>
+<p>breach, Condition Satisfaction, Connection, Attachment, or Liability.</p>
+<p>Therefore:</p>
+<p>Contractual Relationship ≠ Contractual Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ownership-relationship" data-oof-section-id="true" role="heading" aria-level="2">Ownership Relationship</h1>
+<p>Ownership may create a relationship between:</p>
+<p>Subject and Object, Subject and organization, or multiple Subjects.</p>
+<p>LRIM identifies the ownership relationship where materially relevant.</p>
+<p>Therefore:</p>
+<p>Ownership Relationship ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="control-relationship" data-oof-section-id="true" role="heading" aria-level="2">Control Relationship</h1>
+<p>A Control Relationship may involve:</p>
+<p>formal control, operational control, technical control, organizational control, or another relevant control structure.</p>
+<p>Control should be identified without assuming Liability.</p>
+<p>Therefore:</p>
+<p>Control Relationship ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-relationship" data-oof-section-id="true" role="heading" aria-level="2">Authority Relationship</h1>
+<p>An Authority Relationship may connect a Subject possessing authority with:</p>
+<p>another Subject, an Object, a system, a process, or a decision domain.</p>
+<p>Therefore:</p>
+<p>Authority Relationship ≠ Liability Relationship Outcome.</p>
+<p>Authority may become a later Liability input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="delegation-relationship" data-oof-section-id="true" role="heading" aria-level="2">Delegation Relationship</h1>
+<p>A Delegation Relationship may exist where authority, responsibility, permission, or operational activity is delegated.</p>
+<p>Delegation does not establish Liability Transfer.</p>
+<p>Therefore:</p>
+<p>Delegation Relationship ≠ Liability Transfer.</p>
+<p>LTRS governs Liability Transfer later in the lifecycle.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="agency-relationship" data-oof-section-id="true" role="heading" aria-level="2">Agency Relationship</h1>
+<p>A potential Agency Relationship may connect:</p>
+<p>principal, agent, scope of authority, and relevant activity.</p>
+<p>LRIM identifies the relationship without determining attribution or Liability.</p>
+<p>Therefore:</p>
+<p>Agency Relationship ≠ Liability Attribution.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="service-relationship" data-oof-section-id="true" role="heading" aria-level="2">Service Relationship</h1>
+<p>A Service Relationship may connect:</p>
+<p>provider, recipient, operator, customer, or other relevant Subjects.</p>
+<p>The relationship may become Liability-relevant where the Governed Liability Basis concerns service provision.</p>
+<p>Therefore:</p>
+<p>Service Relationship ≠ Provider Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="manufacturing-relationship" data-oof-section-id="true" role="heading" aria-level="2">Manufacturing Relationship</h1>
+<p>A Manufacturing Relationship may connect:</p>
+<p>manufacturer, component supplier, assembler, distributor, owner, operator, or another relevant Subject.</p>
+<p>Identification does not establish product-related Liability.</p>
+<p>Therefore:</p>
+<p>Manufacturing Relationship ≠ Manufacturer Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="maintenance-relationship" data-oof-section-id="true" role="heading" aria-level="2">Maintenance Relationship</h1>
+<p>A Maintenance Relationship may connect:</p>
+<p>equipment owner, maintenance provider, contractor, subcontractor, operator, or another Subject.</p>
+<p>The existence of maintenance responsibility or participation does not establish Liability.</p>
+<p>Therefore:</p>
+<p>Maintenance Relationship ≠ Maintenance Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insurance-relationship" data-oof-section-id="true" role="heading" aria-level="2">Insurance Relationship</h1>
+<p>An Insurance Relationship may become relevant to later Liability Transfer, payment, sharing, or Recourse.</p>
+<p>LRIM may identify:</p>
+<p>insurer, insured, beneficiary, or other relevant participants.</p>
+<p>However:</p>
+<p>Insurance Relationship ≠ Underlying Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="guarantee-relationship" data-oof-section-id="true" role="heading" aria-level="2">Guarantee Relationship</h1>
+<p>A Guarantee Relationship may create a secondary relational structure.</p>
+<p>The guarantor should remain distinct from the Subject whose underlying conduct or obligation is being evaluated.</p>
+<p>Therefore:</p>
+<p>Guarantee Relationship ≠ Primary Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="human-ai-relationship" data-oof-section-id="true" role="heading" aria-level="2">Human–AI Relationship</h1>
+<p>Liability governance may require relationships involving:</p>
+<p>human users, AI providers, AI deployers, operators, AI systems, autonomous agents, and organizations.</p>
+<p>Possible relationships may include:</p>
+<p>provider → AI system, deployer → AI system, operator → AI system, AI system → operational process, user → AI system.</p>
+<p>Identification of these relationships does not determine AI or human Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="autonomous-system-relationship" data-oof-section-id="true" role="heading" aria-level="2">Autonomous-System Relationship</h1>
+<p>An autonomous system may participate in relationships concerning:</p>
+<p>authority, permission, delegation, operation, coordination, override, control, or execution.</p>
+<p>ASGA™ may govern the original autonomous-system relationship.</p>
+<p>LRIM identifies its Liability relevance where necessary.</p>
+<p>Therefore:</p>
+<p>Autonomous-System Relationship ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-relevance" data-oof-section-id="true" role="heading" aria-level="2">Relationship Relevance</h1>
+<p>A relationship should enter LRIM where its existence, state, scope, direction, or type may materially affect later Liability governance.</p>
+<p>The relevance threshold should avoid:</p>
+<p>omitting material relationships, and:</p>
+<p>including every remote connection.</p>
+<p>Therefore:</p>
+<p>Relational Existence ≠ Liability Relevance by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-relevance-and-basis" data-oof-section-id="true" role="heading" aria-level="2">Relationship Relevance and Basis</h1>
+<p>A relationship may be relevant because the Governed Liability Basis makes that relationship material.</p>
+<p>For example, a contractual Basis may make a contractual relationship relevant.</p>
+<p>However:</p>
+<p>Basis-Relevant Relationship ≠ Liability-Producing Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-relevance-and-object" data-oof-section-id="true" role="heading" aria-level="2">Relationship Relevance and Object</h1>
+<p>A relationship may be relevant because it connects a Subject to the Governed Liability Object.</p>
+<p>However:</p>
+<p>Object-Relevant Relationship ≠ Liability-Relevant Connection.</p>
+<p>LCNS later determines the Liability-specific Connection required for Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-scope" data-oof-section-id="true" role="heading" aria-level="2">Relationship Scope</h1>
+<p>Relationship Scope defines the extent of the relationship itself.</p>
+<p>It may concern:</p>
+<p>an entire service, specific operation, defined Object component, particular authority, specific activity, or limited period.</p>
+<p>Therefore:</p>
+<p>Relationship Scope ≠ Liability Scope.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-boundary" data-oof-section-id="true" role="heading" aria-level="2">Relationship Boundary</h1>
+<p>Relationship Boundary establishes what belongs inside and outside the identified relationship.</p>
+<p>It may define:</p>
+<p>participating Subjects, relevant Object, relevant Basis, relationship type, scope, temporal period, and excluded structures.</p>
+<p>Therefore:</p>
+<p>Relationship Boundary ≠ Liability Boundary by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-relationship-state" data-oof-section-id="true" role="heading" aria-level="2">Temporal Relationship State</h1>
+<p>Relationships may:</p>
+<p>begin, be active, change, be suspended, resume, terminate, or be superseded.</p>
+<p>LRIM should identify the state relevant to the Liability inquiry.</p>
+<p>Therefore:</p>
+<p>Current Relationship State ≠ Historically Relevant Relationship State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-relationship" data-oof-section-id="true" role="heading" aria-level="2">Historical Relationship</h1>
+<p>A relationship may no longer exist while remaining relevant to a historical Liability inquiry.</p>
+<p>Therefore:</p>
+<p>Inactive Relationship ≠ Historically Irrelevant Relationship.</p>
+<p>Historical relevance must be preserved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">Relationship Uncertainty</h1>
+<p>Possible relationship states may include:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified" data-oof-section-id="true" role="heading" aria-level="2">Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provisionally-identified" data-oof-section-id="true" role="heading" aria-level="2">Provisionally Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-identified" data-oof-section-id="true" role="heading" aria-level="2">Partially Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-uncertain" data-oof-section-id="true" role="heading" aria-level="2">Relationship Uncertain</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-disputed" data-oof-section-id="true" role="heading" aria-level="2">Relationship Disputed</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-unknown" data-oof-section-id="true" role="heading" aria-level="2">Relationship Unknown</h1>
+<p>Uncertainty should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-relationship" data-oof-section-id="true" role="heading" aria-level="2">Unknown Relationship</h1>
+<p>The relevant Subjects may be known while the relationship between them remains unresolved.</p>
+<p>The correct governance state may be:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="known-subjects-relationship-unknown" data-oof-section-id="true" role="heading" aria-level="2">Known Subjects / Relationship Unknown</h1>
+<p>Therefore:</p>
+<p>Unknown Relationship ≠ No Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-identified-relationship" data-oof-section-id="true" role="heading" aria-level="2">Partially Identified Relationship</h1>
+<p>A relationship may be known in part.</p>
+<p>For example:</p>
+<p>the existence of a relationship may be known, but its exact type, scope, direction, or temporal state may remain unresolved.</p>
+<p>Therefore:</p>
+<p>Partial Relationship Identification ≠ Complete Relationship Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-assumption" data-oof-section-id="true" role="heading" aria-level="2">Relationship Assumption</h1>
+<p>A potential relationship may initially depend on an assumption.</p>
+<p>The assumption should remain visible until established or rejected.</p>
+<p>Therefore:</p>
+<p>Relationship Assumption ≠ Established Relationship Fact.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-conflict" data-oof-section-id="true" role="heading" aria-level="2">Relationship Conflict</h1>
+<p>Different governed inputs may support conflicting relationship representations.</p>
+<p>For example:</p>
+<p>a contract may identify one operator, while Operational Reality identifies another.</p>
+<p>LRIM should preserve the conflict.</p>
+<p>Therefore:</p>
+<p>Relationship Conflict ≠ Authority to Manufacture Relationship Certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-relationship-records" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Relationship Records</h1>
+<p>Several records may refer to the same underlying relationship.</p>
+<p>Technical duplication should not create multiple methodological relationships.</p>
+<p>Therefore:</p>
+<p>Multiple Relationship Records ≠ Multiple Liability Relationships by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="similar-relationships" data-oof-section-id="true" role="heading" aria-level="2">Similar Relationships</h1>
+<p>Relationships may appear similar because they involve:</p>
+<p>the same Subjects, the same Object, the same Basis, or similar labels.</p>
+<p>Similarity does not establish identity.</p>
+<p>Therefore:</p>
+<p>Relationship Similarity ≠ Relationship Identity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-correction" data-oof-section-id="true" role="heading" aria-level="2">Relationship Correction</h1>
+<p>An identified relationship may later be found incorrect.</p>
+<p>Correction should preserve:</p>
+<p>the earlier representation, the corrected representation, the reason for correction, and relevant supporting inputs.</p>
+<p>Therefore:</p>
+<p>Relationship Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Relationship Reassessment</h1>
+<p>New information may require reassessment of:</p>
+<p>relationship existence, identity, type, participants, direction, scope, boundary, or temporal state.</p>
+<p>Therefore:</p>
+<p>Relationship Reassessment ≠ New Liability Origin.</p>
+<p>The existing governance history should remain preserved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-inclusion" data-oof-section-id="true" role="heading" aria-level="2">Relationship Inclusion</h1>
+<p>A Relationship Candidate should be included in the Identified Liability Relationship Set where its structure may materially affect subsequent LRS governance.</p>
+<p>Inclusion means:</p>
+<p>this relationship requires further governance.</p>
+<p>It does not mean:</p>
+<p>this relationship creates Liability.</p>
+<p>Therefore:</p>
+<p>Relationship Inclusion ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-exclusion" data-oof-section-id="true" role="heading" aria-level="2">Relationship Exclusion</h1>
+<p>A Relationship Candidate may be excluded where sufficient governance establishes that it is not materially relevant to the current Liability inquiry.</p>
+<p>The exclusion reason should remain traceable where material.</p>
+<p>Therefore:</p>
+<p>Relationship Exclusion ≠ Proof that the relationship can never become Liability-relevant.</p>
+<p>Later information may require re-entry.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Relationship Identification Sufficiency</h1>
+<p>Relationship identification is sufficient when subsequent mapping can determine:</p>
+<p>which relationships exist or may exist, which Subjects participate, what type of relationship is involved, which direction applies, which Object and Basis are relevant, what scope and temporal state apply, and what uncertainty remains.</p>
+<p>Identification sufficiency does not require complete network mapping.</p>
+<p>Therefore:</p>
+<p>Relationship Identification Sufficiency ≠ Relationship Mapping Completion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-relationship-mapping" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Relationship Mapping</h1>
+<p>Once materially relevant relationships are sufficiently identified, LRIM produces:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-relationship-set-3" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Relationship Set</h1>
+<p>The handoff should preserve:</p>
+<p>Relationship Identity, participating Subject identities, Relationship Type, Relationship Origin, Relationship Direction, Object reference, Basis reference, Relationship Scope, Relationship Boundary, Temporal State, dependencies where already known, uncertainty, and identification history.</p>
+<p>The next governance question becomes:</p>
+<p>How do these identified Liability Relationships connect into the complete relational structure of the Liability matter?</p>
+<p>That question belongs to LRMM.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LRIM must provide at least the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-relationship-recognition" data-oof-section-id="true" role="heading" aria-level="2">Potential Relationship Recognition</h1>
+<p>Capability to recognize materially relevant Subject–Subject, Subject–Object, Subject–Basis, formal, operational, and other relationship candidates without treating recognition as Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-candidate-identification" data-oof-section-id="true" role="heading" aria-level="2">Relationship Candidate Identification</h1>
+<p>Capability to establish distinct Liability Relationship Candidates and preserve why each relationship entered governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-identity-type-and-origin-governance" data-oof-section-id="true" role="heading" aria-level="2">Relationship Identity, Type &amp; Origin Governance</h1>
+<p>Capability to establish stable Relationship Identity and represent relationship type and origin independently of Subject identity and Liability outcome.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="participant-direction-scope-and-boundary-governance" data-oof-section-id="true" role="heading" aria-level="2">Participant, Direction, Scope &amp; Boundary Governance</h1>
+<p>Capability to identify participating Subjects, relationship direction, scope, boundary, Object reference, and Basis reference where materially required.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-direct-indirect-and-multi-subject-relationship-governance" data-oof-section-id="true" role="heading" aria-level="2">Multiple, Direct, Indirect &amp; Multi-Subject Relationship Governance</h1>
+<p>Capability to distinguish multiple relationships, direct and indirect structures, reciprocal relationships, multi-subject relationships, composite candidates, and relationship dependencies without inappropriate collapse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="formal-operational-unknown-and-conflicting-relationship-governance" data-oof-section-id="true" role="heading" aria-level="2">Formal, Operational, Unknown &amp; Conflicting Relationship Governance</h1>
+<p>Capability to preserve formal and operational relationships, unknown or partially identified relationships, assumptions, duplicate records, uncertainty, and conflicts without manufacturing certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-change-correction-and-reassessment-governance" data-oof-section-id="true" role="heading" aria-level="2">Temporal Change, Correction &amp; Reassessment Governance</h1>
+<p>Capability to preserve historically relevant Relationship States and govern correction, reassessment, exclusion, and later re-entry without historical erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-identification-sufficiency-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship Identification Sufficiency</h1>
+<p>Capability to determine whether the relevant relationship set is sufficiently identified for Relationship Mapping while preserving unresolved relational uncertainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LRIM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set-governed-liability-object-governed-liability-ba" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set + Governed Liability Object + Governed Liability Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recognize-potential-liability-relevant-relationships" data-oof-section-id="true" role="heading" aria-level="2">Recognize Potential Liability-Relevant Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="create-relationship-candidates" data-oof-section-id="true" role="heading" aria-level="2">Create Relationship Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-participating-subjects" data-oof-section-id="true" role="heading" aria-level="2">Identify Participating Subjects</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-relationship-identity" data-oof-section-id="true" role="heading" aria-level="2">Establish Relationship Identity</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-relationship-type-and-origin" data-oof-section-id="true" role="heading" aria-level="2">Determine Relationship Type and Origin</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-relationship-direction" data-oof-section-id="true" role="heading" aria-level="2">Determine Relationship Direction</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-relevant-object-and-basis" data-oof-section-id="true" role="heading" aria-level="2">Associate Relevant Object and Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-relationship-scope-and-boundary" data-oof-section-id="true" role="heading" aria-level="2">Determine Relationship Scope and Boundary</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-direct-indirect-reciprocal-multi-subject-structures" data-oof-section-id="true" role="heading" aria-level="2">Identify Direct / Indirect / Reciprocal / Multi-Subject Structures</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="distinguish-formal-and-operational-relationships" data-oof-section-id="true" role="heading" aria-level="2">Distinguish Formal and Operational Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-relevant-temporal-state" data-oof-section-id="true" role="heading" aria-level="2">Determine Relevant Temporal State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-unknown-partial-assumed-relationships" data-oof-section-id="true" role="heading" aria-level="2">Identify Unknown / Partial / Assumed Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-uncertainty-or-conflict" data-oof-section-id="true" role="heading" aria-level="2">Identify Uncertainty or Conflict</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="include-exclude-preserve-candidate-state" data-oof-section-id="true" role="heading" aria-level="2">Include / Exclude / Preserve Candidate State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-relationship-identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Assess Relationship Identification Sufficiency</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-relationship-set-5" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Relationship Set</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-relationship-mapping" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Relationship Mapping</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LRIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-relationship-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Liability Relationship Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-relationship-identity" data-oof-section-id="true" role="heading" aria-level="2">Liability Relationship Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-origin-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship Origin</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-type-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship Type</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-participant-record" data-oof-section-id="true" role="heading" aria-level="2">Relationship Participant Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-direction-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship Direction</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-subject-relationship-3" data-oof-section-id="true" role="heading" aria-level="2">Subject–Subject Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-object-relationship-3" data-oof-section-id="true" role="heading" aria-level="2">Subject–Object Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-basis-relationship-3" data-oof-section-id="true" role="heading" aria-level="2">Subject–Basis Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="direct-relationship-3" data-oof-section-id="true" role="heading" aria-level="2">Direct Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="indirect-relationship-3" data-oof-section-id="true" role="heading" aria-level="2">Indirect Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reciprocal-relationship-3" data-oof-section-id="true" role="heading" aria-level="2">Reciprocal Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-subject-relationship-3" data-oof-section-id="true" role="heading" aria-level="2">Multi-Subject Relationship</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-relationship-set" data-oof-section-id="true" role="heading" aria-level="2">Multiple Relationship Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="composite-relationship-candidate" data-oof-section-id="true" role="heading" aria-level="2">Composite Relationship Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-dependency-reference" data-oof-section-id="true" role="heading" aria-level="2">Relationship Dependency Reference</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="formal-relationship-record" data-oof-section-id="true" role="heading" aria-level="2">Formal Relationship Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-relationship-record" data-oof-section-id="true" role="heading" aria-level="2">Operational Relationship Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-scope-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship Scope</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-boundary-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship Boundary</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-temporal-state" data-oof-section-id="true" role="heading" aria-level="2">Relationship Temporal State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-relationship-record" data-oof-section-id="true" role="heading" aria-level="2">Historical Relationship Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-relationship-record" data-oof-section-id="true" role="heading" aria-level="2">Unknown Relationship Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-relationship-record" data-oof-section-id="true" role="heading" aria-level="2">Partial Relationship Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-assumption-record" data-oof-section-id="true" role="heading" aria-level="2">Relationship Assumption Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-uncertainty-state" data-oof-section-id="true" role="heading" aria-level="2">Relationship Uncertainty State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-conflict-state" data-oof-section-id="true" role="heading" aria-level="2">Relationship Conflict State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-relationship-reconciliation" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Relationship Reconciliation</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-correction-record" data-oof-section-id="true" role="heading" aria-level="2">Relationship Correction Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-reassessment-record" data-oof-section-id="true" role="heading" aria-level="2">Relationship Reassessment Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-inclusion-state" data-oof-section-id="true" role="heading" aria-level="2">Relationship Inclusion State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-exclusion-state" data-oof-section-id="true" role="heading" aria-level="2">Relationship Exclusion State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-identification-sufficiency-state" data-oof-section-id="true" role="heading" aria-level="2">Relationship Identification Sufficiency State</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-relationship-set-7" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Relationship Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LRIM preserves the following distinctions:</p>
+<p>Liability Relationship ≠ Liability Potential Relationship ≠ Identified Liability Relationship Relationship Recognition Trigger ≠ Established Liability Relationship Subject Identity ≠ Relationship Identity Same Subjects ≠ Same Liability Relationship Relationship Origin ≠ Liability Origin Relationship Type ≠ Liability Outcome Contractual Relationship ≠ Contractual Liability Ownership Relationship ≠ Owner Liability Control Relationship ≠ Controller Liability Agency Relationship ≠ Principal or Agent Liability Operational Relationship ≠ Operational Liability Subject–Object Relationship ≠ Liability Subject–Basis Relationship ≠ Liability Attachment Direct Relationship ≠ Direct Liability Indirect Relationship ≠ Indirect Liability Relationship Identification ≠ Relationship Network Mapping Reciprocal Relationship ≠ Symmetrical Liability Position Relationship Direction ≠ Liability Direction Bidirectional Relationship ≠ Equal Liability Multi-Subject Relationship ≠ Multiple Bilateral Relationships by default Multiple Liability Relationships ≠ One Composite Relationship by default Multiple Relationship Elements ≠ Composite Relationship by default Relationship Dependency ≠ Relationship Identity Relationship Hierarchy ≠ Liability Hierarchy Formal Relationship ≠ Operational Relationship by default Nominal Relationship ≠ Operational Relationship by default Delegation Relationship ≠ Liability Transfer Agency Relationship ≠ Liability Attribution Service Relationship ≠ Provider Liability Manufacturing Relationship ≠ Manufacturer Liability Maintenance Relationship ≠ Maintenance Liability Insurance Relationship ≠ Underlying Liability Guarantee Relationship ≠ Primary Liability Autonomous-System Relationship ≠ Liability Relational Existence ≠ Liability Relevance by default Basis-Relevant Relationship ≠ Liability-Producing Relationship Object-Relevant Relationship ≠ Liability-Relevant Connection Relationship Scope ≠ Liability Scope Current Relationship State ≠ Historically Relevant Relationship State by default Inactive Relationship ≠ Historically Irrelevant Relationship Unknown Relationship ≠ No Relationship Partial Relationship Identification ≠ Complete Relationship Identification Relationship Assumption ≠ Established Relationship Fact Relationship Conflict ≠ Authority to Manufacture Relationship Certainty Multiple Relationship Records ≠ Multiple Liability Relationships by default Relationship Similarity ≠ Relationship Identity Relationship Correction ≠ Historical Erasure Relationship Reassessment ≠ New Liability Origin Relationship Inclusion ≠ Liability Determination Relationship Identification Sufficiency ≠ Relationship Mapping Completion</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LRIM may receive governed relationship inputs from other OOF® architectures.</p>
+<p>GOA™ may provide Authority, Scope, Delegation, and governance relationships.</p>
+<p>ORA™ may provide actual operational relationships.</p>
+<p>AGA™ may provide Responsibility, Accountability, Authority, and Attribution relationships.</p>
+<p>HAGA™ may provide Harm-relevant actor relationships.</p>
+<p>ADIT® may provide evidence concerning relationship existence, participants, type, scope, and historical state.</p>
+<p>VALIDOS™ may validate relationship-relevant information.</p>
+<p>OBIDENITY® may provide Identity, Ownership, Authority, Permission, Provenance, Transfer, and Continuity relationships.</p>
+<p>AIG® may provide AI governance relationships.</p>
+<p>ASGA™ may provide autonomous-system Authority, Permission, Delegation, Coordination, Override, and operational relationships.</p>
+<p>Other OOF® architectures may provide governed relationships relevant to Liability.</p>
+<p>The governing principle is:</p>
+<p>A relationship governed elsewhere may become Liability-relevant without becoming a Liability Relationship merely because it enters LIGA™ analysis.</p>
+<p>LRIM governs only its Liability-specific representation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LRIM begins with an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set-3" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set</h1>
+<p>together with the relevant Governed Liability Object and Governed Liability Basis.</p>
+<p>LRIM governs:</p>
+<p>Potential Relationship Recognition, Relationship Candidate Identification, Relationship Identity, Relationship Origin, Relationship Type, Relationship Participants, Relationship Direction, Subject–Subject Relationships, Subject–Object Relationships, Subject–Basis Relationships, Direct Relationships, Indirect Relationships, Reciprocal Relationships, Multi-Subject Relationships, Multiple Relationships, Composite Relationship Candidates, Relationship Dependencies, Formal Relationships, Operational Relationships, Relationship Scope, Relationship Boundary, Temporal State, Unknown Relationships, Partial Relationships, Assumptions, Uncertainty, Conflict, Correction, Reassessment, Inclusion, Exclusion, and Identification Sufficiency.</p>
+<p>LRIM does not govern:</p>
+<p>complete Relationship Network Mapping, final Relationship Distinction, Relationship Continuity, Liability Conditions, Condition Satisfaction, Liability-Relevant Connection, Liability Attachment, Liability Determination, Liability Scope, Liability Allocation, Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LRIM ends when an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-relationship-set-9" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Relationship Set</h1>
+<p>is sufficiently established for Liability Relationship Mapping.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-ai-enabled-service-relationships" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — AI-Enabled Service Relationships</h1>
+<p>An AI-enabled service involves an AI provider, deploying organization, operator, customer, and AI system already identified by LSUIM.</p>
+<p>LRIM identifies several potentially relevant relationships:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provider-deployer" data-oof-section-id="true" role="heading" aria-level="2">Provider ↔ Deployer</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="deployer-operator" data-oof-section-id="true" role="heading" aria-level="2">Deployer ↔ Operator</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="deployer-customer" data-oof-section-id="true" role="heading" aria-level="2">Deployer ↔ Customer</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provider-ai-system" data-oof-section-id="true" role="heading" aria-level="2">Provider ↔ AI System</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="deployer-ai-system" data-oof-section-id="true" role="heading" aria-level="2">Deployer ↔ AI System</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operator-ai-system" data-oof-section-id="true" role="heading" aria-level="2">Operator ↔ AI System</h1>
+<p>The relationships may include contractual, operational, control, service, or authority structures.</p>
+<p>LRIM identifies each relationship independently without determining whether any Subject bears Liability.</p>
+<p>LRMM can subsequently map how the relationships interact across the complete Liability structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-industrial-equipment-relationships" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Industrial Equipment Relationships</h1>
+<p>An industrial equipment matter includes an owner, operating company, manufacturer, maintenance provider, subcontractor, operator, and insurer.</p>
+<p>LRIM identifies potentially relevant:</p>
+<p>ownership, operational, manufacturing, maintenance, contractual, subcontracting, and insurance relationships.</p>
+<p>A formal maintenance agreement identifies one organization, while Operational Reality indicates that another Subject performed the relevant maintenance activity.</p>
+<p>LRIM preserves both relationships rather than choosing one prematurely.</p>
+<p>The resulting Identified Liability Relationship Set can then be mapped by LRMM without converting maintenance participation, ownership, operation, or insurance into Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Knowing who participates in a Liability inquiry is not enough.</p>
+<p>Governance must also identify the distinct relationships through which those Subjects interact with one another, the Liability Object, and the Liability Basis.</p>
+<p>Those relationships create the structure that later Liability governance must evaluate, but they do not create Liability merely by existing.</p>
+<p>A relationship can make Liability governable without making Liability established.</p>
+<p>Identify the relationships before mapping the Liability structure.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lrs.html">Liability Relationship Standard (LRS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lrs-lrmm-3.html">LRMM — Liability Relationship Mapping Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

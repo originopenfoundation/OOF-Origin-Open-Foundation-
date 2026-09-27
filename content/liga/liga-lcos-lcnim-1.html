@@ -1,0 +1,1601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LCNIM — Liability Condition Identification Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LCNIM — Liability Condition Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Conditions Standard." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LCNIM — Liability Condition Identification Module" />
+<meta property="og:description" content="LCNIM — Liability Condition Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Conditions Standard." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LCNIM — Liability Condition Identification Module" />
+<meta name="twitter:description" content="LCNIM — Liability Condition Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Conditions Standard." />
+<meta name="DC.title" content="LCNIM — Liability Condition Identification Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html","name":"LCNIM — Liability Condition Identification Module","description":"LCNIM — Liability Condition Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Conditions Standard.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LCNIM — Liability Condition Identification Module","item":"https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html"}]},"headline":"LCNIM — Liability Condition Identification Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lcos-lcnim-1.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability Conditions Standard (LCOS)","Governance & Enforcement","Liability Governance","Liability Condition Identification"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability Conditions Standard (LCOS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability Condition Identification"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lcos.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lcos-lcnrm-2.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability Conditions Standard (LCOS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability Condition Identification"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lcnim-liability-condition-identification-module" data-oof-section-id="true" role="heading" aria-level="1">LCNIM — Liability Condition Identification Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lcnim-liability-condition-identification-module-3" data-oof-section-id="true" role="heading" aria-level="2">LCNIM — Liability Condition Identification Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability Conditions Standard (LCOS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability Condition Identification<br>
+<b>Module ID:</b> LIGA-LCOS-LCNIM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.05.01.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 22 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Condition Identification Module (LCNIM) governs how potential Liability Conditions relevant to a Governed Liability Basis, Governed Liability Object, and Governed Liability Relationship Structure are recognized, identified, distinguished, referenced, associated, and preserved as explicit Liability Condition Candidates for subsequent Condition Requirement governance.</p>
+<p>LCNIM determines which conditional elements must enter the Liability inquiry without determining whether those Conditions are satisfied, failed, present, absent, excepted, excluded, or otherwise fulfilled.</p>
+<p>LCNIM governs the transition:</p>
+<p>Governed Liability Relationship Structure → Potential Condition Recognition → Condition Candidate Identification → Condition Identity → Condition Relevance &amp; Association → Identified Liability Condition Set Its foundational distinction is:</p>
+<p>Liability Condition Identification ≠ Liability Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LCNIM is:</p>
+<p>to determine which conditional elements must be explicitly governed before potential Liability can proceed toward Liability Connection and later Liability Determination.</p>
+<p>LBS establishes the Liability Basis.</p>
+<p>LRS establishes the relevant Subjects and Relationships.</p>
+<p>LCNIM identifies the Conditions that may matter under that Basis and relational structure.</p>
+<p>It does not determine whether those Conditions have been met.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-parent-standard-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the Parent Standard Flow</h1>
+<p>The internal LCOS progression is:</p>
+<p>Liability Condition Identification → Liability Condition Requirement → Liability Condition State → Liability Condition Exception → Liability Condition Continuity LCNIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-condition-identification" data-oof-section-id="true" role="heading" aria-level="2">Liability Condition Identification</h1>
+<p>Its principal inputs are:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-relationship-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Relationship Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Basis</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-object" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Object</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-condition-set" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Condition Set</h1>
+<p>Its canonical handoff is:</p>
+<p>Identified Liability Condition Set → Liability Condition Requirement Governance</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>Which conditions are materially relevant to potential Liability under the applicable Governed Liability Basis and therefore require explicit governance?</p>
+<p>The question concerns Condition identification.</p>
+<p>It does not ask whether any identified Condition is satisfied.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-space" data-oof-section-id="true" role="heading" aria-level="2">Governed Space</h1>
+<p>LCNIM governs:</p>
+<p>Potential Condition Recognition, Condition Candidate Identification, Condition Identity, Condition Origin, Condition Relevance, Basis–Condition Association, Subject–Condition Association, Relationship–Condition Association, Object–Condition Association, Condition Type Identification, Positive Condition Identification, Negative Condition Identification, Threshold Condition Identification, Temporal Condition Identification, Dependent Condition Identification, Alternative Condition Identification, Concurrent Condition Identification, Sequential Condition Identification, Cumulative Condition Identification, Conditional Condition Identification, Potential Exception-Relevant Condition Identification, Multiple Condition Identification, Duplicate Condition Identification, Condition Uncertainty, Condition Conflict, Condition Inclusion, Condition Exclusion from the Identified Set, and Condition Identification Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Liability Condition Candidate</h1>
+<p>A Liability Condition Candidate is a potentially relevant conditional element whose identity and relevance require explicit governance within the Liability inquiry.</p>
+<p>Candidate status means:</p>
+<p>this condition may require governance.</p>
+<p>It does not mean:</p>
+<p>this condition is satisfied.</p>
+<p>Therefore:</p>
+<p>Liability Condition Candidate ≠ Satisfied Liability Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-condition-recognition" data-oof-section-id="true" role="heading" aria-level="2">Potential Condition Recognition</h1>
+<p>Potential Conditions may become visible through:</p>
+<p>the Governed Liability Basis, the Governed Liability Object, the Governed Liability Relationship Structure, Subject roles, Relationship types, Operational Reality, authority structures, obligations, thresholds, temporal requirements, governed Harm states, evidence, validated inputs, or other materially relevant governed sources.</p>
+<p>Recognition initiates inquiry.</p>
+<p>It does not establish Condition Identity or Condition State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-recognition-trigger" data-oof-section-id="true" role="heading" aria-level="2">Condition Recognition Trigger</h1>
+<p>A Condition Recognition Trigger is a governed signal indicating that a conditional element may need explicit representation.</p>
+<p>Examples may include:</p>
+<p>a Basis containing a requirement, a Relationship creating conditional relevance, an Object characteristic activating a requirement, a Subject role making a Condition potentially applicable, a temporal state, a threshold, an externally governed state, or lifecycle re-entry.</p>
+<p>Therefore:</p>
+<p>Condition Recognition Trigger ≠ Identified Liability Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-driven-identification" data-oof-section-id="true" role="heading" aria-level="2">Basis-Driven Identification</h1>
+<p>The primary methodological anchor for Liability Condition identification is the applicable Governed Liability Basis.</p>
+<p>LCNIM should ask:</p>
+<p>What conditional elements does this Basis make materially relevant to the Liability inquiry?</p>
+<p>The architecture rejects reverse construction of Conditions solely from an observed outcome.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-before-condition" data-oof-section-id="true" role="heading" aria-level="2">Basis Before Condition</h1>
+<p>The governed sequence is:</p>
+<p>Liability Basis → Potential Conditions → Identified Liability Conditions not:</p>
+<p>Adverse Outcome → Assumed Conditions → Liability Basis Therefore:</p>
+<p>Observed Outcome ≠ Condition Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identity" data-oof-section-id="true" role="heading" aria-level="2">Condition Identity</h1>
+<p>Each materially distinct Liability Condition should receive a sufficiently stable governed identity.</p>
+<p>Condition Identity enables the Condition to remain distinguishable across:</p>
+<p>requirement definition, state evaluation, exception governance, change, continuity, and lifecycle re-entry.</p>
+<p>Therefore:</p>
+<p>Condition Identity ≠ Condition State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identity-and-requirement" data-oof-section-id="true" role="heading" aria-level="2">Condition Identity and Requirement</h1>
+<p>LCNIM identifies the Condition as a governed object.</p>
+<p>The detailed Requirement defining what must be satisfied belongs to subsequent Condition Requirement governance.</p>
+<p>Therefore:</p>
+<p>Condition Identity ≠ Condition Requirement.</p>
+<p>A Condition can be identified before its full Requirement is completely resolved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identity-and-satisfaction" data-oof-section-id="true" role="heading" aria-level="2">Condition Identity and Satisfaction</h1>
+<p>The identity of a Condition must remain independent from whether it is:</p>
+<p>Satisfied, Unsatisfied, Failed, Unknown, Disputed, or otherwise evaluated.</p>
+<p>Therefore:</p>
+<p>Condition Identity ≠ Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-origin" data-oof-section-id="true" role="heading" aria-level="2">Condition Origin</h1>
+<p>Condition Origin identifies why the Condition entered Liability governance.</p>
+<p>Potential origins may include:</p>
+<p>a Liability Basis, an obligation, a governed rule, a Relationship, an Object state, an authority structure, a threshold structure, a temporal requirement, or another governed source.</p>
+<p>Origin should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-origin-and-liability-origin" data-oof-section-id="true" role="heading" aria-level="2">Condition Origin and Liability Origin</h1>
+<p>The source of a Condition is not the origin of Liability itself.</p>
+<p>Therefore:</p>
+<p>Condition Origin ≠ Liability Origin.</p>
+<p>Liability remains subject to the complete LIGA™ governance lifecycle.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-condition-association" data-oof-section-id="true" role="heading" aria-level="2">Basis–Condition Association</h1>
+<p>Every identified Liability Condition should be associated with the Governed Liability Basis that makes it relevant.</p>
+<p>This association should remain explicit.</p>
+<p>Therefore:</p>
+<p>Condition Association with Basis ≠ Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-bases" data-oof-section-id="true" role="heading" aria-level="2">Multiple Bases</h1>
+<p>A Liability Object may possess multiple Governed Liability Bases.</p>
+<p>Each Basis may produce:</p>
+<p>different Conditions, overlapping Conditions, alternative Conditions, or competing conditional structures.</p>
+<p>LCNIM must preserve Basis-specific Condition identity.</p>
+<p>Therefore:</p>
+<p>Multiple Liability Bases ≠ One Condition Set by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="same-condition-across-multiple-bases" data-oof-section-id="true" role="heading" aria-level="2">Same Condition Across Multiple Bases</h1>
+<p>The same underlying conditional concept may appear relevant under more than one Basis.</p>
+<p>LCNIM should determine whether this represents:</p>
+<p>one Condition referenced by multiple Bases, or:</p>
+<p>distinct Basis-specific Conditions.</p>
+<p>Therefore:</p>
+<p>Similar Condition Meaning ≠ Same Condition Identity by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-specific-condition" data-oof-section-id="true" role="heading" aria-level="2">Basis-Specific Condition</h1>
+<p>A Basis-Specific Condition is relevant because of a particular Governed Liability Basis.</p>
+<p>The Condition should preserve its Basis reference.</p>
+<p>Therefore:</p>
+<p>Condition under Basis A ≠ Condition under Basis B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-condition-association" data-oof-section-id="true" role="heading" aria-level="2">Subject–Condition Association</h1>
+<p>A Condition may concern a specific Liability Subject.</p>
+<p>Examples may involve:</p>
+<p>authority, knowledge, control, capability, performance, conduct, or another Subject-specific state.</p>
+<p>LCNIM identifies the association.</p>
+<p>It does not determine the Subject's Condition State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-association-and-liability" data-oof-section-id="true" role="heading" aria-level="2">Subject Association and Liability</h1>
+<p>Associating a Subject with a Condition does not establish Liability.</p>
+<p>Therefore:</p>
+<p>Subject–Condition Association ≠ Liability Attachment.</p>
+<p>The Subject merely enters the relevant conditional inquiry.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-subjects-and-one-condition" data-oof-section-id="true" role="heading" aria-level="2">Multiple Subjects and One Condition</h1>
+<p>One Condition may concern several Subjects.</p>
+<p>LCNIM should preserve whether the Condition applies:</p>
+<p>collectively, individually, or through separate Subject-specific instances.</p>
+<p>Therefore:</p>
+<p>One Condition + Multiple Subjects ≠ One Shared Condition State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="one-subject-and-multiple-conditions" data-oof-section-id="true" role="heading" aria-level="2">One Subject and Multiple Conditions</h1>
+<p>A single Subject may be associated with many Conditions.</p>
+<p>For example:</p>
+<p>authority, knowledge, control, performance, and temporal requirements.</p>
+<p>These should remain separately identifiable.</p>
+<p>Therefore:</p>
+<p>One Subject ≠ One Liability Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-condition-association" data-oof-section-id="true" role="heading" aria-level="2">Relationship–Condition Association</h1>
+<p>A Condition may be relevant because of a specific Liability Relationship.</p>
+<p>Examples may include:</p>
+<p>contractual relationship, agency relationship, control relationship, delegation relationship, maintenance relationship, or operational relationship.</p>
+<p>LCNIM associates the Condition with the relevant Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-association-and-satisfaction" data-oof-section-id="true" role="heading" aria-level="2">Relationship Association and Satisfaction</h1>
+<p>The existence of the Relationship does not establish the Condition State.</p>
+<p>Therefore:</p>
+<p>Liability Relationship ≠ Satisfied Liability Condition.</p>
+<p>The relationship explains why the Condition may matter.</p>
+<p>It does not prove that the Condition is fulfilled.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-relationships-and-one-condition" data-oof-section-id="true" role="heading" aria-level="2">Multiple Relationships and One Condition</h1>
+<p>A Condition may apply across several Relationships.</p>
+<p>LCNIM should preserve whether these are:</p>
+<p>one cross-relationship Condition, or:</p>
+<p>multiple Relationship-specific Condition instances.</p>
+<p>Therefore:</p>
+<p>Shared Condition Concept ≠ Shared Condition State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-condition-association" data-oof-section-id="true" role="heading" aria-level="2">Object–Condition Association</h1>
+<p>A Condition may concern the Governed Liability Object or a specific Object component.</p>
+<p>Examples may include:</p>
+<p>Object state, Object classification, Object performance, Object use, Object location, or another relevant characteristic.</p>
+<p>LCNIM preserves the Object association.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-association-and-liability" data-oof-section-id="true" role="heading" aria-level="2">Object Association and Liability</h1>
+<p>A Condition associated with the Liability Object does not establish Liability.</p>
+<p>Therefore:</p>
+<p>Object–Condition Association ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-objects" data-oof-section-id="true" role="heading" aria-level="2">Multiple Objects</h1>
+<p>Where several Governed Liability Objects exist, Conditions should remain Object-specific where materially required.</p>
+<p>Therefore:</p>
+<p>Condition for Object A ≠ Condition for Object B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-relevance" data-oof-section-id="true" role="heading" aria-level="2">Condition Relevance</h1>
+<p>A Condition Candidate should enter LCOS where its existence, absence, satisfaction, failure, applicability, or change may materially affect whether potential Liability can proceed under an applicable Basis.</p>
+<p>Relevance is the identification threshold.</p>
+<p>It is not a Liability conclusion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relevance-threshold" data-oof-section-id="true" role="heading" aria-level="2">Relevance Threshold</h1>
+<p>LCNIM should avoid:</p>
+<p>under-identification, where materially necessary Conditions are omitted, and:</p>
+<p>over-identification, where remote or irrelevant conditional elements overwhelm the governance structure.</p>
+<p>The relevant question is:</p>
+<p>Can this conditional element materially affect the potential Liability inquiry under the applicable Basis?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-relevance-and-satisfaction" data-oof-section-id="true" role="heading" aria-level="2">Condition Relevance and Satisfaction</h1>
+<p>A Condition may be highly relevant while remaining unsatisfied.</p>
+<p>Therefore:</p>
+<p>Condition Relevance ≠ Condition Satisfaction.</p>
+<p>Likewise, relevance does not indicate whether Liability will ultimately be determined.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-type-identification" data-oof-section-id="true" role="heading" aria-level="2">Condition Type Identification</h1>
+<p>LCNIM may assign an initial methodological Condition Type where doing so is necessary for subsequent Requirement governance.</p>
+<p>Potential types include:</p>
+<p>Positive, Negative, Threshold, Temporal, Dependent, Alternative, Concurrent, Sequential, Cumulative, Conditional, Subject-Specific, Relationship-Specific, Object-Specific, Basis-Specific, or Exception-Relevant.</p>
+<p>Initial typing may remain provisional.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="positive-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Positive Condition Candidate</h1>
+<p>A Positive Condition Candidate indicates that a required state may need to:</p>
+<p>exist, occur, be present, or be satisfied.</p>
+<p>LCNIM identifies the potential Condition.</p>
+<p>It does not determine the exact Requirement or whether the required state exists.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="negative-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Negative Condition Candidate</h1>
+<p>A Negative Condition Candidate indicates that a state may need to:</p>
+<p>be absent, not occur, not exist, or remain below a prohibited state.</p>
+<p>Therefore:</p>
+<p>Negative Condition Identification ≠ Established Absence.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="threshold-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Threshold Condition Candidate</h1>
+<p>A Threshold Condition Candidate exists where a value, state, quantity, duration, probability, level, or other governed measure may need to cross or remain relative to a defined threshold.</p>
+<p>LCNIM identifies the threshold relevance.</p>
+<p>Detailed threshold Requirement belongs downstream.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Temporal Condition Candidate</h1>
+<p>A Temporal Condition Candidate exists where timing may materially affect Condition governance.</p>
+<p>Potential relevance may concern:</p>
+<p>start time, end time, duration, deadline, sequence, historical state, or temporal overlap.</p>
+<p>Therefore:</p>
+<p>Temporal Relevance ≠ Temporal Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="dependent-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Dependent Condition Candidate</h1>
+<p>A Condition may depend upon another Condition or governed state.</p>
+<p>LCNIM should identify the dependency where already visible.</p>
+<p>Therefore:</p>
+<p>Condition Dependency ≠ Condition Satisfaction.</p>
+<p>Detailed dependency logic belongs to Requirement governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="alternative-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Alternative Condition Candidates</h1>
+<p>A Liability Basis may indicate alternative conditional paths.</p>
+<p>Example:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-condition-a-or-potential-condition-b" data-oof-section-id="true" role="heading" aria-level="2">Potential Condition A OR Potential Condition B</h1>
+<p>LCNIM should preserve both candidates.</p>
+<p>It must not arbitrarily select one.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="concurrent-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Concurrent Condition Candidates</h1>
+<p>Several Conditions may appear jointly necessary.</p>
+<p>LCNIM should identify each Condition separately while preserving the possibility of concurrent operation.</p>
+<p>Therefore:</p>
+<p>Concurrent Relevance ≠ Concurrent Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sequential-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Sequential Condition Candidates</h1>
+<p>Potential Conditions may need to operate in a defined sequence.</p>
+<p>LCNIM should preserve the sequence signal where known.</p>
+<p>Detailed sequence requirements belong downstream.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cumulative-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Cumulative Condition Candidates</h1>
+<p>Several Conditions may collectively form a cumulative conditional structure.</p>
+<p>LCNIM should preserve the individual Condition identities.</p>
+<p>Therefore:</p>
+<p>Cumulative Structure ≠ One Condition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Conditional Condition Candidate</h1>
+<p>A Condition may become relevant only if another state or Condition applies.</p>
+<p>LCNIM should identify the conditional dependency without assuming that its trigger has been satisfied.</p>
+<p>Therefore:</p>
+<p>Conditional Relevance ≠ Active Applicability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-exception-relevant-condition" data-oof-section-id="true" role="heading" aria-level="2">Potential Exception-Relevant Condition</h1>
+<p>A Condition may appear subject to:</p>
+<p>an Exception, Exclusion, Waiver, or other modifying structure.</p>
+<p>LCNIM should flag the Condition for later Exception governance.</p>
+<p>It does not determine whether the Exception applies.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="exception-signal" data-oof-section-id="true" role="heading" aria-level="2">Exception Signal</h1>
+<p>A signal that an Exception may exist should remain separate from the Condition itself.</p>
+<p>Therefore:</p>
+<p>Potential Exception ≠ Applicable Exception.</p>
+<p>and:</p>
+<p>Potential Exception ≠ Condition Failure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conduct-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Conduct-Related Condition Candidate</h1>
+<p>Conduct may make a Condition relevant.</p>
+<p>LCNIM should identify the Condition rather than treating conduct itself as the Condition.</p>
+<p>Therefore:</p>
+<p>Conduct ≠ Liability Condition.</p>
+<p>Conduct may become an input to later Condition evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="breach-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Breach-Related Condition Candidate</h1>
+<p>A potential Breach may indicate that one or more Conditions require governance.</p>
+<p>However:</p>
+<p>Breach ≠ Liability Condition by default.</p>
+<p>and:</p>
+<p>Breach ≠ Liability.</p>
+<p>The applicable Basis must determine what Condition, if any, is relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="fault-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Fault-Related Condition Candidate</h1>
+<p>Fault may be conditionally relevant under some Liability Bases.</p>
+<p>LCNIM should identify Fault-related Conditions only where the applicable Basis makes them relevant.</p>
+<p>Therefore:</p>
+<p>Fault ≠ Universal Liability Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="harm-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Harm-Related Condition Candidate</h1>
+<p>A governed Harm state may become conditionally relevant under some Liability Bases.</p>
+<p>HAGA™ governs Harm.</p>
+<p>LCNIM may identify a Harm-related Condition where the Basis requires it.</p>
+<p>Therefore:</p>
+<p>Harm ≠ Universal Liability Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="loss-or-damage-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Loss- or Damage-Related Condition Candidate</h1>
+<p>Loss or Damage may be relevant under some Liability Bases.</p>
+<p>Their existence should not automatically create a Condition where the Basis does not require one.</p>
+<p>Therefore:</p>
+<p>Loss or Damage ≠ Automatic Liability Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="responsibility-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Responsibility-Related Condition Candidate</h1>
+<p>AGA™ may provide Responsibility states relevant to a Liability Basis.</p>
+<p>LCNIM may identify a Responsibility-related Condition where appropriate.</p>
+<p>However:</p>
+<p>Responsibility ≠ Liability Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="accountability-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Accountability-Related Condition Candidate</h1>
+<p>An Accountability state may become relevant under some Liability Bases.</p>
+<p>Its relevance must remain distinct from Liability.</p>
+<p>Therefore:</p>
+<p>Accountability ≠ Liability.</p>
+<p>and:</p>
+<p>Accountability State ≠ Liability Condition Satisfaction by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Authority-Related Condition Candidate</h1>
+<p>A Condition may concern whether a Subject possessed, lacked, exceeded, or acted within Authority.</p>
+<p>GOA™ or another relevant architecture may govern the Authority state.</p>
+<p>LCNIM identifies its conditional relevance to Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="control-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Control-Related Condition Candidate</h1>
+<p>Control may become a relevant Condition.</p>
+<p>The architecture must not infer Liability from control alone.</p>
+<p>Therefore:</p>
+<p>Control ≠ Liability.</p>
+<p>A Control Relationship may trigger Condition identification without establishing Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="knowledge-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Knowledge-Related Condition Candidate</h1>
+<p>Knowledge, notice, awareness, foreseeability-related input, or another cognition-related state may become conditionally relevant where the Basis requires it.</p>
+<p>LCNIM identifies the Condition.</p>
+<p>It does not infer historical knowledge from a later outcome.</p>
+<p>Therefore:</p>
+<p>Later Knowledge ≠ Prior Knowledge by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="capability-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Capability-Related Condition Candidate</h1>
+<p>A Subject's capability may become relevant under some Bases.</p>
+<p>Capability should remain distinct from:</p>
+<p>authority, obligation, performance, and Liability.</p>
+<p>Therefore:</p>
+<p>Capability ≠ Authority ≠ Obligation ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="obligation-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Obligation-Related Condition Candidate</h1>
+<p>An obligation may create one or more Condition Candidates.</p>
+<p>LCNIM should identify the conditional relevance without assuming breach.</p>
+<p>Therefore:</p>
+<p>Obligation Existence ≠ Obligation Breach.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="performance-related-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Performance-Related Condition Candidate</h1>
+<p>Required performance or non-performance may create Condition Candidates.</p>
+<p>LCNIM identifies:</p>
+<p>that performance matters, not:</p>
+<p>whether the required performance occurred.</p>
+<p>Therefore:</p>
+<p>Performance Requirement Relevance ≠ Performance Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-state-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Operational-State Condition Candidate</h1>
+<p>ORA™ may provide an operational state that becomes conditionally relevant.</p>
+<p>Examples may include:</p>
+<p>actual operator, actual controller, actual system state, actual action, or actual non-action.</p>
+<p>LCNIM identifies its conditional role.</p>
+<p>Therefore:</p>
+<p>Operational State ≠ Liability Condition by itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evidence-triggered-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Evidence-Triggered Condition Candidate</h1>
+<p>Evidence may reveal a previously unidentified Condition.</p>
+<p>ADIT® governs the evidence.</p>
+<p>LCNIM determines whether the evidence reveals a conditional element requiring Liability governance.</p>
+<p>Therefore:</p>
+<p>Evidence ≠ Liability Condition by itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="validated-input-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Validated-Input Condition Candidate</h1>
+<p>VALIDOS™ may validate a state that becomes relevant to a Liability Condition.</p>
+<p>Validation does not automatically create or satisfy the Condition.</p>
+<p>Therefore:</p>
+<p>Validated State ≠ Liability Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="claim-asserted-condition" data-oof-section-id="true" role="heading" aria-level="2">Claim-Asserted Condition</h1>
+<p>A Claim may assert that a Condition exists or is satisfied.</p>
+<p>LCNIM must not treat the assertion as proof.</p>
+<p>Therefore:</p>
+<p>Claim Assertion ≠ Identified Condition Fact.</p>
+<p>A Claim may trigger Condition inquiry without governing the Condition outcome.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="adverse-outcome" data-oof-section-id="true" role="heading" aria-level="2">Adverse Outcome</h1>
+<p>An adverse outcome may reveal that further conditional inquiry is necessary.</p>
+<p>However:</p>
+<p>Adverse Outcome ≠ Liability Condition.</p>
+<p>and:</p>
+<p>Adverse Outcome ≠ Condition Satisfaction.</p>
+<p>Conditions must derive from the governed Basis.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-outcome-to-condition-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Outcome-to-Condition Shortcut</h1>
+<p>LCNIM rejects the shortcut:</p>
+<p>Adverse Outcome → Assume Required Conditions → Liability The governed sequence is:</p>
+<p>Liability Basis → Identify Conditions → Govern Requirements → Govern States → Govern Connection →</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-liability" data-oof-section-id="true" role="heading" aria-level="2">Determine Liability</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Multiple Condition Candidates</h1>
+<p>A Liability inquiry may contain many Condition Candidates.</p>
+<p>Each materially distinct Condition should remain separately identifiable.</p>
+<p>Therefore:</p>
+<p>Multiple Condition Candidates ≠ One Composite Condition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Condition Candidates</h1>
+<p>Several sources may identify what is actually the same Condition.</p>
+<p>LCNIM should reconcile duplicate candidates without multiplying the underlying Condition.</p>
+<p>Therefore:</p>
+<p>Multiple Condition Records ≠ Multiple Liability Conditions by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="similar-conditions" data-oof-section-id="true" role="heading" aria-level="2">Similar Conditions</h1>
+<p>Two Conditions may appear similar while possessing different:</p>
+<p>Bases, Subjects, Relationships, Objects, Requirements, or temporal scopes.</p>
+<p>Therefore:</p>
+<p>Condition Similarity ≠ Condition Identity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="overlapping-conditions" data-oof-section-id="true" role="heading" aria-level="2">Overlapping Conditions</h1>
+<p>Conditions may partially overlap.</p>
+<p>Overlap does not automatically justify consolidation.</p>
+<p>Therefore:</p>
+<p>Condition Overlap ≠ Condition Identity.</p>
+<p>Material distinctions should remain preserved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-candidate-conflict" data-oof-section-id="true" role="heading" aria-level="2">Condition Candidate Conflict</h1>
+<p>Different sources may disagree about whether a Condition is relevant.</p>
+<p>LCNIM should preserve the conflict.</p>
+<p>Therefore:</p>
+<p>Condition Identification Conflict ≠ Authority to Manufacture Condition Relevance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-condition" data-oof-section-id="true" role="heading" aria-level="2">Unknown Condition</h1>
+<p>The governance process may indicate that an additional Condition probably exists while its identity remains unresolved.</p>
+<p>The appropriate state may be:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unidentified-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Unidentified Condition Candidate</h1>
+<p>rather than omission or invention.</p>
+<p>Therefore:</p>
+<p>Unknown Condition ≠ No Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-condition-identification" data-oof-section-id="true" role="heading" aria-level="2">Partial Condition Identification</h1>
+<p>A Condition may be identified in part while its full scope or Basis association remains unresolved.</p>
+<p>Therefore:</p>
+<p>Partial Condition Identification ≠ Complete Condition Identification.</p>
+<p>The unresolved elements should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provisional-condition-identification" data-oof-section-id="true" role="heading" aria-level="2">Provisional Condition Identification</h1>
+<p>A Condition may enter governance provisionally where sufficient reason exists to preserve it pending further clarification.</p>
+<p>Therefore:</p>
+<p>Provisionally Identified Condition ≠ Established Condition Requirement.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-states" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification States</h1>
+<p>LCNIM may represent identification states such as:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified" data-oof-section-id="true" role="heading" aria-level="2">Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provisionally-identified" data-oof-section-id="true" role="heading" aria-level="2">Provisionally Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-identified" data-oof-section-id="true" role="heading" aria-level="2">Partially Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identity-uncertain" data-oof-section-id="true" role="heading" aria-level="2">Condition Identity Uncertain</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-relevance-disputed" data-oof-section-id="true" role="heading" aria-level="2">Condition Relevance Disputed</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unidentified-candidate" data-oof-section-id="true" role="heading" aria-level="2">Unidentified Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="excluded-from-current-condition-set" data-oof-section-id="true" role="heading" aria-level="2">Excluded from Current Condition Set</h1>
+<p>These states should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-inclusion" data-oof-section-id="true" role="heading" aria-level="2">Condition Inclusion</h1>
+<p>A Condition Candidate should be included in the Identified Liability Condition Set where it may materially affect the Liability inquiry under an applicable Basis.</p>
+<p>Inclusion means:</p>
+<p>this Condition requires further governance.</p>
+<p>It does not mean:</p>
+<p>this Condition is satisfied.</p>
+<p>Therefore:</p>
+<p>Condition Inclusion ≠ Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-exclusion-from-identification-set" data-oof-section-id="true" role="heading" aria-level="2">Condition Exclusion from Identification Set</h1>
+<p>A Candidate may be excluded from the current Condition Set where sufficient governance establishes that it is not materially relevant to the present inquiry.</p>
+<p>The exclusion reason should remain traceable where material.</p>
+<p>This identification-stage exclusion is distinct from a substantive Condition Exclusion governed later under LCOS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-exclusion-and-condition-exclusion" data-oof-section-id="true" role="heading" aria-level="2">Identification Exclusion and Condition Exclusion</h1>
+<p>The architecture must distinguish:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="exclusion-from-the-identified-condition-set" data-oof-section-id="true" role="heading" aria-level="2">Exclusion from the Identified Condition Set</h1>
+<p>from:</p>
+<p>Condition Exclusion affecting applicability.</p>
+<p>The first concerns whether a Candidate belongs in the current Condition inquiry.</p>
+<p>The second concerns how an identified Condition operates.</p>
+<p>Therefore:</p>
+<p>Identification Exclusion ≠ Liability Condition Exclusion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-change" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Change</h1>
+<p>Later information may reveal:</p>
+<p>a new Condition, an incorrectly included Condition, an incorrectly excluded Condition, or a Condition requiring different Basis, Subject, Relationship, or Object association.</p>
+<p>LCNIM should support controlled change.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-correction" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Correction</h1>
+<p>An earlier Condition identification may be incorrect.</p>
+<p>Correction should preserve:</p>
+<p>the earlier identification, the corrected identification, the reason, and relevant supporting inputs.</p>
+<p>Therefore:</p>
+<p>Condition Identification Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Reassessment</h1>
+<p>New information may require reassessment of Condition relevance or identity.</p>
+<p>Therefore:</p>
+<p>Condition Identification Reassessment ≠ New Liability Origin.</p>
+<p>The prior governance state should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lifecycle-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Lifecycle Re-Entry</h1>
+<p>Later stages of LIGA™ may reveal a missing or incorrectly identified Condition.</p>
+<p>LCNIM may therefore receive recursive re-entry from:</p>
+<p>Condition Requirement governance, Condition State governance, Liability Connection, Liability Determination, Liability State &amp; Change, Transfer &amp; Recourse, Resolution, or Finality review.</p>
+<p>Re-entry should preserve earlier history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-and-condition-origin" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry and Condition Origin</h1>
+<p>A Condition discovered later may have been relevant earlier.</p>
+<p>Its later discovery does not necessarily mean the Condition originated at the time of discovery.</p>
+<p>Therefore:</p>
+<p>Condition Discovery Time ≠ Condition Relevance Time by default.</p>
+<p>Both should remain distinguishable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="later-knowledge-and-earlier-knowledge" data-oof-section-id="true" role="heading" aria-level="2">Later Knowledge and Earlier Knowledge</h1>
+<p>A Condition may be discovered at T2 that was relevant at T1.</p>
+<p>The system should distinguish:</p>
+<p>Condition relevance at T1, knowledge available at T1, and Condition discovery at T2.</p>
+<p>Therefore:</p>
+<p>Later Condition Knowledge ≠ Earlier Condition Knowledge.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-history" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification History</h1>
+<p>LCNIM should preserve materially relevant changes to the identified Condition Set.</p>
+<p>Historical states may include:</p>
+<p>initial Condition Set, expanded Condition Set, reduced Condition Set, corrected Condition Set, or reassessed Condition Set.</p>
+<p>Therefore:</p>
+<p>Current Identified Condition Set ≠ Complete Condition Identification History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Identification Sufficiency</h1>
+<p>Condition identification is sufficient when downstream Requirement governance can reliably determine:</p>
+<p>which Conditions require governance, why each Condition is relevant, which Basis each Condition relates to, which Subjects, Relationships, or Objects are associated, what preliminary Condition Type applies where known, what uncertainty remains, and which potential Exceptions or dependencies require later governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-sufficiency-and-completeness" data-oof-section-id="true" role="heading" aria-level="2">Identification Sufficiency and Completeness</h1>
+<p>Sufficiency does not require identifying every conceivable conditional element.</p>
+<p>It requires identifying the Conditions materially necessary for the governed Liability inquiry.</p>
+<p>Therefore:</p>
+<p>Condition Identification Completeness ≠ Identification of Every Possible Condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-sufficiency-and-liability" data-oof-section-id="true" role="heading" aria-level="2">Identification Sufficiency and Liability</h1>
+<p>A complete Identified Liability Condition Set does not establish Liability.</p>
+<p>Therefore:</p>
+<p>Complete Condition Identification ≠ Liability Determination.</p>
+<p>It only enables the next governance stage.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-condition-requirement-governance" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Condition Requirement Governance</h1>
+<p>Once materially relevant Conditions are sufficiently identified, LCNIM produces:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-condition-set-3" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Condition Set</h1>
+<p>The handoff should preserve, where available:</p>
+<p>Condition Identity, Condition Origin, Basis association, Subject association, Relationship association, Object association, preliminary Condition Type, dependency signals, exception signals, temporal relevance, uncertainty, conflicts, and identification history.</p>
+<p>The next governance question becomes:</p>
+<p>What exactly must each identified Liability Condition require, and how must that requirement be represented for consistent evaluation?</p>
+<p>That question belongs to:</p>
+<p>LCNRM — Liability Condition Requirement Module.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LCNIM must provide at least the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-condition-recognition-3" data-oof-section-id="true" role="heading" aria-level="2">Potential Condition Recognition</h1>
+<p>Capability to recognize potential Liability Conditions from Governed Liability Bases, Objects, Relationships, Subject states, operational inputs, and other relevant governed sources without treating recognition as Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-candidate-identification-and-identity" data-oof-section-id="true" role="heading" aria-level="2">Condition Candidate Identification &amp; Identity</h1>
+<p>Capability to establish explicit Condition Candidates, assign persistent Condition identities, and preserve Condition Origin independently of Requirement and State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-subject-relationship-and-object-association" data-oof-section-id="true" role="heading" aria-level="2">Basis, Subject, Relationship &amp; Object Association</h1>
+<p>Capability to associate Conditions with relevant Liability Bases, Subjects, Relationships, and Governed Liability Objects without converting association into Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-condition-type-governance" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Condition Type Governance</h1>
+<p>Capability to identify Positive, Negative, Threshold, Temporal, Dependent, Alternative, Concurrent, Sequential, Cumulative, Conditional, and other materially relevant Condition types where determinable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-overlapping-and-duplicate-condition-governance" data-oof-section-id="true" role="heading" aria-level="2">Multiple, Overlapping &amp; Duplicate Condition Governance</h1>
+<p>Capability to distinguish multiple, similar, overlapping, cross-Basis, and duplicate Condition Candidates without inappropriate collapse or multiplication.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-partial-provisional-and-conflicting-condition-governance" data-oof-section-id="true" role="heading" aria-level="2">Unknown, Partial, Provisional &amp; Conflicting Condition Governance</h1>
+<p>Capability to preserve unidentified, partially identified, provisional, uncertain, disputed, and conflicting Condition Candidates without manufacturing certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-change-correction-and-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Change, Correction &amp; Re-Entry</h1>
+<p>Capability to govern additions, removals, corrections, reassessments, later discovery, and recursive lifecycle re-entry while preserving historical Condition identification states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-sufficiency-and-handoff" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Sufficiency &amp; Handoff</h1>
+<p>Capability to determine whether the materially relevant Condition Set is sufficiently identified for Condition Requirement governance while preserving unresolved uncertainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LCNIM governance logic is:</p>
+<p>Governed Liability Relationship Structure + Governed Liability Basis + Governed Liability Object ↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recognize-potential-liability-conditions" data-oof-section-id="true" role="heading" aria-level="2">Recognize Potential Liability Conditions</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="create-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Create Condition Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-condition-identity" data-oof-section-id="true" role="heading" aria-level="2">Establish Condition Identity</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-condition-origin" data-oof-section-id="true" role="heading" aria-level="2">Establish Condition Origin</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-relevant-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Associate Relevant Liability Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-relevant-subjects" data-oof-section-id="true" role="heading" aria-level="2">Associate Relevant Subjects</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-relevant-relationships" data-oof-section-id="true" role="heading" aria-level="2">Associate Relevant Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-relevant-liability-object" data-oof-section-id="true" role="heading" aria-level="2">Associate Relevant Liability Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-preliminary-condition-type" data-oof-section-id="true" role="heading" aria-level="2">Determine Preliminary Condition Type</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-dependency-alternative-concurrent-sequential-signals" data-oof-section-id="true" role="heading" aria-level="2">Identify Dependency / Alternative / Concurrent / Sequential Signals</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-potential-exception-or-exclusion-signals" data-oof-section-id="true" role="heading" aria-level="2">Identify Potential Exception or Exclusion Signals</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-temporal-relevance" data-oof-section-id="true" role="heading" aria-level="2">Identify Temporal Relevance</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reconcile-multiple-similar-duplicate-candidates" data-oof-section-id="true" role="heading" aria-level="2">Reconcile Multiple / Similar / Duplicate Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-unknown-partial-provisional-conditions" data-oof-section-id="true" role="heading" aria-level="2">Preserve Unknown / Partial / Provisional Conditions</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-identification-conflict-and-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">Preserve Identification Conflict and Uncertainty</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="include-exclude-condition-candidates" data-oof-section-id="true" role="heading" aria-level="2">Include / Exclude Condition Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-condition-identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Assess Condition Identification Sufficiency</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-condition-set-5" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Condition Set</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-condition-requirement-governance" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Condition Requirement Governance</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LCNIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-condition-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Liability Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-condition-identity" data-oof-section-id="true" role="heading" aria-level="2">Liability Condition Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-origin-record" data-oof-section-id="true" role="heading" aria-level="2">Condition Origin Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-condition-association-3" data-oof-section-id="true" role="heading" aria-level="2">Basis–Condition Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-condition-association-3" data-oof-section-id="true" role="heading" aria-level="2">Subject–Condition Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-condition-association-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship–Condition Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-condition-association-3" data-oof-section-id="true" role="heading" aria-level="2">Object–Condition Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-condition-type" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Condition Type</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="positive-condition-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Positive Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="negative-condition-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Negative Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="threshold-condition-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Threshold Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-condition-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Temporal Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="dependent-condition-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Dependent Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="alternative-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Alternative Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="concurrent-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Concurrent Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sequential-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Sequential Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cumulative-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Cumulative Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-condition-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Conditional Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-exception-relevant-condition-3" data-oof-section-id="true" role="heading" aria-level="2">Potential Exception-Relevant Condition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-condition-candidate" data-oof-section-id="true" role="heading" aria-level="2">Unknown Condition Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-condition-identification-3" data-oof-section-id="true" role="heading" aria-level="2">Partial Condition Identification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provisional-condition-identification-3" data-oof-section-id="true" role="heading" aria-level="2">Provisional Condition Identification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Uncertainty</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-conflict" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Conflict</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-condition-reconciliation" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Condition Reconciliation</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-inclusion-state" data-oof-section-id="true" role="heading" aria-level="2">Condition Inclusion State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-exclusion-state" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Exclusion State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-correction-record" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Correction Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-reassessment-record" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Reassessment Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-history-3" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-identification-sufficiency-state" data-oof-section-id="true" role="heading" aria-level="2">Condition Identification Sufficiency State</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-condition-set-7" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Condition Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LCNIM preserves the following distinctions:</p>
+<p>Liability Condition Identification ≠ Liability Condition Satisfaction Liability Condition Candidate ≠ Satisfied Liability Condition Condition Recognition Trigger ≠ Identified Liability Condition Observed Outcome ≠ Condition Origin by default Condition Identity ≠ Condition State Condition Identity ≠ Condition Requirement Condition Identity ≠ Condition Satisfaction Condition Origin ≠ Liability Origin Condition Association with Basis ≠ Condition Satisfaction Multiple Liability Bases ≠ One Condition Set by default Similar Condition Meaning ≠ Same Condition Identity by default Condition under Basis A ≠ Condition under Basis B by default Subject–Condition Association ≠ Liability Attachment One Condition + Multiple Subjects ≠ One Shared Condition State by default One Subject ≠ One Liability Condition Liability Relationship ≠ Satisfied Liability Condition Shared Condition Concept ≠ Shared Condition State by default Object–Condition Association ≠ Liability Determination Condition for Object A ≠ Condition for Object B by default Condition Relevance ≠ Condition Satisfaction Negative Condition Identification ≠ Established Absence Temporal Relevance ≠ Temporal Condition Satisfaction Condition Dependency ≠ Condition Satisfaction Concurrent Relevance ≠ Concurrent Satisfaction Cumulative Structure ≠ One Condition by default Conditional Relevance ≠ Active Applicability Potential Exception ≠ Applicable Exception Conduct ≠ Liability Condition Breach ≠ Liability Condition by default Breach ≠ Liability Fault ≠ Universal Liability Condition Harm ≠ Universal Liability Condition Loss or Damage ≠ Automatic Liability Condition Responsibility ≠ Liability Condition Satisfaction Accountability ≠ Liability Control ≠ Liability Later Knowledge ≠ Prior Knowledge by default Capability ≠ Authority ≠ Obligation ≠ Liability Obligation Existence ≠ Obligation Breach Performance Requirement Relevance ≠ Performance Satisfaction Operational State ≠ Liability Condition by itself Evidence ≠ Liability Condition by itself Validated State ≠ Liability Condition Satisfaction Claim Assertion ≠ Identified Condition Fact Adverse Outcome ≠ Liability Condition Adverse Outcome ≠ Condition Satisfaction Multiple Condition Candidates ≠ One Composite Condition by default Multiple Condition Records ≠ Multiple Liability Conditions by default Condition Similarity ≠ Condition Identity Condition Overlap ≠ Condition Identity Condition Identification Conflict ≠ Authority to Manufacture Condition Relevance Unknown Condition ≠ No Condition Partial Condition Identification ≠ Complete Condition Identification Provisionally Identified Condition ≠ Established Condition Requirement Condition Inclusion ≠ Condition Satisfaction Identification Exclusion ≠ Liability Condition Exclusion Condition Identification Correction ≠ Historical Erasure Condition Identification Reassessment ≠ New Liability Origin Condition Discovery Time ≠ Condition Relevance Time by default Later Condition Knowledge ≠ Earlier Condition Knowledge Current Identified Condition Set ≠ Complete Condition Identification History Condition Identification Completeness ≠ Identification of Every Possible Condition Complete Condition Identification ≠ Liability Determination</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LCNIM may receive Condition-relevant inputs from other OOF® architectures.</p>
+<p>GOA™ may provide Authority, Scope, and Delegation states capable of triggering Condition identification.</p>
+<p>ORA™ may provide Operational Reality states relevant to potential Conditions.</p>
+<p>AGA™ may provide Responsibility, Accountability, Authority, and Attribution states.</p>
+<p>HAGA™ may provide governed Harm states where Harm is conditionally relevant.</p>
+<p>ADIT® may provide evidence revealing potential Conditions.</p>
+<p>VALIDOS™ may provide validated states relevant to Condition identification.</p>
+<p>OBIDENITY® may provide Identity, Ownership, Authority, Permission, Provenance, Transfer, and Continuity states.</p>
+<p>AIG® may provide AI governance states.</p>
+<p>ASGA™ may provide autonomous-system Authority, Permission, Delegation, Execution, Override, and other operational states.</p>
+<p>Other OOF® architectures may provide governed states that reveal a potential Liability Condition.</p>
+<p>The governing principle is:</p>
+<p>An externally governed state may trigger Liability Condition identification without becoming a Liability Condition merely because it is Liability-relevant.</p>
+<p>LCNIM governs the Liability-specific conditional representation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LCNIM begins when a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-relationship-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Relationship Structure</h1>
+<p>exists together with the relevant:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-basis-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Basis</h1>
+<p>and:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-object-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Object</h1>
+<p>and the Liability inquiry requires identification of the Conditions that may materially affect potential Liability.</p>
+<p>LCNIM governs:</p>
+<p>Potential Condition Recognition, Condition Candidate Identification, Condition Identity, Condition Origin, Condition Relevance, Basis Association, Subject Association, Relationship Association, Object Association, Preliminary Condition Type, dependency signals, alternative structures, concurrent structures, sequential structures, cumulative structures, conditional structures, potential Exception signals, multiple Conditions, duplicate Conditions, unknown Conditions, partial Conditions, provisional Conditions, Condition uncertainty, Condition conflict, Condition inclusion, Condition identification exclusion, Condition identification change, correction, reassessment, re-entry, and identification sufficiency.</p>
+<p>LCNIM does not determine:</p>
+<p>the complete Condition Requirement, Condition Satisfaction, Condition Failure, final Condition State, Exception Applicability, Exclusion Applicability, Liability-Relevant Connection, Liability Attachment, Liability Determination, Liability Scope, Liability Allocation, Liability State, Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LCNIM ends when an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-condition-set-9" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Condition Set</h1>
+<p>is sufficiently established for Liability Condition Requirement governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-ai-enabled-service-conditions" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — AI-Enabled Service Conditions</h1>
+<p>An AI-enabled service involves a provider, deploying organization, operator, customer, and AI system.</p>
+<p>The applicable Governed Liability Basis and Governed Liability Relationship Structure indicate that several potential Conditions may be relevant, including:</p>
+<p>operational authority, control, required safeguards, knowledge, human oversight, and defined operational actions.</p>
+<p>LCNIM identifies each Condition Candidate and associates it with the relevant Basis, Subjects, Relationships, and AI service context.</p>
+<p>It does not determine whether the safeguards existed, whether the operator possessed the required knowledge, or whether any Condition was satisfied.</p>
+<p>The resulting Identified Liability Condition Set proceeds to Condition Requirement governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-industrial-equipment-conditions" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Industrial Equipment Conditions</h1>
+<p>An industrial equipment matter involves an equipment owner, operating company, manufacturer, maintenance provider, subcontractor, and operator.</p>
+<p>The applicable Liability Basis indicates potential Conditions concerning:</p>
+<p>maintenance, operational authority, equipment state, timing, control, and required performance.</p>
+<p>LCNIM identifies the relevant Condition Candidates and distinguishes which Conditions concern the owner, operator, maintenance relationship, manufacturer, or equipment itself.</p>
+<p>The occurrence of equipment failure does not establish those Conditions.</p>
+<p>LCNIM produces the Identified Liability Condition Set required for subsequent definition of the exact Condition Requirements.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Liability Conditions should not be invented from an outcome, assumed from a relationship, or treated as satisfied merely because they appear relevant.</p>
+<p>The first governance task is to determine which Conditions actually belong within the Liability inquiry, why they belong there, and which Basis, Subjects, Relationships, and Objects make them relevant.</p>
+<p>Identification determines what must be examined. It does not determine what has been satisfied.</p>
+<p>Identify the Conditions before defining what they require.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lcos.html">Liability Conditions Standard (LCOS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lcos-lcnrm-2.html">LCNRM — Liability Condition Requirement Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

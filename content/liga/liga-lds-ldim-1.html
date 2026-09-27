@@ -1,0 +1,1753 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LDIM — Liability Determination Input Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LDIM — Liability Determination Input Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard (LDS)." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LDIM — Liability Determination Input Module" />
+<meta property="og:description" content="LDIM — Liability Determination Input Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard (LDS)." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LDIM — Liability Determination Input Module" />
+<meta name="twitter:description" content="LDIM — Liability Determination Input Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard (LDS)." />
+<meta name="DC.title" content="LDIM — Liability Determination Input Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html","name":"LDIM — Liability Determination Input Module","description":"LDIM — Liability Determination Input Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard (LDS).","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LDIM — Liability Determination Input Module","item":"https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html"}]},"headline":"LDIM — Liability Determination Input Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lds-ldim-1.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability Determination Standard (LDS)","Governance & Enforcement","Liability Governance","Liability Determination Inputs"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability Determination Standard (LDS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability Determination Inputs"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lds.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability Determination Standard (LDS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability Determination Inputs"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="ldim-liability-determination-input-module" data-oof-section-id="true" role="heading" aria-level="1">LDIM — Liability Determination Input Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ldim-liability-determination-input-module-3" data-oof-section-id="true" role="heading" aria-level="2">LDIM — Liability Determination Input Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability Determination Standard (LDS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability Determination Inputs<br>
+<b>Module ID:</b> LIGA-LDS-LDIM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.07.01.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 23 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Determination Input Module (LDIM) governs how the materially relevant inputs required for Liability Determination are identified, selected, associated, bounded, structured, classified, synchronized, and preserved before Determination Evaluation begins.</p>
+<p>LDIM transforms the complete upstream Liability governance structure into an explicit Governed Liability Determination Input Set for a defined Determination Object and Determination Scope.</p>
+<p>It ensures that Liability Determination does not begin from an undefined mixture of allegations, facts, evidence, Harm, Claims, relationships, assumptions, operational events, or conclusions.</p>
+<p>LDIM does not evaluate whether Liability attaches.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability Connection Structure → Determination Object &amp; Scope → Input Identification → Input Association → Input State &amp; Sufficiency Governance → Governed Liability Determination Input Set Its foundational distinction is:</p>
+<p>Determination Input ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LDIM is:</p>
+<p>to establish exactly what governed information may enter Liability Determination, what each input represents, where it originates, which Determination it belongs to, what state it possesses, and whether the resulting input structure is sufficiently complete for Determination Evaluation.</p>
+<p>LDIM asks:</p>
+<p>What governed inputs must be evaluated to determine whether Liability attaches within this specific Liability structure?</p>
+<p>It does not ask:</p>
+<p>Does Liability attach?</p>
+<p>That belongs downstream.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-parent-standard-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the Parent Standard Flow</h1>
+<p>The internal LDS progression is:</p>
+<p>Liability Determination Input → Liability Determination Evaluation → Liability Determination &amp; Attachment → Liability Determination Rationale → Liability Determination Versioning LDIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-determination-input" data-oof-section-id="true" role="heading" aria-level="2">Liability Determination Input</h1>
+<p>Its principal immediate input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-connection-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Connection Structure</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>Its canonical handoff is:</p>
+<p>Governed Liability Determination Input Set → Liability Determination Evaluation</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>What governed inputs are materially necessary, relevant, sufficiently bounded, and appropriately associated for the defined Liability Determination to proceed to evaluation?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-space" data-oof-section-id="true" role="heading" aria-level="2">Governed Space</h1>
+<p>LDIM governs:</p>
+<p>Determination Object Formation, Determination Scope Formation, Determination Input Identification, Input Identity, Input Origin, Input Ownership, Input Classification, Input Association, Input Relevance, Input Applicability, Input State, Input Temporal Alignment, Input Scope, Input Boundary, Input Dependency, Input Conflict, Input Uncertainty, Input Assumption, Input Duplication, Input Version, Input Completeness, Input Sufficiency, Input Change, Input Correction, Input Reassessment, and Determination Input Handoff.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-object" data-oof-section-id="true" role="heading" aria-level="2">Determination Object</h1>
+<p>Before inputs can be formed, LDIM should establish what Liability Determination is being prepared.</p>
+<p>The Determination Object may identify:</p>
+<p>the relevant Liability Subject, Liability Relationship, Governed Liability Object, Liability Basis, Connection, and defined Liability inquiry.</p>
+<p>Therefore:</p>
+<p>Liability Matter ≠ Determination Object by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-object-identity" data-oof-section-id="true" role="heading" aria-level="2">Determination Object Identity</h1>
+<p>Each materially distinct Determination Object should possess a sufficiently stable identity.</p>
+<p>This allows inputs to remain associated with the correct Determination across:</p>
+<p>evaluation, Attachment, rationale, versioning, Scope &amp; Allocation, and later lifecycle stages.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-object-and-liability-object" data-oof-section-id="true" role="heading" aria-level="2">Determination Object and Liability Object</h1>
+<p>The Determination Object should not be confused with the Governed Liability Object established by LOS.</p>
+<p>The Liability Object is the governed matter in relation to which Liability is considered.</p>
+<p>The Determination Object identifies the specific Liability determination being prepared.</p>
+<p>Therefore:</p>
+<p>Liability Object ≠ Liability Determination Object.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-scope" data-oof-section-id="true" role="heading" aria-level="2">Determination Scope</h1>
+<p>LDIM should explicitly define the boundary of the Determination inquiry.</p>
+<p>Scope may identify:</p>
+<p>Subject, Relationship, Object, Basis, Condition set, Connection, time period, or another materially relevant boundary.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-scope-and-liability-scope" data-oof-section-id="true" role="heading" aria-level="2">Determination Scope and Liability Scope</h1>
+<p>The scope of the inquiry is not the substantive extent of Liability.</p>
+<p>Therefore:</p>
+<p>Determination Scope ≠ Liability Scope.</p>
+<p>Liability Scope belongs to LSAS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scope-integrity" data-oof-section-id="true" role="heading" aria-level="2">Scope Integrity</h1>
+<p>The Determination Scope should be sufficiently narrow to preserve methodological precision and sufficiently broad to contain the materially necessary inputs.</p>
+<p>Therefore:</p>
+<p>Broad Matter Description ≠ Governed Determination Scope.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-subject-scope" data-oof-section-id="true" role="heading" aria-level="2">Multi-Subject Scope</h1>
+<p>Where several Subjects are involved, LDIM should determine whether:</p>
+<p>one shared Determination Input Set, separate Subject-specific sets, or a combined structure with Subject-specific partitions is methodologically appropriate.</p>
+<p>Subject-specific distinctions should remain visible.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-relationship-scope" data-oof-section-id="true" role="heading" aria-level="2">Multi-Relationship Scope</h1>
+<p>A Subject may participate in several Liability Relationships.</p>
+<p>Inputs relevant to one Relationship should not automatically be transferred to another.</p>
+<p>Therefore:</p>
+<p>Input Relevant to Relationship A ≠ Input Relevant to Relationship B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-object-scope" data-oof-section-id="true" role="heading" aria-level="2">Multi-Object Scope</h1>
+<p>Where several Liability Objects exist, the Determination Input structure should preserve Object-specific relevance.</p>
+<p>Therefore:</p>
+<p>Input Relevant to Object A ≠ Input Relevant to Object B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-basis-scope" data-oof-section-id="true" role="heading" aria-level="2">Multi-Basis Scope</h1>
+<p>The same matter may involve several Liability Bases.</p>
+<p>LDIM should preserve Basis-specific input associations.</p>
+<p>Therefore:</p>
+<p>Input Relevant under Basis A ≠ Input Relevant under Basis B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-input" data-oof-section-id="true" role="heading" aria-level="2">Determination Input</h1>
+<p>A Determination Input is a governed object, state, relationship, structure, reference, or other materially relevant element admitted into the defined Liability Determination process.</p>
+<p>An input should possess sufficient identity and context to prevent ambiguous use.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-identity" data-oof-section-id="true" role="heading" aria-level="2">Input Identity</h1>
+<p>Each material Determination Input should be identifiable.</p>
+<p>Input identity may reference an upstream governed object rather than create a new object.</p>
+<p>Therefore:</p>
+<p>Input Reference ≠ New Governance Object by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-origin" data-oof-section-id="true" role="heading" aria-level="2">Input Origin</h1>
+<p>LDIM should preserve where each input originated.</p>
+<p>Origin may include:</p>
+<p>a LIGA™ Parent Standard, another OOF® architecture, an external authority, a governed evidence system, a validated source, or another explicitly identified origin.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-origin-and-ownership" data-oof-section-id="true" role="heading" aria-level="2">Input Origin and Ownership</h1>
+<p>Input origin does not transfer governance ownership to LDS.</p>
+<p>Therefore:</p>
+<p>Determination Use ≠ Governance Ownership Transfer.</p>
+<p>The originating governance domain retains ownership of its governed object.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="upstream-liga-inputs" data-oof-section-id="true" role="heading" aria-level="2">Upstream LIGA™ Inputs</h1>
+<p>LDIM may reference the complete upstream LIGA™ structure, including:</p>
+<p>Governed Liability Context, Governed Liability Object, Governed Liability Basis, Governed Liability Relationship Structure, Governed Liability Condition Structure, and Governed Liability Connection Structure.</p>
+<p>These should remain distinguishable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-context-input" data-oof-section-id="true" role="heading" aria-level="2">Liability Context Input</h1>
+<p>Liability Context may provide environmental, temporal, institutional, operational, technical, contractual, or other relevant context.</p>
+<p>Context does not establish Liability.</p>
+<p>Therefore:</p>
+<p>Context Input ≠ Determination Outcome.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-object-input" data-oof-section-id="true" role="heading" aria-level="2">Liability Object Input</h1>
+<p>The Governed Liability Object establishes the matter in relation to which Liability is being determined.</p>
+<p>The Object should remain stable enough to prevent Determination drift.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-basis-input" data-oof-section-id="true" role="heading" aria-level="2">Liability Basis Input</h1>
+<p>The Governed Liability Basis establishes why Liability may potentially exist.</p>
+<p>LDIM should identify the specific Basis applicable to the Determination.</p>
+<p>Therefore:</p>
+<p>Liability Basis Input ≠ Liability Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-relationship-input" data-oof-section-id="true" role="heading" aria-level="2">Liability Relationship Input</h1>
+<p>The Governed Liability Relationship Structure identifies relevant Subjects and their Liability-relevant Relationships.</p>
+<p>LDIM should preserve the specific Relationship relevant to the Determination.</p>
+<p>Therefore:</p>
+<p>Liability Relationship Input ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-condition-input" data-oof-section-id="true" role="heading" aria-level="2">Liability Condition Input</h1>
+<p>The Governed Liability Condition Structure identifies applicable Conditions, Requirements, States, Exceptions, Exclusions, and continuity information.</p>
+<p>LDIM should preserve the Condition state relevant to the Determination lifecycle moment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-connection-input" data-oof-section-id="true" role="heading" aria-level="2">Liability Connection Input</h1>
+<p>The Governed Liability Connection Structure is the principal immediate upstream input.</p>
+<p>It may include:</p>
+<p>Connection identities, Relationships, Chains, Networks, Qualification States, evidence associations, uncertainties, and historical information.</p>
+<p>Therefore:</p>
+<p>Governed Liability Connection Structure ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-reality-input" data-oof-section-id="true" role="heading" aria-level="2">Operational Reality Input</h1>
+<p>ORA™ may provide governed Operational Reality states.</p>
+<p>LDIM may admit those states where materially relevant.</p>
+<p>Therefore:</p>
+<p>Operational Reality Input ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="harm-input" data-oof-section-id="true" role="heading" aria-level="2">Harm Input</h1>
+<p>HAGA™ may provide governed Harm states.</p>
+<p>Where Harm is relevant to the applicable Liability Basis, LDIM may include those states.</p>
+<p>Therefore:</p>
+<p>Harm Input ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="responsibility-input" data-oof-section-id="true" role="heading" aria-level="2">Responsibility Input</h1>
+<p>AGA™ may provide governed Responsibility states.</p>
+<p>Responsibility may be relevant to some Liability structures.</p>
+<p>Therefore:</p>
+<p>Responsibility Input ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="accountability-input" data-oof-section-id="true" role="heading" aria-level="2">Accountability Input</h1>
+<p>AGA™ may provide governed Accountability or Attribution states.</p>
+<p>These may be relevant inputs without becoming Liability.</p>
+<p>Therefore:</p>
+<p>Accountability Input ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-input" data-oof-section-id="true" role="heading" aria-level="2">Authority Input</h1>
+<p>GOA™ or another appropriate governance structure may provide Authority, Delegation, Scope, or related states.</p>
+<p>Authority may be materially relevant without independently establishing Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identity-input" data-oof-section-id="true" role="heading" aria-level="2">Identity Input</h1>
+<p>OBIDENITY® may provide governed Identity, Ownership, Authority, Permission, Provenance, Transfer, or Continuity states.</p>
+<p>These remain external governed objects used as Determination inputs where relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ai-and-autonomous-system-input" data-oof-section-id="true" role="heading" aria-level="2">AI and Autonomous-System Input</h1>
+<p>AIG® and ASGA™ may provide governed states concerning:</p>
+<p>behavior, authority, permission, execution, override, escalation, memory, or autonomous operation.</p>
+<p>Their relevance should be explicitly associated with the Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="prediction-input" data-oof-section-id="true" role="heading" aria-level="2">Prediction Input</h1>
+<p>PGA™ may provide governed Prediction states where predictions, reliance, forecast outputs, or prediction governance are materially relevant.</p>
+<p>Therefore:</p>
+<p>Prediction Failure Input ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="simulation-input" data-oof-section-id="true" role="heading" aria-level="2">Simulation Input</h1>
+<p>SIMULOS® may provide governed Simulation outputs.</p>
+<p>Simulation may inform the Determination without becoming operational reality.</p>
+<p>Therefore:</p>
+<p>Simulation Output ≠ Operational Reality ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="validation-input" data-oof-section-id="true" role="heading" aria-level="2">Validation Input</h1>
+<p>VALIDOS™ may provide governed Validation states.</p>
+<p>Validation establishes the state of the validated object within its own governance domain.</p>
+<p>Therefore:</p>
+<p>Validation Input ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evidence-reference-input" data-oof-section-id="true" role="heading" aria-level="2">Evidence Reference Input</h1>
+<p>ADIT® may provide governed evidence and auditability structures.</p>
+<p>LDIM may reference those structures.</p>
+<p>Evidence should remain distinct from the substantive state it supports.</p>
+<p>Therefore:</p>
+<p>Evidence Input ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="external-authority-input" data-oof-section-id="true" role="heading" aria-level="2">External Authority Input</h1>
+<p>A competent external authority may provide:</p>
+<p>decision, finding, classification, status, or another relevant governed output.</p>
+<p>LDIM should preserve:</p>
+<p>authority identity, scope, time, and relevance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="claim-related-input" data-oof-section-id="true" role="heading" aria-level="2">Claim-Related Input</h1>
+<p>A Claim may produce information relevant to Determination.</p>
+<p>However, the Claim itself remains separate from Liability.</p>
+<p>Therefore:</p>
+<p>Claim Input ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-classification" data-oof-section-id="true" role="heading" aria-level="2">Input Classification</h1>
+<p>LDIM should classify inputs where classification materially improves Determination integrity.</p>
+<p>Potential classes may include:</p>
+<p>Foundational, Contextual, Structural, Conditional, Connective, Operational, Harm-related, Accountability-related, Identity-related, Evidentiary, Validated, External Authority, Assumptive, or another governed class.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="foundational-input" data-oof-section-id="true" role="heading" aria-level="2">Foundational Input</h1>
+<p>A Foundational Input is necessary to define the Determination itself.</p>
+<p>Examples may include:</p>
+<p>Determination Object, applicable Liability Basis, Subject, and relevant Liability Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="structural-input" data-oof-section-id="true" role="heading" aria-level="2">Structural Input</h1>
+<p>Structural Inputs describe the governed architecture of the Liability inquiry.</p>
+<p>Examples may include:</p>
+<p>Relationship Structure, Condition Structure, and Connection Structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="contextual-input" data-oof-section-id="true" role="heading" aria-level="2">Contextual Input</h1>
+<p>Contextual Inputs inform interpretation without independently establishing Liability.</p>
+<p>Therefore:</p>
+<p>Contextual Importance ≠ Determinative Effect.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-input" data-oof-section-id="true" role="heading" aria-level="2">Conditional Input</h1>
+<p>Conditional Inputs represent governed Liability Conditions and their relevant states.</p>
+<p>Their effect should remain Basis-specific.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connective-input" data-oof-section-id="true" role="heading" aria-level="2">Connective Input</h1>
+<p>Connective Inputs represent the governed Liability Connection structure required for Determination.</p>
+<p>They should preserve Qualification and evidentiary association states where relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="external-input" data-oof-section-id="true" role="heading" aria-level="2">External Input</h1>
+<p>An External Input originates outside LIGA™.</p>
+<p>Its admission should preserve its original governance identity and boundary.</p>
+<p>Therefore:</p>
+<p>External Input Admission ≠ External Governance Absorption.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="derived-input" data-oof-section-id="true" role="heading" aria-level="2">Derived Input</h1>
+<p>A Derived Input results from a governed transformation of one or more other inputs.</p>
+<p>Its derivation should remain traceable.</p>
+<p>Therefore:</p>
+<p>Derived Input ≠ Independent Source by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-association" data-oof-section-id="true" role="heading" aria-level="2">Input Association</h1>
+<p>Each input should be associated with the Determination element to which it is materially relevant.</p>
+<p>Associations may include:</p>
+<p>Subject, Relationship, Object, Basis, Condition, Connection, time, or Determination criterion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-association" data-oof-section-id="true" role="heading" aria-level="2">Subject Association</h1>
+<p>An input relevant to Subject A should not automatically be applied to Subject B.</p>
+<p>Therefore:</p>
+<p>Shared Matter ≠ Shared Subject Input Relevance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-association" data-oof-section-id="true" role="heading" aria-level="2">Relationship Association</h1>
+<p>Inputs should preserve the Liability Relationship to which they apply.</p>
+<p>This is particularly important where one Subject participates in multiple Relationships.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-association" data-oof-section-id="true" role="heading" aria-level="2">Basis Association</h1>
+<p>Input relevance may change depending upon the Liability Basis.</p>
+<p>Therefore:</p>
+<p>General Relevance ≠ Basis-Specific Relevance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-association" data-oof-section-id="true" role="heading" aria-level="2">Condition Association</h1>
+<p>An input may be relevant to one Condition but not another.</p>
+<p>Condition association should remain explicit where materially necessary.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-association" data-oof-section-id="true" role="heading" aria-level="2">Connection Association</h1>
+<p>Inputs may relate to:</p>
+<p>a Connection, Connection Relationship, Connection Chain, Connection path, or specific Connection state.</p>
+<p>Association granularity should remain sufficient for Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-relevance" data-oof-section-id="true" role="heading" aria-level="2">Input Relevance</h1>
+<p>An input is relevant where it materially affects the defined Determination inquiry.</p>
+<p>Relevance should be governed rather than presumed.</p>
+<p>Therefore:</p>
+<p>Available Input ≠ Relevant Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-materiality" data-oof-section-id="true" role="heading" aria-level="2">Input Materiality</h1>
+<p>An input is material where its inclusion, exclusion, correction, or changed state could affect the Determination process or outcome.</p>
+<p>Materiality should remain explicit where necessary.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="irrelevant-input" data-oof-section-id="true" role="heading" aria-level="2">Irrelevant Input</h1>
+<p>An available object may be excluded from the active Determination Input Set where it is not materially relevant.</p>
+<p>Its existence should not be confused with relevant Determination evidence or input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-applicability" data-oof-section-id="true" role="heading" aria-level="2">Input Applicability</h1>
+<p>A relevant input may still be inapplicable to the particular:</p>
+<p>Basis, Subject, Relationship, Object, Condition, Connection, or lifecycle moment.</p>
+<p>Therefore:</p>
+<p>Relevance ≠ Applicability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-state" data-oof-section-id="true" role="heading" aria-level="2">Input State</h1>
+<p>Each material input should preserve its governed state where applicable.</p>
+<p>Potential states may include:</p>
+<p>Current, Historical, Active, Inactive, Satisfied, Failed, Unknown, Uncertain, Disputed, Pending, Superseded, Corrected, or another domain-specific state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="current-input" data-oof-section-id="true" role="heading" aria-level="2">Current Input</h1>
+<p>A Current Input represents the presently applicable governed state.</p>
+<p>Current does not mean historically complete.</p>
+<p>Therefore:</p>
+<p>Current Input ≠ Complete Input History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-input" data-oof-section-id="true" role="heading" aria-level="2">Historical Input</h1>
+<p>A Historical Input may remain relevant even when it is no longer current.</p>
+<p>Historical states should not be discarded merely because a later state exists.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="superseded-input" data-oof-section-id="true" role="heading" aria-level="2">Superseded Input</h1>
+<p>A superseded input may no longer control the current Determination but may remain necessary for historical reconstruction.</p>
+<p>Therefore:</p>
+<p>Superseded Input ≠ Deleted Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="corrected-input" data-oof-section-id="true" role="heading" aria-level="2">Corrected Input</h1>
+<p>A corrected input should preserve both:</p>
+<p>the earlier representation, and the corrected representation where historical integrity requires it.</p>
+<p>Therefore:</p>
+<p>Input Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-input" data-oof-section-id="true" role="heading" aria-level="2">Pending Input</h1>
+<p>An input may remain pending where an upstream process has not completed.</p>
+<p>Therefore:</p>
+<p>Pending Input ≠ Missing Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-input" data-oof-section-id="true" role="heading" aria-level="2">Unknown Input</h1>
+<p>An input state may be unknown where the relevant information cannot presently be established.</p>
+<p>Therefore:</p>
+<p>Unknown Input ≠ Negative Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-input" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Input</h1>
+<p>An input may be represented while material uncertainty remains.</p>
+<p>Therefore:</p>
+<p>Uncertain Input ≠ Unknown Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-input" data-oof-section-id="true" role="heading" aria-level="2">Disputed Input</h1>
+<p>An input may remain disputed where competing governed representations exist.</p>
+<p>Therefore:</p>
+<p>Disputed Input ≠ Invalid Input by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-temporal-alignment" data-oof-section-id="true" role="heading" aria-level="2">Input Temporal Alignment</h1>
+<p>LDIM should preserve the time to which each input applies.</p>
+<p>Liability Determination may require reconstructing the input structure at a specific lifecycle moment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="event-time" data-oof-section-id="true" role="heading" aria-level="2">Event Time</h1>
+<p>The time of an underlying event should remain distinguishable from:</p>
+<p>input creation time, input discovery time, input validation time, and Determination time.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="knowledge-time" data-oof-section-id="true" role="heading" aria-level="2">Knowledge Time</h1>
+<p>The time at which an input became known may be materially relevant.</p>
+<p>Therefore:</p>
+<p>Input Reality at T1 ≠ Knowledge of Input at T1 by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="later-knowledge" data-oof-section-id="true" role="heading" aria-level="2">Later Knowledge</h1>
+<p>A later-discovered input should not be represented as though it had necessarily been available earlier.</p>
+<p>Therefore:</p>
+<p>Later Knowledge ≠ Earlier Knowledge.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-mismatch" data-oof-section-id="true" role="heading" aria-level="2">Temporal Mismatch</h1>
+<p>Inputs representing different lifecycle moments should not be combined as though they described one simultaneous state unless the methodology permits.</p>
+<p>Therefore:</p>
+<p>Current Input + Historical Input ≠ Single-Time State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-boundary" data-oof-section-id="true" role="heading" aria-level="2">Input Boundary</h1>
+<p>Each input should retain a sufficient boundary defining what it represents and what it does not represent.</p>
+<p>Boundary integrity prevents overextension of input meaning.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-scope" data-oof-section-id="true" role="heading" aria-level="2">Input Scope</h1>
+<p>Input Scope should identify the portion of the Determination to which the input applies.</p>
+<p>Therefore:</p>
+<p>Input Scope ≠ Determination Scope by default.</p>
+<p>One input may cover only part of the inquiry.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-dependency" data-oof-section-id="true" role="heading" aria-level="2">Input Dependency</h1>
+<p>An input may depend upon another governed input.</p>
+<p>Dependency should remain explicit where it affects Determination integrity.</p>
+<p>Therefore:</p>
+<p>Dependent Input ≠ Independent Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="derived-input-dependency" data-oof-section-id="true" role="heading" aria-level="2">Derived Input Dependency</h1>
+<p>Where an input derives from another object, LDIM should preserve that dependency.</p>
+<p>Multiple derived outputs from one source should not automatically be treated as independent inputs.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-duplication" data-oof-section-id="true" role="heading" aria-level="2">Input Duplication</h1>
+<p>Multiple records may represent the same underlying input.</p>
+<p>Therefore:</p>
+<p>Multiple Input Records ≠ Multiple Independent Inputs.</p>
+<p>Duplicate consolidation should preserve provenance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-corroboration" data-oof-section-id="true" role="heading" aria-level="2">Input Corroboration</h1>
+<p>Independent inputs may corroborate the same relevant state.</p>
+<p>Corroboration should remain distinct from duplication.</p>
+<p>Therefore:</p>
+<p>Corroboration ≠ Duplication.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-conflict" data-oof-section-id="true" role="heading" aria-level="2">Input Conflict</h1>
+<p>Two or more inputs may materially conflict.</p>
+<p>The conflict should remain explicit.</p>
+<p>Therefore:</p>
+<p>Input Conflict ≠ Authority to Select Convenient Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflict-scope" data-oof-section-id="true" role="heading" aria-level="2">Conflict Scope</h1>
+<p>LDIM should identify what the input conflict concerns.</p>
+<p>Examples include:</p>
+<p>Subject identity, Object state, Condition state, Connection, time, authority, or another material characteristic.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflict-preservation" data-oof-section-id="true" role="heading" aria-level="2">Conflict Preservation</h1>
+<p>LDIM does not resolve substantive conflicts that belong to upstream governance.</p>
+<p>It should preserve and route them appropriately.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-assumption" data-oof-section-id="true" role="heading" aria-level="2">Input Assumption</h1>
+<p>An assumption may be admitted where methodology permits and where its status is explicit.</p>
+<p>Therefore:</p>
+<p>Assumed Input ≠ Established Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="hypothetical-input" data-oof-section-id="true" role="heading" aria-level="2">Hypothetical Input</h1>
+<p>A hypothetical input may be used for conditional or scenario evaluation.</p>
+<p>It must remain clearly separated from established governed inputs.</p>
+<p>Therefore:</p>
+<p>Hypothetical Input ≠ Historical Fact.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="inferred-input" data-oof-section-id="true" role="heading" aria-level="2">Inferred Input</h1>
+<p>An input may be inferred where a governed methodology permits inference.</p>
+<p>Its derivation and uncertainty should remain traceable.</p>
+<p>Therefore:</p>
+<p>Inferred Input ≠ Directly Established Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-completeness" data-oof-section-id="true" role="heading" aria-level="2">Input Completeness</h1>
+<p>Input Completeness asks whether the defined Determination Input Set contains the materially necessary input categories and objects for the defined Determination.</p>
+<p>It does not require all conceivable information.</p>
+<p>Therefore:</p>
+<p>Input Completeness ≠ Information Exhaustiveness.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Input Sufficiency</h1>
+<p>Input Sufficiency asks whether the available governed input structure is sufficient to proceed to Determination Evaluation.</p>
+<p>Completeness and sufficiency are related but distinct.</p>
+<p>A set may be structurally complete while containing unresolved material states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="complete-but-insufficient-input-set" data-oof-section-id="true" role="heading" aria-level="2">Complete but Insufficient Input Set</h1>
+<p>A Determination Input Set may contain all required categories but remain insufficient because a material input is:</p>
+<p>Unknown, Uncertain, Disputed, Pending, or otherwise unusable for the required evaluation.</p>
+<p>Therefore:</p>
+<p>Input Completeness ≠ Input Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="incomplete-but-evaluatable-input-set" data-oof-section-id="true" role="heading" aria-level="2">Incomplete but Evaluatable Input Set</h1>
+<p>A methodology may permit evaluation despite non-material missing information.</p>
+<p>The missing information and rationale should remain explicit.</p>
+<p>Therefore:</p>
+<p>Missing Non-Material Input ≠ Automatic Evaluation Failure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="material-missing-input" data-oof-section-id="true" role="heading" aria-level="2">Material Missing Input</h1>
+<p>A material missing input should block or limit Determination Evaluation where the applicable methodology requires that input.</p>
+<p>LDIM should not manufacture a replacement.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-sufficiency-state" data-oof-section-id="true" role="heading" aria-level="2">Input Sufficiency State</h1>
+<p>LDIM may represent the Determination Input Set as:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sufficient" data-oof-section-id="true" role="heading" aria-level="2">Sufficient</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditionally-sufficient" data-oof-section-id="true" role="heading" aria-level="2">Conditionally Sufficient</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insufficient" data-oof-section-id="true" role="heading" aria-level="2">Insufficient</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending" data-oof-section-id="true" role="heading" aria-level="2">Pending</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown" data-oof-section-id="true" role="heading" aria-level="2">Unknown</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain" data-oof-section-id="true" role="heading" aria-level="2">Uncertain</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed" data-oof-section-id="true" role="heading" aria-level="2">Disputed</h1>
+<p>where appropriate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sufficient-3" data-oof-section-id="true" role="heading" aria-level="2">Sufficient</h1>
+<p>Sufficient means the input structure satisfies the applicable requirements for Determination Evaluation.</p>
+<p>It does not mean Liability attaches.</p>
+<p>Therefore:</p>
+<p>Sufficient Inputs ≠ Attached Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditionally-sufficient-3" data-oof-section-id="true" role="heading" aria-level="2">Conditionally Sufficient</h1>
+<p>Conditionally Sufficient means evaluation may proceed subject to explicit limitations, assumptions, or unresolved nonblocking states.</p>
+<p>Those conditions should remain visible downstream.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insufficient-3" data-oof-section-id="true" role="heading" aria-level="2">Insufficient</h1>
+<p>Insufficient means the input structure does not presently support reliable Determination Evaluation within the defined scope.</p>
+<p>Therefore:</p>
+<p>Insufficient Inputs ≠ No Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Pending Sufficiency</h1>
+<p>Pending means sufficiency cannot yet be finalized because a material input or upstream process remains unresolved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-quality" data-oof-section-id="true" role="heading" aria-level="2">Input Quality</h1>
+<p>Input quality may affect sufficiency.</p>
+<p>However, LDIM should not duplicate the validation, evidence, or domain-specific quality governance owned elsewhere.</p>
+<p>It should reference those governed states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-evidence-volume-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Evidence-Volume Shortcut</h1>
+<p>A large amount of evidence does not compensate automatically for a missing structural input.</p>
+<p>Therefore:</p>
+<p>Evidence Volume ≠ Determination Input Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-harm-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Harm Shortcut</h1>
+<p>Established Harm does not make the Determination Input Set sufficient where other required Liability structures are absent.</p>
+<p>Therefore:</p>
+<p>Harm ≠ Complete Determination Input Set.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-causation-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Causation Shortcut</h1>
+<p>Established operational causation does not replace:</p>
+<p>Basis, Conditions, Relationships, or other required Liability inputs.</p>
+<p>Therefore:</p>
+<p>Operational Causation ≠ Complete Determination Input Set.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-claim-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Claim Shortcut</h1>
+<p>A detailed Claim does not replace the governed Liability input structure.</p>
+<p>Therefore:</p>
+<p>Claim Detail ≠ Determination Input Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-authority-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Authority Shortcut</h1>
+<p>A statement from an authoritative Subject may be an important input.</p>
+<p>Its authority does not automatically make the complete input structure sufficient.</p>
+<p>Therefore:</p>
+<p>Authority of Source ≠ Determination Input Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-narrative-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Narrative Shortcut</h1>
+<p>A coherent narrative does not substitute for explicit governed inputs.</p>
+<p>Therefore:</p>
+<p>Narrative Coherence ≠ Determination Input Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-change" data-oof-section-id="true" role="heading" aria-level="2">Input Change</h1>
+<p>The Determination Input Set may change when:</p>
+<p>new information appears, upstream governance changes, an input is corrected, a state changes, or a previously unknown input becomes available.</p>
+<p>Change should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-correction" data-oof-section-id="true" role="heading" aria-level="2">Input Correction</h1>
+<p>A Determination Input association or representation may be corrected.</p>
+<p>The correction should preserve:</p>
+<p>the earlier state, corrected state, reason, time, and provenance.</p>
+<p>Therefore:</p>
+<p>Input Correction ≠ Historical Rewrite.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Input Reassessment</h1>
+<p>A previously admitted or excluded input may require reassessment.</p>
+<p>Reassessment should preserve the earlier governance state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-versioning" data-oof-section-id="true" role="heading" aria-level="2">Input Versioning</h1>
+<p>Material changes to the Determination Input Set may require a new version.</p>
+<p>Therefore:</p>
+<p>New Input Set Version ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Input Re-Entry</h1>
+<p>Later LDS stages may reveal that the input structure is defective or incomplete.</p>
+<p>LDIM should support targeted re-entry.</p>
+<p>Therefore:</p>
+<p>Input Re-Entry ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="upstream-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Upstream Re-Entry</h1>
+<p>Where LDIM identifies an upstream governance defect, it should route the matter to the earliest materially affected governance space.</p>
+<p>Examples:</p>
+<p>Connection defect → LCNS Condition defect → LCOS Relationship defect → LRS Basis defect → LBS Object defect → LOS Context defect → LCS LDIM should not repair those structures by silently modifying their outputs.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-input-integrity" data-oof-section-id="true" role="heading" aria-level="2">Historical Input Integrity</h1>
+<p>The system should preserve the Determination Input Set as it existed at materially relevant lifecycle moments.</p>
+<p>Therefore:</p>
+<p>Current Determination Input Set ≠ Complete Determination Input History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-reality-knowledge-and-record" data-oof-section-id="true" role="heading" aria-level="2">Input Reality, Knowledge, and Record</h1>
+<p>LDIM should distinguish where relevant:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-reality" data-oof-section-id="true" role="heading" aria-level="2">Input Reality</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-knowledge" data-oof-section-id="true" role="heading" aria-level="2">Input Knowledge</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-record" data-oof-section-id="true" role="heading" aria-level="2">Input Record</h1>
+<p>Input Admission into Determination An input may exist before it becomes known.</p>
+<p>It may become known before it is admitted.</p>
+<p>Therefore:</p>
+<p>Input Reality ≠ Input Knowledge ≠ Input Admission by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-admission-record" data-oof-section-id="true" role="heading" aria-level="2">Input Admission Record</h1>
+<p>Material input admission should remain traceable.</p>
+<p>The record may identify:</p>
+<p>input identity, origin, association, state, scope, time, and reason for admission.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-exclusion-record" data-oof-section-id="true" role="heading" aria-level="2">Input Exclusion Record</h1>
+<p>Where a potentially relevant input is excluded, the reason should remain traceable where material.</p>
+<p>Therefore:</p>
+<p>Input Exclusion ≠ Input Nonexistence.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-input-set" data-oof-section-id="true" role="heading" aria-level="2">Determination Input Set</h1>
+<p>The principal output of LDIM is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>It may contain:</p>
+<p>Determination Object, Determination Scope, Governed Liability Context references, Governed Liability Object, Governed Liability Basis, Governed Liability Relationship Structure, Governed Liability Condition Structure, Governed Liability Connection Structure, external governed inputs, input associations, input states, input conflicts, input uncertainties, input assumptions, temporal states, dependency records, and Input Sufficiency State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">Meaning of the Output</h1>
+<p>A Governed Liability Determination Input Set means that the inputs required for Liability Determination have been made explicit, bounded, associated, traceable, and assessed for sufficiency.</p>
+<p>It does not mean Liability has been evaluated.</p>
+<p>Therefore:</p>
+<p>Governed Liability Determination Input Set ≠ Liability Determination Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-determination-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Determination Evaluation</h1>
+<p>LDIM hands the:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>to:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ldem-liability-determination-evaluation-module" data-oof-section-id="true" role="heading" aria-level="2">LDEM — Liability Determination Evaluation Module</h1>
+<p>The next governance question becomes:</p>
+<p>What does the governed Determination Input Set establish when evaluated under the applicable Liability Basis, Conditions, Connection structure, and Determination criteria?</p>
+<p>LDIM does not answer that question.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LDIM must provide exactly the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-object-and-scope-formation" data-oof-section-id="true" role="heading" aria-level="2">Determination Object &amp; Scope Formation</h1>
+<p>Capability to establish the specific Determination Object and bounded Determination Scope before substantive Liability evaluation begins.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-identification-identity-and-origin-governance" data-oof-section-id="true" role="heading" aria-level="2">Input Identification, Identity &amp; Origin Governance</h1>
+<p>Capability to identify materially relevant Determination Inputs and preserve their identities, origins, governance ownership, and authoritative references.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-classification-and-association-governance" data-oof-section-id="true" role="heading" aria-level="2">Input Classification &amp; Association Governance</h1>
+<p>Capability to classify inputs and associate them explicitly with the relevant Subject, Relationship, Object, Basis, Condition, Connection, time, or Determination criterion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-state-scope-and-temporal-governance" data-oof-section-id="true" role="heading" aria-level="2">Input State, Scope &amp; Temporal Governance</h1>
+<p>Capability to preserve current, historical, pending, unknown, uncertain, disputed, corrected, superseded, and other relevant input states together with their applicable scope and time.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-dependency-duplication-conflict-and-assumption-governance" data-oof-section-id="true" role="heading" aria-level="2">Input Dependency, Duplication, Conflict &amp; Assumption Governance</h1>
+<p>Capability to distinguish independent, dependent, duplicated, corroborating, conflicting, assumed, hypothetical, inferred, and derived inputs without manufacturing certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-completeness-and-sufficiency-governance" data-oof-section-id="true" role="heading" aria-level="2">Input Completeness &amp; Sufficiency Governance</h1>
+<p>Capability to assess whether the Determination Input Set is complete and sufficiently governed for Determination Evaluation while distinguishing completeness from exhaustiveness and sufficiency from Liability Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-change-correction-versioning-and-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Input Change, Correction, Versioning &amp; Re-Entry</h1>
+<p>Capability to preserve input changes, corrections, reassessments, versions, historical states, and targeted lifecycle reentry without historical erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-input-handoff" data-oof-section-id="true" role="heading" aria-level="2">Determination Input Handoff</h1>
+<p>Capability to produce a Governed Liability Determination Input Set sufficiently explicit, bounded, traceable, and structured for handoff to Liability Determination Evaluation without prematurely evaluating Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LDIM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-connection-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Connection Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="define-determination-object" data-oof-section-id="true" role="heading" aria-level="2">Define Determination Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="define-determination-scope" data-oof-section-id="true" role="heading" aria-level="2">Define Determination Scope</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-applicable-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Identify Applicable Liability Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-relevant-liability-subjects-and-relationships" data-oof-section-id="true" role="heading" aria-level="2">Identify Relevant Liability Subjects &amp; Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reference-governed-liability-object" data-oof-section-id="true" role="heading" aria-level="2">Reference Governed Liability Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reference-governed-liability-condition-structure" data-oof-section-id="true" role="heading" aria-level="2">Reference Governed Liability Condition Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reference-governed-liability-connection-structure" data-oof-section-id="true" role="heading" aria-level="2">Reference Governed Liability Connection Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-material-external-governed-inputs" data-oof-section-id="true" role="heading" aria-level="2">Identify Material External Governed Inputs</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-input-identity-and-origin" data-oof-section-id="true" role="heading" aria-level="2">Establish Input Identity &amp; Origin</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="classify-inputs" data-oof-section-id="true" role="heading" aria-level="2">Classify Inputs</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-inputs-with-subject-relationship-object-basis-condition-connection" data-oof-section-id="true" role="heading" aria-level="2">Associate Inputs with Subject / Relationship / Object / Basis / Condition / Connection</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-input-state-and-temporal-relevance" data-oof-section-id="true" role="heading" aria-level="2">Preserve Input State &amp; Temporal Relevance</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-dependency-duplication-corroboration" data-oof-section-id="true" role="heading" aria-level="2">Identify Dependency / Duplication / Corroboration</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-conflict-uncertainty-assumptions" data-oof-section-id="true" role="heading" aria-level="2">Identify Conflict / Uncertainty / Assumptions</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-input-completeness" data-oof-section-id="true" role="heading" aria-level="2">Assess Input Completeness</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-input-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Assess Input Sufficiency</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-admission-exclusion-change-history" data-oof-section-id="true" role="heading" aria-level="2">Preserve Admission / Exclusion / Change History</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set-7" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-determination-evaluation-3" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Determination Evaluation</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LDIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-determination-object" data-oof-section-id="true" role="heading" aria-level="2">Liability Determination Object</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-determination-scope" data-oof-section-id="true" role="heading" aria-level="2">Liability Determination Scope</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-input-identity-record" data-oof-section-id="true" role="heading" aria-level="2">Determination Input Identity Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-input-origin-record" data-oof-section-id="true" role="heading" aria-level="2">Determination Input Origin Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-input-classification" data-oof-section-id="true" role="heading" aria-level="2">Determination Input Classification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-input-association" data-oof-section-id="true" role="heading" aria-level="2">Determination Input Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-specific-input-set" data-oof-section-id="true" role="heading" aria-level="2">Subject-Specific Input Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-specific-input-set" data-oof-section-id="true" role="heading" aria-level="2">Relationship-Specific Input Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-specific-input-set" data-oof-section-id="true" role="heading" aria-level="2">Object-Specific Input Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-specific-input-set" data-oof-section-id="true" role="heading" aria-level="2">Basis-Specific Input Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-specific-input-set" data-oof-section-id="true" role="heading" aria-level="2">Condition-Specific Input Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-specific-input-set" data-oof-section-id="true" role="heading" aria-level="2">Connection-Specific Input Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="external-governed-input-reference" data-oof-section-id="true" role="heading" aria-level="2">External Governed Input Reference</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="current-input-state" data-oof-section-id="true" role="heading" aria-level="2">Current Input State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-input-state" data-oof-section-id="true" role="heading" aria-level="2">Historical Input State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-input-state" data-oof-section-id="true" role="heading" aria-level="2">Pending Input State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-input-state" data-oof-section-id="true" role="heading" aria-level="2">Unknown Input State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-input-state" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Input State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-input-state" data-oof-section-id="true" role="heading" aria-level="2">Disputed Input State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-dependency-record" data-oof-section-id="true" role="heading" aria-level="2">Input Dependency Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-duplication-record" data-oof-section-id="true" role="heading" aria-level="2">Input Duplication Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-corroboration-record" data-oof-section-id="true" role="heading" aria-level="2">Input Corroboration Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-conflict-record" data-oof-section-id="true" role="heading" aria-level="2">Input Conflict Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-assumption-record" data-oof-section-id="true" role="heading" aria-level="2">Input Assumption Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-temporal-record" data-oof-section-id="true" role="heading" aria-level="2">Input Temporal Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-admission-record-3" data-oof-section-id="true" role="heading" aria-level="2">Input Admission Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-exclusion-record-3" data-oof-section-id="true" role="heading" aria-level="2">Input Exclusion Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-completeness-state" data-oof-section-id="true" role="heading" aria-level="2">Input Completeness State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-sufficiency-state-3" data-oof-section-id="true" role="heading" aria-level="2">Input Sufficiency State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-correction-record" data-oof-section-id="true" role="heading" aria-level="2">Input Correction Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-reassessment-record" data-oof-section-id="true" role="heading" aria-level="2">Input Reassessment Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-version-record" data-oof-section-id="true" role="heading" aria-level="2">Input Version Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-input-set-record" data-oof-section-id="true" role="heading" aria-level="2">Historical Input Set Record</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set-9" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LDIM preserves the following distinctions:</p>
+<p>Determination Input ≠ Liability Determination Liability Matter ≠ Determination Object by default Liability Object ≠ Liability Determination Object Determination Scope ≠ Liability Scope Input Relevant to Relationship A ≠ Input Relevant to Relationship B by default Input Relevant to Object A ≠ Input Relevant to Object B by default Input Relevant under Basis A ≠ Input Relevant under Basis B by default Input Reference ≠ New Governance Object by default Determination Use ≠ Governance Ownership Transfer Context Input ≠ Determination Outcome Liability Basis Input ≠ Liability Attachment Liability Relationship Input ≠ Liability Determination Governed Liability Connection Structure ≠ Liability Determination Operational Reality Input ≠ Liability Determination Harm Input ≠ Liability Responsibility Input ≠ Liability Determination Accountability Input ≠ Liability Prediction Failure Input ≠ Liability Determination Simulation Output ≠ Operational Reality ≠ Liability Determination Validation Input ≠ Liability Determination Evidence Input ≠ Liability Determination Claim Input ≠ Liability Contextual Importance ≠ Determinative Effect External Input Admission ≠ External Governance Absorption Derived Input ≠ Independent Source by default Shared Matter ≠ Shared Subject Input Relevance General Relevance ≠ Basis-Specific Relevance Available Input ≠ Relevant Input Relevance ≠ Applicability Current Input ≠ Complete Input History Superseded Input ≠ Deleted Input Input Correction ≠ Historical Erasure Pending Input ≠ Missing Input Unknown Input ≠ Negative Input Uncertain Input ≠ Unknown Input Disputed Input ≠ Invalid Input by default Input Reality at T1 ≠ Knowledge of Input at T1 by default Later Knowledge ≠ Earlier Knowledge Current Input + Historical Input ≠ Single-Time State by default Input Scope ≠ Determination Scope by default Dependent Input ≠ Independent Input Multiple Input Records ≠ Multiple Independent Inputs Corroboration ≠ Duplication Input Conflict ≠ Authority to Select Convenient Input Assumed Input ≠ Established Input Hypothetical Input ≠ Historical Fact Inferred Input ≠ Directly Established Input Input Completeness ≠ Information Exhaustiveness Input Completeness ≠ Input Sufficiency Missing Non-Material Input ≠ Automatic Evaluation Failure Sufficient Inputs ≠ Attached Liability Insufficient Inputs ≠ No Liability Evidence Volume ≠ Determination Input Sufficiency Harm ≠ Complete Determination Input Set Operational Causation ≠ Complete Determination Input Set Claim Detail ≠ Determination Input Sufficiency Authority of Source ≠ Determination Input Sufficiency Narrative Coherence ≠ Determination Input Sufficiency Input Correction ≠ Historical Rewrite New Input Set Version ≠ New Liability Origin by default Input Re-Entry ≠ New Liability Origin by default Current Determination Input Set ≠ Complete Determination Input History Input Reality ≠ Input Knowledge ≠ Input Admission by default Input Exclusion ≠ Input Nonexistence Governed Liability Determination Input Set ≠ Liability Determination Evaluation</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LDIM may receive governed inputs from other OOF® architectures.</p>
+<p>ORA™ governs Operational Reality.</p>
+<p>HAGA™ governs Harm.</p>
+<p>AGA™ governs Responsibility, Accountability, Authority, and Attribution.</p>
+<p>GOA™ governs governance authority, scope, delegation, and related structures.</p>
+<p>ADIT® governs evidence and auditability.</p>
+<p>VALIDOS™ governs validation.</p>
+<p>OBIDENITY® governs Identity, Ownership, Authority, Permission, Provenance, Transfer, and Continuity.</p>
+<p>AIG® and ASGA™ govern AI and autonomous-system governance states.</p>
+<p>PGA™ governs Prediction.</p>
+<p>SIMULOS® governs Simulation.</p>
+<p>LDIM does not re-govern those domains.</p>
+<p>It determines only whether and how their governed outputs become materially relevant inputs to Liability Determination.</p>
+<p>The canonical interoperability principle is:</p>
+<p>A governed object may become a Liability Determination Input without becoming a LIGA™-owned object and without changing the governance domain that established it.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LDIM begins with a sufficiently governed:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-connection-structure-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Connection Structure</h1>
+<p>and asks:</p>
+<p>What governed inputs are required for this specific Liability Determination to proceed to evaluation?</p>
+<p>LDIM governs:</p>
+<p>Determination Object, Determination Scope, Input Identification, Input Identity, Input Origin, Input Classification, Input Association, Input Relevance, Input Applicability, Input State, Input Temporal Alignment, Input Scope, Input Boundary, Input Dependency, Input Duplication, Input Corroboration, Input Conflict, Input Uncertainty, Input Assumption, Input Completeness, Input Sufficiency, Input Admission, Input Exclusion, Input Change, Input Correction, Input Reassessment, Input Versioning, Historical Integrity, and Determination Input Handoff.</p>
+<p>LDIM does not determine:</p>
+<p>whether Liability attaches, the substantive result of Determination Evaluation, Liability Scope, Liability Allocation, Liability State, Liability Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LDIM ends when a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set-11" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>is sufficiently explicit and governed for Liability Determination Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-autonomous-system-determination-inputs" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Autonomous System Determination Inputs</h1>
+<p>An autonomous industrial system performs an action followed by equipment damage.</p>
+<p>Earlier LIGA™ governance has established a Governed Liability Connection Structure involving:</p>
+<p>the operator, the autonomous system, an execution decision, machine action, operational event, equipment state, and relevant Conditions.</p>
+<p>LDIM forms the Determination Object and identifies the applicable Liability Basis.</p>
+<p>It then structures the relevant Determination Inputs, including:</p>
+<p>the Governed Liability Object, operator and system Relationships, Condition states, qualified Connection structure, relevant autonomous-system authority and execution states, Operational Reality, and governed evidence references.</p>
+<p>A simulation output may also exist but remains explicitly classified as Simulation rather than Operational Reality.</p>
+<p>LDIM assesses whether this input structure is sufficient for Determination Evaluation.</p>
+<p>It does not determine whether the operator or another Subject is liable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-multi-party-industrial-incident" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Multi-Party Industrial Incident</h1>
+<p>An industrial incident involves an owner, operator, maintenance provider, and component producer.</p>
+<p>The matter contains several Liability Bases and several distinct Connection paths.</p>
+<p>LDIM does not create one undifferentiated pool of inputs.</p>
+<p>Instead, it preserves Subject-specific, Relationship-specific, Basis-specific, and Connection-specific Determination Input structures.</p>
+<p>Maintenance records may be relevant to the maintenance-provider Determination.</p>
+<p>Operational-control records may be relevant to the operator Determination.</p>
+<p>Production records may be relevant to the producer Determination.</p>
+<p>Ownership may be relevant to the owner under a different Basis.</p>
+<p>Conflicting, unknown, and pending inputs remain explicit.</p>
+<p>The resulting Governed Liability Determination Input Sets can then be evaluated independently by LDEM without assuming that the shared incident creates identical Liability for every Subject.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Liability Determination should never begin with an undefined collection of facts, allegations, evidence, Harm, Claims, operational events, or assumptions.</p>
+<p>Before Liability can be evaluated, the Determination itself must be bounded and the inputs entering that Determination must be explicit.</p>
+<p>LDIM establishes that foundation.</p>
+<p>It determines what may enter the Liability Determination process, where each input came from, what it represents, which part of the inquiry it belongs to, and whether the complete input structure is sufficient for evaluation.</p>
+<p>It does not determine Liability.</p>
+<p>A Determination is only as governable as the inputs from which it is formed.</p>
+<p>Govern the inputs before evaluating Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lds.html">Liability Determination Standard (LDS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lds-ldem-2.html">LDEM — Liability Determination Evaluation Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

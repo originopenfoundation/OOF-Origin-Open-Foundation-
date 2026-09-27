@@ -1,0 +1,1405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LTFIM — Liability Transfer Identification Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LTFIM — Liability Transfer Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer &amp; Recourse." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LTFIM — Liability Transfer Identification Module" />
+<meta property="og:description" content="LTFIM — Liability Transfer Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer &amp; Recourse." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LTFIM — Liability Transfer Identification Module" />
+<meta name="twitter:description" content="LTFIM — Liability Transfer Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer &amp; Recourse." />
+<meta name="DC.title" content="LTFIM — Liability Transfer Identification Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html","name":"LTFIM — Liability Transfer Identification Module","description":"LTFIM — Liability Transfer Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer & Recourse.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LTFIM — Liability Transfer Identification Module","item":"https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html"}]},"headline":"LTFIM — Liability Transfer Identification Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-ltrs-ltfim-1.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability Transfer & Recourse Standard (LTRS)","Governance & Enforcement","Liability Governance","Liability Transfer Identification"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability Transfer & Recourse Standard (LTRS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability Transfer Identification"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-ltrs.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-ltrs-lshrm-2.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability Transfer & Recourse Standard (LTRS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability Transfer Identification"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="ltfim-liability-transfer-identification-module" data-oof-section-id="true" role="heading" aria-level="1">LTFIM — Liability Transfer Identification Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ltfim-liability-transfer-identification-module-3" data-oof-section-id="true" role="heading" aria-level="2">LTFIM — Liability Transfer Identification Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability Transfer &amp; Recourse Standard (LTRS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability Transfer Identification<br>
+<b>Module ID:</b> LIGA-LTRS-LTFIM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.10.01.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 24 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Transfer Identification Module (LTFIM) governs how a potential movement of established Liability or a Liability-related structure is identified, classified, bounded, associated with its primary Liability origin, and distinguished from movement of economic burden, payment, performance, obligation, recovery rights, or other related interests.</p>
+<p>LTFIM determines whether a Liability-relevant movement constitutes a potential Liability Transfer, what Transfer Object is involved, who the relevant Transferor and Transferee are, what basis may support the Transfer, what portion may move, when the movement may become effective, and what part of the original Liability structure remains unchanged.</p>
+<p>LTFIM does not assume that every payment, delegation, insurance performance, indemnification, succession event, contractual arrangement, or economic shift constitutes Liability Transfer.</p>
+<p>It does not itself execute or validate a Transfer.</p>
+<p>It identifies and structures the potential Transfer for subsequent LTRS governance.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability State &amp; Change Structure → Transfer-Relevant Event → Transfer Object Identification → Transferor &amp; Transferee Identification → Transfer Basis Identification → Transfer Boundary → Transfer Classification → Identified Liability Transfer Structure Its foundational distinction is:</p>
+<p>Transfer of Liability ≠ Transfer of Economic Burden ≠ Transfer of Performance ≠ Transfer of Payment Responsibility ≠ Transfer of Recovery Right.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LTFIM is:</p>
+<p>to determine whether a Liability-relevant movement represents a potential Transfer, what exactly is moving, from whom, to whom, under what basis, and what primary Liability structure must remain preserved.</p>
+<p>The module prevents operational or economic movement from being mistaken automatically for substantive Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-ltrs-internal-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the LTRS Internal Flow</h1>
+<p>The internal LTRS progression is:</p>
+<p>Liability Transfer Identification → Liability Sharing → Liability Recourse Identification → Liability Recourse Network → Liability Transfer Continuity LTFIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-transfer-identification" data-oof-section-id="true" role="heading" aria-level="2">Liability Transfer Identification</h1>
+<p>Its principal input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-and-change-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State &amp; Change Structure</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-transfer-structure" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Transfer Structure</h1>
+<p>Its handoff is to subsequent LTRS governance, including:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lshrm-liability-sharing-module" data-oof-section-id="true" role="heading" aria-level="2">LSHRM — Liability Sharing Module</h1>
+<p>where Sharing is relevant, and later Recourse and Continuity governance where applicable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>Has a Liability-relevant Transfer occurred or become possible, what exactly is being transferred, between which Subjects, under what basis, and what part of the primary Liability structure remains unchanged?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-relevant-event" data-oof-section-id="true" role="heading" aria-level="2">Transfer-Relevant Event</h1>
+<p>LTFIM begins when an event, arrangement, decision, relationship, or state creates a legitimate reason to examine whether a Liability-related structure has moved or may move.</p>
+<p>A Transfer-Relevant Event may include:</p>
+<p>assignment, succession, delegation, indemnification, insurance performance, payment, contractual restructuring, organizational change, statutory mechanism, contribution arrangement, or another relevant event.</p>
+<p>A Transfer-Relevant Event does not establish Transfer.</p>
+<p>Therefore:</p>
+<p>Transfer-Relevant Event ≠ Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-origin" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability Origin</h1>
+<p>Every potential Transfer should remain associated with the primary Liability structure from which it arises.</p>
+<p>The primary structure may include:</p>
+<p>Liability Determination, Subjects, Relationships, Scope, Allocation, State, obligations, and historical continuity.</p>
+<p>Therefore:</p>
+<p>Transfer Identification without Primary Liability Association ≠ Fully Governed Transfer Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-object" data-oof-section-id="true" role="heading" aria-level="2">Transfer Object</h1>
+<p>The first substantive task of LTFIM is to identify exactly what is moving or proposed to move.</p>
+<p>Possible Transfer Objects include:</p>
+<p>substantive Liability, a Liability-related obligation, performance responsibility, economic burden, payment responsibility, a Recovery Right, a Recourse Right, or another explicitly governed Liability-related interest.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-object-identity" data-oof-section-id="true" role="heading" aria-level="2">Transfer Object Identity</h1>
+<p>Each Transfer Object should possess sufficient identity to distinguish it from:</p>
+<p>the primary Liability itself, another obligation, another payment, another economic burden, another Recovery Right, and another Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="substantive-liability-transfer" data-oof-section-id="true" role="heading" aria-level="2">Substantive Liability Transfer</h1>
+<p>A potential substantive Liability Transfer concerns movement of the Liability-bearing position itself where such movement is recognized by the applicable governance structure.</p>
+<p>This must be distinguished from all other forms of movement.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="obligation-transfer" data-oof-section-id="true" role="heading" aria-level="2">Obligation Transfer</h1>
+<p>A Liability-related obligation may move without the entire underlying Liability transferring.</p>
+<p>Therefore:</p>
+<p>Obligation Transfer ≠ Complete Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="performance-transfer" data-oof-section-id="true" role="heading" aria-level="2">Performance Transfer</h1>
+<p>One Subject may undertake performance associated with another Subject's Liability.</p>
+<p>Performance movement alone does not establish substantive Liability Transfer.</p>
+<p>Therefore:</p>
+<p>Performance Transfer ≠ Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="economic-burden-transfer" data-oof-section-id="true" role="heading" aria-level="2">Economic Burden Transfer</h1>
+<p>A Liability-related economic burden may move between Subjects through payment, reimbursement, insurance, indemnification, or another mechanism.</p>
+<p>Therefore:</p>
+<p>Economic Burden Transfer ≠ Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="payment-responsibility-transfer" data-oof-section-id="true" role="heading" aria-level="2">Payment Responsibility Transfer</h1>
+<p>Responsibility for making payment may move without changing who substantively bears Liability.</p>
+<p>Therefore:</p>
+<p>Payment Responsibility Transfer ≠ Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recovery-right-transfer" data-oof-section-id="true" role="heading" aria-level="2">Recovery Right Transfer</h1>
+<p>A Recovery Right may move independently of the primary Liability.</p>
+<p>Therefore:</p>
+<p>Recovery Right Transfer ≠ Primary Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-right-transfer" data-oof-section-id="true" role="heading" aria-level="2">Recourse Right Transfer</h1>
+<p>A Recourse Right may itself be transferred where the applicable structure permits.</p>
+<p>This does not transfer the primary Liability from which Recourse originated.</p>
+<p>Therefore:</p>
+<p>Recourse Right Transfer ≠ Primary Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-object-classification" data-oof-section-id="true" role="heading" aria-level="2">Transfer Object Classification</h1>
+<p>Every potential Transfer should be classified according to the actual object moving.</p>
+<p>A system should not use a generic “Transferred” state where the Transfer Object remains undefined.</p>
+<p>Therefore:</p>
+<p>Transfer Label without Transfer Object ≠ Sufficient Transfer Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transferor-identification" data-oof-section-id="true" role="heading" aria-level="2">Transferor Identification</h1>
+<p>LTFIM should identify the Subject from whom the Transfer Object moves or is proposed to move.</p>
+<p>The Transferor should remain associated with the pre-Transfer Liability structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transferee-identification" data-oof-section-id="true" role="heading" aria-level="2">Transferee Identification</h1>
+<p>LTFIM should identify the Subject to whom the Transfer Object moves or is proposed to move.</p>
+<p>The Transferee should remain distinguishable from:</p>
+<p>the original liable Subject, the paying party, the performing party, the insurer, the indemnifier, or another secondary Subject where these roles differ.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-role-subjects" data-oof-section-id="true" role="heading" aria-level="2">Multi-Role Subjects</h1>
+<p>One Subject may occupy several roles simultaneously.</p>
+<p>For example, a Transferee may also become:</p>
+<p>a paying party, performing party, successor, indemnifier, or Recourse Subject.</p>
+<p>Those roles should remain separately identifiable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transferor-paying-party" data-oof-section-id="true" role="heading" aria-level="2">Transferor ≠ Paying Party</h1>
+<p>The Subject from whom a Transfer Object moves is not necessarily the Subject that previously made payment.</p>
+<p>Therefore:</p>
+<p>Transferor ≠ Paying Party by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transferee-liability-bearing-party-by-default" data-oof-section-id="true" role="heading" aria-level="2">Transferee ≠ Liability-Bearing Party by Default</h1>
+<p>Receiving an obligation, economic burden, payment responsibility, or another Transfer Object does not automatically make the Transferee the substantive Liability-bearing party.</p>
+<p>Therefore:</p>
+<p>Transferee ≠ Liability-Bearing Party by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-basis" data-oof-section-id="true" role="heading" aria-level="2">Transfer Basis</h1>
+<p>Every potential Transfer should possess an identifiable Transfer Basis.</p>
+<p>Possible bases may include:</p>
+<p>agreement, law, succession, contractual structure, insurance mechanism, indemnification, institutional mechanism, or another legitimate source.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-basis-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Transfer Basis Sufficiency</h1>
+<p>The existence of a Transfer-Relevant Event does not establish that a sufficient Transfer Basis exists.</p>
+<p>Therefore:</p>
+<p>Transfer Event ≠ Transfer Basis.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-basis-vs-primary-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Transfer Basis vs Primary Liability Basis</h1>
+<p>The basis permitting Transfer may differ from the basis establishing primary Liability.</p>
+<p>Therefore:</p>
+<p>Primary Liability Basis ≠ Transfer Basis by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-authority" data-oof-section-id="true" role="heading" aria-level="2">Transfer Authority</h1>
+<p>Where Transfer requires authority, LTFIM should identify:</p>
+<p>the authority, authority source, authority scope, affected Transfer Object, and any material limitations.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">Authority Boundary</h1>
+<p>Authority to transfer one Liability-related structure does not automatically authorize transfer of every Liability component.</p>
+<p>Therefore:</p>
+<p>Transfer Authority over Object A ≠ Transfer Authority over Object B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-scope" data-oof-section-id="true" role="heading" aria-level="2">Transfer Scope</h1>
+<p>LTFIM should identify the extent of the proposed or observed Transfer.</p>
+<p>The Transfer may be:</p>
+<p>complete, partial, conditional, temporary, limited, Subject-specific, Relationship-specific, Scope-specific, Allocation-specific, obligation-specific, or otherwise bounded.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="complete-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Complete Transfer Candidate</h1>
+<p>A Complete Transfer candidate concerns the complete identified Transfer Object.</p>
+<p>It does not necessarily mean the complete primary Liability transfers.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Partial Transfer Candidate</h1>
+<p>Where only part of the Transfer Object moves, the transferred and retained portions should both remain explicit.</p>
+<p>Therefore:</p>
+<p>Partial Transfer ≠ Complete Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retained-liability-structure" data-oof-section-id="true" role="heading" aria-level="2">Retained Liability Structure</h1>
+<p>LTFIM should explicitly identify what remains unchanged after the proposed or observed movement.</p>
+<p>This is necessary to prevent Transfer from becoming silent Liability replacement.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-boundary" data-oof-section-id="true" role="heading" aria-level="2">Transfer Boundary</h1>
+<p>The Transfer Boundary identifies:</p>
+<p>what moves, what does not move, from whom, to whom, under what Basis, and within what Scope.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-and-liability-scope" data-oof-section-id="true" role="heading" aria-level="2">Transfer and Liability Scope</h1>
+<p>A Transfer should not silently enlarge the original Liability Scope.</p>
+<p>Therefore:</p>
+<p>Transfer Scope ≠ Primary Liability Scope by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-and-liability-allocation" data-oof-section-id="true" role="heading" aria-level="2">Transfer and Liability Allocation</h1>
+<p>A Transfer may affect how Liability-related burdens are carried without changing the original Allocation.</p>
+<p>Therefore:</p>
+<p>Transfer ≠ Liability Reallocation by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-and-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Transfer and Liability State</h1>
+<p>A Transfer may affect the current State of one Liability component while leaving other States unchanged.</p>
+<p>Therefore:</p>
+<p>Transfer Event ≠ Universal Liability State Change.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-and-relationship-identity" data-oof-section-id="true" role="heading" aria-level="2">Transfer and Relationship Identity</h1>
+<p>A Transfer may modify an existing Relationship or create a secondary Relationship.</p>
+<p>LTFIM should identify which structure applies.</p>
+<p>Therefore:</p>
+<p>Transfer ≠ New Liability Relationship by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="secondary-relationship-candidate" data-oof-section-id="true" role="heading" aria-level="2">Secondary Relationship Candidate</h1>
+<p>Where the movement creates a new relationship between Subjects, LTFIM should identify a Secondary Liability Relationship candidate.</p>
+<p>The candidate should remain linked to primary Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-sharing" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Sharing</h1>
+<p>Transfer and Sharing are distinct.</p>
+<p>Transfer concerns movement of a defined Transfer Object.</p>
+<p>Sharing concerns distribution or participation across multiple Subjects.</p>
+<p>Therefore:</p>
+<p>Liability Transfer ≠ Liability Sharing.</p>
+<p>Where Sharing is identified, the matter should proceed to LSHRM.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-recourse" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Recourse</h1>
+<p>Transfer and Recourse are also distinct.</p>
+<p>A Transfer moves a governed object.</p>
+<p>Recourse creates or governs a secondary recovery relationship.</p>
+<p>Therefore:</p>
+<p>Liability Transfer ≠ Liability Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-succession" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Succession</h1>
+<p>Succession may create a Transfer structure, but not every Transfer is succession.</p>
+<p>LTFIM should identify succession explicitly where applicable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="succession-candidate" data-oof-section-id="true" role="heading" aria-level="2">Succession Candidate</h1>
+<p>Where organizational, legal, estate, or another legitimate succession event may move a Liability-related structure, LTFIM should identify:</p>
+<p>Predecessor, Successor, succession basis, potential Transfer Object, effective time, and retained structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="succession-continuity" data-oof-section-id="true" role="heading" aria-level="2">Succession Continuity</h1>
+<p>A succession event should not automatically create a new Liability Origin.</p>
+<p>Therefore:</p>
+<p>Succession ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-indemnification" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Indemnification</h1>
+<p>Indemnification may move economic burden or reimbursement responsibility without transferring primary Liability.</p>
+<p>Therefore:</p>
+<p>Indemnification ≠ Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-insurance-performance" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Insurance Performance</h1>
+<p>Insurance performance may move economic burden.</p>
+<p>It does not automatically transfer substantive Liability.</p>
+<p>Therefore:</p>
+<p>Insurance Performance ≠ Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-payment" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Payment</h1>
+<p>Payment is movement of value.</p>
+<p>Liability Transfer concerns movement of a governed Liability-related position or object.</p>
+<p>Therefore:</p>
+<p>Payment ≠ Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-delegation" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Delegation</h1>
+<p>Operational or contractual delegation may transfer performance responsibility without transferring Liability.</p>
+<p>Therefore:</p>
+<p>Delegation ≠ Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-responsibility-transfer" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Responsibility Transfer</h1>
+<p>A Responsibility structure may move under AGA™ or another applicable governance mechanism.</p>
+<p>That does not automatically transfer Liability.</p>
+<p>Therefore:</p>
+<p>Responsibility Transfer ≠ Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-value-transfer" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Value Transfer</h1>
+<p>Value may move under VFM® without Liability moving.</p>
+<p>Therefore:</p>
+<p>Value Transfer ≠ Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-vs-identity-transfer" data-oof-section-id="true" role="heading" aria-level="2">Transfer vs Identity Transfer</h1>
+<p>Identity, ownership, authority, or provenance changes under OBIDENITY® may become Transfer-relevant inputs.</p>
+<p>They do not automatically constitute Liability Transfer.</p>
+<p>Therefore:</p>
+<p>Identity Transfer ≠ Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-trigger" data-oof-section-id="true" role="heading" aria-level="2">Transfer Trigger</h1>
+<p>A Transfer Trigger is an event or condition creating a reason to assess whether a Transfer exists or may occur.</p>
+<p>Possible triggers include:</p>
+<p>payment, succession, agreement, authority action, insurance activation, indemnification, organizational restructuring, or another governed event.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="trigger-vs-transfer" data-oof-section-id="true" role="heading" aria-level="2">Trigger vs Transfer</h1>
+<p>The trigger and Transfer remain distinct.</p>
+<p>Therefore:</p>
+<p>Transfer Trigger ≠ Completed Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-status" data-oof-section-id="true" role="heading" aria-level="2">Transfer Status</h1>
+<p>LTFIM may identify the potential Transfer as:</p>
+<p>Proposed, Pending, Conditional, Observed, Unknown, Uncertain, Disputed, or another explicitly governed identification state.</p>
+<p>These are Transfer identification states, not universal legal classifications.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="proposed-transfer" data-oof-section-id="true" role="heading" aria-level="2">Proposed Transfer</h1>
+<p>A proposed Transfer has been identified but has not yet become operative.</p>
+<p>Therefore:</p>
+<p>Proposed Transfer ≠ Completed Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-transfer" data-oof-section-id="true" role="heading" aria-level="2">Pending Transfer</h1>
+<p>A Transfer may remain Pending while required information, authority, conditions, or other dependencies remain unresolved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-transfer" data-oof-section-id="true" role="heading" aria-level="2">Conditional Transfer</h1>
+<p>A potential Transfer may depend upon explicit conditions.</p>
+<p>Therefore:</p>
+<p>Conditional Transfer ≠ Effective Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-transfer" data-oof-section-id="true" role="heading" aria-level="2">Unknown Transfer</h1>
+<p>Where available information cannot establish whether a Transfer occurred, the Transfer state should remain Unknown.</p>
+<p>Therefore:</p>
+<p>Unknown Transfer ≠ No Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-transfer" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Transfer</h1>
+<p>Where several materially plausible Transfer interpretations remain, uncertainty should remain explicit.</p>
+<p>Therefore:</p>
+<p>Uncertain Transfer ≠ Authority to Select a Preferred Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-transfer" data-oof-section-id="true" role="heading" aria-level="2">Disputed Transfer</h1>
+<p>Where materially competing governed positions exist concerning whether a Transfer occurred, what moved, or to whom, the dispute should remain represented.</p>
+<p>Therefore:</p>
+<p>Disputed Transfer ≠ Completed Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-effective-time" data-oof-section-id="true" role="heading" aria-level="2">Transfer Effective Time</h1>
+<p>Where identifiable, LTFIM should distinguish the time at which the Transfer becomes operative.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-event-time" data-oof-section-id="true" role="heading" aria-level="2">Transfer Event Time</h1>
+<p>The event associated with a potential Transfer may occur before or after the Transfer becomes effective.</p>
+<p>Therefore:</p>
+<p>Transfer Event Time ≠ Transfer Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-decision-time" data-oof-section-id="true" role="heading" aria-level="2">Transfer Decision Time</h1>
+<p>A Transfer may be decided or authorized before its effective time.</p>
+<p>Therefore:</p>
+<p>Transfer Decision Time ≠ Transfer Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-recording-time" data-oof-section-id="true" role="heading" aria-level="2">Transfer Recording Time</h1>
+<p>The time a Transfer is entered into a system may differ from its effective time.</p>
+<p>Therefore:</p>
+<p>Transfer Recording Time ≠ Transfer Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="prospective-transfer" data-oof-section-id="true" role="heading" aria-level="2">Prospective Transfer</h1>
+<p>A Transfer may be known in advance but not yet operative.</p>
+<p>Therefore:</p>
+<p>Known Future Transfer ≠ Current Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retrospectively-identified-transfer" data-oof-section-id="true" role="heading" aria-level="2">Retrospectively Identified Transfer</h1>
+<p>A Transfer may become known only after it became effective.</p>
+<p>LTFIM should preserve both discovery and effective time.</p>
+<p>Therefore:</p>
+<p>Transfer Discovery Time ≠ Transfer Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-dependency" data-oof-section-id="true" role="heading" aria-level="2">Transfer Dependency</h1>
+<p>A Transfer may depend upon:</p>
+<p>authority, condition satisfaction, payment, succession, another Transfer, another Relationship, or another governed state.</p>
+<p>Material dependencies should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-subject-transfer" data-oof-section-id="true" role="heading" aria-level="2">Multi-Subject Transfer</h1>
+<p>A Transfer may involve more than one Transferor or Transferee.</p>
+<p>Each material Subject role should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-object-transfer" data-oof-section-id="true" role="heading" aria-level="2">Multi-Object Transfer</h1>
+<p>One event may involve several different Transfer Objects.</p>
+<p>Each should be classified separately.</p>
+<p>For example, the same arrangement may transfer performance responsibility but only partially transfer economic burden.</p>
+<p>Therefore:</p>
+<p>One Transfer Event ≠ One Transfer Object by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-chain-candidate" data-oof-section-id="true" role="heading" aria-level="2">Transfer Chain Candidate</h1>
+<p>A Transfer Object may move through several Subjects.</p>
+<p>LTFIM should identify where a Transfer Chain may exist.</p>
+<p>Example:</p>
+<p>Subject A → Subject B → Subject C Each movement should remain distinguishable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-chain-vs-single-transfer" data-oof-section-id="true" role="heading" aria-level="2">Transfer Chain vs Single Transfer</h1>
+<p>A chain of Transfers should not be represented as one Transfer where the individual movements possess different Bases, Subjects, times, or Scopes.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-network-candidate" data-oof-section-id="true" role="heading" aria-level="2">Transfer Network Candidate</h1>
+<p>Multiple Transfer Relationships may form a wider Liability Network.</p>
+<p>LTFIM should identify potential network relevance without collapsing distinct Transfers.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-conflict" data-oof-section-id="true" role="heading" aria-level="2">Transfer Conflict</h1>
+<p>Different sources may indicate incompatible Transfer structures.</p>
+<p>The conflict should remain explicit.</p>
+<p>Therefore:</p>
+<p>Conflicting Transfer Records ≠ One Governed Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-transfer-record" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Transfer Record</h1>
+<p>Multiple records may refer to the same Transfer.</p>
+<p>Duplicate records should not create multiple Transfers.</p>
+<p>Therefore:</p>
+<p>Multiple Transfer Records ≠ Multiple Transfers by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-evidence-association" data-oof-section-id="true" role="heading" aria-level="2">Transfer Evidence Association</h1>
+<p>Evidence may support identification of:</p>
+<p>Transfer Object, Transferor, Transferee, Basis, Scope, authority, conditions, or effective time.</p>
+<p>Evidence does not itself constitute Transfer.</p>
+<p>Therefore:</p>
+<p>Evidence of Transfer ≠ Transfer itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-provenance" data-oof-section-id="true" role="heading" aria-level="2">Transfer Provenance</h1>
+<p>LTFIM should preserve sufficient provenance to identify:</p>
+<p>the primary Liability, Transfer-Relevant Event, Transfer Object, Transferor, Transferee, Transfer Basis, source, authority where relevant, time, and supporting governed inputs.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-rationale" data-oof-section-id="true" role="heading" aria-level="2">Transfer Rationale</h1>
+<p>The reason why an observed movement is classified as a particular Transfer type should remain reconstructable.</p>
+<p>Therefore:</p>
+<p>Transfer Classification ≠ Transfer Rationale.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Transfer Identification Sufficiency</h1>
+<p>A potential Transfer is sufficiently identified when a qualified downstream process can determine:</p>
+<p>what may have moved, from whom, to whom, under what Basis, within what Scope, at what time, under what conditions, and what primary Liability structure remains preserved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-identification-integrity" data-oof-section-id="true" role="heading" aria-level="2">Transfer Identification Integrity</h1>
+<p>LTFIM must not use Transfer Identification to:</p>
+<p>redetermine primary Liability, expand primary Liability Scope, rewrite original Allocation, erase the original liable Subject, convert payment automatically into Liability, or create Recourse without separate governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-determination-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Determination Shortcut</h1>
+<p>Transfer Identification does not establish or alter whether primary Liability attached.</p>
+<p>Therefore:</p>
+<p>Transfer Identification ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-scope-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Scope Shortcut</h1>
+<p>Transfer Identification does not independently change primary Liability Scope.</p>
+<p>Therefore:</p>
+<p>Transfer Identification ≠ Liability Scope Modification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-allocation-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Allocation Shortcut</h1>
+<p>Transfer Identification does not independently redistribute the original Liability Allocation.</p>
+<p>Therefore:</p>
+<p>Transfer Identification ≠ Liability Reallocation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-recourse-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Recourse Shortcut</h1>
+<p>Identifying Transfer does not automatically establish a Recourse relationship.</p>
+<p>Therefore:</p>
+<p>Identified Transfer ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-resolution-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Resolution Shortcut</h1>
+<p>Transfer does not establish Resolution or Discharge.</p>
+<p>Therefore:</p>
+<p>Identified Transfer ≠ Liability Resolution.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-finality-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Finality Shortcut</h1>
+<p>Transfer does not establish Liability Finality.</p>
+<p>Therefore:</p>
+<p>Identified Transfer ≠ Liability Finality.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="upstream-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Upstream Re-Entry</h1>
+<p>Where Transfer Identification reveals a material defect in the primary Liability structure, the matter should return to the earliest materially affected LIGA™ governance space.</p>
+<p>The canonical rule is:</p>
+<p>Re-enter the earliest materially affected governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-integrity" data-oof-section-id="true" role="heading" aria-level="2">Historical Integrity</h1>
+<p>Transfer Identification should preserve the Liability structure that existed before the potential Transfer.</p>
+<p>Therefore:</p>
+<p>Transfer Identification ≠ Historical Rewrite.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="origin-continuity" data-oof-section-id="true" role="heading" aria-level="2">Origin Continuity</h1>
+<p>The identified Transfer should remain linked to the existing Liability Origin unless separate governance establishes a genuinely distinct Liability Origin.</p>
+<p>Therefore:</p>
+<p>Transfer ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="automated-transfer-identification" data-oof-section-id="true" role="heading" aria-level="2">Automated Transfer Identification</h1>
+<p>AI or automated systems may assist with:</p>
+<p>Transfer-Relevant Event detection, Transfer Object classification, Subject identification, Basis association, Scope analysis, timeline analysis, and conflict detection.</p>
+<p>Automation should preserve uncertainty, methodology, source, and authority boundaries.</p>
+<p>Therefore:</p>
+<p>Automated Transfer Identification ≠ Authoritative Liability Transfer by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-transfer-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Transfer Structure</h1>
+<p>The principal output of LTFIM is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-transfer-structure-5" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Transfer Structure</h1>
+<p>It should identify, where applicable:</p>
+<p>Primary Liability association, Transfer Identity, Transfer-Relevant Event, Transfer Object, Transfer Object classification, Transferor, Transferee, Transfer Basis, Transfer authority, Transfer Scope, retained Liability structure, Transfer conditions, Transfer dependencies, Transfer status, event time, decision time, effective time, recording time, possible secondary Relationship, possible Sharing relevance, possible Succession relevance, possible Recourse relevance, network relevance, uncertainty, dispute, conflict, rationale, and provenance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">Meaning of the Output</h1>
+<p>An Identified Liability Transfer Structure means that a potential or observed movement has been sufficiently distinguished and structured for continued Transfer, Sharing, Recourse, and Continuity governance.</p>
+<p>It does not mean that substantive Liability has necessarily transferred.</p>
+<p>Therefore:</p>
+<p>Identified Liability Transfer Structure ≠ Completed Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="downstream-handoff" data-oof-section-id="true" role="heading" aria-level="2">Downstream Handoff</h1>
+<p>The Identified Liability Transfer Structure may proceed according to its characteristics.</p>
+<p>Where multiple Subjects share the relevant Liability-related structure, governance proceeds to:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lshrm-liability-sharing-module-3" data-oof-section-id="true" role="heading" aria-level="2">LSHRM — Liability Sharing Module</h1>
+<p>Where Recourse becomes relevant, subsequent governance proceeds through the applicable Recourse modules.</p>
+<p>All Transfer structures ultimately require continuity preservation under LTRS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LTFIM must provide exactly the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-and-transfer-relevant-event-identification" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability &amp; Transfer-Relevant Event Identification</h1>
+<p>Capability to identify the primary Liability structure and the event, arrangement, decision, condition, or relationship creating potential Transfer relevance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-object-identification-and-classification" data-oof-section-id="true" role="heading" aria-level="2">Transfer Object Identification &amp; Classification</h1>
+<p>Capability to distinguish substantive Liability, obligation, performance responsibility, economic burden, payment responsibility, Recovery Right, Recourse Right, and other Liability-related Transfer Objects.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transferor-transferee-and-subject-role-governance" data-oof-section-id="true" role="heading" aria-level="2">Transferor, Transferee &amp; Subject-Role Governance</h1>
+<p>Capability to identify Transferor, Transferee, multi-role Subjects, multiple Transferors or Transferees, and distinguish those roles from liable, paying, performing, insuring, indemnifying, or recovering parties.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-basis-authority-scope-and-retained-structure-governance" data-oof-section-id="true" role="heading" aria-level="2">Transfer Basis, Authority, Scope &amp; Retained-Structure Governance</h1>
+<p>Capability to identify Transfer Basis, authority where required, complete or partial Transfer Scope, conditions, and the Liability structure remaining unchanged.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-conditional-dependency-and-transfer-state-governance" data-oof-section-id="true" role="heading" aria-level="2">Temporal, Conditional, Dependency &amp; Transfer-State Governance</h1>
+<p>Capability to distinguish event, decision, effective, discovery, and recording times and govern Proposed, Pending, Conditional, Unknown, Uncertain, and Disputed Transfer states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-object-chain-network-duplicate-and-conflict-governance" data-oof-section-id="true" role="heading" aria-level="2">Multi-Object, Chain, Network, Duplicate &amp; Conflict Governance</h1>
+<p>Capability to identify multiple Transfer Objects, Transfer Chains, network relevance, duplicate Transfer records, and conflicting Transfer structures without collapsing distinct movements.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-integrity-provenance-historical-continuity-and-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Transfer Integrity, Provenance, Historical Continuity &amp; Re-Entry</h1>
+<p>Capability to preserve primary Liability, Origin continuity, rationale, provenance, historical structure, and targeted upstream re-entry without silently changing Determination, Scope, Allocation, Resolution, or Finality.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ltrs-downstream-handoff-governance" data-oof-section-id="true" role="heading" aria-level="2">LTRS Downstream Handoff Governance</h1>
+<p>Capability to produce an Identified Liability Transfer Structure sufficiently explicit, bounded, temporally situated, traceable, and historically connected for Liability Sharing, Recourse, Network, and Transfer Continuity governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LTFIM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-and-change-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State &amp; Change Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-transfer-relevant-event" data-oof-section-id="true" role="heading" aria-level="2">Identify Transfer-Relevant Event</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-primary-liability" data-oof-section-id="true" role="heading" aria-level="2">Associate Primary Liability</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-transfer-object" data-oof-section-id="true" role="heading" aria-level="2">Identify Transfer Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="classify-what-is-actually-moving" data-oof-section-id="true" role="heading" aria-level="2">Classify What Is Actually Moving</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-transferor-and-transferee" data-oof-section-id="true" role="heading" aria-level="2">Identify Transferor &amp; Transferee</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-transfer-basis" data-oof-section-id="true" role="heading" aria-level="2">Identify Transfer Basis</h1>
+<p>↓ Identify Authority where required ↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-transfer-scope-and-boundary" data-oof-section-id="true" role="heading" aria-level="2">Establish Transfer Scope &amp; Boundary</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-retained-liability-structure" data-oof-section-id="true" role="heading" aria-level="2">Identify Retained Liability Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-conditions-and-dependencies" data-oof-section-id="true" role="heading" aria-level="2">Establish Conditions &amp; Dependencies</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-temporal-structure" data-oof-section-id="true" role="heading" aria-level="2">Establish Temporal Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-transfer-state" data-oof-section-id="true" role="heading" aria-level="2">Identify Transfer State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-sharing-succession-recourse-network-relevance" data-oof-section-id="true" role="heading" aria-level="2">Assess Sharing / Succession / Recourse / Network Relevance</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-uncertainty-dispute-conflict" data-oof-section-id="true" role="heading" aria-level="2">Preserve Uncertainty / Dispute / Conflict</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-rationale-provenance-history" data-oof-section-id="true" role="heading" aria-level="2">Preserve Rationale / Provenance / History</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-transfer-structure-7" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Transfer Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LTFIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-identity" data-oof-section-id="true" role="heading" aria-level="2">Transfer Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-association" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-relevant-event-record" data-oof-section-id="true" role="heading" aria-level="2">Transfer-Relevant Event Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-object-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Object</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-object-classification-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Object Classification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="substantive-liability-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Substantive Liability Transfer Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="obligation-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Obligation Transfer Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="performance-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Performance Transfer Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="economic-burden-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Economic Burden Transfer Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="payment-responsibility-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Payment Responsibility Transfer Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recovery-right-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Recovery Right Transfer Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-right-transfer-candidate" data-oof-section-id="true" role="heading" aria-level="2">Recourse Right Transfer Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transferor-record" data-oof-section-id="true" role="heading" aria-level="2">Transferor Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transferee-record" data-oof-section-id="true" role="heading" aria-level="2">Transferee Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-basis-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Basis</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-authority-association" data-oof-section-id="true" role="heading" aria-level="2">Transfer Authority Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-scope-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Scope</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retained-liability-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Retained Liability Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-condition-record" data-oof-section-id="true" role="heading" aria-level="2">Transfer Condition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-dependency-record" data-oof-section-id="true" role="heading" aria-level="2">Transfer Dependency Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-state" data-oof-section-id="true" role="heading" aria-level="2">Transfer State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-effective-time-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Effective Time</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-chain-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Chain Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-network-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Network Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="secondary-relationship-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Secondary Relationship Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sharing-relevance-record" data-oof-section-id="true" role="heading" aria-level="2">Sharing Relevance Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="succession-relevance-record" data-oof-section-id="true" role="heading" aria-level="2">Succession Relevance Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-relevance-record" data-oof-section-id="true" role="heading" aria-level="2">Recourse Relevance Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-conflict-record" data-oof-section-id="true" role="heading" aria-level="2">Transfer Conflict Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-rationale-3" data-oof-section-id="true" role="heading" aria-level="2">Transfer Rationale</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-provenance-record" data-oof-section-id="true" role="heading" aria-level="2">Transfer Provenance Record</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-transfer-structure-9" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Transfer Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LTFIM preserves the following distinctions:</p>
+<p>Transfer of Liability ≠ Transfer of Economic Burden Transfer of Liability ≠ Transfer of Performance Transfer of Liability ≠ Transfer of Payment Responsibility Transfer of Liability ≠ Transfer of Recovery Right Transfer-Relevant Event ≠ Liability Transfer Transfer Identification without Primary Liability Association ≠ Fully Governed Transfer Identification Obligation Transfer ≠ Complete Liability Transfer by default Performance Transfer ≠ Liability Transfer by default Economic Burden Transfer ≠ Liability Transfer by default Payment Responsibility Transfer ≠ Liability Transfer by default Recovery Right Transfer ≠ Primary Liability Transfer Recourse Right Transfer ≠ Primary Liability Transfer Transfer Label without Transfer Object ≠ Sufficient Transfer Identification Transferor ≠ Paying Party by default Transferee ≠ Liability-Bearing Party by default Transfer Event ≠ Transfer Basis Primary Liability Basis ≠ Transfer Basis by default Transfer Authority over Object A ≠ Transfer Authority over Object B by default Partial Transfer ≠ Complete Transfer Transfer Scope ≠ Primary Liability Scope by default Transfer ≠ Liability Reallocation by default Transfer Event ≠ Universal Liability State Change Transfer ≠ New Liability Relationship by default Liability Transfer ≠ Liability Sharing Liability Transfer ≠ Liability Recourse Succession ≠ New Liability Origin by default Indemnification ≠ Liability Transfer by default Insurance Performance ≠ Liability Transfer by default Payment ≠ Liability Transfer Delegation ≠ Liability Transfer by default Responsibility Transfer ≠ Liability Transfer Value Transfer ≠ Liability Transfer Identity Transfer ≠ Liability Transfer Transfer Trigger ≠ Completed Transfer Proposed Transfer ≠ Completed Transfer Conditional Transfer ≠ Effective Transfer Unknown Transfer ≠ No Transfer Uncertain Transfer ≠ Authority to Select a Preferred Transfer Disputed Transfer ≠ Completed Transfer Transfer Event Time ≠ Transfer Effective Time by default Transfer Decision Time ≠ Transfer Effective Time by default Transfer Recording Time ≠ Transfer Effective Time by default Known Future Transfer ≠ Current Transfer Transfer Discovery Time ≠ Transfer Effective Time by default One Transfer Event ≠ One Transfer Object by default Conflicting Transfer Records ≠ One Governed Transfer by default Multiple Transfer Records ≠ Multiple Transfers by default Evidence of Transfer ≠ Transfer itself Transfer Classification ≠ Transfer Rationale Transfer Identification ≠ Liability Determination Transfer Identification ≠ Liability Scope Modification Transfer Identification ≠ Liability Reallocation Identified Transfer ≠ Established Recourse Identified Transfer ≠ Liability Resolution Identified Transfer ≠ Liability Finality Transfer Identification ≠ Historical Rewrite Transfer ≠ New Liability Origin by default Automated Transfer Identification ≠ Authoritative Liability Transfer by default Identified Liability Transfer Structure ≠ Completed Liability Transfer</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LTFIM may receive relevant inputs from adjacent OOF® architectures.</p>
+<p>ORA™ may establish the operational event associated with a possible Transfer.</p>
+<p>AGA™ may establish Responsibility, Accountability, Delegation, or Authority structures.</p>
+<p>HAGA™ may provide Harm-related context.</p>
+<p>ADIT® may provide evidence of a Transfer-Relevant Event.</p>
+<p>VALIDOS™ may validate Transfer-relevant inputs.</p>
+<p>OBIDENITY® may govern Identity, Ownership, Authority, Provenance, Transfer, and Continuity mechanisms within its own domain.</p>
+<p>VFM® may govern Value Transfer.</p>
+<p>AIG® and ASGA™ may provide AI or autonomous-system operational structures.</p>
+<p>These inputs do not automatically establish Liability Transfer.</p>
+<p>The canonical interoperability rule is:</p>
+<p>An external Transfer mechanism may produce a Liability-relevant input, but LTFIM governs only whether a Liability-related Transfer Object exists and how that potential Transfer is identified within LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LTFIM begins when a governed Liability structure encounters a Transfer-Relevant Event or another legitimate reason to examine whether a Liability-related object has moved or may move.</p>
+<p>LTFIM governs:</p>
+<p>Primary Liability association, Transfer-Relevant Event identification, Transfer Object identification, Transfer classification, Transferor, Transferee, Transfer Basis, Transfer authority, Transfer Scope, retained structure, conditions, dependencies, Transfer states, temporal structure, Transfer Chains, network relevance, duplicate records, conflicts, uncertainty, rationale, provenance, historical integrity, and downstream routing.</p>
+<p>LTFIM does not independently govern:</p>
+<p>initial Liability Determination, initial Scope &amp; Allocation, full Liability Sharing, full Recourse determination, Recourse Network governance, Resolution, Discharge, or Finality.</p>
+<p>LTFIM ends when an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-transfer-structure-11" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Transfer Structure</h1>
+<p>is sufficiently explicit and traceable for continued LTRS governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-insurance-payment-without-liability-transfer" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Insurance Payment Without Liability Transfer</h1>
+<p>A manufacturer bears established Liability for a covered loss.</p>
+<p>Its insurer makes payment to the affected party.</p>
+<p>LTFIM identifies the insurance payment as a Transfer-Relevant Event but distinguishes the object that moved.</p>
+<p>Economic value moved from the insurer.</p>
+<p>That fact does not establish that the manufacturer's substantive Liability transferred to the insurer.</p>
+<p>The module preserves:</p>
+<p>the primary Liability, the manufacturer as the original Liability-bearing Subject, the insurer as the paying Subject, the economic movement, and any potential downstream Recourse relevance.</p>
+<p>The governing distinction is:</p>
+<p>Liability-Bearing Party ≠ Paying Party.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-partial-obligation-transfer-through-succession" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Partial Obligation Transfer Through Succession</h1>
+<p>An organization with an established Liability structure undergoes a legitimate succession event.</p>
+<p>Only a defined group of Liability-related obligations moves to the successor, while other obligations remain with the predecessor.</p>
+<p>LTFIM identifies:</p>
+<p>the Predecessor, Successor, succession basis, transferred obligations, retained obligations, Transfer Scope, and effective time.</p>
+<p>It does not classify the event as a complete Liability Transfer merely because succession occurred.</p>
+<p>The resulting Identified Liability Transfer Structure preserves both transferred and retained Liability components for subsequent LTRS governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Before Liability can be transferred, the governance system must know what actually moved.</p>
+<p>A payment may move value.</p>
+<p>Delegation may move performance.</p>
+<p>Insurance may move economic burden.</p>
+<p>Succession may move obligations.</p>
+<p>A Recovery Right may move independently.</p>
+<p>None of these movements should automatically be called Liability Transfer.</p>
+<p>LTFIM establishes the Transfer Object, Subjects, Basis, Scope, timing, and relationship to primary Liability before downstream Transfer governance proceeds.</p>
+<p>Identify what moved before deciding what the movement means.</p>
+<p>A movement becomes a governed Liability Transfer candidate only when its object, origin, parties, basis, and boundary are explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-ltrs.html">Liability Transfer &amp; Recourse Standard (LTRS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-ltrs-lshrm-2.html">LSHRM — Liability Sharing Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

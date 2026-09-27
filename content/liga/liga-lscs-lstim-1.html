@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LSTIM — Liability State Identification Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LSTIM — Liability State Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LSTIM — Liability State Identification Module" />
+<meta property="og:description" content="LSTIM — Liability State Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LSTIM — Liability State Identification Module" />
+<meta name="twitter:description" content="LSTIM — Liability State Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard." />
+<meta name="DC.title" content="LSTIM — Liability State Identification Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html","name":"LSTIM — Liability State Identification Module","description":"LSTIM — Liability State Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State & Change Standard.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LSTIM — Liability State Identification Module","item":"https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html"}]},"headline":"LSTIM — Liability State Identification Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lscs-lstim-1.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability State & Change Standard (LSCS)","Governance & Enforcement","Liability Governance","Liability State Identification"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability State & Change Standard (LSCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability State Identification"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lscs.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability State & Change Standard (LSCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability State Identification"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lstim-liability-state-identification-module" data-oof-section-id="true" role="heading" aria-level="1">LSTIM — Liability State Identification Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lstim-liability-state-identification-module-3" data-oof-section-id="true" role="heading" aria-level="2">LSTIM — Liability State Identification Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability State &amp; Change Standard (LSCS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability State Identification<br>
+<b>Module ID:</b> LIGA-LSCS-LSTIM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.09.01.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 24 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability State Identification Module (LSTIM) governs how the current state of established Liability is identified, bounded, associated with the correct Liability structure, temporally situated, and represented as an explicit Governed Liability State.</p>
+<p>LSTIM begins with a Governed Liability Scope &amp; Allocation Structure and determines the operative state of the relevant Liability, Subject, Relationship, Scope portion, Allocation, obligation, or other governed Liability component at the applicable point or period in time.</p>
+<p>It distinguishes the current Liability State from the earlier Liability Determination State, from historical states, and from states belonging to Claims, Harm, Responsibility, Accountability, Insurance, Payment, Settlement, or other adjacent governance objects.</p>
+<p>LSTIM does not govern how the Liability State transitions.</p>
+<p>It does not determine whether an identified change is legitimate.</p>
+<p>It does not perform Liability Transfer, Recourse, Resolution, Discharge, or Finality governance.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability Scope &amp; Allocation Structure → State Object Identification → State Association → State Classification → Temporal State Identification → State Sufficiency → Governed Liability State Its foundational distinction is:</p>
+<p>Liability Determination State ≠ Current Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LSTIM is:</p>
+<p>to establish what state the governed Liability is currently in, to which Liability structure that state applies, and when that state applies.</p>
+<p>Before a system can govern State Transition or Liability Change, it must first establish the current state from which any transition would occur.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-lscs-internal-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the LSCS Internal Flow</h1>
+<p>The internal LSCS progression is:</p>
+<p>Liability State Identification → Liability State Transition → Liability Change Identification → Liability Change Assessment → Liability State History LSTIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-identification" data-oof-section-id="true" role="heading" aria-level="2">Liability State Identification</h1>
+<p>Its principal input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-scope-and-allocation-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Scope &amp; Allocation Structure</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>Its handoff is:</p>
+<p>Governed Liability State → LSTTM — Liability State Transition Module</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>What is the current governed state of this established Liability, to which Liability component does that state apply, and during what time is it operative?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-identification-object" data-oof-section-id="true" role="heading" aria-level="2">State Identification Object</h1>
+<p>Every State Identification should begin by identifying exactly what Liability component requires a current state.</p>
+<p>The State Identification Object may be:</p>
+<p>the complete Liability Relationship, one Liability Subject's Liability, one Scope portion, one Allocation, one obligation, one temporal segment, one layer within a Liability Network, or another explicitly governed Liability component.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-object-identity" data-oof-section-id="true" role="heading" aria-level="2">State Object Identity</h1>
+<p>The State Identification Object should possess sufficient identity to distinguish it from other Liability components.</p>
+<p>Therefore:</p>
+<p>Liability Matter ≠ State Identification Object by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-origin-association" data-oof-section-id="true" role="heading" aria-level="2">Liability Origin Association</h1>
+<p>The identified state should remain linked to the Liability lifecycle from which it originates.</p>
+<p>The state should not exist as an isolated status record.</p>
+<p>Therefore:</p>
+<p>Liability State without Lifecycle Origin ≠ Fully Governed Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-determination-association" data-oof-section-id="true" role="heading" aria-level="2">Liability Determination Association</h1>
+<p>Every current Liability State should remain traceable to the Liability Determination establishing the Liability to which the state relates.</p>
+<p>LSTIM does not redetermine Liability.</p>
+<p>It establishes the current state of already determined Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scope-association" data-oof-section-id="true" role="heading" aria-level="2">Scope Association</h1>
+<p>The current Liability State should remain associated with the applicable Governed Liability Scope.</p>
+<p>A state should not silently extend beyond that Scope.</p>
+<p>Therefore:</p>
+<p>State Identification ≠ Scope Expansion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="allocation-association" data-oof-section-id="true" role="heading" aria-level="2">Allocation Association</h1>
+<p>Where Liability has been allocated, the current state should remain associated with the applicable Governed Liability Allocation.</p>
+<p>Different allocated portions may possess different states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-association" data-oof-section-id="true" role="heading" aria-level="2">Subject Association</h1>
+<p>LSTIM should identify which Liability Subject the state concerns.</p>
+<p>Therefore:</p>
+<p>State of Subject A ≠ State of Subject B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-association" data-oof-section-id="true" role="heading" aria-level="2">Relationship Association</h1>
+<p>A Subject may participate in multiple Liability Relationships.</p>
+<p>The state should remain associated with the correct Relationship.</p>
+<p>Therefore:</p>
+<p>Subject State ≠ Universal Relationship State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-association" data-oof-section-id="true" role="heading" aria-level="2">Basis Association</h1>
+<p>Where Liability exists under multiple Liability Bases, the state should remain Basis-specific where materially necessary.</p>
+<p>Therefore:</p>
+<p>State under Basis A ≠ State under Basis B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-association" data-oof-section-id="true" role="heading" aria-level="2">Object Association</h1>
+<p>The Liability State should remain associated with the relevant Governed Liability Object.</p>
+<p>A state concerning one Liability Object should not automatically apply to another.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="obligation-association" data-oof-section-id="true" role="heading" aria-level="2">Obligation Association</h1>
+<p>Where established Liability contains multiple obligations, each obligation may require an independently identifiable state.</p>
+<p>Therefore:</p>
+<p>One Liability Relationship ≠ One Obligation State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scope-portion-association" data-oof-section-id="true" role="heading" aria-level="2">Scope-Portion Association</h1>
+<p>Different Scope portions may possess different operative states.</p>
+<p>LSTIM should preserve those distinctions rather than compressing them into one universal state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="allocation-portion-association" data-oof-section-id="true" role="heading" aria-level="2">Allocation-Portion Association</h1>
+<p>Where Allocation divides Liability across Subjects or Relationships, each allocated portion may possess its own state.</p>
+<p>Therefore:</p>
+<p>Shared Allocation ≠ Shared Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-classification" data-oof-section-id="true" role="heading" aria-level="2">State Classification</h1>
+<p>LSTIM should classify the identified Liability State sufficiently for subsequent State Transition governance.</p>
+<p>Possible state classes may include, where applicable:</p>
+<p>Active, Inactive, Conditional, Suspended, Partially Active, Pending, Under Reassessment, Unknown, Uncertain, Disputed, Modified, Superseded, or another explicitly governed state.</p>
+<p>These classifications are methodological states, not universal jurisdiction-specific legal statuses.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="active-state" data-oof-section-id="true" role="heading" aria-level="2">Active State</h1>
+<p>An Active state indicates that the applicable established Liability or Liability portion is presently operative under the governed structure.</p>
+<p>Therefore:</p>
+<p>Active Liability ≠ Enforced Liability.</p>
+<p>Active does not automatically mean:</p>
+<p>claimed, paid, admitted, enforced, or resolved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="inactive-state" data-oof-section-id="true" role="heading" aria-level="2">Inactive State</h1>
+<p>An Inactive state indicates that the applicable Liability is not presently operative under the relevant state conditions.</p>
+<p>Therefore:</p>
+<p>Inactive Liability ≠ No Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-state" data-oof-section-id="true" role="heading" aria-level="2">Conditional State</h1>
+<p>A Conditional state indicates that Liability operation depends upon an explicit governed condition.</p>
+<p>The relevant condition should remain identifiable.</p>
+<p>Therefore:</p>
+<p>Conditional Liability ≠ Active Liability by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="suspended-state" data-oof-section-id="true" role="heading" aria-level="2">Suspended State</h1>
+<p>A Suspended state indicates that the operation of Liability has been temporarily interrupted under a governed basis.</p>
+<p>Suspension does not erase the Liability.</p>
+<p>Therefore:</p>
+<p>Suspended Liability ≠ Discharged Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-active-state" data-oof-section-id="true" role="heading" aria-level="2">Partially Active State</h1>
+<p>Where only part of the Liability is operative, LSTIM should represent the applicable active and non-active portions separately.</p>
+<p>Therefore:</p>
+<p>Partially Active Liability ≠ Fully Active Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-state" data-oof-section-id="true" role="heading" aria-level="2">Pending State</h1>
+<p>A Pending state indicates that the current operative state depends upon a governance event, decision, process, or dependency that has not yet completed.</p>
+<p>Therefore:</p>
+<p>Pending Liability State ≠ Inactive Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="under-reassessment-state" data-oof-section-id="true" role="heading" aria-level="2">Under Reassessment State</h1>
+<p>Where an existing Liability State is undergoing legitimate reassessment, that status should remain explicit.</p>
+<p>The prior state should not disappear merely because reassessment has begun.</p>
+<p>Therefore:</p>
+<p>Under Reassessment ≠ Prior State Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-state" data-oof-section-id="true" role="heading" aria-level="2">Unknown State</h1>
+<p>Where available governed information cannot establish the current state, the state should be represented as Unknown.</p>
+<p>Therefore:</p>
+<p>Unknown Liability State ≠ No Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-state" data-oof-section-id="true" role="heading" aria-level="2">Uncertain State</h1>
+<p>Where multiple states remain materially plausible and the available governed information cannot support one sufficiently, the state should remain Uncertain.</p>
+<p>Therefore:</p>
+<p>Uncertain Liability State ≠ Authority to Select a Preferred State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-state" data-oof-section-id="true" role="heading" aria-level="2">Disputed State</h1>
+<p>Where materially competing governed positions exist concerning the current state, LSTIM should preserve the dispute.</p>
+<p>Therefore:</p>
+<p>Disputed Liability State ≠ Unknown Liability State.</p>
+<p>The state may be known to be disputed even when no final state is agreed.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="modified-state" data-oof-section-id="true" role="heading" aria-level="2">Modified State</h1>
+<p>A Modified state may be used where the Liability remains operative but its applicable conditions, Scope-related effect, Allocation-related effect, obligation, or another material component has legitimately changed.</p>
+<p>The underlying modification should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="superseded-state" data-oof-section-id="true" role="heading" aria-level="2">Superseded State</h1>
+<p>A Superseded state identifies a state that was previously operative but has been replaced by another legitimate state.</p>
+<p>Therefore:</p>
+<p>Superseded State ≠ Deleted State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-vocabulary-governance" data-oof-section-id="true" role="heading" aria-level="2">State Vocabulary Governance</h1>
+<p>Implementations may use additional state labels where required.</p>
+<p>Each state should have:</p>
+<p>a defined meaning, clear applicability, explicit boundaries, and an identifiable relationship to other states.</p>
+<p>State labels should not be introduced merely for convenience.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-universal-state-vocabulary" data-oof-section-id="true" role="heading" aria-level="2">No Universal State Vocabulary</h1>
+<p>LSTIM does not require every implementation or jurisdiction to use identical Liability State labels.</p>
+<p>It requires the underlying state meaning to remain explicit and interoperable.</p>
+<p>Therefore:</p>
+<p>Different State Labels ≠ Different Liability State Meaning by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-granularity" data-oof-section-id="true" role="heading" aria-level="2">State Granularity</h1>
+<p>State identification should use the level of granularity required by the Liability structure.</p>
+<p>A complex Liability should not be compressed into a single state where materially different components require different states.</p>
+<p>Therefore:</p>
+<p>One Status Label ≠ Complete Liability State Structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="complete-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Complete-Liability State</h1>
+<p>Where the same state legitimately applies to the complete governed Liability structure, a complete-Liability state may be represented.</p>
+<p>This should not be assumed merely for administrative simplicity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="component-state" data-oof-section-id="true" role="heading" aria-level="2">Component State</h1>
+<p>Where different components possess different states, each materially distinct component should remain separately represented.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-composition" data-oof-section-id="true" role="heading" aria-level="2">State Composition</h1>
+<p>A complete Liability representation may consist of multiple component states.</p>
+<p>The overall representation should preserve those component states rather than replacing them with a misleading single label.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-identification" data-oof-section-id="true" role="heading" aria-level="2">Temporal Identification</h1>
+<p>Every current Liability State should be situated in time.</p>
+<p>LSTIM should distinguish relevant temporal markers where necessary.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-creation-time" data-oof-section-id="true" role="heading" aria-level="2">State Creation Time</h1>
+<p>State Creation Time identifies when the state record or governed representation was created.</p>
+<p>It does not necessarily identify when the state became operative.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-effective-time" data-oof-section-id="true" role="heading" aria-level="2">State Effective Time</h1>
+<p>State Effective Time identifies when the Liability State becomes or became operative.</p>
+<p>Therefore:</p>
+<p>State Creation Time ≠ State Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-observation-time" data-oof-section-id="true" role="heading" aria-level="2">State Observation Time</h1>
+<p>State Observation Time identifies when the state was observed, detected, or assessed.</p>
+<p>Therefore:</p>
+<p>State Observation Time ≠ State Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-recording-time" data-oof-section-id="true" role="heading" aria-level="2">State Recording Time</h1>
+<p>State Recording Time identifies when the state was entered into the relevant system or record.</p>
+<p>Therefore:</p>
+<p>State Recording Time ≠ State Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-end-time" data-oof-section-id="true" role="heading" aria-level="2">State End Time</h1>
+<p>Where a Liability State ceases to be operative, the applicable end time should be identifiable where materially relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="current-state" data-oof-section-id="true" role="heading" aria-level="2">Current State</h1>
+<p>The Current Liability State is the state that legitimately governs the applicable Liability component at the relevant present governance point.</p>
+<p>The newest record is not automatically the current state.</p>
+<p>Therefore:</p>
+<p>Latest Record ≠ Current Governed Liability State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-state" data-oof-section-id="true" role="heading" aria-level="2">Historical State</h1>
+<p>A state that applied previously should remain identifiable as a Historical Liability State.</p>
+<p>Historical does not mean invalid.</p>
+<p>The state may have been fully correct during its applicable period.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="future-state" data-oof-section-id="true" role="heading" aria-level="2">Future State</h1>
+<p>A future state may be scheduled, anticipated, conditional, or otherwise represented.</p>
+<p>It should not be treated as currently operative until its governing conditions are satisfied.</p>
+<p>Therefore:</p>
+<p>Scheduled Future State ≠ Current Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-duration" data-oof-section-id="true" role="heading" aria-level="2">State Duration</h1>
+<p>Where materially relevant, LSTIM should identify the duration for which a state has applied or is expected to apply.</p>
+<p>Duration does not itself establish a State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-dependency" data-oof-section-id="true" role="heading" aria-level="2">State Dependency</h1>
+<p>A Liability State may depend upon:</p>
+<p>a Liability Condition, an obligation, a Scope state, an Allocation state, an authority decision, a temporal event, another Liability Relationship, or another governed dependency.</p>
+<p>Material dependencies should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-dependency" data-oof-section-id="true" role="heading" aria-level="2">Conditional Dependency</h1>
+<p>Where a state is conditional upon another governed state, LSTIM should identify the dependency rather than representing the state as unconditional.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="external-dependency" data-oof-section-id="true" role="heading" aria-level="2">External Dependency</h1>
+<p>An external governed state may affect Liability State.</p>
+<p>Its existence does not transfer governance ownership of the external domain to LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-evidence-association" data-oof-section-id="true" role="heading" aria-level="2">State Evidence Association</h1>
+<p>Evidence may support State Identification.</p>
+<p>Evidence should remain associated with the state without becoming the state itself.</p>
+<p>Therefore:</p>
+<p>Evidence of Liability State ≠ Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-authority-association" data-oof-section-id="true" role="heading" aria-level="2">State Authority Association</h1>
+<p>Where a state depends upon an authoritative decision or determination, the relevant authority should remain identifiable.</p>
+<p>Therefore:</p>
+<p>Authority Record ≠ Liability State by itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-source" data-oof-section-id="true" role="heading" aria-level="2">State Source</h1>
+<p>The source from which the state is identified should remain traceable where materially relevant.</p>
+<p>Possible sources may include:</p>
+<p>governed system state, authoritative decision, validated operational information, contractual state, institutional record, or another legitimate source.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-state-sources" data-oof-section-id="true" role="heading" aria-level="2">Multiple State Sources</h1>
+<p>Different sources may report different states.</p>
+<p>LSTIM should preserve materially conflicting source states rather than silently selecting one.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-conflict" data-oof-section-id="true" role="heading" aria-level="2">State Conflict</h1>
+<p>A State Conflict exists where materially relevant governed sources or authorities indicate incompatible current states.</p>
+<p>Therefore:</p>
+<p>Conflicting State Records ≠ One Governed State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-priority" data-oof-section-id="true" role="heading" aria-level="2">State Priority</h1>
+<p>Where one state legitimately governs over another, the basis for that priority should be explicit.</p>
+<p>Chronological recency alone is insufficient.</p>
+<p>Therefore:</p>
+<p>Latest State ≠ Governing State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">State Sufficiency</h1>
+<p>A Liability State is sufficiently identified when a qualified downstream process can determine:</p>
+<p>what Liability component the state concerns, what the state means, to whom and to what Relationship it applies, when it applies, what Scope and Allocation it relates to, what dependencies remain, what uncertainty exists, and where the state originated.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-completeness" data-oof-section-id="true" role="heading" aria-level="2">State Completeness</h1>
+<p>State Identification is complete when all materially necessary current Liability components possess an explicit state or an explicit unresolved state.</p>
+<p>Completeness does not require artificial certainty.</p>
+<p>Therefore:</p>
+<p>State Identification Completeness ≠ Universal State Certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">State Uncertainty</h1>
+<p>Where state uncertainty exists, it should be represented as part of the Governed Liability State.</p>
+<p>It should not be hidden in narrative notes or omitted from machine-readable state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-confidence" data-oof-section-id="true" role="heading" aria-level="2">State Confidence</h1>
+<p>Where an implementation uses confidence or reliability indicators, those indicators should remain separate from the state itself.</p>
+<p>Therefore:</p>
+<p>State Confidence ≠ Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-rationale" data-oof-section-id="true" role="heading" aria-level="2">State Rationale</h1>
+<p>Where necessary, the reason supporting the identified state should be reconstructable.</p>
+<p>Therefore:</p>
+<p>State Label ≠ State Rationale.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-provenance" data-oof-section-id="true" role="heading" aria-level="2">State Provenance</h1>
+<p>LSTIM should preserve sufficient provenance to identify:</p>
+<p>where the state came from, which Liability structure it concerns, which inputs support it, which authority applies, and which prior state preceded it where applicable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-traceability" data-oof-section-id="true" role="heading" aria-level="2">State Traceability</h1>
+<p>A qualified reviewer should be able to trace:</p>
+<p>Liability Determination → Governed Scope &amp; Allocation → State Identification Object → Current Liability State without reconstructing the matter from raw information.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-integrity" data-oof-section-id="true" role="heading" aria-level="2">State Integrity</h1>
+<p>A State Identification should not:</p>
+<p>create new Liability, expand Scope, change Allocation, erase unresolved states, collapse distinct Relationships, or rewrite historical Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-determination-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Determination Shortcut</h1>
+<p>The state of Liability cannot substitute for Liability Determination.</p>
+<p>Therefore:</p>
+<p>Active State ≠ Proof of Original Liability Attachment.</p>
+<p>The Attachment must remain traceable to LDS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-scope-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Scope Shortcut</h1>
+<p>A current state should not be used to enlarge or narrow Liability Scope.</p>
+<p>Therefore:</p>
+<p>State Classification ≠ Scope Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-allocation-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Allocation Shortcut</h1>
+<p>A state should not be used to redistribute Liability.</p>
+<p>Therefore:</p>
+<p>State Identification ≠ Liability Reallocation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-harm-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Harm-State Shortcut</h1>
+<p>A Harm state should not automatically become the Liability State.</p>
+<p>Therefore:</p>
+<p>Harm State ≠ Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-responsibility-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Responsibility-State Shortcut</h1>
+<p>A Responsibility state does not automatically establish the Liability State.</p>
+<p>Therefore:</p>
+<p>Responsibility State ≠ Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-accountability-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Accountability-State Shortcut</h1>
+<p>An Accountability state does not automatically establish the Liability State.</p>
+<p>Therefore:</p>
+<p>Accountability State ≠ Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-claim-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Claim-State Shortcut</h1>
+<p>A Claim may be Open, Accepted, Rejected, Paid, Closed, or Reopened.</p>
+<p>Those states should not automatically become Liability States.</p>
+<p>Therefore:</p>
+<p>Claim State ≠ Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-payment-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Payment-State Shortcut</h1>
+<p>Payment may be relevant to downstream Liability governance.</p>
+<p>It does not automatically define the current Liability State.</p>
+<p>Therefore:</p>
+<p>Payment State ≠ Liability State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-settlement-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Settlement-State Shortcut</h1>
+<p>Settlement status should remain distinct from substantive Liability State.</p>
+<p>Therefore:</p>
+<p>Settlement State ≠ Liability State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-insurance-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Insurance-State Shortcut</h1>
+<p>Insurance status does not automatically define the state of underlying Liability.</p>
+<p>Therefore:</p>
+<p>Insurance State ≠ Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-operational-state-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Operational-State Shortcut</h1>
+<p>The state of an underlying operational mechanism, contract, system, service, or activity does not automatically determine Liability State.</p>
+<p>Therefore:</p>
+<p>Operational State ≠ Liability State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-termination" data-oof-section-id="true" role="heading" aria-level="2">Operational Termination</h1>
+<p>Termination of the underlying activity or mechanism does not automatically make Liability Inactive, Resolved, Discharged, or Final.</p>
+<p>Therefore:</p>
+<p>Operational Termination ≠ Liability Termination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="automated-state-identification" data-oof-section-id="true" role="heading" aria-level="2">Automated State Identification</h1>
+<p>AI or automated systems may assist in State Identification where appropriately governed.</p>
+<p>The system should preserve:</p>
+<p>input states, methodology, system identity, authority, time, uncertainty, and provenance.</p>
+<p>Therefore:</p>
+<p>Automated State Identification ≠ Authoritative Liability State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-identification-change" data-oof-section-id="true" role="heading" aria-level="2">State Identification Change</h1>
+<p>The identified current state may later change because:</p>
+<p>new information becomes available, a dependency changes, a prior state was incorrect, a legitimate transition occurs, or an upstream governance structure changes.</p>
+<p>Such change belongs to subsequent LSCS governance rather than being silently rewritten inside State Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-identification-correction" data-oof-section-id="true" role="heading" aria-level="2">State Identification Correction</h1>
+<p>Where the identified state itself was recorded incorrectly, it may require correction.</p>
+<p>The previous record should remain historically reconstructable.</p>
+<p>Therefore:</p>
+<p>State Identification Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-identification-reassessment" data-oof-section-id="true" role="heading" aria-level="2">State Identification Reassessment</h1>
+<p>Where the original state identification was legitimate but circumstances changed, reassessment may be required.</p>
+<p>Therefore:</p>
+<p>State Identification Reassessment ≠ State Identification Correction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-scope-and-allocation" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to Scope &amp; Allocation</h1>
+<p>Where State Identification reveals that the Governed Liability Scope or Allocation is insufficient, inconsistent, or outdated, the matter should return to LSAS.</p>
+<p>LSTIM must not repair Scope or Allocation by manipulating the state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-liability-determination" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to Liability Determination</h1>
+<p>Where State Identification reveals a material issue concerning whether Liability attaches, the matter should return to LDS.</p>
+<p>Therefore:</p>
+<p>State Identification ≠ Determination Correction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="earlier-lifecycle-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Earlier Lifecycle Re-Entry</h1>
+<p>Where the issue originates earlier in LIGA™, governance should return to the earliest materially affected governance space.</p>
+<p>The canonical rule is:</p>
+<p>Re-enter the earliest materially affected governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-integrity" data-oof-section-id="true" role="heading" aria-level="2">Historical Integrity</h1>
+<p>State Identification must preserve the distinction between:</p>
+<p>current state, historical state, superseded state, corrected state, and unresolved state.</p>
+<p>Therefore:</p>
+<p>Current Liability State ≠ Complete Liability State History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>The principal output of LSTIM is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>It should identify, where applicable:</p>
+<p>State Identity, State Identification Object, Liability Origin, Liability Determination reference, Subject, Relationship, Object, Basis, Scope, Allocation, obligation, state classification, state applicability, effective time, duration, dependencies, authority, source, uncertainty, conflict, rationale, provenance, and historical association.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">Meaning of the Output</h1>
+<p>A Governed Liability State means that the operative state of the relevant established Liability has been sufficiently identified for State Transition governance.</p>
+<p>It does not mean that a transition has occurred.</p>
+<p>Therefore:</p>
+<p>Governed Liability State ≠ Liability State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-state-transition" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability State Transition</h1>
+<p>LSTIM hands the:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-7" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>to:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lsttm-liability-state-transition-module" data-oof-section-id="true" role="heading" aria-level="2">LSTTM — Liability State Transition Module</h1>
+<p>The next governance question becomes:</p>
+<p>Under what governed conditions may this Liability move from its current state to another state?</p>
+<p>The boundary is explicit:</p>
+<p>LSTIM identifies the current Liability State.</p>
+<p>LSTTM governs transition between Liability States.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LSTIM must provide exactly the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-identification-object-and-lifecycle-association" data-oof-section-id="true" role="heading" aria-level="2">State Identification Object &amp; Lifecycle Association</h1>
+<p>Capability to identify the Liability component requiring State Identification and associate it with its Liability Origin, Determination, Scope, Allocation, Subject, Relationship, Object, and Basis.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-classification-governance" data-oof-section-id="true" role="heading" aria-level="2">Liability State Classification Governance</h1>
+<p>Capability to identify and represent Active, Inactive, Conditional, Suspended, Partially Active, Pending, Under Reassessment, Unknown, Uncertain, Disputed, Modified, Superseded, or other explicitly governed Liability States without imposing a universal jurisdiction-specific vocabulary.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-relationship-scope-allocation-and-obligation-state-association" data-oof-section-id="true" role="heading" aria-level="2">Subject, Relationship, Scope, Allocation &amp; Obligation State Association</h1>
+<p>Capability to preserve materially distinct states across Liability Subjects, Relationships, Scope portions, Allocations, obligations, and other governed Liability components.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-state-governance" data-oof-section-id="true" role="heading" aria-level="2">Temporal State Governance</h1>
+<p>Capability to distinguish State Creation Time, Effective Time, Observation Time, Recording Time, End Time, duration, historical state, current state, and future state where materially relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="dependency-source-authority-and-evidence-association" data-oof-section-id="true" role="heading" aria-level="2">Dependency, Source, Authority &amp; Evidence Association</h1>
+<p>Capability to identify material state dependencies, sources, authority relationships, and evidence associations without confusing those inputs with the Liability State itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-uncertain-disputed-and-conflicting-state-governance" data-oof-section-id="true" role="heading" aria-level="2">Unknown, Uncertain, Disputed &amp; Conflicting State Governance</h1>
+<p>Capability to preserve unresolved or conflicting Liability States without forcing artificial classification or treating missing information as absence of Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-identification-integrity-traceability-correction-and-re-entry" data-oof-section-id="true" role="heading" aria-level="2">State Identification Integrity, Traceability, Correction &amp; Re-Entry</h1>
+<p>Capability to preserve rationale, provenance, historical integrity, corrections, reassessments, and targeted re-entry to the earliest materially affected LIGA™ governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-transition-handoff-governance" data-oof-section-id="true" role="heading" aria-level="2">State Transition Handoff Governance</h1>
+<p>Capability to produce a Governed Liability State sufficiently explicit, bounded, temporally situated, traceable, and historically connected for Liability State Transition governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LSTIM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-scope-and-allocation-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Scope &amp; Allocation Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-state-object" data-oof-section-id="true" role="heading" aria-level="2">Identify State Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-liability-origin-and-determination" data-oof-section-id="true" role="heading" aria-level="2">Associate Liability Origin &amp; Determination</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-subject-relationship-object-basis" data-oof-section-id="true" role="heading" aria-level="2">Associate Subject / Relationship / Object / Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-scope-allocation-obligation" data-oof-section-id="true" role="heading" aria-level="2">Associate Scope / Allocation / Obligation</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-state-classification" data-oof-section-id="true" role="heading" aria-level="2">Identify State Classification</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-temporal-applicability" data-oof-section-id="true" role="heading" aria-level="2">Identify Temporal Applicability</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-dependencies-sources-authority" data-oof-section-id="true" role="heading" aria-level="2">Identify Dependencies / Sources / Authority</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-unknown-uncertain-disputed-conflicting-states" data-oof-section-id="true" role="heading" aria-level="2">Identify Unknown / Uncertain / Disputed / Conflicting States</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-state-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Assess State Sufficiency</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-rationale-provenance-history" data-oof-section-id="true" role="heading" aria-level="2">Preserve Rationale / Provenance / History</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-9" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-state-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability State Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LSTIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-identification-object-3" data-oof-section-id="true" role="heading" aria-level="2">State Identification Object</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-identity" data-oof-section-id="true" role="heading" aria-level="2">Liability State Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-origin-association-3" data-oof-section-id="true" role="heading" aria-level="2">Liability Origin Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-determination-association-3" data-oof-section-id="true" role="heading" aria-level="2">Liability Determination Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-state-association" data-oof-section-id="true" role="heading" aria-level="2">Subject State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-state-association" data-oof-section-id="true" role="heading" aria-level="2">Relationship State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-state-association" data-oof-section-id="true" role="heading" aria-level="2">Object State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-state-association" data-oof-section-id="true" role="heading" aria-level="2">Basis State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scope-state-association" data-oof-section-id="true" role="heading" aria-level="2">Scope State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="allocation-state-association" data-oof-section-id="true" role="heading" aria-level="2">Allocation State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="obligation-state-association" data-oof-section-id="true" role="heading" aria-level="2">Obligation State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-classification" data-oof-section-id="true" role="heading" aria-level="2">Liability State Classification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="active-state-record" data-oof-section-id="true" role="heading" aria-level="2">Active State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="inactive-state-record" data-oof-section-id="true" role="heading" aria-level="2">Inactive State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-state-record" data-oof-section-id="true" role="heading" aria-level="2">Conditional State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="suspended-state-record" data-oof-section-id="true" role="heading" aria-level="2">Suspended State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-state-record" data-oof-section-id="true" role="heading" aria-level="2">Partial State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-state-record" data-oof-section-id="true" role="heading" aria-level="2">Pending State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="under-reassessment-state-record" data-oof-section-id="true" role="heading" aria-level="2">Under Reassessment State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-state-record" data-oof-section-id="true" role="heading" aria-level="2">Unknown State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-state-record" data-oof-section-id="true" role="heading" aria-level="2">Uncertain State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-state-record" data-oof-section-id="true" role="heading" aria-level="2">Disputed State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="modified-state-record" data-oof-section-id="true" role="heading" aria-level="2">Modified State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="superseded-state-record" data-oof-section-id="true" role="heading" aria-level="2">Superseded State Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-effective-time-3" data-oof-section-id="true" role="heading" aria-level="2">State Effective Time</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-duration-record" data-oof-section-id="true" role="heading" aria-level="2">State Duration Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-dependency-record" data-oof-section-id="true" role="heading" aria-level="2">State Dependency Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-source-record" data-oof-section-id="true" role="heading" aria-level="2">State Source Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-authority-association-3" data-oof-section-id="true" role="heading" aria-level="2">State Authority Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-conflict-record" data-oof-section-id="true" role="heading" aria-level="2">State Conflict Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-rationale-3" data-oof-section-id="true" role="heading" aria-level="2">State Rationale</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-provenance-record" data-oof-section-id="true" role="heading" aria-level="2">State Provenance Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-sufficiency-state" data-oof-section-id="true" role="heading" aria-level="2">State Sufficiency State</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-11" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LSTIM preserves the following distinctions:</p>
+<p>Liability Determination State ≠ Current Liability State Liability Matter ≠ State Identification Object by default Liability State without Lifecycle Origin ≠ Fully Governed Liability State State Identification ≠ Scope Expansion State of Subject A ≠ State of Subject B by default Subject State ≠ Universal Relationship State State under Basis A ≠ State under Basis B by default One Liability Relationship ≠ One Obligation State by default Shared Allocation ≠ Shared Liability State Active Liability ≠ Enforced Liability Inactive Liability ≠ No Liability Conditional Liability ≠ Active Liability by default Suspended Liability ≠ Discharged Liability Partially Active Liability ≠ Fully Active Liability Pending Liability State ≠ Inactive Liability Under Reassessment ≠ Prior State Erasure Unknown Liability State ≠ No Liability Uncertain Liability State ≠ Authority to Select a Preferred State Disputed Liability State ≠ Unknown Liability State Superseded State ≠ Deleted State Different State Labels ≠ Different Liability State Meaning by default One Status Label ≠ Complete Liability State Structure State Creation Time ≠ State Effective Time by default State Observation Time ≠ State Effective Time by default State Recording Time ≠ State Effective Time by default Latest Record ≠ Current Governed Liability State by default Scheduled Future State ≠ Current Liability State Evidence of Liability State ≠ Liability State Authority Record ≠ Liability State by itself Conflicting State Records ≠ One Governed State by default Latest State ≠ Governing State by default State Identification Completeness ≠ Universal State Certainty State Confidence ≠ Liability State State Label ≠ State Rationale Active State ≠ Proof of Original Liability Attachment State Classification ≠ Scope Determination State Identification ≠ Liability Reallocation Harm State ≠ Liability State Responsibility State ≠ Liability State Accountability State ≠ Liability State Claim State ≠ Liability State Payment State ≠ Liability State by default Settlement State ≠ Liability State by default Insurance State ≠ Liability State Operational State ≠ Liability State by default Operational Termination ≠ Liability Termination Automated State Identification ≠ Authoritative Liability State by default State Identification Correction ≠ Historical Erasure State Identification Reassessment ≠ State Identification Correction State Identification ≠ Determination Correction Current Liability State ≠ Complete Liability State History Governed Liability State ≠ Liability State Transition</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LSTIM may use governed inputs from other OOF® architectures where those inputs are relevant to identifying Liability State.</p>
+<p>HAGA™ may provide Harm states.</p>
+<p>ORA™ may provide Operational Reality.</p>
+<p>AGA™ may provide Responsibility and Accountability states.</p>
+<p>ADIT® may provide evidence and auditability.</p>
+<p>VALIDOS™ may provide validation states.</p>
+<p>OBIDENITY® may provide identity, authority, provenance, ownership, and continuity information.</p>
+<p>AIG® and ASGA™ may provide AI or autonomous-system states.</p>
+<p>VFM® may provide Value Flow states.</p>
+<p>PGA™ may provide Prediction states.</p>
+<p>SIMULOS® may provide Simulation outputs.</p>
+<p>Those states remain external governed objects.</p>
+<p>The canonical interoperability principle is:</p>
+<p>An external governed state may inform Liability State Identification without becoming the Liability State and without transferring governance ownership of its original domain to LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LSTIM begins with a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-scope-and-allocation-structure-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Scope &amp; Allocation Structure</h1>
+<p>and governs identification of the current Liability State.</p>
+<p>LSTIM governs:</p>
+<p>State Identification Object, State Identity, Liability Origin association, Determination association, Subject association, Relationship association, Object association, Basis association, Scope association, Allocation association, Obligation association, State Classification, State Granularity, Temporal State, State Dependencies, State Sources, State Authority association, State Uncertainty, State Conflict, State Rationale, State Provenance, State Sufficiency, State Identification correction, State Identification reassessment, Historical Integrity, and State Transition handoff.</p>
+<p>LSTIM does not govern:</p>
+<p>initial Liability Determination, Scope establishment, Allocation distribution, State Transition itself, Liability Change Assessment, Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LSTIM ends when a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-13" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>is sufficiently explicit and traceable for State Transition governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-multi-party-industrial-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Multi-Party Industrial Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification" data-oof-section-id="true" role="heading" aria-level="2">Identification</h1>
+<p>An industrial incident has already produced a reconciled Liability Scope &amp; Allocation Structure involving an operator and a maintenance provider.</p>
+<p>LSTIM identifies the current state of each governed Liability portion.</p>
+<p>The operator's repair obligation is Active.</p>
+<p>A separate allocated portion involving the maintenance provider remains Conditional.</p>
+<p>Another portion is Disputed.</p>
+<p>LSTIM preserves these states separately rather than representing the entire incident through one status such as “Open.” Each state remains connected to its Subject, Relationship, Scope, Allocation, effective time, and Liability Determination.</p>
+<p>The resulting Governed Liability States are ready for State Transition governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-autonomous-system-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Autonomous System Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-3" data-oof-section-id="true" role="heading" aria-level="2">Identification</h1>
+<p>An autonomous system deployment contains several established Liability Relationships.</p>
+<p>The system has been deactivated, but the underlying Liability relationships remain governed independently.</p>
+<p>LSTIM identifies one Liability portion as Active, another as Under Reassessment, and a third as Pending because a governed dependency remains unresolved.</p>
+<p>The system's operational state is not converted automatically into Liability State.</p>
+<p>The module therefore preserves the distinction:</p>
+<p>Operational Termination ≠ Liability Termination.</p>
+<p>The resulting Governed Liability States provide explicit starting states for subsequent transition governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Liability cannot change coherently unless its current state is first known.</p>
+<p>That state must belong to the correct Liability, Subject, Relationship, Scope, Allocation, obligation, and time.</p>
+<p>It must remain distinguishable from Harm, Responsibility, Accountability, Claims, Payment, Insurance, Settlement, and Operational State.</p>
+<p>And it must remain connected to the Liability history from which it emerged.</p>
+<p>Liability Determination establishes that Liability exists. State Identification establishes what condition that Liability is in now.</p>
+<p>Identify the state before governing its transition.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lscs.html">Liability State &amp; Change Standard (LSCS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lscs-lsttm-2.html">LSTTM — Liability State Transition Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,1822 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LDEM — Liability Determination Evaluation Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LDEM — Liability Determination Evaluation Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LDEM — Liability Determination Evaluation Module" />
+<meta property="og:description" content="LDEM — Liability Determination Evaluation Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LDEM — Liability Determination Evaluation Module" />
+<meta name="twitter:description" content="LDEM — Liability Determination Evaluation Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard." />
+<meta name="DC.title" content="LDEM — Liability Determination Evaluation Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html","name":"LDEM — Liability Determination Evaluation Module","description":"LDEM — Liability Determination Evaluation Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Determination Standard.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LDEM — Liability Determination Evaluation Module","item":"https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html"}]},"headline":"LDEM — Liability Determination Evaluation Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lds-ldem-2.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability Determination Standard (LDS)","Governance & Enforcement","Liability Governance","Liability Determination Evaluation"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability Determination Standard (LDS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability Determination Evaluation"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lds.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lds-ldam-3.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability Determination Standard (LDS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability Determination Evaluation"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="ldem-liability-determination-evaluation-module" data-oof-section-id="true" role="heading" aria-level="1">LDEM — Liability Determination Evaluation Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ldem-liability-determination-evaluation-module-3" data-oof-section-id="true" role="heading" aria-level="2">LDEM — Liability Determination Evaluation Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability Determination Standard (LDS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability Determination Evaluation<br>
+<b>Module ID:</b> LIGA-LDS-LDEM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.07.02.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 23 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Determination Evaluation Module (LDEM) governs how a Governed Liability Determination Input Set is methodologically evaluated against the applicable Liability Basis, Liability Conditions, Liability Relationships, LiabilityRelevant Connections, Determination Criteria, and materially relevant governed inputs to establish an explicit Liability Determination Evaluation State.</p>
+<p>LDEM determines what the governed input structure supports, does not support, leaves unresolved, or places in conflict before a formal Liability Attachment Determination is made.</p>
+<p>It governs the analytical transition between Determination Input formation and Liability Attachment.</p>
+<p>LDEM does not itself attach Liability.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability Determination Input Set → Evaluation Criteria → Basis &amp; Condition Evaluation → Relationship &amp; Connection Evaluation → Conflict &amp; Uncertainty Evaluation → Evaluation State → Governed Liability</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Determination Evaluation</h1>
+<p>Its foundational distinction is:</p>
+<p>Liability Determination Evaluation ≠ Liability Attachment Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LDEM is:</p>
+<p>to evaluate the complete governed Liability Determination Input Set in a structured, traceable, bounded, and reconstructable manner so that the subsequent Attachment decision can be made from an explicit Evaluation State rather than from an unstructured conclusion.</p>
+<p>LDIM determines:</p>
+<p>What enters the Determination?</p>
+<p>LDEM determines:</p>
+<p>What does that governed input structure establish when evaluated?</p>
+<p>LDAM subsequently determines:</p>
+<p>Does Liability attach?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-parent-standard-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the Parent Standard Flow</h1>
+<p>The internal LDS progression is:</p>
+<p>Liability Determination Input → Liability Determination Evaluation → Liability Determination &amp; Attachment → Liability Determination Rationale → Liability Determination Versioning LDEM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-determination-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Liability Determination Evaluation</h1>
+<p>Its principal input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Evaluation</h1>
+<p>Its canonical handoff is:</p>
+<p>Governed Liability Determination Evaluation → Liability Determination &amp; Attachment</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>What does the Governed Liability Determination Input Set establish when evaluated against the applicable Liability Basis, Conditions, Relationships, Connections, and Determination Criteria?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-space" data-oof-section-id="true" role="heading" aria-level="2">Governed Space</h1>
+<p>LDEM governs:</p>
+<p>Evaluation Object, Evaluation Scope, Evaluation Criteria, Evaluation Method, Basis Evaluation, Condition Evaluation, Relationship Evaluation, Connection Evaluation, Input Evaluation, Dependency Evaluation, Temporal Evaluation, Conflict Evaluation, Uncertainty Evaluation, Alternative Evaluation, Multi-Basis Evaluation, Multi-Subject Evaluation, Evaluation Sufficiency, Evaluation State, Evaluation Confidence, Evaluation Change, Evaluation Correction, Evaluation Reassessment, and Evaluation Handoff.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-object" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Object</h1>
+<p>The Evaluation Object is the specific Liability Determination structure being evaluated.</p>
+<p>It should remain associated with the Determination Object established by LDIM.</p>
+<p>Therefore:</p>
+<p>Evaluation Object ≠ Liability Object.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-scope" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Scope</h1>
+<p>LDEM should preserve the Determination Scope established upstream.</p>
+<p>Evaluation must not silently expand beyond the governed inquiry.</p>
+<p>Therefore:</p>
+<p>Evaluation Scope Expansion ≠ Valid Evaluation by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-scope-integrity" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Scope Integrity</h1>
+<p>Where evaluation reveals that the existing scope is inadequate, LDEM should trigger reassessment rather than silently redefine the Determination.</p>
+<p>Therefore:</p>
+<p>Scope Defect ≠ Authority to Rewrite Scope.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-criteria" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Criteria</h1>
+<p>LDEM should establish or reference the criteria by which the governed inputs are evaluated.</p>
+<p>Criteria should be:</p>
+<p>explicit, applicable, bounded, traceable, and sufficiently stable for the defined evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="criteria-origin" data-oof-section-id="true" role="heading" aria-level="2">Criteria Origin</h1>
+<p>Evaluation criteria should preserve their origin.</p>
+<p>They may derive from:</p>
+<p>the applicable Liability Basis, Liability Conditions, governed methodology, competent authority, contractual structure, or another legitimate source.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="criteria-integrity" data-oof-section-id="true" role="heading" aria-level="2">Criteria Integrity</h1>
+<p>Criteria must not be invented after observing a desired Liability outcome.</p>
+<p>Therefore:</p>
+<p>Desired Outcome ≠ Evaluation Criterion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="criteria-applicability" data-oof-section-id="true" role="heading" aria-level="2">Criteria Applicability</h1>
+<p>A valid criterion may still be inapplicable to a specific:</p>
+<p>Subject, Relationship, Object, Basis, Condition, Connection, or lifecycle moment.</p>
+<p>Therefore:</p>
+<p>Valid Criterion ≠ Applicable Criterion by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="criteria-consistency" data-oof-section-id="true" role="heading" aria-level="2">Criteria Consistency</h1>
+<p>Materially equivalent evaluations should apply criteria consistently unless a governed distinction justifies different treatment.</p>
+<p>Therefore:</p>
+<p>Different Outcome Preference ≠ Different Evaluation Criteria.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="criteria-version" data-oof-section-id="true" role="heading" aria-level="2">Criteria Version</h1>
+<p>Where criteria change over time, LDEM should preserve the version applicable to the relevant evaluation.</p>
+<p>Therefore:</p>
+<p>Current Criterion ≠ Historically Applicable Criterion by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-method" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Method</h1>
+<p>LDEM should preserve the methodology used to evaluate the governed inputs.</p>
+<p>The method should explain how:</p>
+<p>criteria, inputs, conditions, relationships, connections, conflicts, and uncertainties are brought together.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="method-transparency" data-oof-section-id="true" role="heading" aria-level="2">Method Transparency</h1>
+<p>The evaluation method should be sufficiently explicit for a qualified reviewer to understand how the Evaluation State was produced.</p>
+<p>Therefore:</p>
+<p>Opaque Evaluation ≠ Fully Governed Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="method-consistency" data-oof-section-id="true" role="heading" aria-level="2">Method Consistency</h1>
+<p>The evaluation method should be applied consistently to materially comparable structures.</p>
+<p>Method variation should possess a governed reason.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Basis Evaluation</h1>
+<p>LDEM evaluates the Determination Input Set under the applicable Governed Liability Basis.</p>
+<p>The Basis establishes the methodological foundation for potential Liability.</p>
+<p>LDEM asks whether the evaluated structure satisfies the Basis-specific requirements sufficiently to proceed toward Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-presence" data-oof-section-id="true" role="heading" aria-level="2">Basis Presence</h1>
+<p>The existence of a valid Liability Basis is necessary where required.</p>
+<p>Its existence does not establish Attachment.</p>
+<p>Therefore:</p>
+<p>Valid Liability Basis ≠ Attached Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-applicability" data-oof-section-id="true" role="heading" aria-level="2">Basis Applicability</h1>
+<p>LDEM should evaluate whether the identified Liability Basis actually applies to the defined Determination Object and Scope.</p>
+<p>Therefore:</p>
+<p>Existing Basis ≠ Applicable Basis by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-specific-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Basis-Specific Evaluation</h1>
+<p>The same input structure may produce different evaluations under different Liability Bases.</p>
+<p>Therefore:</p>
+<p>Evaluation under Basis A ≠ Evaluation under Basis B.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-basis-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Multi-Basis Evaluation</h1>
+<p>Where several Bases apply, each should be evaluated separately where materially distinct.</p>
+<p>LDEM should not collapse several Bases into one undifferentiated conclusion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-interaction" data-oof-section-id="true" role="heading" aria-level="2">Basis Interaction</h1>
+<p>Multiple Bases may:</p>
+<p>coexist, overlap, depend upon one another, exclude one another, or operate independently.</p>
+<p>Their relationship should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Condition Evaluation</h1>
+<p>LDEM evaluates the governed Liability Conditions relevant to the applicable Basis.</p>
+<p>The evaluation should preserve:</p>
+<p>Condition identity, Requirement, State, Exception, Exclusion, Modifier, time, and uncertainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-satisfaction" data-oof-section-id="true" role="heading" aria-level="2">Condition Satisfaction</h1>
+<p>A Condition may be:</p>
+<p>Satisfied, Failed, Partially Satisfied, Unknown, Uncertain, Disputed, Pending, or otherwise governed.</p>
+<p>LDEM should preserve the applicable state rather than forcing binary treatment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-satisfaction-and-attachment" data-oof-section-id="true" role="heading" aria-level="2">Condition Satisfaction and Attachment</h1>
+<p>Satisfied Conditions may support an Evaluation State favorable to Attachment.</p>
+<p>They do not themselves attach Liability.</p>
+<p>Therefore:</p>
+<p>Condition Satisfaction ≠ Liability Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-failure" data-oof-section-id="true" role="heading" aria-level="2">Condition Failure</h1>
+<p>A failed Condition may prevent Attachment under a particular Basis.</p>
+<p>It does not necessarily establish the absence of Liability under every possible Basis.</p>
+<p>Therefore:</p>
+<p>Condition Failure under Basis A ≠ No Liability under Basis B.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-exception" data-oof-section-id="true" role="heading" aria-level="2">Condition Exception</h1>
+<p>An Exception or Exclusion may modify the effect of a Condition.</p>
+<p>LDEM should evaluate the governed Condition State after applicable modifiers are considered.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Relationship Evaluation</h1>
+<p>LDEM evaluates whether the relevant Liability Subjects and Relationships correspond to the applicable Liability Basis and Conditions.</p>
+<p>An established Relationship may be necessary without being determinative.</p>
+<p>Therefore:</p>
+<p>Liability Relationship ≠ Liability Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Subject Evaluation</h1>
+<p>Each relevant Subject should be evaluated according to its own governed structure.</p>
+<p>Therefore:</p>
+<p>Shared Matter ≠ Shared Subject Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-subject-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Multi-Subject Evaluation</h1>
+<p>Where several Subjects exist, LDEM should preserve separate evaluations where their:</p>
+<p>Bases, Relationships, Conditions, Connections, or inputs differ materially.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-specific-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Relationship-Specific Evaluation</h1>
+<p>A Subject may participate in several Liability Relationships.</p>
+<p>Evaluation under one Relationship should not automatically transfer to another.</p>
+<p>Therefore:</p>
+<p>Evaluation of Relationship A ≠ Evaluation of Relationship B.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Connection Evaluation</h1>
+<p>LDEM evaluates the Governed Liability Connection Structure as part of the complete Determination structure.</p>
+<p>The Connection should remain associated with its:</p>
+<p>Qualification State, Chain, Relationships, evidence associations, uncertainties, and conflicts.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="qualified-connection" data-oof-section-id="true" role="heading" aria-level="2">Qualified Connection</h1>
+<p>A Qualified Liability Connection may satisfy the connective requirement for evaluation.</p>
+<p>It does not itself establish Attachment.</p>
+<p>Therefore:</p>
+<p>Qualified Liability Connection ≠ Attached Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-qualified-connection" data-oof-section-id="true" role="heading" aria-level="2">Partially Qualified Connection</h1>
+<p>A Partially Qualified Connection may permit only a limited or conditional Evaluation State.</p>
+<p>LDEM should preserve the unresolved connective elements.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-connection" data-oof-section-id="true" role="heading" aria-level="2">Pending Connection</h1>
+<p>A Pending Connection may prevent completion of the evaluation where the unresolved element is material.</p>
+<p>Therefore:</p>
+<p>Pending Connection ≠ Negative Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-connection" data-oof-section-id="true" role="heading" aria-level="2">Disputed Connection</h1>
+<p>A Disputed Connection should remain disputed during evaluation unless an authorized upstream governance process resolves it.</p>
+<p>LDEM should not manufacture certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-alternatives" data-oof-section-id="true" role="heading" aria-level="2">Connection Alternatives</h1>
+<p>Where LCNS preserves multiple plausible Connection Chains, LDEM should evaluate materially relevant alternatives separately.</p>
+<p>Therefore:</p>
+<p>Alternative Connection ≠ Irrelevant Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Input Evaluation</h1>
+<p>LDEM evaluates the Determination Inputs according to their:</p>
+<p>identity, state, relevance, applicability, scope, time, dependency, and uncertainty.</p>
+<p>Inputs should not be treated as interchangeable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-weight" data-oof-section-id="true" role="heading" aria-level="2">Input Weight</h1>
+<p>Where the applicable methodology uses weighting, the weighting method should be explicit and governed.</p>
+<p>Weight should not be assigned merely to produce a desired outcome.</p>
+<p>Therefore:</p>
+<p>Input Weight ≠ Input Truth.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-strength" data-oof-section-id="true" role="heading" aria-level="2">Input Strength</h1>
+<p>Input strength may be represented where supported by the applicable methodology.</p>
+<p>Strength should remain distinct from final Liability significance.</p>
+<p>Therefore:</p>
+<p>Input Strength ≠ Liability Strength.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-independence" data-oof-section-id="true" role="heading" aria-level="2">Input Independence</h1>
+<p>Independent inputs may provide different evaluative significance from dependent or derivative inputs.</p>
+<p>Therefore:</p>
+<p>Multiple Inputs ≠ Multiple Independent Inputs.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="derived-inputs" data-oof-section-id="true" role="heading" aria-level="2">Derived Inputs</h1>
+<p>Derived Inputs should preserve their dependency on underlying inputs.</p>
+<p>They should not be counted as independent confirmation unless methodologically justified.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="corroborating-inputs" data-oof-section-id="true" role="heading" aria-level="2">Corroborating Inputs</h1>
+<p>Independent inputs may corroborate the same material state.</p>
+<p>Corroboration may strengthen the evaluation.</p>
+<p>It does not independently establish Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-inputs" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Inputs</h1>
+<p>Duplicated records should not artificially increase evaluative strength.</p>
+<p>Therefore:</p>
+<p>Input Duplication ≠ Corroboration.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="missing-input-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Missing Input Evaluation</h1>
+<p>Where a material input is missing, LDEM should evaluate the effect of that absence.</p>
+<p>The result may be:</p>
+<p>evaluation limitation, Pending state, Unknown state, Uncertain state, or insufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="missing-input-and-negative-inference" data-oof-section-id="true" role="heading" aria-level="2">Missing Input and Negative Inference</h1>
+<p>Missing information should not automatically be treated as evidence against Attachment unless the applicable governed methodology permits such an inference.</p>
+<p>Therefore:</p>
+<p>Missing Input ≠ Negative Determination Input by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-input-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Unknown Input Evaluation</h1>
+<p>An Unknown Input should remain unknown unless resolved through appropriate governance.</p>
+<p>Therefore:</p>
+<p>Unknown Input ≠ Failed Requirement by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-input-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Input Evaluation</h1>
+<p>Uncertainty should be propagated through the Evaluation rather than silently removed.</p>
+<p>Therefore:</p>
+<p>Uncertain Input ≠ Certain Evaluation Input.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-input-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Disputed Input Evaluation</h1>
+<p>Competing input states should remain distinguishable.</p>
+<p>The evaluation may produce a Disputed or conditional Evaluation State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflict-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Conflict Evaluation</h1>
+<p>LDEM should identify and evaluate material conflicts among governed inputs.</p>
+<p>Conflict may concern:</p>
+<p>facts, states, relationships, conditions, connections, time, authority, or methodology.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflict-preservation" data-oof-section-id="true" role="heading" aria-level="2">Conflict Preservation</h1>
+<p>A conflict should not disappear merely because one representation produces a simpler result.</p>
+<p>Therefore:</p>
+<p>Simpler Narrative ≠ Conflict Resolution.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflict-materiality" data-oof-section-id="true" role="heading" aria-level="2">Conflict Materiality</h1>
+<p>Not every conflict prevents evaluation.</p>
+<p>LDEM should distinguish material conflicts from immaterial differences.</p>
+<p>A conflict is material where resolving it could change the Evaluation State or Attachment readiness.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertainty-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Uncertainty Evaluation</h1>
+<p>LDEM should preserve uncertainty affecting materially relevant parts of the Determination structure.</p>
+<p>Uncertainty may concern:</p>
+<p>input identity, state, time, applicability, Relationship, Condition, Connection, or criterion satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertainty-propagation" data-oof-section-id="true" role="heading" aria-level="2">Uncertainty Propagation</h1>
+<p>Where an upstream input is uncertain, downstream evaluation should preserve the effect of that uncertainty.</p>
+<p>Therefore:</p>
+<p>Upstream Uncertainty ≠ Downstream Certainty by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertainty-accumulation" data-oof-section-id="true" role="heading" aria-level="2">Uncertainty Accumulation</h1>
+<p>Multiple uncertainties may interact.</p>
+<p>LDEM should avoid treating each uncertainty as isolated where their combined effect is materially different.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertainty-reduction" data-oof-section-id="true" role="heading" aria-level="2">Uncertainty Reduction</h1>
+<p>Uncertainty may be reduced by:</p>
+<p>additional governed inputs, upstream correction, validation, evidence, or clarification.</p>
+<p>Reduction should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="residual-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">Residual Uncertainty</h1>
+<p>An Evaluation may remain usable despite Residual Uncertainty where the applicable methodology permits.</p>
+<p>Residual Uncertainty should be explicit.</p>
+<p>Therefore:</p>
+<p>Usable Evaluation ≠ Uncertainty-Free Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Temporal Evaluation</h1>
+<p>LDEM should evaluate inputs within their relevant temporal structure.</p>
+<p>Inputs from different times should not be collapsed into one state where timing materially affects Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-time" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Time</h1>
+<p>The time at which evaluation occurs should remain distinguishable from:</p>
+<p>event time, input time, Attachment-effective time, and Determination time.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Historical Evaluation</h1>
+<p>LDEM may evaluate the Liability structure as it existed at an earlier lifecycle moment.</p>
+<p>Historical evaluation should use the inputs and states appropriate to that time where required.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="later-knowledge" data-oof-section-id="true" role="heading" aria-level="2">Later Knowledge</h1>
+<p>Later-discovered information should not automatically be treated as though it was available at the earlier evaluation moment.</p>
+<p>Therefore:</p>
+<p>Later Knowledge ≠ Earlier Knowledge.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="hindsight-control" data-oof-section-id="true" role="heading" aria-level="2">Hindsight Control</h1>
+<p>LDEM should prevent known outcomes from being projected backward into earlier evaluations without methodological justification.</p>
+<p>Therefore:</p>
+<p>Known Outcome at T2 ≠ Knowledge Available at T1.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="alternative-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Alternative Evaluation</h1>
+<p>Where materially plausible alternative input or Connection structures exist, LDEM may produce separate Evaluation paths.</p>
+<p>These should remain distinct until an appropriate governance process resolves them.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scenario-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Scenario Evaluation</h1>
+<p>Hypothetical or conditional scenarios may be evaluated where explicitly identified.</p>
+<p>They must not be represented as established Determination reality.</p>
+<p>Therefore:</p>
+<p>Scenario Evaluation ≠ Historical Determination Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="counterfactual-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Counterfactual Evaluation</h1>
+<p>A counterfactual may be used where the applicable methodology requires comparison between actual and alternative states.</p>
+<p>Counterfactual structure should remain explicitly hypothetical.</p>
+<p>Therefore:</p>
+<p>Counterfactual State ≠ Operational Reality.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-path" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Path</h1>
+<p>An Evaluation Path is the governed sequence through which specific criteria are applied to specific inputs.</p>
+<p>Different Bases or Subjects may require different Evaluation Paths.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-path-identity" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Path Identity</h1>
+<p>Materially distinct Evaluation Paths should remain identifiable.</p>
+<p>Therefore:</p>
+<p>One Matter ≠ One Evaluation Path.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-path-comparison" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Path Comparison</h1>
+<p>Where multiple paths exist, LDEM may compare their results without prematurely merging them.</p>
+<p>Differences should remain traceable to:</p>
+<p>criteria, inputs, Basis, Subject, Relationship, Condition, or Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Evaluation State</h1>
+<p>LDEM should produce an explicit Evaluation State describing what the governed evaluation establishes before Attachment is determined.</p>
+<p>The Evaluation State is an intermediate LDS governance object.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-evaluation-states" data-oof-section-id="true" role="heading" aria-level="2">Canonical Evaluation States</h1>
+<p>LDEM may represent Evaluation States including:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="supports-attachment" data-oof-section-id="true" role="heading" aria-level="2">Supports Attachment</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="does-not-support-attachment" data-oof-section-id="true" role="heading" aria-level="2">Does Not Support Attachment</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-supports-attachment" data-oof-section-id="true" role="heading" aria-level="2">Partially Supports Attachment</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditionally-supports-attachment" data-oof-section-id="true" role="heading" aria-level="2">Conditionally Supports Attachment</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending" data-oof-section-id="true" role="heading" aria-level="2">Pending</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown" data-oof-section-id="true" role="heading" aria-level="2">Unknown</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain" data-oof-section-id="true" role="heading" aria-level="2">Uncertain</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed" data-oof-section-id="true" role="heading" aria-level="2">Disputed</h1>
+<p>These are Evaluation States, not Liability Determination States.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="supports-attachment-3" data-oof-section-id="true" role="heading" aria-level="2">Supports Attachment</h1>
+<p>Supports Attachment means the evaluated governed structure supports proceeding to an Attachment Determination favorable to Attachment.</p>
+<p>It does not itself attach Liability.</p>
+<p>Therefore:</p>
+<p>Supports Attachment ≠ Attached Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="does-not-support-attachment-3" data-oof-section-id="true" role="heading" aria-level="2">Does Not Support Attachment</h1>
+<p>Does Not Support Attachment means the evaluated structure does not support Attachment within the defined evaluation scope.</p>
+<p>LDAM still owns the formal Attachment Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-supports-attachment-3" data-oof-section-id="true" role="heading" aria-level="2">Partially Supports Attachment</h1>
+<p>Partially Supports Attachment means some required evaluation elements support Attachment while material elements remain incomplete, limited, or unresolved.</p>
+<p>Therefore:</p>
+<p>Partial Evaluation Support ≠ Partial Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditionally-supports-attachment-3" data-oof-section-id="true" role="heading" aria-level="2">Conditionally Supports Attachment</h1>
+<p>Conditionally Supports Attachment means the evaluation supports Attachment only if explicitly identified conditions, assumptions, or unresolved dependencies are satisfied.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Pending Evaluation</h1>
+<p>Pending means the evaluation cannot yet be completed because a material governed dependency remains unresolved.</p>
+<p>Therefore:</p>
+<p>Pending Evaluation ≠ Negative Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Unknown Evaluation</h1>
+<p>Unknown means the available governed structure is insufficient to establish an Evaluation State.</p>
+<p>Therefore:</p>
+<p>Unknown Evaluation ≠ Does Not Support Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Evaluation</h1>
+<p>Uncertain means an Evaluation State can be represented but material uncertainty remains.</p>
+<p>Therefore:</p>
+<p>Uncertain Evaluation ≠ Unknown Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Disputed Evaluation</h1>
+<p>Disputed means materially competing governed Evaluation results remain unresolved.</p>
+<p>Therefore:</p>
+<p>Disputed Evaluation ≠ Failed Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-confidence" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Confidence</h1>
+<p>Where methodology supports it, LDEM may represent confidence in the Evaluation State.</p>
+<p>Confidence should refer to the methodological evaluation.</p>
+<p>It should not be presented as a probability of legal Liability unless a separate governed method legitimately defines that interpretation.</p>
+<p>Therefore:</p>
+<p>Evaluation Confidence ≠ Legal Liability Probability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Sufficiency</h1>
+<p>Evaluation Sufficiency asks whether the evaluation is sufficiently complete, coherent, traceable, and bounded for LDAM to perform Liability Attachment Determination.</p>
+<p>It does not ask whether Attachment should be positive.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="positive-evaluation-vs-sufficient-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Positive Evaluation vs Sufficient Evaluation</h1>
+<p>An Evaluation may be sufficient even where it does not support Attachment.</p>
+<p>Therefore:</p>
+<p>Evaluation Sufficiency ≠ Positive Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-completeness" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Completeness</h1>
+<p>Evaluation Completeness concerns whether all materially required criteria and input categories have been evaluated.</p>
+<p>Therefore:</p>
+<p>Evaluation Completeness ≠ Supports Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="complete-but-uncertain-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Complete but Uncertain Evaluation</h1>
+<p>An Evaluation may be complete while remaining uncertain.</p>
+<p>Completeness concerns process coverage.</p>
+<p>Uncertainty concerns the state of knowledge or evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-integrity" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Integrity</h1>
+<p>A governed Evaluation should preserve:</p>
+<p>criteria, inputs, method, scope, Basis, Conditions, Relationships, Connections, conflicts, uncertainties, and resulting Evaluation State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-traceability" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Traceability</h1>
+<p>The Evaluation State should be traceable backward to:</p>
+<p>criteria, input states, upstream governance objects, and evaluation operations.</p>
+<p>Therefore:</p>
+<p>Untraceable Evaluation ≠ Fully Governed Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-explainability" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Explainability</h1>
+<p>A qualified reviewer should be able to understand:</p>
+<p>what was evaluated, how it was evaluated, what supported the result, what contradicted it, what remained uncertain, and why the Evaluation State resulted.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-reproducibility" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Reproducibility</h1>
+<p>The governed evaluation should preserve enough structure for another qualified implementation to understand and reproduce the methodology applied to the same governed inputs.</p>
+<p>Reproducibility does not require all legal authorities to reach identical legal conclusions.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Record</h1>
+<p>LDEM should preserve a durable Evaluation Record containing materially necessary information about:</p>
+<p>Evaluation identity, scope, criteria, method, inputs, results, uncertainty, conflicts, time, and version.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-identity" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Identity</h1>
+<p>Each materially distinct Evaluation should possess sufficient identity for:</p>
+<p>reference, review, correction, reassessment, versioning, and Attachment handoff.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-change" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Change</h1>
+<p>An Evaluation may change when:</p>
+<p>inputs change, criteria change, an upstream state changes, a conflict is resolved, or new information becomes available.</p>
+<p>Change should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-correction" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Correction</h1>
+<p>An earlier Evaluation may be found incorrectly performed or represented.</p>
+<p>Correction should preserve:</p>
+<p>the earlier Evaluation, corrected Evaluation, reason, time, and provenance.</p>
+<p>Therefore:</p>
+<p>Evaluation Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Reassessment</h1>
+<p>An Evaluation may be reassessed because the governed input structure changes without implying that the earlier Evaluation was incorrectly performed.</p>
+<p>Therefore:</p>
+<p>Evaluation Reassessment ≠ Evaluation Correction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-versioning" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Versioning</h1>
+<p>Material Evaluation changes may require a new version.</p>
+<p>Therefore:</p>
+<p>New Evaluation Version ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-supersession" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Supersession</h1>
+<p>A later Evaluation may supersede an earlier Evaluation.</p>
+<p>The earlier state should remain reconstructable.</p>
+<p>Therefore:</p>
+<p>Evaluation Supersession ≠ Historical Deletion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-reversal" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Reversal</h1>
+<p>A later Evaluation may reach the opposite state after governed inputs or methodology materially change.</p>
+<p>The earlier Evaluation should remain historically visible.</p>
+<p>Therefore:</p>
+<p>Evaluation Reversal ≠ Erasure of Earlier Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Re-Entry</h1>
+<p>Later LDS stages may reveal that Evaluation requires reconsideration.</p>
+<p>LDEM should support targeted re-entry.</p>
+<p>Therefore:</p>
+<p>Evaluation Re-Entry ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-ldim" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to LDIM</h1>
+<p>Where the Evaluation reveals that the Determination Input Set is defective, incomplete, incorrectly associated, or insufficiently governed, the process should return to LDIM.</p>
+<p>LDEM should not manufacture missing inputs.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-lcns" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to LCNS</h1>
+<p>Where Evaluation reveals a Connection defect, the process should return to the relevant LCNS governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-lcos" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to LCOS</h1>
+<p>Where Evaluation reveals a Condition defect, the process should return to LCOS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="earlier-liga-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Earlier LIGA™ Re-Entry</h1>
+<p>Where necessary, the process may return to:</p>
+<p>LRS, LBS, LOS,</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="or-lcs" data-oof-section-id="true" role="heading" aria-level="2">or LCS</h1>
+<p>according to the earliest materially affected governance space.</p>
+<p>The governing principle remains:</p>
+<p>Re-enter the earliest materially affected governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-outcome-bias" data-oof-section-id="true" role="heading" aria-level="2">No Outcome Bias</h1>
+<p>LDEM must not allow the severity or visibility of the outcome to substitute for evaluation.</p>
+<p>Therefore:</p>
+<p>Outcome Severity ≠ Evaluation Result.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-subject-prominence-bias" data-oof-section-id="true" role="heading" aria-level="2">No Subject-Prominence Bias</h1>
+<p>A prominent, wealthy, insured, visible, or institutionally powerful Subject should not receive a different Evaluation State merely because of that status.</p>
+<p>Therefore:</p>
+<p>Subject Prominence ≠ Evaluation Criterion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-insurance-bias" data-oof-section-id="true" role="heading" aria-level="2">No Insurance Bias</h1>
+<p>Insurance coverage should not alter the Attachment Evaluation unless it is genuinely relevant under the applicable Liability Basis.</p>
+<p>Therefore:</p>
+<p>Insurance Availability ≠ Attachment Support.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-financial-capacity-bias" data-oof-section-id="true" role="heading" aria-level="2">No Financial-Capacity Bias</h1>
+<p>Ability to satisfy a potential Liability does not determine whether the governed structure supports Attachment.</p>
+<p>Therefore:</p>
+<p>Ability to Pay ≠ Liability Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-evidence-volume-bias" data-oof-section-id="true" role="heading" aria-level="2">No Evidence-Volume Bias</h1>
+<p>Large evidence volume does not automatically strengthen the Evaluation.</p>
+<p>Therefore:</p>
+<p>More Evidence ≠ Stronger Liability Evaluation by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-narrative-bias" data-oof-section-id="true" role="heading" aria-level="2">No Narrative Bias</h1>
+<p>A simple, persuasive narrative should not replace the governed Evaluation structure.</p>
+<p>Therefore:</p>
+<p>Persuasive Narrative ≠ Governed Evaluation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-automation-bias" data-oof-section-id="true" role="heading" aria-level="2">No Automation Bias</h1>
+<p>An AI or automated system may assist Evaluation.</p>
+<p>Its output should not receive greater authority merely because it is computationally generated.</p>
+<p>Therefore:</p>
+<p>Automated Evaluation ≠ Authoritative Evaluation by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-human-authority-bias" data-oof-section-id="true" role="heading" aria-level="2">No Human Authority Bias</h1>
+<p>A human evaluator's status does not remove the need for traceable methodology.</p>
+<p>Therefore:</p>
+<p>Human Seniority ≠ Evaluation Validity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-authority" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Authority</h1>
+<p>Where an Evaluation is performed by a particular authority, organization, system, or process, that identity should remain explicit.</p>
+<p>Evaluation authority does not automatically equal authority to make the final legal determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="automated-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Automated Evaluation</h1>
+<p>Automated Evaluation should preserve:</p>
+<p>input versions, criteria, method version, system identity, relevant model or ruleset identity where applicable, output state, and traceability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="human-assisted-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Human-Assisted Evaluation</h1>
+<p>Where humans and automated systems jointly evaluate the structure, the division of evaluative roles should remain sufficiently explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-governance-across-systems" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Governance Across Systems</h1>
+<p>Where Evaluation spans several technical or institutional systems, LDEM should preserve cross-system identity and continuity.</p>
+<p>System boundaries must not obscure the Evaluation path.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-history" data-oof-section-id="true" role="heading" aria-level="2">Evaluation History</h1>
+<p>LDEM should preserve the sequence of materially relevant Evaluation States across time.</p>
+<p>Therefore:</p>
+<p>Current Evaluation State ≠ Complete Evaluation History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-reality-knowledge-and-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Reality, Knowledge, and Record</h1>
+<p>Where materially relevant, LDEM should distinguish:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="underlying-liability-relevant-reality" data-oof-section-id="true" role="heading" aria-level="2">Underlying Liability-Relevant Reality</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="available-knowledge" data-oof-section-id="true" role="heading" aria-level="2">Available Knowledge</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-state-3" data-oof-section-id="true" role="heading" aria-level="2">Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-record-3" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Record</h1>
+<p>These may differ.</p>
+<p>Therefore:</p>
+<p>Reality ≠ Knowledge ≠ Evaluation Record by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-readiness-for-attachment" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Readiness for Attachment</h1>
+<p>An Evaluation is ready for LDAM when:</p>
+<p>the Evaluation Object and Scope are explicit, applicable Basis is established, material Conditions are evaluated, relevant Relationships are evaluated, the Connection structure is evaluated, material inputs have been considered, conflicts and uncertainties are explicit, the Evaluation State is recorded, and the Evaluation is sufficiently traceable and reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-evaluation-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Evaluation</h1>
+<p>The principal output of LDEM is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-evaluation-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Evaluation</h1>
+<p>It may contain:</p>
+<p>Evaluation Object, Evaluation Scope, Evaluation Criteria, Evaluation Method, Basis Evaluation, Condition Evaluation, Relationship Evaluation, Connection Evaluation, Input Evaluation, Conflict State, Uncertainty State, Alternative Evaluation Paths, Evaluation State, Evaluation Confidence where applicable, Evaluation Sufficiency State, and Evaluation History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">Meaning of the Output</h1>
+<p>A Governed Liability Determination Evaluation means that the complete Determination Input structure has been methodologically evaluated and its evaluative result made explicit.</p>
+<p>It does not mean Liability has formally attached.</p>
+<p>Therefore:</p>
+<p>Governed Liability Determination Evaluation ≠ Liability Attachment Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-determination-and-attachment" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Determination &amp; Attachment</h1>
+<p>LDEM hands the:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-evaluation-7" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Evaluation</h1>
+<p>to:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ldam-liability-determination-and-attachment-module" data-oof-section-id="true" role="heading" aria-level="2">LDAM — Liability Determination &amp; Attachment Module</h1>
+<p>The next governance question becomes:</p>
+<p>Given the governed Evaluation, what Liability Attachment Determination should be formally established within the defined Determination scope?</p>
+<p>LDEM does not answer that final Attachment question.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LDEM must provide exactly the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-object-scope-and-criteria-governance" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Object, Scope &amp; Criteria Governance</h1>
+<p>Capability to preserve the Determination Object and Scope and establish explicit, applicable, traceable, and versionaware Evaluation Criteria.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-and-condition-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Basis &amp; Condition Evaluation</h1>
+<p>Capability to evaluate the Governed Liability Basis and applicable Liability Conditions while preserving Basis-specific requirements, Condition states, Exceptions, Exclusions, and modifiers.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-relationship-and-connection-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Subject, Relationship &amp; Connection Evaluation</h1>
+<p>Capability to evaluate Subject-specific Liability Relationships and Governed Liability Connection Structures without converting those structures directly into Liability Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-dependency-and-temporal-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Input, Dependency &amp; Temporal Evaluation</h1>
+<p>Capability to evaluate materially relevant inputs according to their identity, state, relevance, applicability, dependency, independence, time, and historical context.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflict-uncertainty-and-alternative-evaluation-governance" data-oof-section-id="true" role="heading" aria-level="2">Conflict, Uncertainty &amp; Alternative Evaluation Governance</h1>
+<p>Capability to preserve material conflicts, unknowns, uncertainty, alternative Connections, competing inputs, scenario paths, and residual uncertainty without manufacturing certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-state-confidence-and-sufficiency-governance" data-oof-section-id="true" role="heading" aria-level="2">Evaluation State, Confidence &amp; Sufficiency Governance</h1>
+<p>Capability to establish explicit Evaluation States and distinguish Evaluation support, confidence, completeness, sufficiency, and uncertainty from Liability Attachment itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-change-correction-versioning-and-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Change, Correction, Versioning &amp; Re-Entry</h1>
+<p>Capability to preserve Evaluation changes, corrections, reassessments, supersession, reversal, versions, history, and targeted lifecycle re-entry without historical erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="attachment-evaluation-handoff" data-oof-section-id="true" role="heading" aria-level="2">Attachment Evaluation Handoff</h1>
+<p>Capability to produce a Governed Liability Determination Evaluation sufficiently explicit, traceable, bounded, and reconstructable for handoff to LDAM without prematurely making the formal Liability Attachment Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LDEM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="confirm-evaluation-object-and-scope" data-oof-section-id="true" role="heading" aria-level="2">Confirm Evaluation Object &amp; Scope</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-applicable-evaluation-criteria" data-oof-section-id="true" role="heading" aria-level="2">Identify Applicable Evaluation Criteria</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="confirm-criteria-origin-and-version" data-oof-section-id="true" role="heading" aria-level="2">Confirm Criteria Origin &amp; Version</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Liability Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-liability-conditions" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Liability Conditions</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-liability-subjects-and-relationships" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Liability Subjects &amp; Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-governed-liability-connection-structure" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Governed Liability Connection Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-material-determination-inputs" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Material Determination Inputs</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-dependencies-independence-corroboration" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Dependencies / Independence / Corroboration</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-temporal-alignment" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Temporal Alignment</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-missing-unknown-uncertain-inputs" data-oof-section-id="true" role="heading" aria-level="2">Identify Missing / Unknown / Uncertain Inputs</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluate-material-conflicts" data-oof-section-id="true" role="heading" aria-level="2">Evaluate Material Conflicts</h1>
+<p>↓ Evaluate Alternative Paths where required ↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="propagate-material-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">Propagate Material Uncertainty</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-evaluation-completeness" data-oof-section-id="true" role="heading" aria-level="2">Assess Evaluation Completeness</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assign-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Assign Evaluation State</h1>
+<p>↓ Assess Evaluation Confidence where applicable ↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-evaluation-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Assess Evaluation Sufficiency</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="record-evaluation-rationale-and-trace" data-oof-section-id="true" role="heading" aria-level="2">Record Evaluation Rationale &amp; Trace</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-change-correction-version-history" data-oof-section-id="true" role="heading" aria-level="2">Preserve Change / Correction / Version History</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-evaluation-9" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Evaluation</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-determination-and-attachment-3" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Determination &amp; Attachment</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LDEM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-evaluation-object" data-oof-section-id="true" role="heading" aria-level="2">Liability Evaluation Object</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-evaluation-scope" data-oof-section-id="true" role="heading" aria-level="2">Liability Evaluation Scope</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-criteria-set" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Criteria Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-criteria-origin-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Criteria Origin Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-method-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Method Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Basis Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Condition Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Subject Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Relationship Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Connection Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Input Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="input-dependency-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Input Dependency Evaluation</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Temporal Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-conflict-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Conflict Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-uncertainty-state" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Uncertainty State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="alternative-evaluation-path" data-oof-section-id="true" role="heading" aria-level="2">Alternative Evaluation Path</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scenario-evaluation-record" data-oof-section-id="true" role="heading" aria-level="2">Scenario Evaluation Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-state-5" data-oof-section-id="true" role="heading" aria-level="2">Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="supports-attachment-state" data-oof-section-id="true" role="heading" aria-level="2">Supports Attachment State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="does-not-support-attachment-state" data-oof-section-id="true" role="heading" aria-level="2">Does Not Support Attachment State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-supports-attachment-state" data-oof-section-id="true" role="heading" aria-level="2">Partially Supports Attachment State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditionally-supports-attachment-state" data-oof-section-id="true" role="heading" aria-level="2">Conditionally Supports Attachment State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Pending Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Unknown Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-evaluation-state" data-oof-section-id="true" role="heading" aria-level="2">Disputed Evaluation State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-confidence-state" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Confidence State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-completeness-state" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Completeness State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-sufficiency-state" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Sufficiency State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-trace-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Trace Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-correction-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Correction Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-reassessment-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Reassessment Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation-version-record" data-oof-section-id="true" role="heading" aria-level="2">Evaluation Version Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-evaluation-record" data-oof-section-id="true" role="heading" aria-level="2">Historical Evaluation Record</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-evaluation-11" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Evaluation</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LDEM preserves the following distinctions:</p>
+<p>Liability Determination Evaluation ≠ Liability Attachment Determination Evaluation Object ≠ Liability Object Evaluation Scope Expansion ≠ Valid Evaluation by default Scope Defect ≠ Authority to Rewrite Scope Desired Outcome ≠ Evaluation Criterion Valid Criterion ≠ Applicable Criterion by default Current Criterion ≠ Historically Applicable Criterion by default Opaque Evaluation ≠ Fully Governed Evaluation Valid Liability Basis ≠ Attached Liability Existing Basis ≠ Applicable Basis by default Evaluation under Basis A ≠ Evaluation under Basis B Condition Satisfaction ≠ Liability Attachment Condition Failure under Basis A ≠ No Liability under Basis B Liability Relationship ≠ Liability Attachment Shared Matter ≠ Shared Subject Evaluation Evaluation of Relationship A ≠ Evaluation of Relationship B Qualified Liability Connection ≠ Attached Liability Pending Connection ≠ Negative Connection Alternative Connection ≠ Irrelevant Connection Input Weight ≠ Input Truth Input Strength ≠ Liability Strength Multiple Inputs ≠ Multiple Independent Inputs Input Duplication ≠ Corroboration Missing Input ≠ Negative Determination Input by default Unknown Input ≠ Failed Requirement by default Uncertain Input ≠ Certain Evaluation Input Simpler Narrative ≠ Conflict Resolution Upstream Uncertainty ≠ Downstream Certainty by default Usable Evaluation ≠ Uncertainty-Free Evaluation Later Knowledge ≠ Earlier Knowledge Known Outcome at T2 ≠ Knowledge Available at T1 Scenario Evaluation ≠ Historical Determination Evaluation Counterfactual State ≠ Operational Reality One Matter ≠ One Evaluation Path Supports Attachment ≠ Attached Liability Partial Evaluation Support ≠ Partial Liability Pending Evaluation ≠ Negative Evaluation Unknown Evaluation ≠ Does Not Support Attachment Uncertain Evaluation ≠ Unknown Evaluation Disputed Evaluation ≠ Failed Evaluation Evaluation Confidence ≠ Legal Liability Probability Evaluation Sufficiency ≠ Positive Evaluation Evaluation Completeness ≠ Supports Attachment Untraceable Evaluation ≠ Fully Governed Evaluation Evaluation Correction ≠ Historical Erasure Evaluation Reassessment ≠ Evaluation Correction New Evaluation Version ≠ New Liability Origin by default Evaluation Supersession ≠ Historical Deletion Evaluation Reversal ≠ Erasure of Earlier Evaluation Evaluation Re-Entry ≠ New Liability Origin by default Outcome Severity ≠ Evaluation Result Subject Prominence ≠ Evaluation Criterion Insurance Availability ≠ Attachment Support Ability to Pay ≠ Liability Evaluation More Evidence ≠ Stronger Liability Evaluation by default Persuasive Narrative ≠ Governed Evaluation Automated Evaluation ≠ Authoritative Evaluation by default Human Seniority ≠ Evaluation Validity Current Evaluation State ≠ Complete Evaluation History Reality ≠ Knowledge ≠ Evaluation Record by default Governed Liability Determination Evaluation ≠ Liability Attachment Determination</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LDEM may evaluate governed inputs originating from other OOF® architectures.</p>
+<p>ORA™ governs Operational Reality.</p>
+<p>HAGA™ governs Harm.</p>
+<p>AGA™ governs Responsibility, Accountability, Authority, and Attribution.</p>
+<p>GOA™ governs Authority, Scope, Delegation, and other governance structures.</p>
+<p>ADIT® governs evidence and auditability.</p>
+<p>VALIDOS™ governs validation.</p>
+<p>OBIDENITY® governs Identity, Ownership, Authority, Permission, Provenance, Transfer, and Continuity.</p>
+<p>AIG® and ASGA™ govern AI and autonomous-system states.</p>
+<p>PGA™ governs Prediction.</p>
+<p>SIMULOS® governs Simulation.</p>
+<p>LDEM does not re-evaluate those objects inside their originating domains.</p>
+<p>It evaluates their Liability-specific significance within the defined Determination structure.</p>
+<p>The canonical interoperability principle is:</p>
+<p>An externally governed state may participate in Liability Determination Evaluation without becoming a Liability Determination and without transferring governance ownership of its original domain to LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LDEM begins with a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-input-set-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Input Set</h1>
+<p>and asks:</p>
+<p>What does this governed input structure establish when evaluated under the applicable Liability Basis, Conditions, Relationships, Connections, and Determination Criteria?</p>
+<p>LDEM governs:</p>
+<p>Evaluation Object, Evaluation Scope, Evaluation Criteria, Evaluation Method, Basis Evaluation, Condition Evaluation, Subject Evaluation, Relationship Evaluation, Connection Evaluation, Input Evaluation, Dependency Evaluation, Temporal Evaluation, Conflict Evaluation, Uncertainty Evaluation, Alternative Evaluation, Scenario Evaluation, Evaluation State, Evaluation Confidence, Evaluation Completeness, Evaluation Sufficiency, Evaluation Change, Correction, Reassessment, Versioning, Supersession, Reversal, Historical Integrity, and Evaluation Handoff.</p>
+<p>LDEM does not govern:</p>
+<p>formal Liability Attachment, final Liability Determination State, Liability Scope, Liability Allocation, Liability State &amp; Change, Liability Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LDEM ends when a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-determination-evaluation-13" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Determination Evaluation</h1>
+<p>is sufficiently explicit and governed for formal Liability Determination &amp; Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-autonomous-system-determination" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Autonomous System Determination</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="evaluation" data-oof-section-id="true" role="heading" aria-level="2">Evaluation</h1>
+<p>An autonomous industrial system performs an action followed by equipment damage.</p>
+<p>LDIM has produced a Governed Liability Determination Input Set containing:</p>
+<p>the applicable Liability Basis, the relevant Subject and Relationship structure, Condition states, the Governed Liability Connection Structure, Operational Reality, autonomous-system authority and execution states, and governed evidence references.</p>
+<p>LDEM evaluates whether those inputs support Liability Attachment.</p>
+<p>It may determine that the relevant Conditions are satisfied, the Connection is qualified, and the system action is sufficiently associated with the governed Object, while uncertainty remains concerning the operator's authority state.</p>
+<p>The resulting Evaluation State may be:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditionally-supports-attachment-5" data-oof-section-id="true" role="heading" aria-level="2">Conditionally Supports Attachment</h1>
+<p>or another appropriate state.</p>
+<p>LDEM does not formally attach Liability.</p>
+<p>That determination passes to LDAM.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-multi-party-industrial-evaluation" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Multi-Party Industrial Evaluation</h1>
+<p>An industrial incident involves an owner, operator, maintenance provider, and component producer.</p>
+<p>LDIM has produced Subject-specific and Basis-specific Determination Input Sets.</p>
+<p>LDEM evaluates them independently.</p>
+<p>The maintenance-provider Evaluation may support Attachment.</p>
+<p>The operator Evaluation may partially support Attachment because a material Connection remains uncertain.</p>
+<p>The producer Evaluation may not support Attachment under one Basis while supporting further evaluation under another.</p>
+<p>The owner's Evaluation may remain Pending because an applicable Condition has not yet been resolved.</p>
+<p>LDEM preserves these different Evaluation States rather than converting the shared incident into one Liability conclusion.</p>
+<p>LDAM can then perform explicit Attachment Determinations for the relevant governed structures.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Liability should not attach merely because the required inputs have been collected.</p>
+<p>Those inputs must first be evaluated through an explicit methodology that preserves the applicable Basis, Conditions, Relationships, Connections, conflicts, uncertainty, timing, and scope.</p>
+<p>LDEM creates that governed evaluation layer.</p>
+<p>It determines what the complete input structure supports without prematurely converting evaluation into Attachment.</p>
+<p>Evaluation establishes what the governed Liability structure supports. It does not itself attach Liability.</p>
+<p>Evaluate the Liability structure before determining Attachment.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lds.html">Liability Determination Standard (LDS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lds-ldam-3.html">LDAM — Liability Determination &amp; Attachment Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

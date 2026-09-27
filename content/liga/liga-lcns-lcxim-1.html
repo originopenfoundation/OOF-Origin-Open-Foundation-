@@ -1,0 +1,1398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LCXIM — Liability Connection Identification Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LCXIM — Liability Connection Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Connection Standard." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LCXIM — Liability Connection Identification Module" />
+<meta property="og:description" content="LCXIM — Liability Connection Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Connection Standard." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LCXIM — Liability Connection Identification Module" />
+<meta name="twitter:description" content="LCXIM — Liability Connection Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Connection Standard." />
+<meta name="DC.title" content="LCXIM — Liability Connection Identification Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html","name":"LCXIM — Liability Connection Identification Module","description":"LCXIM — Liability Connection Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Connection Standard.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LCXIM — Liability Connection Identification Module","item":"https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html"}]},"headline":"LCXIM — Liability Connection Identification Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lcns-lcxim-1.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability Connection Standard (LCNS)","Governance & Enforcement","Liability Governance","Liability Connection Identification"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability Connection Standard (LCNS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability Connection Identification"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lcns.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lcns-lcxrm-2.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability Connection Standard (LCNS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability Connection Identification"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lcxim-liability-connection-identification-module" data-oof-section-id="true" role="heading" aria-level="1">LCXIM — Liability Connection Identification Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lcxim-liability-connection-identification-module-3" data-oof-section-id="true" role="heading" aria-level="2">LCXIM — Liability Connection Identification Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability Connection Standard (LCNS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability Connection Identification<br>
+<b>Module ID:</b> LIGA-LCNS-LCXIM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.06.01.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 22 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Connection Identification Module (LCXIM) governs how potential Liability-Relevant Connections among Liability Subjects, Governed Liability Objects, Governed Liability Conditions, conduct, actions, omissions, events, states, consequences, and other materially relevant inputs are recognized, identified, distinguished, referenced, associated, and preserved for subsequent Liability Connection governance.</p>
+<p>LCXIM determines which potential Connections require explicit governance.</p>
+<p>It does not determine whether those Connections are sufficiently related, complete, qualified, evidenced, or sufficient for Liability Determination.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability Condition Structure → Potential Connection Recognition → Connection Candidate Identification → Connection Identity → Endpoint &amp; Relevance Association → Identified Liability Connection Set Its foundational distinction is:</p>
+<p>Connection Identification ≠ Connection Qualification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LCXIM is:</p>
+<p>to identify the potential Connections that must be explicitly governed before the Liability inquiry can determine their relational structure, chains, qualification, evidentiary support, or downstream significance.</p>
+<p>LCXIM asks:</p>
+<p>Which potential Connections are materially relevant to the Liability inquiry and therefore require explicit governance?</p>
+<p>It does not ask whether those Connections ultimately support Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-parent-standard-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the Parent Standard Flow</h1>
+<p>The internal LCNS progression is:</p>
+<p>Liability Connection Identification → Liability Connection Relationship → Liability Connection Chain → Liability Connection Qualification → Liability Connection Evidence Association LCXIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-connection-identification" data-oof-section-id="true" role="heading" aria-level="2">Liability Connection Identification</h1>
+<p>Its principal input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-condition-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Condition Structure</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-connection-set" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Connection Set</h1>
+<p>Its canonical handoff is:</p>
+<p>Identified Liability Connection Set → Liability Connection Relationship Governance</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>Which potential Connections among the relevant Liability Subjects, Objects, Conditions, conduct, events, states, consequences, and other governed inputs are materially relevant to the Liability inquiry and therefore require explicit governance?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-space" data-oof-section-id="true" role="heading" aria-level="2">Governed Space</h1>
+<p>LCXIM governs:</p>
+<p>Potential Connection Recognition, Connection Candidate Identification, Connection Identity, Connection Endpoint Identification, Connection Source Reference, Connection Target Reference, Preliminary Connection Direction, Connection Relevance Association, Subject Connection Association, Object Connection Association, Condition Connection Association, Basis Connection Association, Relationship Connection Association, Conduct Connection Association, Event Connection Association, State Connection Association, Consequence Connection Association, Potential Direct Connection, Potential Indirect Connection, Potential Multi-Element Connection, Multiple Connection Candidates, Duplicate Connection Candidates, Overlapping Connection Candidates, Unknown Connection Candidates, Uncertain Connection Candidates, Disputed Connection Candidates, and Connection Identification Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate</h1>
+<p>A Connection Candidate is a potentially Liability-relevant relationship between governed elements that has been identified as requiring further Connection governance.</p>
+<p>A Connection Candidate is not yet a Qualified Liability Connection.</p>
+<p>Therefore:</p>
+<p>Connection Candidate ≠ Qualified Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-threshold" data-oof-section-id="true" role="heading" aria-level="2">Identification Threshold</h1>
+<p>A potential Connection should enter LCNS governance when there is a sufficient methodological reason to examine whether the relationship between its elements is relevant to the Liability inquiry.</p>
+<p>The threshold is not:</p>
+<p>proof of Liability, proof of causation, or proof of Connection sufficiency.</p>
+<p>The threshold is:</p>
+<p>sufficient relevance to require explicit Connection governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-recognition" data-oof-section-id="true" role="heading" aria-level="2">Connection Recognition</h1>
+<p>Connection Recognition occurs when the governance process detects that two or more elements may possess a materially relevant relationship.</p>
+<p>Recognition precedes formal identification.</p>
+<p>Therefore:</p>
+<p>Connection Recognition ≠ Connection Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-identification" data-oof-section-id="true" role="heading" aria-level="2">Connection Identification</h1>
+<p>Connection Identification occurs when a recognized potential Connection is explicitly represented as a governed Connection Candidate.</p>
+<p>Identification should establish enough structure to determine:</p>
+<p>what elements may be connected, why the potential Connection matters, and where subsequent Connection governance should continue.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-before-qualification" data-oof-section-id="true" role="heading" aria-level="2">Identification Before Qualification</h1>
+<p>LCXIM deliberately separates Identification from Qualification.</p>
+<p>The sequence is:</p>
+<p>Potential Relationship → Connection Candidate → Connection Structure → Connection Chain → Connection</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="qualification" data-oof-section-id="true" role="heading" aria-level="2">Qualification</h1>
+<p>not:</p>
+<p>Potential Relationship → Liability Conclusion Therefore:</p>
+<p>Identification ≠ Qualification ≠ Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-identity" data-oof-section-id="true" role="heading" aria-level="2">Connection Identity</h1>
+<p>Each materially distinct Connection Candidate should receive a stable governed identity where necessary for traceability.</p>
+<p>Connection Identity enables later modules to:</p>
+<p>structure, chain, qualify, evidence, correct, reassess, or reject the same Connection Candidate without losing its lineage.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-identity-and-endpoints" data-oof-section-id="true" role="heading" aria-level="2">Connection Identity and Endpoints</h1>
+<p>Connection Identity should remain distinct from the identities of its endpoints.</p>
+<p>Therefore:</p>
+<p>Identity of Subject A + Identity of Object B ≠ Identity of Connection A→B.</p>
+<p>The Connection is a distinct governed object.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-identity-and-liability" data-oof-section-id="true" role="heading" aria-level="2">Connection Identity and Liability</h1>
+<p>A Connection Identity does not establish Liability.</p>
+<p>Therefore:</p>
+<p>Connection Identity ≠ Liability Identity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-endpoint-identification" data-oof-section-id="true" role="heading" aria-level="2">Connection Endpoint Identification</h1>
+<p>LCXIM should identify the elements that potentially form the endpoints of a Connection.</p>
+<p>An endpoint may include:</p>
+<p>Liability Subject, Liability Object, Liability Condition, conduct, action, omission, event, state, consequence, or another materially relevant governed element.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="source-endpoint" data-oof-section-id="true" role="heading" aria-level="2">Source Endpoint</h1>
+<p>Where direction is potentially relevant, LCXIM may identify a preliminary Source Endpoint.</p>
+<p>The Source Endpoint represents the element from which the potential directed Connection is considered to originate.</p>
+<p>This does not yet establish final Connection direction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="target-endpoint" data-oof-section-id="true" role="heading" aria-level="2">Target Endpoint</h1>
+<p>LCXIM may identify a preliminary Target Endpoint.</p>
+<p>The Target Endpoint represents the element toward which the potential Connection is considered to operate.</p>
+<p>Therefore:</p>
+<p>Preliminary Source/Target Assignment ≠ Final Connection Direction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-direction" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Direction</h1>
+<p>Where sufficient information exists, LCXIM may preserve preliminary direction.</p>
+<p>Examples:</p>
+<p>Subject → Action Action → Event Event → Object State Condition → Subject Direction is refined in subsequent Connection governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="direction-unknown" data-oof-section-id="true" role="heading" aria-level="2">Direction Unknown</h1>
+<p>A Connection Candidate may be relevant even where direction is not yet known.</p>
+<p>Therefore:</p>
+<p>Unknown Direction ≠ No Connection Candidate.</p>
+<p>Unknown direction should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Subject Connection Candidate</h1>
+<p>A Liability Subject may be potentially connected to:</p>
+<p>another Subject, Object, Condition, action, omission, event, state, consequence, or other governed element.</p>
+<p>LCXIM identifies that potential Connection without determining its downstream meaning.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-object-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Subject–Object Connection Candidate</h1>
+<p>A Subject may possess a potential Connection to a Governed Liability Object through:</p>
+<p>control, operation, ownership, design, maintenance, production, deployment, authority, use, custody, or another relevant mechanism.</p>
+<p>Therefore:</p>
+<p>Subject–Object Association ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-condition-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Subject–Condition Connection Candidate</h1>
+<p>A Subject may be potentially connected to a Liability Condition because the Condition concerns:</p>
+<p>that Subject, its conduct, its authority, its state, its obligation, its capability, or its Relationship.</p>
+<p>Therefore:</p>
+<p>Subject–Condition Association ≠ Condition Satisfaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-conduct-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Subject–Conduct Connection Candidate</h1>
+<p>LCXIM may identify a potential relationship between a Subject and relevant conduct.</p>
+<p>It should not assume that the Subject performed, authorized, controlled, or caused the conduct merely because the Subject appears within the same matter.</p>
+<p>Therefore:</p>
+<p>Subject Presence ≠ Subject–Conduct Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Object Connection Candidate</h1>
+<p>A Governed Liability Object may be potentially connected to:</p>
+<p>Subjects, Conditions, events, actions, states, Harm, loss, or other governed elements.</p>
+<p>LCXIM identifies which such potential Connections require further governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Condition Connection Candidate</h1>
+<p>A Governed Liability Condition may possess potential Connections to:</p>
+<p>Subjects, Relationships, Objects, conduct, events, states, or consequences.</p>
+<p>The Condition's governed State remains an upstream LCOS output.</p>
+<p>Therefore:</p>
+<p>Condition Connection ≠ Condition State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-association" data-oof-section-id="true" role="heading" aria-level="2">Basis Association</h1>
+<p>Every Connection Candidate should remain associated with the Liability Basis or Bases under which its potential relevance is being considered where that association is known.</p>
+<p>Therefore:</p>
+<p>Connection under Basis A ≠ Connection under Basis B by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-association" data-oof-section-id="true" role="heading" aria-level="2">Relationship Association</h1>
+<p>A Connection Candidate may arise within or through an established Liability Relationship.</p>
+<p>The relevant Relationship should be referenced.</p>
+<p>However:</p>
+<p>Liability Relationship ≠ Connection Candidate by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conduct-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Conduct Connection Candidate</h1>
+<p>Conduct may become a Connection Candidate where it potentially links:</p>
+<p>Subject, Object, Condition, event, state, or consequence.</p>
+<p>Conduct alone does not establish the Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="action-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Action Connection Candidate</h1>
+<p>An action may form one endpoint or potential intermediate element of a Connection.</p>
+<p>LCXIM identifies the candidate relationship.</p>
+<p>It does not determine operational causation or Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="omission-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Omission Connection Candidate</h1>
+<p>A potential omission may become relevant where an applicable governed Condition or Relationship makes non-action material.</p>
+<p>LCXIM must not infer omission from outcome alone.</p>
+<p>Therefore:</p>
+<p>Adverse Outcome ≠ Omission.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="event-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Event Connection Candidate</h1>
+<p>An event may potentially connect:</p>
+<p>conduct to consequence, Subject to Object, Condition to state, or multiple other governed elements.</p>
+<p>Therefore:</p>
+<p>Event Coexistence ≠ Established Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">State Connection Candidate</h1>
+<p>A governed state may become a Connection Candidate where it potentially relates materially to another element in the Liability inquiry.</p>
+<p>Examples may include:</p>
+<p>Authority state, Condition state, Operational Reality state, Harm state, Identity state, system state, or control state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="consequence-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Consequence Connection Candidate</h1>
+<p>A consequence may form part of a potential Connection structure.</p>
+<p>LCXIM should identify relevant candidate Connections without assuming that the consequence establishes:</p>
+<p>causation, fault, responsibility, or Liability.</p>
+<p>Therefore:</p>
+<p>Consequence ≠ Connection Proof.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="harm-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Harm Connection Candidate</h1>
+<p>Where Harm is relevant to the applicable Liability Basis, a governed Harm state may form an endpoint or element of a Connection Candidate.</p>
+<p>HAGA™ retains governance ownership of Harm.</p>
+<p>LCXIM governs only identification of the potential Liability-specific Connection.</p>
+<p>Therefore:</p>
+<p>Harm ≠ Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-reality-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Operational Reality Connection Candidate</h1>
+<p>ORA™ may establish actions, events, states, sequences, or mechanisms that become potential Connection inputs.</p>
+<p>LCXIM may identify their potential Liability relevance.</p>
+<p>Therefore:</p>
+<p>Operational Relationship ≠ Liability-Relevant Connection by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="accountability-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Accountability Connection Candidate</h1>
+<p>AGA™ may establish Responsibility, Accountability, Authority, or Attribution states.</p>
+<p>Those states may become elements in a Connection Candidate.</p>
+<p>However:</p>
+<p>Accountability State ≠ Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identity-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Identity Connection Candidate</h1>
+<p>OBIDENITY® may establish Identity, Ownership, Authority, Permission, Provenance, Transfer, or Continuity states.</p>
+<p>LCXIM may identify potential Liability Connections involving those states.</p>
+<p>Therefore:</p>
+<p>Identity Relationship ≠ Liability Connection by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ai-and-autonomous-system-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">AI and Autonomous-System Connection Candidate</h1>
+<p>AIG® or ASGA™ may establish behavior, authority, permission, execution, override, or autonomous-system states.</p>
+<p>Those states may become Connection Candidates where materially relevant to Liability.</p>
+<p>Therefore:</p>
+<p>AI or Autonomous-System Participation ≠ Liability Connection by itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-direct-connection" data-oof-section-id="true" role="heading" aria-level="2">Potential Direct Connection</h1>
+<p>A Connection Candidate may appear direct where no materially necessary intermediate element is currently identified.</p>
+<p>Canonical preliminary form:</p>
+<p>A → B Directness remains subject to subsequent Connection governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-indirect-connection" data-oof-section-id="true" role="heading" aria-level="2">Potential Indirect Connection</h1>
+<p>A Connection Candidate may appear to involve one or more intermediate elements.</p>
+<p>Canonical preliminary form:</p>
+<p>A → ? → B or:</p>
+<p>A → X → B LCXIM preserves the candidate without requiring the complete chain to be known.</p>
+<p>Therefore:</p>
+<p>Incomplete Intermediate Structure ≠ No Connection Candidate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-intermediate-element" data-oof-section-id="true" role="heading" aria-level="2">Unknown Intermediate Element</h1>
+<p>A potentially relevant Connection may be identifiable even where an intermediate element is unknown.</p>
+<p>The unknown element should remain explicit rather than being silently omitted.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-element-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Multi-Element Connection Candidate</h1>
+<p>Some Connection Candidates may involve more than two relevant elements from the beginning.</p>
+<p>Example:</p>
+<p>Subject → Conduct → Event → Object State LCXIM may preserve this as a preliminary multi-element structure for subsequent governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate-network" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate Network</h1>
+<p>Where many potential Connections exist, LCXIM may represent an initial Connection Candidate Network.</p>
+<p>This network is preliminary.</p>
+<p>It does not establish the final Liability Connection Network.</p>
+<p>Therefore:</p>
+<p>Connection Candidate Network ≠ Governed Liability Connection Network.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-subjects" data-oof-section-id="true" role="heading" aria-level="2">Multiple Subjects</h1>
+<p>One matter may contain multiple Subjects potentially connected to the same:</p>
+<p>Object, Condition, event, or consequence.</p>
+<p>Each materially distinct potential Connection should remain separately identifiable.</p>
+<p>Therefore:</p>
+<p>One Matter ≠ One Subject Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-objects" data-oof-section-id="true" role="heading" aria-level="2">Multiple Objects</h1>
+<p>A Subject may be potentially connected to multiple Liability Objects.</p>
+<p>Therefore:</p>
+<p>One Subject ≠ One Object Connection.</p>
+<p>Object-specific Connection Candidates should remain distinct where materially relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-conditions" data-oof-section-id="true" role="heading" aria-level="2">Multiple Conditions</h1>
+<p>The same Subject or Object may possess different potential Connections to different Conditions.</p>
+<p>Therefore:</p>
+<p>One Subject–Object Relationship ≠ One Universal Condition Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-bases" data-oof-section-id="true" role="heading" aria-level="2">Multiple Bases</h1>
+<p>A single factual matter may support several potential Liability Bases.</p>
+<p>Different Bases may require different Connections.</p>
+<p>Therefore:</p>
+<p>One Fact Pattern ≠ One Universal Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="parallel-connection-candidates" data-oof-section-id="true" role="heading" aria-level="2">Parallel Connection Candidates</h1>
+<p>Several Connection Candidates may exist independently.</p>
+<p>LCXIM should preserve them separately unless later governance establishes that they represent the same Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="overlapping-connection-candidates" data-oof-section-id="true" role="heading" aria-level="2">Overlapping Connection Candidates</h1>
+<p>Connection Candidates may share:</p>
+<p>Subjects, Objects, Conditions, events, states, or consequences.</p>
+<p>Overlap does not establish identity.</p>
+<p>Therefore:</p>
+<p>Connection Overlap ≠ Connection Identity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-connection-candidates" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Connection Candidates</h1>
+<p>Multiple records may appear to represent the same potential Connection.</p>
+<p>LCXIM should identify potential duplication without prematurely merging materially distinct Connections.</p>
+<p>Therefore:</p>
+<p>Similar Connection Records ≠ Same Connection by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="candidate-consolidation" data-oof-section-id="true" role="heading" aria-level="2">Candidate Consolidation</h1>
+<p>Where governance establishes that multiple records represent the same Connection Candidate, they may be consolidated under one Connection Identity.</p>
+<p>The provenance of the original records should remain traceable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="candidate-distinction" data-oof-section-id="true" role="heading" aria-level="2">Candidate Distinction</h1>
+<p>Where apparently similar Connection Candidates differ materially in:</p>
+<p>Subject, Object, Condition, Basis, Relationship, direction, time, or relevant event, they should remain distinct.</p>
+<p>Therefore:</p>
+<p>Connection Similarity ≠ Connection Equivalence.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-relevance-association" data-oof-section-id="true" role="heading" aria-level="2">Connection Relevance Association</h1>
+<p>LCXIM should record why a Connection Candidate may be relevant to the Liability inquiry.</p>
+<p>Potential relevance may derive from:</p>
+<p>Liability Basis, Condition, Subject role, Relationship, Object association, conduct, event, state, or consequence.</p>
+<p>This is preliminary relevance.</p>
+<p>It is not Connection Qualification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-relevance" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Relevance</h1>
+<p>A Connection Candidate may be retained where there is sufficient reason to investigate its Liability relevance.</p>
+<p>Therefore:</p>
+<p>Preliminary Relevance ≠ Qualified Connection Relevance.</p>
+<p>Qualification belongs later in LCNS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="weak-preliminary-relevance" data-oof-section-id="true" role="heading" aria-level="2">Weak Preliminary Relevance</h1>
+<p>A Connection Candidate should not necessarily be discarded merely because its initial relevance appears weak.</p>
+<p>Where the Connection is plausibly material and insufficient information exists, it may remain explicitly uncertain.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="irrelevant-relationship" data-oof-section-id="true" role="heading" aria-level="2">Irrelevant Relationship</h1>
+<p>A relationship that has no material relevance to the Liability inquiry should not become a Connection Candidate merely because it exists.</p>
+<p>Therefore:</p>
+<p>Existing Relationship ≠ Liability Connection Candidate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-association" data-oof-section-id="true" role="heading" aria-level="2">Temporal Association</h1>
+<p>LCXIM should preserve known temporal information associated with a Connection Candidate.</p>
+<p>This may include:</p>
+<p>start time, end time, event time, Condition-relevant time, or unknown temporal state.</p>
+<p>Detailed temporal Connection governance occurs later.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Historical Connection Candidate</h1>
+<p>A Connection may be relevant to an earlier lifecycle moment even where it no longer exists.</p>
+<p>Therefore:</p>
+<p>Current Absence ≠ Historical Connection Absence.</p>
+<p>Historical Connection Candidates should remain identifiable where materially relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Unknown Connection Candidate</h1>
+<p>A potential Connection may remain:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown" data-oof-section-id="true" role="heading" aria-level="2">Unknown</h1>
+<p>where there is reason to examine it but insufficient information to identify its structure reliably.</p>
+<p>Therefore:</p>
+<p>Unknown Connection Candidate ≠ Rejected Connection Candidate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Connection Candidate</h1>
+<p>A Connection Candidate may be identified with uncertainty concerning:</p>
+<p>endpoints, direction, relevance, time, or identity.</p>
+<p>Uncertainty should remain explicit.</p>
+<p>Therefore:</p>
+<p>Connection Uncertainty ≠ Authority to Invent Structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Disputed Connection Candidate</h1>
+<p>Different governed sources may disagree about whether a potential Connection exists.</p>
+<p>LCXIM should preserve the dispute.</p>
+<p>Therefore:</p>
+<p>Disputed Connection Candidate ≠ Established Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflicting-candidate-representations" data-oof-section-id="true" role="heading" aria-level="2">Conflicting Candidate Representations</h1>
+<p>Different records may describe the same potential Connection differently.</p>
+<p>LCXIM should preserve the conflict until subsequent governance can resolve it.</p>
+<p>Therefore:</p>
+<p>Conflicting Representation ≠ Authority to Select Preferred Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate-assumption" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate Assumption</h1>
+<p>An assumed Connection may be recorded as an assumption where methodologically necessary.</p>
+<p>It must remain clearly distinguished from an identified supported Connection Candidate.</p>
+<p>Therefore:</p>
+<p>Assumed Connection ≠ Established Connection Candidate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate-inference" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate Inference</h1>
+<p>A potential Connection may be identified through inference.</p>
+<p>Where inference is used, LCXIM should preserve:</p>
+<p>the source inputs, inference logic, and uncertainty.</p>
+<p>Therefore:</p>
+<p>Inferred Connection Candidate ≠ Directly Observed Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-outcome-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Outcome Shortcut</h1>
+<p>LCXIM must not identify a specific Connection merely because an adverse outcome occurred.</p>
+<p>Therefore:</p>
+<p>Adverse Outcome ≠ Identified Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-harm-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Harm Shortcut</h1>
+<p>The existence of Harm does not identify which Subject, Object, action, omission, or Relationship possesses the relevant Liability Connection.</p>
+<p>Therefore:</p>
+<p>Harm ≠ Identified Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-proximity-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Proximity Shortcut</h1>
+<p>Temporal, spatial, organizational, technical, or relational proximity may justify examination.</p>
+<p>It does not establish the Connection.</p>
+<p>Therefore:</p>
+<p>Proximity ≠ Identified Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-relationship-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Relationship Shortcut</h1>
+<p>A Liability Relationship may create a reason to examine a Connection.</p>
+<p>It does not become the Connection automatically.</p>
+<p>Therefore:</p>
+<p>Liability Relationship ≠ Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-condition-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Condition Shortcut</h1>
+<p>A satisfied Liability Condition may make a Connection inquiry necessary.</p>
+<p>It does not identify the required Connection automatically.</p>
+<p>Therefore:</p>
+<p>Satisfied Condition ≠ Identified Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-control-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Control Shortcut</h1>
+<p>Control may justify identifying a potential Connection Candidate.</p>
+<p>It does not establish the final Connection.</p>
+<p>Therefore:</p>
+<p>Control ≠ Established Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-responsibility-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Responsibility Shortcut</h1>
+<p>Responsibility may justify examination of a Connection.</p>
+<p>It does not establish Liability Connection by itself.</p>
+<p>Therefore:</p>
+<p>Responsibility ≠ Established Liability Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-causation-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Causation Shortcut</h1>
+<p>Operational causation may reveal a potential Connection Candidate.</p>
+<p>However:</p>
+<p>Operational Causation ≠ Liability-Relevant Connection.</p>
+<p>LCXIM identifies the candidate for further governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-evidence-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Evidence Shortcut</h1>
+<p>Evidence may reveal or support a potential Connection.</p>
+<p>Evidence does not become the Connection.</p>
+<p>Therefore:</p>
+<p>Evidence ≠ Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-claim-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Claim Shortcut</h1>
+<p>A Claim may allege that a Connection exists.</p>
+<p>LCXIM may identify the alleged Connection as a Candidate where relevant.</p>
+<p>However:</p>
+<p>Claimed Connection ≠ Governed Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-change" data-oof-section-id="true" role="heading" aria-level="2">Identification Change</h1>
+<p>New information may:</p>
+<p>add, remove, split, merge, or alter Connection Candidates.</p>
+<p>Changes should remain traceable where materially relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-correction" data-oof-section-id="true" role="heading" aria-level="2">Identification Correction</h1>
+<p>A Connection Candidate may later be found to have been:</p>
+<p>misidentified, duplicated, incorrectly associated, or assigned incorrect endpoints.</p>
+<p>Correction should preserve the earlier record.</p>
+<p>Therefore:</p>
+<p>Connection Identification Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Identification Reassessment</h1>
+<p>Later information may require reconsideration of whether a Connection Candidate should remain within LCNS governance.</p>
+<p>Therefore:</p>
+<p>Identification Reassessment ≠ Liability Reassessment by itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lifecycle-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Lifecycle Re-Entry</h1>
+<p>Later LCNS or LIGA™ stages may reveal that a relevant Connection was never identified.</p>
+<p>LCXIM should support re-entry.</p>
+<p>Therefore:</p>
+<p>Connection Identification Re-Entry ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Identification Sufficiency</h1>
+<p>Connection Identification is sufficient when the governance process can determine:</p>
+<p>which Connection Candidates require further governance, which materially relevant elements form their known or potential endpoints, which Basis, Subjects, Objects, Conditions, and Relationships are associated, what preliminary direction is known, what relevance supports inclusion, and what uncertainty remains.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-sufficiency-and-completeness" data-oof-section-id="true" role="heading" aria-level="2">Identification Sufficiency and Completeness</h1>
+<p>LCXIM does not require the complete Connection Chain to be known.</p>
+<p>It requires sufficient identification for the next module to govern the relationship structure.</p>
+<p>Therefore:</p>
+<p>Identification Sufficiency ≠ Connection Completeness.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-connection-relationship-governance" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Connection Relationship Governance</h1>
+<p>Once materially relevant Connection Candidates have been sufficiently identified, LCXIM produces:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-connection-set-3" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Connection Set</h1>
+<p>The handoff should preserve, where applicable:</p>
+<p>Connection Candidate Identity, Source Endpoint, Target Endpoint, preliminary direction, Basis association, Subject association, Relationship association, Object association, Condition association, conduct association, event association, state association, consequence association, temporal reference, preliminary relevance, uncertainty, dispute, assumption, inference, and provenance.</p>
+<p>The next governance question becomes:</p>
+<p>What is the governed relationship between the identified elements of each Liability Connection Candidate?</p>
+<p>That question belongs to:</p>
+<p>LCXRM — Liability Connection Relationship Module.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LCXIM must provide at least the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-connection-recognition" data-oof-section-id="true" role="heading" aria-level="2">Potential Connection Recognition</h1>
+<p>Capability to detect materially relevant potential relationships among Liability Subjects, Objects, Conditions, conduct, events, states, consequences, and other governed inputs without converting those relationships directly into Liability Connections.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate-identification-and-identity" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate Identification &amp; Identity</h1>
+<p>Capability to establish explicit Connection Candidates and persistent identities sufficient for subsequent Connection governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="endpoint-and-preliminary-direction-identification" data-oof-section-id="true" role="heading" aria-level="2">Endpoint &amp; Preliminary Direction Identification</h1>
+<p>Capability to identify known or potential Connection endpoints and preserve preliminary direction or explicitly unknown direction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-subject-relationship-object-and-condition-association" data-oof-section-id="true" role="heading" aria-level="2">Basis, Subject, Relationship, Object &amp; Condition Association</h1>
+<p>Capability to associate each Connection Candidate with the materially relevant Liability Basis, Subjects, Relationships, Objects, and Conditions without collapsing those structures into the Connection itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-element-multiple-overlapping-and-duplicate-candidate-governance" data-oof-section-id="true" role="heading" aria-level="2">Multi-Element, Multiple, Overlapping &amp; Duplicate Candidate Governance</h1>
+<p>Capability to preserve multi-element, parallel, overlapping, potentially duplicate, and networked Connection Candidates while preventing inappropriate consolidation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-relevance-uncertainty-dispute-and-inference-governance" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Relevance, Uncertainty, Dispute &amp; Inference Governance</h1>
+<p>Capability to preserve why a Connection Candidate requires governance while explicitly representing uncertainty, disputes, assumptions, and inferred candidate structures.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-change-correction-and-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Identification Change, Correction &amp; Re-Entry</h1>
+<p>Capability to govern additions, removals, splits, consolidations, corrections, reassessments, and lifecycle re-entry without historical erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-sufficiency-and-handoff" data-oof-section-id="true" role="heading" aria-level="2">Identification Sufficiency &amp; Handoff</h1>
+<p>Capability to determine whether the Identified Liability Connection Set contains sufficient structure for Liability Connection Relationship governance without requiring premature Connection qualification or Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LCXIM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-condition-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Condition Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-materially-relevant-elements" data-oof-section-id="true" role="heading" aria-level="2">Identify Materially Relevant Elements</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recognize-potential-relationships" data-oof-section-id="true" role="heading" aria-level="2">Recognize Potential Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="form-connection-candidates" data-oof-section-id="true" role="heading" aria-level="2">Form Connection Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assign-connection-candidate-identity" data-oof-section-id="true" role="heading" aria-level="2">Assign Connection Candidate Identity</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-known-potential-endpoints" data-oof-section-id="true" role="heading" aria-level="2">Identify Known / Potential Endpoints</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-preliminary-direction" data-oof-section-id="true" role="heading" aria-level="2">Preserve Preliminary Direction</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Associate Liability Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-subjects-relationships-objects-conditions" data-oof-section-id="true" role="heading" aria-level="2">Associate Subjects / Relationships / Objects / Conditions</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-conduct-events-states-consequences" data-oof-section-id="true" role="heading" aria-level="2">Associate Conduct / Events / States / Consequences</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-potential-direct-indirect-multi-element-structure" data-oof-section-id="true" role="heading" aria-level="2">Identify Potential Direct / Indirect / Multi-Element Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-multiple-overlapping-duplicate-candidates" data-oof-section-id="true" role="heading" aria-level="2">Identify Multiple / Overlapping / Duplicate Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-preliminary-relevance" data-oof-section-id="true" role="heading" aria-level="2">Preserve Preliminary Relevance</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-unknown-uncertain-disputed-inferred-candidates" data-oof-section-id="true" role="heading" aria-level="2">Preserve Unknown / Uncertain / Disputed / Inferred Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Assess Identification Sufficiency</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-connection-set-5" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Connection Set</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-connection-relationship-governance-3" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Connection Relationship Governance</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LCXIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate-identity" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-endpoint-reference" data-oof-section-id="true" role="heading" aria-level="2">Connection Endpoint Reference</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-source-endpoint" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Source Endpoint</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-target-endpoint" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Target Endpoint</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preliminary-connection-direction" data-oof-section-id="true" role="heading" aria-level="2">Preliminary Connection Direction</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Subject Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Object Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Condition Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="basis-associated-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Basis-Associated Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-associated-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Relationship-Associated Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conduct-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Conduct Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="action-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Action Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="omission-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Omission Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="event-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Event Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">State Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="consequence-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Consequence Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="harm-related-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Harm-Related Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-direct-connection-3" data-oof-section-id="true" role="heading" aria-level="2">Potential Direct Connection</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-indirect-connection-3" data-oof-section-id="true" role="heading" aria-level="2">Potential Indirect Connection</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-multi-element-connection" data-oof-section-id="true" role="heading" aria-level="2">Potential Multi-Element Connection</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-candidate-network-3" data-oof-section-id="true" role="heading" aria-level="2">Connection Candidate Network</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="parallel-connection-candidate-set" data-oof-section-id="true" role="heading" aria-level="2">Parallel Connection Candidate Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="overlapping-connection-candidate-set" data-oof-section-id="true" role="heading" aria-level="2">Overlapping Connection Candidate Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-duplicate-connection-record" data-oof-section-id="true" role="heading" aria-level="2">Potential Duplicate Connection Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Unknown Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-connection-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Disputed Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assumed-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Assumed Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="inferred-connection-candidate" data-oof-section-id="true" role="heading" aria-level="2">Inferred Connection Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-identification-correction-record" data-oof-section-id="true" role="heading" aria-level="2">Connection Identification Correction Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-identification-reassessment-record" data-oof-section-id="true" role="heading" aria-level="2">Connection Identification Reassessment Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-identification-sufficiency-state" data-oof-section-id="true" role="heading" aria-level="2">Connection Identification Sufficiency State</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-connection-set-7" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Connection Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LCXIM preserves the following distinctions:</p>
+<p>Connection Identification ≠ Connection Qualification Connection Candidate ≠ Qualified Liability Connection Connection Recognition ≠ Connection Identification Identification ≠ Qualification ≠ Liability Determination Identity of Endpoints ≠ Identity of Connection Connection Identity ≠ Liability Identity Preliminary Source/Target Assignment ≠ Final Connection Direction Unknown Direction ≠ No Connection Candidate Subject–Object Association ≠ Liability Subject–Condition Association ≠ Condition Satisfaction Subject Presence ≠ Subject–Conduct Connection Condition Connection ≠ Condition State Connection under Basis A ≠ Connection under Basis B by default Liability Relationship ≠ Connection Candidate by default Adverse Outcome ≠ Omission Event Coexistence ≠ Established Connection Consequence ≠ Connection Proof Harm ≠ Liability Connection Operational Relationship ≠ Liability-Relevant Connection by default Accountability State ≠ Liability Connection Identity Relationship ≠ Liability Connection by default AI or Autonomous-System Participation ≠ Liability Connection by itself Incomplete Intermediate Structure ≠ No Connection Candidate Connection Candidate Network ≠ Governed Liability Connection Network One Matter ≠ One Subject Connection One Subject ≠ One Object Connection One Subject–Object Relationship ≠ One Universal Condition Connection One Fact Pattern ≠ One Universal Liability Connection Connection Overlap ≠ Connection Identity Similar Connection Records ≠ Same Connection by default Connection Similarity ≠ Connection Equivalence Preliminary Relevance ≠ Qualified Connection Relevance Existing Relationship ≠ Liability Connection Candidate Current Absence ≠ Historical Connection Absence Unknown Connection Candidate ≠ Rejected Connection Candidate Connection Uncertainty ≠ Authority to Invent Structure Disputed Connection Candidate ≠ Established Connection Conflicting Representation ≠ Authority to Select Preferred Connection Assumed Connection ≠ Established Connection Candidate Inferred Connection Candidate ≠ Directly Observed Connection Adverse Outcome ≠ Identified Liability Connection Harm ≠ Identified Liability Connection Proximity ≠ Identified Liability Connection Liability Relationship ≠ Liability Connection Satisfied Condition ≠ Identified Liability Connection Control ≠ Established Liability Connection Responsibility ≠ Established Liability Connection Operational Causation ≠ Liability-Relevant Connection Evidence ≠ Connection Claimed Connection ≠ Governed Connection Connection Identification Correction ≠ Historical Erasure Identification Reassessment ≠ Liability Reassessment by itself Connection Identification Re-Entry ≠ New Liability Origin by default Identification Sufficiency ≠ Connection Completeness</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LCXIM may recognize potential Connection Candidates from governed states produced elsewhere in the OOF® architecture ecosystem.</p>
+<p>ORA™ may provide operational actions, events, states, sequences, and mechanisms.</p>
+<p>HAGA™ may provide governed Harm states.</p>
+<p>AGA™ may provide Responsibility, Accountability, Authority, and Attribution states.</p>
+<p>GOA™ may provide Authority, Scope, and Delegation structures.</p>
+<p>ADIT® may provide evidence that reveals a potential Connection Candidate.</p>
+<p>VALIDOS™ may provide validated states.</p>
+<p>OBIDENITY® may provide Identity, Ownership, Authority, Permission, Provenance, Transfer, and Continuity states.</p>
+<p>AIG® and ASGA™ may provide AI and autonomous-system states.</p>
+<p>LCXIM does not assume governance ownership of those states.</p>
+<p>It determines only whether a potential relationship involving them requires explicit Liability Connection governance.</p>
+<p>The canonical interoperability principle is:</p>
+<p>An externally governed state may reveal a potential Liability Connection without becoming the Liability Connection itself and without transferring governance ownership of its original domain to LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LCXIM begins with a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-condition-structure-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Condition Structure</h1>
+<p>and asks:</p>
+<p>Which potential Connections are materially relevant to the Liability inquiry and therefore require explicit governance?</p>
+<p>LCXIM governs:</p>
+<p>Potential Connection Recognition, Connection Candidate Identification, Connection Identity, Endpoint Identification, Preliminary Direction, Basis Association, Subject Association, Relationship Association, Object Association, Condition Association, Conduct Association, Event Association, State Association, Consequence Association, Potential Direct and Indirect Connections, Multi-Element Candidates, Multiple Candidates, Overlapping Candidates, Potential Duplicates, Preliminary Relevance, Unknown Candidates, Uncertain Candidates, Disputed Candidates, Assumptions, Inferences, Identification Change, Correction, Reassessment, Re-Entry, and Identification Sufficiency.</p>
+<p>LCXIM does not determine:</p>
+<p>the final relationship structure of the Connection, the complete Connection Chain, Connection Qualification, Connection Evidence Sufficiency, Operational Causation, Liability Attachment, Liability Determination, Liability Scope, Liability Allocation, Liability State, Liability Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LCXIM ends when an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-connection-set-9" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Connection Set</h1>
+<p>is sufficiently established for Liability Connection Relationship governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-autonomous-equipment-incident" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Autonomous Equipment Incident</h1>
+<p>An autonomous industrial machine performs an action shortly before an operational incident.</p>
+<p>The governed matter contains:</p>
+<p>the autonomous system, a human operator, a facility operator, the equipment Object, applicable Liability Conditions, an operational event, and a resulting consequence.</p>
+<p>LCXIM does not assume that every element is Liability-connected merely because all appear in the same incident.</p>
+<p>It identifies the materially relevant potential Connections that require further governance, such as:</p>
+<p>autonomous system → action, operator → system, facility operator → Object, action → operational event, and event → consequence.</p>
+<p>These remain Connection Candidates.</p>
+<p>Their exact relationship structure, chain, qualification, and evidentiary sufficiency are governed later.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-multi-party-maintenance-matter" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Multi-Party Maintenance Matter</h1>
+<p>A technical failure occurs after work involving an equipment owner, operator, maintenance provider, and component producer.</p>
+<p>LCXIM identifies potentially relevant Connection Candidates among:</p>
+<p>the Subjects, the Governed Liability Object, the maintenance Condition, maintenance conduct, equipment state, technical event, and resulting consequence.</p>
+<p>The module preserves separate candidates where different Subjects may possess different Connections to the same matter.</p>
+<p>It does not determine which party is liable.</p>
+<p>It produces the Identified Liability Connection Set required for subsequent Connection Relationship governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>A Liability inquiry cannot govern its connective structure reliably until it first identifies which potential Connections actually require examination.</p>
+<p>The existence of Subjects, Objects, Conditions, conduct, events, Harm, consequences, evidence, or operational causation does not automatically establish the Liability Connection among them.</p>
+<p>LCXIM makes those potential Connections explicit without prematurely qualifying them or converting them into Liability.</p>
+<p>Identification determines which Connections must be governed. It does not determine what those Connections ultimately establish.</p>
+<p>Identify the Connection before defining its relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lcns.html">Liability Connection Standard (LCNS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lcns-lcxrm-2.html">LCXRM — Liability Connection Relationship Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

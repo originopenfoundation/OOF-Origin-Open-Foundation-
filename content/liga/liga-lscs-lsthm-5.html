@@ -1,0 +1,1530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LSTHM — Liability State History Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LSTHM — Liability State History Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard (LSCS)." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LSTHM — Liability State History Module" />
+<meta property="og:description" content="LSTHM — Liability State History Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard (LSCS)." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LSTHM — Liability State History Module" />
+<meta name="twitter:description" content="LSTHM — Liability State History Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard (LSCS)." />
+<meta name="DC.title" content="LSTHM — Liability State History Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html","name":"LSTHM — Liability State History Module","description":"LSTHM — Liability State History Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State & Change Standard (LSCS).","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LSTHM — Liability State History Module","item":"https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html"}]},"headline":"LSTHM — Liability State History Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lscs-lsthm-5.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability State & Change Standard (LSCS)","Governance & Enforcement","Liability Governance","Liability State History"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability State & Change Standard (LSCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability State History"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lscs.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability State & Change Standard (LSCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability State History"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lsthm-liability-state-history-module" data-oof-section-id="true" role="heading" aria-level="1">LSTHM — Liability State History Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lsthm-liability-state-history-module-3" data-oof-section-id="true" role="heading" aria-level="2">LSTHM — Liability State History Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability State &amp; Change Standard (LSCS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability State History<br>
+<b>Module ID:</b> LIGA-LSCS-LSTHM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.09.05.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 24 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability State History Module (LSTHM) governs how Liability States, State Transitions, identified and assessed Liability Changes, corrections, reassessments, supersessions, reversals, unresolved states, re-entry events, and downstream routing decisions are preserved as a continuous and reconstructable Liability State history.</p>
+<p>LSTHM ensures that the current Liability State does not replace or erase the governed states that preceded it.</p>
+<p>It preserves the temporal, relational, structural, methodological, and authority context necessary to reconstruct how Liability moved from one governed state to another and why the current state exists.</p>
+<p>LSTHM does not determine Liability, create a State Transition, identify a new Change, or assess the substantive effect of a Change.</p>
+<p>It governs historical continuity after those governance actions occur.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability State + Governed Liability State Transition + Assessed Liability Change → Historical Association → State Sequence → Change &amp; Transition Record → Supersession / Correction / Reassessment Preservation → Re-Entry &amp; Routing History → Governed Liability State History Its foundational distinction is:</p>
+<p>Current Liability State ≠ Complete Liability History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LSTHM is:</p>
+<p>to preserve how Liability reached its current state without allowing later states, corrections, reassessments, or lifecycle re-entry to erase the governed states that came before them.</p>
+<p>LSTIM identifies the current state.</p>
+<p>LSTTM governs transitions between states.</p>
+<p>LCHIM identifies Liability Change.</p>
+<p>LCHAM assesses the effect of that Change.</p>
+<p>LSTHM preserves the resulting history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-lscs-internal-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the LSCS Internal Flow</h1>
+<p>The internal LSCS progression is:</p>
+<p>Liability State Identification → Liability State Transition → Liability Change Identification → Liability Change Assessment → Liability State History LSTHM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-history" data-oof-section-id="true" role="heading" aria-level="2">Liability State History</h1>
+<p>Its principal inputs may include:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-change" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Change</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assessed-liability-change" data-oof-section-id="true" role="heading" aria-level="2">Assessed Liability Change</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-history" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State History</h1>
+<p>This output supports continuing Liability State governance and any legitimate downstream routing or lifecycle re-entry.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>How must Liability States, transitions, changes, assessments, corrections, reassessments, and re-entry events be preserved so that the current Liability structure remains historically reconstructable?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-history-object" data-oof-section-id="true" role="heading" aria-level="2">Liability State History Object</h1>
+<p>Every Liability State History should identify the Liability structure whose history is being preserved.</p>
+<p>The History Object may concern:</p>
+<p>a complete Liability Relationship, a Subject-specific Liability, a Scope portion, an Allocation, an obligation, a Liability Network component, or another explicitly governed Liability structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-identity" data-oof-section-id="true" role="heading" aria-level="2">Historical Identity</h1>
+<p>The history should possess sufficient identity to distinguish it from:</p>
+<p>another Liability, another Relationship, another Subject, another Liability Object, another historical sequence, or another lifecycle.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-origin-association" data-oof-section-id="true" role="heading" aria-level="2">Liability Origin Association</h1>
+<p>The State History should remain associated with the Liability Origin from which the governed Liability developed.</p>
+<p>Therefore:</p>
+<p>State History without Liability Origin ≠ Complete Liability History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determination-association" data-oof-section-id="true" role="heading" aria-level="2">Determination Association</h1>
+<p>State History should preserve its relationship to the Liability Determination that established the Liability.</p>
+<p>Historical State governance must not detach current Liability from its original Determination structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scope-association" data-oof-section-id="true" role="heading" aria-level="2">Scope Association</h1>
+<p>Historical States should remain associated with the Scope that applied during the relevant period.</p>
+<p>A later Scope should not silently replace the historical Scope.</p>
+<p>Therefore:</p>
+<p>Current Scope ≠ Historical Scope by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="allocation-association" data-oof-section-id="true" role="heading" aria-level="2">Allocation Association</h1>
+<p>Where Allocation changed over time, the State History should preserve which Allocation applied during each materially relevant period.</p>
+<p>Therefore:</p>
+<p>Current Allocation ≠ Historical Allocation by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-association" data-oof-section-id="true" role="heading" aria-level="2">Subject Association</h1>
+<p>Historical Liability States should remain associated with the Subjects to whom they applied.</p>
+<p>A later Subject change should not rewrite historical Subject relationships.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-association" data-oof-section-id="true" role="heading" aria-level="2">Relationship Association</h1>
+<p>Historical states should remain connected to the Liability Relationships within which they existed.</p>
+<p>Therefore:</p>
+<p>Current Relationship Structure ≠ Historical Relationship Structure by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="object-and-basis-association" data-oof-section-id="true" role="heading" aria-level="2">Object and Basis Association</h1>
+<p>Where materially relevant, State History should preserve the Liability Object and Liability Basis applicable to each historical state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-history-entry" data-oof-section-id="true" role="heading" aria-level="2">State History Entry</h1>
+<p>Each material historical state should be represented through a distinct State History Entry.</p>
+<p>A State History Entry may include:</p>
+<p>State Identity, State classification, State object, effective period, Subject, Relationship, Scope, Allocation, obligation, dependencies, authority, rationale, provenance, and transition association.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-state-sequence" data-oof-section-id="true" role="heading" aria-level="2">Historical State Sequence</h1>
+<p>LSTHM should preserve the sequence in which governed Liability States became operative.</p>
+<p>The sequence may be represented as:</p>
+<p>State A → State B → State C → Current State where each transition remains reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sequence-integrity" data-oof-section-id="true" role="heading" aria-level="2">Sequence Integrity</h1>
+<p>Historical ordering should reflect governed effective time rather than merely database entry order.</p>
+<p>Therefore:</p>
+<p>Record Order ≠ Liability State Order by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="current-state" data-oof-section-id="true" role="heading" aria-level="2">Current State</h1>
+<p>The Current Liability State should be explicitly distinguishable from historical states.</p>
+<p>The current state is the presently operative state.</p>
+<p>It is not the complete Liability history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-state" data-oof-section-id="true" role="heading" aria-level="2">Historical State</h1>
+<p>A Historical Liability State is a state that applied during an earlier governed period.</p>
+<p>Historical does not mean incorrect.</p>
+<p>Therefore:</p>
+<p>Historical State ≠ Invalid State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="superseded-state" data-oof-section-id="true" role="heading" aria-level="2">Superseded State</h1>
+<p>A Superseded State was legitimately replaced by another governed state.</p>
+<p>It remains part of the historical record.</p>
+<p>Therefore:</p>
+<p>State Supersession ≠ Historical Deletion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="corrected-state" data-oof-section-id="true" role="heading" aria-level="2">Corrected State</h1>
+<p>Where an earlier State Identification or record was incorrect, the correction should identify:</p>
+<p>the earlier representation, the corrected representation, the correction basis, the correction time, and the applicable historical effect.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="correction-integrity" data-oof-section-id="true" role="heading" aria-level="2">Correction Integrity</h1>
+<p>Correction should not cause the earlier record to disappear.</p>
+<p>Therefore:</p>
+<p>State Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reassessed-state" data-oof-section-id="true" role="heading" aria-level="2">Reassessed State</h1>
+<p>A state may be reassessed because new governed information or circumstances become available.</p>
+<p>A reassessed state should remain distinguishable from a corrected state.</p>
+<p>Therefore:</p>
+<p>State Reassessment ≠ State Correction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reversed-state" data-oof-section-id="true" role="heading" aria-level="2">Reversed State</h1>
+<p>A later governed process may reverse an earlier state effect.</p>
+<p>The earlier state should remain preserved.</p>
+<p>Therefore:</p>
+<p>State Reversal ≠ State Deletion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-historical-state" data-oof-section-id="true" role="heading" aria-level="2">Unknown Historical State</h1>
+<p>Where a historical state cannot be reliably reconstructed, the gap should remain explicit.</p>
+<p>Therefore:</p>
+<p>Unknown Historical State ≠ No Historical State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-historical-state" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Historical State</h1>
+<p>Where multiple historical states remain plausible, uncertainty should be preserved.</p>
+<p>Historical reconstruction should not manufacture certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-historical-state" data-oof-section-id="true" role="heading" aria-level="2">Disputed Historical State</h1>
+<p>Where materially competing governed accounts exist concerning a historical Liability State, the dispute should remain represented.</p>
+<p>Therefore:</p>
+<p>Disputed Historical State ≠ Authority to Select a Preferred History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-gap" data-oof-section-id="true" role="heading" aria-level="2">Historical Gap</h1>
+<p>A missing portion of Liability State history should be explicitly identifiable.</p>
+<p>A system should not silently bridge an unknown interval.</p>
+<p>Therefore:</p>
+<p>Historical Gap ≠ State Continuity by assumption.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-effective-period" data-oof-section-id="true" role="heading" aria-level="2">State Effective Period</h1>
+<p>Every material historical state should preserve the period during which it governed where this can be established.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-start-time" data-oof-section-id="true" role="heading" aria-level="2">State Start Time</h1>
+<p>State Start Time identifies when a historical state became operative.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-end-time" data-oof-section-id="true" role="heading" aria-level="2">State End Time</h1>
+<p>State End Time identifies when a historical state ceased to be operative.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="observation-time" data-oof-section-id="true" role="heading" aria-level="2">Observation Time</h1>
+<p>The time a state was observed may differ from when it became effective.</p>
+<p>Therefore:</p>
+<p>State Observation Time ≠ Historical State Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recording-time" data-oof-section-id="true" role="heading" aria-level="2">Recording Time</h1>
+<p>The time a historical state was entered into a system may differ from its effective period.</p>
+<p>Therefore:</p>
+<p>State Recording Time ≠ Historical State Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="discovery-time" data-oof-section-id="true" role="heading" aria-level="2">Discovery Time</h1>
+<p>A historical state may be discovered only after its operative period.</p>
+<p>The discovery time should not replace the historical effective time.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retrospective-reconstruction" data-oof-section-id="true" role="heading" aria-level="2">Retrospective Reconstruction</h1>
+<p>A later governance process may reconstruct an earlier Liability State.</p>
+<p>The system should distinguish:</p>
+<p>the historical state being reconstructed, the time it applied, and the later time at which it was reconstructed.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retrospective-integrity" data-oof-section-id="true" role="heading" aria-level="2">Retrospective Integrity</h1>
+<p>Therefore:</p>
+<p>Retrospective Reconstruction ≠ Historical Rewrite.</p>
+<p>The purpose is to improve historical representation, not to pretend the later knowledge existed earlier.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-transition-history" data-oof-section-id="true" role="heading" aria-level="2">State Transition History</h1>
+<p>Every material State Transition should remain associated with:</p>
+<p>Source State, Target State, trigger, conditions, authority where applicable, effective time, rationale, and provenance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-chain" data-oof-section-id="true" role="heading" aria-level="2">Transition Chain</h1>
+<p>LSTHM should preserve the sequence of transitions connecting historical states.</p>
+<p>Example:</p>
+<p>Active → Suspended → Active → Under Reassessment → Modified Each transition remains a separate governed event.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-chain-integrity" data-oof-section-id="true" role="heading" aria-level="2">Transition Chain Integrity</h1>
+<p>The current state should remain traceable through the transition chain to earlier states.</p>
+<p>Therefore:</p>
+<p>Current State ≠ Complete Transition Chain.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="failed-transition-history" data-oof-section-id="true" role="heading" aria-level="2">Failed Transition History</h1>
+<p>A transition that was evaluated but legitimately failed may remain relevant to the Liability history.</p>
+<p>Where material, the failure should be preserved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cancelled-transition-history" data-oof-section-id="true" role="heading" aria-level="2">Cancelled Transition History</h1>
+<p>A planned or pending transition that was later cancelled should remain distinguishable from a transition that never existed.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reversed-transition-history" data-oof-section-id="true" role="heading" aria-level="2">Reversed Transition History</h1>
+<p>Where a completed transition was later reversed, both the original transition and the reversal should remain reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="superseded-transition-history" data-oof-section-id="true" role="heading" aria-level="2">Superseded Transition History</h1>
+<p>A transition may be superseded by later governance.</p>
+<p>Supersession should not delete the earlier transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="change-history" data-oof-section-id="true" role="heading" aria-level="2">Change History</h1>
+<p>LSTHM should preserve material Liability Changes associated with State history.</p>
+<p>The Change record should remain distinguishable from the State and Transition records.</p>
+<p>Therefore:</p>
+<p>Liability Change ≠ Liability State History Entry by itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="change-identification-history" data-oof-section-id="true" role="heading" aria-level="2">Change Identification History</h1>
+<p>Where LCHIM identified a potential Liability Change, that identification may remain historically relevant even if later assessment determines that no Liability modification was required.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="change-assessment-history" data-oof-section-id="true" role="heading" aria-level="2">Change Assessment History</h1>
+<p>LSTHM should preserve the outcome of material Change Assessments.</p>
+<p>Possible historical outcomes may include:</p>
+<p>No Material Liability Effect, State Change Required, Upstream Reassessment Required, Scope Reassessment Required, Allocation Reassessment Required, Transfer &amp; Recourse Routing Required, Resolution &amp; Discharge Routing Required, Unknown Effect, Uncertain Effect, or Disputed Effect.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-change-assessment-history" data-oof-section-id="true" role="heading" aria-level="2">No-Change Assessment History</h1>
+<p>A formal assessment concluding that Liability remained unchanged may itself be historically material.</p>
+<p>Therefore:</p>
+<p>No Liability Change ≠ No Governance Event.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="change-effective-time-history" data-oof-section-id="true" role="heading" aria-level="2">Change Effective Time History</h1>
+<p>Where an assessed Change affects Liability from a specific time, that effective time should remain preserved separately from Change discovery and assessment time.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="change-sequence" data-oof-section-id="true" role="heading" aria-level="2">Change Sequence</h1>
+<p>Multiple Liability Changes should remain ordered according to their relevant temporal and structural relationships.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="parallel-change-history" data-oof-section-id="true" role="heading" aria-level="2">Parallel Change History</h1>
+<p>Several Changes may occur in parallel.</p>
+<p>Parallel Changes should remain separately identifiable where their Liability effects differ.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="composite-change-history" data-oof-section-id="true" role="heading" aria-level="2">Composite Change History</h1>
+<p>Where several Changes were governed as one Composite Change, both the composite structure and its material constituent Changes should remain reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-network-history" data-oof-section-id="true" role="heading" aria-level="2">Liability Network History</h1>
+<p>A Liability Network may contain multiple Relationships with different State histories.</p>
+<p>LSTHM should preserve those histories separately while maintaining their network association.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="local-history-vs-network-history" data-oof-section-id="true" role="heading" aria-level="2">Local History vs Network History</h1>
+<p>Therefore:</p>
+<p>One Liability Relationship History ≠ Complete Liability Network History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="network-state-history" data-oof-section-id="true" role="heading" aria-level="2">Network State History</h1>
+<p>Where a network-level state is represented, the underlying Relationship states should remain accessible.</p>
+<p>A network-level summary should not erase local state variation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-propagation" data-oof-section-id="true" role="heading" aria-level="2">Historical Propagation</h1>
+<p>Where a State Transition or Change propagated from one Liability component to another, the propagation path should remain reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="propagation-origin" data-oof-section-id="true" role="heading" aria-level="2">Propagation Origin</h1>
+<p>The originating Change or Transition should remain identifiable.</p>
+<p>Therefore:</p>
+<p>Propagated State ≠ Independent State Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-history" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry History</h1>
+<p>Where Liability governance re-entered an earlier LIGA™ governance space, the re-entry should be preserved.</p>
+<p>The history should identify:</p>
+<p>why re-entry occurred, which governance space was re-entered, what structure was reassessed, what remained valid, and what changed afterward.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="earliest-materially-affected-space" data-oof-section-id="true" role="heading" aria-level="2">Earliest Materially Affected Space</h1>
+<p>Where re-entry occurs, the historical record should identify the governance space selected under the principle:</p>
+<p>Re-enter the earliest materially affected governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-continuity" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry Continuity</h1>
+<p>Re-entry should remain connected to the existing Liability lifecycle unless legitimate governance establishes a distinct new Liability Origin.</p>
+<p>Therefore:</p>
+<p>Lifecycle Re-Entry ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-historical-integrity" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry Historical Integrity</h1>
+<p>The canonical rule is:</p>
+<p>Re-entry must not rewrite history.</p>
+<p>The pre-re-entry state remains part of the governed Liability history even where subsequent reassessment changes the current structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserving-unaffected-governance" data-oof-section-id="true" role="heading" aria-level="2">Preserving Unaffected Governance</h1>
+<p>Where re-entry affects only part of the Liability structure, the historical record should identify which governance remained valid.</p>
+<p>The canonical principle is:</p>
+<p>Reassess what materially changed. Preserve what remains valid.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="upstream-reassessment-history" data-oof-section-id="true" role="heading" aria-level="2">Upstream Reassessment History</h1>
+<p>Where a Change required reassessment of:</p>
+<p>Context, Object, Basis, Relationships, Conditions, Connection, Determination, Scope, or Allocation, the re-entry and resulting downstream consequences should remain historically linked.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="downstream-routing-history" data-oof-section-id="true" role="heading" aria-level="2">Downstream Routing History</h1>
+<p>Where a Liability State or Change creates downstream routing, the routing decision should remain historically identifiable.</p>
+<p>Possible destinations include:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ltrs-liability-transfer-and-recourse-standard" data-oof-section-id="true" role="heading" aria-level="2">LTRS — Liability Transfer &amp; Recourse Standard</h1>
+<p>and:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lrds-liability-resolution-and-discharge-standard" data-oof-section-id="true" role="heading" aria-level="2">LRDS — Liability Resolution &amp; Discharge Standard</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="routing-completion" data-oof-section-id="true" role="heading" aria-level="2">Routing ≠ Completion</h1>
+<p>A historical routing record does not mean the downstream governance process was completed.</p>
+<p>Therefore:</p>
+<p>Transfer Routing ≠ Liability Transfer.</p>
+<p>Resolution Routing ≠ Liability Resolution.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-and-recourse-history-association" data-oof-section-id="true" role="heading" aria-level="2">Transfer &amp; Recourse History Association</h1>
+<p>Where Liability enters Transfer or Recourse governance, LSTHM should preserve the state from which that downstream process originated.</p>
+<p>This allows secondary Liability structures to remain connected to their primary Liability history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="resolution-and-discharge-history-association" data-oof-section-id="true" role="heading" aria-level="2">Resolution &amp; Discharge History Association</h1>
+<p>Where Liability enters Resolution &amp; Discharge governance, the originating Liability State should remain identifiable.</p>
+<p>This prevents Resolution from becoming detached from the Liability that was being resolved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="finality-boundary" data-oof-section-id="true" role="heading" aria-level="2">Finality Boundary</h1>
+<p>LSTHM preserves State history but does not determine Liability Finality.</p>
+<p>Therefore:</p>
+<p>Complete State History ≠ Liability Finality.</p>
+<p>Finality belongs to LCFS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-continuity-vs-finality" data-oof-section-id="true" role="heading" aria-level="2">Historical Continuity vs Finality</h1>
+<p>Historical continuity persists even after active Liability governance eventually reaches Finality.</p>
+<p>Therefore:</p>
+<p>Liability Finality ≠ Liability History Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="claim-history-boundary" data-oof-section-id="true" role="heading" aria-level="2">Claim History Boundary</h1>
+<p>Claim history may interact with Liability history but remains distinct.</p>
+<p>Therefore:</p>
+<p>Claim History ≠ Liability History.</p>
+<p>Claim opening, payment, rejection, closure, or reopening should not silently rewrite Liability State history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="harm-history-boundary" data-oof-section-id="true" role="heading" aria-level="2">Harm History Boundary</h1>
+<p>Harm history remains governed separately by HAGA™.</p>
+<p>Therefore:</p>
+<p>Harm History ≠ Liability History.</p>
+<p>A Harm state may change independently of Liability State history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="responsibility-and-accountability-history-boundary" data-oof-section-id="true" role="heading" aria-level="2">Responsibility &amp; Accountability History Boundary</h1>
+<p>Responsibility and Accountability histories remain separate governed structures.</p>
+<p>Therefore:</p>
+<p>Responsibility History ≠ Liability History.</p>
+<p>Accountability History ≠ Liability History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="payment-history-boundary" data-oof-section-id="true" role="heading" aria-level="2">Payment History Boundary</h1>
+<p>Payment history may become relevant to Liability State or Resolution governance.</p>
+<p>It does not replace Liability State history.</p>
+<p>Therefore:</p>
+<p>Payment History ≠ Liability History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insurance-history-boundary" data-oof-section-id="true" role="heading" aria-level="2">Insurance History Boundary</h1>
+<p>Insurance coverage and payment history remain separate from substantive Liability history.</p>
+<p>Therefore:</p>
+<p>Insurance History ≠ Liability History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-history-boundary" data-oof-section-id="true" role="heading" aria-level="2">Operational History Boundary</h1>
+<p>Operational system history may provide relevant inputs.</p>
+<p>It does not become Liability history merely because the operational system was associated with the Liability.</p>
+<p>Therefore:</p>
+<p>Operational History ≠ Liability History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-provenance" data-oof-section-id="true" role="heading" aria-level="2">Historical Provenance</h1>
+<p>Every material historical record should preserve sufficient provenance to identify:</p>
+<p>its source, the Liability structure it concerns, the time it applies, the authority where relevant, the methodology or governance action that produced it, and its relationship to preceding and subsequent records.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-traceability" data-oof-section-id="true" role="heading" aria-level="2">Historical Traceability</h1>
+<p>A qualified reviewer should be able to reconstruct:</p>
+<p>Liability Determination → Scope &amp; Allocation → State → Transition → Change → Assessment → New State → ReEntry / Routing where applicable without reconstructing the matter from unstructured raw information.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-rationale" data-oof-section-id="true" role="heading" aria-level="2">Historical Rationale</h1>
+<p>Material transitions, corrections, reassessments, and routing decisions should preserve their rationale.</p>
+<p>Therefore:</p>
+<p>Historical Record ≠ Historical Rationale by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-authority" data-oof-section-id="true" role="heading" aria-level="2">Historical Authority</h1>
+<p>Where a historical state or transition depended upon an authority, that authority relationship should remain preserved.</p>
+<p>A later authority structure should not overwrite the historical authority context.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-evidence-association" data-oof-section-id="true" role="heading" aria-level="2">Historical Evidence Association</h1>
+<p>Evidence supporting a historical state, transition, or Change Assessment should remain associable with the relevant historical object.</p>
+<p>Evidence should not be confused with the history itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-versioning" data-oof-section-id="true" role="heading" aria-level="2">Historical Versioning</h1>
+<p>Material updates to Liability State History should preserve prior versions or equivalent reconstructable records where necessary.</p>
+<p>Therefore:</p>
+<p>History Update ≠ Historical Replacement.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-correction" data-oof-section-id="true" role="heading" aria-level="2">Historical Correction</h1>
+<p>Errors in historical representation may be corrected.</p>
+<p>The correction should preserve:</p>
+<p>what was previously recorded, what was corrected, why it was corrected, when the correction occurred, and what historical period the correction affects.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-integrity" data-oof-section-id="true" role="heading" aria-level="2">Historical Integrity</h1>
+<p>LSTHM should prevent:</p>
+<p>silent deletion, silent overwriting, silent backdating, untraceable state replacement, untraceable transition replacement, and untraceable lifecycle re-entry.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-immutability-vs-correctability" data-oof-section-id="true" role="heading" aria-level="2">Historical Immutability vs Correctability</h1>
+<p>Historical integrity does not require that an incorrect record remain uncorrectable.</p>
+<p>The correct principle is:</p>
+<p>Historical Preservation ≠ Historical Immutability.</p>
+<p>A record may be corrected while the correction itself remains visible and reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-history-reconstruction" data-oof-section-id="true" role="heading" aria-level="2">State History Reconstruction</h1>
+<p>A system should be capable of reconstructing the Liability State applicable at a materially relevant historical point or period where sufficient governed information exists.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="point-in-time-reconstruction" data-oof-section-id="true" role="heading" aria-level="2">Point-in-Time Reconstruction</h1>
+<p>Point-in-Time Reconstruction determines the governed Liability State at a defined historical moment.</p>
+<p>This may require consideration of:</p>
+<p>effective times, retrospective corrections, supersessions, and re-entry outcomes.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="period-reconstruction" data-oof-section-id="true" role="heading" aria-level="2">Period Reconstruction</h1>
+<p>Period Reconstruction determines how Liability State changed across a defined interval.</p>
+<p>The result should preserve transitions rather than presenting only beginning and ending states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">Historical Uncertainty</h1>
+<p>Where historical reconstruction cannot reach sufficient certainty, uncertainty should remain explicit.</p>
+<p>Therefore:</p>
+<p>Incomplete Historical Evidence ≠ Authority to Manufacture State History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-history-consistency" data-oof-section-id="true" role="heading" aria-level="2">State History Consistency</h1>
+<p>Historical records should remain internally coherent across:</p>
+<p>State identities, effective times, transitions, Changes, assessments, Subjects, Relationships, Scope, Allocation, and downstream routing.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-conflict" data-oof-section-id="true" role="heading" aria-level="2">Historical Conflict</h1>
+<p>Where historical sources conflict, the conflict should remain identifiable until legitimately resolved.</p>
+<p>Therefore:</p>
+<p>Conflicting Historical Records ≠ One Historical Truth by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-historical-records" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Historical Records</h1>
+<p>Multiple records may represent the same historical State or Transition.</p>
+<p>Duplicate records should not create duplicate Liability history.</p>
+<p>Therefore:</p>
+<p>Multiple Historical Records ≠ Multiple Historical Events by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="automated-historical-governance" data-oof-section-id="true" role="heading" aria-level="2">Automated Historical Governance</h1>
+<p>AI or automated systems may support:</p>
+<p>timeline reconstruction, state sequencing, change association, transition mapping, version comparison, conflict detection, and provenance analysis.</p>
+<p>Automation should preserve uncertainty and source boundaries.</p>
+<p>Therefore:</p>
+<p>Automated Historical Reconstruction ≠ Authoritative Liability History by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="machine-readable-state-history" data-oof-section-id="true" role="heading" aria-level="2">Machine-Readable State History</h1>
+<p>Where implemented digitally, State History should support machine-readable representation of:</p>
+<p>state identity, state type, effective period, Subjects, Relationships, Scope, Allocation, transitions, Changes, assessments, re-entry, routing, provenance, and unresolved states.</p>
+<p>Machine readability should not reduce methodological meaning.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-history-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State History</h1>
+<p>The principal output of LSTHM is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-history-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State History</h1>
+<p>It should preserve, where applicable:</p>
+<p>Liability Origin, Liability Determination association, historical Subjects, historical Relationships, historical Objects and Bases, historical Scope, historical Allocation, State identities, State classifications, State effective periods, Transition identities, Transition chains, Change identities, Change assessments, corrections, reassessments, reversals, supersessions, unknown states, uncertain states, disputed states, historical gaps, re-entry events, propagation paths, downstream routing, authority, rationale, provenance, and current State association.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">Meaning of the Output</h1>
+<p>A Governed Liability State History means that the evolution of established Liability through State and Change governance is sufficiently preserved to reconstruct how the current Liability structure emerged.</p>
+<p>It does not mean that Liability has reached Resolution, Discharge, or Finality.</p>
+<p>Therefore:</p>
+<p>Governed Liability State History ≠ Liability Lifecycle Completion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lscs-completion-function" data-oof-section-id="true" role="heading" aria-level="2">LSCS Completion Function</h1>
+<p>LSTHM completes the internal LSCS module sequence:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lstim-liability-state-identification-module" data-oof-section-id="true" role="heading" aria-level="2">LSTIM — Liability State Identification Module</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lsttm-liability-state-transition-module" data-oof-section-id="true" role="heading" aria-level="2">LSTTM — Liability State Transition Module</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lchim-liability-change-identification-module" data-oof-section-id="true" role="heading" aria-level="2">LCHIM — Liability Change Identification Module</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lcham-liability-change-assessment-module" data-oof-section-id="true" role="heading" aria-level="2">LCHAM — Liability Change Assessment Module</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lsthm-liability-state-history-module-5" data-oof-section-id="true" role="heading" aria-level="2">LSTHM — Liability State History Module</h1>
+<p>The combined LSCS output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-and-change-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State &amp; Change Structure</h1>
+<p>This structure may continue into:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ltrs-liability-transfer-and-recourse-standard-3" data-oof-section-id="true" role="heading" aria-level="2">LTRS — Liability Transfer &amp; Recourse Standard</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lrds-liability-resolution-and-discharge-standard-3" data-oof-section-id="true" role="heading" aria-level="2">LRDS — Liability Resolution &amp; Discharge Standard</h1>
+<p>or:</p>
+<p>targeted lifecycle re-entry as applicable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LSTHM must provide exactly the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-history-identity-and-lifecycle-association" data-oof-section-id="true" role="heading" aria-level="2">Liability State History Identity &amp; Lifecycle Association</h1>
+<p>Capability to preserve State History identity and associate historical States with Liability Origin, Determination, Subjects, Relationships, Objects, Bases, Scope, Allocation, obligations, and applicable lifecycle structures.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-sequence-effective-period-and-point-in-time-reconstruction-governance" data-oof-section-id="true" role="heading" aria-level="2">State Sequence, Effective Period &amp; Point-in-Time Reconstruction Governance</h1>
+<p>Capability to preserve historical State sequences, effective periods, start and end times, observation and recording distinctions, and reconstruct the governed Liability State at materially relevant historical points or periods.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-change-and-assessment-history-governance" data-oof-section-id="true" role="heading" aria-level="2">Transition, Change &amp; Assessment History Governance</h1>
+<p>Capability to preserve State Transitions, Transition Chains, identified Liability Changes, Change Assessments, no-change outcomes, propagation, and the relationships among those historical objects.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="correction-reassessment-reversal-supersession-and-version-governance" data-oof-section-id="true" role="heading" aria-level="2">Correction, Reassessment, Reversal, Supersession &amp; Version Governance</h1>
+<p>Capability to preserve corrected, reassessed, reversed, superseded, and updated states or assessments without deleting prior governed records.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-uncertain-disputed-gap-and-conflict-history-governance" data-oof-section-id="true" role="heading" aria-level="2">Unknown, Uncertain, Disputed, Gap &amp; Conflict History Governance</h1>
+<p>Capability to explicitly represent incomplete, uncertain, disputed, missing, duplicated, or conflicting historical information without manufacturing certainty or false continuity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-origin-continuity-and-unaffected-governance-preservation" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry, Origin Continuity &amp; Unaffected-Governance Preservation</h1>
+<p>Capability to preserve lifecycle re-entry, identify the earliest materially affected governance space, maintain Liability Origin continuity, preserve unaffected governance, and prevent historical rewriting.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="downstream-routing-network-history-provenance-and-traceability-governance" data-oof-section-id="true" role="heading" aria-level="2">Downstream Routing, Network History, Provenance &amp; Traceability Governance</h1>
+<p>Capability to preserve Transfer &amp; Recourse and Resolution &amp; Discharge routing, multi-Relationship and Liability Network histories, authority, rationale, provenance, evidence association, and reconstructable traceability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lscs-completion-and-lifecycle-continuation-governance" data-oof-section-id="true" role="heading" aria-level="2">LSCS Completion &amp; Lifecycle Continuation Governance</h1>
+<p>Capability to produce a Governed Liability State History that completes the LSCS State &amp; Change structure and supports legitimate continuation into Transfer &amp; Recourse, Resolution &amp; Discharge, or targeted lifecycle re-entry.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LSTHM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-assessed-liability-change" data-oof-section-id="true" role="heading" aria-level="2">Identified / Assessed Liability Change</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-historical-object" data-oof-section-id="true" role="heading" aria-level="2">Identify Historical Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-liability-origin-and-determination" data-oof-section-id="true" role="heading" aria-level="2">Associate Liability Origin &amp; Determination</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-subject-relationship-scope-allocation" data-oof-section-id="true" role="heading" aria-level="2">Associate Subject / Relationship / Scope / Allocation</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-effective-period" data-oof-section-id="true" role="heading" aria-level="2">Establish Effective Period</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-state-sequence" data-oof-section-id="true" role="heading" aria-level="2">Preserve State Sequence</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-transition-chain" data-oof-section-id="true" role="heading" aria-level="2">Preserve Transition Chain</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-change-and-assessment" data-oof-section-id="true" role="heading" aria-level="2">Associate Change &amp; Assessment</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-correction-reassessment-reversal-supersession" data-oof-section-id="true" role="heading" aria-level="2">Preserve Correction / Reassessment / Reversal / Supersession</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-unknown-uncertain-disputed-gap-states" data-oof-section-id="true" role="heading" aria-level="2">Preserve Unknown / Uncertain / Disputed / Gap States</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-re-entry-and-origin-continuity" data-oof-section-id="true" role="heading" aria-level="2">Preserve Re-Entry &amp; Origin Continuity</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-propagation-and-network-relationships" data-oof-section-id="true" role="heading" aria-level="2">Preserve Propagation &amp; Network Relationships</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-downstream-routing" data-oof-section-id="true" role="heading" aria-level="2">Preserve Downstream Routing</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-authority-rationale-provenance" data-oof-section-id="true" role="heading" aria-level="2">Preserve Authority / Rationale / Provenance</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-history-7" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State History</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-and-change-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State &amp; Change Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LSTHM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-history-identity" data-oof-section-id="true" role="heading" aria-level="2">Liability State History Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-state-entry" data-oof-section-id="true" role="heading" aria-level="2">Historical State Entry</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="current-state-association" data-oof-section-id="true" role="heading" aria-level="2">Current State Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-state-sequence-3" data-oof-section-id="true" role="heading" aria-level="2">Historical State Sequence</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="state-effective-period-record" data-oof-section-id="true" role="heading" aria-level="2">State Effective Period Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="point-in-time-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Point-in-Time Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="period-liability-state-history" data-oof-section-id="true" role="heading" aria-level="2">Period Liability State History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-history-record" data-oof-section-id="true" role="heading" aria-level="2">Transition History Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-chain-3" data-oof-section-id="true" role="heading" aria-level="2">Transition Chain</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="failed-transition-history-3" data-oof-section-id="true" role="heading" aria-level="2">Failed Transition History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cancelled-transition-history-3" data-oof-section-id="true" role="heading" aria-level="2">Cancelled Transition History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reversed-transition-history-3" data-oof-section-id="true" role="heading" aria-level="2">Reversed Transition History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="superseded-transition-history-3" data-oof-section-id="true" role="heading" aria-level="2">Superseded Transition History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-change-history" data-oof-section-id="true" role="heading" aria-level="2">Liability Change History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="change-assessment-history-3" data-oof-section-id="true" role="heading" aria-level="2">Change Assessment History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-change-assessment-record" data-oof-section-id="true" role="heading" aria-level="2">No-Change Assessment Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="correction-history" data-oof-section-id="true" role="heading" aria-level="2">Correction History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reassessment-history" data-oof-section-id="true" role="heading" aria-level="2">Reassessment History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reversal-history" data-oof-section-id="true" role="heading" aria-level="2">Reversal History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="supersession-history" data-oof-section-id="true" role="heading" aria-level="2">Supersession History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-historical-state-3" data-oof-section-id="true" role="heading" aria-level="2">Unknown Historical State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-historical-state-3" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Historical State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-historical-state-3" data-oof-section-id="true" role="heading" aria-level="2">Disputed Historical State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-gap-record" data-oof-section-id="true" role="heading" aria-level="2">Historical Gap Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-conflict-record" data-oof-section-id="true" role="heading" aria-level="2">Historical Conflict Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-history-3" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="origin-continuity-record" data-oof-section-id="true" role="heading" aria-level="2">Origin Continuity Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="propagation-history" data-oof-section-id="true" role="heading" aria-level="2">Propagation History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-network-history-3" data-oof-section-id="true" role="heading" aria-level="2">Liability Network History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-and-recourse-routing-history" data-oof-section-id="true" role="heading" aria-level="2">Transfer &amp; Recourse Routing History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="resolution-and-discharge-routing-history" data-oof-section-id="true" role="heading" aria-level="2">Resolution &amp; Discharge Routing History</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-authority-record" data-oof-section-id="true" role="heading" aria-level="2">Historical Authority Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-rationale-3" data-oof-section-id="true" role="heading" aria-level="2">Historical Rationale</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-provenance-record" data-oof-section-id="true" role="heading" aria-level="2">Historical Provenance Record</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-history-9" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State History</h1>
+<p>which contributes to the LSCS output:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-and-change-structure-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State &amp; Change Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LSTHM preserves the following distinctions:</p>
+<p>Current Liability State ≠ Complete Liability History State History without Liability Origin ≠ Complete Liability History Current Scope ≠ Historical Scope by default Current Allocation ≠ Historical Allocation by default Current Relationship Structure ≠ Historical Relationship Structure by default Record Order ≠ Liability State Order by default Historical State ≠ Invalid State State Supersession ≠ Historical Deletion State Correction ≠ Historical Erasure State Reassessment ≠ State Correction State Reversal ≠ State Deletion Unknown Historical State ≠ No Historical State Disputed Historical State ≠ Authority to Select a Preferred History Historical Gap ≠ State Continuity by assumption State Observation Time ≠ Historical State Effective Time by default State Recording Time ≠ Historical State Effective Time by default Retrospective Reconstruction ≠ Historical Rewrite Current State ≠ Complete Transition Chain Liability Change ≠ Liability State History Entry by itself No Liability Change ≠ No Governance Event One Liability Relationship History ≠ Complete Liability Network History Propagated State ≠ Independent State Origin by default Lifecycle Re-Entry ≠ New Liability Origin by default Re-entry ≠ Historical Rewrite Transfer Routing ≠ Liability Transfer Resolution Routing ≠ Liability Resolution Complete State History ≠ Liability Finality Liability Finality ≠ Liability History Erasure Claim History ≠ Liability History Harm History ≠ Liability History Responsibility History ≠ Liability History Accountability History ≠ Liability History Payment History ≠ Liability History Insurance History ≠ Liability History Operational History ≠ Liability History Historical Record ≠ Historical Rationale by default History Update ≠ Historical Replacement Historical Preservation ≠ Historical Immutability Incomplete Historical Evidence ≠ Authority to Manufacture State History Conflicting Historical Records ≠ One Historical Truth by default Multiple Historical Records ≠ Multiple Historical Events by default Automated Historical Reconstruction ≠ Authoritative Liability History by default Governed Liability State History ≠ Liability Lifecycle Completion</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LSTHM may preserve references to governed historical inputs from other OOF® architectures where they materially informed Liability State or Change.</p>
+<p>ORA™ may preserve relevant Operational Reality history.</p>
+<p>HAGA™ may preserve Harm history.</p>
+<p>AGA™ may preserve Responsibility and Accountability history.</p>
+<p>ADIT® may preserve evidence and audit records.</p>
+<p>VALIDOS™ may preserve validation history.</p>
+<p>OBIDENITY® may preserve Origin, Identity, Ownership, Authority, Provenance, Transfer, and Continuity history.</p>
+<p>AIG® and ASGA™ may preserve AI or autonomous-system operational history.</p>
+<p>VFM® may preserve Value Flow history.</p>
+<p>PGA™ may preserve Prediction history.</p>
+<p>SIMULOS® may preserve Simulation history.</p>
+<p>Those histories remain governed within their original domains.</p>
+<p>LSTHM preserves only their relevant association with Liability State and Change history.</p>
+<p>The canonical interoperability principle is:</p>
+<p>External history may explain Liability history without becoming Liability history and without transferring governance ownership of its original domain to LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LSTHM begins when one or more governed Liability States, State Transitions, identified Changes, or assessed Changes require historical preservation.</p>
+<p>LSTHM governs:</p>
+<p>State History identity, historical association, State sequences, effective periods, Transition history, Change history, Assessment history, corrections, reassessments, reversals, supersessions, Unknown historical states, Uncertain historical states, Disputed historical states, historical gaps, historical conflicts, re-entry history, Origin continuity, unaffected-governance preservation, propagation history, Liability Network history, downstream routing history, authority, rationale, provenance, traceability, historical versioning, and reconstruction.</p>
+<p>LSTHM does not govern:</p>
+<p>initial Liability Determination, new Scope or Allocation, State Transition creation, Change Identification, Change Assessment, Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LSTHM ends when the evolution of Liability through LSCS is sufficiently preserved as:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-history-11" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State History</h1>
+<p>within the broader:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-and-change-structure-7" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State &amp; Change Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-multi-party-liability-history" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Multi-Party Liability History</h1>
+<p>A multi-party Liability structure changes several times.</p>
+<p>One Subject's Liability moves from Conditional to Active.</p>
+<p>A second Subject's Liability remains Disputed.</p>
+<p>A later reassessment changes one Scope portion and produces a new State for the first Subject.</p>
+<p>LSTHM preserves:</p>
+<p>the original States, the State Transition, the reassessment, the earlier Scope, the revised Scope, the effective times, the affected Relationships, and the current States.</p>
+<p>The current record therefore does not create the false impression that the latest structure always existed.</p>
+<p>A reviewer can reconstruct what Liability looked like at each materially relevant point in time.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-autonomous-system-liability-re-entry-history" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Autonomous System Liability Re-Entry History</h1>
+<p>An autonomous system is involved in an established Liability Relationship.</p>
+<p>The Liability is initially Active.</p>
+<p>Later operational information triggers reassessment of an earlier Liability Condition.</p>
+<p>The matter re-enters LCOS and subsequently passes again through the affected LIGA™ governance spaces.</p>
+<p>The resulting current Liability State changes.</p>
+<p>LSTHM preserves both the original lifecycle and the re-entry sequence.</p>
+<p>The earlier State is not deleted merely because later governance reached a different result.</p>
+<p>The module applies the canonical rule:</p>
+<p>Re-entry must not rewrite history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>A current Liability State tells us where Liability is now.</p>
+<p>It does not tell us how Liability arrived there.</p>
+<p>Every material State, Transition, Change, correction, reassessment, reversal, re-entry, and routing decision forms part of the governed Liability history.</p>
+<p>That history must remain reconstructable even when the current Liability structure changes.</p>
+<p>LSTHM ensures that Liability may evolve without allowing its past to disappear.</p>
+<p>Current Liability State ≠ Complete Liability History.</p>
+<p>Govern the present. Preserve the path that produced it.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lscs.html">Liability State &amp; Change Standard (LSCS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

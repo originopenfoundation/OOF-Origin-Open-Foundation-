@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LREIM — Liability Recourse Identification Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LREIM — Liability Recourse Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer &amp; Recourse." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LREIM — Liability Recourse Identification Module" />
+<meta property="og:description" content="LREIM — Liability Recourse Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer &amp; Recourse." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LREIM — Liability Recourse Identification Module" />
+<meta name="twitter:description" content="LREIM — Liability Recourse Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer &amp; Recourse." />
+<meta name="DC.title" content="LREIM — Liability Recourse Identification Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html","name":"LREIM — Liability Recourse Identification Module","description":"LREIM — Liability Recourse Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Transfer & Recourse.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LREIM — Liability Recourse Identification Module","item":"https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html"}]},"headline":"LREIM — Liability Recourse Identification Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-ltrs-lreim-3.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability Transfer & Recourse Standard (LTRS)","Governance & Enforcement","Liability Governance","Liability Recourse Identification"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability Transfer & Recourse Standard (LTRS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability Recourse Identification"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-ltrs.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-ltrs-lrenm-4.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability Transfer & Recourse Standard (LTRS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability Recourse Identification"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lreim-liability-recourse-identification-module" data-oof-section-id="true" role="heading" aria-level="1">LREIM — Liability Recourse Identification Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lreim-liability-recourse-identification-module-3" data-oof-section-id="true" role="heading" aria-level="2">LREIM — Liability Recourse Identification Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability Transfer &amp; Recourse Standard (LTRS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability Recourse Identification<br>
+<b>Module ID:</b> LIGA-LTRS-LREIM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.10.03.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 24 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Recourse Identification Module (LREIM) governs how a potential Recourse relationship arising from established Liability, Liability Sharing, Transfer, payment, performance, Contribution, Indemnification, Insurance-related performance, Succession, reimbursement, or another Liability-related consequence is identified, bounded, classified, and associated with the primary or preceding Liability structure from which it arises.</p>
+<p>LREIM determines whether circumstances create sufficient Recourse relevance to identify a potential secondary Liability Relationship, who may exercise Recourse, against whom Recourse may be directed, what Recourse Object is involved, what Basis may support the relationship, what consequence or performance generated the Recourse relevance, and how the potential Recourse remains connected to the primary Liability.</p>
+<p>LREIM does not assume that payment, excess performance, insurance payment, indemnification, Contribution relevance, or economic burden automatically creates Recourse.</p>
+<p>It does not redetermine primary Liability.</p>
+<p>It does not collapse Recourse into the primary Liability Relationship.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability Transfer / Sharing Structure + Recourse-Relevant Event → Recourse Origin Identification → Recourse Subjects → Recourse Object → Recourse Basis → Recourse Boundary → Recourse Qualification →</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+<p>Its foundational distinction is:</p>
+<p>Recourse-Relevant Event ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LREIM is:</p>
+<p>to identify whether a Liability-related consequence creates a sufficiently governed basis for a distinct potential Recourse relationship while preserving the Liability structure from which that relationship originated.</p>
+<p>The module identifies:</p>
+<p>why Recourse becomes relevant, who may seek recovery, against whom, for what, under what Basis, within what Scope, and in relation to which primary or preceding Liability structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-ltrs-internal-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the LTRS Internal Flow</h1>
+<p>The internal LTRS progression is:</p>
+<p>Liability Transfer Identification → Liability Sharing → Liability Recourse Identification → Liability Recourse Network → Liability Transfer Continuity LREIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-recourse-identification" data-oof-section-id="true" role="heading" aria-level="2">Liability Recourse Identification</h1>
+<p>Relevant inputs may include:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-transfer-structure" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Transfer Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-sharing-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Sharing Structure</h1>
+<p>and other governed Liability structures producing Recourse relevance.</p>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure-3" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+<p>Its downstream handoff is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lrenm-liability-recourse-network-module" data-oof-section-id="true" role="heading" aria-level="2">LRENM — Liability Recourse Network Module</h1>
+<p>where multiple, chained, layered, or interacting Recourse Relationships require network governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>Has a Liability-related consequence created a sufficiently governed potential Recourse relationship, between which Subjects, for what Recourse Object, under what Basis, and with what relationship to the primary or preceding Liability?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-relevant-event" data-oof-section-id="true" role="heading" aria-level="2">Recourse-Relevant Event</h1>
+<p>LREIM begins where an event creates a legitimate reason to examine whether a secondary recovery relationship may exist.</p>
+<p>Possible Recourse-Relevant Events include:</p>
+<p>payment, excess performance, Contribution, Indemnification, Insurance-related payment, reimbursement, Succession, Transfer, satisfaction of another Subject's obligation, or another Liability-related consequence.</p>
+<p>The event itself does not establish Recourse.</p>
+<p>Therefore:</p>
+<p>Recourse-Relevant Event ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-origin" data-oof-section-id="true" role="heading" aria-level="2">Recourse Origin</h1>
+<p>Every potential Recourse Relationship should identify the Liability structure from which it originates.</p>
+<p>This may be:</p>
+<p>Primary Liability, a secondary Liability Relationship, a Sharing structure, a Transfer structure, or a preceding Recourse Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-association" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability Association</h1>
+<p>Where Recourse originates from primary Liability, the association should preserve:</p>
+<p>Liability Origin, Determination, Scope, Allocation, Subjects, Relationships, State, and relevant history.</p>
+<p>Therefore:</p>
+<p>Recourse without Primary or Preceding Liability Association ≠ Fully Governed Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-origin-vs-recourse-relationship" data-oof-section-id="true" role="heading" aria-level="2">Recourse Origin vs Recourse Relationship</h1>
+<p>The Liability structure creating Recourse relevance is not the Recourse Relationship itself.</p>
+<p>Therefore:</p>
+<p>Recourse Origin ≠ Recourse Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-seeking-subject" data-oof-section-id="true" role="heading" aria-level="2">Recourse-Seeking Subject</h1>
+<p>LREIM should identify the Subject potentially entitled to seek recovery.</p>
+<p>This Subject may be:</p>
+<p>a Liability-bearing party, a paying party, a performing party, an insurer, an indemnifier, a successor, a contributor, or another governed Subject.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-target-subject" data-oof-section-id="true" role="heading" aria-level="2">Recourse-Target Subject</h1>
+<p>LREIM should identify the Subject against whom Recourse may be directed.</p>
+<p>The Recourse-Target Subject should remain distinguishable from every other Subject in the primary Liability structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-role-distinction" data-oof-section-id="true" role="heading" aria-level="2">Subject Role Distinction</h1>
+<p>The Recourse-Seeking Subject may have occupied a different role in the primary Liability structure.</p>
+<p>Therefore:</p>
+<p>Recourse-Seeking Subject ≠ Primary Liability-Bearing Subject by default.</p>
+<p>Likewise:</p>
+<p>Recourse-Target Subject ≠ Harm-Producing Actor by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-role-subjects" data-oof-section-id="true" role="heading" aria-level="2">Multi-Role Subjects</h1>
+<p>A Subject may simultaneously be:</p>
+<p>Liability-bearing, paying, performing, insured, insuring, indemnifying, contributing, or seeking Recourse.</p>
+<p>Each role should remain separately identifiable where methodologically relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-object" data-oof-section-id="true" role="heading" aria-level="2">Recourse Object</h1>
+<p>LREIM should identify exactly what is sought through Recourse.</p>
+<p>Possible Recourse Objects may include:</p>
+<p>reimbursement, Contribution, economic recovery, performance recovery, indemnification, payment recovery, or another defined Liability-related consequence.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-object-identity" data-oof-section-id="true" role="heading" aria-level="2">Recourse Object Identity</h1>
+<p>The Recourse Object should possess sufficient identity to distinguish it from:</p>
+<p>primary Liability, primary Liability Scope, original payment, original performance, and another Recourse Object.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-object-vs-primary-liability" data-oof-section-id="true" role="heading" aria-level="2">Recourse Object vs Primary Liability</h1>
+<p>The object sought through Recourse may differ substantially from the original Liability.</p>
+<p>Therefore:</p>
+<p>Recourse Object ≠ Primary Liability Object by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-basis" data-oof-section-id="true" role="heading" aria-level="2">Recourse Basis</h1>
+<p>Every potential Recourse Relationship requires an identifiable Recourse Basis.</p>
+<p>Possible Bases may arise through:</p>
+<p>law, agreement, Contribution structure, Indemnification, Insurance-related mechanism, Succession, Transfer, guarantee, or another legitimate source.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-basis-vs-recourse-basis" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability Basis vs Recourse Basis</h1>
+<p>The Basis that established primary Liability does not automatically establish Recourse.</p>
+<p>Therefore:</p>
+<p>Primary Liability Basis ≠ Recourse Basis by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-basis-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Recourse Basis Sufficiency</h1>
+<p>A Recourse-Relevant Event is insufficient by itself.</p>
+<p>The potential relationship should possess a sufficiently identifiable Basis before it is represented as an Identified Liability Recourse Structure.</p>
+<p>Therefore:</p>
+<p>Payment + Primary Liability ≠ Recourse Basis by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-conditions" data-oof-section-id="true" role="heading" aria-level="2">Recourse Conditions</h1>
+<p>A Recourse Basis may require conditions to be satisfied before Recourse becomes relevant or operative.</p>
+<p>Possible conditions may concern:</p>
+<p>payment, performance, timing, Scope, Subject status, prior demand, coverage, Contribution structure, or another applicable condition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-condition-state" data-oof-section-id="true" role="heading" aria-level="2">Recourse Condition State</h1>
+<p>A condition may be:</p>
+<p>Satisfied, Unsatisfied, Partially Satisfied, Pending, Unknown, Uncertain, Disputed, or otherwise governed.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-satisfaction-vs-recourse" data-oof-section-id="true" role="heading" aria-level="2">Condition Satisfaction vs Recourse</h1>
+<p>Satisfied conditions do not automatically establish the complete Recourse Relationship.</p>
+<p>Therefore:</p>
+<p>Recourse Condition Satisfaction ≠ Established Recourse by itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-connection" data-oof-section-id="true" role="heading" aria-level="2">Recourse Connection</h1>
+<p>LREIM should identify the governed relationship between:</p>
+<p>the originating Liability, the Recourse-Relevant Event, the consequence borne, the Recourse-Seeking Subject, the Recourse-Target Subject, and the Recourse Basis.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="connection-requirement" data-oof-section-id="true" role="heading" aria-level="2">Connection Requirement</h1>
+<p>Temporal proximity or economic interaction alone should not establish Recourse.</p>
+<p>Therefore:</p>
+<p>Economic Connection ≠ Recourse Connection by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="payment-as-recourse-trigger" data-oof-section-id="true" role="heading" aria-level="2">Payment as Recourse Trigger</h1>
+<p>Payment may create Recourse relevance.</p>
+<p>It does not automatically create Recourse.</p>
+<p>Therefore:</p>
+<p>Payment ≠ Recourse Right by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="excess-performance-as-recourse-trigger" data-oof-section-id="true" role="heading" aria-level="2">Excess Performance as Recourse Trigger</h1>
+<p>A Subject may perform more than its governed share or obligation.</p>
+<p>That may create Recourse relevance.</p>
+<p>Therefore:</p>
+<p>Excess Performance ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="underperformance-by-another-subject" data-oof-section-id="true" role="heading" aria-level="2">Underperformance by Another Subject</h1>
+<p>Another Subject's underperformance may contribute to Recourse relevance.</p>
+<p>It does not by itself establish the Recourse Relationship.</p>
+<p>Therefore:</p>
+<p>Underperformance ≠ Recourse by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="contribution-as-recourse-relevance" data-oof-section-id="true" role="heading" aria-level="2">Contribution as Recourse Relevance</h1>
+<p>A Contribution structure may provide a Basis for recovery among Subjects.</p>
+<p>Contribution should remain methodologically distinguishable from Recourse identification.</p>
+<p>Therefore:</p>
+<p>Contribution Relevance ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="indemnification-as-recourse-relevance" data-oof-section-id="true" role="heading" aria-level="2">Indemnification as Recourse Relevance</h1>
+<p>An Indemnification relationship may create reimbursement or recovery relevance.</p>
+<p>The indemnification mechanism and Recourse Relationship should remain distinguishable.</p>
+<p>Therefore:</p>
+<p>Indemnification ≠ Recourse by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insurance-payment-as-recourse-relevance" data-oof-section-id="true" role="heading" aria-level="2">Insurance Payment as Recourse Relevance</h1>
+<p>Insurance payment may create potential recovery or subrogation relevance.</p>
+<p>It does not automatically establish Recourse against another Subject.</p>
+<p>Therefore:</p>
+<p>Insurance Payment ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="succession-and-recourse" data-oof-section-id="true" role="heading" aria-level="2">Succession and Recourse</h1>
+<p>Succession may alter which Subject possesses or bears a Recovery or Recourse Right.</p>
+<p>The succession mechanism should remain distinct from Recourse itself.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-and-recourse" data-oof-section-id="true" role="heading" aria-level="2">Transfer and Recourse</h1>
+<p>A Transfer may create or move a Recourse Right.</p>
+<p>Transfer and Recourse remain separate governance structures.</p>
+<p>Therefore:</p>
+<p>Liability Transfer ≠ Liability Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sharing-and-recourse" data-oof-section-id="true" role="heading" aria-level="2">Sharing and Recourse</h1>
+<p>Sharing may create Recourse relevance where one Subject performs or pays beyond its governed share.</p>
+<p>Therefore:</p>
+<p>Liability Sharing ≠ Liability Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="share-performance-imbalance" data-oof-section-id="true" role="heading" aria-level="2">Share–Performance Imbalance</h1>
+<p>Where actual performance differs materially from a governed share, LREIM may identify potential Recourse relevance.</p>
+<p>The imbalance alone does not determine the Recourse outcome.</p>
+<p>Therefore:</p>
+<p>Share–Performance Imbalance ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="share-payment-imbalance" data-oof-section-id="true" role="heading" aria-level="2">Share–Payment Imbalance</h1>
+<p>Where a Subject pays more than its governed economic or Liability-related share, potential Recourse may arise.</p>
+<p>Therefore:</p>
+<p>Share–Payment Imbalance ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="economic-burden-vs-recourse" data-oof-section-id="true" role="heading" aria-level="2">Economic Burden vs Recourse</h1>
+<p>Bearing an economic burden does not automatically create a recovery right.</p>
+<p>Therefore:</p>
+<p>Economic Burden ≠ Recourse Right by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-bearing-party-vs-recourse-seeking-party" data-oof-section-id="true" role="heading" aria-level="2">Liability-Bearing Party vs Recourse-Seeking Party</h1>
+<p>The party bearing primary Liability may or may not become the Recourse-Seeking Subject.</p>
+<p>Therefore:</p>
+<p>Liability-Bearing Party ≠ Recourse-Seeking Party by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="paying-party-vs-recourse-seeking-party" data-oof-section-id="true" role="heading" aria-level="2">Paying Party vs Recourse-Seeking Party</h1>
+<p>The paying party may become Recourse-relevant, but payment alone is insufficient.</p>
+<p>Therefore:</p>
+<p>Paying Party ≠ Recourse-Seeking Party by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-scope" data-oof-section-id="true" role="heading" aria-level="2">Recourse Scope</h1>
+<p>LREIM should identify the potential Scope of Recourse.</p>
+<p>This may concern:</p>
+<p>all or part of a payment, all or part of performance, a Contribution amount, an indemnified amount, or another bounded Recourse Object.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-scope-vs-recourse-scope" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability Scope vs Recourse Scope</h1>
+<p>The Scope of Recourse may be narrower than primary Liability.</p>
+<p>Therefore:</p>
+<p>Primary Liability Scope ≠ Recourse Scope by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-recourse" data-oof-section-id="true" role="heading" aria-level="2">Partial Recourse</h1>
+<p>A Recourse Relationship may concern only part of the relevant economic or performance consequence.</p>
+<p>Therefore:</p>
+<p>Partial Recourse ≠ Complete Recovery.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-recourse-objects" data-oof-section-id="true" role="heading" aria-level="2">Multiple Recourse Objects</h1>
+<p>One Recourse-Relevant Event may produce more than one potential Recourse Object.</p>
+<p>Each should remain separately identifiable.</p>
+<p>Therefore:</p>
+<p>One Recourse-Relevant Event ≠ One Recourse Object by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-recourse-targets" data-oof-section-id="true" role="heading" aria-level="2">Multiple Recourse Targets</h1>
+<p>A Recourse-Seeking Subject may possess potential Recourse against multiple Subjects.</p>
+<p>Each relationship should remain separate unless a governed network structure establishes otherwise.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-recourse-seeking-subjects" data-oof-section-id="true" role="heading" aria-level="2">Multiple Recourse-Seeking Subjects</h1>
+<p>Several Subjects may possess separate potential Recourse relationships arising from the same primary Liability.</p>
+<p>Therefore:</p>
+<p>One Primary Liability ≠ One Recourse-Seeking Subject.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="one-primary-liability-multiple-recourse-relationships" data-oof-section-id="true" role="heading" aria-level="2">One Primary Liability, Multiple Recourse Relationships</h1>
+<p>A single primary Liability may generate several secondary recovery relationships.</p>
+<p>Therefore:</p>
+<p>One Primary Liability ≠ One Recourse Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-relationship-identity" data-oof-section-id="true" role="heading" aria-level="2">Recourse Relationship Identity</h1>
+<p>Each potential Recourse Relationship should possess its own identity.</p>
+<p>That identity should remain distinct from:</p>
+<p>Primary Liability Relationship identity, Transfer Relationship identity, Sharing Relationship identity, and other Recourse Relationship identities.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-relationship-boundary" data-oof-section-id="true" role="heading" aria-level="2">Recourse Relationship Boundary</h1>
+<p>The boundary should identify:</p>
+<p>originating Liability, Recourse-Seeking Subject, Recourse-Target Subject, Recourse Object, Basis, Scope, conditions, and temporal structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-state" data-oof-section-id="true" role="heading" aria-level="2">Recourse State</h1>
+<p>A potential Recourse Relationship may be identified as:</p>
+<p>Potential, Pending, Conditional, Active, Partially Established, Unknown, Uncertain, Disputed, Superseded, or another explicitly governed state.</p>
+<p>These are methodological states, not universal legal classifications.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-recourse" data-oof-section-id="true" role="heading" aria-level="2">Potential Recourse</h1>
+<p>Potential Recourse means sufficient relevance exists for continued governance but the relationship is not yet fully established.</p>
+<p>Therefore:</p>
+<p>Potential Recourse ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-recourse" data-oof-section-id="true" role="heading" aria-level="2">Pending Recourse</h1>
+<p>A Recourse Relationship may remain Pending while required conditions, authority, evidence, payment, performance, or other dependencies remain unresolved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-recourse" data-oof-section-id="true" role="heading" aria-level="2">Conditional Recourse</h1>
+<p>A Recourse Relationship may depend upon future or unresolved conditions.</p>
+<p>Therefore:</p>
+<p>Conditional Recourse ≠ Active Recourse by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-recourse" data-oof-section-id="true" role="heading" aria-level="2">Unknown Recourse</h1>
+<p>Where available information cannot establish whether Recourse exists, the state should remain Unknown.</p>
+<p>Therefore:</p>
+<p>Unknown Recourse ≠ No Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-recourse" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Recourse</h1>
+<p>Where several materially plausible interpretations remain, uncertainty should be preserved.</p>
+<p>Therefore:</p>
+<p>Uncertain Recourse ≠ Authority to Select a Preferred Recourse Outcome.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-recourse" data-oof-section-id="true" role="heading" aria-level="2">Disputed Recourse</h1>
+<p>Where materially competing governed positions exist concerning Recourse, the dispute should remain explicit.</p>
+<p>Therefore:</p>
+<p>Disputed Recourse ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-state-vs-recourse-state" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability State vs Recourse State</h1>
+<p>The primary Liability and Recourse Relationship may possess different states.</p>
+<p>Therefore:</p>
+<p>Primary Liability State ≠ Recourse Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-resolution-vs-recourse-state" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability Resolution vs Recourse State</h1>
+<p>Primary Liability may reach Resolution while a Recourse Relationship remains active.</p>
+<p>Therefore:</p>
+<p>Primary Liability Resolution ≠ Recourse Resolution.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-trigger-time" data-oof-section-id="true" role="heading" aria-level="2">Recourse Trigger Time</h1>
+<p>The event creating Recourse relevance should have an identifiable time where possible.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-formation-time" data-oof-section-id="true" role="heading" aria-level="2">Recourse Formation Time</h1>
+<p>The time a Recourse Relationship becomes sufficiently established may differ from the trigger time.</p>
+<p>Therefore:</p>
+<p>Recourse Trigger Time ≠ Recourse Formation Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-effective-time" data-oof-section-id="true" role="heading" aria-level="2">Recourse Effective Time</h1>
+<p>The operative time of a Recourse Relationship may differ from:</p>
+<p>payment time, performance time, identification time, or recording time.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-identification-time" data-oof-section-id="true" role="heading" aria-level="2">Recourse Identification Time</h1>
+<p>LREIM should preserve when Recourse was identified.</p>
+<p>Therefore:</p>
+<p>Recourse Identification Time ≠ Recourse Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-recording-time" data-oof-section-id="true" role="heading" aria-level="2">Recourse Recording Time</h1>
+<p>The time a Recourse Relationship is recorded may differ from its effective time.</p>
+<p>Therefore:</p>
+<p>Recourse Recording Time ≠ Recourse Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retrospective-recourse-identification" data-oof-section-id="true" role="heading" aria-level="2">Retrospective Recourse Identification</h1>
+<p>A Recourse Relationship may be identified after the relevant payment or performance occurred.</p>
+<p>The historical event and later identification should remain distinct.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="prospective-recourse" data-oof-section-id="true" role="heading" aria-level="2">Prospective Recourse</h1>
+<p>A future event may be expected to create Recourse relevance.</p>
+<p>Expectation alone should not be represented as existing Recourse.</p>
+<p>Therefore:</p>
+<p>Expected Future Recourse ≠ Current Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-dependency" data-oof-section-id="true" role="heading" aria-level="2">Recourse Dependency</h1>
+<p>A potential Recourse Relationship may depend upon:</p>
+<p>payment, performance, condition satisfaction, authority, another Liability Relationship, another Recourse Relationship, Transfer, Sharing, or another governed structure.</p>
+<p>Dependencies should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-authority" data-oof-section-id="true" role="heading" aria-level="2">Recourse Authority</h1>
+<p>Where authority is required to establish, recognize, or exercise Recourse, LREIM should identify the relevant authority and its scope.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">Authority Boundary</h1>
+<p>Authority over primary Liability does not automatically establish authority over Recourse.</p>
+<p>Therefore:</p>
+<p>Primary Liability Authority ≠ Recourse Authority by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-evidence-association" data-oof-section-id="true" role="heading" aria-level="2">Recourse Evidence Association</h1>
+<p>Evidence may support:</p>
+<p>payment, performance, Recourse Basis, Subject identity, Scope, conditions, or connection.</p>
+<p>Evidence does not itself create Recourse.</p>
+<p>Therefore:</p>
+<p>Evidence of Recourse-Relevant Facts ≠ Established Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-provenance" data-oof-section-id="true" role="heading" aria-level="2">Recourse Provenance</h1>
+<p>LREIM should preserve sufficient provenance to reconstruct:</p>
+<p>the originating Liability, Recourse-Relevant Event, Subjects, Recourse Object, Basis, conditions, Scope, time, authority, and supporting governed inputs.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-rationale" data-oof-section-id="true" role="heading" aria-level="2">Recourse Rationale</h1>
+<p>The reason a secondary relationship is classified as Recourse-relevant should remain explicit.</p>
+<p>Therefore:</p>
+<p>Recourse Classification ≠ Recourse Rationale.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-recourse-identification" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Recourse Identification</h1>
+<p>Multiple records may refer to the same potential Recourse Relationship.</p>
+<p>Duplicate records should not create multiple Recourse relationships.</p>
+<p>Therefore:</p>
+<p>Multiple Recourse Records ≠ Multiple Recourse Relationships by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conflicting-recourse-structures" data-oof-section-id="true" role="heading" aria-level="2">Conflicting Recourse Structures</h1>
+<p>Different sources may indicate incompatible Recourse structures.</p>
+<p>The conflict should remain explicit.</p>
+<p>Therefore:</p>
+<p>Conflicting Recourse Structures ≠ One Governed Recourse Relationship by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-chain-candidate" data-oof-section-id="true" role="heading" aria-level="2">Recourse Chain Candidate</h1>
+<p>A Recourse Relationship may itself create another Recourse-relevant consequence.</p>
+<p>Example:</p>
+<p>Primary Liability → Recourse A → Recourse B LREIM should identify when such a chain may exist.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-layer" data-oof-section-id="true" role="heading" aria-level="2">Recourse Layer</h1>
+<p>Each Recourse Relationship in a chain should retain its own:</p>
+<p>origin, Subjects, Basis, Object, Scope, State, and history.</p>
+<p>Therefore:</p>
+<p>Recourse Layer A ≠ Recourse Layer B.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="immediate-vs-ultimate-recourse-origin" data-oof-section-id="true" role="heading" aria-level="2">Immediate vs Ultimate Recourse Origin</h1>
+<p>A Recourse Relationship may have:</p>
+<p>an immediate origin in a preceding secondary Relationship, and an ultimate origin in primary Liability.</p>
+<p>Both should remain identifiable where relevant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-network-relevance" data-oof-section-id="true" role="heading" aria-level="2">Recourse Network Relevance</h1>
+<p>Where multiple Recourse Relationships interact, LREIM should identify the need for network governance.</p>
+<p>The matter then proceeds to:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lrenm-liability-recourse-network-module-3" data-oof-section-id="true" role="heading" aria-level="2">LRENM — Liability Recourse Network Module</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-network-collapse" data-oof-section-id="true" role="heading" aria-level="2">No Network Collapse</h1>
+<p>Multiple potential Recourse Relationships should not be collapsed into one generic recovery structure.</p>
+<p>Therefore:</p>
+<p>Multiple Recourse Relationships ≠ One Recourse Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-and-liability-network" data-oof-section-id="true" role="heading" aria-level="2">Recourse and Liability Network</h1>
+<p>A Recourse Relationship may become one layer within a broader Liability Network.</p>
+<p>It should retain independent identity within that network.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-primary-liability-redetermination" data-oof-section-id="true" role="heading" aria-level="2">No Primary Liability Redetermination</h1>
+<p>LREIM does not determine whether primary Liability originally attached.</p>
+<p>Therefore:</p>
+<p>Recourse Identification ≠ Primary Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-primary-scope-rewrite" data-oof-section-id="true" role="heading" aria-level="2">No Primary Scope Rewrite</h1>
+<p>Recourse identification does not alter primary Liability Scope.</p>
+<p>Therefore:</p>
+<p>Recourse Scope ≠ Revised Primary Liability Scope.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-primary-allocation-rewrite" data-oof-section-id="true" role="heading" aria-level="2">No Primary Allocation Rewrite</h1>
+<p>A potential Recourse Relationship should not silently alter original Liability Allocation.</p>
+<p>Therefore:</p>
+<p>Recourse Distribution ≠ Primary Liability Reallocation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-sharing-rewrite" data-oof-section-id="true" role="heading" aria-level="2">No Sharing Rewrite</h1>
+<p>Recourse identification should not silently change a governed Sharing structure.</p>
+<p>Therefore:</p>
+<p>Recourse Identification ≠ Liability Sharing Modification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-transfer-rewrite" data-oof-section-id="true" role="heading" aria-level="2">No Transfer Rewrite</h1>
+<p>Recourse identification should not silently reinterpret a Transfer.</p>
+<p>Therefore:</p>
+<p>Recourse Identification ≠ Liability Transfer Modification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-resolution-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Resolution Shortcut</h1>
+<p>Identification of Recourse does not resolve either primary Liability or the Recourse Relationship.</p>
+<p>Therefore:</p>
+<p>Recourse Identification ≠ Liability Resolution.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-finality-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Finality Shortcut</h1>
+<p>Recourse identification does not establish Liability Finality.</p>
+<p>Therefore:</p>
+<p>Recourse Identification ≠ Liability Finality.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-integrity" data-oof-section-id="true" role="heading" aria-level="2">Historical Integrity</h1>
+<p>Recourse identification should preserve the sequence:</p>
+<p>Primary Liability → Liability-Related Consequence → Recourse-Relevant Event → Potential Recourse</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship" data-oof-section-id="true" role="heading" aria-level="2">Relationship</h1>
+<p>The secondary relationship should not replace the primary history.</p>
+<p>Therefore:</p>
+<p>Recourse Identification ≠ Historical Rewrite.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="origin-continuity" data-oof-section-id="true" role="heading" aria-level="2">Origin Continuity</h1>
+<p>Recourse should remain connected to its Liability Origin through the relevant chain of relationships.</p>
+<p>Therefore:</p>
+<p>Recourse Relationship ≠ New Liability Origin by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="upstream-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Upstream Re-Entry</h1>
+<p>Where Recourse Identification reveals a material defect in an earlier Liability governance space, governance should return to the earliest materially affected space.</p>
+<p>The canonical rule is:</p>
+<p>Re-enter the earliest materially affected governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-integrity" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry Integrity</h1>
+<p>Where re-entry occurs:</p>
+<p>Reassess what materially changed. Preserve what remains valid.</p>
+<p>and:</p>
+<p>Re-entry must not rewrite history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="automated-recourse-identification" data-oof-section-id="true" role="heading" aria-level="2">Automated Recourse Identification</h1>
+<p>AI or automated systems may assist with:</p>
+<p>payment analysis, share–performance comparison, Subject mapping, Recourse Basis association, relationship detection, chain identification, and conflict detection.</p>
+<p>Automation should preserve uncertainty and authority boundaries.</p>
+<p>Therefore:</p>
+<p>Automated Recourse Identification ≠ Authoritative Recourse Determination by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure-5" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+<p>The principal output of LREIM is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure-7" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+<p>It should identify, where applicable:</p>
+<p>Recourse Identity, Primary or Preceding Liability association, Recourse-Relevant Event, Recourse Origin, Recourse-Seeking Subject, Recourse-Target Subject, Subject roles, Recourse Object, Recourse Basis, Recourse Conditions, Recourse Connection, Recourse Scope, Recourse State, trigger time, formation time, effective time, identification time, dependencies, authority, payment association, performance association, Sharing association, Transfer association, Contribution association, Indemnification association, Insurance-related association, potential Recourse Chain, network relevance, uncertainty, dispute, conflict, rationale, provenance, and history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">Meaning of the Output</h1>
+<p>An Identified Liability Recourse Structure means that a potential secondary recovery relationship has been sufficiently identified, bounded, and associated with its originating Liability structure for continued Recourse governance.</p>
+<p>It does not mean that Recourse has been finally determined, performed, recovered, resolved, or discharged.</p>
+<p>Therefore:</p>
+<p>Identified Liability Recourse Structure ≠ Completed Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-recourse-network" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Recourse Network</h1>
+<p>Where one or more Recourse Relationships create:</p>
+<p>multiple Subjects, multiple Recourse layers, Recourse chains, parallel recovery relationships, cross-Relationship dependencies, or wider Liability Network effects, the Identified Liability Recourse Structure proceeds to:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lrenm-liability-recourse-network-module-5" data-oof-section-id="true" role="heading" aria-level="2">LRENM — Liability Recourse Network Module</h1>
+<p>The boundary is explicit:</p>
+<p>LREIM identifies Recourse Relationships.</p>
+<p>LRENM governs their network structure and interaction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LREIM must provide exactly the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-origin-and-recourse-relevant-event-identification" data-oof-section-id="true" role="heading" aria-level="2">Recourse Origin &amp; Recourse-Relevant Event Identification</h1>
+<p>Capability to identify the primary or preceding Liability structure and the payment, performance, Sharing, Transfer, Contribution, Indemnification, Insurance-related, Succession, or other event creating Recourse relevance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-subject-and-role-identification" data-oof-section-id="true" role="heading" aria-level="2">Recourse Subject &amp; Role Identification</h1>
+<p>Capability to identify Recourse-Seeking Subjects, Recourse-Target Subjects, multi-role Subjects, and distinguish Liabilitybearing, paying, performing, insuring, indemnifying, contributing, and recovering roles.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-object-basis-condition-and-connection-governance" data-oof-section-id="true" role="heading" aria-level="2">Recourse Object, Basis, Condition &amp; Connection Governance</h1>
+<p>Capability to identify the Recourse Object, establish the applicable Recourse Basis, represent conditions, and govern the connection between originating Liability, borne consequence, and potential secondary recovery relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-scope-state-and-temporal-governance" data-oof-section-id="true" role="heading" aria-level="2">Recourse Scope, State &amp; Temporal Governance</h1>
+<p>Capability to establish Recourse Scope and govern Potential, Pending, Conditional, Active, Unknown, Uncertain, Disputed, and other explicit states while preserving trigger, formation, effective, identification, and recording times.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sharing-transfer-payment-performance-contribution-and-indemnification" data-oof-section-id="true" role="heading" aria-level="2">Sharing, Transfer, Payment, Performance, Contribution &amp; Indemnification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="distinction-governance" data-oof-section-id="true" role="heading" aria-level="2">Distinction Governance</h1>
+<p>Capability to distinguish Recourse from Liability Sharing, Transfer, payment, performance, Contribution, Indemnification, Insurance-related performance, and economic burden.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-relationship-recourse-chain-layer-duplicate-and-conflict-governance" data-oof-section-id="true" role="heading" aria-level="2">Multi-Relationship, Recourse Chain, Layer, Duplicate &amp; Conflict Governance</h1>
+<p>Capability to identify multiple Recourse Relationships, Recourse Chains, immediate and ultimate origins, distinct Recourse layers, duplicate records, conflicting structures, and Liability Network relevance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-integrity-provenance-authority-and-re-entry-governance" data-oof-section-id="true" role="heading" aria-level="2">Historical Integrity, Provenance, Authority &amp; Re-Entry Governance</h1>
+<p>Capability to preserve primary Liability history, Recourse rationale, provenance, evidence association, authority boundaries, Origin continuity, and targeted upstream re-entry without rewriting earlier Liability governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-network-handoff-governance" data-oof-section-id="true" role="heading" aria-level="2">Recourse Network Handoff Governance</h1>
+<p>Capability to produce an Identified Liability Recourse Structure sufficiently explicit, bounded, traceable, and historically connected for LRENM to govern multi-Relationship Recourse Networks.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LREIM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-transfer-sharing-structure" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Transfer / Sharing Structure</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-recourse-relevant-event" data-oof-section-id="true" role="heading" aria-level="2">Identify Recourse-Relevant Event</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="associate-primary-or-preceding-liability" data-oof-section-id="true" role="heading" aria-level="2">Associate Primary or Preceding Liability</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-recourse-origin" data-oof-section-id="true" role="heading" aria-level="2">Identify Recourse Origin</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-recourse-seeking-subject" data-oof-section-id="true" role="heading" aria-level="2">Identify Recourse-Seeking Subject</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-recourse-target-subject" data-oof-section-id="true" role="heading" aria-level="2">Identify Recourse-Target Subject</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-recourse-object" data-oof-section-id="true" role="heading" aria-level="2">Identify Recourse Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-recourse-basis" data-oof-section-id="true" role="heading" aria-level="2">Identify Recourse Basis</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-recourse-conditions" data-oof-section-id="true" role="heading" aria-level="2">Assess Recourse Conditions</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-recourse-connection" data-oof-section-id="true" role="heading" aria-level="2">Establish Recourse Connection</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-recourse-scope" data-oof-section-id="true" role="heading" aria-level="2">Establish Recourse Scope</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-recourse-state-and-temporal-structure" data-oof-section-id="true" role="heading" aria-level="2">Establish Recourse State &amp; Temporal Structure</h1>
+<p>↓ Distinguish Recourse from Transfer / Sharing / Payment / Performance / Contribution / Indemnification ↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-recourse-chains-and-network-relevance" data-oof-section-id="true" role="heading" aria-level="2">Identify Recourse Chains &amp; Network Relevance</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-uncertainty-dispute-conflict" data-oof-section-id="true" role="heading" aria-level="2">Preserve Uncertainty / Dispute / Conflict</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-authority-rationale-provenance-history" data-oof-section-id="true" role="heading" aria-level="2">Preserve Authority / Rationale / Provenance / History</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure-9" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+<p>↓ Handoff to LRENM where applicable</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LREIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-identity" data-oof-section-id="true" role="heading" aria-level="2">Recourse Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="primary-liability-association-3" data-oof-section-id="true" role="heading" aria-level="2">Primary Liability Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preceding-liability-association" data-oof-section-id="true" role="heading" aria-level="2">Preceding Liability Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-relevant-event-record" data-oof-section-id="true" role="heading" aria-level="2">Recourse-Relevant Event Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-origin-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse Origin</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-seeking-subject-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse-Seeking Subject</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-target-subject-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse-Target Subject</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-subject-role-structure" data-oof-section-id="true" role="heading" aria-level="2">Recourse Subject Role Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-object-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse Object</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-basis-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse Basis</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-condition-structure" data-oof-section-id="true" role="heading" aria-level="2">Recourse Condition Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-connection-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse Connection</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-scope-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse Scope</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-recourse-3" data-oof-section-id="true" role="heading" aria-level="2">Potential Recourse</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-recourse-3" data-oof-section-id="true" role="heading" aria-level="2">Pending Recourse</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-recourse-3" data-oof-section-id="true" role="heading" aria-level="2">Conditional Recourse</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-recourse-3" data-oof-section-id="true" role="heading" aria-level="2">Unknown Recourse</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-recourse-3" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Recourse</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-recourse-3" data-oof-section-id="true" role="heading" aria-level="2">Disputed Recourse</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-temporal-structure" data-oof-section-id="true" role="heading" aria-level="2">Recourse Temporal Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="payment-association" data-oof-section-id="true" role="heading" aria-level="2">Payment Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="performance-association" data-oof-section-id="true" role="heading" aria-level="2">Performance Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sharing-association" data-oof-section-id="true" role="heading" aria-level="2">Sharing Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transfer-association" data-oof-section-id="true" role="heading" aria-level="2">Transfer Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="contribution-association" data-oof-section-id="true" role="heading" aria-level="2">Contribution Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="indemnification-association" data-oof-section-id="true" role="heading" aria-level="2">Indemnification Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insurance-related-association" data-oof-section-id="true" role="heading" aria-level="2">Insurance-Related Association</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-chain-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse Chain Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-layer-record" data-oof-section-id="true" role="heading" aria-level="2">Recourse Layer Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="network-relevance-record" data-oof-section-id="true" role="heading" aria-level="2">Network Relevance Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-conflict-record" data-oof-section-id="true" role="heading" aria-level="2">Recourse Conflict Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-rationale-3" data-oof-section-id="true" role="heading" aria-level="2">Recourse Rationale</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recourse-provenance-record" data-oof-section-id="true" role="heading" aria-level="2">Recourse Provenance Record</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure-11" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LREIM preserves the following distinctions:</p>
+<p>Recourse-Relevant Event ≠ Established Recourse Recourse without Primary or Preceding Liability Association ≠ Fully Governed Recourse Recourse Origin ≠ Recourse Relationship Recourse-Seeking Subject ≠ Primary Liability-Bearing Subject by default Recourse-Target Subject ≠ Harm-Producing Actor by default Recourse Object ≠ Primary Liability Object by default Primary Liability Basis ≠ Recourse Basis by default Payment + Primary Liability ≠ Recourse Basis by default Recourse Condition Satisfaction ≠ Established Recourse by itself Economic Connection ≠ Recourse Connection by default Payment ≠ Recourse Right by default Excess Performance ≠ Established Recourse Underperformance ≠ Recourse by default Contribution Relevance ≠ Established Recourse Indemnification ≠ Recourse by default Insurance Payment ≠ Established Recourse Liability Transfer ≠ Liability Recourse Liability Sharing ≠ Liability Recourse Share–Performance Imbalance ≠ Established Recourse Share–Payment Imbalance ≠ Established Recourse Economic Burden ≠ Recourse Right by default Liability-Bearing Party ≠ Recourse-Seeking Party by default Paying Party ≠ Recourse-Seeking Party by default Primary Liability Scope ≠ Recourse Scope by default Partial Recourse ≠ Complete Recovery One Recourse-Relevant Event ≠ One Recourse Object by default One Primary Liability ≠ One Recourse-Seeking Subject One Primary Liability ≠ One Recourse Relationship Potential Recourse ≠ Established Recourse Conditional Recourse ≠ Active Recourse by default Unknown Recourse ≠ No Recourse Uncertain Recourse ≠ Authority to Select a Preferred Recourse Outcome Disputed Recourse ≠ Established Recourse Primary Liability State ≠ Recourse Liability State Primary Liability Resolution ≠ Recourse Resolution Recourse Trigger Time ≠ Recourse Formation Time by default Recourse Identification Time ≠ Recourse Effective Time by default Recourse Recording Time ≠ Recourse Effective Time by default Expected Future Recourse ≠ Current Recourse Primary Liability Authority ≠ Recourse Authority by default Evidence of Recourse-Relevant Facts ≠ Established Recourse Recourse Classification ≠ Recourse Rationale Multiple Recourse Records ≠ Multiple Recourse Relationships by default Conflicting Recourse Structures ≠ One Governed Recourse Relationship by default Recourse Layer A ≠ Recourse Layer B Multiple Recourse Relationships ≠ One Recourse Relationship Recourse Identification ≠ Primary Liability Determination Recourse Scope ≠ Revised Primary Liability Scope Recourse Distribution ≠ Primary Liability Reallocation Recourse Identification ≠ Liability Sharing Modification Recourse Identification ≠ Liability Transfer Modification Recourse Identification ≠ Liability Resolution Recourse Identification ≠ Liability Finality Recourse Identification ≠ Historical Rewrite Recourse Relationship ≠ New Liability Origin by default Automated Recourse Identification ≠ Authoritative Recourse Determination by default Identified Liability Recourse Structure ≠ Completed Recourse</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LREIM may use governed inputs from adjacent OOF® architectures.</p>
+<p>ORA™ may establish payment, performance, Transfer, or other Operational Reality.</p>
+<p>HAGA™ may establish Harm without determining Recourse.</p>
+<p>AGA™ may establish Responsibility, Accountability, Authority, or Delegation structures.</p>
+<p>ADIT® may provide evidence and auditability.</p>
+<p>VALIDOS™ may validate Recourse-relevant inputs.</p>
+<p>OBIDENITY® may provide Subject identity, authority, ownership, provenance, Transfer, and continuity.</p>
+<p>VFM® may govern Value Flow and economic movement.</p>
+<p>AIG® and ASGA™ may provide AI or autonomous-system operational structures.</p>
+<p>Those inputs may create Recourse relevance without themselves establishing Recourse.</p>
+<p>The canonical interoperability principle is:</p>
+<p>An external event may create Recourse relevance, but LREIM governs whether that relevance forms an identifiable Liability Recourse relationship within LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LREIM begins when an established Liability, Transfer, Sharing structure, payment, performance, Contribution, Indemnification, Insurance-related event, Succession, or another Liability-related consequence creates legitimate Recourse relevance.</p>
+<p>LREIM governs:</p>
+<p>Recourse Origin, Recourse-Relevant Events, Recourse Subjects, Subject roles, Recourse Objects, Recourse Basis, conditions, connection, Scope, State, temporal structure, dependencies, payment and performance associations, Transfer and Sharing associations, Contribution and Indemnification associations, Insurance-related associations, Recourse chains, Recourse layers, network relevance, uncertainty, disputes, conflicts, authority, rationale, provenance, historical integrity, and downstream handoff.</p>
+<p>LREIM does not independently govern:</p>
+<p>primary Liability Determination, primary Scope or Allocation, complete Liability Transfer, complete Liability Sharing, Recourse Network interaction, Resolution, Discharge, or Finality.</p>
+<p>LREIM ends when the potential secondary recovery relationship is sufficiently represented as an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure-13" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+<p>for continued LTRS governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-excess-payment-after-shared-liability" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Excess Payment After Shared Liability</h1>
+<p>Three Subjects participate in a Governed Liability Sharing Structure.</p>
+<p>Subject A pays materially more than its governed share.</p>
+<p>LREIM identifies the excess payment as a Recourse-Relevant Event.</p>
+<p>It then identifies:</p>
+<p>the primary Liability, the existing Sharing structure, Subject A as the potential Recourse-Seeking Subject, the relevant potential Recourse-Target Subject or Subjects, the excess payment as part of the Recourse Object, the applicable Recourse Basis, the potential Scope, and the relevant conditions.</p>
+<p>The module does not assume that excess payment automatically establishes Recourse.</p>
+<p>The resulting relationship proceeds as an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-recourse-structure-15" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Recourse Structure</h1>
+<p>for continued governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-insurance-payment-and-secondary-recovery" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Insurance Payment and Secondary Recovery</h1>
+<p>An insurer pays a covered Liability-related loss on behalf of an insured Subject.</p>
+<p>The payment creates potential recovery relevance against another Subject connected to the underlying Liability.</p>
+<p>LREIM preserves the distinction between:</p>
+<p>the primary Liability, the insured Subject, the insurer as paying Subject, the insurance payment, the potential Recourse-Target Subject, and the separate Recourse Basis.</p>
+<p>The insurer's payment does not automatically transfer primary Liability and does not automatically establish Recourse.</p>
+<p>The module identifies whether a distinct secondary Recourse Relationship is sufficiently supported for continued governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Recourse begins with a relationship to an existing Liability consequence, but it is not simply another name for that Liability.</p>
+<p>A party may pay.</p>
+<p>A party may perform more than its share.</p>
+<p>An insurer may satisfy an economic loss.</p>
+<p>An indemnifier may reimburse another Subject.</p>
+<p>Any of these events may create Recourse relevance.</p>
+<p>None establishes Recourse by itself.</p>
+<p>LREIM preserves the primary Liability while identifying whether a distinct secondary recovery relationship has emerged.</p>
+<p>Recourse-Relevant Event ≠ Established Recourse.</p>
+<p>Identify the recovery relationship without rewriting the Liability from which it arose.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-ltrs.html">Liability Transfer &amp; Recourse Standard (LTRS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-ltrs-lrenm-4.html">LRENM — Liability Recourse Network Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

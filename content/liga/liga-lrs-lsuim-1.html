@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LSUIM — Liability Subject Identification Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LSUIM — Liability Subject Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship Standard (LRS)." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LSUIM — Liability Subject Identification Module" />
+<meta property="og:description" content="LSUIM — Liability Subject Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship Standard (LRS)." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LSUIM — Liability Subject Identification Module" />
+<meta name="twitter:description" content="LSUIM — Liability Subject Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship Standard (LRS)." />
+<meta name="DC.title" content="LSUIM — Liability Subject Identification Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html","name":"LSUIM — Liability Subject Identification Module","description":"LSUIM — Liability Subject Identification Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability Relationship Standard (LRS).","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LSUIM — Liability Subject Identification Module","item":"https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html"}]},"headline":"LSUIM — Liability Subject Identification Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lrs-lsuim-1.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability Relationship Standard (LRS)","Governance & Enforcement","Liability Governance","Liability Subject Identification"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability Relationship Standard (LRS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability Subject Identification"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lrs.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lrs-lrim-2.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability Relationship Standard (LRS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability Subject Identification"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lsuim-liability-subject-identification-module" data-oof-section-id="true" role="heading" aria-level="1">LSUIM — Liability Subject Identification Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lsuim-liability-subject-identification-module-3" data-oof-section-id="true" role="heading" aria-level="2">LSUIM — Liability Subject Identification Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability Relationship Standard (LRS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability Subject Identification<br>
+<b>Module ID:</b> LIGA-LRS-LSUIM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.04.01.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 21 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability Subject Identification Module (LSUIM) governs how persons, organizations, entities, systems, and other governable participants that may be materially relevant to a potential Liability structure are recognized, identified, distinguished, referenced, and maintained as Liability Subject Candidates so that subsequent Liability Relationship governance proceeds from explicit Subject identities rather than assumptions based on visibility, proximity, role labels, Harm involvement, ownership, control, responsibility, accountability, or alleged Liability.</p>
+<p>LSUIM governs the transition:</p>
+<p>Governed Liability Basis → Potential Subject Recognition → Subject Candidate Identification → Subject Identity Establishment → Subject Relevance Assessment → Identified Liability Subject Its foundational distinction is:</p>
+<p>Liability Subject ≠ Liable Subject.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LSUIM is:</p>
+<p>to determine who or what must enter the Liability Relationship inquiry as an identifiable Liability-relevant Subject.</p>
+<p>LSUIM does not determine:</p>
+<p>who is liable, which relationship exists, whether Liability Conditions are satisfied, whether a Liability-Relevant Connection exists, or whether Liability attaches.</p>
+<p>It establishes the participants that later relational governance must evaluate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-parent-standard-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the Parent Standard Flow</h1>
+<p>The internal LRS progression is:</p>
+<p>Liability Subject Identification → Liability Relationship Identification → Relationship Mapping → Relationship Distinction → Relationship Continuity LSUIM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-subject-identification" data-oof-section-id="true" role="heading" aria-level="2">Liability Subject Identification</h1>
+<p>Its principal input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Basis</h1>
+<p>together with the relevant Governed Liability Object and preserved upstream governance states.</p>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set</h1>
+<p>Its canonical handoff is:</p>
+<p>Identified Liability Subject Set → Liability Relationship Identification</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>Who or what is sufficiently relevant to the potential Liability structure to require explicit identification as a Liability Subject?</p>
+<p>The question concerns participation in the Liability inquiry.</p>
+<p>It does not ask who bears Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-space" data-oof-section-id="true" role="heading" aria-level="2">Governed Space</h1>
+<p>LSUIM governs:</p>
+<p>Potential Subject Recognition, Subject Candidate Identification, Subject Identity, Subject Reference, Subject Type, Subject Relevance, Subject Role Reference, Human Subjects, Organizational Subjects, Institutional Subjects, System Subjects, AI and Autonomous-System Subjects, Multiple Subjects, Unknown Subjects, Partially Identified Subjects, Duplicate Subject Records, Subject Distinction, Subject Temporal State, Subject Uncertainty, Subject Change, Subject Correction, Subject Reassessment, and Subject Identification Sufficiency.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-subject-candidate" data-oof-section-id="true" role="heading" aria-level="2">Liability Subject Candidate</h1>
+<p>A Liability Subject Candidate is a person, organization, entity, system, or other governable participant whose involvement may be materially relevant to the Liability inquiry but whose Subject status has not yet been sufficiently established.</p>
+<p>Candidate status preserves uncertainty.</p>
+<p>Therefore:</p>
+<p>Potential Subject ≠ Identified Liability Subject.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-recognition" data-oof-section-id="true" role="heading" aria-level="2">Subject Recognition</h1>
+<p>Potential Subjects may become visible through:</p>
+<p>the Governed Liability Object, the Governed Liability Basis, operational activity, ownership, control, authority, delegation, contract, service provision, manufacture, maintenance, custody, professional activity, Harm-related involvement, evidence, or another governed input.</p>
+<p>Recognition is the entry point.</p>
+<p>It is not a Liability conclusion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="recognition-trigger" data-oof-section-id="true" role="heading" aria-level="2">Recognition Trigger</h1>
+<p>A Subject Recognition Trigger is any governed information indicating that a participant may require evaluation within the Liability Relationship structure.</p>
+<p>A trigger may originate from:</p>
+<p>upstream LIGA™ governance, another OOF® architecture, evidence, a governed record, or later lifecycle re-entry.</p>
+<p>Therefore:</p>
+<p>Recognition Trigger ≠ Subject Qualification as Liable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identification" data-oof-section-id="true" role="heading" aria-level="2">Subject Identification</h1>
+<p>A Subject becomes identified when its identity is sufficiently established for subsequent relationship governance.</p>
+<p>Identification should answer:</p>
+<p>Who or what is the participant?</p>
+<p>How is it uniquely referenced?</p>
+<p>What kind of Subject is it?</p>
+<p>Why is it relevant to the Liability inquiry?</p>
+<p>Which Object and Basis make it relevant?</p>
+<p>What uncertainty remains?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identity" data-oof-section-id="true" role="heading" aria-level="2">Subject Identity</h1>
+<p>Subject Identity is the governed identity of the participant independently of the participant's role or eventual Liability state.</p>
+<p>The architecture must preserve:</p>
+<p>Subject Identity ≠ Subject Role.</p>
+<p>A person or organization remains the same Subject even where its role changes, unless the underlying identity itself changes.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="persistent-subject-reference" data-oof-section-id="true" role="heading" aria-level="2">Persistent Subject Reference</h1>
+<p>Each identified Subject should receive or retain a sufficiently stable reference allowing the Subject to be traced across later LIGA™ governance.</p>
+<p>The reference should survive ordinary changes in:</p>
+<p>name, role, system location, record identifier, representation, or organizational context.</p>
+<p>Therefore:</p>
+<p>Subject Reference Change ≠ Subject Identity Change by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-type" data-oof-section-id="true" role="heading" aria-level="2">Subject Type</h1>
+<p>Subject typing may assist later relationship governance.</p>
+<p>Possible methodological types may include:</p>
+<p>Natural Person, Organization, Legal Entity, Public Institution, Organizational Unit, Operational Entity, System, AI System, Autonomous System, Agent, or another governable participant type.</p>
+<p>Subject Type describes what kind of participant is being represented.</p>
+<p>It does not establish Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="natural-person" data-oof-section-id="true" role="heading" aria-level="2">Natural Person</h1>
+<p>A natural person may become a Liability Subject where their participation is materially relevant to the Liability inquiry.</p>
+<p>Possible relevance may arise from:</p>
+<p>action, decision, authority, control, professional role, ownership, operation, delegation, or another governed factor.</p>
+<p>Identification does not establish personal Liability.</p>
+<p>Therefore:</p>
+<p>Identified Natural Person ≠ Personally Liable Person.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="organization" data-oof-section-id="true" role="heading" aria-level="2">Organization</h1>
+<p>An organization may become a Liability Subject where its governed participation is materially relevant.</p>
+<p>Identification should distinguish the organization from:</p>
+<p>employees, owners, directors, contractors, subsidiaries, parent entities, agents, or other related Subjects.</p>
+<p>Therefore:</p>
+<p>Organizational Relationship ≠ Subject Identity Merger.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="legal-entity" data-oof-section-id="true" role="heading" aria-level="2">Legal Entity</h1>
+<p>Where legally recognized entity status is relevant, the entity should be represented independently from the broader organization or group to which it belongs.</p>
+<p>Therefore:</p>
+<p>Corporate Group ≠ Individual Legal Entity.</p>
+<p>and:</p>
+<p>Brand Identity ≠ Legal Entity Identity by default.</p>
+<p>LSUIM preserves the distinction without making jurisdiction-specific legal Liability determinations.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="organizational-unit" data-oof-section-id="true" role="heading" aria-level="2">Organizational Unit</h1>
+<p>A division, department, branch, site, or other organizational unit may be operationally relevant without possessing an independent Liability-bearing legal identity.</p>
+<p>LSUIM may still identify it where necessary to understand later relationships.</p>
+<p>Therefore:</p>
+<p>Operationally Relevant Unit ≠ Independent Liability-Bearing Entity by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="public-institution" data-oof-section-id="true" role="heading" aria-level="2">Public Institution</h1>
+<p>A public institution or public body may become a Liability Subject where materially relevant.</p>
+<p>Identification should preserve:</p>
+<p>institutional identity, relevant unit, authority structure where known, and temporal state.</p>
+<p>Identification does not determine public-law Liability or jurisdiction-specific immunity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="system-as-subject-candidate" data-oof-section-id="true" role="heading" aria-level="2">System as Subject Candidate</h1>
+<p>A technical or intelligent system may be materially relevant to Liability governance.</p>
+<p>LSUIM may identify such a system as a Liability Subject Candidate where doing so is necessary to represent the Liability structure accurately.</p>
+<p>However:</p>
+<p>System Participation ≠ Legal Personhood.</p>
+<p>and:</p>
+<p>System Identification ≠ System Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ai-system" data-oof-section-id="true" role="heading" aria-level="2">AI System</h1>
+<p>An AI system may be identified as a Liability-relevant Subject where its identity, behavior, authority, decision role, or operational participation is material to the Liability inquiry.</p>
+<p>This is a methodological representation.</p>
+<p>It does not determine whether the AI system can legally bear Liability.</p>
+<p>Therefore:</p>
+<p>AI Subject Identification ≠ AI Legal Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="autonomous-system" data-oof-section-id="true" role="heading" aria-level="2">Autonomous System</h1>
+<p>An autonomous system may require independent identification where it performs materially relevant actions or decisions.</p>
+<p>The system should remain distinguishable from:</p>
+<p>developer, provider, owner, deployer, operator, controller, user, and other Subjects.</p>
+<p>Therefore:</p>
+<p>Autonomous System ≠ Operator.</p>
+<p>Autonomous System ≠ Provider.</p>
+<p>Autonomous System ≠ Owner.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="agent" data-oof-section-id="true" role="heading" aria-level="2">Agent</h1>
+<p>An agent may be:</p>
+<p>human, organizational, software-based, AI-based, or otherwise operationally represented.</p>
+<p>Agent identity should remain separate from:</p>
+<p>principal identity, delegating Subject, system owner, and system operator.</p>
+<p>Therefore:</p>
+<p>Agent ≠ Principal.</p>
+<p>The existence of agency is governed later as a relationship question.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-relevance" data-oof-section-id="true" role="heading" aria-level="2">Subject Relevance</h1>
+<p>A participant should enter LSUIM where there is sufficient reason to preserve it for subsequent Liability Relationship governance.</p>
+<p>Relevance may derive from:</p>
+<p>relationship to the Object, relationship to the Basis, operational participation, authority, control, ownership, responsibility, accountability, conduct, decision-making, service provision, manufacture, maintenance, custody, delegation, or another materially relevant factor.</p>
+<p>Relevance does not establish Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relevance-threshold" data-oof-section-id="true" role="heading" aria-level="2">Relevance Threshold</h1>
+<p>LSUIM should avoid two opposite failures:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="under-inclusion" data-oof-section-id="true" role="heading" aria-level="2">Under-Inclusion</h1>
+<p>where materially relevant Subjects are omitted, and:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="over-inclusion" data-oof-section-id="true" role="heading" aria-level="2">Over-Inclusion</h1>
+<p>where every remotely connected participant is treated as Liability-relevant.</p>
+<p>The relevance threshold should preserve Subjects whose inclusion could materially affect later Liability Relationship governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="proximity-and-relevance" data-oof-section-id="true" role="heading" aria-level="2">Proximity and Relevance</h1>
+<p>Physical, organizational, technical, or causal proximity may trigger Subject evaluation.</p>
+<p>Proximity alone is insufficient.</p>
+<p>Therefore:</p>
+<p>Proximity ≠ Liability Relevance by default.</p>
+<p>and even where relevance exists:</p>
+<p>Liability Relevance ≠ Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="visibility-and-relevance" data-oof-section-id="true" role="heading" aria-level="2">Visibility and Relevance</h1>
+<p>The most visible actor may not be the most relevant Subject.</p>
+<p>Likewise, a less visible Subject may hold material authority, control, ownership, or another relevant relationship.</p>
+<p>Therefore:</p>
+<p>Visibility ≠ Liability Relevance.</p>
+<p>LSUIM should not privilege the easiest Subject to observe.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-actor" data-oof-section-id="true" role="heading" aria-level="2">Operational Actor</h1>
+<p>A Subject that performs an operational action may be Liability-relevant.</p>
+<p>However:</p>
+<p>Operational Actor ≠ Liability-Bearing Subject by default.</p>
+<p>The operational actor may be one participant in a wider Liability Relationship Network.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="harm-producing-actor" data-oof-section-id="true" role="heading" aria-level="2">Harm-Producing Actor</h1>
+<p>Where Harm exists, the actor associated with Harm production may become Liability-relevant.</p>
+<p>However:</p>
+<p>Harm-Producing Actor ≠ Liability-Bearing Party by default.</p>
+<p>HAGA™ governs Harm.</p>
+<p>LSUIM identifies Liability-relevant Subjects without converting Harm participation into Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="owner" data-oof-section-id="true" role="heading" aria-level="2">Owner</h1>
+<p>Ownership may justify identifying an owner as a Liability Subject where ownership is materially relevant.</p>
+<p>However:</p>
+<p>Owner ≠ Liable Subject by default.</p>
+<p>Ownership becomes a relationship input for later governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="controller" data-oof-section-id="true" role="heading" aria-level="2">Controller</h1>
+<p>A Subject exercising control may require identification.</p>
+<p>Control may be:</p>
+<p>formal, operational, technical, organizational, financial, or another relevant form.</p>
+<p>However:</p>
+<p>Controller ≠ Liable Subject by default.</p>
+<p>Control relevance must later be evaluated through governed relationships, Conditions, and Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operator" data-oof-section-id="true" role="heading" aria-level="2">Operator</h1>
+<p>An operator may be relevant because it operates the Governed Liability Object, system, process, or environment.</p>
+<p>However:</p>
+<p>Operator ≠ Liable Subject by default.</p>
+<p>Operational participation does not substitute for Liability Determination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provider" data-oof-section-id="true" role="heading" aria-level="2">Provider</h1>
+<p>A provider may become relevant through:</p>
+<p>service provision, technology provision, infrastructure provision, professional service, or another governed activity.</p>
+<p>Provider status does not establish Liability.</p>
+<p>Therefore:</p>
+<p>Provider ≠ Liability-Bearing Party by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="manufacturer" data-oof-section-id="true" role="heading" aria-level="2">Manufacturer</h1>
+<p>A manufacturer may be relevant to a Liability inquiry involving a product, component, equipment, or system.</p>
+<p>Identification does not establish product-related or other Liability.</p>
+<p>Therefore:</p>
+<p>Manufacturer ≠ Liable Subject by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="contractor-and-subcontractor" data-oof-section-id="true" role="heading" aria-level="2">Contractor and Subcontractor</h1>
+<p>Contractors and subcontractors should be identified separately where their participation may materially affect the Liability structure.</p>
+<p>A subcontractor must not be collapsed into the contractor.</p>
+<p>Likewise, the contractor must not be treated as identical to the principal.</p>
+<p>Therefore:</p>
+<p>Contractor ≠ Subcontractor ≠ Principal.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="principal-and-agent" data-oof-section-id="true" role="heading" aria-level="2">Principal and Agent</h1>
+<p>Where a potential principal–agent structure exists, both Subjects should be separately identified before the relationship itself is determined.</p>
+<p>Therefore:</p>
+<p>Principal Identity ≠ Agent Identity.</p>
+<p>LSUIM identifies the Subjects.</p>
+<p>LRIM later identifies whether and how the agency relationship exists.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insurer" data-oof-section-id="true" role="heading" aria-level="2">Insurer</h1>
+<p>An insurer may become Liability-relevant where insurance relationships may affect later payment, transfer, sharing, or Recourse structures.</p>
+<p>However:</p>
+<p>Insurer ≠ Primary Liability-Bearing Subject by default.</p>
+<p>Payment responsibility and underlying Liability must remain distinct.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="paying-party" data-oof-section-id="true" role="heading" aria-level="2">Paying Party</h1>
+<p>A party that makes or may make payment can be identified where materially relevant.</p>
+<p>However:</p>
+<p>Paying Party ≠ Liability-Bearing Party by default.</p>
+<p>This distinction becomes especially important in insurance, indemnification, guarantees, and Recourse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-subjects" data-oof-section-id="true" role="heading" aria-level="2">Multiple Subjects</h1>
+<p>A single Liability inquiry may contain many Subjects.</p>
+<p>LSUIM should preserve each materially distinct Subject independently.</p>
+<p>Therefore:</p>
+<p>Multiple Subjects ≠ One Collective Liability Subject by default.</p>
+<p>Grouping must not erase relevant identity differences.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="collective-subject-representation" data-oof-section-id="true" role="heading" aria-level="2">Collective Subject Representation</h1>
+<p>A collective representation may be useful where several participants legitimately function as one governed unit for a particular analytical purpose.</p>
+<p>However, the underlying Subjects should remain separately reconstructable where their individual identity may become materially relevant.</p>
+<p>Therefore:</p>
+<p>Collective Representation ≠ Identity Merger.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="related-organizations" data-oof-section-id="true" role="heading" aria-level="2">Related Organizations</h1>
+<p>Parent companies, subsidiaries, affiliates, joint ventures, contractors, and other related organizations must not be collapsed merely because they share ownership, branding, management, or infrastructure.</p>
+<p>Therefore:</p>
+<p>Organizational Affiliation ≠ Subject Identity.</p>
+<p>Each materially relevant entity should be identified separately.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-and-role" data-oof-section-id="true" role="heading" aria-level="2">Subject and Role</h1>
+<p>LSUIM may preserve preliminary role information needed to distinguish Subjects.</p>
+<p>However, complete relationship governance belongs downstream.</p>
+<p>Therefore:</p>
+<p>Subject Identification ≠ Complete Role Determination.</p>
+<p>and:</p>
+<p>Role Reference ≠ Liability Relationship Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-and-liability-object" data-oof-section-id="true" role="heading" aria-level="2">Subject and Liability Object</h1>
+<p>A Subject may be relevant because of its relationship to the Governed Liability Object.</p>
+<p>Possible Object-related relevance may include:</p>
+<p>ownership, operation, control, manufacture, maintenance, custody, use, or another relationship.</p>
+<p>LSUIM records the relevance reference.</p>
+<p>LRIM determines the relationship.</p>
+<p>Therefore:</p>
+<p>Object Relevance ≠ Established Subject–Object Relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-and-liability-basis" data-oof-section-id="true" role="heading" aria-level="2">Subject and Liability Basis</h1>
+<p>A Subject may be identified because the Governed Liability Basis refers to or potentially affects that Subject.</p>
+<p>However:</p>
+<p>Basis Reference to Subject ≠ Liability Attachment.</p>
+<p>LRS must still establish the relevant relational structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-and-responsibility" data-oof-section-id="true" role="heading" aria-level="2">Subject and Responsibility</h1>
+<p>Responsibility may trigger Subject identification.</p>
+<p>However:</p>
+<p>Responsible Subject ≠ Liable Subject.</p>
+<p>AGA™ owns Responsibility governance.</p>
+<p>LSUIM uses governed Responsibility only as a relevance input where appropriate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-and-accountability" data-oof-section-id="true" role="heading" aria-level="2">Subject and Accountability</h1>
+<p>Accountability may likewise make a Subject relevant.</p>
+<p>However:</p>
+<p>Accountable Subject ≠ Liable Subject.</p>
+<p>Accountability does not become Liability merely because it enters LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-and-authority" data-oof-section-id="true" role="heading" aria-level="2">Subject and Authority</h1>
+<p>A Subject possessing Authority may require identification.</p>
+<p>However:</p>
+<p>Authority Holder ≠ Liability-Bearing Subject by default.</p>
+<p>Authority may later affect relationship, Conditions, or Connection.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-and-evidence" data-oof-section-id="true" role="heading" aria-level="2">Subject and Evidence</h1>
+<p>Evidence may identify or distinguish a Subject.</p>
+<p>However:</p>
+<p>Evidence Reference ≠ Subject Identity by itself.</p>
+<p>Evidence may be incomplete, ambiguous, outdated, or conflicting.</p>
+<p>ADIT® governs evidence.</p>
+<p>LSUIM governs the Subject identity derived for Liability purposes.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identity-conflict" data-oof-section-id="true" role="heading" aria-level="2">Subject Identity Conflict</h1>
+<p>Different records may identify the same apparent participant differently.</p>
+<p>Conflict may concern:</p>
+<p>name, legal identity, organizational identity, system identity, role, or temporal state.</p>
+<p>LSUIM should preserve the conflict rather than force unsupported identity certainty.</p>
+<p>Therefore:</p>
+<p>Identity Conflict ≠ Authority to Manufacture Subject Identity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-subject" data-oof-section-id="true" role="heading" aria-level="2">Unknown Subject</h1>
+<p>A Liability inquiry may indicate that a materially relevant Subject exists without revealing who or what that Subject is.</p>
+<p>LSUIM should permit states such as:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-liability-subject" data-oof-section-id="true" role="heading" aria-level="2">Unknown Liability Subject</h1>
+<p>or:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unidentified-liability-subject-candidate" data-oof-section-id="true" role="heading" aria-level="2">Unidentified Liability Subject Candidate</h1>
+<p>where appropriate.</p>
+<p>Therefore:</p>
+<p>Unidentified Subject ≠ Nonexistent Subject.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-identified-subject" data-oof-section-id="true" role="heading" aria-level="2">Partially Identified Subject</h1>
+<p>A Subject may be known only partially.</p>
+<p>For example:</p>
+<p>the relevant organization may be known, but the specific legal entity may remain uncertain.</p>
+<p>Or:</p>
+<p>the system may be known, but the responsible operator may not yet be identified.</p>
+<p>Partial identity should remain explicit.</p>
+<p>Therefore:</p>
+<p>Partial Identification ≠ Complete Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identity-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">Subject Identity Uncertainty</h1>
+<p>Possible states may include:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified" data-oof-section-id="true" role="heading" aria-level="2">Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="provisionally-identified" data-oof-section-id="true" role="heading" aria-level="2">Provisionally Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partially-identified" data-oof-section-id="true" role="heading" aria-level="2">Partially Identified</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identity-uncertain" data-oof-section-id="true" role="heading" aria-level="2">Identity Uncertain</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identity-disputed" data-oof-section-id="true" role="heading" aria-level="2">Identity Disputed</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unidentified" data-oof-section-id="true" role="heading" aria-level="2">Unidentified</h1>
+<p>Uncertainty should propagate into downstream relationship governance where material.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-subject-records" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Subject Records</h1>
+<p>Several records may refer to the same underlying Subject.</p>
+<p>Technical duplication must not create multiple methodological Subjects.</p>
+<p>Therefore:</p>
+<p>Multiple Subject Records ≠ Multiple Liability Subjects by default.</p>
+<p>Identity reconciliation should preserve the source records while maintaining the governed Subject identity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="similar-subjects" data-oof-section-id="true" role="heading" aria-level="2">Similar Subjects</h1>
+<p>Two Subjects may have:</p>
+<p>similar names, shared branding, shared ownership, shared addresses, shared personnel, or related system identifiers.</p>
+<p>Similarity does not establish identity.</p>
+<p>Therefore:</p>
+<p>Subject Similarity ≠ Subject Identity.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-separation" data-oof-section-id="true" role="heading" aria-level="2">Subject Separation</h1>
+<p>A participant previously represented as one Subject may later be found to contain several materially distinct Subjects.</p>
+<p>The earlier representation should remain traceable.</p>
+<p>Therefore:</p>
+<p>Subject Separation ≠ Independent Historical Origin by default.</p>
+<p>The resulting Subjects should preserve lineage to the earlier representation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-consolidation" data-oof-section-id="true" role="heading" aria-level="2">Subject Consolidation</h1>
+<p>Several records or candidate identities may later be determined to represent the same Subject.</p>
+<p>Consolidation should preserve:</p>
+<p>prior references, the reconciliation rationale, the resulting identity, and historical traceability.</p>
+<p>Therefore:</p>
+<p>Subject Consolidation ≠ Historical Record Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-subject-identity" data-oof-section-id="true" role="heading" aria-level="2">Temporal Subject Identity</h1>
+<p>A Subject's relevant identity state may change over time.</p>
+<p>Examples include:</p>
+<p>organizational restructuring, merger, separation, name change, ownership change, system replacement, or legal transformation.</p>
+<p>LSUIM should identify the Subject state relevant to the Liability inquiry.</p>
+<p>Therefore:</p>
+<p>Current Subject State ≠ Historically Relevant Subject State by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-change" data-oof-section-id="true" role="heading" aria-level="2">Subject Change</h1>
+<p>A Subject may change without becoming a different Subject.</p>
+<p>Examples may include:</p>
+<p>name change, role change, location change, representation change, or internal restructuring.</p>
+<p>Therefore:</p>
+<p>Subject Change ≠ New Subject Identity by default.</p>
+<p>The identity question depends on continuity of the underlying governed participant.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="material-subject-transformation" data-oof-section-id="true" role="heading" aria-level="2">Material Subject Transformation</h1>
+<p>Some changes may create a genuinely different Subject.</p>
+<p>Where identity continuity no longer holds, LSUIM should preserve:</p>
+<p>the earlier Subject, the transformation, the successor or resulting Subject, and the relevant temporal boundary.</p>
+<p>Therefore:</p>
+<p>Subject Continuity must not be artificially preserved across genuine identity transformation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-correction" data-oof-section-id="true" role="heading" aria-level="2">Subject Correction</h1>
+<p>An earlier Subject identification may be incorrect.</p>
+<p>Correction should preserve:</p>
+<p>the earlier identification, the corrected identity, the reason for correction, and the relevant supporting governance input.</p>
+<p>Therefore:</p>
+<p>Subject Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Subject Reassessment</h1>
+<p>New information may require reassessment of whether a participant:</p>
+<p>is the same Subject, is materially relevant, should remain within the Liability inquiry, or should be separated into multiple Subjects.</p>
+<p>Therefore:</p>
+<p>Subject Reassessment ≠ New Liability Origin.</p>
+<p>The existing governance history should remain preserved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-inclusion" data-oof-section-id="true" role="heading" aria-level="2">Subject Inclusion</h1>
+<p>A Subject should be included in the identified Subject set where its participation may materially affect subsequent Liability Relationship governance.</p>
+<p>Inclusion means:</p>
+<p>retain this Subject for relationship analysis.</p>
+<p>It does not mean:</p>
+<p>this Subject bears Liability.</p>
+<p>Therefore:</p>
+<p>Subject Inclusion ≠ Liability Inclusion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-exclusion" data-oof-section-id="true" role="heading" aria-level="2">Subject Exclusion</h1>
+<p>A candidate may be excluded where sufficient governance establishes that it is not materially relevant to the Liability Relationship inquiry.</p>
+<p>Exclusion should preserve the reason where material.</p>
+<p>Therefore:</p>
+<p>Subject Exclusion ≠ Proof of No Liability in every possible context.</p>
+<p>The exclusion applies to the governed inquiry and current state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Subject Re-Entry</h1>
+<p>A previously excluded or unidentified Subject may later become relevant because of new information.</p>
+<p>The Subject may re-enter LRS governance.</p>
+<p>Therefore:</p>
+<p>Subject Re-Entry ≠ New Liability Lifecycle by default.</p>
+<p>Re-entry should preserve earlier governance history.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Identification Sufficiency</h1>
+<p>Subject identification is sufficient when subsequent relationship governance can determine, to the extent materially required:</p>
+<p>who or what the Subject is, how it is referenced, what Subject type is involved, why it is relevant, which Object and Basis make it relevant, which temporal state applies, and what identity uncertainty remains.</p>
+<p>Identification sufficiency does not require a Liability conclusion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-relationship-identification" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Relationship Identification</h1>
+<p>Once materially relevant Subjects are sufficiently identified, LSUIM produces:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set-3" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set</h1>
+<p>The handoff should preserve:</p>
+<p>Subject Identity, Subject Reference, Subject Type, Subject Relevance, preliminary role references where necessary, Object relevance, Basis relevance, temporal state, identity uncertainty, and identification history.</p>
+<p>The next governance question becomes:</p>
+<p>What Liability-relevant relationships exist among these Subjects and between the Subjects, Governed Liability Object, and Governed Liability Basis?</p>
+<p>That question belongs to LRIM.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LSUIM must provide at least the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="potential-subject-recognition" data-oof-section-id="true" role="heading" aria-level="2">Potential Subject Recognition</h1>
+<p>Capability to recognize persons, organizations, entities, systems, and other governable participants that may be materially relevant to a Liability inquiry without treating recognition as Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-candidate-identification" data-oof-section-id="true" role="heading" aria-level="2">Subject Candidate Identification</h1>
+<p>Capability to establish identifiable Liability Subject Candidates and preserve the reason each candidate entered governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identity-and-reference-governance" data-oof-section-id="true" role="heading" aria-level="2">Subject Identity &amp; Reference Governance</h1>
+<p>Capability to establish stable Subject Identity and reference structures independently of role, relationship, record location, and Liability state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-type-and-relevance-governance" data-oof-section-id="true" role="heading" aria-level="2">Subject Type &amp; Relevance Governance</h1>
+<p>Capability to represent relevant Subject types and determine whether a participant is sufficiently relevant for subsequent Liability Relationship governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multiple-related-and-system-subject-governance" data-oof-section-id="true" role="heading" aria-level="2">Multiple, Related &amp; System Subject Governance</h1>
+<p>Capability to distinguish multiple Subjects, related organizations, natural persons, organizational units, AI systems, autonomous systems, agents, and other relevant participants without inappropriate identity collapse.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-partial-duplicate-and-conflicting-identity-governance" data-oof-section-id="true" role="heading" aria-level="2">Unknown, Partial, Duplicate &amp; Conflicting Identity Governance</h1>
+<p>Capability to preserve unidentified, partially identified, duplicate, similar, disputed, and conflicting Subject identities without manufacturing certainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-change-correction-and-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Subject Change, Correction &amp; Reassessment</h1>
+<p>Capability to govern identity-relevant change, separation, consolidation, correction, reassessment, exclusion, and re-entry while preserving historical traceability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Subject Identification Sufficiency</h1>
+<p>Capability to determine whether the materially relevant Subject set is sufficiently identified for Liability Relationship Identification while preserving unresolved identity uncertainty.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LSUIM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-basis-governed-liability-object" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Basis + Governed Liability Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-potential-subject-recognition-triggers" data-oof-section-id="true" role="heading" aria-level="2">Identify Potential Subject Recognition Triggers</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="create-liability-subject-candidates" data-oof-section-id="true" role="heading" aria-level="2">Create Liability Subject Candidates</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-subject-identity" data-oof-section-id="true" role="heading" aria-level="2">Establish Subject Identity</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="establish-persistent-subject-reference" data-oof-section-id="true" role="heading" aria-level="2">Establish Persistent Subject Reference</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-subject-type" data-oof-section-id="true" role="heading" aria-level="2">Determine Subject Type</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-liability-relevance" data-oof-section-id="true" role="heading" aria-level="2">Assess Liability Relevance</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="distinguish-related-similar-duplicate-subjects" data-oof-section-id="true" role="heading" aria-level="2">Distinguish Related / Similar / Duplicate Subjects</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-unknown-or-partially-identified-subjects" data-oof-section-id="true" role="heading" aria-level="2">Identify Unknown or Partially Identified Subjects</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-relevant-temporal-subject-state" data-oof-section-id="true" role="heading" aria-level="2">Identify Relevant Temporal Subject State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="record-identity-uncertainty-or-conflict" data-oof-section-id="true" role="heading" aria-level="2">Record Identity Uncertainty or Conflict</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="include-exclude-preserve-candidate-state" data-oof-section-id="true" role="heading" aria-level="2">Include / Exclude / Preserve Candidate State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-subject-identification-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Assess Subject Identification Sufficiency</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set-5" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-relationship-identification" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Relationship Identification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LSUIM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-subject-candidate-3" data-oof-section-id="true" role="heading" aria-level="2">Liability Subject Candidate</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-subject-identity" data-oof-section-id="true" role="heading" aria-level="2">Liability Subject Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="persistent-subject-reference-3" data-oof-section-id="true" role="heading" aria-level="2">Persistent Subject Reference</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-subject-type" data-oof-section-id="true" role="heading" aria-level="2">Liability Subject Type</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-relevance-state" data-oof-section-id="true" role="heading" aria-level="2">Subject Relevance State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-inclusion-state" data-oof-section-id="true" role="heading" aria-level="2">Subject Inclusion State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-exclusion-state" data-oof-section-id="true" role="heading" aria-level="2">Subject Exclusion State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="natural-person-subject-record" data-oof-section-id="true" role="heading" aria-level="2">Natural Person Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="organizational-subject-record" data-oof-section-id="true" role="heading" aria-level="2">Organizational Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="legal-entity-subject-record" data-oof-section-id="true" role="heading" aria-level="2">Legal Entity Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="organizational-unit-subject-record" data-oof-section-id="true" role="heading" aria-level="2">Organizational Unit Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="system-subject-record" data-oof-section-id="true" role="heading" aria-level="2">System Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="ai-system-subject-record" data-oof-section-id="true" role="heading" aria-level="2">AI System Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="autonomous-system-subject-record" data-oof-section-id="true" role="heading" aria-level="2">Autonomous System Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="agent-subject-record" data-oof-section-id="true" role="heading" aria-level="2">Agent Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-subject-record" data-oof-section-id="true" role="heading" aria-level="2">Unknown Subject Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-subject-identity-record" data-oof-section-id="true" role="heading" aria-level="2">Partial Subject Identity Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identity-uncertainty-state" data-oof-section-id="true" role="heading" aria-level="2">Subject Identity Uncertainty State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identity-conflict-state" data-oof-section-id="true" role="heading" aria-level="2">Subject Identity Conflict State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="duplicate-subject-reconciliation" data-oof-section-id="true" role="heading" aria-level="2">Duplicate Subject Reconciliation</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-separation-record" data-oof-section-id="true" role="heading" aria-level="2">Subject Separation Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-consolidation-record" data-oof-section-id="true" role="heading" aria-level="2">Subject Consolidation Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-subject-state" data-oof-section-id="true" role="heading" aria-level="2">Temporal Subject State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-correction-record" data-oof-section-id="true" role="heading" aria-level="2">Subject Correction Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-reassessment-record" data-oof-section-id="true" role="heading" aria-level="2">Subject Reassessment Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-re-entry-record" data-oof-section-id="true" role="heading" aria-level="2">Subject Re-Entry Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-identification-sufficiency-state" data-oof-section-id="true" role="heading" aria-level="2">Subject Identification Sufficiency State</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set-7" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LSUIM preserves the following distinctions:</p>
+<p>Liability Subject ≠ Liable Subject Potential Subject ≠ Identified Liability Subject Recognition Trigger ≠ Subject Qualification as Liable Subject Identification ≠ Liability Determination Subject Identity ≠ Subject Role Subject Reference Change ≠ Subject Identity Change by default Subject Type ≠ Liability State Identified Natural Person ≠ Personally Liable Person Organizational Relationship ≠ Subject Identity Merger Corporate Group ≠ Individual Legal Entity Brand Identity ≠ Legal Entity Identity by default Operationally Relevant Unit ≠ Independent Liability-Bearing Entity by default System Participation ≠ Legal Personhood System Identification ≠ System Liability AI Subject Identification ≠ AI Legal Liability Autonomous System ≠ Operator Autonomous System ≠ Provider Autonomous System ≠ Owner Agent ≠ Principal Proximity ≠ Liability Relevance by default Liability Relevance ≠ Liability Visibility ≠ Liability Relevance Operational Actor ≠ Liability-Bearing Subject by default Harm-Producing Actor ≠ Liability-Bearing Party by default Owner ≠ Liable Subject by default Controller ≠ Liable Subject by default Operator ≠ Liable Subject by default Provider ≠ Liability-Bearing Party by default Manufacturer ≠ Liable Subject by default Contractor ≠ Subcontractor ≠ Principal Principal Identity ≠ Agent Identity Insurer ≠ Primary Liability-Bearing Subject by default Paying Party ≠ Liability-Bearing Party by default Multiple Subjects ≠ One Collective Liability Subject by default Collective Representation ≠ Identity Merger Organizational Affiliation ≠ Subject Identity Subject Identification ≠ Complete Role Determination Role Reference ≠ Liability Relationship Identification Object Relevance ≠ Established Subject–Object Relationship Basis Reference to Subject ≠ Liability Attachment Responsible Subject ≠ Liable Subject Accountable Subject ≠ Liable Subject Authority Holder ≠ Liability-Bearing Subject by default Evidence Reference ≠ Subject Identity by itself Identity Conflict ≠ Authority to Manufacture Subject Identity Unidentified Subject ≠ Nonexistent Subject Partial Identification ≠ Complete Identification Multiple Subject Records ≠ Multiple Liability Subjects by default Subject Similarity ≠ Subject Identity Subject Separation ≠ Independent Historical Origin by default Subject Consolidation ≠ Historical Record Erasure Current Subject State ≠ Historically Relevant Subject State by default Subject Change ≠ New Subject Identity by default Subject Correction ≠ Historical Erasure Subject Reassessment ≠ New Liability Origin Subject Inclusion ≠ Liability Inclusion Subject Exclusion ≠ Proof of No Liability in every possible context Subject Re-Entry ≠ New Liability Lifecycle by default</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LSUIM may receive governed identity and participation inputs from other OOF® architectures.</p>
+<p>OBIDENITY® may provide Origin, Identity, Ownership, Authority, Permission, Provenance, Transfer, and Continuity information.</p>
+<p>GOA™ may provide Authority, Scope, and Delegation structures.</p>
+<p>ORA™ may identify actual operational participants.</p>
+<p>AGA™ may provide Responsibility, Accountability, Authority, and Attribution states.</p>
+<p>HAGA™ may identify Harm-relevant actors without determining Liability.</p>
+<p>ADIT® may provide evidence supporting Subject identification.</p>
+<p>VALIDOS™ may validate Subject-relevant information.</p>
+<p>AIG® may provide AI-system governance identities and behavioral context.</p>
+<p>ASGA™ may provide autonomous-system Identity, Authority, Permission, Delegation, and operational participation.</p>
+<p>Other OOF® architectures may provide governed participants or states relevant to Subject identification.</p>
+<p>The governing principle is:</p>
+<p>Identification of a Subject in another governance domain may make that Subject relevant to LIGA™ without making the Subject liable or transferring governance ownership of its original identity domain to LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LSUIM begins when a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-basis-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability Basis</h1>
+<p>and associated Governed Liability Object indicate that one or more participants may require explicit identification for Liability Relationship governance.</p>
+<p>LSUIM governs:</p>
+<p>Potential Subject Recognition, Subject Candidate Identification, Subject Identity, Persistent Subject Reference, Subject Type, Subject Relevance, Human Subjects, Organizational Subjects, Legal Entities, Organizational Units, System Subjects, AI Systems, Autonomous Systems, Agents, Multiple Subjects, Related Subjects, Unknown Subjects, Partially Identified Subjects, Duplicate Subjects, Subject Identity Conflict, Temporal Subject State, Subject Change, Subject Separation, Subject Consolidation, Subject Correction, Subject Reassessment, Subject Inclusion, Subject Exclusion, Subject Re-Entry, and Identification Sufficiency.</p>
+<p>LSUIM does not determine:</p>
+<p>complete Subject Roles, Liability Relationships, Relationship Mapping, Liability Conditions, Condition Satisfaction, Liability-Relevant Connection, Liability Attachment, Liability Determination, Liability Scope, Liability Allocation, Liability Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LSUIM ends when an:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identified-liability-subject-set-9" data-oof-section-id="true" role="heading" aria-level="2">Identified Liability Subject Set</h1>
+<p>is sufficiently established for Liability Relationship Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-ai-enabled-operational-matter" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — AI-Enabled Operational Matter</h1>
+<p>A Liability inquiry concerns an AI-enabled operational process involving a technology provider, deploying organization, operator, customer, and AI system.</p>
+<p>LSUIM identifies each materially relevant participant separately.</p>
+<p>It does not collapse the AI provider into the deployer, the deployer into the operator, or the AI system into the organization operating it.</p>
+<p>Where the specific operator remains unknown, LSUIM preserves an Unidentified Liability Subject rather than inventing an identity.</p>
+<p>The resulting Subject set can then proceed to relationship identification without assuming that any identified Subject bears Liability.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-industrial-equipment-matter" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Industrial Equipment Matter</h1>
+<p>An industrial equipment matter involves an equipment owner, operating company, maintenance provider, subcontractor, operator, manufacturer, and insurer.</p>
+<p>LSUIM identifies each materially relevant Subject independently.</p>
+<p>Shared branding, contractual proximity, physical presence, ownership, or payment involvement does not collapse their identities or establish Liability.</p>
+<p>The operator who was physically present at the relevant moment remains one Subject among several potentially relevant participants.</p>
+<p>The resulting Identified Liability Subject Set provides LRIM with the governed participants required to identify the actual Liability-relevant relationships.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>Liability governance should not begin by selecting the most visible actor and treating that actor as the liable party.</p>
+<p>It should first determine which persons, organizations, entities, and systems actually belong within the Liability inquiry and preserve their identities without collapsing role, responsibility, proximity, Harm involvement, or operational participation into Liability.</p>
+<p>Identification establishes who must be examined. It does not establish who must bear Liability.</p>
+<p>Identify the Subjects before governing the relationships between them.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lrs.html">Liability Relationship Standard (LRS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lrs-lrim-2.html">LRIM — Liability Relationship Identification Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>

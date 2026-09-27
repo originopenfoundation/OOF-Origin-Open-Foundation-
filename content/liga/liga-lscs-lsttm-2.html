@@ -1,0 +1,1456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LSTTM — Liability State Transition Module</title>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="alternate" type="application/json" href="../../data/oof-relationship-registry.json" title="OOF Governed Relationship Registry" />
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="LSTTM — Liability State Transition Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard (LSCS)." />
+<link rel="canonical" href="https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="LSTTM — Liability State Transition Module" />
+<meta property="og:description" content="LSTTM — Liability State Transition Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard (LSCS)." />
+<meta property="og:url" content="https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="LSTTM — Liability State Transition Module" />
+<meta name="twitter:description" content="LSTTM — Liability State Transition Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State &amp; Change Standard (LSCS)." />
+<meta name="DC.title" content="LSTTM — Liability State Transition Module" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html#webpage","url":"https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html","name":"LSTTM — Liability State Transition Module","description":"LSTTM — Liability State Transition Module. Architecture: LIGA™ — Liability Governance Architecture Parent Standard: Liability State & Change Standard (LSCS).","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"LSTTM — Liability State Transition Module","item":"https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html"}]},"headline":"LSTTM — Liability State Transition Module","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/liga/liga-lscs-lsttm-2.html#webpage"},"keywords":["LIGA™ — Liability Governance Architecture","Liability State & Change Standard (LSCS)","Governance & Enforcement","Liability Governance","Liability State Transition"],"about":[{"@type":"Thing","name":"LIGA™ — Liability Governance Architecture"},{"@type":"Thing","name":"Liability State & Change Standard (LSCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Liability Governance"},{"@type":"Thing","name":"Liability State Transition"}],"relatedLink":["https://originopenfoundation.org/content/liga/liga-lscs.html","https://originopenfoundation.org/content/liga/liga-architecture-map.html","https://originopenfoundation.org/content/liga/liga-lscs-lchim-3.html"],"version":"1.0","creativeWorkStatus":"Canonical · Open Standard","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"LIGA™ — Liability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Liability State & Change Standard (LSCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Liability Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Liability State Transition"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Canonical · Open Standard"},{"@type":"PropertyValue","name":"Canonical Language","value":"English (UCL™)"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<!-- OOF SEMANTIC CONTENT START -->
+<main class="oof-semantic-main"><article class="oof-semantic-article">
+
+<section class="container"><h2 id="lsttm-liability-state-transition-module" data-oof-section-id="true" role="heading" aria-level="1">LSTTM — Liability State Transition Module</h2></section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lsttm-liability-state-transition-module-3" data-oof-section-id="true" role="heading" aria-level="2">LSTTM — Liability State Transition Module</h1>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<p class="podstand"><b>Architecture:</b> LIGA™ — Liability Governance Architecture<br>
+<b>Parent Standard:</b> Liability State &amp; Change Standard (LSCS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Liability Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Liability State Transition<br>
+<b>Module ID:</b> LIGA-LSCS-LSTTM-001<br>
+<b>Origin ID:</b> OOF.CM.LIGA.09.02.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 24 September 2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">Canonical Definition</h1>
+<p>The Liability State Transition Module (LSTTM) governs how established Liability may move from one Governed Liability State to another through an explicit, bounded, authorized where required, temporally defined, traceable, and historically preserved State Transition.</p>
+<p>LSTTM begins with a Governed Liability State and determines whether a proposed or triggered transition is structurally possible, what transition conditions apply, what Liability component the transition affects, when the transition becomes effective, and what resulting state should be established.</p>
+<p>It preserves the distinction between a transition trigger and an actual State Transition.</p>
+<p>It prevents operational events, record updates, payments, Claim changes, Harm changes, system changes, or other external events from being treated automatically as changes in Liability State.</p>
+<p>LSTTM does not independently redefine Liability Determination, Scope, or Allocation.</p>
+<p>It does not perform broader Liability Change identification or assessment where the underlying Liability structure itself may have changed.</p>
+<p>It governs the transition:</p>
+<p>Governed Liability State → Transition Trigger → Transition Eligibility → Transition Conditions → Transition Authority → Transition Execution → Resulting Liability State Its foundational distinction is:</p>
+<p>Transition Trigger ≠ Liability State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-role" data-oof-section-id="true" role="heading" aria-level="2">Operational Role</h1>
+<p>The operational role of LSTTM is:</p>
+<p>to govern whether, when, how, and to what extent an established Liability may legitimately move from its current state into another state.</p>
+<p>LSTIM identifies the current state.</p>
+<p>LSTTM governs movement from that state.</p>
+<p>Where the issue concerns a broader material change to the underlying Liability structure, the matter proceeds into Liability Change governance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="position-in-the-lscs-internal-flow" data-oof-section-id="true" role="heading" aria-level="2">Position in the LSCS Internal Flow</h1>
+<p>The internal LSCS progression is:</p>
+<p>Liability State Identification → Liability State Transition → Liability Change Identification → Liability Change Assessment → Liability State History LSTTM governs:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-state-transition" data-oof-section-id="true" role="heading" aria-level="2">Liability State Transition</h1>
+<p>Its principal input is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>Its principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+<p>Its handoff is:</p>
+<p>Governed Liability State Transition → LCHIM — Liability Change Identification Module</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">Central Operational Question</h1>
+<p>Under what governed conditions may the current Liability State legitimately transition into another state, and what resulting state becomes operative?</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-object" data-oof-section-id="true" role="heading" aria-level="2">Transition Object</h1>
+<p>Every State Transition should identify the specific Liability component whose state may change.</p>
+<p>The Transition Object may be:</p>
+<p>the complete Liability Relationship, one Subject-specific Liability, one Scope portion, one Allocation, one obligation, one temporal segment, one Liability Network component, or another explicitly governed Liability component.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-identity" data-oof-section-id="true" role="heading" aria-level="2">Transition Identity</h1>
+<p>Each material State Transition should possess sufficient identity to distinguish it from:</p>
+<p>the current state, another transition, another Liability component, another Subject, another Relationship, another time period, and another Liability lifecycle.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="source-state" data-oof-section-id="true" role="heading" aria-level="2">Source State</h1>
+<p>Every State Transition begins from an identifiable Source State.</p>
+<p>Therefore:</p>
+<p>State Transition without Source State ≠ Fully Governed Transition.</p>
+<p>The Source State should remain preserved after the transition occurs.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="target-state" data-oof-section-id="true" role="heading" aria-level="2">Target State</h1>
+<p>A transition should identify the state into which the relevant Liability component is expected or determined to move.</p>
+<p>The Target State should be explicit or explicitly unresolved.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="source-state-and-target-state" data-oof-section-id="true" role="heading" aria-level="2">Source State and Target State</h1>
+<p>The canonical structure is:</p>
+<p>Source Liability State → Governed Transition → Target Liability State The Target State does not replace the historical existence of the Source State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-trigger" data-oof-section-id="true" role="heading" aria-level="2">Transition Trigger</h1>
+<p>A Transition Trigger is an event, condition, decision, time threshold, dependency change, or other governed occurrence capable of initiating State Transition evaluation.</p>
+<p>A trigger does not itself establish the transition.</p>
+<p>Therefore:</p>
+<p>Transition Trigger ≠ Liability State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="trigger-identification" data-oof-section-id="true" role="heading" aria-level="2">Trigger Identification</h1>
+<p>LSTTM should identify:</p>
+<p>what triggered transition evaluation, when the trigger occurred, which Liability component it concerns, which Source State it may affect, and which transition pathway it potentially activates.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="trigger-source" data-oof-section-id="true" role="heading" aria-level="2">Trigger Source</h1>
+<p>A trigger may originate from:</p>
+<p>a Liability Condition, an obligation, an authority action, a temporal event, a Scope or Allocation state, an external governed system, new information, a downstream process, or another materially relevant source.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="external-trigger" data-oof-section-id="true" role="heading" aria-level="2">External Trigger</h1>
+<p>An external event may trigger transition evaluation without becoming a Liability State Transition.</p>
+<p>Therefore:</p>
+<p>External Event ≠ Liability State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="operational-trigger" data-oof-section-id="true" role="heading" aria-level="2">Operational Trigger</h1>
+<p>An operational system change, shutdown, activation, failure, restoration, or other operational event may trigger Liability review.</p>
+<p>It does not automatically change Liability.</p>
+<p>Therefore:</p>
+<p>Operational Change ≠ Liability State Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="harm-trigger" data-oof-section-id="true" role="heading" aria-level="2">Harm Trigger</h1>
+<p>A change in Harm may become relevant to Liability State.</p>
+<p>It does not automatically create an equivalent Liability transition.</p>
+<p>Therefore:</p>
+<p>Harm State Transition ≠ Liability State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="claim-trigger" data-oof-section-id="true" role="heading" aria-level="2">Claim Trigger</h1>
+<p>A Claim event may trigger Liability State review.</p>
+<p>Opening, accepting, rejecting, paying, closing, or reopening a Claim does not automatically establish a Liability State Transition.</p>
+<p>Therefore:</p>
+<p>Claim Transition ≠ Liability State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="payment-trigger" data-oof-section-id="true" role="heading" aria-level="2">Payment Trigger</h1>
+<p>Payment may trigger State Transition evaluation.</p>
+<p>Payment does not itself establish Resolution, Discharge, or another Liability State.</p>
+<p>Therefore:</p>
+<p>Payment Event ≠ Liability State Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="settlement-trigger" data-oof-section-id="true" role="heading" aria-level="2">Settlement Trigger</h1>
+<p>Settlement activity may trigger State Transition evaluation where relevant.</p>
+<p>Therefore:</p>
+<p>Settlement Event ≠ Liability State Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="insurance-trigger" data-oof-section-id="true" role="heading" aria-level="2">Insurance Trigger</h1>
+<p>Insurance activation, denial, payment, or coverage change may become relevant to Liability State governance.</p>
+<p>It does not automatically transition the underlying Liability.</p>
+<p>Therefore:</p>
+<p>Insurance State Change ≠ Liability State Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-trigger" data-oof-section-id="true" role="heading" aria-level="2">Temporal Trigger</h1>
+<p>A Liability State may require transition evaluation after:</p>
+<p>a deadline, expiry, defined duration, review period, scheduled activation, or another temporal condition.</p>
+<p>Time itself changes Liability State only where the governed structure gives it that effect.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-trigger" data-oof-section-id="true" role="heading" aria-level="2">Condition Trigger</h1>
+<p>A Liability Condition becoming:</p>
+<p>satisfied, unsatisfied, failed, expired, or otherwise changed may trigger transition evaluation.</p>
+<p>The Condition change and the Liability transition remain separate governance objects.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="dependency-trigger" data-oof-section-id="true" role="heading" aria-level="2">Dependency Trigger</h1>
+<p>A State Transition may depend upon another governed state.</p>
+<p>Where the dependency changes, LSTTM should determine whether the transition becomes eligible.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-trigger" data-oof-section-id="true" role="heading" aria-level="2">Authority Trigger</h1>
+<p>An authoritative action may trigger or establish a transition where the applicable governance structure gives that authority such effect.</p>
+<p>Authority should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="information-trigger" data-oof-section-id="true" role="heading" aria-level="2">Information Trigger</h1>
+<p>New information may trigger State Transition evaluation.</p>
+<p>However:</p>
+<p>New Information ≠ New Liability State by default.</p>
+<p>The information must be assessed within the applicable governance structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-eligibility" data-oof-section-id="true" role="heading" aria-level="2">Transition Eligibility</h1>
+<p>Before a transition occurs, LSTTM should determine whether the Source State is eligible for the proposed transition.</p>
+<p>Not every state may transition directly to every other state.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="permitted-transition" data-oof-section-id="true" role="heading" aria-level="2">Permitted Transition</h1>
+<p>A Permitted Transition is a state movement allowed by the applicable governed structure.</p>
+<p>The permission should be methodologically identifiable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="prohibited-transition" data-oof-section-id="true" role="heading" aria-level="2">Prohibited Transition</h1>
+<p>A Prohibited Transition is a state movement that is not permitted under the applicable governed structure.</p>
+<p>A system should not perform the transition merely because the target state is technically representable.</p>
+<p>Therefore:</p>
+<p>Technically Possible State Change ≠ Governed Permitted Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-transition" data-oof-section-id="true" role="heading" aria-level="2">Conditional Transition</h1>
+<p>A transition may be permitted only when defined conditions are satisfied.</p>
+<p>Until those conditions are satisfied, the transition should remain conditional.</p>
+<p>Therefore:</p>
+<p>Eligible Conditional Transition ≠ Completed Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-transition" data-oof-section-id="true" role="heading" aria-level="2">Pending Transition</h1>
+<p>A transition may remain Pending while required:</p>
+<p>information, authority, condition, dependency, or process remains incomplete.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-transition-eligibility" data-oof-section-id="true" role="heading" aria-level="2">Unknown Transition Eligibility</h1>
+<p>Where available governed information cannot establish whether a transition is permitted, eligibility should remain Unknown.</p>
+<p>Therefore:</p>
+<p>Unknown Transition Eligibility ≠ Permission to Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-transition-eligibility" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Transition Eligibility</h1>
+<p>Where transition eligibility remains materially uncertain, the uncertainty should be preserved.</p>
+<p>Therefore:</p>
+<p>Transition Uncertainty ≠ Transition Authorization.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-transition" data-oof-section-id="true" role="heading" aria-level="2">Disputed Transition</h1>
+<p>Where materially competing governed positions exist concerning whether a transition should occur, the dispute should remain explicit.</p>
+<p>Therefore:</p>
+<p>Disputed Transition ≠ Completed Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-conditions" data-oof-section-id="true" role="heading" aria-level="2">Transition Conditions</h1>
+<p>LSTTM should identify the conditions that must exist before a transition becomes legitimate.</p>
+<p>These may include:</p>
+<p>state prerequisites, temporal prerequisites, authority requirements, dependency states, Scope conditions, Allocation conditions, obligation conditions, or other applicable requirements.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="condition-satisfaction" data-oof-section-id="true" role="heading" aria-level="2">Condition Satisfaction</h1>
+<p>Where all required transition conditions are satisfied, the transition may proceed subject to any remaining authority or execution requirements.</p>
+<p>Condition satisfaction does not itself constitute transition execution.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-condition-satisfaction" data-oof-section-id="true" role="heading" aria-level="2">Partial Condition Satisfaction</h1>
+<p>Where only some required conditions are satisfied, the transition should not be treated as complete unless the applicable methodology explicitly permits partial transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-authority" data-oof-section-id="true" role="heading" aria-level="2">Transition Authority</h1>
+<p>Where authority is required, LSTTM should identify:</p>
+<p>the authority, the authority scope, the applicable transition, the effective time, and any limitations.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">Authority Boundary</h1>
+<p>Authority to govern one Liability State Transition does not automatically establish authority over all Liability states or Relationships.</p>
+<p>Therefore:</p>
+<p>Transition Authority ≠ Universal Liability Authority.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="authority-action-and-transition-effect" data-oof-section-id="true" role="heading" aria-level="2">Authority Action and Transition Effect</h1>
+<p>An authority may issue an action before the transition becomes operative.</p>
+<p>Therefore:</p>
+<p>Authority Decision Time ≠ Transition Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-effective-time" data-oof-section-id="true" role="heading" aria-level="2">Transition Effective Time</h1>
+<p>Every completed material State Transition should have an identifiable effective time or period where applicable.</p>
+<p>This determines when the Target State becomes operative.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-recording-time" data-oof-section-id="true" role="heading" aria-level="2">Transition Recording Time</h1>
+<p>The time a transition is recorded may differ from its effective time.</p>
+<p>Therefore:</p>
+<p>Transition Recording Time ≠ Transition Effective Time by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="prospective-transition" data-oof-section-id="true" role="heading" aria-level="2">Prospective Transition</h1>
+<p>A transition may be authorized now but become effective later.</p>
+<p>Until the effective point is reached, the Source State may remain operative.</p>
+<p>Therefore:</p>
+<p>Authorized Future Transition ≠ Current Target State.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retrospective-transition" data-oof-section-id="true" role="heading" aria-level="2">Retrospective Transition</h1>
+<p>A later governance process may establish that a different state applied during an earlier period.</p>
+<p>The system should preserve both:</p>
+<p>the state previously represented, and:</p>
+<p>the later retrospective transition determination.</p>
+<p>Therefore:</p>
+<p>Retrospective Transition ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="immediate-transition" data-oof-section-id="true" role="heading" aria-level="2">Immediate Transition</h1>
+<p>Where the transition conditions and effective time coincide, the Target State may become operative immediately.</p>
+<p>Immediate does not mean ungoverned.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-transition" data-oof-section-id="true" role="heading" aria-level="2">Partial Transition</h1>
+<p>A transition may affect only part of the Liability structure.</p>
+<p>Therefore:</p>
+<p>Partial State Transition ≠ Complete Liability Transition.</p>
+<p>The unaffected components should retain their existing states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-specific-transition" data-oof-section-id="true" role="heading" aria-level="2">Subject-Specific Transition</h1>
+<p>A transition affecting Subject A should not automatically change Subject B's Liability State.</p>
+<p>Therefore:</p>
+<p>Subject A Transition ≠ Subject B Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-specific-transition" data-oof-section-id="true" role="heading" aria-level="2">Relationship-Specific Transition</h1>
+<p>A transition within one Liability Relationship should not automatically propagate to another Relationship.</p>
+<p>Therefore:</p>
+<p>Relationship A Transition ≠ Relationship B Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scope-specific-transition" data-oof-section-id="true" role="heading" aria-level="2">Scope-Specific Transition</h1>
+<p>A transition may apply only to one Scope portion.</p>
+<p>The remaining Scope should preserve its applicable states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="allocation-specific-transition" data-oof-section-id="true" role="heading" aria-level="2">Allocation-Specific Transition</h1>
+<p>A transition may apply only to one allocated Liability portion.</p>
+<p>Therefore:</p>
+<p>Allocation Portion Transition ≠ Complete Allocation Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="obligation-specific-transition" data-oof-section-id="true" role="heading" aria-level="2">Obligation-Specific Transition</h1>
+<p>Different Liability obligations may transition independently.</p>
+<p>One obligation becoming Inactive does not automatically make the complete Liability inactive.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="multi-state-transition" data-oof-section-id="true" role="heading" aria-level="2">Multi-State Transition</h1>
+<p>A complex Liability structure may require several component transitions.</p>
+<p>Each materially distinct transition should remain identifiable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="direct-transition" data-oof-section-id="true" role="heading" aria-level="2">Direct Transition</h1>
+<p>A Direct Transition moves from one state directly to another where the applicable structure permits it.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sequential-transition" data-oof-section-id="true" role="heading" aria-level="2">Sequential Transition</h1>
+<p>Some Liability states may require intermediate states.</p>
+<p>Where sequence is required, those intermediate states should not be bypassed without legitimate governance authority.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-chain" data-oof-section-id="true" role="heading" aria-level="2">Transition Chain</h1>
+<p>A sequence of State Transitions may form a Transition Chain:</p>
+<p>State A → State B → State C → State D Each transition should remain individually reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-chain-integrity" data-oof-section-id="true" role="heading" aria-level="2">Transition Chain Integrity</h1>
+<p>A later state should remain traceable through the transition chain to the earlier states from which it developed.</p>
+<p>Therefore:</p>
+<p>Current State ≠ Complete Transition History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-dependency" data-oof-section-id="true" role="heading" aria-level="2">Transition Dependency</h1>
+<p>A transition may depend upon another transition.</p>
+<p>The dependency should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="parallel-transitions" data-oof-section-id="true" role="heading" aria-level="2">Parallel Transitions</h1>
+<p>Different Liability components may transition in parallel.</p>
+<p>Parallel timing does not mean the transitions share the same governance basis.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-propagation" data-oof-section-id="true" role="heading" aria-level="2">Transition Propagation</h1>
+<p>A completed transition may create legitimate effects elsewhere in the Liability structure.</p>
+<p>Propagation should not be assumed.</p>
+<p>Therefore:</p>
+<p>State Transition ≠ Universal Transition Propagation.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="propagation-assessment" data-oof-section-id="true" role="heading" aria-level="2">Propagation Assessment</h1>
+<p>Where propagation is possible, LSTTM should identify:</p>
+<p>the originating transition, the potentially affected component, the propagation basis, the affected state, and whether separate transition governance is required.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-network-transition" data-oof-section-id="true" role="heading" aria-level="2">Liability Network Transition</h1>
+<p>A Liability Network may contain several Relationships undergoing different transitions.</p>
+<p>Therefore:</p>
+<p>Local State Transition ≠ Liability Network Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="network-transition-integrity" data-oof-section-id="true" role="heading" aria-level="2">Network Transition Integrity</h1>
+<p>Network-level transition governance should preserve the identity and state history of constituent Liability Relationships.</p>
+<p>A network state should not erase local state differences.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-conflict" data-oof-section-id="true" role="heading" aria-level="2">Transition Conflict</h1>
+<p>A Transition Conflict exists where incompatible transitions are proposed, recorded, or authorized for the same Liability component and applicable period.</p>
+<p>The conflict should remain explicit.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="concurrent-transition-conflict" data-oof-section-id="true" role="heading" aria-level="2">Concurrent Transition Conflict</h1>
+<p>Two transitions may appear to become effective simultaneously.</p>
+<p>Where they are incompatible, the applicable priority or authority structure should be determined rather than silently selecting one.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-priority" data-oof-section-id="true" role="heading" aria-level="2">Transition Priority</h1>
+<p>Where one transition legitimately takes priority, the governing basis should remain explicit.</p>
+<p>Therefore:</p>
+<p>Latest Transition ≠ Governing Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-supersession" data-oof-section-id="true" role="heading" aria-level="2">Transition Supersession</h1>
+<p>A transition may later be superseded by another governed transition.</p>
+<p>Supersession does not erase the earlier transition.</p>
+<p>Therefore:</p>
+<p>Transition Supersession ≠ Transition Deletion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="failed-transition" data-oof-section-id="true" role="heading" aria-level="2">Failed Transition</h1>
+<p>A proposed transition may fail because required conditions, authority, information, or dependencies are absent.</p>
+<p>A Failed Transition should remain distinguishable from a transition that never existed.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cancelled-transition" data-oof-section-id="true" role="heading" aria-level="2">Cancelled Transition</h1>
+<p>A pending or future transition may be cancelled where the applicable governance structure permits it.</p>
+<p>Cancellation should preserve the transition record.</p>
+<p>Therefore:</p>
+<p>Transition Cancellation ≠ Transition Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reversed-transition" data-oof-section-id="true" role="heading" aria-level="2">Reversed Transition</h1>
+<p>A later governed process may reverse the effect of an earlier transition.</p>
+<p>The earlier transition should remain part of history.</p>
+<p>Therefore:</p>
+<p>Transition Reversal ≠ Historical Deletion.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-correction" data-oof-section-id="true" role="heading" aria-level="2">Transition Correction</h1>
+<p>Where a transition was incorrectly represented, it may require correction.</p>
+<p>The correction should preserve the prior record and explain the corrected state.</p>
+<p>Therefore:</p>
+<p>Transition Correction ≠ Historical Erasure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Transition Reassessment</h1>
+<p>A valid earlier transition may require reassessment because governed circumstances changed.</p>
+<p>Therefore:</p>
+<p>Transition Reassessment ≠ Transition Correction.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-rationale" data-oof-section-id="true" role="heading" aria-level="2">Transition Rationale</h1>
+<p>Every material State Transition should possess a reconstructable rationale.</p>
+<p>A transition record should not consist solely of:</p>
+<p>old state, new state.</p>
+<p>Therefore:</p>
+<p>State Change Record ≠ Transition Rationale.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-provenance" data-oof-section-id="true" role="heading" aria-level="2">Transition Provenance</h1>
+<p>LSTTM should preserve sufficient provenance to establish:</p>
+<p>Source State, trigger, conditions, inputs, authority, effective time, Target State, and resulting state record.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-traceability" data-oof-section-id="true" role="heading" aria-level="2">Transition Traceability</h1>
+<p>A qualified reviewer should be able to reconstruct:</p>
+<p>Governed Liability State → Trigger → Eligibility → Conditions → Authority → Transition → Resulting State without reconstructing the entire Liability lifecycle from raw data.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-explainability" data-oof-section-id="true" role="heading" aria-level="2">Transition Explainability</h1>
+<p>A transition should be explainable in terms of:</p>
+<p>what changed, why transition was permitted, what conditions were satisfied, who or what possessed authority, when the new state became effective, and which Liability component changed.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">Transition Sufficiency</h1>
+<p>A State Transition is sufficiently governed when:</p>
+<p>the Source State is explicit, the Transition Object is explicit, the trigger is known, eligibility is established, conditions are represented, authority is identified where required, effective time is known, Target State is explicit, and history remains reconstructable.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-completeness" data-oof-section-id="true" role="heading" aria-level="2">Transition Completeness</h1>
+<p>Transition governance is complete when every materially affected Liability component has either:</p>
+<p>a completed transition, an explicitly unchanged state, or an explicit unresolved transition state.</p>
+<p>Therefore:</p>
+<p>Transition Completeness ≠ Universal Liability State Change.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unchanged-state" data-oof-section-id="true" role="heading" aria-level="2">Unchanged State</h1>
+<p>Transition evaluation may determine that no State Transition should occur.</p>
+<p>The unchanged state should remain legitimate where the trigger did not satisfy transition requirements.</p>
+<p>Therefore:</p>
+<p>Transition Evaluation ≠ Required Transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-determination-rewrite" data-oof-section-id="true" role="heading" aria-level="2">No Determination Rewrite</h1>
+<p>LSTTM must not use a State Transition to rewrite whether Liability initially attached.</p>
+<p>Therefore:</p>
+<p>State Transition ≠ Liability Determination.</p>
+<p>Where Attachment is materially affected, governance should return to LDS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-scope-rewrite" data-oof-section-id="true" role="heading" aria-level="2">No Scope Rewrite</h1>
+<p>LSTTM must not expand or contract Liability Scope through a State Transition.</p>
+<p>Therefore:</p>
+<p>State Transition ≠ Scope Modification.</p>
+<p>Where Scope must change, governance should return to LSAS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-allocation-rewrite" data-oof-section-id="true" role="heading" aria-level="2">No Allocation Rewrite</h1>
+<p>LSTTM must not redistribute Liability through state transition.</p>
+<p>Therefore:</p>
+<p>State Transition ≠ Liability Reallocation.</p>
+<p>Where Allocation must change, governance should return to LSAS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-resolution-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Resolution Shortcut</h1>
+<p>A transition into an apparently inactive or satisfied state does not automatically establish Liability Resolution or Discharge.</p>
+<p>Therefore:</p>
+<p>State Transition ≠ Liability Resolution.</p>
+<p>Resolution belongs to LRDS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-finality-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Finality Shortcut</h1>
+<p>No State Transition under LSTTM independently establishes Liability Finality.</p>
+<p>Therefore:</p>
+<p>Terminal-Looking State ≠ Liability Finality.</p>
+<p>Finality belongs to LCFS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="no-transfer-shortcut" data-oof-section-id="true" role="heading" aria-level="2">No Transfer Shortcut</h1>
+<p>A State Transition may trigger Transfer or Recourse governance.</p>
+<p>It does not itself perform Transfer or Recourse.</p>
+<p>Therefore:</p>
+<p>State Transition ≠ Liability Transfer.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="automated-transition-governance" data-oof-section-id="true" role="heading" aria-level="2">Automated Transition Governance</h1>
+<p>AI or automated systems may support:</p>
+<p>trigger detection, eligibility assessment, condition monitoring, transition execution where authorized, and state updating.</p>
+<p>Automation should preserve methodology, authority, inputs, timing, and history.</p>
+<p>Therefore:</p>
+<p>Automated State Transition ≠ Authoritative Transition by default.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-monitoring" data-oof-section-id="true" role="heading" aria-level="2">Transition Monitoring</h1>
+<p>Systems may monitor conditions relevant to potential State Transitions.</p>
+<p>Monitoring should distinguish:</p>
+<p>observed change, trigger, eligible transition, and completed transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-state-identification" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to State Identification</h1>
+<p>Where transition governance reveals that the Source State was incorrectly identified, the matter should return to LSTIM.</p>
+<p>LSTTM should not repair Source State identification by inventing a transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-scope-and-allocation" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to Scope &amp; Allocation</h1>
+<p>Where transition evaluation reveals a material Scope or Allocation issue, governance should return to LSAS.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="re-entry-to-liability-determination" data-oof-section-id="true" role="heading" aria-level="2">Re-Entry to Liability Determination</h1>
+<p>Where the issue concerns whether Liability still rests on a valid underlying Determination structure, the matter should return to LDS where appropriate.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="earlier-lifecycle-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Earlier Lifecycle Re-Entry</h1>
+<p>Where a transition issue originates earlier in LIGA™, governance should return to the earliest materially affected governance space.</p>
+<p>The canonical principle is:</p>
+<p>Re-enter the earliest materially affected governance space.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="historical-integrity" data-oof-section-id="true" role="heading" aria-level="2">Historical Integrity</h1>
+<p>Completed, failed, cancelled, corrected, reversed, superseded, and unresolved transitions should remain reconstructable where materially relevant.</p>
+<p>Therefore:</p>
+<p>Current Liability State ≠ Complete Liability Transition History.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+<p>The principal output of LSTTM is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+<p>It should identify, where applicable:</p>
+<p>Transition Identity, Transition Object, Source State, Target State, Transition Trigger, Trigger Source, Transition Eligibility, Transition Conditions, Transition Authority, Transition Effective Time, Transition Recording Time, affected Subject, affected Relationship, affected Scope, affected Allocation, affected obligation, transition dependencies, propagation effects, uncertainty, conflict, rationale, provenance, and historical relationship.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">Meaning of the Output</h1>
+<p>A Governed Liability State Transition means that movement from one Liability State toward another has been sufficiently governed and represented.</p>
+<p>It does not mean that the broader cause or consequence of the change has been fully assessed across the Liability lifecycle.</p>
+<p>Therefore:</p>
+<p>Governed State Transition ≠ Complete Liability Change Assessment.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-change-identification" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Change Identification</h1>
+<p>LSTTM hands the:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition-7" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+<p>together with its Source State, Target State, trigger, and affected Liability structure to:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="lchim-liability-change-identification-module" data-oof-section-id="true" role="heading" aria-level="2">LCHIM — Liability Change Identification Module</h1>
+<p>The next governance question becomes:</p>
+<p>What materially changed in the Liability structure, and which governed Liability components are affected by that change?</p>
+<p>The boundary is explicit:</p>
+<p>LSTIM identifies the current Liability State.</p>
+<p>LSTTM governs transition between states.</p>
+<p>LCHIM identifies the material Liability Change represented by or surrounding that transition.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">Minimum Implementation Framework</h1>
+<p>A conforming implementation of LSTTM must provide exactly the following eight capabilities:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-object-source-state-and-target-state-governance" data-oof-section-id="true" role="heading" aria-level="2">Transition Object, Source State &amp; Target State Governance</h1>
+<p>Capability to identify the Liability component undergoing transition, its Governed Source State, the potential or established Target State, and their lifecycle associations.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-trigger-and-eligibility-governance" data-oof-section-id="true" role="heading" aria-level="2">Transition Trigger &amp; Eligibility Governance</h1>
+<p>Capability to identify transition triggers and determine whether a proposed transition is permitted, prohibited, conditional, pending, unknown, uncertain, or disputed under the applicable governed structure.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-condition-dependency-and-authority-governance" data-oof-section-id="true" role="heading" aria-level="2">Transition Condition, Dependency &amp; Authority Governance</h1>
+<p>Capability to identify transition prerequisites, conditions, dependencies, authority requirements, authority boundaries, and their satisfaction states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="temporal-partial-and-multi-dimensional-transition-governance" data-oof-section-id="true" role="heading" aria-level="2">Temporal, Partial &amp; Multi-Dimensional Transition Governance</h1>
+<p>Capability to govern effective time, recording time, prospective and retrospective transitions, partial transitions, and Subject-, Relationship-, Scope-, Allocation-, obligation-, and time-specific transitions.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="sequential-parallel-network-and-propagation-governance" data-oof-section-id="true" role="heading" aria-level="2">Sequential, Parallel, Network &amp; Propagation Governance</h1>
+<p>Capability to preserve Transition Chains, parallel transitions, transition dependencies, local and network transitions, and legitimate propagation without assuming universal state effects.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="failed-cancelled-reversed-superseded-uncertain-and-conflicting-transition" data-oof-section-id="true" role="heading" aria-level="2">Failed, Cancelled, Reversed, Superseded, Uncertain &amp; Conflicting Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance" data-oof-section-id="true" role="heading" aria-level="2">Governance</h1>
+<p>Capability to represent transitions that do not complete normally while preserving their status, authority, rationale, and historical significance.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-integrity-traceability-correction-reassessment-and-re-entry" data-oof-section-id="true" role="heading" aria-level="2">Transition Integrity, Traceability, Correction, Reassessment &amp; Re-Entry</h1>
+<p>Capability to preserve rationale, provenance, history, corrections, reassessments, and targeted re-entry without rewriting Liability Determination, Scope, Allocation, or prior states.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="liability-change-identification-handoff-governance" data-oof-section-id="true" role="heading" aria-level="2">Liability Change Identification Handoff Governance</h1>
+<p>Capability to produce a Governed Liability State Transition sufficiently explicit, bounded, temporally situated, traceable, and historically preserved for Liability Change Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-logic" data-oof-section-id="true" role="heading" aria-level="2">Governance Logic</h1>
+<p>The canonical LSTTM governance logic is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-3" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-transition-object" data-oof-section-id="true" role="heading" aria-level="2">Identify Transition Object</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-source-state" data-oof-section-id="true" role="heading" aria-level="2">Identify Source State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-trigger" data-oof-section-id="true" role="heading" aria-level="2">Identify Trigger</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-transition-eligibility" data-oof-section-id="true" role="heading" aria-level="2">Assess Transition Eligibility</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="identify-transition-conditions-and-dependencies" data-oof-section-id="true" role="heading" aria-level="2">Identify Transition Conditions &amp; Dependencies</h1>
+<p>↓ Identify Authority where required ↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-target-state" data-oof-section-id="true" role="heading" aria-level="2">Determine Target State</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="determine-effective-time" data-oof-section-id="true" role="heading" aria-level="2">Determine Effective Time</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="execute-record-transition" data-oof-section-id="true" role="heading" aria-level="2">Execute / Record Transition</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="assess-partial-network-propagation-effects" data-oof-section-id="true" role="heading" aria-level="2">Assess Partial / Network / Propagation Effects</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-uncertainty-conflict-failure-states" data-oof-section-id="true" role="heading" aria-level="2">Preserve Uncertainty / Conflict / Failure States</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="preserve-rationale-provenance-history" data-oof-section-id="true" role="heading" aria-level="2">Preserve Rationale / Provenance / History</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition-9" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+<p>↓</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="handoff-to-liability-change-identification-3" data-oof-section-id="true" role="heading" aria-level="2">Handoff to Liability Change Identification</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">Governance Outputs</h1>
+<p>LSTTM may produce:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-identity-3" data-oof-section-id="true" role="heading" aria-level="2">Transition Identity</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-object-3" data-oof-section-id="true" role="heading" aria-level="2">Transition Object</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="source-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Source Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="target-liability-state" data-oof-section-id="true" role="heading" aria-level="2">Target Liability State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-trigger-record" data-oof-section-id="true" role="heading" aria-level="2">Transition Trigger Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="trigger-source-record" data-oof-section-id="true" role="heading" aria-level="2">Trigger Source Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-eligibility-state" data-oof-section-id="true" role="heading" aria-level="2">Transition Eligibility State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="permitted-transition-state" data-oof-section-id="true" role="heading" aria-level="2">Permitted Transition State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="prohibited-transition-state" data-oof-section-id="true" role="heading" aria-level="2">Prohibited Transition State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="conditional-transition-state" data-oof-section-id="true" role="heading" aria-level="2">Conditional Transition State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="pending-transition-state" data-oof-section-id="true" role="heading" aria-level="2">Pending Transition State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="unknown-transition-eligibility-3" data-oof-section-id="true" role="heading" aria-level="2">Unknown Transition Eligibility</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="uncertain-transition-state" data-oof-section-id="true" role="heading" aria-level="2">Uncertain Transition State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="disputed-transition-state" data-oof-section-id="true" role="heading" aria-level="2">Disputed Transition State</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-condition-record" data-oof-section-id="true" role="heading" aria-level="2">Transition Condition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-dependency-record" data-oof-section-id="true" role="heading" aria-level="2">Transition Dependency Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-authority-record" data-oof-section-id="true" role="heading" aria-level="2">Transition Authority Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-effective-time-3" data-oof-section-id="true" role="heading" aria-level="2">Transition Effective Time</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-recording-time-3" data-oof-section-id="true" role="heading" aria-level="2">Transition Recording Time</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="prospective-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Prospective Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="retrospective-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Retrospective Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="partial-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Partial Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="subject-specific-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Subject-Specific Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="relationship-specific-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Relationship-Specific Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="scope-specific-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Scope-Specific Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="allocation-specific-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Allocation-Specific Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="obligation-specific-transition-3" data-oof-section-id="true" role="heading" aria-level="2">Obligation-Specific Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-chain-3" data-oof-section-id="true" role="heading" aria-level="2">Transition Chain</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-propagation-record" data-oof-section-id="true" role="heading" aria-level="2">Transition Propagation Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="network-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Network Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-conflict-record" data-oof-section-id="true" role="heading" aria-level="2">Transition Conflict Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="failed-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Failed Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cancelled-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Cancelled Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="reversed-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Reversed Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="superseded-transition-record" data-oof-section-id="true" role="heading" aria-level="2">Superseded Transition Record</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-rationale-3" data-oof-section-id="true" role="heading" aria-level="2">Transition Rationale</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="transition-provenance-record" data-oof-section-id="true" role="heading" aria-level="2">Transition Provenance Record</h1>
+<p>The principal output is:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition-11" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">Critical Distinctions</h1>
+<p>LSTTM preserves the following distinctions:</p>
+<p>Transition Trigger ≠ Liability State Transition State Transition without Source State ≠ Fully Governed Transition External Event ≠ Liability State Transition Operational Change ≠ Liability State Transition by default Harm State Transition ≠ Liability State Transition Claim Transition ≠ Liability State Transition Payment Event ≠ Liability State Transition by default Settlement Event ≠ Liability State Transition by default Insurance State Change ≠ Liability State Transition New Information ≠ New Liability State by default Technically Possible State Change ≠ Governed Permitted Transition Eligible Conditional Transition ≠ Completed Transition Unknown Transition Eligibility ≠ Permission to Transition Transition Uncertainty ≠ Transition Authorization Disputed Transition ≠ Completed Transition Transition Authority ≠ Universal Liability Authority Authority Decision Time ≠ Transition Effective Time by default Transition Recording Time ≠ Transition Effective Time by default Authorized Future Transition ≠ Current Target State Retrospective Transition ≠ Historical Erasure Partial State Transition ≠ Complete Liability Transition Subject A Transition ≠ Subject B Transition by default Relationship A Transition ≠ Relationship B Transition by default Allocation Portion Transition ≠ Complete Allocation Transition by default Current State ≠ Complete Transition History State Transition ≠ Universal Transition Propagation Local State Transition ≠ Liability Network Transition by default Latest Transition ≠ Governing Transition by default Transition Supersession ≠ Transition Deletion Transition Cancellation ≠ Transition Erasure Transition Reversal ≠ Historical Deletion Transition Correction ≠ Historical Erasure Transition Reassessment ≠ Transition Correction State Change Record ≠ Transition Rationale Transition Completeness ≠ Universal Liability State Change Transition Evaluation ≠ Required Transition State Transition ≠ Liability Determination State Transition ≠ Scope Modification State Transition ≠ Liability Reallocation State Transition ≠ Liability Resolution Terminal-Looking State ≠ Liability Finality State Transition ≠ Liability Transfer Automated State Transition ≠ Authoritative Transition by default Current Liability State ≠ Complete Liability Transition History Governed State Transition ≠ Complete Liability Change Assessment</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">Cross-Architecture Boundary</h1>
+<p>LSTTM may use governed inputs from other OOF® architectures where those inputs legitimately trigger or inform Liability State Transition governance.</p>
+<p>HAGA™ may provide Harm State changes.</p>
+<p>ORA™ may provide Operational Reality changes.</p>
+<p>AGA™ may provide Responsibility, Accountability, or Authority changes.</p>
+<p>ADIT® may provide evidence relevant to transition conditions.</p>
+<p>VALIDOS™ may validate transition inputs or processes.</p>
+<p>OBIDENITY® may provide identity, authority, provenance, transfer, or continuity states.</p>
+<p>AIG® and ASGA™ may provide AI or autonomous-system operational changes.</p>
+<p>VFM® may provide Value Flow changes.</p>
+<p>PGA™ may provide Prediction changes.</p>
+<p>SIMULOS® may provide simulated transition scenarios.</p>
+<p>These external changes do not become Liability State Transitions by themselves.</p>
+<p>The canonical interoperability principle is:</p>
+<p>An external governed change may trigger or inform Liability State Transition governance without becoming the Liability State Transition and without transferring governance ownership of its original domain to LIGA™.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">Canonical Boundary</h1>
+<p>LSTTM begins with a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-5" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State</h1>
+<p>and governs legitimate movement from that state toward another Liability State.</p>
+<p>LSTTM governs:</p>
+<p>Transition Object, Source State, Target State, Transition Trigger, Transition Eligibility, Transition Conditions, Transition Dependencies, Transition Authority, Transition Timing, Partial Transitions, Subject-specific Transitions, Relationship-specific Transitions, Scope-specific Transitions, Allocation-specific Transitions, Obligation-specific Transitions, Transition Chains, Parallel Transitions, Transition Propagation, Network Transitions, Transition Conflicts, Failed Transitions, Cancelled Transitions, Reversed Transitions, Superseded Transitions, Transition Rationale, Transition Provenance, Transition Traceability, Transition Correction, Transition Reassessment, Historical Integrity, and Change Identification handoff.</p>
+<p>LSTTM does not govern:</p>
+<p>initial Liability Determination, Scope establishment, Allocation distribution, full Liability Change Identification, full Liability Change Assessment, Transfer, Recourse, Resolution, Discharge, or Finality.</p>
+<p>LSTTM ends when a:</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="governed-liability-state-transition-13" data-oof-section-id="true" role="heading" aria-level="2">Governed Liability State Transition</h1>
+<p>is sufficiently explicit and traceable for Liability Change Identification.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-1-industrial-liability-state-transition" data-oof-section-id="true" role="heading" aria-level="2">Use Case 1 — Industrial Liability State Transition</h1>
+<p>An established Liability obligation is currently Conditional because a defined operational dependency has not yet been satisfied.</p>
+<p>The dependency is later satisfied.</p>
+<p>LSTTM identifies the dependency change as a Transition Trigger, confirms that the Conditional state is eligible to transition, verifies the applicable conditions and authority, and establishes the effective time at which the obligation becomes Active.</p>
+<p>Other Liability portions remain unchanged.</p>
+<p>The transition is preserved as:</p>
+<p>Conditional → Active with its trigger, conditions, effective time, rationale, and Source State history intact.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="use-case-2-autonomous-system-liability-transition" data-oof-section-id="true" role="heading" aria-level="2">Use Case 2 — Autonomous System Liability Transition</h1>
+<p>An autonomous system deployment contains an Active Liability Relationship.</p>
+<p>The system is later deactivated.</p>
+<p>LSTTM does not automatically transition the Liability to Inactive.</p>
+<p>System deactivation is treated only as an operational Transition Trigger.</p>
+<p>The module evaluates whether the existing Liability State is eligible to change under the governed Liability structure.</p>
+<p>If the relevant Liability obligations continue after system deactivation, the Active state remains operative.</p>
+<p>The result preserves the distinction:</p>
+<p>Operational Termination ≠ Liability Termination.</p>
+</div>
+<section class="viewbor"></section>
+</section>
+<section class="container">
+<div class="oof-warning3">
+<h1 id="canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">Canonical Closing Statement</h1>
+<p>A Liability State should never change merely because an event occurred, a record changed, a payment was made, or an operational system stopped.</p>
+<p>A legitimate transition requires a governed Source State, trigger, eligibility, conditions, authority where required, effective time, and resulting state.</p>
+<p>The transition must change what is legitimately affected while preserving what remains valid.</p>
+<p>And every state that came before must remain reconstructable.</p>
+<p>A trigger creates a reason to evaluate transition. It does not create the transition itself.</p>
+<p>Govern the transition before declaring the new Liability State.</p>
+</div>
+<section class="viewbor"></section>
+</section><section class="container">
+<div class="oof-warning3">
+<h1 id="governed-links" data-oof-section-id="true" role="heading" aria-level="2">Governed Links</h1>
+<p><a href="liga-lscs.html">Liability State &amp; Change Standard (LSCS)</a></p>
+<p><a href="liga-architecture-map.html">LIGA™ Architecture Map</a></p>
+<p><a href="liga-lscs-lchim-3.html">LCHIM — Liability Change Identification Module</a></p>
+</div>
+<section class="viewbor"></section>
+</section>
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></main>
+<!-- OOF SEMANTIC CONTENT END -->
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(res => res.text()).then(data => { document.getElementById("header").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+fetch("../../footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
+</script>
+</body>
+</html>
