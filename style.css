@@ -3210,3 +3210,70 @@ padding:10px;
     gap: 9px 12px;
   }
 }
+
+/* Canonical visual reference pages */
+.oof-canonical-visual-page .oof-visual-intro {
+  padding-bottom: 10px;
+}
+
+.oof-canonical-visual-page .oof-visual-intro h1 {
+  margin-bottom: 8px;
+}
+
+.oof-canonical-visual-page .oof-visual-subtitle {
+  max-width: 920px;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.oof-canonical-figure-section {
+  width: min(1180px, calc(100% - 28px));
+  max-width: none;
+}
+
+.oof-canonical-figure {
+  margin: 0;
+}
+
+.oof-canonical-figure a {
+  display: block;
+}
+
+.oof-canonical-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: #fff;
+}
+
+.oof-canonical-figure figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.oof-canonical-visual-page .oof-warning3 p {
+  max-width: 920px;
+}
+
+@media (max-width: 640px) {
+  .oof-canonical-figure-section {
+    width: calc(100% - 16px);
+  }
+
+  .oof-canonical-figure {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .oof-canonical-figure img {
+    width: 920px;
+    max-width: none;
+  }
+
+  .oof-canonical-figure figcaption {
+    position: sticky;
+    left: 0;
+    width: calc(100vw - 32px);
+  }
+}
