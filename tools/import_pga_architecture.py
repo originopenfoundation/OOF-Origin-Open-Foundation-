@@ -177,6 +177,32 @@ def render_blocks(blocks: list[dict[str, str]]) -> str:
     return "\n".join(rendered)
 
 
+def render_complete_index(blocks: list[dict[str, str]]) -> str:
+    """Render the canonical index with direct links to every governed page."""
+    body = render_blocks(blocks)
+    for standard_number, standard in enumerate(STANDARDS, 1):
+        heading_text = f"{standard_number}. {standard.title}"
+        heading = html.escape(heading_text, quote=False)
+        heading_id = re.sub(r"[^a-z0-9]+", "-", heading_text.lower().replace("&", "and")).strip("-")
+        source_heading = f"<h1>{heading}</h1>"
+        linked_heading = f'<h1 id="{heading_id}"><a href="pga-{standard.code}.html">{heading}</a></h1>'
+        if source_heading not in body:
+            raise ValueError(f"{standard.code.upper()}: standard heading not found in complete index")
+        body = body.replace(source_heading, linked_heading, 1)
+
+        module_text = " ".join(f"{module.code.upper()} — {module.title}" for module in standard.modules)
+        source_modules = f"<p>{html.escape(module_text, quote=False)}</p>"
+        linked_modules = "\n".join(
+            f'<p><a href="pga-{standard.code}-{module.code}-{module_number}.html">'
+            f'{html.escape(module.code.upper() + " — " + module.title, quote=False)}</a></p>'
+            for module_number, module in enumerate(standard.modules, 1)
+        )
+        if source_modules not in body:
+            raise ValueError(f"{standard.code.upper()}: module list not found in complete index")
+        body = body.replace(source_modules, linked_modules, 1)
+    return body
+
+
 def page(title: str, body: str, related: str = "") -> str:
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -241,7 +267,8 @@ def main() -> None:
     for filename, title, source in ARCHITECTURE_DOCS:
         blocks = extract_blocks(DOWNLOADS / source)
         target = OUT / filename
-        target.write_text(page(title, render_blocks(blocks), architecture_links()), encoding="utf-8")
+        body = render_complete_index(blocks) if filename == "pga-complete-index.html" else render_blocks(blocks)
+        target.write_text(page(title, body, architecture_links()), encoding="utf-8")
         written.append(target)
 
     for standard in STANDARDS:

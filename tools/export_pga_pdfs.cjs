@@ -10,13 +10,25 @@ const executablePath = process.env.OOF_CHROMIUM_PATH;
 
 async function main() {
   fs.mkdirSync(outputDir, { recursive: true });
-  const files = fs.readdirSync(sourceDir).filter((name) => name.endsWith(".html")).sort();
+  const requestedFiles = process.argv.slice(2);
+  const files = (requestedFiles.length
+    ? requestedFiles
+    : fs.readdirSync(sourceDir).filter((name) => name.endsWith(".html"))
+  ).map((name) => path.basename(name)).sort();
+  for (const file of files) {
+    if (!file.endsWith(".html") || !fs.existsSync(path.join(sourceDir, file))) {
+      throw new Error(`PGA HTML page not found: ${file}`);
+    }
+  }
   const browser = await chromium.launch({ headless: true, executablePath });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   for (const [index, file] of files.entries()) {
     const url = `${baseUrl}/content/pga/${encodeURIComponent(file)}`;
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
     await page.waitForFunction(() => document.querySelector("#footer")?.textContent?.trim(), null, { timeout: 10000 });
+    await page
+      .locator(".back-btn, .history-back-fab, .burger, .burger-menu")
+      .evaluateAll((buttons) => buttons.forEach((button) => button.remove()));
     await page.pdf({
       path: path.join(outputDir, file.replace(/\.html$/, ".pdf")),
       format: "A4",
