@@ -16,7 +16,8 @@
     SIMULOS: "SIMULOS",
     VFM: "VFM",
     VALIDOS: "VALIDOS",
-    LIGA: "LIGA"
+    LIGA: "LIGA",
+    PGA: "PGA"
   };
 
   const root = document.getElementById("oof-architecture-territories");
