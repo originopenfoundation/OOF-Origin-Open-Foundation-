@@ -7,7 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from query_knowledge_registry import KnowledgeRegistry  # noqa: E402
-from build_knowledge_infrastructure import cross_validate_architecture  # noqa: E402
+from build_knowledge_infrastructure import cross_validate_architecture, git_value  # noqa: E402
+from validate_json_schema import validate_instance  # noqa: E402
 
 
 class KnowledgeInfrastructureTests(unittest.TestCase):
@@ -63,6 +64,23 @@ class KnowledgeInfrastructureTests(unittest.TestCase):
         results = self.registry.supporting("governance", 20)
         self.assertTrue(results)
         self.assertTrue(all(item["authorityState"] == "SUPPORTING_CITABLE" for item in results))
+
+    def test_candidate_review_covers_every_detected_collision(self):
+        report = json.loads((ROOT / "data" / "knowledge" / "reports" / "candidate-entity-review.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["candidatePoolCount"], report["candidateGroupCount"])
+        self.assertEqual(report["candidateGroupCount"], len(report["groups"]))
+
+    def test_provenance_uses_each_source_files_commit(self):
+        for item in self.registry.representations:
+            provenance = item["provenance"]
+            self.assertEqual(provenance["repositoryCommit"], git_value("%H", provenance["sourcePath"]))
+
+    def test_schema_date_time_requires_time_and_timezone(self):
+        schema = {"type": "string", "format": "date-time"}
+        schema_path = ROOT / "schemas" / "oof-knowledge-manifest.v1.schema.json"
+        self.assertTrue(validate_instance("2026-09-30", schema, schema_path))
+        self.assertTrue(validate_instance("2026-09-30T10:30:00", schema, schema_path))
+        self.assertFalse(validate_instance("2026-09-30T10:30:00Z", schema, schema_path))
 
 
 if __name__ == "__main__":

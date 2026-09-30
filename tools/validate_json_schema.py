@@ -10,6 +10,11 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 
+RFC3339_DATE_TIME_RE = re.compile(
+    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$"
+)
+
+
 def _type_matches(value, expected: str) -> bool:
     return {
         "object": isinstance(value, dict),
@@ -78,8 +83,11 @@ def validate_instance(value, schema: dict, schema_path: Path, location: str = "$
                 errors.append(f"{location}: invalid URI")
         if schema.get("format") == "date-time":
             try:
-                datetime.fromisoformat(value.replace("Z", "+00:00"))
+                parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+                valid = bool(RFC3339_DATE_TIME_RE.fullmatch(value)) and parsed.tzinfo is not None
             except ValueError:
+                valid = False
+            if not valid:
                 errors.append(f"{location}: invalid date-time")
     if isinstance(value, int) and not isinstance(value, bool) and value < schema.get("minimum", value):
         errors.append(f"{location}: below minimum")

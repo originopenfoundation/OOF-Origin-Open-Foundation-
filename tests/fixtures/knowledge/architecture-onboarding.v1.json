@@ -13,6 +13,7 @@
   "cases": [
     {"name": "matching governed sources", "override": {}, "expectedResult": "PASS", "expectedAuthorityState": "CANONICAL_AUTHORITATIVE"},
     {"name": "identity conflict", "override": {"acronym": "OTHER"}, "expectedResult": "CONFLICT", "expectedAuthorityState": "QUARANTINED"},
+    {"name": "canonical URL conflict", "override": {"primaryPage": {"url": "different-about-test.html"}}, "expectedResult": "CONFLICT", "expectedAuthorityState": "QUARANTINED"},
     {"name": "non-identity field conflict", "override": {"status": "development"}, "expectedResult": "PARTIAL", "expectedAuthorityState": "SUPPORTING_CITABLE"}
   ]
 }

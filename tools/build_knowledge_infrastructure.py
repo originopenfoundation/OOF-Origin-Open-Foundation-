@@ -51,21 +51,58 @@ ORIGIN_ID_RE = re.compile(r"\bOOF-OID-(?:[A-Z0-9]+-)+\d{4}-\d{2}-\d{2}-\d{4}\b")
 LANGUAGE_RE = re.compile(r"^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|\d{3}))?$")
 
 
-def git_value(format_string: str, source_path: str) -> str:
+def git_source_history() -> dict[str, tuple[str, str]]:
     try:
-        return subprocess.run(
-            ["git", "log", "-1", f"--format={format_string}", "--", source_path],
+        shallow = subprocess.run(
+            ["git", "rev-parse", "--is-shallow-repository"],
             cwd=ROOT,
             check=True,
             capture_output=True,
             text=True,
         ).stdout.strip()
-    except (OSError, subprocess.CalledProcessError):
-        return "unknown"
+        if shallow == "true":
+            raise RuntimeError("Knowledge provenance requires a full Git history")
+        output = subprocess.run(
+            ["git", "-c", "core.quotepath=false", "log", "--format=@@%H%x09%cI", "--name-only", "--no-renames"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="strict",
+        ).stdout
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise RuntimeError("Knowledge provenance requires an accessible full Git history") from exc
+
+    history: dict[str, tuple[str, str]] = {}
+    current: tuple[str, str] | None = None
+    for raw_line in output.splitlines():
+        line = raw_line.strip()
+        if line.startswith("@@"):
+            commit, timestamp = line[2:].split("\t", 1)
+            current = (commit, timestamp)
+        elif line and current and line not in history:
+            history[line.replace("\\", "/")] = current
+    return history
+
+
+SOURCE_HISTORY = git_source_history()
+
+
+def git_value(format_string: str, source_path: str) -> str:
+    metadata = SOURCE_HISTORY.get(Path(source_path).as_posix())
+    if not metadata:
+        return ""
+    return metadata[0] if format_string == "%H" else metadata[1] if format_string == "%cI" else ""
 
 
 SOURCE_COMMIT = git_value("%H", COMPLETE_ARCHITECTURE_INDEX_PATH)
 GENERATED_TIMESTAMP = git_value("%cI", COMPLETE_ARCHITECTURE_INDEX_PATH)
+if not re.fullmatch(r"[a-f0-9]{40,64}", SOURCE_COMMIT) or not GENERATED_TIMESTAMP:
+    raise RuntimeError(
+        "Canonical source provenance is unavailable. Build from a full Git checkout; "
+        "shallow history is not sufficient."
+    )
 BUILD_ID = f"OOF-KI-1.1-{SOURCE_COMMIT[:12]}"
 
 
@@ -178,14 +215,18 @@ def normalized_language(record: dict) -> str:
 
 
 def provenance(source_path: str, source_url: str, content_hash: str) -> dict:
+    repository_commit = git_value("%H", source_path)
+    generated_timestamp = git_value("%cI", source_path)
+    if not re.fullmatch(r"[a-f0-9]{40,64}", repository_commit) or not generated_timestamp:
+        raise RuntimeError(f"Source provenance is unavailable for {source_path}")
     return {
         "sourcePath": source_path,
         "sourceUrl": source_url,
-        "repositoryCommit": SOURCE_COMMIT,
+        "repositoryCommit": repository_commit,
         "buildId": BUILD_ID,
         "contentHash": content_hash,
         "extractorVersion": EXTRACTOR_VERSION,
-        "generatedTimestamp": GENERATED_TIMESTAMP,
+        "generatedTimestamp": generated_timestamp,
     }
 
 
@@ -203,7 +244,8 @@ def architecture_snapshot(item: dict) -> dict:
 
 
 def cross_validate_architecture(index_item: dict | None, complete_item: dict | None) -> dict:
-    fields = ("acronym", "displayName", "name", "status", "standardCount", "standards")
+    fields = ("acronym", "displayName", "name", "status", "primaryUrl", "standardCount", "standards")
+    identity_fields = {"acronym", "membership", "primaryUrl"}
     index_value = architecture_snapshot(index_item) if index_item else None
     complete_value = architecture_snapshot(complete_item) if complete_item else None
     conflicts = []
@@ -216,12 +258,12 @@ def cross_validate_architecture(index_item: dict | None, complete_item: dict | N
     if not conflicts:
         result = "PASS"
         authority_state = "CANONICAL_AUTHORITATIVE"
-    elif index_value and complete_value and all(item["field"] not in {"acronym", "membership"} for item in conflicts):
+    elif index_value and complete_value and all(item["field"] not in identity_fields for item in conflicts):
         result = "PARTIAL"
         authority_state = "SUPPORTING_CITABLE"
     else:
         result = "CONFLICT"
-        authority_state = "QUARANTINED" if any(item["field"] in {"acronym", "membership"} for item in conflicts) else "REVIEW_REQUIRED"
+        authority_state = "QUARANTINED" if any(item["field"] in identity_fields for item in conflicts) else "REVIEW_REQUIRED"
     return {"result": result, "authorityState": authority_state, "conflicts": conflicts}
 
 
@@ -545,7 +587,7 @@ def build(output_root: Path) -> dict:
             "automaticMergeApplied": False,
         })
     candidate_pool.sort(key=lambda item: (-len(item["candidatePages"]), item["normalizedName"]))
-    candidate_review = candidate_pool[:39]
+    candidate_review = candidate_pool
 
     reviewed_urls = {
         page["url"]
@@ -678,7 +720,7 @@ def build(output_root: Path) -> dict:
     dump(output / "reports/candidate-entity-review.json", {
         "schemaVersion": SCHEMA_VERSION,
         "reviewStatus": "authority-review-required",
-        "selectionMethod": "Top 39 deterministic normalized-name groups with multiple public representations; no merge is applied.",
+        "selectionMethod": "All deterministic normalized-name groups with multiple public representations; no merge is applied.",
         "candidatePoolCount": len(candidate_pool),
         "candidateGroupCount": len(candidate_review),
         "groups": candidate_review,

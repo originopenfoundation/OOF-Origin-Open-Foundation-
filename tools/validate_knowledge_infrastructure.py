@@ -105,7 +105,11 @@ def validate() -> tuple[list[str], list[str]]:
 
     require(duplicates["summary"] == {"duplicateGroups": 7, "affectedRepresentations": 15}, "Duplicate OriginID audit no longer matches the reviewed baseline", errors)
     require(all(not item["automaticResolutionApplied"] for item in duplicates["conflicts"]), "A duplicate OriginID was automatically resolved", errors)
-    require(candidates["candidateGroupCount"] == 39, "Candidate entity review must contain 39 groups", errors)
+    require(
+        candidates["candidateGroupCount"] == candidates["candidatePoolCount"] == len(candidates["groups"]),
+        "Candidate entity review must contain every detected collision group",
+        errors,
+    )
     require(architecture_validation["canonicalSources"] == {"architectureIndex": "data/oof-architecture-registry.json", "completeArchitectureIndex": "oof-structured-architecture-index.html"}, "Canonical architecture sources changed unexpectedly", errors)
     require(all(item["result"] == "PASS" for item in architecture_validation["architectures"]), "Architecture Core contains unresolved source conflicts", errors)
     require(reference_validation["detectedCount"] == reference_validation["expectedCount"] == 4, "Exactly four Reference Architectures must be cross-validated", errors)
