@@ -17,11 +17,33 @@ if (view === "methodology") {
 }
 
 async function start() {
-  const [summary, mapData, page] = await Promise.all([repository.summary(), repository.map(), repository.all()]);
+  const [summary, mapData, page, architectureLinks] = await Promise.all([
+    repository.summary(),
+    repository.map(),
+    repository.all(),
+    loadArchitectureLinks(),
+  ]);
   renderSummary(summary);
   renderMap(mapData);
   wireFilters();
-  renderIncidents(applyFilters(page.items));
+  renderIncidents(applyFilters(page.items), architectureLinks);
+}
+
+async function loadArchitectureLinks() {
+  try {
+    const response = await fetch("/data/oof-architecture-registry.json", { headers: { Accept: "application/json" } });
+    if (!response.ok) throw new Error(`Architecture registry request failed (${response.status})`);
+    const registry = await response.json();
+    return new Map(
+      (registry.architectures || []).map((architecture) => [
+        String(architecture.id || "").toLowerCase(),
+        architecture.primaryPage?.url ? `/${architecture.primaryPage.url.replace(/^\/+/, "")}` : null,
+      ])
+    );
+  } catch (error) {
+    console.warn("Architecture links are temporarily unavailable.", error);
+    return new Map();
+  }
 }
 
 function renderSummary(summary) {
@@ -116,10 +138,14 @@ function applyFilters(items) {
   if (params.get("severity")) result = result.filter((item) => item.severity === params.get("severity"));
   if (params.get("eventType")) result = result.filter((item) => item.eventType === params.get("eventType"));
   if (params.get("coverage")) result = result.filter((item) => item.architectureRelevance?.status === params.get("coverage"));
-  return result;
+  return [...result].sort((left, right) => {
+    const leftDate = Date.parse(left.occurredAt || left.reportedAt || "") || 0;
+    const rightDate = Date.parse(right.occurredAt || right.reportedAt || "") || 0;
+    return rightDate - leftDate || String(left.id || "").localeCompare(String(right.id || ""));
+  });
 }
 
-function renderIncidents(items) {
+function renderIncidents(items, architectureLinks) {
   const list = document.getElementById("incident-list");
   const empty = document.getElementById("incident-empty");
   const pageSize = 25;
@@ -159,7 +185,18 @@ function renderIncidents(items) {
     values[0].textContent = (incident.occurredAt || incident.reportedAt || "Unknown").slice(0, 10);
     values[1].textContent = incident.country || "Location not specified";
     values[2].textContent = incident.severity || "Unclassified";
-    values[3].textContent = coverage;
+    const architectureId = String(architecture.primaryArchitectureId || "").toLowerCase();
+    const architectureUrl = architectureLinks.get(architectureId);
+    if (architectureUrl) {
+      const link = document.createElement("a");
+      link.className = "oof-incident-architecture-link";
+      link.href = architectureUrl;
+      link.textContent = coverage;
+      link.setAttribute("aria-label", `View ${coverage} architecture`);
+      values[3].append(link);
+    } else {
+      values[3].textContent = coverage;
+    }
     list.append(article);
   });
   if (items.length > pageSize) {
