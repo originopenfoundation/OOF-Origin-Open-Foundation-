@@ -119,6 +119,11 @@ def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
 
 
+def sha256_source_file(path: Path) -> str:
+    source = path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
+    return sha256_bytes(source.encode("utf-8"))
+
+
 def clean(value: str | None) -> str:
     return discovery.clean_text(value or "")
 
@@ -203,6 +208,7 @@ def section_value(source: str, heading: str) -> str | None:
 
 def source_hash(record: dict) -> str:
     source = discovery.BLOCK_RE.sub("", record["source"])
+    source = source.replace("\r\n", "\n").replace("\r", "\n")
     return sha256_bytes(source.encode("utf-8"))
 
 
@@ -316,7 +322,7 @@ def object_record(object_id: str, name: str, kind: str, canonical_url: str | Non
         "provenance": provenance(
             record["relative"] if record else COMPLETE_ARCHITECTURE_INDEX_PATH,
             record["canonical"] if record else (canonical_url or discovery.canonical_url(COMPLETE_ARCHITECTURE_INDEX_PATH)),
-            source_hash(record) if record else sha256_file(ROOT / COMPLETE_ARCHITECTURE_INDEX_PATH),
+            source_hash(record) if record else sha256_source_file(ROOT / COMPLETE_ARCHITECTURE_INDEX_PATH),
         ),
     }
     return item
@@ -350,7 +356,7 @@ def build(output_root: Path) -> dict:
             "provenance": provenance(
                 ARCHITECTURE_INDEX_PATH,
                 discovery.canonical_url(ARCHITECTURE_INDEX_PATH),
-                sha256_file(ROOT / ARCHITECTURE_INDEX_PATH),
+                sha256_source_file(ROOT / ARCHITECTURE_INDEX_PATH),
             ),
         })
         architecture_validation.append(result)
@@ -383,7 +389,7 @@ def build(output_root: Path) -> dict:
             "sourceUrl": source_url,
             "status": "active",
             "sourceAuthority": {"state": "CANONICAL_AUTHORITATIVE", "basis": basis},
-            "provenance": provenance(COMPLETE_ARCHITECTURE_INDEX_PATH, discovery.canonical_url(COMPLETE_ARCHITECTURE_INDEX_PATH), sha256_file(ROOT / COMPLETE_ARCHITECTURE_INDEX_PATH)),
+            "provenance": provenance(COMPLETE_ARCHITECTURE_INDEX_PATH, discovery.canonical_url(COMPLETE_ARCHITECTURE_INDEX_PATH), sha256_source_file(ROOT / COMPLETE_ARCHITECTURE_INDEX_PATH)),
         })
 
     architecture_objects: dict[str, str] = {}

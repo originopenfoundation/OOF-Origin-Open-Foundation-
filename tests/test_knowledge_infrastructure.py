@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from query_knowledge_registry import KnowledgeRegistry  # noqa: E402
-from build_knowledge_infrastructure import cross_validate_architecture, git_value  # noqa: E402
+from build_knowledge_infrastructure import cross_validate_architecture, git_value, source_hash  # noqa: E402
 from validate_json_schema import validate_instance  # noqa: E402
 
 
@@ -81,6 +81,11 @@ class KnowledgeInfrastructureTests(unittest.TestCase):
         self.assertTrue(validate_instance("2026-09-30", schema, schema_path))
         self.assertTrue(validate_instance("2026-09-30T10:30:00", schema, schema_path))
         self.assertFalse(validate_instance("2026-09-30T10:30:00Z", schema, schema_path))
+
+    def test_source_hash_is_platform_independent(self):
+        lf_record = {"source": "<html>\n<body>OOF</body>\n</html>\n"}
+        crlf_record = {"source": lf_record["source"].replace("\n", "\r\n")}
+        self.assertEqual(source_hash(lf_record), source_hash(crlf_record))
 
 
 if __name__ == "__main__":

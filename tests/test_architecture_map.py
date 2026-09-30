@@ -36,6 +36,10 @@ class ArchitectureMapTests(unittest.TestCase):
         audit = json.loads(registry_builder.AUDIT_PATH.read_text(encoding="utf-8"))
         self.assertEqual(set(audit["pendingApproval"]), detected - approved)
 
+    def test_generated_json_uses_platform_independent_line_endings(self):
+        for path in (registry_builder.REGISTRY_PATH, registry_builder.AUDIT_PATH):
+            self.assertNotIn(b"\r\n", path.read_bytes())
+
 
 if __name__ == "__main__":
     unittest.main()

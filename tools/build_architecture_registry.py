@@ -112,7 +112,11 @@ def approve(acronym: str) -> None:
     if value not in approved["approved"]:
         approved["approved"].append(value)
         approved["approved"].sort()
-        APPROVED_PATH.write_text(json.dumps(approved, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        APPROVED_PATH.write_text(
+            json.dumps(approved, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
 
 
 def main() -> int:
@@ -146,6 +150,7 @@ def main() -> int:
         )
         + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     AUDIT_PATH.write_text(
         json.dumps(
@@ -163,6 +168,7 @@ def main() -> int:
         )
         + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     print(
         f"Architecture registry: {len(public_architectures)} published, "
