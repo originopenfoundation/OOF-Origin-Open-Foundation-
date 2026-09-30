@@ -1,4 +1,4 @@
-name: Global Interest Heat Map
+name: Governance Space Map
 
 on:
   schedule:
@@ -51,6 +51,17 @@ jobs:
       - name: Validate active public dataset
         run: python tools/validate_global_interest_heat_map.py
 
+      - name: Run classification tests
+        run: python -m unittest tests.test_global_interest_heat_map
+
+      - name: Install browser smoke-test runtime
+        run: |
+          npm install --no-save --package-lock=false @playwright/test@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run desktop and mobile smoke tests
+        run: npx playwright test --config=playwright.config.mjs
+
       - name: Preserve internal aggregate snapshot
         if: steps.analytics.outputs.configured == 'true'
         uses: actions/upload-artifact@v4
@@ -70,5 +81,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/oof-global-interest-heat-map.json
-          git commit -m "Update Global Interest Heat Map"
+          git commit -m "Update Governance Space Map"
           git push origin HEAD:main1
+
+      - name: Report refresh failure
+        if: failure()
+        run: echo "::error title=Governance Space Map refresh failed::The last valid public dataset was preserved. Review this workflow run."

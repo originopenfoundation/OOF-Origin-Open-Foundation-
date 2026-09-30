@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Build the public Heat Map payload from aggregated Cloudflare Web Analytics data."""
+"""Build the public Governance Space Map payload from aggregated analytics."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -19,14 +20,28 @@ from validate_global_interest_heat_map import validate
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
-INTEREST_ALGORITHM_VERSION = "2.1"
+ARCHITECTURE_INDEX = ROOT / "data" / "oof-architecture-registry.json"
+SCHEMA_VERSION = "1.1"
+INTEREST_ALGORITHM_VERSION = "3.0"
 GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql"
 POPULATION_METADATA_URL = "https://api.worldbank.org/v2/country?format=json&per_page=400"
 POPULATION_VALUES_URL = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=5000&date=2020:2025"
 HOST = "originopenfoundation.org"
 WINDOW_DAYS = 14
-MIN_VISITS = 10.0
-MIN_ACTIVE_DAYS = 2
+CLASSIFICATION_CONFIG = {
+    "minimumVisits": 3.0,
+    "minimumActiveDays": 2,
+    "dailyLinearCap": 4.0,
+    "dailyLogWeight": 2.0,
+    "moderate": {"visits": 12.0, "activeDays": 4, "spanDays": 4, "reliability": 0.25, "score": 0.20},
+    "high": {"visits": 30.0, "activeDays": 6, "spanDays": 7, "reliability": 0.55, "score": 0.70},
+    "veryHigh": {"visits": 60.0, "activeDays": 8, "spanDays": 10, "reliability": 0.75, "score": 1.20, "maximumDailyShare": 0.45},
+}
+TECHNICAL_TRAFFIC_POLICY = {
+    "cloudflareBotFilter": True,
+    "additionalExclusions": [],
+    "limitation": "The available aggregate Web Analytics rows do not reliably identify individual people, devices, collaborators, programmers, or all synthetic traffic.",
+}
 
 
 def request_json(url: str, *, token: str | None = None, payload: dict | None = None) -> object:
@@ -113,16 +128,43 @@ def resolve_iso(value: str, names_to_iso2: dict[str, str]) -> str | None:
     return None if iso == "AQ" else iso
 
 
-def quantile(values: list[float], fraction: float) -> float:
-    if not values:
-        return math.inf
-    ordered = sorted(values)
-    position = (len(ordered) - 1) * fraction
-    lower = math.floor(position)
-    upper = math.ceil(position)
-    if lower == upper:
-        return ordered[lower]
-    return ordered[lower] * (upper - position) + ordered[upper] * (position - lower)
+def saturated_daily_visits(visits: float) -> float:
+    cap = CLASSIFICATION_CONFIG["dailyLinearCap"]
+    excess = max(0.0, visits - cap)
+    return min(visits, cap) + CLASSIFICATION_CONFIG["dailyLogWeight"] * math.log1p(excess)
+
+
+def meets(metrics: dict, threshold: dict) -> bool:
+    return (
+        metrics["visits"] >= threshold["visits"]
+        and metrics["activeDays"] >= threshold["activeDays"]
+        and metrics["spanDays"] >= threshold["spanDays"]
+        and metrics["reliability"] >= threshold["reliability"]
+        and metrics["normalizedScore"] >= threshold["score"]
+    )
+
+
+def canonical_governance_spaces(path: Path = ARCHITECTURE_INDEX) -> list[dict]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("sourceOfTruth") != "oof-structured-architecture-index.html":
+        raise ValueError("Canonical Architecture Index has an unrecognized source of truth")
+    spaces = []
+    for item in payload.get("architectures", []):
+        if item.get("status") != "completed":
+            continue
+        primary = item.get("primaryPage") or {}
+        url = primary.get("url")
+        if not all((item.get("id"), item.get("acronym"), item.get("displayName"), url)):
+            raise ValueError("Canonical Architecture Index contains an incomplete published entry")
+        spaces.append({
+            "id": item["id"],
+            "acronym": item["acronym"],
+            "name": item["displayName"],
+            "url": url,
+        })
+    if not spaces:
+        raise ValueError("Canonical Architecture Index contains no published architectures")
+    return sorted(spaces, key=lambda item: item["id"])
 
 
 def classify(
@@ -147,16 +189,27 @@ def classify(
     for iso, metrics in countries.items():
         visits = metrics["visits"]
         active_days = len(metrics["days"])
-        if visits < MIN_VISITS or active_days < MIN_ACTIVE_DAYS:
+        if visits < CLASSIFICATION_CONFIG["minimumVisits"] or active_days < CLASSIFICATION_CONFIG["minimumActiveDays"]:
             continue
-        visits_per_million = visits / max(populations[iso], 1) * 1_000_000
-        reliability = min(1.0, visits / 30.0) * min(1.0, active_days / 5.0)
-        metrics["normalizedScore"] = visits_per_million * reliability
+        dated_days = sorted(datetime.fromisoformat(day).date() for day in metrics["days"])
+        span_days = (dated_days[-1] - dated_days[0]).days + 1
+        effective_visits = sum(saturated_daily_visits(value) for value in metrics["daily"].values())
+        visits_per_million = effective_visits / max(populations[iso], 1) * 1_000_000
+        continuity = min(1.0, active_days / 8.0) * min(1.0, span_days / 10.0)
+        reliability = min(1.0, visits / 40.0) * min(1.0, active_days / 8.0) * (0.5 + 0.5 * min(1.0, span_days / 10.0))
+        daily_share = max(metrics["daily"].values()) / visits
+        repetition_factor = max(0.55, 1.0 - min(0.45, daily_share * 0.35))
+        metrics.update({
+            "activeDays": active_days,
+            "spanDays": span_days,
+            "effectiveVisits": effective_visits,
+            "continuity": continuity,
+            "reliability": reliability,
+            "maximumDailyShare": daily_share,
+            "normalizedScore": math.log1p(visits_per_million) * reliability * (0.5 + 0.5 * continuity) * repetition_factor,
+        })
         eligible[iso] = metrics
 
-    scores = [metrics["normalizedScore"] for metrics in eligible.values()]
-    high_cutoff = quantile(scores, 0.80)
-    moderate_cutoff = quantile(scores, 0.45)
     public: list[dict] = []
     internal: dict[str, dict] = {}
     recent_start = (now - timedelta(days=7)).date().isoformat()
@@ -169,10 +222,14 @@ def classify(
             "classification": "insufficient",
         }
         if iso in eligible:
-            score = eligible[iso]["normalizedScore"]
-            if score >= high_cutoff and metrics["visits"] >= 30 and len(metrics["days"]) >= 4:
+            evidence = eligible[iso]
+            score = evidence["normalizedScore"]
+            very_high = CLASSIFICATION_CONFIG["veryHigh"]
+            if meets(evidence, very_high) and evidence["maximumDailyShare"] <= very_high["maximumDailyShare"]:
+                status = "very-high"
+            elif meets(evidence, CLASSIFICATION_CONFIG["high"]):
                 status = "high"
-            elif score >= moderate_cutoff and metrics["visits"] >= 20 and len(metrics["days"]) >= 3:
+            elif meets(evidence, CLASSIFICATION_CONFIG["moderate"]):
                 status = "moderate"
             else:
                 status = "emerging"
@@ -187,13 +244,50 @@ def classify(
             public.append(item)
             record["classification"] = status
             record["normalizedScore"] = round(score, 8)
+            record["effectiveVisits"] = round(evidence["effectiveVisits"], 4)
+            record["spanDays"] = evidence["spanDays"]
+            record["reliability"] = round(evidence["reliability"], 8)
+            record["continuity"] = round(evidence["continuity"], 8)
+            record["maximumDailyShare"] = round(evidence["maximumDailyShare"], 8)
             record["recentVisits"] = round(recent, 4)
             record["priorVisits"] = round(prior, 4)
         internal[iso] = record
     return public, internal
 
 
-def atomic_write(path: Path, payload: dict) -> None:
+def revision_for(countries: list[dict], governance_spaces: list[dict]) -> str:
+    material = json.dumps({
+        "algorithmVersion": INTEREST_ALGORITHM_VERSION,
+        "countries": countries,
+        "governanceSpaces": governance_spaces,
+    }, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(material).hexdigest()
+
+
+def public_payload(countries: list[dict], governance_spaces: list[dict], start: datetime, now: datetime) -> dict:
+    timestamp = now.isoformat().replace("+00:00", "Z")
+    return {
+        "schemaVersion": SCHEMA_VERSION,
+        "algorithmVersion": INTEREST_ALGORITHM_VERSION,
+        "windowStart": start.isoformat().replace("+00:00", "Z"),
+        "windowEnd": timestamp,
+        "generatedAt": timestamp,
+        "lastCheckedAt": timestamp,
+        "dataRevision": revision_for(countries, governance_spaces),
+        "source": "Cloudflare Web Analytics",
+        "observationUnit": "Aggregated visits; visits are not unique people or unique users.",
+        "technicalTraffic": TECHNICAL_TRAFFIC_POLICY,
+        "canonicalArchitectureSource": "data/oof-architecture-registry.json",
+        "countries": countries,
+        "governanceSpaces": governance_spaces,
+    }
+
+
+def atomic_write(path: Path, payload: dict) -> bool:
+    if path.exists():
+        current = json.loads(path.read_text(encoding="utf-8"))
+        if current.get("dataRevision") == payload.get("dataRevision"):
+            return False
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", newline="\n", dir=path.parent, delete=False, suffix=".tmp") as stream:
         json.dump(payload, stream, ensure_ascii=False, indent=2)
@@ -201,6 +295,7 @@ def atomic_write(path: Path, payload: dict) -> None:
         temporary = Path(stream.name)
     validate(temporary)
     os.replace(temporary, path)
+    return True
 
 
 def main() -> None:
@@ -215,19 +310,22 @@ def main() -> None:
     rows = cloudflare_rows(account_id, site_tag, token, start, now)
     populations, names_to_iso2, population_year = population_data()
     public_countries, internal_countries = classify(rows, populations, names_to_iso2, now)
-    public_payload = {"generatedAt": now.isoformat().replace("+00:00", "Z"), "countries": public_countries}
-    atomic_write(PUBLIC_DATASET, public_payload)
+    governance_spaces = canonical_governance_spaces()
+    payload = public_payload(public_countries, governance_spaces, start, now)
+    changed = atomic_write(PUBLIC_DATASET, payload)
     if args.internal_output:
         args.internal_output.parent.mkdir(parents=True, exist_ok=True)
         args.internal_output.write_text(json.dumps({
-            "generatedAt": public_payload["generatedAt"],
+            "generatedAt": payload["generatedAt"],
+            "lastCheckedAt": payload["lastCheckedAt"],
             "dataWindowStart": start.isoformat().replace("+00:00", "Z"),
-            "dataWindowEnd": public_payload["generatedAt"],
+            "dataWindowEnd": payload["generatedAt"],
             "algorithmVersion": INTEREST_ALGORITHM_VERSION,
             "populationVersion": f"World Bank SP.POP.TOTL {population_year}",
             "countries": internal_countries,
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-    print(f"Published {len(public_countries)} reliable country classifications from {len(rows)} aggregate rows")
+    action = "Published" if changed else "Checked without public classification changes"
+    print(f"{action}: {len(public_countries)} reliable country classifications from {len(rows)} aggregate rows")
 
 
 if __name__ == "__main__":

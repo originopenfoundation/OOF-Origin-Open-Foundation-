@@ -2879,7 +2879,7 @@ padding:10px;
   }
 }
 
-/* OOF Global Interest Heat Map */
+/* OOF Governance Space Map (legacy URL retained for compatibility) */
 .oof-global-interest-page {
   overflow-x: hidden;
 }
@@ -2983,6 +2983,7 @@ padding:10px;
   border-top: 1px solid rgba(255,255,255,0.95);
 }
 
+.oof-country-label-marker.is-tiny-callout.is-very-high span { background: #0b4f32; }
 .oof-country-label-marker.is-tiny-callout.is-high span { background: #167a45; }
 .oof-country-label-marker.is-tiny-callout.is-moderate span { background: #2468b4; }
 .oof-country-label-marker.is-tiny-callout.is-emerging span { background: #d6a51f; }
@@ -3112,6 +3113,7 @@ padding:10px;
   border-radius: 50%;
 }
 
+.oof-global-interest-legend .is-very-high { background: #0b4f32; }
 .oof-global-interest-legend .is-high { background: #167a45; }
 .oof-global-interest-legend .is-moderate { background: #2468b4; }
 .oof-global-interest-legend .is-emerging { background: #d6a51f; }
@@ -3119,6 +3121,34 @@ padding:10px;
 
 .oof-global-interest-principle {
   margin: 10px 0 0;
+}
+
+.oof-global-interest-transparency {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 20px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.45);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.oof-global-interest-transparency span {
+  min-width: 0;
+}
+
+.oof-global-interest-transparency a {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+
+.oof-global-interest-stale-warning {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #d6a51f;
+  border-radius: 4px;
+  background: rgba(214,165,31,0.14);
 }
 
 .oof-global-interest-fallback {
@@ -3185,6 +3215,11 @@ padding:10px;
 
   .oof-global-interest-controls select {
     width: 100%;
+  }
+
+  .oof-global-interest-transparency {
+    display: grid;
+    gap: 6px;
   }
 }
 

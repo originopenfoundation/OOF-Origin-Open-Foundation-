@@ -2,13 +2,14 @@
   "use strict";
 
   const COLORS = {
+    "very-high": "#0b4f32",
     high: "#167a45",
     moderate: "#2468b4",
     emerging: "#d6a51f",
-    insufficient: "#a3a3a3",
-    hover: "#f2f2f2"
+    insufficient: "#a3a3a3"
   };
   const STATUS_LABELS = {
+    "very-high": "Very High Interest",
     high: "High Interest",
     moderate: "Moderate Interest",
     emerging: "Emerging Interest",
@@ -21,6 +22,8 @@
     declining: "↘ Declining"
   };
   const WORLD_BOUNDS = [[-58, -180], [84, 180]];
+  const STALE_AFTER_MS = 36 * 60 * 60 * 1000;
+  const WORKFLOW_RUNS_URL = "https://api.github.com/repos/originopenfoundation/OOF-Origin-Open-Foundation-/actions/workflows/global-interest-heat-map.yml/runs?branch=main1&status=success&per_page=1";
 
   const container = document.getElementById("global-interest-globe");
   const fallback = document.getElementById("global-interest-fallback");
@@ -30,6 +33,10 @@
   const countryStatus = document.getElementById("global-interest-country-status");
   const countryMomentum = document.getElementById("global-interest-country-momentum");
   const viewControls = document.querySelector(".oof-global-interest-view-controls");
+  const updated = document.getElementById("global-interest-updated");
+  const dataWindow = document.getElementById("global-interest-window");
+  const dataSource = document.getElementById("global-interest-source");
+  const staleWarning = document.getElementById("global-interest-stale-warning");
   if (!container || !select || !card) return;
 
   let map;
@@ -106,9 +113,49 @@
       color: highlighted ? "#ffffff" : "rgba(255,255,255,0.68)",
       weight: feature === selectedFeature ? 3.4 : highlighted ? 2.4 : activeTiny ? 3 : 0.7,
       opacity: 1,
-      fillColor: feature === hoveredFeature ? COLORS.hover : COLORS[state.status] || COLORS.insufficient,
+      fillColor: COLORS[state.status] || COLORS.insufficient,
       fillOpacity: state.status === "insufficient" ? 0.7 : 0.92
     };
+  }
+
+  function validDate(value) {
+    const parsed = new Date(value);
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  function readableDate(value) {
+    const parsed = validDate(value);
+    return parsed ? new Intl.DateTimeFormat("en", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" }).format(parsed) + " UTC" : "Unavailable";
+  }
+
+  function applyFreshness(dataset, verifiedCheck) {
+    const generated = validDate(dataset.generatedAt);
+    const declaredCheck = validDate(dataset.lastCheckedAt);
+    const effectiveCheck = [declaredCheck, verifiedCheck].filter(Boolean).sort((a, b) => b - a)[0] || generated;
+    if (updated) {
+      updated.dateTime = generated ? generated.toISOString() : "";
+      updated.textContent = readableDate(dataset.generatedAt);
+    }
+    const start = validDate(dataset.windowStart);
+    const end = validDate(dataset.windowEnd);
+    if (dataWindow) {
+      dataWindow.textContent = start && end
+        ? `${new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" }).format(start)} to ${new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" }).format(end)} (rolling 14 days)`
+        : "Previous 14 days";
+    }
+    if (dataSource) dataSource.textContent = dataset.source || "Cloudflare Web Analytics";
+    if (staleWarning) staleWarning.hidden = !effectiveCheck || Date.now() - effectiveCheck.getTime() <= STALE_AFTER_MS;
+  }
+
+  function updateFreshness(dataset) {
+    applyFreshness(dataset, null);
+    fetch(WORKFLOW_RUNS_URL, { cache: "no-store", headers: { Accept: "application/vnd.github+json" } })
+      .then(response => response.ok ? response.json() : null)
+      .then(payload => {
+        const run = payload && Array.isArray(payload.workflow_runs) ? payload.workflow_runs[0] : null;
+        applyFreshness(dataset, run ? validDate(run.updated_at || run.run_started_at) : null);
+      })
+      .catch(() => { /* Dataset metadata remains the privacy-safe fallback. */ });
   }
 
   function refreshHighlights() {
@@ -216,6 +263,10 @@
     })
   ]).then(([world, dataset]) => {
     if (typeof window.L !== "object") throw new Error("2D map library unavailable");
+    if (!dataset || dataset.schemaVersion !== "1.1" || dataset.algorithmVersion !== "3.0" || !Array.isArray(dataset.countries)) {
+      throw new Error("Public Governance Space Map dataset is invalid");
+    }
+    updateFreshness(dataset);
 
     const publicCountries = new Map((dataset.countries || []).map(item => [String(item.iso || "").toUpperCase(), item]));
     const features = (world.features || []).filter(feature => {
@@ -305,6 +356,6 @@
     }
   }).catch(error => {
     showFallback("The public map could not be loaded. The last valid dataset remains unavailable in this preview.");
-    console.error("OOF Global Interest Heat Map:", error);
+    console.error("OOF Governance Space Map:", error);
   });
 })();

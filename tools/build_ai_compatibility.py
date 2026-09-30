@@ -192,7 +192,10 @@ def public_pages() -> list[Path]:
     candidates = sorted(ROOT.rglob("*.html"), key=lambda item: item.relative_to(ROOT).as_posix().casefold())
     for path in candidates:
         relative_parts = path.relative_to(ROOT).parts
-        if ".git" in path.parts or (relative_parts and relative_parts[0] in {"exports", ".tmp", "tmp"}):
+        if ".git" in path.parts or (
+            relative_parts
+            and relative_parts[0] in {"exports", ".tmp", "tmp", "node_modules", "test-results"}
+        ):
             continue
         text = path.read_text(encoding="utf-8")
         if "</head>" in text.lower():
@@ -369,6 +372,21 @@ def page_json_ld(record: dict) -> dict:
         data["headline"] = record["title"]
         data["author"] = {"@id": BASE_URL + "#organization"}
         data["mainEntityOfPage"] = {"@id": record["canonical"] + "#webpage"}
+    if record["relative"] == "global-interest-heat-map.html":
+        data["mainEntity"] = {
+            "@type": "Dataset",
+            "@id": record["canonical"] + "#dataset",
+            "name": "OOF® Governance Space Map™ public classification dataset",
+            "description": "Privacy-reduced country-level governance methodology interest classifications for a rolling 14-day observation window.",
+            "url": canonical_url("data/oof-global-interest-heat-map.json"),
+            "distribution": {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": canonical_url("data/oof-global-interest-heat-map.json"),
+            },
+            "creator": {"@id": BASE_URL + "#organization"},
+            "isAccessibleForFree": True,
+        }
     topics = [
         record["fields"].get(field)
         for field in ("Architecture", "Architecture Family", "Parent Standard", "Category", "Subcategory", "Governed Space")
