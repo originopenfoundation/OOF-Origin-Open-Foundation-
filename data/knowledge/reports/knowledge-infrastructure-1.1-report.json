@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.1",
+  "title": "OOF Knowledge Infrastructure 1.1 Implementation Report",
+  "A_scope": "Existing 1.0 infrastructure updated in place; no rebuild of site content and no production consumer cutover.",
+  "B_mode": "report-only",
+  "C_counts": {
+    "objects": 651,
+    "representations": 2024,
+    "relationships": 7385
+  },
+  "D_canonicalSources": [
+    "data/oof-architecture-registry.json",
+    "oof-structured-architecture-index.html"
+  ],
+  "E_authorityMapping": {
+    "CANONICAL_AUTHORITATIVE": 659,
+    "SUPPORTING_CITABLE": 1306,
+    "REVIEW_REQUIRED": 44,
+    "QUARANTINED": 15
+  },
+  "F_architectureCore": {
+    "ready": true,
+    "validationReport": "architecture-canonical-validation.json"
+  },
+  "G_referenceArchitectures": {
+    "detected": [
+      "AGA",
+      "CLIA",
+      "GOA",
+      "MGIA"
+    ],
+    "validationReport": "reference-architecture-validation.json"
+  },
+  "H_crossValidation": "Deterministic field comparison is integrated into every build.",
+  "I_futureOnboarding": "All newly indexed architectures enter the same cross-validation loop automatically.",
+  "J_promotionRule": "Only PASS from governed source evidence promotes architecture identity to canonical.",
+  "K_failureRecords": "Conflict fields, both source values, candidate URL, reason, provenance, commit and generated timestamp are retained.",
+  "L_anomalyDetection": {
+    "reviewQueue": "authority-review-queue.json",
+    "architectureBlockers": []
+  },
+  "M_historicalPages": {
+    "classified": 2024,
+    "authorityStateCounts": {
+      "CANONICAL_AUTHORITATIVE": 659,
+      "SUPPORTING_CITABLE": 1306,
+      "REVIEW_REQUIRED": 44,
+      "QUARANTINED": 15
+    }
+  },
+  "N_unresolvedRepresentations": 1313,
+  "O_retrievalPrecedence": [
+    "CANONICAL_AUTHORITATIVE",
+    "validated authoritative relationships",
+    "SUPPORTING_CITABLE",
+    "discovery"
+  ],
+  "P_sourceAuthority": "Present on every object, representation and relationship.",
+  "Q_architectureTruth": "Only the two designated architecture sources may establish or override architecture truth.",
+  "R_duplicateOriginIds": {
+    "groups": 7,
+    "affectedRepresentations": 15,
+    "automaticMergeApplied": false
+  },
+  "S_candidateEntities": {
+    "groups": 39,
+    "automaticMergeApplied": false
+  },
+  "T_languages": {
+    "approvedPattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|\\d{3}))?$",
+    "malformedAfterNormalization": 0
+  },
+  "U_schemaAndSemantics": {
+    "schemas": 4,
+    "semanticFieldsRequireSourceEvidence": true
+  },
+  "V_provenance": {
+    "repositoryCommit": "95df1ba0e73226e51038c1ba793c8d4151464ecf",
+    "buildId": "OOF-KI-1.1-95df1ba0e732",
+    "generatedTimestamp": "2026-09-29T21:39:51+02:00",
+    "extractorVersion": "oof-knowledge-infrastructure/1.1"
+  },
+  "W_testsAndGoldenFixtures": "Validator and unit tests cover schemas, collisions, ambiguity, precedence, exclusions, source consistency, onboarding, correction promotion, integrity and performance.",
+  "X_laraReadiness": {
+    "LARA_INTEGRATION_READY": false,
+    "blockers": [
+      "7 duplicate OriginID groups remain under explicit governance review.",
+      "39 candidate entity groups remain under authority review."
+    ],
+    "contract": "lara-read-only-consumer-contract.json"
+  }
+}

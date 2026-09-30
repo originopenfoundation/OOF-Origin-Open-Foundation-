@@ -1,9 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://originopenfoundation.org/schemas/oof-knowledge-object.v1.schema.json",
-  "title": "OOF Knowledge Object 1.0",
+  "title": "OOF Knowledge Object 1.1",
   "type": "object",
-  "required": ["id", "canonicalName", "artifactType", "canonicalUrl", "representations", "language", "visibility", "allowedConsumers", "identityBasis", "provenance"],
+  "additionalProperties": false,
+  "required": ["id", "canonicalName", "artifactType", "canonicalUrl", "representations", "language", "visibility", "allowedConsumers", "identityBasis", "authorityState", "sourceAuthority", "provenance"],
   "properties": {
     "id": {"type": "string", "minLength": 1},
     "canonicalName": {"type": "string", "minLength": 1},
@@ -11,7 +12,7 @@
     "artifactType": {"type": "string", "minLength": 1},
     "subtype": {"type": ["string", "null"]},
     "canonicalUrl": {"type": "string", "format": "uri"},
-    "representations": {"type": "array", "items": {"type": "string", "format": "uri-reference"}, "minItems": 1, "uniqueItems": true},
+    "representations": {"type": "array", "items": {"type": "string", "format": "uri-reference"}, "uniqueItems": true},
     "architectureId": {"type": ["string", "null"]},
     "parentObjectId": {"type": ["string", "null"]},
     "category": {"type": ["string", "null"]},
@@ -22,22 +23,27 @@
     "status": {"type": ["string", "null"]},
     "version": {"type": ["string", "null"]},
     "dates": {"type": "object"},
-    "language": {"type": "string", "minLength": 2},
+    "language": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$"},
     "visibility": {"enum": ["public", "restricted", "private"]},
     "allowedConsumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "identityBasis": {"type": "string", "minLength": 1},
+    "authorityState": {"enum": ["CANONICAL_AUTHORITATIVE", "SUPPORTING_CITABLE", "REVIEW_REQUIRED", "QUARANTINED"]},
+    "sourceAuthority": {"type": "object"},
     "provenance": {"$ref": "#/$defs/provenance"}
   },
   "$defs": {
     "provenance": {
       "type": "object",
-      "required": ["sourcePath", "sourceUrl", "contentHash", "extractorVersion"],
+      "additionalProperties": false,
+      "required": ["sourcePath", "sourceUrl", "repositoryCommit", "buildId", "contentHash", "extractorVersion", "generatedTimestamp"],
       "properties": {
-        "sourcePath": {"type": "string"},
+        "sourcePath": {"type": "string", "minLength": 1},
         "sourceUrl": {"type": "string", "format": "uri"},
+        "repositoryCommit": {"type": "string", "minLength": 7},
+        "buildId": {"type": "string", "pattern": "^OOF-KI-1\\.1-[a-f0-9]{12}$"},
         "contentHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-        "sourceCommit": {"type": ["string", "null"]},
-        "extractorVersion": {"type": "string"}
+        "extractorVersion": {"type": "string", "minLength": 1},
+        "generatedTimestamp": {"type": "string", "format": "date-time"}
       }
     }
   }

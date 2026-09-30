@@ -26,7 +26,9 @@ class KnowledgeRegistry:
     def __init__(self, root: Path = DATA) -> None:
         self.root = root
         self.objects = load(root / "objects-core.json")["objects"]
+        self.representations = load(root / "representations.json")["representations"]
         self.by_id = {item["id"]: item for item in self.objects}
+        self.representation_by_id = {item["id"]: item for item in self.representations}
         self.by_url = load(root / "indexes" / "object-by-canonical-url.json")["index"]
         self.by_name = load(root / "indexes" / "object-by-name.json")["index"]
         self.lexical_index = load(root / "indexes" / "lexical.json")["index"]
@@ -36,11 +38,23 @@ class KnowledgeRegistry:
         self.relationship_by_id = {item["id"]: item for item in relationships}
 
     def exact(self, value: str) -> dict | None:
+        result = self.exact_result(value)
+        return result.get("object") if result["status"] == "FOUND" else None
+
+    def exact_result(self, value: str) -> dict:
         object_id = value if value in self.by_id else self.by_url.get(value)
         if object_id:
-            return self.by_id.get(object_id)
+            item = self.by_id.get(object_id)
+            if item and item["authorityState"] not in {"REVIEW_REQUIRED", "QUARANTINED"}:
+                return {"status": "FOUND", "authorityState": item["authorityState"], "object": item}
+            return {"status": item["authorityState"] if item else "NOT_FOUND", "object": None}
         matches = self.by_name.get(normalize(value), [])
-        return self.by_id.get(matches[0]) if len(matches) == 1 else None
+        eligible = [self.by_id[item] for item in matches if self.by_id[item]["authorityState"] not in {"REVIEW_REQUIRED", "QUARANTINED"}]
+        if len(eligible) == 1:
+            return {"status": "FOUND", "authorityState": eligible[0]["authorityState"], "object": eligible[0]}
+        if len(eligible) > 1:
+            return {"status": "AMBIGUOUS", "object": None, "candidateIds": [item["id"] for item in eligible]}
+        return {"status": "NOT_FOUND", "object": None}
 
     def related(self, object_id: str, authoritative_only: bool = False) -> list[dict]:
         found = [self.relationship_by_id[item] for item in self.relations_by_object.get(object_id, [])]
@@ -56,8 +70,19 @@ class KnowledgeRegistry:
         for token in tokens:
             for object_id in self.lexical_index.get(token, []):
                 scores[object_id] = scores.get(object_id, 0) + 1
-        ranked = sorted(scores, key=lambda item: (-scores[item], self.by_id[item]["canonicalName"], item))
-        return [{"score": scores[item], "object": self.by_id[item]} for item in ranked[:limit]]
+        rank = {"CANONICAL_AUTHORITATIVE": 0, "SUPPORTING_CITABLE": 1}
+        eligible = [item for item in scores if self.by_id[item]["authorityState"] in rank]
+        ranked = sorted(eligible, key=lambda item: (rank[self.by_id[item]["authorityState"]], -scores[item], self.by_id[item]["canonicalName"], item))
+        return [{"score": scores[item], "authorityState": self.by_id[item]["authorityState"], "object": self.by_id[item]} for item in ranked[:limit]]
+
+    def supporting(self, query: str, limit: int = 10) -> list[dict]:
+        needle = normalize(query)
+        found = [
+            item for item in self.representations
+            if item["authorityState"] == "SUPPORTING_CITABLE"
+            and needle in normalize(f"{item['title']} {item['canonicalUrl']}")
+        ]
+        return sorted(found, key=lambda item: (item["title"], item["id"]))[:limit]
 
 
 def main() -> None:

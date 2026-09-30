@@ -1,19 +1,18 @@
 {
-  "schemaVersion": "1.0",
-  "implementation": "OOF Knowledge Infrastructure 1.0",
+  "schemaVersion": "1.1",
+  "implementation": "OOF Knowledge Infrastructure 1.1",
   "mode": "report-only-parallel",
   "objectRegistry": "objects-core.json",
   "representationRegistry": "representations.json",
   "relationshipRegistry": "relationships.json",
-  "authorityModel": "Authority is assigned per representation domain and only explicit registry or page metadata creates authoritative relationships.",
+  "authorityModel": "Authority is assigned as CANONICAL_AUTHORITATIVE, SUPPORTING_CITABLE, REVIEW_REQUIRED, or QUARANTINED. Architecture truth requires agreement between both designated canonical sources.",
   "representationModel": "Pages remain page identities and may represent a shared governed object; unresolved pages remain unmerged.",
   "visibilityModel": "Public output is generated separately and contains public knowledge only; visibility and allowedConsumers are separate fields.",
   "retrievalModel": [
-    "cache",
-    "exactLookup",
-    "relationshipLookup",
-    "lexicalRetrieval",
-    "optionalSemanticRetrieval",
+    "canonicalExactLookup",
+    "validatedRelationshipLookup",
+    "supportingRetrieval",
+    "discovery",
     "AIReasoningLater"
   ],
   "currentSearchStatus": "preserved-as-fallback",
@@ -22,5 +21,5 @@
     "candidateEntityGroups",
     "unresolvedRepresentationMappings"
   ],
-  "phase6Recommendation": "Do not begin consumer cutover until duplicate OriginID and candidate entity reviews are resolved and retrieval parity is accepted by OOF authority."
+  "phase6Recommendation": "Remain in report-only mode until the published readiness blockers are resolved and accepted by OOF authority."
 }

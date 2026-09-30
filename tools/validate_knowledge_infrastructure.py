@@ -9,7 +9,6 @@ import subprocess
 import sys
 import tempfile
 import time
-from collections import Counter
 from pathlib import Path
 
 
@@ -17,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "knowledge"
 sys.path.insert(0, str(ROOT / "tools"))
 from query_knowledge_registry import KnowledgeRegistry  # noqa: E402
+from validate_json_schema import validate_file  # noqa: E402
 
 
 def load(path: Path) -> dict:
@@ -41,6 +41,19 @@ def validate() -> tuple[list[str], list[str]]:
     relationships = load(DATA / "relationships.json")["relationships"]
     duplicates = load(DATA / "reports" / "duplicate-origin-id-review.json")
     candidates = load(DATA / "reports" / "candidate-entity-review.json")
+    architecture_validation = load(DATA / "reports" / "architecture-canonical-validation.json")
+    reference_validation = load(DATA / "reports" / "reference-architecture-validation.json")
+    readiness = load(DATA / "reports" / "lara-integration-readiness.json")
+
+    schema_jobs = (
+        (DATA / "objects-core.json", ROOT / "schemas" / "oof-knowledge-object.v1.schema.json", "objects"),
+        (DATA / "representations.json", ROOT / "schemas" / "oof-knowledge-representation.v1.schema.json", "representations"),
+        (DATA / "relationships.json", ROOT / "schemas" / "oof-knowledge-relationship.v1.schema.json", "relationships"),
+        (DATA / "manifest.json", ROOT / "schemas" / "oof-knowledge-manifest.v1.schema.json", None),
+    )
+    for payload_path, schema_path, item_key in schema_jobs:
+        schema_errors = validate_file(load(payload_path), schema_path, item_key)
+        errors.extend(f"Schema validation ({payload_path.name}): {message}" for message in schema_errors[:20])
 
     object_ids = [item["id"] for item in objects]
     representation_ids = [item["id"] for item in representations]
@@ -56,6 +69,7 @@ def validate() -> tuple[list[str], list[str]]:
     source_hashes = {item["provenance"]["sourcePath"]: item["provenance"]["contentHash"] for item in representations}
     for item in objects:
         require(item["visibility"] == "public", f"Non-public object leaked: {item['id']}", errors)
+        require(item["authorityState"] in {"CANONICAL_AUTHORITATIVE", "SUPPORTING_CITABLE", "REVIEW_REQUIRED", "QUARANTINED"}, f"Invalid object authority state: {item['id']}", errors)
         require(item["canonicalUrl"].startswith("https://originopenfoundation.org/"), f"Invalid canonical URL: {item['id']}", errors)
         require(set(item["representations"]).issubset(representation_set), f"Unknown representation on object: {item['id']}", errors)
         source = ROOT / item["provenance"]["sourcePath"]
@@ -63,16 +77,18 @@ def validate() -> tuple[list[str], list[str]]:
         require(source_hashes.get(item["provenance"]["sourcePath"]) == item["provenance"]["contentHash"], f"Object provenance differs from its representation: {item['id']}", errors)
     for item in representations:
         require(item["visibility"] == "public", f"Non-public representation leaked: {item['id']}", errors)
+        require(item["authorityState"] in {"CANONICAL_AUTHORITATIVE", "SUPPORTING_CITABLE", "REVIEW_REQUIRED", "QUARANTINED"}, f"Invalid representation authority state: {item['id']}", errors)
         if item["representsObject"]:
             require(item["representsObject"] in object_id_set, f"Unknown represented object: {item['id']}", errors)
         if item["identityStatus"] == "quarantined-duplicate-origin-id":
             require(item["representsObject"] is None, f"Duplicate OriginID representation was merged: {item['id']}", errors)
+            require(item["authorityState"] == "QUARANTINED", f"Duplicate OriginID is not quarantined: {item['id']}", errors)
         source = ROOT / item["provenance"]["sourcePath"]
         require(source.is_file(), f"Missing representation source: {source}", errors)
         require(len(item["provenance"]["contentHash"]) == 64, f"Invalid representation content hash: {item['id']}", errors)
     for item in relationships:
         require(item["sourceId"] in known and item["targetId"] in known, f"Dangling relationship: {item['id']}", errors)
-        require(item["authorityState"] in {"AUTHORITATIVE", "DISCOVERY"}, f"Invalid authority state: {item['id']}", errors)
+        require(item["authorityState"] in {"AUTHORITATIVE", "VALIDATED_AUTHORITATIVE", "SUPPORTING", "DISCOVERY", "REVIEW_REQUIRED", "QUARANTINED"}, f"Invalid authority state: {item['id']}", errors)
         if item["authorityState"] == "DISCOVERY":
             require(item["authorityBasis"] not in {"approvedArchitectureRegistry", "explicitPageMetadata"}, f"Discovery relationship uses an authoritative basis: {item['id']}", errors)
 
@@ -90,6 +106,12 @@ def validate() -> tuple[list[str], list[str]]:
     require(duplicates["summary"] == {"duplicateGroups": 7, "affectedRepresentations": 15}, "Duplicate OriginID audit no longer matches the reviewed baseline", errors)
     require(all(not item["automaticResolutionApplied"] for item in duplicates["conflicts"]), "A duplicate OriginID was automatically resolved", errors)
     require(candidates["candidateGroupCount"] == 39, "Candidate entity review must contain 39 groups", errors)
+    require(architecture_validation["canonicalSources"] == {"architectureIndex": "data/oof-architecture-registry.json", "completeArchitectureIndex": "oof-structured-architecture-index.html"}, "Canonical architecture sources changed unexpectedly", errors)
+    require(all(item["result"] == "PASS" for item in architecture_validation["architectures"]), "Architecture Core contains unresolved source conflicts", errors)
+    require(reference_validation["detectedCount"] == reference_validation["expectedCount"] == 4, "Exactly four Reference Architectures must be cross-validated", errors)
+    require(all(item["result"] == "PASS" for item in reference_validation["architectures"]), "Reference Architecture validation failed", errors)
+    require(readiness["reportOnly"] is True and readiness["prohibitedCutoverApplied"] is False, "LaRA readiness escaped report-only mode", errors)
+    require(readiness["LARA_INTEGRATION_READY"] == manifest["LARA_INTEGRATION_READY"], "LaRA readiness disagrees with manifest", errors)
     require(manifest["generationMode"] == "report-only", "Knowledge infrastructure is not report-only", errors)
     require(manifest["visibility"] == "public", "Public manifest has invalid visibility", errors)
 
@@ -113,9 +135,11 @@ def validate() -> tuple[list[str], list[str]]:
         rebuilt = Path(directory) / "data" / "knowledge" / "manifest.json"
         require(load(rebuilt)["buildFingerprint"] == manifest["buildFingerprint"], "Build is not deterministic", errors)
 
-    unresolved = Counter(item["identityStatus"] for item in representations)
-    if unresolved["unresolved"]:
-        warnings.append(f"{unresolved['unresolved']} representations remain intentionally unresolved")
+    unresolved = sum(item["representsObject"] is None and item["authorityState"] != "QUARANTINED" for item in representations)
+    if unresolved:
+        warnings.append(f"{unresolved} non-quarantined representations remain intentionally unmapped")
+    if not readiness["LARA_INTEGRATION_READY"]:
+        warnings.append("LaRA integration remains blocked as documented in lara-integration-readiness.json")
     return errors, warnings
 
 

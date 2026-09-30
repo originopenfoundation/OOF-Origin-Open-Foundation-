@@ -1,31 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://originopenfoundation.org/schemas/oof-knowledge-manifest.v1.schema.json",
-  "title": "OOF Knowledge Infrastructure Manifest 1.0",
+  "title": "OOF Knowledge Infrastructure Manifest 1.1",
   "type": "object",
-  "required": ["schemaVersion", "generationMode", "extractorVersion", "buildFingerprint", "visibility", "allowedConsumers", "counts", "schemas", "files"],
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generationMode", "extractorVersion", "buildFingerprint", "visibility", "allowedConsumers", "sourceCommit", "buildId", "generatedAt", "authorityStates", "LARA_INTEGRATION_READY", "counts", "schemas", "files"],
   "properties": {
-    "schemaVersion": {"const": "1.0"},
-    "generationMode": {"const": "report-only"},
-    "extractorVersion": {"type": "string"},
-    "buildFingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-    "visibility": {"const": "public"},
+    "schemaVersion": {"const": "1.1"}, "generationMode": {"const": "report-only"}, "extractorVersion": {"type": "string"},
+    "buildFingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "visibility": {"const": "public"},
     "allowedConsumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "sourceCommit": {"type": ["string", "null"]},
-    "generatedAt": {"type": ["string", "null"]},
-    "counts": {"type": "object", "required": ["objects", "representations", "relationships"]},
+    "sourceCommit": {"type": "string", "minLength": 7}, "buildId": {"type": "string", "pattern": "^OOF-KI-1\\.1-[a-f0-9]{12}$"}, "generatedAt": {"type": "string", "format": "date-time"},
+    "authorityStates": {"type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true},
+    "LARA_INTEGRATION_READY": {"type": "boolean"},
+    "counts": {"type": "object", "additionalProperties": false, "required": ["objects", "representations", "relationships"], "properties": {"objects": {"type": "integer", "minimum": 1}, "representations": {"type": "integer", "minimum": 1}, "relationships": {"type": "integer", "minimum": 1}}},
     "schemas": {"type": "array", "items": {"type": "string"}, "minItems": 4},
-    "files": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["path", "sha256", "bytes"],
-        "properties": {
-          "path": {"type": "string"},
-          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-          "bytes": {"type": "integer", "minimum": 1}
-        }
-      }
-    }
+    "files": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["path", "sha256", "bytes"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "bytes": {"type": "integer", "minimum": 1}}}}
   }
 }

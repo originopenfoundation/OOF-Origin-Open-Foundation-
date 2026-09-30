@@ -1,0 +1,18 @@
+{
+  "fixtureVersion": "1.0",
+  "lifecycle": "Update only when the governed cross-validation contract changes; every change requires authority review and an explicit expected-result update.",
+  "base": {
+    "acronym": "TEST",
+    "displayName": "TEST - Test Architecture",
+    "name": "Test Architecture",
+    "status": "completed",
+    "standardCount": 1,
+    "standards": [{"name": "Test Standard", "url": "test.html"}],
+    "primaryPage": {"url": "about-test.html"}
+  },
+  "cases": [
+    {"name": "matching governed sources", "override": {}, "expectedResult": "PASS", "expectedAuthorityState": "CANONICAL_AUTHORITATIVE"},
+    {"name": "identity conflict", "override": {"acronym": "OTHER"}, "expectedResult": "CONFLICT", "expectedAuthorityState": "QUARANTINED"},
+    {"name": "non-identity field conflict", "override": {"status": "development"}, "expectedResult": "PARTIAL", "expectedAuthorityState": "SUPPORTING_CITABLE"}
+  ]
+}

@@ -1,25 +1,23 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://originopenfoundation.org/schemas/oof-knowledge-representation.v1.schema.json",
-  "title": "OOF Knowledge Representation 1.0",
+  "title": "OOF Knowledge Representation 1.1",
   "type": "object",
-  "required": ["id", "title", "canonicalUrl", "representationType", "representsObject", "identityStatus", "authorityRole", "authorityDomain", "authorityBasis", "language", "visibility", "allowedConsumers", "provenance"],
+  "additionalProperties": false,
+  "required": ["id", "title", "canonicalUrl", "representationType", "artifactTypeHint", "representsObject", "identityStatus", "authorityRole", "authorityDomain", "authorityBasis", "authorityState", "sourceAuthority", "authoritativeSource", "derivedFrom", "language", "visibility", "allowedConsumers", "provenance"],
   "properties": {
-    "id": {"type": "string", "minLength": 1},
-    "title": {"type": "string", "minLength": 1},
-    "canonicalUrl": {"type": "string", "format": "uri"},
-    "representationType": {"type": "string", "minLength": 1},
-    "artifactTypeHint": {"type": ["string", "null"]},
-    "representsObject": {"type": ["string", "null"]},
-    "identityStatus": {"enum": ["resolved", "unresolved", "quarantined-duplicate-origin-id"]},
-    "authorityRole": {"type": "string", "minLength": 1},
-    "authorityDomain": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "id": {"type": "string", "minLength": 1}, "title": {"type": "string", "minLength": 1},
+    "canonicalUrl": {"type": "string", "format": "uri"}, "representationType": {"type": "string", "minLength": 1},
+    "artifactTypeHint": {"type": ["string", "null"]}, "representsObject": {"type": ["string", "null"]},
+    "identityStatus": {"enum": ["resolved", "unresolved", "quarantined-duplicate-origin-id", "review-required-candidate-entity"]},
+    "authorityRole": {"type": "string", "minLength": 1}, "authorityDomain": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "authorityBasis": {"type": "string", "minLength": 1},
-    "authoritativeSource": {"type": ["string", "null"]},
+    "authorityState": {"enum": ["CANONICAL_AUTHORITATIVE", "SUPPORTING_CITABLE", "REVIEW_REQUIRED", "QUARANTINED"]},
+    "sourceAuthority": {"type": "object"}, "authoritativeSource": {"type": ["string", "null"]},
     "derivedFrom": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "language": {"type": "string", "minLength": 2},
+    "language": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$"},
     "visibility": {"enum": ["public", "restricted", "private"]},
     "allowedConsumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "provenance": {"type": "object", "required": ["sourcePath", "sourceUrl", "contentHash", "extractorVersion"]}
+    "provenance": {"$ref": "oof-knowledge-object.v1.schema.json#/$defs/provenance"}
   }
 }
