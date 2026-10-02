@@ -56,7 +56,198 @@
       },
       "assessment": null,
       "createdAt": "1999-03-16T00:00:00Z",
-      "updatedAt": "1999-03-16T00:00:00Z"
+      "updatedAt": "1999-03-16T00:00:00Z",
+      "automatedAnalysis": {
+        "assessmentIdentity": "OOF-AII-ASMT-002783-V1",
+        "incidentId": "OOF-AII-002783",
+        "analysisVersion": 1,
+        "engineVersion": "2.0.1",
+        "architectureRegistryVersion": "OOF-KI-1.1-95df1ba0e732",
+        "knowledgeImpactFingerprint": "87bbe569f10e2e175f74ed320543997b23e7a759da6473887eb7ca0faad48c4d",
+        "evidenceSnapshot": {
+          "snapshotId": "OOF-AII-002783-EVID-283c4371120a",
+          "incidentSourceHash": "283c4371120a32c29ac54bad92a3a084c3180dc9bb9727920291028015ae1e56",
+          "sources": [
+            {
+              "sourceId": "aiid:79",
+              "url": "https://incidentdatabase.ai/cite/79",
+              "publisher": "AI Incident Database (Responsible AI Collaborative)",
+              "authority": "Specialist database",
+              "independenceKey": "ai incident database responsible ai collaborative",
+              "directness": "Secondary catalogue",
+              "publicationTime": "1999-03-16",
+              "retrievalTime": "2026-09-28T00:00:00Z",
+              "eventTime": "1999-03-16",
+              "verificationState": "Source Catalogued / OOF Not Assessed"
+            }
+          ],
+          "corroboration": {
+            "sourceCount": 1,
+            "independentSourceCount": 1,
+            "status": "Single-source",
+            "contradictionState": "Not evaluated"
+          }
+        },
+        "severityAssessment": {
+          "level": "Low",
+          "score": 2,
+          "confidence": 0.79,
+          "dimensions": {
+            "actualHarm": 1,
+            "scale": 0,
+            "reversibility": 0,
+            "autonomy": 0,
+            "propagation": 0,
+            "infrastructureImportance": 0,
+            "financialImpact": 0,
+            "physicalImpact": 0,
+            "informationImpact": 0,
+            "controlFailure": 0,
+            "persistence": 0,
+            "affectedPopulation": 1
+          },
+          "matchedEvidence": {
+            "actualHarm": [
+              "discrimination"
+            ]
+          },
+          "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: actualHarm, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+          "rubricVersion": "OOF-AII-SEV-1.0"
+        },
+        "architectureAnalysis": {
+          "status": "AUTOMATED_ANALYSIS",
+          "primaryArchitecture": {
+            "objectId": "OOF-KO-ARCH-AIG",
+            "architectureId": "aig",
+            "label": "AIG® - Governance Architecture",
+            "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
+            "score": 6.28,
+            "matchedTerms": [
+              "collaboration"
+            ],
+            "role": "Primary",
+            "governedMechanism": "collaboration",
+            "reasonForRelevance": "Knowledge retrieval matched incident evidence to AIG® - Governance Architecture through governed terms: collaboration.",
+            "supportingEvidence": [
+              "aiid:79"
+            ],
+            "confidence": 0.53,
+            "uncertainty": "Automated retrieval; no authorized human review performed.",
+            "relevantStandardsModules": [
+              {
+                "objectId": "OOF-OID-AIG-BIS-BCLM-2026-06-26-0004",
+                "name": "OOF™ Behavioral Collaboration Module - (BCLM)",
+                "artifactType": "CoreModule",
+                "canonicalUrl": "https://originopenfoundation.org/content/aig/BCLM.html",
+                "matchedTerms": [
+                  "collaboration"
+                ],
+                "score": 2
+              }
+            ]
+          },
+          "contributingArchitectures": [
+            {
+              "objectId": "OOF-KO-ARCH-MGIA",
+              "architectureId": "mgia",
+              "label": "MGIA™ — Memory Governance Intelligence Architecture",
+              "canonicalUrl": "https://originopenfoundation.org/content/a/ais-mgia-map.html",
+              "score": 4.89,
+              "matchedTerms": [
+                "history"
+              ],
+              "role": "Contributing",
+              "governedMechanism": "history",
+              "reasonForRelevance": "Knowledge retrieval matched incident evidence to MGIA™ — Memory Governance Intelligence Architecture through governed terms: history.",
+              "supportingEvidence": [
+                "aiid:79"
+              ],
+              "confidence": 0.52,
+              "uncertainty": "Automated retrieval; no authorized human review performed.",
+              "relevantStandardsModules": [
+                {
+                  "objectId": "OOF-OID-MEM-UHIM-2026-06-08-0004",
+                  "name": "OOF™ User History Integrity Module (UHIM™)",
+                  "artifactType": "CoreModule",
+                  "canonicalUrl": "https://originopenfoundation.org/content/u/UHIM.html",
+                  "matchedTerms": [
+                    "history"
+                  ],
+                  "score": 2
+                }
+              ]
+            },
+            {
+              "objectId": "OOF-KO-ARCH-OBIDENITY",
+              "architectureId": "obidenity",
+              "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+              "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
+              "score": 4.89,
+              "matchedTerms": [
+                "history"
+              ],
+              "role": "Contributing",
+              "governedMechanism": "history",
+              "reasonForRelevance": "Knowledge retrieval matched incident evidence to OBIDENITY® — Origin-Bound Identity Governance Architecture through governed terms: history.",
+              "supportingEvidence": [
+                "aiid:79"
+              ],
+              "confidence": 0.52,
+              "uncertainty": "Automated retrieval; no authorized human review performed.",
+              "relevantStandardsModules": [
+                {
+                  "objectId": "OOF-OID-OBID-PRIS-CHRM-2026-07-15-0003",
+                  "name": "Change History Module (CHRM)",
+                  "artifactType": "CoreModule",
+                  "canonicalUrl": "https://originopenfoundation.org/content/o/obid-pris-chrm.html",
+                  "matchedTerms": [
+                    "history"
+                  ],
+                  "score": 2
+                }
+              ]
+            }
+          ]
+        },
+        "layerAnalysis": {
+          "status": "AUTOMATED_ANALYSIS",
+          "governedMechanisms": [
+            "collaboration"
+          ],
+          "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+        },
+        "coverageAssessment": {
+          "status": "UNDER_REVIEW",
+          "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+        },
+        "governanceFindings": [
+          {
+            "type": "Governance Signal",
+            "statement": "Available evidence indicates relevance to AIG® - Governance Architecture.",
+            "basis": [
+              "collaboration"
+            ],
+            "status": "Automated / Not OOF Approved",
+            "limitation": "Architecture relevance does not establish architecture failure, legal fault, or regulatory non-compliance."
+          }
+        ],
+        "uncertainties": [
+          "Only one independent source group is represented; corroboration is not established.",
+          "AI technology is not specified in the source record.",
+          "AI system type is not specified in the source record.",
+          "Automated analysis has not been reviewed or approved by OOF®."
+        ],
+        "analysisType": "Automated",
+        "humanReview": {
+          "status": "Not performed",
+          "reviewer": null,
+          "reviewedAt": null
+        },
+        "oofApproved": false,
+        "createdAt": "2026-10-02T15:08:48Z",
+        "supersedes": null,
+        "reassessmentReason": "Initial V2 automated analysis"
+      }
     },
     {
       "id": "OOF-AII-952674",
@@ -110,7 +301,156 @@
       },
       "assessment": null,
       "createdAt": "1983-09-26T00:00:00Z",
-      "updatedAt": "1983-09-26T00:00:00Z"
+      "updatedAt": "1983-09-26T00:00:00Z",
+      "automatedAnalysis": {
+        "assessmentIdentity": "OOF-AII-ASMT-952674-V1",
+        "incidentId": "OOF-AII-952674",
+        "analysisVersion": 1,
+        "engineVersion": "2.0.1",
+        "architectureRegistryVersion": "OOF-KI-1.1-95df1ba0e732",
+        "knowledgeImpactFingerprint": "87bbe569f10e2e175f74ed320543997b23e7a759da6473887eb7ca0faad48c4d",
+        "evidenceSnapshot": {
+          "snapshotId": "OOF-AII-952674-EVID-73a027481b59",
+          "incidentSourceHash": "73a027481b59b77abcecf92d758969ca059e62f5f892744c5e8969c65b22f3b4",
+          "sources": [
+            {
+              "sourceId": "aiid:27",
+              "url": "https://incidentdatabase.ai/cite/27",
+              "publisher": "AI Incident Database (Responsible AI Collaborative)",
+              "authority": "Specialist database",
+              "independenceKey": "ai incident database responsible ai collaborative",
+              "directness": "Secondary catalogue",
+              "publicationTime": "1983-09-26",
+              "retrievalTime": "2026-09-28T00:00:00Z",
+              "eventTime": "1983-09-26",
+              "verificationState": "Source Catalogued / OOF Not Assessed"
+            }
+          ],
+          "corroboration": {
+            "sourceCount": 1,
+            "independentSourceCount": 1,
+            "status": "Single-source",
+            "contradictionState": "Not evaluated"
+          }
+        },
+        "severityAssessment": {
+          "level": "Low",
+          "score": 1,
+          "confidence": 0.79,
+          "dimensions": {
+            "actualHarm": 0,
+            "scale": 0,
+            "reversibility": 0,
+            "autonomy": 0,
+            "propagation": 0,
+            "infrastructureImportance": 0,
+            "financialImpact": 0,
+            "physicalImpact": 0,
+            "informationImpact": 0,
+            "controlFailure": 0,
+            "persistence": 0,
+            "affectedPopulation": 1
+          },
+          "matchedEvidence": {},
+          "rationale": "Automated evidence-based severity is Low from 1 supported dimensions: affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+          "rubricVersion": "OOF-AII-SEV-1.0"
+        },
+        "architectureAnalysis": {
+          "status": "AUTOMATED_ANALYSIS",
+          "primaryArchitecture": {
+            "objectId": "OOF-KO-ARCH-VFM",
+            "architectureId": "vfm",
+            "label": "VFM® — Value Flow Mechanisms Architecture",
+            "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
+            "score": 16.76,
+            "matchedTerms": [
+              "identified",
+              "positive"
+            ],
+            "role": "Primary",
+            "governedMechanism": "identified, positive",
+            "reasonForRelevance": "Knowledge retrieval matched incident evidence to VFM® — Value Flow Mechanisms Architecture through governed terms: identified, positive.",
+            "supportingEvidence": [
+              "aiid:27"
+            ],
+            "confidence": 0.63,
+            "uncertainty": "Automated retrieval; no authorized human review performed.",
+            "relevantStandardsModules": [
+              {
+                "objectId": "OOF-KO-STD-VFM-01",
+                "name": "Value Identification Standard (VIS)",
+                "artifactType": "ParentStandard",
+                "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vis.html",
+                "matchedTerms": [
+                  "identified"
+                ],
+                "score": 2
+              },
+              {
+                "objectId": "OOF-KO-STD-VFM-09",
+                "name": "Value Nullification Standard (VNS)",
+                "artifactType": "ParentStandard",
+                "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vns.html",
+                "matchedTerms": [
+                  "positive"
+                ],
+                "score": 2
+              },
+              {
+                "objectId": "OOF-KO-STD-VFM-08",
+                "name": "Value Degradation Standard (VDGS)",
+                "artifactType": "ParentStandard",
+                "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vdgs.html",
+                "matchedTerms": [
+                  "positive"
+                ],
+                "score": 1
+              }
+            ]
+          },
+          "contributingArchitectures": []
+        },
+        "layerAnalysis": {
+          "status": "AUTOMATED_ANALYSIS",
+          "governedMechanisms": [
+            "identified",
+            "positive"
+          ],
+          "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+        },
+        "coverageAssessment": {
+          "status": "UNDER_REVIEW",
+          "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+        },
+        "governanceFindings": [
+          {
+            "type": "Governance Signal",
+            "statement": "Available evidence indicates relevance to VFM® — Value Flow Mechanisms Architecture.",
+            "basis": [
+              "identified",
+              "positive"
+            ],
+            "status": "Automated / Not OOF Approved",
+            "limitation": "Architecture relevance does not establish architecture failure, legal fault, or regulatory non-compliance."
+          }
+        ],
+        "uncertainties": [
+          "Only one independent source group is represented; corroboration is not established.",
+          "AI technology is not specified in the source record.",
+          "AI system type is not specified in the source record.",
+          "Automated analysis has not been reviewed or approved by OOF®."
+        ],
+        "analysisType": "Automated",
+        "humanReview": {
+          "status": "Not performed",
+          "reviewer": null,
+          "reviewedAt": null
+        },
+        "oofApproved": false,
+        "createdAt": "2026-10-02T15:08:48Z",
+        "supersedes": null,
+        "reassessmentReason": "Initial V2 automated analysis"
+      }
     }
   ]
 }

@@ -266,6 +266,81 @@
   overflow-wrap: anywhere;
 }
 
+.oof-incident-analysis {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.oof-incident-row:has(.oof-incident-analysis[open]) {
+  grid-column: 1 / -1;
+}
+
+.oof-incident-row:has(.oof-incident-analysis[open]) .oof-incident-analysis-body {
+  max-width: 980px;
+}
+
+.oof-incident-analysis summary {
+  padding: 12px 0 2px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.oof-incident-analysis-body {
+  padding: 13px 0 4px;
+}
+
+.oof-analysis-status {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-block: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.oof-analysis-status div {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.8fr) minmax(0, 1.2fr);
+  gap: 8px;
+  padding: 7px 8px 7px 0;
+}
+
+.oof-analysis-status dt {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.oof-analysis-status dd {
+  margin: 0;
+  text-align: left;
+}
+
+.oof-analysis-rationale {
+  margin-top: 12px !important;
+}
+
+.oof-incident-analysis h5 {
+  margin: 16px 0 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.oof-incident-analysis ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.oof-incident-analysis li {
+  margin: 6px 0;
+}
+
+.oof-incident-analysis li p {
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 12px;
+}
+
 .oof-incident-architecture-link {
   font-weight: 700;
   text-decoration-thickness: 1px;
@@ -311,6 +386,30 @@
   margin-top: 28px;
 }
 
+.oof-methodology-table-wrap {
+  overflow-x: auto;
+  margin: 14px 0 24px;
+}
+
+.oof-methodology-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+.oof-methodology-table th,
+.oof-methodology-table td {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  text-align: left;
+  vertical-align: top;
+}
+
+.oof-methodology-table th {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1050px) {
   .oof-incident-metrics { grid-template-columns: repeat(4, 1fr); }
   .oof-incident-filters { grid-template-columns: repeat(2, 1fr); }
@@ -339,4 +438,6 @@
     gap: 7px 12px;
   }
   .oof-incident-row dd { text-align: right; }
+  .oof-analysis-status { grid-template-columns: 1fr; }
+  .oof-analysis-status dd { text-align: left; }
 }

@@ -31,6 +31,7 @@ STORE_PATH = DATA_ROOT / "incident-store.json"
 INBOX_PATH = DATA_ROOT / "manual-inbox.json"
 SYNC_STATE_PATH = DATA_ROOT / "sync-state.json"
 ARCHITECTURE_REGISTRY = ROOT / "data" / "oof-architecture-registry.json"
+ANALYSIS_STORE_PATH = DATA_ROOT / "analysis-store.json"
 COUNTRY_GEOJSON = ROOT / "assets" / "data" / "ne_50m_admin_0_countries.geojson"
 AIID_SNAPSHOTS_URL = "https://incidentdatabase.ai/research/snapshots"
 AIID_INCIDENT_URL = "https://incidentdatabase.ai/cite/{incident_id}"
@@ -531,8 +532,20 @@ def architecture_ids() -> set[str]:
     return {item["id"] for item in registry["architectures"]}
 
 
+def latest_automated_analyses() -> dict[str, dict]:
+    payload = read_json(ANALYSIS_STORE_PATH, {"assessments": []})
+    latest = {}
+    for assessment in payload.get("assessments", []):
+        incident_id = assessment.get("incidentId")
+        current = latest.get(incident_id)
+        if incident_id and (current is None or assessment.get("analysisVersion", 0) > current.get("analysisVersion", 0)):
+            latest[incident_id] = assessment
+    return latest
+
+
 def public_records(records: list[dict]) -> list[dict]:
     allowed = architecture_ids()
+    analyses = latest_automated_analyses()
     result = []
     for record in records:
         if record["publicationStatus"] not in {"Monitored", "Published"}:
@@ -549,8 +562,24 @@ def public_records(records: list[dict]) -> list[dict]:
             })
             record = dict(record)
             record["architectureRelevance"] = architecture
+        record = dict(record)
+        if record["id"] in analyses:
+            record["automatedAnalysis"] = analyses[record["id"]]
         result.append(record)
     return result
+
+
+def _public_severity(record: dict) -> str:
+    return (record.get("automatedAnalysis") or {}).get("severityAssessment", {}).get("level") or record.get("severity") or "Unclassified"
+
+
+def _public_architectures(record: dict) -> list[dict]:
+    analysis = (record.get("automatedAnalysis") or {}).get("architectureAnalysis") or {}
+    primary = analysis.get("primaryArchitecture")
+    if primary:
+        return [primary] + analysis.get("contributingArchitectures", [])
+    legacy = record.get("architectureRelevance") or {}
+    return [{"architectureId": legacy.get("primaryArchitectureId")}] if legacy.get("primaryArchitectureId") else []
 
 
 def export_public(records: list[dict]) -> None:
@@ -562,25 +591,28 @@ def export_public(records: list[dict]) -> None:
         country_code = record.get("countryCode")
         if country_code:
             countries[country_code]["incidentCount"] += 1
-            if record.get("severity") == "Critical":
+            if _public_severity(record) == "Critical":
                 countries[country_code]["criticalIncidents"] += 1
-            countries[country_code]["coverage"][record.get("architectureRelevance", {}).get("status", "NOT_ASSESSED")] += 1
-        primary = record.get("architectureRelevance", {}).get("primaryArchitectureId")
-        if primary:
-            architectures.add(primary)
+            analysis_status = (record.get("automatedAnalysis") or {}).get("architectureAnalysis", {}).get("status")
+            countries[country_code]["coverage"][analysis_status or record.get("architectureRelevance", {}).get("status", "NOT_ASSESSED")] += 1
+        for architecture in _public_architectures(record):
+            if architecture.get("architectureId"):
+                architectures.add(architecture["architectureId"])
     month = datetime.now(timezone.utc).strftime("%Y-%m")
     coverage = Counter(item.get("architectureRelevance", {}).get("status", "NOT_ASSESSED") for item in records)
     summary = {
         "generatedAt": generated,
-        "datasetScope": "Public AI incident records catalogued from identified external sources for OOF® monitoring; architecture relevance is not assessed automatically.",
+        "datasetScope": "Public source facts with separate, versioned Automated OOF® Analysis. Automated analysis is not an OOF® Approved Assessment.",
         "totalIncidents": len(records),
         "incidentsThisMonth": sum(1 for item in records if str(item.get("reportedAt") or "").startswith(month)),
-        "criticalIncidents": sum(1 for item in records if item.get("severity") == "Critical"),
+        "criticalIncidents": sum(1 for item in records if _public_severity(item) == "Critical"),
         "countriesAffected": len(countries),
         "architecturesExposed": len(architectures),
-        "potentialGovernanceGaps": sum(1 for item in records if (item.get("assessment") or {}).get("coverage") == "POTENTIAL_GOVERNANCE_GAP"),
-        "crossArchitectureIncidents": sum(1 for item in records if item.get("architectureRelevance", {}).get("secondaryArchitectureIds")),
-        "stressTestsCompleted": sum(1 for item in records if (item.get("assessment") or {}).get("status") == "Approved"),
+        "potentialGovernanceGaps": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("coverageAssessment", {}).get("status") == "POTENTIAL_GOVERNANCE_GAP"),
+        "crossArchitectureIncidents": sum(1 for item in records if len(_public_architectures(item)) > 1),
+        "stressTestsCompleted": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("oofApproved") is True),
+        "automatedAnalyses": sum(1 for item in records if item.get("automatedAnalysis")),
+        "oofApprovedAssessments": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("oofApproved") is True),
         "coverage": {
             "identified": coverage["ARCHITECTURE_IDENTIFIED"],
             "reviewRequired": coverage["ARCHITECTURE_REVIEW_REQUIRED"],
@@ -598,8 +630,9 @@ def export_public(records: list[dict]) -> None:
             {
                 "id": item["id"], "slug": item["slug"], "title": item["title"],
                 "countryCode": item.get("countryCode"), "coordinates": item.get("coordinates"),
-                "severity": item.get("severity"), "eventType": item.get("eventType"),
+                "severity": _public_severity(item), "eventType": item.get("eventType"),
                 "architectureRelevance": item.get("architectureRelevance"),
+                "automatedAnalysis": item.get("automatedAnalysis"),
             }
             for item in records if item.get("coordinates")
         ],

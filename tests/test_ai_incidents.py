@@ -1,5 +1,6 @@
 import importlib.util
 import io
+import json
 import tempfile
 import unittest
 from datetime import datetime
@@ -12,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("incidents", ROOT / "tools" / "ai_incidents.py")
 incidents = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(incidents)
+ENGINE_SPEC = importlib.util.spec_from_file_location("incident_intelligence_v2", ROOT / "tools" / "incident_intelligence_v2.py")
+engine = importlib.util.module_from_spec(ENGINE_SPEC)
+ENGINE_SPEC.loader.exec_module(engine)
 
 
 def record(source_id="source-1", title="Test incident"):
@@ -106,6 +110,60 @@ class IncidentDomainTests(unittest.TestCase):
         enriched = incidents.enrich_incident(item)
         self.assertEqual(enriched["country"], "Location not specified")
         self.assertIsNone(enriched["countryCode"])
+
+    def test_v2_analysis_is_separate_versioned_and_never_implicitly_approved(self):
+        original = (ROOT / "data" / "ai-incidents" / "incident-store.json").read_bytes()
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            analysis_path = temporary / "analysis.json"
+            snapshot_path = temporary / "snapshot.json"
+            first = engine.build(analysis_path=analysis_path, snapshot_path=snapshot_path, created_at="2026-10-02T12:00:00Z")
+            analysis_after_first = analysis_path.read_bytes()
+            snapshot_after_first = snapshot_path.read_bytes()
+            second = engine.build(analysis_path=analysis_path, snapshot_path=snapshot_path, created_at="2026-10-02T13:00:00Z")
+            assessments = json.loads(analysis_path.read_text(encoding="utf-8"))["assessments"]
+            self.assertEqual(first["assessmentsCreated"], 252)
+            self.assertEqual(second["assessmentsCreated"], 0)
+            self.assertEqual(analysis_path.read_bytes(), analysis_after_first)
+            self.assertEqual(snapshot_path.read_bytes(), snapshot_after_first)
+            self.assertTrue(all(item["analysisType"] == "Automated" for item in assessments))
+            self.assertTrue(all(item["humanReview"]["status"] == "Not performed" for item in assessments))
+            self.assertTrue(all(item["oofApproved"] is False for item in assessments))
+        self.assertEqual((ROOT / "data" / "ai-incidents" / "incident-store.json").read_bytes(), original)
+
+    def test_v2_consumes_dynamic_knowledge_architecture(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            objects = {
+                "objects": [
+                    {
+                        "id": "OOF-KO-ARCH-TEST", "canonicalName": "TEST™ Identity Governance Architecture",
+                        "acronym": "TEST", "artifactType": "Architecture", "authorityState": "CANONICAL_AUTHORITATIVE",
+                        "canonicalUrl": "https://example.test/test", "governedSpace": "Identity and Origin",
+                    },
+                    {
+                        "id": "OOF-KO-STD-TEST-1", "canonicalName": "Identity Provenance Standard",
+                        "acronym": "IPS", "artifactType": "ParentStandard", "authorityState": "CANONICAL_AUTHORITATIVE",
+                        "architectureId": "OOF-KO-ARCH-TEST", "governedSpace": "Identity provenance and impersonation",
+                    },
+                ]
+            }
+            (root / "objects-core.json").write_text(json.dumps(objects), encoding="utf-8")
+            (root / "relationships.json").write_text(json.dumps({"relationships": []}), encoding="utf-8")
+            (root / "manifest.json").write_text(json.dumps({"buildId": "TEST-KNOWLEDGE-1"}), encoding="utf-8")
+            knowledge = engine.KnowledgeLayer(root)
+            ranked = knowledge.rank({"title": "Deepfake impersonation incident", "summary": "Identity was fabricated."})
+            self.assertEqual(ranked[0]["architectureId"], "test")
+
+    def test_v2_assignments_are_explainable_and_source_linked(self):
+        latest = engine.latest_assessments()
+        self.assertEqual(len(latest), 252)
+        for assessment in latest.values():
+            architecture = assessment["architectureAnalysis"]
+            assignments = [architecture.get("primaryArchitecture"), *architecture.get("contributingArchitectures", [])]
+            for assignment in filter(None, assignments):
+                self.assertTrue(assignment["reasonForRelevance"])
+                self.assertTrue(assignment["supportingEvidence"])
 
 
 if __name__ == "__main__":

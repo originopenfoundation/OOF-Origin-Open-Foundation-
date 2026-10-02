@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -21,11 +23,17 @@ jobs:
       - name: Install incident sync dependencies
         run: pip install -r requirements-ai-incidents.txt
       - name: Build Architecture Index registry
-        run: python tools/build_architecture_registry.py
+        run: |
+          python tools/build_architecture_registry.py
+          python tools/build_knowledge_infrastructure.py
       - name: Synchronize configured incident sources
         run: python tools/ai_incidents.py sync
       - name: Validate incident records
-        run: python tools/ai_incidents.py validate
+        run: |
+          python tools/incident_intelligence_v2.py build
+          python tools/incident_intelligence_v2.py validate
+          python tools/ai_incidents.py export
+          python tools/ai_incidents.py validate
       - name: Commit changed public projections
         run: |
           if git diff --quiet -- data/ai-incidents; then

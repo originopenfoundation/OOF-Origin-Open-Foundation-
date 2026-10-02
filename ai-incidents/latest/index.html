@@ -7,7 +7,7 @@
 <title>Latest AI Incidents | OOF®</title>
 <link rel="stylesheet" href="/style.css" />
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css" />
-<link rel="stylesheet" href="/assets/css/oof-ai-incidents.css?v=5" />
+<link rel="stylesheet" href="/assets/css/oof-ai-incidents.css?v=6" />
 <!-- OOF AI DISCOVERY START -->
 <meta name="description" content="Latest AI Incidents | OOF®. OOF® Global AI Incident Intelligence™ The world produces the incidents. OOF® turns them into governance intelligence. Public." />
 <link rel="canonical" href="https://originopenfoundation.org/ai-incidents/latest/" />
@@ -66,16 +66,16 @@
 <div><dt>Critical</dt><dd data-metric="criticalIncidents">0</dd></div>
 <div><dt>Countries</dt><dd data-metric="countriesAffected">0</dd></div>
 <div><dt>Architectures Exposed</dt><dd data-metric="architecturesExposed">0</dd></div>
-<div><dt>Potential Gaps</dt><dd data-metric="potentialGovernanceGaps">0</dd></div>
+<div><dt>Automated Analyses</dt><dd data-metric="automatedAnalyses">0</dd></div>
 <div><dt>Cross-Architecture</dt><dd data-metric="crossArchitectureIncidents">0</dd></div>
-<div><dt>Stress Tests</dt><dd data-metric="stressTestsCompleted">0</dd></div>
+<div><dt>OOF Approved</dt><dd data-metric="oofApprovedAssessments">0</dd></div>
 </dl>
 
 <form id="incident-filters" class="oof-incident-filters" aria-label="Filter incidents">
 <label>Search<input name="q" type="search" placeholder="Incident, country, system, architecture" /></label>
 <label>Severity<select name="severity"><option value="">All</option><option>Critical</option><option>High</option><option>Moderate</option><option>Low</option></select></label>
 <label>Event Type<select name="eventType"><option value="">All</option><option>Incident</option><option>Hazard</option><option>Near Miss</option><option>Emerging Risk</option></select></label>
-<label>Coverage<select name="coverage"><option value="">All</option><option value="ARCHITECTURE_IDENTIFIED">Architecture Identified</option><option value="ARCHITECTURE_REVIEW_REQUIRED">Review Required</option><option value="NO_ARCHITECTURE_IDENTIFIED">No Architecture Identified</option><option value="NOT_ASSESSED">Not Assessed</option></select></label>
+<label>Analysis State<select name="coverage"><option value="">All</option><option value="AUTOMATED_ANALYSIS">Automated Analysis</option><option value="INSUFFICIENT_EVIDENCE">Insufficient Evidence</option></select></label>
 <button type="submit">Apply</button>
 <button type="reset">Reset</button>
 </form>
@@ -103,17 +103,33 @@
 
 <section id="incident-methodology-view" class="oof-incident-methodology" hidden>
 <h2 id="methodology" data-oof-section-id="true" role="heading" aria-level="2">Methodology</h2>
-<p>The platform separates three layers: <b>Verified Fact</b>, <b>OOF® Classification</b>, and <b>OOF® Governance Assessment</b>. OOF® analysis is never presented as an externally established fact.</p>
+<p>The platform strictly separates <b>Source Fact</b>, <b>Evidence</b>, <b>Automated OOF® Analysis</b>, and <b>OOF® Approved Assessment</b>. Automated analysis is generated intelligence and never becomes OOF® Approved without an explicit authorized review.</p>
 <h3 id="source-collection-and-verification" data-oof-section-id="true" role="heading" aria-level="2">Source Collection and Verification</h3>
-<p>Each factual field retains source provenance. Public records require review status and evidence confidence. Copyrighted articles are not reproduced.</p>
+<p>Each factual field retains source provenance, publication time, retrieval time, and event time where available. Independent sources are distinguished from copied or syndicated reporting. Copyrighted articles are not reproduced.</p>
 <h3 id="incident-monitoring-and-assessment" data-oof-section-id="true" role="heading" aria-level="2">Incident Monitoring and Assessment</h3>
-<p>Monitoring is broad and lightweight. Full architecture assessment and stress testing are selective, evidence-based, versioned, and subject to human review.</p>
+<p>The normal lifecycle is Discovery, Acquisition, Incident Resolution, Deduplication, Evidence Extraction, Corroboration, Fact Reconstruction, Governance Mechanism Detection, Architecture Analysis, Severity Analysis, Governance Findings, Automated Publication, and Continuous Reassessment. Human review is optional and is not required for normal automated operation.</p>
 <h3 id="architecture-mapping" data-oof-section-id="true" role="heading" aria-level="2">Architecture Mapping</h3>
-<p>Architecture identities come from the official OOF® Architecture Index. Automated relevance does not constitute an approved Architecture Assessment and never creates or modifies OOF® methodology.</p>
+<p>The engine retrieves canonical architectures, Parent Standards, and Core Modules dynamically from the existing OOF® Knowledge Layer. Assignments include matched governed terms, supporting source evidence, confidence, uncertainty, and relevant standards or modules. No fixed architecture list is embedded in the public analysis.</p>
 <h3 id="coverage-states" data-oof-section-id="true" role="heading" aria-level="2">Coverage States</h3>
-<p>Public monitoring distinguishes Architecture Identified, Architecture Review Required, No OOF® Architecture Identified, and Not Assessed. A missing automated match is not a confirmed governance gap.</p>
+<p>Public monitoring distinguishes Automated Analysis from Insufficient Evidence. Coverage remains Under Review unless supported evidence justifies a stronger state. A missing match or missing evidence is never converted into a governance failure.</p>
+<h3 id="continuous-reassessment" data-oof-section-id="true" role="heading" aria-level="2">Continuous Reassessment</h3>
+<p>Material changes to an OOF® Architecture, Parent Standard, Core Module, governed space, boundary, or relationship can trigger selective historical reassessment. Previous analysis versions remain auditable and source facts are never overwritten.</p>
 <h3 id="dataset-scope" data-oof-section-id="true" role="heading" aria-level="2">Dataset Scope</h3>
 <p>Counts and rates describe only the approved public dataset and must not be treated as absolute proof of architecture quality, company fault, legal liability, regulatory non-compliance, or global incident prevalence.</p>
+<h3 id="v2-system-audit" data-oof-section-id="true" role="heading" aria-level="2">V2 System Audit and Disposition</h3>
+<div class="oof-methodology-table-wrap"><table class="oof-methodology-table"><thead><tr><th>Subsystem</th><th>Disposition</th><th>V2 treatment</th></tr></thead><tbody>
+<tr><td>Source adapters and provenance</td><td>KEEP</td><td>Preserved as replaceable acquisition interfaces.</td></tr>
+<tr><td>Stable incident identity and deduplication</td><td>KEEP</td><td>Existing OOF-AII identifiers and source merging remain intact.</td></tr>
+<tr><td>Public routes, map, and filters</td><td>EXTEND</td><td>Existing interface now exposes separate automated analysis.</td></tr>
+<tr><td>Evidence model</td><td>EXTEND</td><td>Adds source authority, independence, directness, corroboration, contradiction, and time roles.</td></tr>
+<tr><td>Keyword architecture mapping</td><td>REPLACE</td><td>Replaced in V2 assessments by structured retrieval from the OOF® Knowledge Layer.</td></tr>
+<tr><td>Inline assessment field</td><td>REPLACE</td><td>Generated conclusions live in a separate versioned assessment store.</td></tr>
+<tr><td>Permanent Unclassified severity</td><td>REFACTOR</td><td>Replaced publicly by evidence-based automated severity with rationale and uncertainty.</td></tr>
+</tbody></table></div>
+<h3 id="v2-data-model" data-oof-section-id="true" role="heading" aria-level="2">V2 Data Model and Boundaries</h3>
+<p><b>Source Fact</b> remains immutable in the incident store. <b>Evidence Snapshot</b> records provenance and corroboration. <b>Automated Assessment</b> contains versioned severity, architecture analysis, standards/modules, governance signals, uncertainty, and reassessment history. <b>OOF® Approved Assessment</b> remains a separate optional authorization process and is never inferred from confidence.</p>
+<h3 id="v2-migration" data-oof-section-id="true" role="heading" aria-level="2">Migration and Test Strategy</h3>
+<p>All existing incidents receive a first automated assessment without modifying their original source record. Tests verify source immutability, stable identity, dynamic knowledge retrieval, explainable assignments, evidence links, continuous version numbers, and the rule that automated output cannot become OOF® Approved. Future acquisition adapters remain independent of governance reasoning.</p>
 </section>
 </article>
 <!-- OOF SEMANTIC CONTENT END -->
@@ -121,7 +137,7 @@
 <div id="footer"></div>
 <script src="/header.js"></script>
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script type="module" src="/assets/js/ai-incidents/app.js?v=7"></script>
+<script type="module" src="/assets/js/ai-incidents/app.js?v=8"></script>
 <script>
 fetch("/header.html").then(r => r.text()).then(v => { document.getElementById("header").innerHTML = v; if (window.normalizePageLinks) window.normalizePageLinks(); });
 fetch("/footer.html").then(r => r.text()).then(v => { document.getElementById("footer").innerHTML = v; if (window.normalizePageLinks) window.normalizePageLinks(); });

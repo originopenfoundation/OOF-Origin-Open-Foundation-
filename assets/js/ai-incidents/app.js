@@ -128,21 +128,128 @@ function wireFilters() {
 function applyFilters(items) {
   let result = items;
   const routeFilters = {
-    critical: (item) => item.severity === "Critical",
+    critical: (item) => analysisSeverity(item) === "Critical",
     latest: () => true,
     "stress-tests": (item) => item.assessment?.status === "Approved"
   };
   if (routeFilters[view]) result = result.filter(routeFilters[view]);
   const query = (params.get("q") || "").toLowerCase();
   if (query) result = result.filter((item) => JSON.stringify(item).toLowerCase().includes(query));
-  if (params.get("severity")) result = result.filter((item) => item.severity === params.get("severity"));
+  if (params.get("severity")) result = result.filter((item) => analysisSeverity(item) === params.get("severity"));
   if (params.get("eventType")) result = result.filter((item) => item.eventType === params.get("eventType"));
-  if (params.get("coverage")) result = result.filter((item) => item.architectureRelevance?.status === params.get("coverage"));
+  if (params.get("coverage")) result = result.filter((item) => item.automatedAnalysis?.architectureAnalysis?.status === params.get("coverage"));
   return [...result].sort((left, right) => {
     const leftDate = Date.parse(left.occurredAt || left.reportedAt || "") || 0;
     const rightDate = Date.parse(right.occurredAt || right.reportedAt || "") || 0;
     return rightDate - leftDate || String(left.id || "").localeCompare(String(right.id || ""));
   });
+}
+
+function analysisSeverity(incident) {
+  return incident.automatedAnalysis?.severityAssessment?.level || incident.severity || "Unclassified";
+}
+
+function canonicalLink(item, architectureLinks) {
+  if (!item) return null;
+  if (item.architectureId && architectureLinks.has(String(item.architectureId).toLowerCase())) {
+    return architectureLinks.get(String(item.architectureId).toLowerCase());
+  }
+  try {
+    const url = new URL(item.canonicalUrl, location.origin);
+    return url.origin === location.origin ? `${url.pathname}${url.search}${url.hash}` : item.canonicalUrl;
+  } catch {
+    return null;
+  }
+}
+
+function linkedLabel(item, architectureLinks, className = "") {
+  const href = canonicalLink(item, architectureLinks);
+  const element = href ? document.createElement("a") : document.createElement("span");
+  if (href) element.href = href;
+  if (className) element.className = className;
+  element.textContent = item?.label || item?.name || item?.architectureId?.toUpperCase() || "Not identified";
+  return element;
+}
+
+function appendDefinitionList(container, entries) {
+  const list = document.createElement("dl");
+  list.className = "oof-analysis-status";
+  entries.forEach(([term, value]) => {
+    const group = document.createElement("div");
+    const dt = document.createElement("dt");
+    const dd = document.createElement("dd");
+    dt.textContent = term;
+    dd.textContent = value;
+    group.append(dt, dd);
+    list.append(group);
+  });
+  container.append(list);
+}
+
+function appendAnalysisList(container, heading, items, renderItem) {
+  if (!items?.length) return;
+  const title = document.createElement("h5");
+  title.textContent = heading;
+  const list = document.createElement("ul");
+  items.forEach((item) => {
+    const row = document.createElement("li");
+    renderItem(row, item);
+    list.append(row);
+  });
+  container.append(title, list);
+}
+
+function createAnalysisPanel(analysis, architectureLinks) {
+  const details = document.createElement("details");
+  details.className = "oof-incident-analysis";
+  const toggle = document.createElement("summary");
+  toggle.textContent = `View Automated OOF® Analysis v${analysis.analysisVersion}`;
+  details.append(toggle);
+  const body = document.createElement("div");
+  body.className = "oof-incident-analysis-body";
+  appendDefinitionList(body, [
+    ["Analysis type", analysis.analysisType || "Automated"],
+    ["Human review", analysis.humanReview?.status || "Not performed"],
+    ["OOF Approved", analysis.oofApproved ? "Yes" : "No"],
+    ["Evidence", analysis.evidenceSnapshot?.corroboration?.status || "Not assessed"],
+    ["Severity", `${analysis.severityAssessment?.level || "Insufficient Evidence"} (${Math.round((analysis.severityAssessment?.confidence || 0) * 100)}% confidence)`],
+    ["Coverage", (analysis.coverageAssessment?.status || "UNDER_REVIEW").replaceAll("_", " ")],
+  ]);
+  if (analysis.severityAssessment?.rationale) {
+    const rationale = document.createElement("p");
+    rationale.className = "oof-analysis-rationale";
+    rationale.textContent = analysis.severityAssessment.rationale;
+    body.append(rationale);
+  }
+  const architecture = analysis.architectureAnalysis || {};
+  const architectureItems = [architecture.primaryArchitecture, ...(architecture.contributingArchitectures || [])].filter(Boolean);
+  appendAnalysisList(body, "Architecture relevance", architectureItems, (row, item) => {
+    row.append(linkedLabel(item, architectureLinks));
+    const role = document.createElement("span");
+    role.textContent = ` — ${item.role}; ${Math.round((item.confidence || 0) * 100)}% confidence`;
+    row.append(role);
+    if (item.reasonForRelevance) {
+      const reason = document.createElement("p");
+      reason.textContent = item.reasonForRelevance;
+      row.append(reason);
+    }
+  });
+  const references = architectureItems.flatMap((item) => item.relevantStandardsModules || []);
+  const uniqueReferences = [...new Map(references.map((item) => [item.objectId, item])).values()];
+  appendAnalysisList(body, "Relevant standards and modules", uniqueReferences, (row, item) => {
+    row.append(linkedLabel(item, architectureLinks));
+    const type = document.createElement("span");
+    type.textContent = ` — ${item.artifactType}`;
+    row.append(type);
+  });
+  appendAnalysisList(body, "Governance signals", analysis.governanceFindings, (row, item) => {
+    row.textContent = `${item.statement} ${item.limitation || ""}`.trim();
+  });
+  appendAnalysisList(body, "Uncertainty and unresolved evidence", analysis.uncertainties, (row, item) => {
+    row.textContent = item;
+  });
+  details.append(body);
+  return details;
 }
 
 function renderIncidents(items, architectureLinks) {
@@ -158,10 +265,13 @@ function renderIncidents(items, architectureLinks) {
   visibleItems.forEach((incident) => {
     const article = document.createElement("article");
     article.className = "oof-incident-row";
-    const architecture = incident.architectureRelevance || {};
-    const coverage = architecture.architectureIndexState
+    const analysis = incident.automatedAnalysis;
+    const architecture = analysis?.architectureAnalysis?.primaryArchitecture || incident.architectureRelevance || {};
+    const coverage = architecture.label
+      || architecture.architectureIndexState
+      || architecture.architectureId?.toUpperCase()
       || architecture.primaryArchitectureId?.toUpperCase()
-      || (architecture.status || "REVIEW REQUIRED").replaceAll("_", " ");
+      || (analysis?.architectureAnalysis?.status || architecture.status || "INSUFFICIENT EVIDENCE").replaceAll("_", " ");
     article.innerHTML = `<div><span class="oof-incident-id"></span><h3></h3><p class="oof-incident-summary"></p><button class="oof-incident-summary-toggle" type="button" aria-expanded="false" hidden>Show full summary</button><p class="oof-incident-source"><a target="_blank" rel="noopener noreferrer">View source record</a></p></div><dl><div><dt>Date</dt><dd></dd></div><div><dt>Country</dt><dd></dd></div><div><dt>Severity</dt><dd></dd></div><div><dt>Coverage</dt><dd></dd></div></dl>`;
     article.querySelector(".oof-incident-id").textContent = incident.id;
     article.querySelector("h3").textContent = incident.title;
@@ -184,8 +294,8 @@ function renderIncidents(items, architectureLinks) {
     const values = article.querySelectorAll("dd");
     values[0].textContent = (incident.occurredAt || incident.reportedAt || "Unknown").slice(0, 10);
     values[1].textContent = incident.country || "Location not specified";
-    values[2].textContent = incident.severity || "Unclassified";
-    const architectureId = String(architecture.primaryArchitectureId || "").toLowerCase();
+    values[2].textContent = analysisSeverity(incident);
+    const architectureId = String(architecture.architectureId || architecture.primaryArchitectureId || "").toLowerCase();
     const architectureUrl = architectureLinks.get(architectureId);
     if (architectureUrl) {
       const link = document.createElement("a");
@@ -197,6 +307,7 @@ function renderIncidents(items, architectureLinks) {
     } else {
       values[3].textContent = coverage;
     }
+    if (analysis) article.append(createAnalysisPanel(analysis, architectureLinks));
     list.append(article);
   });
   if (items.length > pageSize) {

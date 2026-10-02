@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://originopenfoundation.org/data/ai-incidents/automated-assessment.schema.json",
+  "title": "OOFAutomatedIncidentAssessment",
+  "type": "object",
+  "required": [
+    "assessmentIdentity",
+    "incidentId",
+    "analysisVersion",
+    "engineVersion",
+    "architectureRegistryVersion",
+    "evidenceSnapshot",
+    "severityAssessment",
+    "architectureAnalysis",
+    "coverageAssessment",
+    "governanceFindings",
+    "uncertainties",
+    "analysisType",
+    "humanReview",
+    "oofApproved",
+    "createdAt"
+  ],
+  "properties": {
+    "assessmentIdentity": {"type": "string", "pattern": "^OOF-AII-ASMT-[0-9]{6}-V[0-9]+$"},
+    "incidentId": {"type": "string", "pattern": "^OOF-AII-[0-9]{6}$"},
+    "analysisVersion": {"type": "integer", "minimum": 1},
+    "engineVersion": {"type": "string"},
+    "architectureRegistryVersion": {"type": "string"},
+    "knowledgeImpactFingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "evidenceSnapshot": {
+      "type": "object",
+      "required": ["snapshotId", "incidentSourceHash", "sources", "corroboration"],
+      "properties": {
+        "snapshotId": {"type": "string"},
+        "incidentSourceHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "sources": {"type": "array"},
+        "corroboration": {"type": "object"}
+      }
+    },
+    "severityAssessment": {
+      "type": "object",
+      "required": ["level", "score", "confidence", "dimensions", "rationale"],
+      "properties": {
+        "level": {"enum": ["Low", "Moderate", "High", "Critical", "Insufficient Evidence"]},
+        "score": {"type": "number", "minimum": 0},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "dimensions": {"type": "object"},
+        "rationale": {"type": "string"}
+      }
+    },
+    "architectureAnalysis": {
+      "type": "object",
+      "required": ["status", "primaryArchitecture", "contributingArchitectures"],
+      "properties": {
+        "status": {"enum": ["AUTOMATED_ANALYSIS", "INSUFFICIENT_EVIDENCE"]},
+        "primaryArchitecture": {"type": ["object", "null"]},
+        "contributingArchitectures": {"type": "array"}
+      }
+    },
+    "layerAnalysis": {"type": "object"},
+    "coverageAssessment": {
+      "type": "object",
+      "required": ["status", "rationale"],
+      "properties": {
+        "status": {"enum": ["UNDER_REVIEW", "INSUFFICIENT_EVIDENCE", "COVERED", "PARTIALLY_COVERED", "POTENTIAL_GOVERNANCE_GAP"]},
+        "rationale": {"type": "string"}
+      }
+    },
+    "governanceFindings": {"type": "array"},
+    "uncertainties": {"type": "array", "items": {"type": "string"}},
+    "analysisType": {"const": "Automated"},
+    "humanReview": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {"status": {"enum": ["Not performed", "Requested", "Completed"]}}
+    },
+    "oofApproved": {"const": false},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "supersedes": {"type": ["string", "null"]},
+    "reassessmentReason": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}
