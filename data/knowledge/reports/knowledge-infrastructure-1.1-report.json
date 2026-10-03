@@ -88,5 +88,47 @@
       "184 candidate entity groups remain under authority review."
     ],
     "contract": "lara-read-only-consumer-contract.json"
+  },
+  "Y_aiRetrievalObjectResolutionUpgrade": {
+    "title": "AI Retrieval & Object Resolution Upgrade",
+    "requirements": {
+      "objectRegistry": "ALREADY IMPLEMENTED",
+      "representationRegistry": "ALREADY IMPLEMENTED",
+      "relationshipRegistry": "ALREADY IMPLEMENTED",
+      "exactIdAndUrlRetrieval": "ALREADY IMPLEMENTED",
+      "canonicalNameAndAcronymResolution": "IMPROVED",
+      "aliasGovernanceWithProvenance": "NEWLY IMPLEMENTED",
+      "typoAndFuzzyCandidateResolution": "NEWLY IMPLEMENTED",
+      "currentStatusPrecedence": "NEWLY IMPLEMENTED",
+      "compactCanonicalObject": "NEWLY IMPLEMENTED",
+      "canonicalVsSupportingPrecedence": "IMPROVED",
+      "relationshipSemantics": "ALREADY IMPLEMENTED",
+      "pageToObjectSignal": "ALREADY IMPLEMENTED",
+      "uclDataModelReadiness": "IMPROVED",
+      "unknownAndAmbiguousSafety": "IMPROVED",
+      "newTranslations": "NOT APPLICABLE",
+      "laraProductionCutover": "BLOCKED BY GOVERNANCE"
+    },
+    "aliasResolution": "Canonical names, acronyms and deterministic trademark-normalized forms resolve to the same Object ID. No semantic candidate is promoted to an alias.",
+    "fuzzyResolution": "Fuzzy input returns CANDIDATE_MATCH and requires clarification; it never establishes canonical authority.",
+    "versionStatusPrecedence": "Current-only retrieval prefers source-backed current/completed/published objects without inventing missing lifecycle state.",
+    "canonicalSupportingPrecedence": "Canonical object fields and authoritative relationships establish governed truth. Supporting representations remain separately citable.",
+    "compactRetrieval": "compact-objects.json provides a provider-independent first retrieval step without loading full publications.",
+    "uclReadiness": "Object IDs remain language-independent; language and derivation remain representation properties. No UCL transformation or translation was invented.",
+    "unknownSafety": "UNKNOWN, AMBIGUOUS and CANDIDATE_MATCH remain non-canonical states.",
+    "performance": "Deterministic ID, URL, name, acronym, relationship, lexical and fuzzy paths are benchmarked in the reusable test suite.",
+    "externalAiRetrievalTestSuite": {
+      "report": "ai-retrieval-object-resolution-upgrade.json",
+      "passed": 23,
+      "failed": 0
+    },
+    "remainingLimitations": [
+      "7 duplicate OriginID groups remain under explicit governance review.",
+      "184 candidate entity groups remain under authority review."
+    ],
+    "governanceReview": [
+      "Candidate aliases require explicit provenance and approval before resolver eligibility.",
+      "Duplicate OriginID and candidate entity groups remain under existing authority review."
+    ]
   }
 }

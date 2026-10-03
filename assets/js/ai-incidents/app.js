@@ -199,22 +199,82 @@ function appendAnalysisList(container, heading, items, renderItem) {
   container.append(title, list);
 }
 
+function appendAnalysisText(container, heading, value, className = "") {
+  if (!value) return;
+  const title = document.createElement("h5");
+  title.textContent = heading;
+  const paragraph = document.createElement("p");
+  paragraph.textContent = value;
+  if (className) paragraph.className = className;
+  container.append(title, paragraph);
+}
+
+function appendArchitectureCards(container, items, architectureLinks) {
+  if (!items.length) return;
+  const title = document.createElement("h5");
+  title.textContent = "Architecture intelligence";
+  const cards = document.createElement("div");
+  cards.className = "oof-architecture-intelligence";
+  items.forEach((item) => {
+    const card = document.createElement("section");
+    card.className = "oof-architecture-intelligence-card";
+    const heading = document.createElement("h6");
+    heading.append(linkedLabel(item, architectureLinks));
+    const role = document.createElement("span");
+    role.textContent = item.role === "Primary" ? "Primary Architecture" : "Contributing Architecture";
+    const whyTitle = document.createElement("b");
+    whyTitle.textContent = "Why it matters here";
+    const why = document.createElement("p");
+    why.textContent = item.whyItMattersHere || item.reasonForRelevance;
+    const focusTitle = document.createElement("b");
+    focusTitle.textContent = "Governance focus";
+    const focus = document.createElement("p");
+    focus.textContent = item.governanceFocus || "The available evidence does not support a more specific governance focus.";
+    card.append(heading, role, whyTitle, why, focusTitle, focus);
+    const reference = item.relevantStandardsModules?.[0];
+    if (reference) {
+      const methodology = document.createElement("p");
+      methodology.className = "oof-architecture-methodology-depth";
+      methodology.append("Methodology depth: ", linkedLabel(reference, architectureLinks));
+      card.append(methodology);
+    }
+    cards.append(card);
+  });
+  container.append(title, cards);
+}
+
 function createAnalysisPanel(analysis, architectureLinks) {
   const details = document.createElement("details");
   details.className = "oof-incident-analysis";
   const toggle = document.createElement("summary");
-  toggle.textContent = `View Automated OOF® Analysis v${analysis.analysisVersion}`;
+  toggle.textContent = `View Automated Preliminary Governance Assessment v${analysis.analysisVersion}`;
   details.append(toggle);
   const body = document.createElement("div");
   body.className = "oof-incident-analysis-body";
   appendDefinitionList(body, [
-    ["Analysis type", analysis.analysisType || "Automated"],
-    ["Human review", analysis.humanReview?.status || "Not performed"],
+    ["Assessment", analysis.assessmentLabel || "Automated Preliminary Governance Assessment"],
+    ["Assessment confidence", analysis.assessmentConfidence || "Evidence Insufficient"],
     ["OOF Approved", analysis.oofApproved ? "Yes" : "No"],
     ["Evidence", analysis.evidenceSnapshot?.corroboration?.status || "Not assessed"],
-    ["Severity", `${analysis.severityAssessment?.level || "Insufficient Evidence"} (${Math.round((analysis.severityAssessment?.confidence || 0) * 100)}% confidence)`],
+    ["Severity", analysis.severityAssessment?.level || "Insufficient Evidence"],
     ["Coverage", (analysis.coverageAssessment?.status || "UNDER_REVIEW").replaceAll("_", " ")],
   ]);
+  appendAnalysisText(body, "Assessment disclosure", analysis.assessmentDisclosure, "oof-analysis-disclosure");
+  const evidence = analysis.incidentEvidence || {};
+  appendAnalysisList(body, "Incident evidence", evidence.sourcesUsed, (row, item) => {
+    const label = `${item.publisher || item.sourceId || "Source"} — ${item.sourceType || "Unclassified source"}`;
+    if (item.url) {
+      const link = document.createElement("a");
+      link.href = item.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = label;
+      row.append(link);
+    } else row.textContent = label;
+  });
+  appendAnalysisList(body, "Known facts from the incident record", evidence.knownFacts, (row, item) => { row.textContent = item; });
+  appendAnalysisList(body, "Reported claims", evidence.reportedClaims, (row, item) => { row.textContent = item; });
+  appendAnalysisText(body, "Primary governance problem", analysis.primaryGovernanceProblem);
   if (analysis.severityAssessment?.rationale) {
     const rationale = document.createElement("p");
     rationale.className = "oof-analysis-rationale";
@@ -223,17 +283,9 @@ function createAnalysisPanel(analysis, architectureLinks) {
   }
   const architecture = analysis.architectureAnalysis || {};
   const architectureItems = [architecture.primaryArchitecture, ...(architecture.contributingArchitectures || [])].filter(Boolean);
-  appendAnalysisList(body, "Architecture relevance", architectureItems, (row, item) => {
-    row.append(linkedLabel(item, architectureLinks));
-    const role = document.createElement("span");
-    role.textContent = ` — ${item.role}; ${Math.round((item.confidence || 0) * 100)}% confidence`;
-    row.append(role);
-    if (item.reasonForRelevance) {
-      const reason = document.createElement("p");
-      reason.textContent = item.reasonForRelevance;
-      row.append(reason);
-    }
-  });
+  appendArchitectureCards(body, architectureItems, architectureLinks);
+  appendAnalysisText(body, "Governance relationship", analysis.governanceRelationship);
+  appendAnalysisText(body, "Incident governance insight", analysis.incidentGovernanceInsight, "oof-governance-insight");
   const references = architectureItems.flatMap((item) => item.relevantStandardsModules || []);
   const uniqueReferences = [...new Map(references.map((item) => [item.objectId, item])).values()];
   appendAnalysisList(body, "Relevant standards and modules", uniqueReferences, (row, item) => {
@@ -242,10 +294,13 @@ function createAnalysisPanel(analysis, architectureLinks) {
     type.textContent = ` — ${item.artifactType}`;
     row.append(type);
   });
-  appendAnalysisList(body, "Governance signals", analysis.governanceFindings, (row, item) => {
-    row.textContent = `${item.statement} ${item.limitation || ""}`.trim();
+  appendAnalysisList(body, "Preliminary findings", analysis.governanceFindings, (row, item) => {
+    row.textContent = `${item.finding || item.statement} [${item.status || "Unresolved"}] ${item.limitation || ""}`.trim();
   });
-  appendAnalysisList(body, "Uncertainty and unresolved evidence", analysis.uncertainties, (row, item) => {
+  appendAnalysisList(body, "Key governance questions", analysis.governanceQuestions, (row, item) => {
+    row.textContent = item;
+  });
+  appendAnalysisList(body, "Evidence gaps", analysis.evidenceGaps || analysis.uncertainties, (row, item) => {
     row.textContent = item;
   });
   details.append(body);

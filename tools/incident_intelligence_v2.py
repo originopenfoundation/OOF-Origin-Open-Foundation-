@@ -25,7 +25,7 @@ STORE_PATH = DATA_ROOT / "incident-store.json"
 ANALYSIS_PATH = DATA_ROOT / "analysis-store.json"
 KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
-ENGINE_VERSION = "2.0.1"
+ENGINE_VERSION = "3.0.0"
 
 STOPWORDS = {
     "about", "across", "after", "against", "architecture", "based", "before", "between",
@@ -239,6 +239,7 @@ class KnowledgeLayer:
                 ranked.append({
                     "objectId": item["id"], "name": item.get("canonicalName"), "artifactType": item.get("artifactType"),
                     "canonicalUrl": item.get("canonicalUrl"), "matchedTerms": matched[:8], "score": score,
+                    "governedSpace": item.get("governedSpace"), "coreQuestion": item.get("coreQuestion"),
                 })
         return sorted(ranked, key=lambda item: (-item["score"], item["name"] or ""))[:limit]
 
@@ -347,20 +348,138 @@ def architecture_analysis(record: dict, knowledge: KnowledgeLayer) -> dict:
     for index, candidate in enumerate(selected):
         confidence = min(0.9, 0.48 + candidate["score"] / max(40, maximum * 2) * 0.35)
         references = knowledge.references(candidate["objectId"], record)
+        mechanism = ", ".join(candidate["matchedTerms"][:3]) or "the reported governance problem"
+        deepest = references[0] if references else None
+        methodology_focus = deepest.get("name") if deepest else candidate["label"]
+        governance_focus = (
+            deepest.get("coreQuestion") if deepest and deepest.get("coreQuestion")
+            else f"How should {mechanism} be governed in the conditions described by the available incident evidence?"
+        )
         results.append({
             **candidate,
             "role": "Primary" if index == 0 else "Contributing",
             "governedMechanism": ", ".join(candidate["matchedTerms"][:5]),
             "reasonForRelevance": (
-                f"Knowledge retrieval matched incident evidence to {candidate['label']} through governed terms: "
-                f"{', '.join(candidate['matchedTerms'][:8])}."
+                f"Available reporting describes {mechanism}. This makes {candidate['label']} relevant to examining "
+                f"{methodology_focus} in this specific incident; relevance does not establish governance failure."
             ),
+            "whyItMattersHere": (
+                f"The reported {mechanism} concern falls within the governed questions represented by {candidate['label']}."
+            ),
+            "governanceFocus": governance_focus,
+            "methodologyDepth": deepest.get("artifactType") if deepest else "Architecture",
             "supportingEvidence": [source.get("sourceId") for source in record.get("sources") or []],
             "confidence": round(confidence, 2),
             "uncertainty": "Automated retrieval; no authorized human review performed.",
             "relevantStandardsModules": references,
         })
     return {"status": "AUTOMATED_ANALYSIS", "primaryArchitecture": results[0], "contributingArchitectures": results[1:]}
+
+
+def assessment_confidence(record: dict, evidence: dict, architecture: dict) -> str:
+    if architecture["status"] == "INSUFFICIENT_EVIDENCE" or not record.get("summary"):
+        return "Evidence Insufficient"
+    source_count = evidence["corroboration"]["independentSourceCount"]
+    populated = sum(bool(record.get(field)) for field in ("summary", "countryCode", "organization", "system", "technology", "impactTypes", "affectedParties"))
+    if source_count >= 2 and populated >= 5:
+        return "High"
+    if source_count >= 2 or populated >= 5:
+        return "Moderate"
+    return "Limited"
+
+
+def incident_evidence(record: dict, evidence: dict) -> dict:
+    sources = evidence.get("sources", [])
+    reported = []
+    if record.get("summary"):
+        reported.append(record["summary"])
+    elif record.get("title"):
+        reported.append(record["title"])
+    known = []
+    if record.get("occurredAt"):
+        known.append(f"The incident record identifies the event date as {str(record['occurredAt'])[:10]}.")
+    if record.get("country") and record.get("country") != "Location not specified":
+        known.append(f"The incident record identifies the location as {record['country']}.")
+    unknowns = []
+    if evidence["corroboration"]["independentSourceCount"] < 2:
+        unknowns.append("Independent corroboration is not established in the available incident record.")
+    if not record.get("system"):
+        unknowns.append("The specific AI system is not established by the available record.")
+    if not record.get("organization"):
+        unknowns.append("The responsible operating organization is not established by the available record.")
+    return {
+        "sourcesUsed": [{
+            "sourceId": item.get("sourceId"), "url": item.get("url"), "publisher": item.get("publisher"),
+            "sourceType": item.get("authority"), "verificationState": item.get("verificationState"),
+        } for item in sources],
+        "knownFacts": known,
+        "reportedClaims": reported,
+        "materialUnknowns": unknowns,
+        "evidenceState": evidence.get("corroboration", {}).get("status"),
+    }
+
+
+def primary_governance_problem(architecture: dict) -> str:
+    primary = architecture.get("primaryArchitecture")
+    if not primary:
+        return "Available evidence does not establish a sufficiently specific governed problem for architecture assignment."
+    mechanism = primary.get("governedMechanism") or "the reported activity"
+    return (
+        f"The incident appears to expose a governance problem involving {mechanism}. "
+        "Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance."
+    )
+
+
+def governance_relationship(architecture: dict) -> str:
+    primary = architecture.get("primaryArchitecture")
+    contributing = architecture.get("contributingArchitectures", [])
+    if not primary:
+        return "No architecture relationship is asserted because the governed space remains unresolved."
+    if not contributing:
+        return f"The available evidence currently supports one primary governed domain: {primary['label']}."
+    labels = ", ".join(item["label"] for item in contributing)
+    return (
+        f"{primary['label']} frames the primary governed problem. {labels} contribute distinct questions. "
+        "These relationships do not make the governed domains equivalent."
+    )
+
+
+def governance_questions(record: dict, architecture: dict, gaps: list[str]) -> list[str]:
+    questions = []
+    for item in [architecture.get("primaryArchitecture"), *architecture.get("contributingArchitectures", [])]:
+        if item and item.get("governanceFocus") and item["governanceFocus"] not in questions:
+            questions.append(item["governanceFocus"])
+    if record.get("organization"):
+        questions.append(f"What operational authority and controls applied to {record['organization']} at the relevant time?")
+    else:
+        questions.append("Who held operational authority for the reported system or activity at the relevant time?")
+    if record.get("system"):
+        questions.append(f"What evidence would establish how {record['system']} produced or enabled the reported outcome?")
+    else:
+        questions.append("What evidence would establish how the relevant AI system produced or enabled the reported outcome?")
+    if gaps:
+        questions.append("What additional independent evidence is required to resolve the material evidence gaps?")
+    unique = []
+    for question in questions:
+        if question not in unique:
+            unique.append(question)
+    return unique[:5]
+
+
+def governance_insight(architecture: dict, confidence_state: str) -> str | None:
+    primary = architecture.get("primaryArchitecture")
+    if not primary or confidence_state == "Evidence Insufficient":
+        return None
+    mechanism = primary.get("governedMechanism") or "the reported activity"
+    if confidence_state == "Limited":
+        return (
+            f"Available reporting suggests that the central governance issue concerns {mechanism}, but the current evidence "
+            "does not support a stronger conclusion about the governing controls or their effectiveness."
+        )
+    return (
+        f"The governance significance lies in how {mechanism} moved from system activity into a reported real-world consequence, "
+        f"and which controls within {primary['label']} should be examined next."
+    )
 
 
 def uncertainty_notes(record: dict, evidence: dict, architecture: dict) -> list[str]:
@@ -374,7 +493,6 @@ def uncertainty_notes(record: dict, evidence: dict, architecture: dict) -> list[
             notes.append(f"{label} is not specified in the source record.")
     if architecture["status"] == "INSUFFICIENT_EVIDENCE":
         notes.append("Available evidence is insufficient for architecture relevance analysis.")
-    notes.append("Automated analysis has not been reviewed or approved by OOF®.")
     return notes
 
 
@@ -383,14 +501,25 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
     architecture = architecture_analysis(record, knowledge)
     severity = severity_assessment(record, evidence)
     primary = architecture.get("primaryArchitecture")
+    confidence_state = assessment_confidence(record, evidence, architecture)
+    evidence_view = incident_evidence(record, evidence)
+    gaps = uncertainty_notes(record, evidence, architecture)
     findings = []
-    if primary:
+    for item in [primary, *architecture.get("contributingArchitectures", [])]:
+        if not item:
+            continue
+        finding_status = "Supported" if evidence["corroboration"]["independentSourceCount"] >= 2 else "Indicated"
+        finding = f"Available evidence {finding_status.casefold()} relevance to {item['label']} for the reported {item.get('governedMechanism') or 'governance problem'}."
         findings.append({
             "type": "Governance Signal",
-            "statement": f"Available evidence indicates relevance to {primary['label']}.",
-            "basis": primary["matchedTerms"],
-            "status": "Automated / Not OOF Approved",
-            "limitation": "Architecture relevance does not establish architecture failure, legal fault, or regulatory non-compliance.",
+            "finding": finding,
+            "statement": finding,
+            "evidenceBasis": item["supportingEvidence"],
+            "basis": item["matchedTerms"],
+            "architectureReference": item["objectId"],
+            "confidenceState": confidence_state,
+            "status": finding_status,
+            "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance.",
         })
     assessment_id = f"OOF-AII-ASMT-{record['id'].split('-')[-1]}-V{version}"
     return {
@@ -400,9 +529,17 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
         "engineVersion": ENGINE_VERSION,
         "architectureRegistryVersion": knowledge.manifest.get("buildId") or knowledge.manifest.get("buildFingerprint"),
         "knowledgeImpactFingerprint": knowledge.impact_fingerprint,
+        "assessmentLabel": "Automated Preliminary Governance Assessment",
+        "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+        "assessmentConfidence": confidence_state,
         "evidenceSnapshot": evidence,
+        "incidentEvidence": evidence_view,
         "severityAssessment": severity,
         "architectureAnalysis": architecture,
+        "primaryGovernanceProblem": primary_governance_problem(architecture),
+        "governanceRelationship": governance_relationship(architecture),
+        "governanceQuestions": governance_questions(record, architecture, gaps),
+        "incidentGovernanceInsight": governance_insight(architecture, confidence_state),
         "layerAnalysis": {
             "status": "AUTOMATED_ANALYSIS" if primary else "INSUFFICIENT_EVIDENCE",
             "governedMechanisms": primary.get("matchedTerms", []) if primary else [],
@@ -413,7 +550,8 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
             "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap.",
         },
         "governanceFindings": findings,
-        "uncertainties": uncertainty_notes(record, evidence, architecture),
+        "evidenceGaps": gaps,
+        "uncertainties": gaps,
         "analysisType": "Automated",
         "humanReview": {"status": "Not performed", "reviewer": None, "reviewedAt": None},
         "oofApproved": False,
@@ -431,7 +569,7 @@ def changed_architectures(previous: dict, knowledge: KnowledgeLayer) -> set[str]
 
 def should_reassess(record: dict, latest: dict | None, knowledge: KnowledgeLayer, changed: set[str]) -> tuple[bool, str | None]:
     if latest is None:
-        return True, "Initial V2 automated analysis"
+        return True, "Initial automated analysis"
     current_source_hash = content_hash(immutable_source_view(record))
     if latest.get("evidenceSnapshot", {}).get("incidentSourceHash") != current_source_hash:
         return True, "Incident evidence changed"
@@ -457,6 +595,7 @@ def build(
     snapshot_path: Path = KNOWLEDGE_SNAPSHOT_PATH,
     knowledge_root: Path = KNOWLEDGE_ROOT,
     created_at: str | None = None,
+    backfill_report_path: Path | None = None,
 ) -> dict:
     records = read_json(store_path, {"incidents": []}).get("incidents", [])
     knowledge = KnowledgeLayer(knowledge_root)
@@ -469,6 +608,7 @@ def build(
     changed = changed_architectures(previous_snapshot, knowledge)
     generated_at = created_at or now_iso()
     created = skipped = 0
+    failures = []
     for record in records:
         history = sorted(by_incident[record["id"]], key=lambda item: item["analysisVersion"])
         latest = history[-1] if history else None
@@ -477,12 +617,16 @@ def build(
             skipped += 1
             continue
         version = (latest["analysisVersion"] + 1) if latest else 1
-        assessment = build_assessment(
-            record, knowledge, version,
-            latest.get("assessmentIdentity") if latest else None,
-            reason,
-            generated_at,
-        )
+        try:
+            assessment = build_assessment(
+                record, knowledge, version,
+                latest.get("assessmentIdentity") if latest else None,
+                reason,
+                generated_at,
+            )
+        except Exception as exc:  # A failed backfill record must remain visible and retryable.
+            failures.append({"incidentId": record.get("id"), "error": f"{type(exc).__name__}: {exc}"})
+            continue
         assessments.append(assessment)
         by_incident[record["id"]].append(assessment)
         created += 1
@@ -493,7 +637,7 @@ def build(
     else:
         snapshot_assessed_at = generated_at
     payload = {
-        "schemaVersion": "2.0",
+        "schemaVersion": "3.0",
         "engineVersion": ENGINE_VERSION,
         "generatedAt": generated_at,
         "knowledgeLayer": {
@@ -515,7 +659,18 @@ def build(
         "architectureSignatures": knowledge.signatures,
         "assessedAt": snapshot_assessed_at,
     })
-    return {"incidentCount": len(records), "assessmentsCreated": created, "assessmentsSkipped": skipped, "changedArchitectures": len(changed)}
+    report_path = backfill_report_path or analysis_path.with_name("v3-backfill-report.json")
+    write_json(report_path, {
+        "schemaVersion": "3.0",
+        "engineVersion": ENGINE_VERSION,
+        "generatedAt": generated_at,
+        "sourceRecordsModified": False,
+        "incidentCount": len(records),
+        "assessmentsCreated": created,
+        "assessmentsSkipped": skipped,
+        "generationFailures": failures,
+    })
+    return {"incidentCount": len(records), "assessmentsCreated": created, "assessmentsSkipped": skipped, "changedArchitectures": len(changed), "generationFailures": len(failures)}
 
 
 def latest_assessments(path: Path = ANALYSIS_PATH) -> dict[str, dict]:
@@ -533,6 +688,9 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
     errors = []
     records = read_json(store_path, {"incidents": []}).get("incidents", [])
     incident_ids = {record["id"] for record in records}
+    knowledge = KnowledgeLayer()
+    knowledge_ids = set(knowledge.objects)
+    allowed_confidence = {"High", "Moderate", "Limited", "Evidence Insufficient"}
     seen = set()
     versions = defaultdict(list)
     for assessment in payload.get("assessments", []):
@@ -550,11 +708,24 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
             errors.append(f"Automated assessment must not be OOF approved: {identity}")
         if assessment.get("humanReview", {}).get("status") == "Completed":
             errors.append(f"Automated store cannot contain completed human review: {identity}")
+        if assessment.get("engineVersion") == ENGINE_VERSION:
+            if assessment.get("assessmentConfidence") not in allowed_confidence:
+                errors.append(f"Invalid categorical assessment confidence: {identity}")
+            questions = assessment.get("governanceQuestions") or []
+            if not 1 <= len(questions) <= 5:
+                errors.append(f"Assessment must contain 1-5 governance questions: {identity}")
+            if not assessment.get("assessmentDisclosure"):
+                errors.append(f"Assessment disclosure is missing: {identity}")
+            for finding in assessment.get("governanceFindings") or []:
+                if not finding.get("evidenceBasis") or not finding.get("architectureReference") or not finding.get("status"):
+                    errors.append(f"Governance finding lacks evidence, architecture, or status: {identity}")
         architecture = assessment.get("architectureAnalysis", {})
         items = [architecture.get("primaryArchitecture")] + architecture.get("contributingArchitectures", [])
         for item in (item for item in items if item):
             if not item.get("reasonForRelevance") or not item.get("supportingEvidence"):
                 errors.append(f"Architecture assignment lacks explanation or evidence: {identity}")
+            if item.get("objectId") not in knowledge_ids:
+                errors.append(f"Architecture assignment references unknown knowledge object: {identity}")
     for incident_id, values in versions.items():
         if sorted(values) != list(range(1, max(values) + 1)):
             errors.append(f"Assessment versions are not continuous: {incident_id}")

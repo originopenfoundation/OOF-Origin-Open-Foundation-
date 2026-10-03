@@ -116,19 +116,20 @@
 <p>Material changes to an OOF® Architecture, Parent Standard, Core Module, governed space, boundary, or relationship can trigger selective historical reassessment. Previous analysis versions remain auditable and source facts are never overwritten.</p>
 <h3 id="dataset-scope" data-oof-section-id="true" role="heading" aria-level="2">Dataset Scope</h3>
 <p>Counts and rates describe only the approved public dataset and must not be treated as absolute proof of architecture quality, company fault, legal liability, regulatory non-compliance, or global incident prevalence.</p>
-<h3 id="v2-system-audit" data-oof-section-id="true" role="heading" aria-level="2">V2 System Audit and Disposition</h3>
-<div class="oof-methodology-table-wrap"><table class="oof-methodology-table"><thead><tr><th>Subsystem</th><th>Disposition</th><th>V2 treatment</th></tr></thead><tbody>
+<h3 id="v3-system-audit" data-oof-section-id="true" role="heading" aria-level="2">V3 Trust and Assessment Quality Layer</h3>
+<p>Every public result is labelled <b>Automated Preliminary Governance Assessment</b>. The interface separates known record facts, reported claims, material unknowns, evidence gaps, architecture relevance, preliminary findings, and governance questions. Assessment confidence is categorical: High, Moderate, Limited, or Evidence Insufficient.</p>
+<div class="oof-methodology-table-wrap"><table class="oof-methodology-table"><thead><tr><th>Subsystem</th><th>Disposition</th><th>V3 treatment</th></tr></thead><tbody>
 <tr><td>Source adapters and provenance</td><td>KEEP</td><td>Preserved as replaceable acquisition interfaces.</td></tr>
 <tr><td>Stable incident identity and deduplication</td><td>KEEP</td><td>Existing OOF-AII identifiers and source merging remain intact.</td></tr>
-<tr><td>Public routes, map, and filters</td><td>EXTEND</td><td>Existing interface now exposes separate automated analysis.</td></tr>
+<tr><td>Public routes, map, and filters</td><td>EXTEND</td><td>The existing interface exposes evidence-disciplined preliminary governance assessments.</td></tr>
 <tr><td>Evidence model</td><td>EXTEND</td><td>Adds source authority, independence, directness, corroboration, contradiction, and time roles.</td></tr>
-<tr><td>Keyword architecture mapping</td><td>REPLACE</td><td>Replaced in V2 assessments by structured retrieval from the OOF® Knowledge Layer.</td></tr>
+<tr><td>Keyword architecture mapping</td><td>REPLACE</td><td>Structured retrieval from the OOF® Knowledge Layer identifies primary and contributing architectures with incident-specific reasons.</td></tr>
 <tr><td>Inline assessment field</td><td>REPLACE</td><td>Generated conclusions live in a separate versioned assessment store.</td></tr>
 <tr><td>Permanent Unclassified severity</td><td>REFACTOR</td><td>Replaced publicly by evidence-based automated severity with rationale and uncertainty.</td></tr>
 </tbody></table></div>
-<h3 id="v2-data-model" data-oof-section-id="true" role="heading" aria-level="2">V2 Data Model and Boundaries</h3>
-<p><b>Source Fact</b> remains immutable in the incident store. <b>Evidence Snapshot</b> records provenance and corroboration. <b>Automated Assessment</b> contains versioned severity, architecture analysis, standards/modules, governance signals, uncertainty, and reassessment history. <b>OOF® Approved Assessment</b> remains a separate optional authorization process and is never inferred from confidence.</p>
-<h3 id="v2-migration" data-oof-section-id="true" role="heading" aria-level="2">Migration and Test Strategy</h3>
+<h3 id="v3-data-model" data-oof-section-id="true" role="heading" aria-level="2">V3 Data Model and Boundaries</h3>
+<p><b>Source Fact</b> remains immutable in the incident store. <b>Evidence Snapshot</b> records provenance and corroboration. <b>Automated Preliminary Governance Assessment</b> contains versioned architecture analysis, standards/modules, findings, evidence gaps, categorical confidence, governance questions, and reassessment history. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.</p>
+<h3 id="v3-migration" data-oof-section-id="true" role="heading" aria-level="2">Migration and Test Strategy</h3>
 <p>All existing incidents receive a first automated assessment without modifying their original source record. Tests verify source immutability, stable identity, dynamic knowledge retrieval, explainable assignments, evidence links, continuous version numbers, and the rule that automated output cannot become OOF® Approved. Future acquisition adapters remain independent of governance reasoning.</p>
 </section>
 </article>
@@ -137,7 +138,7 @@
 <div id="footer"></div>
 <script src="/header.js"></script>
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script type="module" src="/assets/js/ai-incidents/app.js?v=8"></script>
+<script type="module" src="/assets/js/ai-incidents/app.js?v=9"></script>
 <script>
 fetch("/header.html").then(r => r.text()).then(v => { document.getElementById("header").innerHTML = v; if (window.normalizePageLinks) window.normalizePageLinks(); });
 fetch("/footer.html").then(r => r.text()).then(v => { document.getElementById("footer").innerHTML = v; if (window.normalizePageLinks) window.normalizePageLinks(); });

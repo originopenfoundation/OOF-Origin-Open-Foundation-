@@ -46,6 +46,55 @@ class KnowledgeInfrastructureTests(unittest.TestCase):
         if duplicated:
             self.assertEqual(self.registry.exact_result(duplicated)["status"], "AMBIGUOUS")
 
+    def test_governed_resolution_accepts_trademark_variants(self):
+        architecture = next(item for item in self.registry.objects if item.get("artifactType") == "Architecture" and item.get("acronym"))
+        plain = self.registry.resolve(architecture["acronym"])
+        trademarked = self.registry.resolve(f"{architecture['acronym']}®")
+        self.assertEqual(plain["status"], "FOUND")
+        self.assertEqual(trademarked["status"], "FOUND")
+        self.assertEqual(plain["object"]["id"], trademarked["object"]["id"])
+        self.assertNotIn(plain["resolutionConfidence"], {None, ""})
+        self.assertTrue(plain["sourceAuthority"])
+
+    def test_typo_and_unknown_queries_do_not_create_canonical_facts(self):
+        architecture = next(item for item in self.registry.objects if item.get("artifactType") == "Architecture" and item.get("acronym"))
+        typo = self.registry.resolve(f"{architecture['acronym']}x")
+        self.assertIn(typo["status"], {"CANDIDATE_MATCH", "AMBIGUOUS"})
+        self.assertIsNone(typo["object"])
+        unknown = self.registry.resolve("ZZZ-NOT-AN-OOF-OBJECT")
+        self.assertEqual(unknown["status"], "UNKNOWN")
+        self.assertIsNone(unknown["object"])
+
+    def test_aliases_have_provenance_and_only_governed_aliases_resolve(self):
+        entries = [entry for values in self.registry.aliases.values() for entry in values]
+        self.assertTrue(entries)
+        self.assertTrue(all(entry.get("provenance") for entry in entries))
+        candidate_entries = [entry for entry in entries if entry.get("aliasType") == "candidate_alias"]
+        self.assertTrue(all(entry.get("resolverEligible") is False for entry in candidate_entries))
+
+    def test_compact_object_preserves_identity_and_relationships(self):
+        architecture = next(item for item in self.registry.objects if item.get("artifactType") == "Architecture")
+        result = self.registry.compact(architecture["id"])
+        self.assertEqual(result["status"], "FOUND")
+        compact = result["compactObject"]
+        self.assertEqual(compact["objectId"], architecture["id"])
+        self.assertEqual(compact["canonicalUrl"], architecture["canonicalUrl"])
+        self.assertIn("authoritativeRelationships", compact)
+
+    def test_external_ai_suite_covers_a_through_w(self):
+        report = self.registry.external_ai_test_suite()
+        self.assertEqual(report["caseCount"], 23)
+        self.assertEqual(report["failed"], 0)
+        self.assertEqual(report["passed"], 23)
+        conflict = next(item for item in report["cases"] if item["name"].startswith("W "))
+        self.assertEqual(conflict["resultState"], "CANONICAL_PRECEDENCE")
+
+    def test_resolution_benchmark_is_reported_in_milliseconds(self):
+        architecture = next(item for item in self.registry.objects if item.get("artifactType") == "Architecture")
+        benchmark = self.registry.benchmark(architecture["id"])
+        self.assertEqual(set(benchmark), {"objectId", "canonicalName", "acronym", "canonicalUrl", "relationship", "lexical", "fuzzyCandidate"})
+        self.assertTrue(all(value >= 0 for value in benchmark.values()))
+
     def test_review_and_quarantine_are_excluded_from_retrieval(self):
         self.assertTrue(all(item["object"]["authorityState"] not in {"REVIEW_REQUIRED", "QUARANTINED"} for item in self.registry.lexical("governance", 100)))
 

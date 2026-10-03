@@ -111,7 +111,7 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertEqual(enriched["country"], "Location not specified")
         self.assertIsNone(enriched["countryCode"])
 
-    def test_v2_analysis_is_separate_versioned_and_never_implicitly_approved(self):
+    def test_v3_analysis_is_separate_versioned_and_never_implicitly_approved(self):
         original = (ROOT / "data" / "ai-incidents" / "incident-store.json").read_bytes()
         with tempfile.TemporaryDirectory() as temporary:
             temporary = Path(temporary)
@@ -129,9 +129,11 @@ class IncidentDomainTests(unittest.TestCase):
             self.assertTrue(all(item["analysisType"] == "Automated" for item in assessments))
             self.assertTrue(all(item["humanReview"]["status"] == "Not performed" for item in assessments))
             self.assertTrue(all(item["oofApproved"] is False for item in assessments))
+            self.assertTrue(all(item["assessmentConfidence"] in {"High", "Moderate", "Limited", "Evidence Insufficient"} for item in assessments))
+            self.assertTrue(all(1 <= len(item["governanceQuestions"]) <= 5 for item in assessments))
         self.assertEqual((ROOT / "data" / "ai-incidents" / "incident-store.json").read_bytes(), original)
 
-    def test_v2_consumes_dynamic_knowledge_architecture(self):
+    def test_v3_consumes_dynamic_knowledge_architecture(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             objects = {
@@ -155,7 +157,7 @@ class IncidentDomainTests(unittest.TestCase):
             ranked = knowledge.rank({"title": "Deepfake impersonation incident", "summary": "Identity was fabricated."})
             self.assertEqual(ranked[0]["architectureId"], "test")
 
-    def test_v2_assignments_are_explainable_and_source_linked(self):
+    def test_v3_assignments_are_explainable_and_source_linked(self):
         latest = engine.latest_assessments()
         self.assertEqual(len(latest), 252)
         for assessment in latest.values():
@@ -164,6 +166,33 @@ class IncidentDomainTests(unittest.TestCase):
             for assignment in filter(None, assignments):
                 self.assertTrue(assignment["reasonForRelevance"])
                 self.assertTrue(assignment["supportingEvidence"])
+
+    def test_v3_assessment_separates_evidence_findings_and_gaps(self):
+        item = record(title="Deepfake impersonation caused a reported fraud")
+        item["summary"] = "A public report says a cloned voice was used to impersonate an executive."
+        item["country"] = "United States of America"
+        item["countryCode"] = "US"
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-03T00:00:00Z")
+        self.assertEqual(assessment["assessmentLabel"], "Automated Preliminary Governance Assessment")
+        self.assertIn(assessment["assessmentConfidence"], {"High", "Moderate", "Limited", "Evidence Insufficient"})
+        self.assertTrue(assessment["incidentEvidence"]["reportedClaims"])
+        self.assertTrue(assessment["incidentEvidence"]["knownFacts"])
+        self.assertTrue(assessment["evidenceGaps"])
+        self.assertFalse(assessment["oofApproved"])
+        self.assertIn("not an official investigation", assessment["assessmentDisclosure"])
+
+    def test_v3_architecture_roles_and_findings_are_traceable(self):
+        item = record(title="Autonomous deepfake agent made an incorrect prediction")
+        item["summary"] = "An autonomous agent used a cloned identity and produced an incorrect predictive decision."
+        item["system"] = "Autonomous predictive agent"
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-03T00:00:00Z")
+        architecture = assessment["architectureAnalysis"]
+        assigned = [architecture.get("primaryArchitecture"), *architecture.get("contributingArchitectures", [])]
+        assigned = [value for value in assigned if value]
+        self.assertTrue(assigned)
+        self.assertEqual(assigned[0]["role"], "Primary")
+        self.assertTrue(all(value["whyItMattersHere"] and value["governanceFocus"] for value in assigned))
+        self.assertTrue(all(finding["evidenceBasis"] and finding["architectureReference"] for finding in assessment["governanceFindings"]))
 
 
 if __name__ == "__main__":

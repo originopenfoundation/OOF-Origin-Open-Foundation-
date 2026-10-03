@@ -9,11 +9,19 @@
     "analysisVersion",
     "engineVersion",
     "architectureRegistryVersion",
+    "assessmentLabel",
+    "assessmentDisclosure",
+    "assessmentConfidence",
     "evidenceSnapshot",
+    "incidentEvidence",
     "severityAssessment",
     "architectureAnalysis",
+    "primaryGovernanceProblem",
+    "governanceRelationship",
+    "governanceQuestions",
     "coverageAssessment",
     "governanceFindings",
+    "evidenceGaps",
     "uncertainties",
     "analysisType",
     "humanReview",
@@ -27,6 +35,9 @@
     "engineVersion": {"type": "string"},
     "architectureRegistryVersion": {"type": "string"},
     "knowledgeImpactFingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "assessmentLabel": {"const": "Automated Preliminary Governance Assessment"},
+    "assessmentDisclosure": {"type": "string", "minLength": 1},
+    "assessmentConfidence": {"enum": ["High", "Moderate", "Limited", "Evidence Insufficient"]},
     "evidenceSnapshot": {
       "type": "object",
       "required": ["snapshotId", "incidentSourceHash", "sources", "corroboration"],
@@ -35,6 +46,17 @@
         "incidentSourceHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
         "sources": {"type": "array"},
         "corroboration": {"type": "object"}
+      }
+    },
+    "incidentEvidence": {
+      "type": "object",
+      "required": ["sourcesUsed", "knownFacts", "reportedClaims", "materialUnknowns", "evidenceState"],
+      "properties": {
+        "sourcesUsed": {"type": "array"},
+        "knownFacts": {"type": "array", "items": {"type": "string"}},
+        "reportedClaims": {"type": "array", "items": {"type": "string"}},
+        "materialUnknowns": {"type": "array", "items": {"type": "string"}},
+        "evidenceState": {"type": ["string", "null"]}
       }
     },
     "severityAssessment": {
@@ -57,6 +79,10 @@
         "contributingArchitectures": {"type": "array"}
       }
     },
+    "primaryGovernanceProblem": {"type": "string", "minLength": 1},
+    "governanceRelationship": {"type": "string", "minLength": 1},
+    "governanceQuestions": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"type": "string"}},
+    "incidentGovernanceInsight": {"type": ["string", "null"]},
     "layerAnalysis": {"type": "object"},
     "coverageAssessment": {
       "type": "object",
@@ -67,6 +93,7 @@
       }
     },
     "governanceFindings": {"type": "array"},
+    "evidenceGaps": {"type": "array", "items": {"type": "string"}},
     "uncertainties": {"type": "array", "items": {"type": "string"}},
     "analysisType": {"const": "Automated"},
     "humanReview": {

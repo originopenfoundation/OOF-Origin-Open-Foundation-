@@ -613,11 +613,43 @@ def build(output_root: Path) -> dict:
     object_by_id = {item["id"]: index for index, item in enumerate(object_list)}
     object_by_url = {item["canonicalUrl"]: item["id"] for item in object_list if item.get("canonicalUrl")}
     object_by_name: dict[str, list[str]] = defaultdict(list)
+    object_aliases: dict[str, list[dict]] = defaultdict(list)
     for item in object_list:
-        for name in filter(None, (item["canonicalName"], item.get("acronym"))):
+        canonical_references = (
+            (item["canonicalName"], "canonical_name", "canonicalObjectName"),
+            (item.get("acronym"), "canonical_acronym", "canonicalObjectAcronym"),
+        )
+        for name, alias_type, basis in canonical_references:
+            if not name:
+                continue
             key = normalize(name)
             if item["id"] not in object_by_name[key]:
                 object_by_name[key].append(item["id"])
+            entry = {
+                "objectId": item["id"],
+                "alias": name,
+                "aliasType": alias_type,
+                "resolverEligible": True,
+                "authorityBasis": basis,
+                "sourceUrl": item.get("canonicalUrl"),
+                "provenance": item.get("provenance"),
+            }
+            if entry not in object_aliases[key]:
+                object_aliases[key].append(entry)
+        trademark_free = re.sub(r"[®™]", "", item["canonicalName"])
+        if trademark_free != item["canonicalName"]:
+            key = normalize(trademark_free)
+            entry = {
+                "objectId": item["id"],
+                "alias": trademark_free,
+                "aliasType": "normalized_trademark_form",
+                "resolverEligible": True,
+                "authorityBasis": "deterministicTrademarkNormalization",
+                "sourceUrl": item.get("canonicalUrl"),
+                "provenance": item.get("provenance"),
+            }
+            if entry not in object_aliases[key]:
+                object_aliases[key].append(entry)
     children: dict[str, list[str]] = defaultdict(list)
     for item in object_list:
         if item.get("parentObjectId"):
@@ -628,6 +660,37 @@ def build(output_root: Path) -> dict:
     for relation in relationships:
         relations_by_object[relation["sourceId"]].append(relation["id"])
         relations_by_object[relation["targetId"]].append(relation["id"])
+    compact_objects = []
+    for item in object_list:
+        authoritative_relations = [
+            relation for relation in relationships
+            if relation["authorityState"] in {"AUTHORITATIVE", "VALIDATED_AUTHORITATIVE"}
+            and item["id"] in {relation["sourceId"], relation["targetId"]}
+        ]
+        compact_objects.append({
+            "objectId": item["id"],
+            "canonicalName": item.get("canonicalName"),
+            "acronym": item.get("acronym"),
+            "objectType": item.get("artifactType"),
+            "architectureId": item.get("architectureId"),
+            "governedSpace": item.get("governedSpace"),
+            "parentObjectId": item.get("parentObjectId"),
+            "children": sorted(set(children.get(item["id"], []))),
+            "canonicalDefinition": item.get("canonicalDefinition"),
+            "coreQuestion": item.get("coreQuestion"),
+            "version": item.get("version"),
+            "status": item.get("status"),
+            "authority": item.get("authorityState"),
+            "canonicalLanguage": item.get("language"),
+            "canonicalUrl": item.get("canonicalUrl"),
+            "authoritativeRelationships": sorted(({
+                "relationshipType": relation["relationshipType"],
+                "sourceId": relation["sourceId"],
+                "targetId": relation["targetId"],
+            } for relation in authoritative_relations), key=lambda value: (value["relationshipType"], value["sourceId"], value["targetId"])),
+            "sourceAuthority": item.get("sourceAuthority"),
+            "provenance": item.get("provenance"),
+        })
     lexical: dict[str, set[str]] = defaultdict(set)
     for item in object_list:
         corpus = " ".join(filter(None, (item["canonicalName"], item.get("acronym"), item.get("canonicalDefinition"), item.get("governedSpace"))))
@@ -707,6 +770,12 @@ def build(output_root: Path) -> dict:
     dump(output / "indexes/object-by-id.json", {"schemaVersion": SCHEMA_VERSION, "objectsFile": "../objects-core.json", "index": object_by_id})
     dump(output / "indexes/object-by-canonical-url.json", {"schemaVersion": SCHEMA_VERSION, "index": object_by_url})
     dump(output / "indexes/object-by-name.json", {"schemaVersion": SCHEMA_VERSION, "index": dict(sorted(object_by_name.items()))})
+    dump(output / "indexes/object-aliases.json", {
+        "schemaVersion": SCHEMA_VERSION,
+        "policy": "Aliases require provenance. Candidate aliases are not resolver eligible.",
+        "index": {key: sorted(value, key=lambda entry: (entry["objectId"], entry["aliasType"], entry["alias"])) for key, value in sorted(object_aliases.items())},
+    })
+    dump(output / "compact-objects.json", {"schemaVersion": SCHEMA_VERSION, "objects": compact_objects})
     dump(output / "indexes/children-by-parent.json", {"schemaVersion": SCHEMA_VERSION, "index": {key: sorted(set(value)) for key, value in sorted(children.items())}})
     dump(output / "indexes/relations-by-object.json", {"schemaVersion": SCHEMA_VERSION, "index": {key: sorted(set(value)) for key, value in sorted(relations_by_object.items())}})
     dump(output / "indexes/lexical.json", {"schemaVersion": SCHEMA_VERSION, "index": {key: sorted(value) for key, value in sorted(lexical.items())}})
@@ -717,6 +786,9 @@ def build(output_root: Path) -> dict:
             for state in AUTHORITY_STATES
         },
     })
+    from query_knowledge_registry import KnowledgeRegistry
+    retrieval_audit = KnowledgeRegistry(output).external_ai_test_suite()
+    dump(output / "reports/ai-retrieval-object-resolution-upgrade.json", retrieval_audit)
     dump(output / "reports/duplicate-origin-id-review.json", {
         "schemaVersion": SCHEMA_VERSION,
         "reviewStatus": "human-review-required",
@@ -827,6 +899,38 @@ def build(output_root: Path) -> dict:
         "V_provenance": {"repositoryCommit": SOURCE_COMMIT, "buildId": BUILD_ID, "generatedTimestamp": GENERATED_TIMESTAMP, "extractorVersion": EXTRACTOR_VERSION},
         "W_testsAndGoldenFixtures": "Validator and unit tests cover schemas, collisions, ambiguity, precedence, exclusions, source consistency, onboarding, correction promotion, integrity and performance.",
         "X_laraReadiness": {"LARA_INTEGRATION_READY": lara_ready, "blockers": readiness_blockers, "contract": "lara-read-only-consumer-contract.json"},
+        "Y_aiRetrievalObjectResolutionUpgrade": {
+            "title": "AI Retrieval & Object Resolution Upgrade",
+            "requirements": {
+                "objectRegistry": "ALREADY IMPLEMENTED",
+                "representationRegistry": "ALREADY IMPLEMENTED",
+                "relationshipRegistry": "ALREADY IMPLEMENTED",
+                "exactIdAndUrlRetrieval": "ALREADY IMPLEMENTED",
+                "canonicalNameAndAcronymResolution": "IMPROVED",
+                "aliasGovernanceWithProvenance": "NEWLY IMPLEMENTED",
+                "typoAndFuzzyCandidateResolution": "NEWLY IMPLEMENTED",
+                "currentStatusPrecedence": "NEWLY IMPLEMENTED",
+                "compactCanonicalObject": "NEWLY IMPLEMENTED",
+                "canonicalVsSupportingPrecedence": "IMPROVED",
+                "relationshipSemantics": "ALREADY IMPLEMENTED",
+                "pageToObjectSignal": "ALREADY IMPLEMENTED",
+                "uclDataModelReadiness": "IMPROVED",
+                "unknownAndAmbiguousSafety": "IMPROVED",
+                "newTranslations": "NOT APPLICABLE",
+                "laraProductionCutover": "BLOCKED BY GOVERNANCE"
+            },
+            "aliasResolution": "Canonical names, acronyms and deterministic trademark-normalized forms resolve to the same Object ID. No semantic candidate is promoted to an alias.",
+            "fuzzyResolution": "Fuzzy input returns CANDIDATE_MATCH and requires clarification; it never establishes canonical authority.",
+            "versionStatusPrecedence": "Current-only retrieval prefers source-backed current/completed/published objects without inventing missing lifecycle state.",
+            "canonicalSupportingPrecedence": "Canonical object fields and authoritative relationships establish governed truth. Supporting representations remain separately citable.",
+            "compactRetrieval": "compact-objects.json provides a provider-independent first retrieval step without loading full publications.",
+            "uclReadiness": "Object IDs remain language-independent; language and derivation remain representation properties. No UCL transformation or translation was invented.",
+            "unknownSafety": "UNKNOWN, AMBIGUOUS and CANDIDATE_MATCH remain non-canonical states.",
+            "performance": "Deterministic ID, URL, name, acronym, relationship, lexical and fuzzy paths are benchmarked in the reusable test suite.",
+            "externalAiRetrievalTestSuite": {"report": "ai-retrieval-object-resolution-upgrade.json", "passed": retrieval_audit["passed"], "failed": retrieval_audit["failed"]},
+            "remainingLimitations": readiness_blockers,
+            "governanceReview": ["Candidate aliases require explicit provenance and approval before resolver eligibility.", "Duplicate OriginID and candidate entity groups remain under existing authority review."],
+        },
     }
     dump(output / "reports/knowledge-infrastructure-1.1-report.json", implementation_report)
 
