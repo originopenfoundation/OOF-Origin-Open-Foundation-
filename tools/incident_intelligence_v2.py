@@ -660,16 +660,17 @@ def build(
         "assessedAt": snapshot_assessed_at,
     })
     report_path = backfill_report_path or analysis_path.with_name("v3-backfill-report.json")
-    write_json(report_path, {
-        "schemaVersion": "3.0",
-        "engineVersion": ENGINE_VERSION,
-        "generatedAt": generated_at,
-        "sourceRecordsModified": False,
-        "incidentCount": len(records),
-        "assessmentsCreated": created,
-        "assessmentsSkipped": skipped,
-        "generationFailures": failures,
-    })
+    if created or failures or not report_path.exists():
+        write_json(report_path, {
+            "schemaVersion": "3.0",
+            "engineVersion": ENGINE_VERSION,
+            "generatedAt": generated_at,
+            "sourceRecordsModified": False,
+            "incidentCount": len(records),
+            "assessmentsCreated": created,
+            "assessmentsSkipped": skipped,
+            "generationFailures": failures,
+        })
     return {"incidentCount": len(records), "assessmentsCreated": created, "assessmentsSkipped": skipped, "changedArchitectures": len(changed), "generationFailures": len(failures)}
 
 

@@ -120,12 +120,15 @@ class IncidentDomainTests(unittest.TestCase):
             first = engine.build(analysis_path=analysis_path, snapshot_path=snapshot_path, created_at="2026-10-02T12:00:00Z")
             analysis_after_first = analysis_path.read_bytes()
             snapshot_after_first = snapshot_path.read_bytes()
+            report_path = temporary / "v3-backfill-report.json"
+            report_after_first = report_path.read_bytes()
             second = engine.build(analysis_path=analysis_path, snapshot_path=snapshot_path, created_at="2026-10-02T13:00:00Z")
             assessments = json.loads(analysis_path.read_text(encoding="utf-8"))["assessments"]
             self.assertEqual(first["assessmentsCreated"], 252)
             self.assertEqual(second["assessmentsCreated"], 0)
             self.assertEqual(analysis_path.read_bytes(), analysis_after_first)
             self.assertEqual(snapshot_path.read_bytes(), snapshot_after_first)
+            self.assertEqual(report_path.read_bytes(), report_after_first)
             self.assertTrue(all(item["analysisType"] == "Automated" for item in assessments))
             self.assertTrue(all(item["humanReview"]["status"] == "Not performed" for item in assessments))
             self.assertTrue(all(item["oofApproved"] is False for item in assessments))
