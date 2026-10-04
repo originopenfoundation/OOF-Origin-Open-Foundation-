@@ -264,7 +264,7 @@
   ]).then(([world, dataset]) => {
     if (typeof window.L !== "object") throw new Error("2D map library unavailable");
     if (!dataset || dataset.schemaVersion !== "1.1" || dataset.algorithmVersion !== "3.0" || !Array.isArray(dataset.countries)) {
-      throw new Error("Public Governance Space Map dataset is invalid");
+      throw new Error("Public Global Interest Heat Map dataset is invalid");
     }
     updateFreshness(dataset);
 
@@ -356,6 +356,6 @@
     }
   }).catch(error => {
     showFallback("The public map could not be loaded. The last valid dataset remains unavailable in this preview.");
-    console.error("OOF Governance Space Map:", error);
+    console.error("OOF Global Interest Heat Map:", error);
   });
 })();
