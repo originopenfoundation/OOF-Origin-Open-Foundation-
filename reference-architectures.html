@@ -5,15 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="assets/css/oof-architecture-map.css?v=8" />
-<link rel="image_src" href="https://originopenfoundation.org/assets/images/oof-architecture-map.png" />
-<meta property="og:image" content="https://originopenfoundation.org/assets/images/oof-architecture-map.png" />
-<meta property="og:image:width" content="1536" />
-<meta property="og:image:height" content="1024" />
-<meta property="og:image:alt" content="OOF Architecture Map showing established, in-development, and identified governance architectures." />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","@id":"https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png#image","url":"https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png","contentUrl":"https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png","name":"OOF Governance Architecture Heat Map","description":"OOF governance architecture heat map showing the GOA, INTEGROS, AIG, ORA, ASGA, CLIA, MGIA, ADIT, AGA, OBIDENITY, CLA, and VALIDOS architecture domains.","encodingFormat":"image/png","width":1672,"height":941,"inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/reference-architectures.html#webpage"},"creator":{"@id":"https://originopenfoundation.org/#organization"},"copyrightHolder":{"@id":"https://originopenfoundation.org/#organization"}}</script>
+<link rel="stylesheet" href="assets/css/oof-architecture-map.css?v=9" />
 <!-- OOF AI DISCOVERY START -->
 <meta name="description" content="OOF® Reference Architectures. NON-EXECUTABLE NOTICE OOF™ Origin Open Foundation™ is a non-executable authority. This website and all publications are." />
 <link rel="canonical" href="https://originopenfoundation.org/reference-architectures.html" />
@@ -49,16 +41,38 @@
 </section>
 
 <section id="oof-governance-heat-map" class="container oof-map-shell" aria-labelledby="architecture-map-title">
-<h1 id="architecture-map-title" data-oof-section-id="true" role="heading" aria-level="2">OOF® Architecture Map</h1>
-<figure class="oof-architecture-map-figure">
-<a href="assets/images/oof-architecture-map.png" target="_blank" rel="noopener">
-<img src="assets/images/oof-architecture-map.png" width="1536" height="1024" alt="OOF Architecture Map showing governance architectures by established, in-development, and identified status" fetchpriority="high" />
-</a>
-</figure>
-</section>
-
+<h1 id="architecture-map-title" data-oof-section-id="true" role="heading" aria-level="2">OOF® Governance Space Map</h1>
+<div class="oof-map-board">
+<header class="oof-map-board-header">
+<div class="oof-map-brand"><b>OOF®</b><span>OriginOpen® Foundation</span></div>
+<div class="oof-map-board-title"><strong>OOF® GOVERNANCE SPACE MAP</strong><span>METHODOLOGICAL GOVERNANCE SYSTEM</span></div>
+<div class="oof-map-authority">METHODOLOGICAL<br>REFERENCE AUTHORITY</div>
+</header>
+<div id="oof-architecture-territories" class="oof-map-territories" role="group" aria-label="Interactive OOF governance architecture spaces" aria-busy="true"></div>
+<div class="oof-map-legend" aria-label="Architecture status legend">
+<span><i class="oof-map-key oof-map-key-completed" aria-hidden="true"></i><b>Established</b><small>Architecture completed</small></span>
+<span><i class="oof-map-key oof-map-key-development" aria-hidden="true"></i><b>In Development</b><small>Architecture in progress</small></span>
+<span><i class="oof-map-key oof-map-key-identified" aria-hidden="true"></i><b>Identified</b><small>Not yet developed</small></span>
+</div>
 </article></main>
 <!-- OOF SEMANTIC CONTENT END -->
+<footer class="oof-map-board-footer"><b>originopenfoundation.org</b><span>METHODOLOGICAL INFRASTRUCTURE<br>FOR GOVERNANCE SYSTEMS</span></footer>
+</div>
+<p id="oof-map-status" class="oof-map-status" role="status">Loading the official Architecture Index...</p>
+</section>
+
+<section id="oof-selected-architecture" class="container oof-map-selection" aria-live="polite" hidden>
+<div class="oof-map-selection-header">
+<div>
+<p id="oof-selected-status" class="oof-map-selection-status"></p>
+<h2 id="oof-selected-title" data-oof-section-id="true" role="heading" aria-level="2"></h2>
+</div>
+<nav id="oof-selected-links" class="oof-map-selection-links" aria-label="Selected architecture pages"></nav>
+</div>
+<p id="oof-selected-development-note" class="oof-map-development-note" hidden>Official architecture information will become available upon completion.</p>
+<iframe id="oof-selected-page" class="oof-map-frame" title="Selected OOF architecture page" loading="lazy" hidden></iframe>
+</section>
+
 <footer class="container footer2">
 <h2 id="non-executable-notice" data-oof-section-id="true" role="heading" aria-level="2">NON-EXECUTABLE NOTICE</h2>
 <p>OOF™ Origin Open Foundation™ is a non-executable authority. This website and all publications are reference-only.<br>
@@ -85,5 +99,6 @@ fetch("header.html")
   if (window.normalizePageLinks) window.normalizePageLinks();
   });
 </script>
+<script src="assets/js/oof-architecture-map.js?v=6" defer></script>
 </body>
 </html>

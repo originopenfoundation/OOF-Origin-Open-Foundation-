@@ -1,23 +1,30 @@
 (function () {
   "use strict";
 
-  const layouts = {
-    GOA: "GOA",
-    INTEGROS: "INTEGROS",
-    AIG: "AIG",
-    ORA: "ORA",
-    ASGA: "ASGA",
-    CLIA: "CLIA",
-    MGIA: "MGIA",
-    TREGA: "TREGA",
-    AGA: "AGA",
-    OBIDENITY: "OBIDENITY",
-    CLA: "CLA",
-    SIMULOS: "SIMULOS",
-    VFM: "VFM",
-    VALIDOS: "VALIDOS",
-    LIGA: "LIGA",
-    PGA: "PGA"
+  const architectureOrder = [
+    "GOA", "ASGA", "INTEGROS", "AIG", "ORA",
+    "CLIA", "MGIA", "PGA", "CLA", "TREGA",
+    "AGA", "OBIDENITY", "SIMULOS", "VFM", "VALIDOS",
+    "LIGA"
+  ];
+
+  const iconLabels = {
+    GOA: "GO",
+    ASGA: "AS",
+    INTEGROS: "IN",
+    AIG: "AI",
+    ORA: "OR",
+    CLIA: "CI",
+    MGIA: "MG",
+    PGA: "PG",
+    CLA: "CL",
+    TREGA: "TR",
+    AGA: "AG",
+    OBIDENITY: "ID",
+    SIMULOS: "SI",
+    VFM: "VF",
+    VALIDOS: "VA",
+    LIGA: "LI"
   };
 
   const root = document.getElementById("oof-architecture-territories");
@@ -28,11 +35,6 @@
   const links = document.getElementById("oof-selected-links");
   const note = document.getElementById("oof-selected-development-note");
   const frame = document.getElementById("oof-selected-page");
-
-  function setLayout(button, item) {
-    const area = layouts[item.acronym];
-    if (area) button.style.gridArea = area;
-  }
 
   function selectArchitecture(item, button) {
     root.querySelectorAll(".oof-map-territory").forEach((territory) => territory.setAttribute("aria-pressed", "false"));
@@ -62,7 +64,9 @@
   }
 
   function render(data) {
-    const items = [...data.architectures, ...data.developmentArchitectures];
+    const positions = new Map(architectureOrder.map((acronym, index) => [acronym, index]));
+    const items = [...data.architectures, ...data.developmentArchitectures]
+      .sort((left, right) => (positions.get(left.acronym) ?? 999) - (positions.get(right.acronym) ?? 999));
     items.forEach((item) => {
       const button = document.createElement("button");
       button.type = "button";
@@ -70,17 +74,20 @@
       button.dataset.status = item.status;
       button.setAttribute("aria-pressed", "false");
       button.setAttribute("aria-label", `${item.displayName || `${item.acronym} — ${item.name}`}. Status: ${item.status === "development" ? "In Development" : "Completed / Published Architecture"}.`);
-      setLayout(button, item);
+      const icon = document.createElement("span");
+      icon.className = "oof-map-icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = iconLabels[item.acronym] || item.acronym.slice(0, 2);
+      const copy = document.createElement("span");
+      copy.className = "oof-map-copy";
       const acronym = document.createElement("span");
       acronym.className = "oof-map-acronym";
       acronym.textContent = item.acronymLabel || item.acronym;
       const name = document.createElement("span");
       name.className = "oof-map-name";
       name.textContent = item.name;
-      const state = document.createElement("span");
-      state.className = "oof-map-territory-status";
-      state.textContent = item.status === "development" ? "In Development" : "Completed";
-      button.append(acronym, name, state);
+      copy.append(acronym, name);
+      button.append(icon, copy);
       button.addEventListener("click", () => selectArchitecture(item, button));
       root.append(button);
     });
@@ -96,6 +103,6 @@
     .then(render)
     .catch(() => {
       root.setAttribute("aria-busy", "false");
-      status.textContent = "The Architecture Map could not load the official Architecture Index data.";
+      status.textContent = "The Governance Space Map could not load the official Architecture Index data.";
     });
 })();
