@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the public OOF Governance Space Map payload."""
+"""Validate the public OOF Global Interest Heat Map payload."""
 
 from __future__ import annotations
 
@@ -48,7 +48,7 @@ def validate(path: Path) -> dict:
     for field in ("windowStart", "windowEnd", "generatedAt", "lastCheckedAt"):
         parse_timestamp(payload[field], field)
     if payload["schemaVersion"] != "1.1" or payload["algorithmVersion"] != "3.0":
-        raise ValueError("Unsupported Governance Space Map schema or algorithm version")
+        raise ValueError("Unsupported Global Interest Heat Map schema or algorithm version")
     if not re.fullmatch(r"[a-f0-9]{64}", str(payload["dataRevision"])):
         raise ValueError("dataRevision must be a SHA-256 value")
     if payload["source"] != "Cloudflare Web Analytics":
@@ -109,7 +109,7 @@ def main() -> None:
     parser.add_argument("path", nargs="?", type=Path, default=DEFAULT_DATASET)
     args = parser.parse_args()
     payload = validate(args.path)
-    print(f"Governance Space Map dataset valid: {len(payload['countries'])} classified countries and {len(payload['governanceSpaces'])} canonical governance spaces")
+    print(f"Global Interest Heat Map dataset valid: {len(payload['countries'])} classified countries and {len(payload['governanceSpaces'])} canonical governance spaces")
 
 
 if __name__ == "__main__":

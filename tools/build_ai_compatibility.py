@@ -376,7 +376,7 @@ def page_json_ld(record: dict) -> dict:
         data["mainEntity"] = {
             "@type": "Dataset",
             "@id": record["canonical"] + "#dataset",
-            "name": "OOF® Governance Space Map™ public classification dataset",
+            "name": "OOF® Global Interest Heat Map™ public classification dataset",
             "description": "Privacy-reduced country-level governance methodology interest classifications for a rolling 14-day observation window.",
             "url": canonical_url("data/oof-global-interest-heat-map.json"),
             "distribution": {

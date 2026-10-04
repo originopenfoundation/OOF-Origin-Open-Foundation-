@@ -1,4 +1,4 @@
-name: Governance Space Map
+name: Global Interest Heat Map
 
 on:
   schedule:
@@ -81,9 +81,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/oof-global-interest-heat-map.json
-          git commit -m "Update Governance Space Map"
+          git commit -m "Update Global Interest Heat Map"
           git push origin HEAD:main1
 
       - name: Report refresh failure
         if: failure()
-        run: echo "::error title=Governance Space Map refresh failed::The last valid public dataset was preserved. Review this workflow run."
+        run: echo "::error title=Global Interest Heat Map refresh failed::The last valid public dataset was preserved. Review this workflow run."

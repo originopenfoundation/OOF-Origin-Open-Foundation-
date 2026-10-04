@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public Governance Space Map payload from aggregated analytics."""
+"""Build the public Global Interest Heat Map payload from aggregated analytics."""
 
 from __future__ import annotations
 
