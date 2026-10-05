@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Scope &amp; Allocation Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Scope &amp; Allocation Module | OOF®. RSAM — Resource Allocation Module Architecture: VEGA™ — Value Execution Governance Architecture Parent Standard." />
+<link rel="canonical" href="https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Scope &amp; Allocation Module | OOF®" />
+<meta property="og:description" content="Resource Scope &amp; Allocation Module | OOF®. RSAM — Resource Allocation Module Architecture: VEGA™ — Value Execution Governance Architecture Parent Standard." />
+<meta property="og:url" content="https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Scope &amp; Allocation Module | OOF®" />
+<meta name="twitter:description" content="Resource Scope &amp; Allocation Module | OOF®. RSAM — Resource Allocation Module Architecture: VEGA™ — Value Execution Governance Architecture Parent Standard." />
+<meta name="DC.title" content="Resource Scope &amp; Allocation Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html#webpage","url":"https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html","name":"Resource Scope & Allocation Module | OOF®","description":"Resource Scope & Allocation Module | OOF®. RSAM — Resource Allocation Module Architecture: VEGA™ — Value Execution Governance Architecture Parent Standard.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Scope & Allocation Module | OOF®","item":"https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html"}]},"headline":"Resource Scope & Allocation Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/vega/vega-rgs-rsam-2.html#webpage"}}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article"><article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<h1 id="rsam-resource-allocation-module" data-oof-section-id="true" role="heading" aria-level="1">RSAM — Resource Allocation Module</h1>
+<p class="podstand"><b>Architecture:</b></p>
+<p>VEGA™ — Value Execution Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b></p>
+<p>Resource Governance Standard (RGS)</p>
+<p class="podstand"><b>Category:</b></p>
+<p>Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b></p>
+<p>Value Execution Governance</p>
+<p>Type: Core Module</p>
+<p class="podstand"><b>Governed Space:</b></p>
+<p>Execution Resource Allocation</p>
+<p>Module ID: VEGA-RGS-RSAM-002</p>
+<p>Origin ID: OOF.CM.VEGA.04.02.01</p>
+<p>Version: 1.0</p>
+<p>Status: Canonical · Open Standard</p>
+<p>Effective Date: 28 September 2026</p>
+<p>Compatibility: OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem</p>
+<p>AI-Readable: Yes</p>
+<p>Authority: OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b></p>
+<p>MIP® — Methodological Intellectual Property</p>
+<p class="podstand"><b>Canonical Language:</b></p>
+<p>English (UCL™)</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="2">1. Canonical Definition</h1>
+<p>The Resource Allocation Module (RSAM) governs how identified execution resources are assigned to an intelligence execution in quantities, capacities, durations, and configurations proportionate to the Operational Requirement and applicable governed constraints.</p>
+<p>RSAM converts the Governed Execution Resource Inventory established by RIM into an explicit Governed Resource Allocation State.</p>
+<p>It determines which identified resources should be allocated, how much should be allocated, to which execution object, for what operational purpose, for what duration, and under what allocation conditions.</p>
+<p>RSAM prevents resource availability, historical provisioning, technical capacity, or maximum possible demand from automatically becoming resource allocation.</p>
+<p>Its principal output is:</p>
+<p>Governed Resource Allocation State</p>
+<p>Its foundational distinction is:</p>
+<p>Available Capacity ≠ Required Allocation.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>The operational role of RSAM is:</p>
+<p>to translate identified execution resource requirements into explicit, proportionate, bounded, and evidence- supported resource allocations.</p>
+<p>RIM establishes what resources belong to the execution resource system.</p>
+<p>RSAM determines what portion of those resources should actually be assigned to the execution.</p>
+<h1 id="3-position-in-the-rgs-internal-flow" data-oof-section-id="true" role="heading" aria-level="2">3. Position in the RGS Internal Flow</h1>
+<p>The RGS internal module progression is:</p>
+<p>Resource Identification → Resource Allocation → Dynamic Reallocation → Resource Constraint → Consumption Traceability</p>
+<p>RSAM governs:</p>
+<p>Resource Allocation</p>
+<p>Its principal input is:</p>
+<p>Governed Execution Resource Inventory</p>
+<p>Its principal output is:</p>
+<p>Governed Resource Allocation State</p>
+<p>That output proceeds to:</p>
+<p>DRRM — Dynamic Resource Reallocation Module</p>
+<h1 id="4-central-operational-question" data-oof-section-id="true" role="heading" aria-level="2">4. Central Operational Question</h1>
+<p>Which identified resources should be allocated to the intelligence execution, in what quantity, for what purpose, and for how long?</p>
+<h1 id="5-allocation-object" data-oof-section-id="true" role="heading" aria-level="2">5. Allocation Object</h1>
+<p>Every allocation should identify the execution object receiving the resource.</p>
+<p>An Allocation Object may be:</p>
+<p>a model execution,</p>
+<p>agent,</p>
+<p>multi-agent system,</p>
+<p>workflow,</p>
+<p>task,</p>
+<p>service,</p>
+<p>robotic operation,</p>
+<p>human-AI process,</p>
+<p>or another governed intelligence execution object.</p>
+<h1 id="6-resource-allocation-object" data-oof-section-id="true" role="heading" aria-level="2">6. Resource Allocation Object</h1>
+<p>The resource being allocated should correspond to an identified Resource Object within the governed resource inventory.</p>
+<p>Allocation should not be based upon an undefined resource category where a more precise Resource Object is materially necessary.</p>
+<h1 id="7-allocation-requirement" data-oof-section-id="true" role="heading" aria-level="2">7. Allocation Requirement</h1>
+<p>An Allocation Requirement expresses the resource capacity necessary to support the defined execution under the applicable Operational Requirement.</p>
+<p>It should derive from execution need rather than technical availability.</p>
+<p>Therefore:</p>
+<p>Resource Availability ≠ Allocation Requirement.</p>
+<h1 id="8-allocation-basis" data-oof-section-id="true" role="heading" aria-level="2">8. Allocation Basis</h1>
+<p>Every material allocation should possess an identifiable Basis.</p>
+<p>The Basis may include:</p>
+<p>task requirements,</p>
+<p>expected workload,</p>
+<p>execution configuration,</p>
+<p>completion requirements,</p>
+<p>quality requirements,</p>
+<p>latency requirements,</p>
+<p>reliability requirements,</p>
+<p>resilience requirements,</p>
+<p>applicable constraints,</p>
+<p>or another legitimate operational condition.</p>
+<h1 id="9-allocation-purpose" data-oof-section-id="true" role="heading" aria-level="2">9. Allocation Purpose</h1>
+<p>The purpose for which a resource is allocated should be identifiable.</p>
+<p>Possible purposes include:</p>
+<p>primary execution,</p>
+<p>reasoning,</p>
+<p>tool use,</p>
+<p>validation,</p>
+<p>memory,</p>
+<p>orchestration,</p>
+<p>storage,</p>
+<p>communication,</p>
+<p>resilience,</p>
+<p>or another execution function.</p>
+<h1 id="10-allocation-quantity" data-oof-section-id="true" role="heading" aria-level="2">10. Allocation Quantity</h1>
+<p>RSAM should establish the quantity or capacity allocated where the resource can be meaningfully quantified.</p>
+<p>The appropriate unit depends upon the Resource Object.</p>
+<p>No universal allocation unit is required.</p>
+<h1 id="11-minimum-sufficient-allocation" data-oof-section-id="true" role="heading" aria-level="2">11. Minimum Sufficient Allocation</h1>
+<p>Where determinable, the allocation should support the minimum resource level sufficient for the execution to reliably satisfy its Operational Requirement under applicable governed constraints.</p>
+<p>Minimum sufficient allocation does not mean minimum possible allocation.</p>
+<p>It means:</p>
+<p>the least allocation sufficient to support the required governed execution.</p>
+<h1 id="12-allocation-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">12. Allocation Sufficiency</h1>
+<p>An allocation is sufficient where the assigned resources adequately support the execution requirement under the applicable operating conditions.</p>
+<p>Sufficiency should be evaluated against the Operational Requirement rather than against theoretical maximum performance.</p>
+<h1 id="13-allocation-insufficiency" data-oof-section-id="true" role="heading" aria-level="2">13. Allocation Insufficiency</h1>
+<p>Allocation Insufficiency exists where assigned resources cannot reliably support the required execution.</p>
+<p>Possible consequences may include:</p>
+<p>failure,</p>
+<p>latency,</p>
+<p>reduced reliability,</p>
+<p>incomplete execution,</p>
+<p>or escalation need.</p>
+<p>RSAM identifies the allocation state.</p>
+<p>DRRM governs subsequent reallocation.</p>
+<h1 id="14-allocation-excess" data-oof-section-id="true" role="heading" aria-level="2">14. Allocation Excess</h1>
+<p>Allocation Excess exists where assigned resources materially exceed the level justified by the current execution requirement without sufficient operational Basis.</p>
+<p>Therefore:</p>
+<p>More Allocation ≠ Better Resource Governance.</p>
+<h1 id="15-allocation-proportionality" data-oof-section-id="true" role="heading" aria-level="2">15. Allocation Proportionality</h1>
+<p>Allocation should remain proportionate to the governed execution need.</p>
+<p>Proportionality may consider:</p>
+<p>task complexity,</p>
+<p>workload,</p>
+<p>required performance,</p>
+<p>required reliability,</p>
+<p>and applicable constraints.</p>
+<h1 id="16-allocation-precision" data-oof-section-id="true" role="heading" aria-level="2">16. Allocation Precision</h1>
+<p>Resource allocation may be:</p>
+<p>exact,</p>
+<p>bounded,</p>
+<p>tiered,</p>
+<p>estimated,</p>
+<p>or dynamically parameterized.</p>
+<p>The level of precision should reflect the available evidence and resource characteristics.</p>
+<h1 id="17-allocation-range" data-oof-section-id="true" role="heading" aria-level="2">17. Allocation Range</h1>
+<p>Where an exact quantity cannot be justified, RSAM may establish an acceptable allocation range.</p>
+<p>A range may include:</p>
+<p>minimum sufficient level,</p>
+<p>normal operating range,</p>
+<p>and maximum governed allocation.</p>
+<h1 id="18-allocation-floor" data-oof-section-id="true" role="heading" aria-level="2">18. Allocation Floor</h1>
+<p>An Allocation Floor establishes the minimum resource provision required for the governed execution under defined conditions.</p>
+<p>The floor should have an operational Basis.</p>
+<h1 id="19-allocation-ceiling" data-oof-section-id="true" role="heading" aria-level="2">19. Allocation Ceiling</h1>
+<p>An Allocation Ceiling establishes the maximum resource allocation permitted under the current allocation state.</p>
+<p>The ceiling may derive from:</p>
+<p>operational requirements,</p>
+<p>resource constraints,</p>
+<p>budgets,</p>
+<p>technical conditions,</p>
+<p>or competent governance.</p>
+<h1 id="20-allocation-target" data-oof-section-id="true" role="heading" aria-level="2">20. Allocation Target</h1>
+<p>An Allocation Target may define the intended normal resource level between applicable floors and ceilings.</p>
+<p>A target is not necessarily a hard constraint.</p>
+<h1 id="21-allocation-margin" data-oof-section-id="true" role="heading" aria-level="2">21. Allocation Margin</h1>
+<p>Some executions may require a justified resource margin above expected normal demand.</p>
+<p>Margins may support:</p>
+<p>workload variability,</p>
+<p>reliability,</p>
+<p>resilience,</p>
+<p>or predictable demand fluctuation.</p>
+<p>A margin should not become an undefined justification for chronic overprovisioning.</p>
+<h1 id="22-allocation-reserve" data-oof-section-id="true" role="heading" aria-level="2">22. Allocation Reserve</h1>
+<p>A resource reserve may be maintained for conditions requiring additional capacity.</p>
+<p>Reserved capacity should remain distinguishable from active allocation and actual consumption.</p>
+<p>Therefore:</p>
+<p>Reserved Capacity ≠ Active Consumption.</p>
+<h1 id="23-dedicated-allocation" data-oof-section-id="true" role="heading" aria-level="2">23. Dedicated Allocation</h1>
+<p>A Dedicated Allocation assigns resource capacity primarily or exclusively to a defined execution object.</p>
+<p>Dedicated allocation may be justified by:</p>
+<p>performance,</p>
+<p>isolation,</p>
+<p>reliability,</p>
+<p>security,</p>
+<p>or another governed requirement.</p>
+<h1 id="24-shared-allocation" data-oof-section-id="true" role="heading" aria-level="2">24. Shared Allocation</h1>
+<p>A Shared Allocation permits multiple execution objects to use a common resource pool.</p>
+<p>Shared allocation should preserve sufficient governance to understand:</p>
+<p>eligible users,</p>
+<p>available capacity,</p>
+<p>allocation logic,</p>
+<p>and material contention.</p>
+<h1 id="25-allocation-pool" data-oof-section-id="true" role="heading" aria-level="2">25. Allocation Pool</h1>
+<p>Resources may be allocated from a common pool rather than individually reserved.</p>
+<p>The pool should have sufficiently defined:</p>
+<p>capacity,</p>
+<p>scope,</p>
+<p>eligible execution objects,</p>
+<p>and allocation conditions.</p>
+<h1 id="26-allocation-priority" data-oof-section-id="true" role="heading" aria-level="2">26. Allocation Priority</h1>
+<p>Where demand exceeds available resource capacity, allocations may require prioritization.</p>
+<p>Priority should derive from an authorized Basis.</p>
+<p>RSAM may represent the priority state.</p>
+<p>It does not independently create institutional authority to establish priority.</p>
+<h1 id="27-priority-class" data-oof-section-id="true" role="heading" aria-level="2">27. Priority Class</h1>
+<p>Where appropriate, allocation may use defined priority classes.</p>
+<p>The classification methodology should remain explicit and should not automatically equate technical urgency with organizational importance.</p>
+<h1 id="28-allocation-sequence" data-oof-section-id="true" role="heading" aria-level="2">28. Allocation Sequence</h1>
+<p>Where multiple Resource Objects must be assigned, the order of allocation may matter.</p>
+<p>Some resources may be prerequisites for others.</p>
+<p>RSAM may preserve allocation sequence where operationally material.</p>
+<h1 id="29-allocation-dependency" data-oof-section-id="true" role="heading" aria-level="2">29. Allocation Dependency</h1>
+<p>An allocation may depend upon another resource being available or allocated.</p>
+<p>For example:</p>
+<p>tool access may require network capacity,</p>
+<p>a model may require compatible hardware,</p>
+<p>or a validation service may require additional compute.</p>
+<p>Dependent allocations should remain connected.</p>
+<h1 id="30-coupled-allocation" data-oof-section-id="true" role="heading" aria-level="2">30. Coupled Allocation</h1>
+<p>Some Resource Objects should be allocated together because their requirements are operationally coupled.</p>
+<p>Independent allocation of coupled resources may create apparent sufficiency while the execution remains unusable.</p>
+<h1 id="31-conditional-allocation" data-oof-section-id="true" role="heading" aria-level="2">31. Conditional Allocation</h1>
+<p>Some resources should be allocated only when defined execution conditions arise.</p>
+<p>Conditional allocation may prevent resources needed only for exceptional cases from being permanently provisioned.</p>
+<h1 id="32-triggered-allocation" data-oof-section-id="true" role="heading" aria-level="2">32. Triggered Allocation</h1>
+<p>A resource may become allocated when a defined trigger occurs.</p>
+<p>Examples may include:</p>
+<p>complex task classification,</p>
+<p>tool requirement,</p>
+<p>validation requirement,</p>
+<p>or escalation state.</p>
+<p>The trigger should remain explicit.</p>
+<h1 id="33-persistent-allocation" data-oof-section-id="true" role="heading" aria-level="2">33. Persistent Allocation</h1>
+<p>Some resources remain allocated across multiple executions.</p>
+<p>Persistent allocation should retain a continuing operational Basis.</p>
+<p>Therefore:</p>
+<p>Historical Need ≠ Permanent Allocation Need.</p>
+<h1 id="34-temporary-allocation" data-oof-section-id="true" role="heading" aria-level="2">34. Temporary Allocation</h1>
+<p>Temporary Allocation exists for a bounded task, period, state, or execution condition.</p>
+<p>Temporary allocation should possess an identifiable termination or review condition where appropriate.</p>
+<h1 id="35-allocation-duration" data-oof-section-id="true" role="heading" aria-level="2">35. Allocation Duration</h1>
+<p>The allocation period should be explicit where duration materially affects resource governance.</p>
+<p>Duration may be:</p>
+<p>execution-specific,</p>
+<p>time-bound,</p>
+<p>state-bound,</p>
+<p>or persistent subject to review.</p>
+<h1 id="36-allocation-start" data-oof-section-id="true" role="heading" aria-level="2">36. Allocation Start</h1>
+<p>Where relevant, RSAM should identify when an allocation becomes active.</p>
+<p>This may occur:</p>
+<p>before execution,</p>
+<p>at execution start,</p>
+<p>on demand,</p>
+<p>or following a defined trigger.</p>
+<h1 id="37-allocation-end" data-oof-section-id="true" role="heading" aria-level="2">37. Allocation End</h1>
+<p>Where relevant, an allocation should possess a condition under which it ceases to apply.</p>
+<p>This may include:</p>
+<p>completion,</p>
+<p>termination,</p>
+<p>expiry,</p>
+<p>release,</p>
+<p>configuration change,</p>
+<p>or another governed event.</p>
+<h1 id="38-allocation-expiry" data-oof-section-id="true" role="heading" aria-level="2">38. Allocation Expiry</h1>
+<p>Time-bounded allocations should not silently persist beyond their legitimate period.</p>
+<p>Where applicable:</p>
+<p>Expired Allocation ≠ Current Allocation Authority.</p>
+<h1 id="39-allocation-renewal" data-oof-section-id="true" role="heading" aria-level="2">39. Allocation Renewal</h1>
+<p>Persistent or expiring allocations may require renewal.</p>
+<p>Renewal should be based upon current operational need rather than historical allocation alone.</p>
+<h1 id="40-allocation-review" data-oof-section-id="true" role="heading" aria-level="2">40. Allocation Review</h1>
+<p>Allocation should be reviewed where:</p>
+<p>Operational Requirement changes,</p>
+<p>Execution Configuration changes,</p>
+<p>workload changes materially,</p>
+<p>resource availability changes,</p>
+<p>performance changes,</p>
+<p>or evidence indicates persistent insufficiency or excess.</p>
+<h1 id="41-allocation-state" data-oof-section-id="true" role="heading" aria-level="2">41. Allocation State</h1>
+<p>RSAM may represent allocation states such as:</p>
+<p>Not Allocated,</p>
+<p>Allocation Proposed,</p>
+<p>Allocation Approved,</p>
+<p>Allocated,</p>
+<p>Conditionally Allocated,</p>
+<p>Reserved,</p>
+<p>Insufficient,</p>
+<p>Sufficient,</p>
+<p>Excessive,</p>
+<p>Expired,</p>
+<p>Suspended,</p>
+<p>Released,</p>
+<p>or Reassessment Required.</p>
+<h1 id="42-allocation-state-transition" data-oof-section-id="true" role="heading" aria-level="2">42. Allocation State Transition</h1>
+<p>Allocation governance should support transitions such as:</p>
+<p>Identified → Proposed → Allocated → Active → Released</p>
+<p>or:</p>
+<p>Allocated → Insufficient → Reallocation Required</p>
+<p>or:</p>
+<p>Allocated → Excessive → Reduction Required</p>
+<h1 id="43-allocation-evidence" data-oof-section-id="true" role="heading" aria-level="2">43. Allocation Evidence</h1>
+<p>Material allocations should be supported by evidence appropriate to the intended governance purpose.</p>
+<p>Evidence may include:</p>
+<p>resource requirements,</p>
+<p>workload data,</p>
+<p>execution configuration,</p>
+<p>historical utilization,</p>
+<p>performance requirements,</p>
+<p>or another relevant Basis.</p>
+<h1 id="44-allocation-assumption" data-oof-section-id="true" role="heading" aria-level="2">44. Allocation Assumption</h1>
+<p>Where allocation depends upon an assumption, that assumption should remain explicit.</p>
+<p>Examples may include:</p>
+<p>expected task volume,</p>
+<p>expected complexity,</p>
+<p>expected concurrency,</p>
+<p>or expected latency requirement.</p>
+<h1 id="45-allocation-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">45. Allocation Uncertainty</h1>
+<p>Resource requirements may not always be known precisely.</p>
+<p>Where uncertainty exists, RSAM should represent it rather than create artificial precision.</p>
+<p>Allocation may therefore include justified uncertainty margins.</p>
+<h1 id="46-allocation-confidence" data-oof-section-id="true" role="heading" aria-level="2">46. Allocation Confidence</h1>
+<p>Where useful, an allocation may include an evidence-based confidence state reflecting the strength of the allocation Basis.</p>
+<p>Confidence should not replace the underlying evidence.</p>
+<h1 id="47-allocation-validation" data-oof-section-id="true" role="heading" aria-level="2">47. Allocation Validation</h1>
+<p>Where required, allocation assumptions or quantities may be validated against observed execution.</p>
+<p>Validation may reveal:</p>
+<p>insufficiency,</p>
+<p>excess,</p>
+<p>or incorrect assumptions.</p>
+<p>The resulting evidence may trigger reassessment or reallocation.</p>
+<h1 id="48-allocation-vs-consumption" data-oof-section-id="true" role="heading" aria-level="2">48. Allocation vs Consumption</h1>
+<p>Allocation establishes resource availability for execution.</p>
+<p>Consumption establishes actual resource use.</p>
+<p>Therefore:</p>
+<p>Allocated Resource ≠ Consumed Resource.</p>
+<p>RCTM governs Consumption Traceability.</p>
+<h1 id="49-allocation-utilization" data-oof-section-id="true" role="heading" aria-level="2">49. Allocation Utilization</h1>
+<p>Utilization may indicate how much of allocated capacity is actually used.</p>
+<p>Low utilization may indicate:</p>
+<p>legitimate reserve,</p>
+<p>variable demand,</p>
+<p>or overprovisioning.</p>
+<p>RSAM should not assume the cause without evidence.</p>
+<h1 id="50-chronic-underutilization" data-oof-section-id="true" role="heading" aria-level="2">50. Chronic Underutilization</h1>
+<p>Persistent underutilization may justify reassessment of allocation.</p>
+<p>However, low utilization alone does not prove allocation excess where reserve capacity serves a legitimate requirement.</p>
+<h1 id="51-allocation-overprovisioning" data-oof-section-id="true" role="heading" aria-level="2">51. Allocation Overprovisioning</h1>
+<p>Overprovisioning occurs where allocated capacity materially exceeds justified need.</p>
+<p>It may be legitimate where the additional capacity supports:</p>
+<p>resilience,</p>
+<p>peak demand,</p>
+<p>or another governed purpose.</p>
+<p>The justification should remain explicit.</p>
+<h1 id="52-allocation-underprovisioning" data-oof-section-id="true" role="heading" aria-level="2">52. Allocation Underprovisioning</h1>
+<p>Underprovisioning occurs where assigned resources are insufficient to support required execution.</p>
+<p>Persistent underprovisioning may create:</p>
+<p>failure,</p>
+<p>rework,</p>
+<p>latency,</p>
+<p>or reduced reliability.</p>
+<h1 id="53-allocation-and-workload" data-oof-section-id="true" role="heading" aria-level="2">53. Allocation and Workload</h1>
+<p>Resource allocation should reflect relevant workload characteristics.</p>
+<p>These may include:</p>
+<p>volume,</p>
+<p>complexity,</p>
+<p>concurrency,</p>
+<p>variability,</p>
+<p>and timing.</p>
+<p>Workload estimates should remain distinguishable from actual workload.</p>
+<h1 id="54-allocation-and-task-complexity" data-oof-section-id="true" role="heading" aria-level="2">54. Allocation and Task Complexity</h1>
+<p>More complex tasks may require additional resources.</p>
+<p>Complexity should not automatically be translated into greater allocation without evidence of resource need.</p>
+<p>Therefore:</p>
+<p>Higher Task Complexity ≠ Automatic Maximum Allocation.</p>
+<h1 id="55-allocation-and-concurrency" data-oof-section-id="true" role="heading" aria-level="2">55. Allocation and Concurrency</h1>
+<p>Concurrent execution may increase resource requirements.</p>
+<p>RSAM should consider relevant concurrency where it materially affects resource sufficiency.</p>
+<h1 id="56-allocation-and-latency" data-oof-section-id="true" role="heading" aria-level="2">56. Allocation and Latency</h1>
+<p>Some operational requirements impose latency conditions that legitimately affect allocation.</p>
+<p>Additional resource capacity may be justified where necessary to satisfy the required latency state.</p>
+<h1 id="57-allocation-and-reliability" data-oof-section-id="true" role="heading" aria-level="2">57. Allocation and Reliability</h1>
+<p>Reliability requirements may justify:</p>
+<p>redundancy,</p>
+<p>reserve capacity,</p>
+<p>or other additional resource allocation.</p>
+<p>The relationship should remain explicit.</p>
+<h1 id="58-allocation-and-resilience" data-oof-section-id="true" role="heading" aria-level="2">58. Allocation and Resilience</h1>
+<p>Resilience requirements may justify resource capacity that is not continuously consumed.</p>
+<p>Therefore:</p>
+<p>Unused Resilience Capacity ≠ Waste by default.</p>
+<p>The resilience Basis should remain governable.</p>
+<h1 id="59-allocation-and-model-selection" data-oof-section-id="true" role="heading" aria-level="2">59. Allocation and Model Selection</h1>
+<p>Different models may require materially different resource allocations.</p>
+<p>RSAM does not determine which model should be selected.</p>
+<p>COS governs relevant optimization.</p>
+<p>RSAM governs the resources assigned to the selected execution configuration.</p>
+<h1 id="60-allocation-and-agents" data-oof-section-id="true" role="heading" aria-level="2">60. Allocation and Agents</h1>
+<p>Multi-agent systems may require separate allocations for:</p>
+<p>individual agents,</p>
+<p>coordination,</p>
+<p>shared context,</p>
+<p>tools,</p>
+<p>validation,</p>
+<p>and orchestration.</p>
+<p>Agent count alone does not determine allocation requirement.</p>
+<h1 id="61-allocation-and-human-support" data-oof-section-id="true" role="heading" aria-level="2">61. Allocation and Human Support</h1>
+<p>Where human support forms part of the Execution Configuration, relevant human capacity may be allocated.</p>
+<p>This may include:</p>
+<p>review capacity,</p>
+<p>exception handling,</p>
+<p>validation,</p>
+<p>or operational supervision.</p>
+<p>RSAM does not govern employment or staffing policy.</p>
+<h1 id="62-allocation-and-hardware" data-oof-section-id="true" role="heading" aria-level="2">62. Allocation and Hardware</h1>
+<p>Hardware capacity may be allocated where required for execution.</p>
+<p>The existence of higher-performance hardware does not create a requirement to use it.</p>
+<p>Therefore:</p>
+<p>Available Hardware Capability ≠ Required Hardware Allocation.</p>
+<h1 id="63-allocation-and-compute" data-oof-section-id="true" role="heading" aria-level="2">63. Allocation and Compute</h1>
+<p>Compute allocation should correspond to the requirements of the governed Execution Configuration.</p>
+<p>RSAM determines allocation state.</p>
+<p>COS determines computational optimization.</p>
+<h1 id="64-allocation-and-energy" data-oof-section-id="true" role="heading" aria-level="2">64. Allocation and Energy</h1>
+<p>Execution-related energy capacity may form part of resource allocation where material.</p>
+<p>RSAM does not govern energy generation, markets, or broader energy allocation systems.</p>
+<h1 id="65-allocation-and-cost" data-oof-section-id="true" role="heading" aria-level="2">65. Allocation and Cost</h1>
+<p>Allocation may create economic consequences.</p>
+<p>RSAM does not determine whether the resulting cost is justified by Value.</p>
+<p>IES governs economic treatment.</p>
+<p>Therefore:</p>
+<p>Resource Allocation ≠ Economic Justification.</p>
+<h1 id="66-allocation-and-productivity" data-oof-section-id="true" role="heading" aria-level="2">66. Allocation and Productivity</h1>
+<p>Additional resource allocation may improve productivity, have no material effect, or reduce overall efficiency.</p>
+<p>IPS governs productivity.</p>
+<p>Therefore:</p>
+<p>More Resources ≠ More Productivity by default.</p>
+<h1 id="67-allocation-and-value" data-oof-section-id="true" role="heading" aria-level="2">67. Allocation and Value</h1>
+<p>A resource allocation may support high-Value or low-Value execution.</p>
+<p>VGS governs Value.</p>
+<p>Therefore:</p>
+<p>Resource Allocation ≠ Value Creation.</p>
+<h1 id="68-allocation-and-authority" data-oof-section-id="true" role="heading" aria-level="2">68. Allocation and Authority</h1>
+<p>The technical ability to allocate a resource does not establish authority to allocate it.</p>
+<p>Applicable authorization and governance constraints remain external to RSAM where appropriate.</p>
+<p>Therefore:</p>
+<p>Allocation Capability ≠ Allocation Authority.</p>
+<h1 id="69-allocation-and-permission" data-oof-section-id="true" role="heading" aria-level="2">69. Allocation and Permission</h1>
+<p>Resource allocation should remain compatible with applicable permissions.</p>
+<p>Optimization pressure does not override permission boundaries.</p>
+<p>Therefore:</p>
+<p>Optimization ≠ Permission.</p>
+<h1 id="70-allocation-and-governed-constraints" data-oof-section-id="true" role="heading" aria-level="2">70. Allocation and Governed Constraints</h1>
+<p>RSAM must respect constraints established by competent governance sources.</p>
+<p>It may determine an appropriate allocation within those constraints.</p>
+<p>It does not weaken constraints to improve execution performance.</p>
+<h1 id="71-allocation-conflict" data-oof-section-id="true" role="heading" aria-level="2">71. Allocation Conflict</h1>
+<p>An Allocation Conflict exists where execution requirements cannot be satisfied within the available resources and applicable constraints.</p>
+<p>The conflict should become explicit.</p>
+<p>It should not be hidden by uncontrolled allocation.</p>
+<h1 id="72-allocation-exception" data-oof-section-id="true" role="heading" aria-level="2">72. Allocation Exception</h1>
+<p>An Allocation Exception may temporarily permit a different resource state under a legitimate governed Basis.</p>
+<p>Exceptions should be:</p>
+<p>identified,</p>
+<p>bounded,</p>
+<p>evidenced,</p>
+<p>and reassessed.</p>
+<h1 id="73-allocation-exception-expiry" data-oof-section-id="true" role="heading" aria-level="2">73. Allocation Exception Expiry</h1>
+<p>Temporary allocation exceptions should have a defined:</p>
+<p>expiry,</p>
+<p>review condition,</p>
+<p>or termination trigger</p>
+<p>where appropriate.</p>
+<h1 id="74-allocation-drift" data-oof-section-id="true" role="heading" aria-level="2">74. Allocation Drift</h1>
+<p>Allocation Drift occurs where actual allocation progressively departs from the intended governed allocation state without explicit reassessment.</p>
+<p>Possible causes include:</p>
+<p>configuration changes,</p>
+<p>workload changes,</p>
+<p>manual intervention,</p>
+<p>or historical provisioning.</p>
+<h1 id="75-allocation-lock-in" data-oof-section-id="true" role="heading" aria-level="2">75. Allocation Lock-In</h1>
+<p>A resource allocation may become difficult to reduce because of:</p>
+<p>technical dependencies,</p>
+<p>architecture,</p>
+<p>contractual arrangements,</p>
+<p>or operational design.</p>
+<p>RSAM may identify the allocation condition.</p>
+<p>ISS and DGS may govern broader dependency and lifecycle consequences.</p>
+<h1 id="76-allocation-reassessment" data-oof-section-id="true" role="heading" aria-level="2">76. Allocation Reassessment</h1>
+<p>Reassessment should occur where material evidence indicates that the existing allocation no longer reflects the current Operational Requirement.</p>
+<p>The objective is not constant reallocation.</p>
+<p>It is continued allocation legitimacy.</p>
+<h1 id="77-allocation-versioning" data-oof-section-id="true" role="heading" aria-level="2">77. Allocation Versioning</h1>
+<p>Material changes to:</p>
+<p>allocation quantity,</p>
+<p>duration,</p>
+<p>Basis,</p>
+<p>resource type,</p>
+<p>Execution Configuration,</p>
+<p>or applicable assumptions</p>
+<p>should remain versioned where required for traceability.</p>
+<h1 id="78-allocation-provenance" data-oof-section-id="true" role="heading" aria-level="2">78. Allocation Provenance</h1>
+<p>A Governed Resource Allocation State should remain traceable to:</p>
+<p>Resource Object,</p>
+<p>Allocation Object,</p>
+<p>Operational Requirement,</p>
+<p>allocation Basis,</p>
+<p>quantity,</p>
+<p>duration,</p>
+<p>conditions,</p>
+<p>assumptions,</p>
+<p>evidence,</p>
+<p>version,</p>
+<p>and relevant decision state.</p>
+<h1 id="79-allocation-integrity" data-oof-section-id="true" role="heading" aria-level="2">79. Allocation Integrity</h1>
+<p>RSAM should resist:</p>
+<p>allocating maximum capacity by default,</p>
+<p>treating historical provisioning as current necessity,</p>
+<p>treating availability as requirement,</p>
+<p>hiding allocation assumptions,</p>
+<p>ignoring persistent underutilization,</p>
+<p>ignoring underprovisioning,</p>
+<p>preserving expired allocations,</p>
+<p>using resource abundance as justification for excess,</p>
+<p>and weakening governed constraints to increase performance.</p>
+<p>The governing principle is:</p>
+<p>Allocate resources according to demonstrated execution need, not available technical appetite.</p>
+<h1 id="80-governed-resource-allocation-state" data-oof-section-id="true" role="heading" aria-level="2">80. Governed Resource Allocation State</h1>
+<p>The principal output of RSAM is:</p>
+<p>Governed Resource Allocation State</p>
+<p>It should identify, where applicable:</p>
+<p>Allocation Object,</p>
+<p>Resource Object,</p>
+<p>Allocation Requirement,</p>
+<p>Allocation Basis,</p>
+<p>Allocation Purpose,</p>
+<p>allocation quantity,</p>
+<p>minimum sufficient allocation,</p>
+<p>sufficiency,</p>
+<p>insufficiency,</p>
+<p>excess,</p>
+<p>allocation range,</p>
+<p>floor,</p>
+<p>ceiling,</p>
+<p>target,</p>
+<p>margin,</p>
+<p>reserve,</p>
+<p>dedicated or shared status,</p>
+<p>priority,</p>
+<p>dependencies,</p>
+<p>conditional allocation,</p>
+<p>duration,</p>
+<p>start,</p>
+<p>end,</p>
+<p>expiry,</p>
+<p>review state,</p>
+<p>assumptions,</p>
+<p>uncertainty,</p>
+<p>utilization,</p>
+<p>overprovisioning,</p>
+<p>underprovisioning,</p>
+<p>exceptions,</p>
+<p>drift,</p>
+<p>evidence,</p>
+<p>version,</p>
+<p>and provenance.</p>
+<h1 id="81-meaning-of-the-output" data-oof-section-id="true" role="heading" aria-level="2">81. Meaning of the Output</h1>
+<p>A Governed Resource Allocation State establishes what resources are assigned to an intelligence execution and the operational Basis for that assignment.</p>
+<p>It may establish that:</p>
+<p>allocation is sufficient,</p>
+<p>allocation is insufficient,</p>
+<p>allocation is excessive,</p>
+<p>additional reserve is justified,</p>
+<p>an allocation is conditional,</p>
+<p>an allocation has expired,</p>
+<p>or reassessment is required.</p>
+<p>It does not determine dynamic reallocation itself.</p>
+<p>That mechanism belongs to DRRM.</p>
+<h1 id="82-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">82. Minimum Implementation Framework</h1>
+<p>A conforming implementation of RSAM must provide exactly the following six capabilities:</p>
+<p>1. Allocation Object &amp; Requirement Governance</p>
+<p>Capability to connect identified Resource Objects with the execution objects and Operational Requirements they support.</p>
+<p>2. Allocation Quantity &amp; Sufficiency Governance</p>
+<p>Capability to establish quantities, ranges, floors, ceilings, targets, margins, and resource sufficiency states where appropriate.</p>
+<p>3. Allocation Condition &amp; Duration Governance</p>
+<p>Capability to govern dedicated, shared, conditional, persistent, temporary, triggered, reserved, and time- or state-bounded allocations.</p>
+<p>4. Allocation Dependency &amp; Priority Governance</p>
+<p>Capability to represent coupled resources, dependencies, priority states, workload conditions, concurrency, reliability, and resilience requirements where relevant.</p>
+<p>5. Allocation Evidence &amp; Integrity Governance</p>
+<p>Capability to preserve assumptions, uncertainty, utilization evidence, exceptions, drift, versioning, provenance, and reassessment.</p>
+<p>6. RGS Dynamic Reallocation Handoff Governance</p>
+<p>Capability to produce a Governed Resource Allocation State sufficiently explicit for subsequent Dynamic Resource Reallocation governance.</p>
+<h1 id="83-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">83. Governance Logic</h1>
+<p>The canonical RSAM governance logic is:</p>
+<p>Governed Execution Resource Inventory</p>
+<p>↓</p>
+<p>Identify Allocation Object</p>
+<p>↓</p>
+<p>Identify Relevant Resource Objects</p>
+<p>↓</p>
+<p>Establish Allocation Requirement</p>
+<p>↓</p>
+<p>Establish Allocation Basis / Purpose</p>
+<p>↓</p>
+<p>Assess Workload / Complexity / Concurrency</p>
+<p>↓</p>
+<p>Apply Applicable Governed Constraints</p>
+<p>↓</p>
+<p>Determine Minimum Sufficient Allocation</p>
+<p>↓</p>
+<p>Establish Quantity / Range / Floor / Ceiling</p>
+<p>↓</p>
+<p>Establish Duration / Conditions / Reserve</p>
+<p>↓</p>
+<p>Assess Dependencies / Priority / Resilience Requirements</p>
+<p>↓</p>
+<p>Assess Sufficiency / Insufficiency / Excess</p>
+<p>↓</p>
+<p>Assess Evidence / Assumptions / Uncertainty</p>
+<p>↓</p>
+<p>Establish Governed Resource Allocation State</p>
+<p>↓</p>
+<p>Handoff to Dynamic Resource Reallocation Governance</p>
+<h1 id="84-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">84. Governance Outputs</h1>
+<p>RSAM may produce:</p>
+<p>Allocation Object</p>
+<p>Allocation Requirement</p>
+<p>Allocation Basis</p>
+<p>Allocation Purpose</p>
+<p>Resource Allocation Quantity</p>
+<p>Minimum Sufficient Allocation</p>
+<p>Allocation Sufficiency State</p>
+<p>Allocation Insufficiency State</p>
+<p>Allocation Excess State</p>
+<p>Allocation Range</p>
+<p>Allocation Floor</p>
+<p>Allocation Ceiling</p>
+<p>Allocation Target</p>
+<p>Allocation Margin</p>
+<p>Resource Reserve State</p>
+<p>Dedicated Allocation State</p>
+<p>Shared Allocation State</p>
+<p>Allocation Priority State</p>
+<p>Allocation Dependency Record</p>
+<p>Conditional Allocation State</p>
+<p>Allocation Duration</p>
+<p>Allocation Start State</p>
+<p>Allocation End State</p>
+<p>Allocation Expiry State</p>
+<p>Allocation Review State</p>
+<p>Allocation Assumption Record</p>
+<p>Allocation Uncertainty</p>
+<p>Allocation Utilization State</p>
+<p>Overprovisioning State</p>
+<p>Underprovisioning State</p>
+<p>Allocation Exception State</p>
+<p>Allocation Drift State</p>
+<p>Allocation Evidence</p>
+<p>Allocation Version</p>
+<p>Allocation Provenance</p>
+<p>The principal output is:</p>
+<p>Governed Resource Allocation State</p>
+<h1 id="85-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">85. Critical Distinctions</h1>
+<p>RSAM preserves the following distinctions:</p>
+<p>Available Capacity ≠ Required Allocation</p>
+<p>Resource Availability ≠ Allocation Requirement</p>
+<p>More Allocation ≠ Better Resource Governance</p>
+<p>Minimum Sufficient Allocation ≠ Minimum Possible Allocation</p>
+<p>Reserved Capacity ≠ Active Consumption</p>
+<p>Historical Need ≠ Permanent Allocation Need</p>
+<p>Expired Allocation ≠ Current Allocation Authority</p>
+<p>Allocated Resource ≠ Consumed Resource</p>
+<p>Higher Task Complexity ≠ Automatic Maximum Allocation</p>
+<p>Unused Resilience Capacity ≠ Waste by default</p>
+<p>Available Hardware Capability ≠ Required Hardware Allocation</p>
+<p>Resource Allocation ≠ Economic Justification</p>
+<p>More Resources ≠ More Productivity by default</p>
+<p>Resource Allocation ≠ Value Creation</p>
+<p>Allocation Capability ≠ Allocation Authority</p>
+<p>Optimization ≠ Permission</p>
+<p>Resource Allocation ≠ Dynamic Resource Reallocation</p>
+<h1 id="86-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Cross-Architecture Boundary</h1>
+<p>RSAM governs Resource Allocation within RGS.</p>
+<p>RIM governs Resource Identification.</p>
+<p>DRRM governs Dynamic Resource Reallocation.</p>
+<p>RCM governs Resource Constraint.</p>
+<p>RCTM governs Consumption Traceability.</p>
+<p>XGS governs intelligence execution.</p>
+<p>IPS governs productivity.</p>
+<p>COS governs computational optimization.</p>
+<p>IES governs execution economics.</p>
+<p>ISS governs long-term intelligence sustainability.</p>
+<p>VGS governs Value.</p>
+<p>DGS governs lifecycle decisions.</p>
+<p>VALIDOS™ may govern relevant validation methodology.</p>
+<p>ADIT® may govern evidence and auditability.</p>
+<p>ORA™ may establish relevant Operational Reality.</p>
+<p>RSAM may consume evidence from these governed spaces without replacing their authority or methodology.</p>
+<h1 id="87-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">87. Canonical Boundary</h1>
+<p>RSAM begins where RIM has established a sufficiently governed inventory of execution Resource Objects.</p>
+<p>RSAM governs:</p>
+<p>Allocation Objects,</p>
+<p>Allocation Requirements,</p>
+<p>Allocation Bases,</p>
+<p>Allocation Purposes,</p>
+<p>allocation quantities,</p>
+<p>minimum sufficient allocation,</p>
+<p>allocation sufficiency,</p>
+<p>allocation insufficiency,</p>
+<p>allocation excess,</p>
+<p>allocation precision,</p>
+<p>allocation ranges,</p>
+<p>floors,</p>
+<p>ceilings,</p>
+<p>targets,</p>
+<p>margins,</p>
+<p>reserves,</p>
+<p>dedicated allocation,</p>
+<p>shared allocation,</p>
+<p>resource pools,</p>
+<p>priority,</p>
+<p>allocation sequence,</p>
+<p>dependencies,</p>
+<p>coupled allocation,</p>
+<p>conditional allocation,</p>
+<p>triggered allocation,</p>
+<p>persistent allocation,</p>
+<p>temporary allocation,</p>
+<p>duration,</p>
+<p>start,</p>
+<p>end,</p>
+<p>expiry,</p>
+<p>renewal,</p>
+<p>review,</p>
+<p>allocation states,</p>
+<p>state transitions,</p>
+<p>assumptions,</p>
+<p>uncertainty,</p>
+<p>allocation validation,</p>
+<p>utilization,</p>
+<p>overprovisioning,</p>
+<p>underprovisioning,</p>
+<p>workload relationships,</p>
+<p>task complexity,</p>
+<p>concurrency,</p>
+<p>latency,</p>
+<p>reliability,</p>
+<p>resilience,</p>
+<p>human-support allocation,</p>
+<p>hardware allocation,</p>
+<p>compute allocation,</p>
+<p>execution-related energy allocation,</p>
+<p>allocation conflicts,</p>
+<p>exceptions,</p>
+<p>drift,</p>
+<p>lock-in indicators,</p>
+<p>reassessment,</p>
+<p>versioning,</p>
+<p>evidence,</p>
+<p>and provenance.</p>
+<p>RSAM does not independently govern:</p>
+<p>Resource Identification,</p>
+<p>Dynamic Resource Reallocation,</p>
+<p>Resource Constraint methodology,</p>
+<p>Consumption Traceability,</p>
+<p>computational optimization,</p>
+<p>productivity,</p>
+<p>economic justification,</p>
+<p>Value,</p>
+<p>Harm,</p>
+<p>Liability,</p>
+<p>or lifecycle decisions.</p>
+<p>RSAM ends when the resource assignment has been represented as a:</p>
+<p>Governed Resource Allocation State</p>
+<p>for subsequent RGS governance.</p>
+<h1 id="88-use-case-1-large-model-receives-maximum-compute-by-default" data-oof-section-id="true" role="heading" aria-level="2">88. Use Case 1 — Large Model Receives Maximum Compute by Default</h1>
+<p>An organization deploys an advanced AI model and automatically provisions the maximum available compute capacity for every execution.</p>
+<p>RIM has already established the relevant resource inventory.</p>
+<p>RSAM evaluates the actual execution requirement, expected workload, latency requirements, reliability conditions, and applicable constraints.</p>
+<p>The resulting allocation may establish a lower normal allocation with justified reserve capacity for exceptional workloads.</p>
+<p>The system therefore receives resources according to operational need rather than technical maximum.</p>
+<p>Available Capacity ≠ Required Allocation.</p>
+<h1 id="89-use-case-2-variable-agent-workload-requires-conditional-resources" data-oof-section-id="true" role="heading" aria-level="2">89. Use Case 2 — Variable Agent Workload Requires Conditional Resources</h1>
+<p>A multi-agent workflow handles both routine and exceptional cases.</p>
+<p>Routine executions require limited compute and tool access, while exceptional cases require additional agents, specialized tools, validation capacity, and human review.</p>
+<p>RSAM establishes a normal resource allocation for routine execution and identifies additional resources as conditional allocations rather than permanently assigning maximum capacity.</p>
+<p>The resulting Governed Resource Allocation State preserves both sufficient routine operation and the legitimate ability to support exceptional workloads.</p>
+<p>Resources can be available without being permanently allocated.</p>
+<h1 id="90-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">90. Canonical Closing Statement</h1>
+<p>A resource should not be allocated because a system can use it.</p>
+<p>It should be allocated because the execution requires it.</p>
+<p>The difference matters.</p>
+<p>Maximum capacity can hide weak allocation discipline.</p>
+<p>Historical provisioning can survive long after the requirement that created it disappears.</p>
+<p>And abundant resources can make overprovisioning look harmless even when it becomes the default architecture of the system.</p>
+<p>Resource allocation therefore requires a current relationship between operational need and assigned capacity.</p>
+<p>Available Capacity ≠ Required Allocation.</p>
+<p>Allocate enough to satisfy the requirement — not enough to satisfy every possible appetite.</p>
+<p>Good allocation is not the largest resource state a system can obtain. It is the resource state the execution can justify.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

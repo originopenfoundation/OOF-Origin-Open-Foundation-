@@ -4,7 +4,7 @@
   const architectureOrder = [
     "GOA", "ASGA", "INTEGROS", "AIG", "ORA",
     "CLIA", "MGIA", "PGA", "CLA", "TREGA",
-    "AGA", "OBIDENITY", "SIMULOS", "VFM", "VALIDOS",
+    "AGA", "OBIDENITY", "SIMULOS", "VFM", "VEGA", "VALIDOS",
     "LIGA"
   ];
 
@@ -23,6 +23,7 @@
     OBIDENITY: "ID",
     SIMULOS: "SI",
     VFM: "VF",
+    VEGA: "VE",
     VALIDOS: "VA",
     LIGA: "LI"
   };
