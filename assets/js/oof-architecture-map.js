@@ -82,7 +82,9 @@
       copy.className = "oof-map-copy";
       const acronym = document.createElement("span");
       acronym.className = "oof-map-acronym";
-      acronym.textContent = item.acronymLabel || item.acronym;
+      const acronymLabel = item.acronymLabel || item.acronym;
+      if (acronymLabel.length > 7) acronym.classList.add("oof-map-acronym--long");
+      acronym.textContent = acronymLabel;
       const name = document.createElement("span");
       name.className = "oof-map-name";
       name.textContent = item.name;
