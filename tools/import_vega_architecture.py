@@ -149,6 +149,7 @@ def render_complete_index(blocks: list[dict[str, str]]) -> str:
             if label not in body:
                 raise ValueError(f"{standard.code.upper()}: module label not found: {module.code.upper()}")
             body = body.replace(label, linked, 1)
+    body = re.sub(r'(</a>)\s+(<a href="vega-[^"]+\.html">)', r'\1</p>\n<p>\2', body)
     return body
 
 
