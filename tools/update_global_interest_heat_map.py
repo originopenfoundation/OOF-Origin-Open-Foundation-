@@ -73,6 +73,7 @@ def cloudflare_rows(account_id: str, site_tag: str, token: str, start: datetime,
               {{ datetime_geq: "{start_value}", datetime_leq: "{end_value}" }}
               {{ siteTag: "{site_tag}" }}
               {{ requestHost: "{HOST}" }}
+              {{ OR: [{{ bot: 0 }}, {{ bot: 1 }}] }}
             ] }}
           ) {{
             sum {{ visits }}

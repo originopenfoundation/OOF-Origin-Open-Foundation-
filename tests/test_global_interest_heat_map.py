@@ -88,7 +88,7 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
         with patch("update_global_interest_heat_map.request_json", return_value=response) as request:
             cloudflare_rows("a" * 32, "b" * 32, "token", NOW - timedelta(days=14), NOW)
         query = request.call_args.kwargs["payload"]["query"]
-        self.assertNotIn("bot: 0", query)
+        self.assertIn("OR: [{ bot: 0 }, { bot: 1 }]", query)
 
     def test_stale_dataset_detection_uses_36_hour_boundary(self) -> None:
         payload = {"lastCheckedAt": "2026-09-29T12:00:00Z"}
