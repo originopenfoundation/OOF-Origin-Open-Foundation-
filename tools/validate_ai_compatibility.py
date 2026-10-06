@@ -18,6 +18,15 @@ START = "<!-- OOF AI DISCOVERY START -->"
 END = "<!-- OOF AI DISCOVERY END -->"
 BLOCK_RE = re.compile(re.escape(START) + r".*?" + re.escape(END) + r"\s*", re.S)
 BASE_URL = "https://originopenfoundation.org/"
+LOCALIZED_LANGUAGES = {
+    "de": "de-DE",
+    "zh-cn": "zh-CN",
+    "zh-hk": "zh-HK",
+    "ja": "ja-JP",
+    "es": "es-ES",
+    "pt": "pt-PT",
+    "hi": "hi-IN",
+}
 
 
 def text_content(source: str) -> str:
@@ -54,6 +63,10 @@ def alias_target(page_relative: str) -> str | None:
     return candidate if (ROOT / candidate).is_file() else None
 
 
+def expected_language(page_relative: str) -> str:
+    return LOCALIZED_LANGUAGES.get(page_relative.split("/", 1)[0].casefold(), "en")
+
+
 def main() -> int:
     errors: list[str] = []
     pages = public_pages()
@@ -76,8 +89,9 @@ def main() -> int:
                 elif title.casefold() in titles:
                     errors.append(f"{relative(path)}: duplicate document title")
                 titles.add(title.casefold())
-            if not re.search(r'<html\b[^>]*\blang=["\']en["\']', source, re.I):
-                errors.append(f"{relative(path)}: missing English document language")
+            language = expected_language(page_relative)
+            if not re.search(rf'<html\b[^>]*\blang=["\']{re.escape(language)}["\']', source, re.I):
+                errors.append(f"{relative(path)}: missing expected document language {language}")
             if not re.search(r'<meta\s+name=["\']viewport["\']', source, re.I):
                 errors.append(f"{relative(path)}: missing viewport metadata")
         blocks = re.findall(re.escape(START) + r"(.*?)" + re.escape(END), source, re.S)
@@ -186,11 +200,21 @@ def main() -> int:
     graph = json.loads((ROOT / "data" / "oof-site-knowledge-graph.json").read_text(encoding="utf-8"))
     graph_pages = [item for item in graph.get("@graph", []) if str(item.get("@id", "")).endswith("#webpage")]
     canonical_pages = [path for path in pages if alias_target(relative(path)) is None]
-    if len(graph_pages) != len(canonical_pages):
-        errors.append(f"Knowledge graph has {len(graph_pages)} pages; expected {len(canonical_pages)}")
+    knowledge_pages = [path for path in canonical_pages if expected_language(relative(path)) == "en"]
+    knowledge_urls = set()
+    for path in knowledge_pages:
+        page_relative = relative(path)
+        if page_relative == "index.html":
+            knowledge_urls.add(BASE_URL)
+        elif page_relative.endswith("/index.html"):
+            knowledge_urls.add(BASE_URL + quote(unquote(page_relative.removesuffix("index.html")), safe="/-._~()"))
+        else:
+            knowledge_urls.add(BASE_URL + quote(unquote(page_relative), safe="/-._~()"))
+    if len(graph_pages) != len(knowledge_pages):
+        errors.append(f"Knowledge graph has {len(graph_pages)} pages; expected {len(knowledge_pages)}")
     graph_urls = {item.get("url") for item in graph_pages}
-    if graph_urls != canonicals:
-        errors.append("Knowledge graph and canonical page sets differ")
+    if graph_urls != knowledge_urls:
+        errors.append("Knowledge graph and canonical English page sets differ")
 
     for item in graph_pages:
         for link in item.get("relatedLink", []):

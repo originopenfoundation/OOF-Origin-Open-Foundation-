@@ -52,6 +52,67 @@ body {
   
 }
 
+.oof-language-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px auto 0;
+  color: #fff;
+  font-size: 13px;
+}
+
+.oof-language-switcher label {
+  font-weight: 700;
+}
+
+.oof-language-switcher select {
+  min-width: 190px;
+  max-width: min(100%, 280px);
+  min-height: 38px;
+  padding: 6px 34px 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 4px;
+  color: #111;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.oof-localization-notice {
+  border-left: 3px solid #fff;
+  padding: 10px 14px;
+  margin: 0 0 24px;
+}
+
+.oof-localization-notice p {
+  margin: 0 0 8px;
+}
+
+.oof-localization-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.oof-localization-notice a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .oof-language-switcher {
+    align-items: stretch;
+    flex-direction: column;
+    width: min(100%, 320px);
+  }
+
+  .oof-language-switcher select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .subtitle  {
   text-align: center;
   font-size: 18px;
@@ -2650,6 +2711,17 @@ padding:10px;
     font-size: 13px;
   }
 
+  .oof-sidebar-layout .oof-language-switcher {
+    justify-content: flex-start;
+    margin: 12px 0 0;
+    font-size: 12px;
+  }
+
+  .oof-sidebar-layout .oof-language-switcher select {
+    min-width: 0;
+    flex: 1;
+  }
+
   .oof-sidebar-layout .desktop-mega-nav,
   .oof-sidebar-layout .burger {
     display: none;
@@ -2658,7 +2730,7 @@ padding:10px;
   .oof-sidebar-layout #burgerMenu {
     display: block !important;
     position: absolute;
-    inset: 105px 0 58px 0;
+    inset: 145px 0 58px 0;
     width: auto;
     height: auto;
     padding: 12px 20px 22px;

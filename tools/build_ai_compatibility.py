@@ -37,6 +37,15 @@ FIELD_NAMES = (
     "Status",
     "Canonical Language",
 )
+LOCALIZED_LANGUAGES = {
+    "de": ("de-DE", "de_DE"),
+    "zh-cn": ("zh-CN", "zh_CN"),
+    "zh-hk": ("zh-HK", "zh_HK"),
+    "ja": ("ja-JP", "ja_JP"),
+    "es": ("es-ES", "es_ES"),
+    "pt": ("pt-PT", "pt_PT"),
+    "hi": ("hi-IN", "hi_IN"),
+}
 
 
 class PageParser(HTMLParser):
@@ -220,6 +229,26 @@ def canonical_url(path_or_relative: Path | str) -> str:
     return urljoin(BASE_URL, encoded_path(relative))
 
 
+def language_metadata(relative: str) -> tuple[str, str]:
+    prefix = relative.split("/", 1)[0].casefold()
+    return LOCALIZED_LANGUAGES.get(prefix, ("en", "en_US"))
+
+
+def localized_home_alternates(relative: str) -> list[tuple[str, str]]:
+    is_home = relative == "index.html" or (
+        relative.endswith("/index.html") and relative.split("/", 1)[0].casefold() in LOCALIZED_LANGUAGES
+    )
+    if not is_home:
+        return [("en", canonical_url(relative)), ("x-default", canonical_url(relative))]
+    alternates = [("en", canonical_url("index.html"))]
+    alternates.extend(
+        (language, canonical_url(f"{prefix}/index.html"))
+        for prefix, (language, _og_locale) in LOCALIZED_LANGUAGES.items()
+    )
+    alternates.append(("x-default", canonical_url("index.html")))
+    return alternates
+
+
 def extract_fields(source: str) -> dict[str, str]:
     fields: dict[str, str] = {}
     for field in FIELD_NAMES:
@@ -287,7 +316,7 @@ def inspect_pages(paths: list[Path]) -> list[dict]:
                 "title": title,
                 "existingTitle": parser.document_title(),
                 "headingTitle": parser.heading_title(),
-                "language": "en",
+                "language": language_metadata(relative)[0],
                 "schemaType": page_type(title, relative),
                 "existingDescription": parser.meta_description,
                 "fields": fields,
@@ -427,28 +456,32 @@ def metadata_block(record: dict) -> str:
     title = html.escape(record["title"], quote=True)
     description = html.escape(record["description"], quote=True)
     json_ld = json.dumps(page_json_ld(record), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    language, og_locale = language_metadata(record["relative"])
+    alternate_links = [
+        f'<link rel="alternate" hreflang="{html.escape(code, quote=True)}" href="{html.escape(url, quote=True)}" />'
+        for code, url in localized_home_alternates(record["relative"])
+    ]
     lines = [
             START,
             f'<meta name="description" content="{description}" />',
             f'<link rel="canonical" href="{canonical}" />',
-            f'<link rel="alternate" hreflang="en" href="{canonical}" />',
-            f'<link rel="alternate" hreflang="x-default" href="{canonical}" />',
+            *alternate_links,
             f'<link rel="alternate" type="application/ld+json" href="{BASE_URL}data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />',
             f'<link rel="alternate" type="text/plain" href="{BASE_URL}llms.txt" title="OOF LLM Index" />',
             '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />',
             '<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />',
-            '<meta name="content-language" content="en" />',
+            f'<meta name="content-language" content="{language}" />',
             f'<meta property="og:title" content="{title}" />',
             f'<meta property="og:description" content="{description}" />',
             f'<meta property="og:url" content="{canonical}" />',
             f'<meta property="og:type" content="{"website" if record["relative"] == "index.html" else "article"}" />',
             f'<meta property="og:site_name" content="{html.escape(SITE_NAME, quote=True)}" />',
-            '<meta property="og:locale" content="en_US" />',
+            f'<meta property="og:locale" content="{og_locale}" />',
             '<meta name="twitter:card" content="summary" />',
             f'<meta name="twitter:title" content="{title}" />',
             f'<meta name="twitter:description" content="{description}" />',
             f'<meta name="DC.title" content="{title}" />',
-            '<meta name="DC.language" content="en" />',
+            f'<meta name="DC.language" content="{language}" />',
             f'<meta name="DC.identifier" content="{canonical}" />',
             f'<script type="application/ld+json">{json_ld}</script>',
     ]
@@ -475,7 +508,7 @@ def metadata_block(record: dict) -> str:
                     "@id": BASE_URL + "#website",
                     "name": SITE_NAME,
                     "url": BASE_URL,
-                    "inLanguage": "en",
+                    "inLanguage": ["en", *[item[0] for item in LOCALIZED_LANGUAGES.values()]],
                     "publisher": {"@id": BASE_URL + "#organization"},
                 },
             ],
@@ -831,23 +864,28 @@ def update_search_index(records: list[dict]) -> int:
 def main() -> None:
     paths = public_pages()
     all_records = inspect_pages(paths)
-    records = [record for record in all_records if alias_target(record["relative"]) is None]
+    localized_records = [record for record in all_records if record["language"] != "en"]
+    english_records = [record for record in all_records if record["language"] == "en"]
+    records = [record for record in english_records if alias_target(record["relative"]) is None]
     by_relative = {record["relative"]: record for record in records}
-    for record in records:
+    for record in [*records, *localized_records]:
         inject_metadata(record)
         inject_section_ids(record["path"])
         inject_semantic_structure(record["path"])
-    for record in all_records:
+    for record in english_records:
         target_relative = alias_target(record["relative"])
         if target_relative:
             inject_alias_metadata(record, by_relative[target_relative])
     write_knowledge_graph(records)
     write_typed_relationships(records)
-    write_sitemap(records)
+    write_sitemap([*records, *localized_records])
     write_robots()
     write_llm_indexes(records)
-    added = update_search_index(records)
-    print(f"AI compatibility generated for {len(records)} pages; {added} missing search entries added.")
+    added = update_search_index([*records, *localized_records])
+    print(
+        f"AI compatibility generated for {len(records)} canonical English pages and "
+        f"{len(localized_records)} localized access pages; {added} missing search entries added."
+    )
 
 
 if __name__ == "__main__":

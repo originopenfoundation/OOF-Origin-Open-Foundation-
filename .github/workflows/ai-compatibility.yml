@@ -24,7 +24,9 @@ jobs:
           python-version: "3.12"
 
       - name: Rebuild AI discovery files
-        run: python tools/build_ai_compatibility.py
+        run: |
+          python tools/build_localization.py
+          python tools/build_ai_compatibility.py
 
       - name: Rebuild URL and version governance files
         run: python tools/build_url_governance.py

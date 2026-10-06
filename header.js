@@ -95,8 +95,105 @@ function toggleElement(id) {
 function getSiteRootPrefix() {
   const path = window.location.pathname.replace(/\\/g, "/");
   const parts = path.split("/").filter(Boolean);
-  if (parts.length <= 1) return "";
-  return "../".repeat(parts.length - 1);
+  const depth = path.endsWith("/") ? parts.length : Math.max(0, parts.length - 1);
+  return "../".repeat(depth);
+}
+
+const oofLanguages = [
+  { code: "en", prefix: "", label: "English" },
+  { code: "de-DE", prefix: "de", label: "Deutsch" },
+  { code: "zh-CN", prefix: "zh-cn", label: "简体中文（中国大陆）" },
+  { code: "zh-HK", prefix: "zh-hk", label: "繁體中文（香港）" },
+  { code: "ja-JP", prefix: "ja", label: "日本語" },
+  { code: "es-ES", prefix: "es", label: "Español" },
+  { code: "pt-PT", prefix: "pt", label: "Português" },
+  { code: "hi-IN", prefix: "hi", label: "हिन्दी" }
+];
+
+const oofLocalizedUi = {
+  "de-DE": { language: "Sprache", home: "Startseite", search: "Suchen", menu: "Menü", index: "OOF® Seitenindex", contact: "Kontakt", back: "Zurück" },
+  "zh-CN": { language: "语言", home: "首页", search: "搜索", menu: "菜单", index: "OOF® 网站索引", contact: "联系", back: "返回" },
+  "zh-HK": { language: "語言", home: "首頁", search: "搜尋", menu: "選單", index: "OOF® 網站索引", contact: "聯絡", back: "返回" },
+  "ja-JP": { language: "言語", home: "ホーム", search: "検索", menu: "メニュー", index: "OOF® サイト索引", contact: "お問い合わせ", back: "戻る" },
+  "es-ES": { language: "Idioma", home: "Inicio", search: "Buscar", menu: "Menú", index: "Índice del sitio OOF®", contact: "Contacto", back: "Volver" },
+  "pt-PT": { language: "Idioma", home: "Início", search: "Pesquisar", menu: "Menu", index: "Índice do site OOF®", contact: "Contacto", back: "Voltar" },
+  "hi-IN": { language: "भाषा", home: "मुखपृष्ठ", search: "खोजें", menu: "मेनू", index: "OOF® साइट सूचकांक", contact: "संपर्क", back: "वापस" }
+};
+
+const oofLocalizedFooter = {
+  "de-DE": ["NICHT AUSFÜHRENDER HINWEIS", "OOF® — OriginOpen® Foundation ist eine nicht ausführende methodologische Autorität. Diese Website und alle Veröffentlichungen dienen ausschließlich als Referenz.", "HINWEIS ZUR KANONISCHEN SPRACHE", "UCL™ ist die kanonische Sprachebene der OOF® Veröffentlichungen. Englisch ist ihre Trägersprache.", "Bei Unklarheiten ist der veröffentlichte englische HTML-Text maßgeblich.", "RECHTE UND SCHUTZ", "© OOF® — OriginOpen® Foundation. Geschützt durch MIP® — Methodological Intellectual Property. Alle Rechte vorbehalten."],
+  "zh-CN": ["非执行性声明", "OOF® — OriginOpen® Foundation 是非执行性方法论权威。本网站及所有出版物仅供参考。", "规范语言声明", "UCL™ 是 OOF® 出版物的规范语言层。英语是其承载语言。", "如有歧义，以已发布的英文 HTML 文本为准。", "权利与保护", "© OOF® — OriginOpen® Foundation。受 MIP® — Methodological Intellectual Property 保护。保留所有权利。"],
+  "zh-HK": ["非執行性聲明", "OOF® — OriginOpen® Foundation 是非執行性方法論權威。本網站及所有出版物僅供參考。", "規範語言聲明", "UCL™ 是 OOF® 出版物的規範語言層。英語是其承載語言。", "如有歧義，以已發布的英文 HTML 文字為準。", "權利與保護", "© OOF® — OriginOpen® Foundation。受 MIP® — Methodological Intellectual Property 保護。保留所有權利。"],
+  "ja-JP": ["非実行型に関する通知", "OOF® — OriginOpen® Foundation は非実行型の方法論的権威です。このウェブサイトとすべての出版物は参照専用です。", "正規言語に関する通知", "UCL™ は OOF® 出版物の正規言語層です。英語がその媒体言語です。", "曖昧さがある場合は、公開された英語の HTML 本文が優先されます。", "権利と保護", "© OOF® — OriginOpen® Foundation。MIP® — Methodological Intellectual Property により保護されています。無断転載を禁じます。"],
+  "es-ES": ["AVISO DE CARÁCTER NO EJECUTIVO", "OOF® — OriginOpen® Foundation es una autoridad metodológica no ejecutiva. Este sitio web y todas las publicaciones son únicamente de referencia.", "AVISO SOBRE EL IDIOMA CANÓNICO", "UCL™ es la capa lingüística canónica de las publicaciones de OOF®. El inglés es su idioma vehicular.", "En caso de ambigüedad, prevalece el texto HTML publicado en inglés.", "DERECHOS Y PROTECCIÓN", "© OOF® — OriginOpen® Foundation. Protegido por MIP® — Methodological Intellectual Property. Todos los derechos reservados."],
+  "pt-PT": ["AVISO DE CARÁTER NÃO EXECUTIVO", "A OOF® — OriginOpen® Foundation é uma autoridade metodológica não executiva. Este sítio e todas as publicações destinam-se apenas a referência.", "AVISO SOBRE A LÍNGUA CANÓNICA", "UCL™ é a camada linguística canónica das publicações da OOF®. O inglês é a sua língua veicular.", "Em caso de ambiguidade, prevalece o texto HTML publicado em inglês.", "DIREITOS E PROTEÇÃO", "© OOF® — OriginOpen® Foundation. Protegido por MIP® — Methodological Intellectual Property. Todos os direitos reservados."],
+  "hi-IN": ["गैर-निष्पादक सूचना", "OOF® — OriginOpen® Foundation एक गैर-निष्पादक कार्यप्रणाली प्राधिकरण है। यह वेबसाइट और सभी प्रकाशन केवल संदर्भ के लिए हैं।", "प्रामाणिक भाषा सूचना", "UCL™ OOF® प्रकाशनों की प्रामाणिक भाषा-परत है। अंग्रेज़ी इसकी वाहक भाषा है।", "किसी अस्पष्टता की स्थिति में प्रकाशित अंग्रेज़ी HTML पाठ प्रभावी होगा।", "अधिकार और संरक्षण", "© OOF® — OriginOpen® Foundation। MIP® — Methodological Intellectual Property के अंतर्गत संरक्षित। सर्वाधिकार सुरक्षित।"]
+};
+
+function getCurrentOofLanguage() {
+  const firstSegment = window.location.pathname.split("/").filter(Boolean)[0] || "";
+  return oofLanguages.find(language => language.prefix === firstSegment) || oofLanguages[0];
+}
+
+function getLocalizedHomeUrl(language) {
+  const root = getSiteRootUrl();
+  return language.prefix ? new URL(`${language.prefix}/`, root).href : root.href;
+}
+
+function applyLocalizedHeaderUi(language) {
+  const labels = oofLocalizedUi[language.code];
+  if (!labels) return;
+  const nav = document.querySelector(".desktop-mega-nav");
+  if (!nav) return;
+  const links = nav.querySelectorAll(":scope > a");
+  const search = nav.querySelector(".site-search-toggle");
+  const menu = nav.querySelector(".mega-menu-button");
+  const back = document.querySelector(".history-back-fab");
+  if (search) search.textContent = `⌕ ${labels.search}`;
+  if (menu) menu.textContent = `☰ ${labels.menu}`;
+  if (links[0]) links[0].textContent = labels.home;
+  if (links[1]) links[1].textContent = labels.index;
+  if (links[2]) links[2].textContent = labels.contact;
+  if (back) {
+    back.setAttribute("aria-label", labels.back);
+    back.title = labels.back;
+  }
+}
+
+function setupLanguageSwitcher() {
+  const wrapper = document.querySelector("[data-oof-language-switcher]");
+  const select = getById("oofLanguageSelect");
+  if (!wrapper || !select || select.dataset.ready === "true") return;
+  const current = getCurrentOofLanguage();
+  const labels = oofLocalizedUi[current.code];
+  const label = wrapper.querySelector("label");
+  if (label) label.textContent = labels ? labels.language : "Language";
+  select.setAttribute("aria-label", labels ? labels.language : "Change language");
+  select.innerHTML = oofLanguages.map(language =>
+    `<option value="${language.code}"${language.code === current.code ? " selected" : ""}>${language.label}</option>`
+  ).join("");
+  select.addEventListener("change", () => {
+    const target = oofLanguages.find(language => language.code === select.value) || oofLanguages[0];
+    window.location.assign(getLocalizedHomeUrl(target));
+  });
+  select.dataset.ready = "true";
+  applyLocalizedHeaderUi(current);
+}
+
+function applyLocalizedFooterUi() {
+  const values = oofLocalizedFooter[getCurrentOofLanguage().code];
+  const footer = document.querySelector("#footer .footer2, footer.footer2");
+  if (!values || !footer || footer.dataset.localized === "true") return;
+  const headings = footer.querySelectorAll(":scope > h2");
+  const paragraphs = footer.querySelectorAll(":scope > p");
+  if (headings[0]) headings[0].textContent = values[0];
+  if (paragraphs[0]) paragraphs[0].textContent = values[1];
+  if (headings[1]) headings[1].textContent = values[2];
+  if (paragraphs[1]) paragraphs[1].textContent = values[3];
+  if (paragraphs[2]) paragraphs[2].textContent = values[4];
+  if (headings[2]) headings[2].textContent = values[5];
+  if (paragraphs[3]) paragraphs[3].textContent = values[6];
+  footer.dataset.localized = "true";
 }
 
 function withSiteRoot(url) {
@@ -152,6 +249,7 @@ function normalizePageLinks(root = document) {
     }
   });
   setupPagePdfDownload();
+  applyLocalizedFooterUi();
 }
 
 function toggleBurger() {
@@ -594,6 +692,7 @@ document.addEventListener("click", event => {
 
 function initializeHeaderNavigation() {
   normalizePageLinks();
+  setupLanguageSwitcher();
   buildMegaMenu();
   setupBurgerMainSections();
   setupPageContentsNavigation();
