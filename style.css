@@ -2564,6 +2564,29 @@ padding:10px;
   border: 1px solid rgba(255, 255, 255, 0.55);
 }
 
+.oof-reality-boundary-gallery {
+  display: grid;
+  gap: 18px;
+}
+
+.oof-reality-boundary-gallery > a {
+  display: block;
+  background: #fff;
+  line-height: 0;
+}
+
+.oof-reality-boundary-gallery .oof-reference-visual {
+  max-width: none;
+}
+
+@media (min-width: 960px) {
+  body.oof-sidebar-layout > .oof-semantic-main > .oof-semantic-article > section.container.oof-reality-boundary-gallery {
+    width: calc(100vw - 380px);
+    max-width: none;
+    margin-left: 360px;
+  }
+}
+
 @media (min-width: 720px) {
   .oof-reference-visual[width="1024"][height="1536"] {
     width: min(100%, 760px);
