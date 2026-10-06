@@ -284,14 +284,12 @@ def public_payload(countries: list[dict], governance_spaces: list[dict], start: 
 
 
 def atomic_write(path: Path, payload: dict) -> bool:
-    if path.exists():
-        current = json.loads(path.read_text(encoding="utf-8"))
-        if current.get("dataRevision") == payload.get("dataRevision"):
-            return False
+    serialized = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") == serialized:
+        return False
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", newline="\n", dir=path.parent, delete=False, suffix=".tmp") as stream:
-        json.dump(payload, stream, ensure_ascii=False, indent=2)
-        stream.write("\n")
+        stream.write(serialized)
         temporary = Path(stream.name)
     validate(temporary)
     os.replace(temporary, path)

@@ -257,7 +257,7 @@
       if (!response.ok) throw new Error("Country geometry unavailable");
       return response.json();
     }),
-    fetch("data/oof-global-interest-heat-map.json", { cache: "no-cache" }).then(response => {
+    fetch("data/oof-global-interest-heat-map.json", { cache: "no-store" }).then(response => {
       if (!response.ok) throw new Error("Public interest dataset unavailable");
       return response.json();
     })

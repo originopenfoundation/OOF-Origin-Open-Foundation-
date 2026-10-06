@@ -123,16 +123,19 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 canonical_governance_spaces(missing)
 
-    def test_unchanged_revision_does_not_rewrite_public_dataset(self) -> None:
+    def test_unchanged_revision_still_refreshes_public_metadata(self) -> None:
         spaces = canonical_governance_spaces()
         payload = public_payload([{"iso": "AA", "status": "emerging"}], spaces, NOW - timedelta(days=14), NOW)
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "dataset.json"
             self.assertTrue(atomic_write(target, payload))
-            before = target.read_bytes()
             later = public_payload(payload["countries"], spaces, NOW - timedelta(days=13), NOW + timedelta(days=1))
+            self.assertEqual(payload["dataRevision"], later["dataRevision"])
+            self.assertTrue(atomic_write(target, later))
+            refreshed = json.loads(target.read_text(encoding="utf-8"))
+            self.assertEqual(refreshed["lastCheckedAt"], later["lastCheckedAt"])
+            self.assertEqual(refreshed["windowStart"], later["windowStart"])
             self.assertFalse(atomic_write(target, later))
-            self.assertEqual(target.read_bytes(), before)
 
 
 if __name__ == "__main__":
