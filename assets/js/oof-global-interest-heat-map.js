@@ -263,7 +263,7 @@
     })
   ]).then(([world, dataset]) => {
     if (typeof window.L !== "object") throw new Error("2D map library unavailable");
-    if (!dataset || dataset.schemaVersion !== "1.1" || dataset.algorithmVersion !== "3.0" || !Array.isArray(dataset.countries)) {
+    if (!dataset || dataset.schemaVersion !== "1.1" || !["3.0", "3.1"].includes(dataset.algorithmVersion) || !Array.isArray(dataset.countries)) {
       throw new Error("Public Global Interest Heat Map dataset is invalid");
     }
     updateFreshness(dataset);

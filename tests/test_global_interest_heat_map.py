@@ -80,15 +80,15 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
         public, _ = self.classify_one(distributed("AA", [8] * 8, spacing=2))
         self.assertEqual(public[0]["status"], "very-high")
 
-    def test_verified_technical_traffic_policy_excludes_cloudflare_bots_only(self) -> None:
-        self.assertTrue(TECHNICAL_TRAFFIC_POLICY["cloudflareBotFilter"])
+    def test_technical_traffic_policy_includes_cloudflare_bots(self) -> None:
+        self.assertFalse(TECHNICAL_TRAFFIC_POLICY["cloudflareBotFilter"])
         self.assertEqual(TECHNICAL_TRAFFIC_POLICY["additionalExclusions"], [])
-        self.assertIn("do not reliably identify individual people", TECHNICAL_TRAFFIC_POLICY["limitation"])
+        self.assertIn("Automated and human traffic are included", TECHNICAL_TRAFFIC_POLICY["limitation"])
         response = {"data": {"viewer": {"accounts": [{"rows": []}]}}}
         with patch("update_global_interest_heat_map.request_json", return_value=response) as request:
             cloudflare_rows("a" * 32, "b" * 32, "token", NOW - timedelta(days=14), NOW)
         query = request.call_args.kwargs["payload"]["query"]
-        self.assertIn("bot: 0", query)
+        self.assertNotIn("bot: 0", query)
 
     def test_stale_dataset_detection_uses_36_hour_boundary(self) -> None:
         payload = {"lastCheckedAt": "2026-09-29T12:00:00Z"}

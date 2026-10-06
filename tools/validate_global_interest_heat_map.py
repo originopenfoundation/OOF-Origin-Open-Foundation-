@@ -47,7 +47,7 @@ def validate(path: Path) -> dict:
         raise ValueError(f"Public payload fields differ from the governed schema: {sorted(set(payload) ^ REQUIRED_TOP_LEVEL)}")
     for field in ("windowStart", "windowEnd", "generatedAt", "lastCheckedAt"):
         parse_timestamp(payload[field], field)
-    if payload["schemaVersion"] != "1.1" or payload["algorithmVersion"] != "3.0":
+    if payload["schemaVersion"] != "1.1" or payload["algorithmVersion"] not in {"3.0", "3.1"}:
         raise ValueError("Unsupported Global Interest Heat Map schema or algorithm version")
     if not re.fullmatch(r"[a-f0-9]{64}", str(payload["dataRevision"])):
         raise ValueError("dataRevision must be a SHA-256 value")
@@ -56,8 +56,8 @@ def validate(path: Path) -> dict:
     if "not unique people" not in payload["observationUnit"].casefold():
         raise ValueError("Public metadata must distinguish visits from unique people")
     technical = payload["technicalTraffic"]
-    if not isinstance(technical, dict) or technical.get("cloudflareBotFilter") is not True:
-        raise ValueError("Technical traffic policy must declare the verified Cloudflare bot filter")
+    if not isinstance(technical, dict) or not isinstance(technical.get("cloudflareBotFilter"), bool):
+        raise ValueError("Technical traffic policy must declare whether the Cloudflare bot filter is enabled")
     if payload["canonicalArchitectureSource"] != "data/oof-architecture-registry.json":
         raise ValueError("Unexpected Canonical Architecture Index source")
     countries = payload["countries"]

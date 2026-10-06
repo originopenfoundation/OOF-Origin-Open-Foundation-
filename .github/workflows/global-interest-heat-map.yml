@@ -3,6 +3,13 @@ name: Global Interest Heat Map
 on:
   schedule:
     - cron: "17 3 * * *"
+  push:
+    branches: [main1]
+    paths:
+      - ".github/workflows/global-interest-heat-map.yml"
+      - "tools/update_global_interest_heat_map.py"
+      - "tools/validate_global_interest_heat_map.py"
+      - "tests/test_global_interest_heat_map.py"
   workflow_dispatch:
 
 permissions:

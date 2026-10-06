@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
 ARCHITECTURE_INDEX = ROOT / "data" / "oof-architecture-registry.json"
 SCHEMA_VERSION = "1.1"
-INTEREST_ALGORITHM_VERSION = "3.0"
+INTEREST_ALGORITHM_VERSION = "3.1"
 GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql"
 POPULATION_METADATA_URL = "https://api.worldbank.org/v2/country?format=json&per_page=400"
 POPULATION_VALUES_URL = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=5000&date=2020:2025"
@@ -38,9 +38,9 @@ CLASSIFICATION_CONFIG = {
     "veryHigh": {"visits": 60.0, "activeDays": 8, "spanDays": 10, "reliability": 0.75, "score": 1.20, "maximumDailyShare": 0.45},
 }
 TECHNICAL_TRAFFIC_POLICY = {
-    "cloudflareBotFilter": True,
+    "cloudflareBotFilter": False,
     "additionalExclusions": [],
-    "limitation": "The available aggregate Web Analytics rows do not reliably identify individual people, devices, collaborators, programmers, or all synthetic traffic.",
+    "limitation": "Automated and human traffic are included. The available aggregate Web Analytics rows do not reliably identify individual people, devices, collaborators, programmers, or synthetic traffic.",
 }
 
 
@@ -73,7 +73,6 @@ def cloudflare_rows(account_id: str, site_tag: str, token: str, start: datetime,
               {{ datetime_geq: "{start_value}", datetime_leq: "{end_value}" }}
               {{ siteTag: "{site_tag}" }}
               {{ requestHost: "{HOST}" }}
-              {{ bot: 0 }}
             ] }}
           ) {{
             sum {{ visits }}
@@ -258,6 +257,7 @@ def classify(
 def revision_for(countries: list[dict], governance_spaces: list[dict]) -> str:
     material = json.dumps({
         "algorithmVersion": INTEREST_ALGORITHM_VERSION,
+        "technicalTraffic": TECHNICAL_TRAFFIC_POLICY,
         "countries": countries,
         "governanceSpaces": governance_spaces,
     }, sort_keys=True, separators=(",", ":")).encode("utf-8")
