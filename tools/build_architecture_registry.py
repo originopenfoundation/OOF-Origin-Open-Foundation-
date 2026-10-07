@@ -77,7 +77,8 @@ def parse_navigation(architectures: list[dict]) -> None:
     ]
     for architecture in architectures:
         acronym = architecture["acronym"]
-        candidates = [link for link in links if acronym in link["label"]]
+        acronym_re = re.compile(rf"(?<![A-Z0-9]){re.escape(acronym)}[®™]?(?![A-Z0-9])")
+        candidates = [link for link in links if acronym_re.search(link["label"])]
         seen = set()
         ordered = []
         for link in candidates:

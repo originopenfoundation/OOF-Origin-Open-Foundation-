@@ -5,7 +5,7 @@
     "GOA", "ASGA", "INTEGROS", "AIG", "ORA",
     "CLIA", "MGIA", "PGA", "CLA", "TREGA",
     "AGA", "OBIDENITY", "SIMULOS", "VFM", "VEGA", "VALIDOS",
-    "LIGA"
+    "HAGA", "LIGA"
   ];
 
   const iconLabels = {
@@ -25,6 +25,7 @@
     VFM: "VF",
     VEGA: "VE",
     VALIDOS: "VA",
+    HAGA: "HA",
     LIGA: "LI"
   };
 
