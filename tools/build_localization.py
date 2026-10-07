@@ -18,6 +18,7 @@ LANGUAGES = {
     "ja": {"code": "ja-JP", "native": "日本語", "english": "Japanese"},
     "es": {"code": "es-ES", "native": "Español", "english": "Spanish"},
     "pt": {"code": "pt-PT", "native": "Português", "english": "Portuguese"},
+    "fr": {"code": "fr-FR", "native": "Français", "english": "French"},
     "hi": {"code": "hi-IN", "native": "हिन्दी", "english": "Hindi"},
 }
 
@@ -147,6 +148,27 @@ TRANSLATIONS = {
             ["Declaração final", ["A OOF® não procura consenso. A OOF® define estrutura."]],
         ],
         "incident_link": "Explorar AI Incident Intelligence →",
+    },
+    "fr": {
+        "description": "Couche d’accès public en français à OOF® — OriginOpen® Foundation et à son infrastructure méthodologique.",
+        "notice_title": "Couche d’accès localisée",
+        "notice": "Cette page donne accès en français aux explications publiques d’OOF®. La méthodologie canonique, les termes protégés, les noms d’architectures, les standards, les modules et les identifiants demeurent inchangés en anglais.",
+        "canonical": "Ouvrir la version canonique en anglais",
+        "hero": "OOF® définit les conditions structurelles dans lesquelles les systèmes sont valides, interopérables et alignés sur la réalité.",
+        "tagline": "Standards Structured Reality™ pour l’IA, les systèmes et la gouvernance.",
+        "validity": "Un système n’est valide que lorsque les conditions structurelles définies sont satisfaites.",
+        "sections": [
+            ["Ce que c’est", ["OOF® — OriginOpen® Foundation est une autorité méthodologique de référence qui intervient au niveau des systèmes.", "Nous définissons la manière dont le sens, la structure et la validité sont établis dans les systèmes humains et l’intelligence artificielle.", "Cette plateforme est un système de référence canonique. Elle ne met pas en œuvre les systèmes. Elle définit les conditions dans lesquelles ils sont considérés comme valides."]],
+            ["Modèle du système", ["L’utilisation est ouverte. La compatibilité est conditionnelle. La validation définit l’intégrité du système.", "Un système n’est pas valide par simple déclaration. Il ne l’est que lorsque les conditions structurelles définies sont satisfaites."]],
+            ["Ce que nous définissons", [["les conditions Structured Reality™", "la validité des systèmes et leurs états opérationnels", "le sens canonique (UCL™)", "l’interopérabilité entre les systèmes", "la logique des systèmes adaptée à la gouvernance"]]],
+            ["Pourquoi cela compte", ["Les systèmes modernes échouent non par manque de technologie, mais en raison d’un sens instable et d’une structure non définie.", "L’IA interprète de manière incohérente, les systèmes entrent en conflit entre les domaines et les décisions manquent de fondement structurel.", "Sans sens défini, les systèmes ne peuvent pas rester valides."]],
+            ["Modèle d’autorité", ["OOF® est une autorité non exécutive.", "Elle n’exploite pas les systèmes et n’impose pas les résultats.", "Elle définit les conditions structurelles dans lesquelles les systèmes restent cohérents, interopérables et valides."]],
+            ["IA et intégrité des systèmes", ["L’IA ne définit pas le sens. Elle fonctionne à partir d’un sens défini.", "Au sein d’OOF®, l’interprétation est encadrée, le sens est canonique et les résultats sont vérifiables sur le plan structurel."]],
+            ["Global AI Incident Intelligence™", ["Les incidents réels liés à l’IA soumettent en permanence les architectures de gouvernance à des tests de résistance.", "Suivez les incidents émergents, comprenez leurs implications en matière de gouvernance et identifiez les architectures, standards et modules OOF® qui gouvernent la réalité opérationnelle concernée."]],
+            ["Explorer", ["Structured Reality™ · Standards · Utilisation et validité · Compatibilité OOF® · À propos de l’autorité"]],
+            ["Déclaration finale", ["OOF® ne recherche pas le consensus. OOF® définit la structure."]],
+        ],
+        "incident_link": "Explorer AI Incident Intelligence →",
     },
     "hi": {
         "description": "OOF® — OriginOpen® Foundation और उसकी कार्यप्रणाली अवसंरचना के लिए हिन्दी सार्वजनिक पहुँच-स्तर।",

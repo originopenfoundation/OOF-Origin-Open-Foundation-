@@ -107,6 +107,7 @@ const oofLanguages = [
   { code: "ja-JP", prefix: "ja", label: "日本語" },
   { code: "es-ES", prefix: "es", label: "Español" },
   { code: "pt-PT", prefix: "pt", label: "Português" },
+  { code: "fr-FR", prefix: "fr", label: "Français" },
   { code: "hi-IN", prefix: "hi", label: "हिन्दी" }
 ];
 
@@ -117,6 +118,7 @@ const oofLocalizedUi = {
   "ja-JP": { language: "言語", home: "ホーム", search: "検索", menu: "メニュー", index: "OOF® サイト索引", contact: "お問い合わせ", back: "戻る" },
   "es-ES": { language: "Idioma", home: "Inicio", search: "Buscar", menu: "Menú", index: "Índice del sitio OOF®", contact: "Contacto", back: "Volver" },
   "pt-PT": { language: "Idioma", home: "Início", search: "Pesquisar", menu: "Menu", index: "Índice do site OOF®", contact: "Contacto", back: "Voltar" },
+  "fr-FR": { language: "Langue", home: "Accueil", search: "Rechercher", menu: "Menu", index: "Index du site OOF®", contact: "Contact", back: "Retour" },
   "hi-IN": { language: "भाषा", home: "मुखपृष्ठ", search: "खोजें", menu: "मेनू", index: "OOF® साइट सूचकांक", contact: "संपर्क", back: "वापस" }
 };
 
@@ -127,6 +129,7 @@ const oofLocalizedFooter = {
   "ja-JP": ["非実行型に関する通知", "OOF® — OriginOpen® Foundation は非実行型の方法論的権威です。このウェブサイトとすべての出版物は参照専用です。", "正規言語に関する通知", "UCL™ は OOF® 出版物の正規言語層です。英語がその媒体言語です。", "曖昧さがある場合は、公開された英語の HTML 本文が優先されます。", "権利と保護", "© OOF® — OriginOpen® Foundation。MIP® — Methodological Intellectual Property により保護されています。無断転載を禁じます。"],
   "es-ES": ["AVISO DE CARÁCTER NO EJECUTIVO", "OOF® — OriginOpen® Foundation es una autoridad metodológica no ejecutiva. Este sitio web y todas las publicaciones son únicamente de referencia.", "AVISO SOBRE EL IDIOMA CANÓNICO", "UCL™ es la capa lingüística canónica de las publicaciones de OOF®. El inglés es su idioma vehicular.", "En caso de ambigüedad, prevalece el texto HTML publicado en inglés.", "DERECHOS Y PROTECCIÓN", "© OOF® — OriginOpen® Foundation. Protegido por MIP® — Methodological Intellectual Property. Todos los derechos reservados."],
   "pt-PT": ["AVISO DE CARÁTER NÃO EXECUTIVO", "A OOF® — OriginOpen® Foundation é uma autoridade metodológica não executiva. Este sítio e todas as publicações destinam-se apenas a referência.", "AVISO SOBRE A LÍNGUA CANÓNICA", "UCL™ é a camada linguística canónica das publicações da OOF®. O inglês é a sua língua veicular.", "Em caso de ambiguidade, prevalece o texto HTML publicado em inglês.", "DIREITOS E PROTEÇÃO", "© OOF® — OriginOpen® Foundation. Protegido por MIP® — Methodological Intellectual Property. Todos os direitos reservados."],
+  "fr-FR": ["AVIS DE NON-EXÉCUTION", "OOF® — OriginOpen® Foundation est une autorité méthodologique non exécutive. Ce site et toutes ses publications sont fournis uniquement à titre de référence.", "AVIS SUR LA LANGUE CANONIQUE", "UCL™ constitue la couche linguistique canonique des publications OOF®. L’anglais en est la langue porteuse.", "En cas d’ambiguïté, le texte HTML publié en anglais prévaut.", "DROITS ET PROTECTION", "© OOF® — OriginOpen® Foundation. Protégé par MIP® — Methodological Intellectual Property. Tous droits réservés."],
   "hi-IN": ["गैर-निष्पादक सूचना", "OOF® — OriginOpen® Foundation एक गैर-निष्पादक कार्यप्रणाली प्राधिकरण है। यह वेबसाइट और सभी प्रकाशन केवल संदर्भ के लिए हैं।", "प्रामाणिक भाषा सूचना", "UCL™ OOF® प्रकाशनों की प्रामाणिक भाषा-परत है। अंग्रेज़ी इसकी वाहक भाषा है।", "किसी अस्पष्टता की स्थिति में प्रकाशित अंग्रेज़ी HTML पाठ प्रभावी होगा।", "अधिकार और संरक्षण", "© OOF® — OriginOpen® Foundation। MIP® — Methodological Intellectual Property के अंतर्गत संरक्षित। सर्वाधिकार सुरक्षित।"]
 };
 

@@ -44,6 +44,7 @@ LOCALIZED_LANGUAGES = {
     "ja": ("ja-JP", "ja_JP"),
     "es": ("es-ES", "es_ES"),
     "pt": ("pt-PT", "pt_PT"),
+    "fr": ("fr-FR", "fr_FR"),
     "hi": ("hi-IN", "hi_IN"),
 }
 
