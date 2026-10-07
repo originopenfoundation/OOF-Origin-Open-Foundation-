@@ -53,30 +53,51 @@ body {
 }
 
 .oof-language-switcher {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin: 12px auto 0;
+  display: grid;
+  gap: 5px;
+  width: min(100%, 280px);
+  margin: 14px auto 0;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 6px;
+  background: rgba(40, 40, 40, 0.12);
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .oof-language-switcher label {
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .oof-language-switcher select {
-  min-width: 190px;
-  max-width: min(100%, 280px);
-  min-height: 38px;
-  padding: 6px 34px 6px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 7px 34px 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 4px;
+  color: #fff;
+  background: #737373;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.oof-language-switcher select:hover {
+  background: #6b6b6b;
+  border-color: #fff;
+}
+
+.oof-language-switcher select:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.oof-language-switcher option {
   color: #111;
   background: #fff;
-  font: inherit;
-  cursor: pointer;
 }
 
 .oof-localization-notice {
@@ -102,14 +123,8 @@ body {
 
 @media (max-width: 600px) {
   .oof-language-switcher {
-    align-items: stretch;
-    flex-direction: column;
-    width: min(100%, 320px);
-  }
-
-  .oof-language-switcher select {
-    width: 100%;
-    min-width: 0;
+    width: min(100%, 300px);
+    margin-top: 12px;
   }
 }
 
@@ -2712,14 +2727,8 @@ padding:10px;
   }
 
   .oof-sidebar-layout .oof-language-switcher {
-    justify-content: flex-start;
-    margin: 12px 0 0;
-    font-size: 12px;
-  }
-
-  .oof-sidebar-layout .oof-language-switcher select {
-    min-width: 0;
-    flex: 1;
+    width: 100%;
+    margin: 14px 0 0;
   }
 
   .oof-sidebar-layout .desktop-mega-nav,
@@ -2730,7 +2739,7 @@ padding:10px;
   .oof-sidebar-layout #burgerMenu {
     display: block !important;
     position: absolute;
-    inset: 145px 0 58px 0;
+    inset: 166px 0 58px 0;
     width: auto;
     height: auto;
     padding: 12px 20px 22px;
