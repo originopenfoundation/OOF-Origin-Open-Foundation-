@@ -46,6 +46,7 @@ LOCALIZED_LANGUAGES = {
     "pt": ("pt-PT", "pt_PT"),
     "fr": ("fr-FR", "fr_FR"),
     "hi": ("hi-IN", "hi_IN"),
+    "ko": ("ko-KR", "ko_KR"),
 }
 
 

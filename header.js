@@ -108,10 +108,12 @@ const oofLanguages = [
   { code: "es-ES", prefix: "es", label: "Español" },
   { code: "pt-PT", prefix: "pt", label: "Português" },
   { code: "fr-FR", prefix: "fr", label: "Français" },
-  { code: "hi-IN", prefix: "hi", label: "हिन्दी" }
+  { code: "hi-IN", prefix: "hi", label: "हिन्दी" },
+  { code: "ko-KR", prefix: "ko", label: "한국어" }
 ];
 
 const oofLocalizedUi = {
+  "ko-KR": { language: "언어", home: "홈", search: "검색", menu: "메뉴", index: "OOF® 사이트 색인", contact: "문의", back: "뒤로", canonicalPdf: "영어 정본 PDF 다운로드" },
   "de-DE": { language: "Sprache", home: "Startseite", search: "Suchen", menu: "Menü", index: "OOF® Seitenindex", contact: "Kontakt", back: "Zurück" },
   "zh-CN": { language: "语言", home: "首页", search: "搜索", menu: "菜单", index: "OOF® 网站索引", contact: "联系", back: "返回" },
   "zh-HK": { language: "語言", home: "首頁", search: "搜尋", menu: "選單", index: "OOF® 網站索引", contact: "聯絡", back: "返回" },
@@ -123,6 +125,7 @@ const oofLocalizedUi = {
 };
 
 const oofLocalizedFooter = {
+  "ko-KR": ["시스템을 직접 실행하지 않는 기관임을 알리는 고지", "OOF® — OriginOpen® Foundation은 시스템을 직접 실행하지 않는 방법론적 기준 기관입니다. 이 웹사이트와 모든 간행물은 참조용으로만 제공됩니다.", "정본 언어에 관한 고지", "UCL™은 OOF® 간행물의 정본 언어 계층입니다. 영어는 이를 표현하는 언어입니다.", "의미가 모호한 경우, 게시된 영어 HTML 본문이 우선합니다.", "권리 및 보호", "© OOF® — OriginOpen® Foundation. MIP® — Methodological Intellectual Property에 따라 보호됩니다. 모든 권리는 보유됩니다."],
   "de-DE": ["HINWEIS ZUR NICHT AUSFÜHRENDEN FUNKTION", "OOF® — OriginOpen® Foundation ist eine nicht ausführende methodologische Autorität. Diese Website und alle Veröffentlichungen dienen ausschließlich als Referenz.", "HINWEIS ZUR KANONISCHEN SPRACHE", "UCL™ ist die kanonische Sprachebene der OOF® Veröffentlichungen. Englisch ist ihre Trägersprache.", "Bei Unklarheiten ist der veröffentlichte englische HTML-Text maßgeblich.", "RECHTE UND SCHUTZ", "© OOF® — OriginOpen® Foundation. Geschützt durch MIP® — Methodological Intellectual Property. Alle Rechte vorbehalten."],
   "zh-CN": ["非执行性声明", "OOF® — OriginOpen® Foundation 是非执行性方法论权威。本网站及所有出版物仅供参考。", "规范语言声明", "UCL™ 是 OOF® 出版物的规范语言层。英语是其承载语言。", "如有歧义，以已发布的英文 HTML 文本为准。", "权利与保护", "© OOF® — OriginOpen® Foundation。受 MIP® — Methodological Intellectual Property 保护。保留所有权利。"],
   "zh-HK": ["非執行性聲明", "OOF® — OriginOpen® Foundation 是非執行性方法論權威。本網站及所有出版物僅供參考。", "規範語言聲明", "UCL™ 是 OOF® 出版物的規範語言層。英語是其承載語言。", "如有歧義，以已發布的英文 HTML 文字為準。", "權利與保護", "© OOF® — OriginOpen® Foundation。受 MIP® — Methodological Intellectual Property 保護。保留所有權利。"],
@@ -239,7 +242,14 @@ function setupPagePdfDownload() {
   }
 
   const link = download.querySelector("a");
-  if (link) link.href = getCurrentPagePdfUrl();
+  if (link) {
+    const canonicalPdf = oofLocalizedUi[getCurrentOofLanguage().code]?.canonicalPdf;
+    link.href = canonicalPdf ? new URL("pdf/index.pdf", getSiteRootUrl()).href : getCurrentPagePdfUrl();
+    if (canonicalPdf) {
+      link.textContent = canonicalPdf;
+      link.hreflang = "en";
+    }
+  }
 }
 
 function normalizePageLinks(root = document) {

@@ -20,9 +20,31 @@ LANGUAGES = {
     "pt": {"code": "pt-PT", "native": "Português", "english": "Portuguese"},
     "fr": {"code": "fr-FR", "native": "Français", "english": "French"},
     "hi": {"code": "hi-IN", "native": "हिन्दी", "english": "Hindi"},
+    "ko": {"code": "ko-KR", "native": "한국어", "english": "Korean"},
 }
 
 TRANSLATIONS = {
+    "ko": {
+        "description": "OOF® — OriginOpen® Foundation과 그 방법론 기반 체계를 소개하는 한국어 안내 페이지입니다.",
+        "notice_title": "한국어 안내",
+        "notice": "이 페이지는 OOF®의 공개 설명을 한국어로 제공합니다. 정본 방법론, 보호 대상 용어, 아키텍처 이름, 표준, 모듈 및 식별자는 영어 원문 그대로 유지됩니다.",
+        "canonical": "영어 정본 보기",
+        "hero": "OOF®는 시스템이 유효하고 상호 운용 가능하며 현실에 부합하기 위한 구조적 조건을 정의합니다.",
+        "tagline": "AI, 시스템 및 거버넌스를 위한 Structured Reality™ 표준.",
+        "validity": "시스템은 정의된 구조적 조건이 충족될 때에만 유효합니다.",
+        "sections": [
+            ["OOF® 소개", ["OOF® — OriginOpen® Foundation은 시스템 차원에서 활동하는 방법론적 기준 기관입니다.", "우리는 인간 시스템과 인공지능에서 의미, 구조 및 유효성이 어떻게 확립되는지를 정의합니다.", "이 플랫폼은 정본 참조 체계입니다. 시스템을 구현하지 않습니다. 시스템이 유효한 것으로 간주되는 조건을 정의합니다."]],
+            ["시스템 모델", ["이용은 개방되어 있습니다. 호환성에는 조건이 따릅니다. 검증은 시스템의 무결성을 정의합니다.", "선언만으로 시스템이 유효해지는 것은 아닙니다. 정의된 구조적 조건이 충족될 때에만 유효합니다."]],
+            ["정의하는 내용", [["Structured Reality™ 조건", "시스템의 유효성과 운영 상태", "정본으로 규정된 의미 (UCL™)", "시스템 간 상호 운용성", "거버넌스를 적용할 수 있는 시스템 논리"]]],
+            ["중요한 이유", ["현대 시스템이 실패하는 이유는 기술 부족이 아니라 불안정한 의미와 정의되지 않은 구조에 있습니다.", "AI의 해석은 일관되지 않고, 시스템은 영역을 넘나들며 충돌하며, 의사결정에는 구조적 근거가 부족합니다.", "의미가 정의되어 있지 않으면 시스템은 유효성을 유지할 수 없습니다."]],
+            ["기준 기관 모델", ["OOF®는 시스템을 직접 실행하지 않는 기준 기관입니다.", "OOF®는 시스템을 운영하거나 결과를 강제하지 않습니다.", "OOF®는 시스템이 일관성과 상호 운용성, 유효성을 유지하기 위한 구조적 조건을 정의합니다."]],
+            ["AI와 시스템 무결성", ["AI는 의미를 정의하지 않습니다. AI는 정의된 의미를 바탕으로 작동합니다.", "OOF® 체계에서는 해석이 제한되고, 의미는 정본으로 규정되며, 출력은 구조적으로 검증할 수 있습니다."]],
+            ["Global AI Incident Intelligence™", ["실제 AI 사고는 거버넌스 아키텍처에 대한 지속적인 스트레스 테스트가 됩니다.", "새롭게 발생하는 사고를 모니터링하고 거버넌스에 미치는 영향을 이해하며, 관련된 운영 현실에 어떤 OOF® 아키텍처, 표준 및 모듈이 적용되는지 확인하세요."]],
+            ["둘러보기", ["Structured Reality™ · 표준 · 이용과 유효성 · OOF® 호환성 · 기준 기관 소개"]],
+            ["마지막 선언", ["OOF®는 합의를 추구하지 않습니다. OOF®는 구조를 정의합니다."]],
+        ],
+        "incident_link": "AI Incident Intelligence 살펴보기 →",
+    },
     "de": {
         "description": "Lokalisierte deutsche Zugangsebene zur OOF® — OriginOpen® Foundation und ihrer Methodologie-Infrastruktur.",
         "notice_title": "Lokalisierte Zugangsebene",
