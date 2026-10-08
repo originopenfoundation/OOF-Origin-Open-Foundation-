@@ -36,6 +36,27 @@ class PageLinks(HTMLParser):
 
 
 class LocalizationTests(unittest.TestCase):
+    def test_russian_discovery_and_canonical_boundary(self):
+        source = (ROOT / "ru/index.html").read_text(encoding="utf-8")
+        self.assertIn('<html lang="ru-RU">', source)
+        self.assertIn('property="og:locale" content="ru_RU"', source)
+        self.assertIn('href="../index.html" hreflang="en"', source)
+        self.assertNotIn("\ufffd", source)
+        self.assertIn("Русский", source)
+        for term in ("OOF®", "Structured Reality™", "UCL™", "Global AI Incident Intelligence™"):
+            self.assertIn(term, source)
+        parser = PageLinks()
+        parser.feed(source)
+        self.assertEqual(len(parser.ids), len(set(parser.ids)))
+        for target in parser.targets:
+            parsed = urlparse(target)
+            if not parsed.scheme and not parsed.netloc and parsed.path:
+                self.assertTrue((ROOT / "ru" / unquote(parsed.path)).resolve().exists(), target)
+        search = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
+        entry = next(item for item in search if item["url"] == "ru/index.html")
+        self.assertIn("Русский", entry["title"])
+        self.assertIn("целостность", entry["text"])
+
     def test_language_registries_agree(self):
         expected = {prefix: details["code"] for prefix, details in localization.LANGUAGES.items()}
         self.assertEqual(expected, validator.LOCALIZED_LANGUAGES)
