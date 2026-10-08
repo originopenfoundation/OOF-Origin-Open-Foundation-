@@ -3,7 +3,7 @@
 English is the canonical methodology language. Localized home pages explain the
 public introduction; they do not translate normative standards, modules,
 identifiers or protected architecture names. German (`de/`) is the structural
-reference for the Korean (`ko/`, `ko-KR`) introduction.
+reference for the Korean (`ko/`, `ko-KR`) and Russian (`ru/`, `ru-RU`) introductions.
 
 ## Sources and generated files
 
@@ -20,6 +20,15 @@ The Korean home page uses the shared stylesheet and header/footer loader, just
 like German. Navigation to untranslated documents retains their English pages.
 The Korean PDF link explicitly names and downloads the existing English
 canonical PDF, since no Korean PDF is published.
+The Russian introduction uses the same explicitly labelled English PDF fallback.
+
+## Russian terminology
+
+Russian uses «валидность» for system validity, «целостность» for system integrity,
+«интероперабельность» for interoperability, and «канонический смысл» for canonical
+meaning. Governance is rendered as «управление» in its systemic context.
+OOF® is described as a methodological reference authority that does not execute
+systems or enforce outcomes. Protected names and identifiers remain in English.
 
 ## Korean terminology
 

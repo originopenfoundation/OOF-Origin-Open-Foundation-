@@ -28,6 +28,7 @@ LOCALIZED_LANGUAGES = {
     "fr": "fr-FR",
     "hi": "hi-IN",
     "ko": "ko-KR",
+    "ru": "ru-RU",
 }
 
 
