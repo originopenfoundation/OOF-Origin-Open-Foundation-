@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 from pathlib import Path
 
 
@@ -22,9 +23,113 @@ LANGUAGES = {
     "hi": {"code": "hi-IN", "native": "हिन्दी", "english": "Hindi"},
     "ko": {"code": "ko-KR", "native": "한국어", "english": "Korean"},
     "ru": {"code": "ru-RU", "native": "Русский", "english": "Russian"},
+    "it": {"code": "it-IT", "native": "Italiano", "english": "Italian"},
+    "ar": {"code": "ar", "native": "العربية", "english": "Arabic"},
 }
 
 TRANSLATIONS = {
+    'it': {'description': 'Accesso in italiano a OOF® — OriginOpen® Foundation e alla sua infrastruttura metodologica.',
+ 'notice_title': 'Accesso in italiano',
+ 'notice': 'Questa pagina presenta in italiano le spiegazioni pubbliche di OOF®. La metodologia canonica, i '
+           'termini protetti, i nomi delle architetture, gli standard, i moduli e gli identificatori '
+           'rimangono invariati in inglese.',
+ 'canonical': 'Aprire la versione canonica in inglese',
+ 'hero': 'OOF® definisce le condizioni strutturali in cui i sistemi sono validi, interoperabili e allineati '
+         'alla realtà.',
+ 'tagline': 'Standard Structured Reality™ per IA, sistemi e governance.',
+ 'validity': 'Un sistema è valido solo quando sono soddisfatte le condizioni strutturali definite.',
+ 'sections': [['Che cos’è OOF®',
+               ['OOF® — OriginOpen® Foundation è un’autorità metodologica di riferimento che opera a livello '
+                'di sistema.',
+                'Definiamo come si stabiliscono il significato, la struttura e la validità nei sistemi umani '
+                'e nell’intelligenza artificiale.',
+                'Questa piattaforma è un sistema di riferimento canonico. Non implementa sistemi. Definisce '
+                'le condizioni in cui i sistemi sono considerati validi.']],
+              ['Modello di sistema',
+               ['L’utilizzo è aperto. La compatibilità è condizionata. La validazione definisce l’integrità '
+                'del sistema.',
+                'Un sistema non è valido per il solo fatto di essere dichiarato tale. È valido solo quando '
+                'sono soddisfatte le condizioni strutturali definite.']],
+              ['Che cosa definiamo',
+               [['condizioni di Structured Reality™',
+                 'validità dei sistemi e stati operativi',
+                 'significato canonico (UCL™)',
+                 'interoperabilità tra sistemi',
+                 'logica di sistema predisposta per la governance']]],
+              ['Perché è importante',
+               ['I sistemi moderni non falliscono per mancanza di tecnologia, ma per l’instabilità del '
+                'significato e l’assenza di una struttura definita.',
+                'L’IA interpreta in modo incoerente. I sistemi entrano in conflitto tra domini. Le decisioni '
+                'mancano di un fondamento strutturale.',
+                'Senza un significato definito, i sistemi non possono mantenere la propria validità.']],
+              ['Modello di autorità',
+               ['OOF® è un’autorità che non svolge funzioni esecutive.',
+                'OOF® non gestisce sistemi e non impone risultati.',
+                'OOF® definisce le condizioni strutturali in cui i sistemi rimangono coerenti, '
+                'interoperabili e validi.']],
+              ['IA e integrità dei sistemi',
+               ['L’IA non definisce il significato. L’IA opera sulla base di un significato definito.',
+                'Nell’ambito di OOF®, l’interpretazione è vincolata, il significato è canonico e i risultati '
+                'sono verificabili sul piano strutturale.']],
+              ['Global AI Incident Intelligence™',
+               ['Gli incidenti reali legati all’IA sottopongono continuamente le architetture di governance '
+                'a prove di stress.',
+                'Monitora gli incidenti emergenti, comprendi le loro implicazioni per la governance e '
+                'individua le architetture, gli standard e i moduli OOF® che governano la realtà operativa '
+                'interessata.']],
+              ['Esplora',
+               ['Structured Reality™ · Standard · Utilizzo e validità · Compatibilità OOF® · Informazioni '
+                'sull’autorità']],
+              ['Dichiarazione conclusiva', ['OOF® non cerca il consenso. OOF® definisce la struttura.']]],
+ 'incident_link': 'Esplora AI Incident Intelligence →'},
+    'ar': {'description': 'صفحة باللغة العربية للتعريف بـ OOF® — OriginOpen® Foundation وبنيتها التحتية المنهجية.',
+ 'notice_title': 'الوصول باللغة العربية',
+ 'notice': 'تقدم هذه الصفحة الشروح العامة لـ OOF® باللغة العربية. وتبقى المنهجية المرجعية المعتمدة '
+           'والمصطلحات المحمية وأسماء البنى المعمارية والمعايير والوحدات والمعرّفات دون تغيير باللغة '
+           'الإنجليزية.',
+ 'canonical': 'فتح النسخة الإنجليزية المرجعية المعتمدة',
+ 'hero': 'تحدد OOF® الشروط البنيوية التي تكون الأنظمة بموجبها صالحة وقابلة للتشغيل البيني ومتسقة مع الواقع.',
+ 'tagline': 'معايير Structured Reality™ للذكاء الاصطناعي والأنظمة والحوكمة.',
+ 'validity': 'لا يكون النظام صالحًا إلا عند استيفاء الشروط البنيوية المحددة.',
+ 'sections': [['ما هي OOF®؟',
+               ['OOF® — OriginOpen® Foundation جهة مرجعية منهجية تعمل على مستوى الأنظمة.',
+                'نحدد كيفية إرساء المعنى والبنية والصلاحية في الأنظمة البشرية والذكاء الاصطناعي.',
+                'هذه المنصة نظام مرجعي معتمد. وهي لا تنفذ الأنظمة، بل تحدد الشروط التي تُعد الأنظمة بموجبها '
+                'صالحة.']],
+              ['نموذج النظام',
+               ['الاستخدام مفتوح. والتوافق مشروط. والتحقق من الصلاحية يحدد سلامة النظام.',
+                'لا يصبح النظام صالحًا بمجرد إعلان ذلك. ولا يكون صالحًا إلا عند استيفاء الشروط البنيوية '
+                'المحددة.']],
+              ['ما الذي نحدده؟',
+               [['شروط Structured Reality™',
+                 'صلاحية الأنظمة وحالاتها التشغيلية',
+                 'المعنى المرجعي المعتمد (UCL™)',
+                 'التشغيل البيني بين الأنظمة',
+                 'منطق الأنظمة المهيأ للحوكمة']]],
+              ['لماذا يُعد ذلك مهمًا؟',
+               ['لا تفشل الأنظمة الحديثة بسبب نقص التكنولوجيا، بل بسبب عدم استقرار المعنى وغياب بنية محددة.',
+                'يفسر الذكاء الاصطناعي المعلومات بصورة غير متسقة. وتتعارض الأنظمة عبر المجالات. وتفتقر '
+                'القرارات إلى أساس بنيوي.',
+                'من دون معنى محدد، لا تستطيع الأنظمة الحفاظ على صلاحيتها.']],
+              ['نموذج الجهة المرجعية',
+               ['OOF® جهة مرجعية لا تتولى التنفيذ المباشر.',
+                'لا تشغّل OOF® الأنظمة ولا تفرض النتائج.',
+                'تحدد OOF® الشروط البنيوية التي تظل الأنظمة بموجبها متسقة وقابلة للتشغيل البيني وصالحة.']],
+              ['الذكاء الاصطناعي وسلامة الأنظمة',
+               ['لا يحدد الذكاء الاصطناعي المعنى، بل يعمل بناءً على معنى محدد.',
+                'في إطار OOF®، يكون التفسير مقيدًا، والمعنى مرجعيًا معتمدًا، والمخرجات قابلة للتحقق '
+                'البنيوي.']],
+              ['Global AI Incident Intelligence™',
+               ['تخضع البنى المعمارية للحوكمة لاختبارات ضغط مستمرة من خلال حوادث الذكاء الاصطناعي في العالم '
+                'الحقيقي.',
+                'تابع الحوادث الناشئة، وافهم آثارها على الحوكمة، وتعرّف على البنى المعمارية والمعايير '
+                'والوحدات التابعة لـ OOF® التي تحكم الواقع التشغيلي المتأثر.']],
+              ['استكشف',
+               ['Structured Reality™ · المعايير · الاستخدام والصلاحية · التوافق مع OOF® · نبذة عن الجهة '
+                'المرجعية']],
+              ['البيان الختامي', ['لا تسعى OOF® إلى الإجماع. بل تحدد البنية.']]],
+ 'incident_link': 'استكشف AI Incident Intelligence ←'},
+
     "ru": {
         "description": "Русскоязычная страница OOF® — OriginOpen® Foundation и её методологической инфраструктуры.",
         "notice_title": "Русскоязычная версия",
@@ -238,13 +343,22 @@ TRANSLATIONS = {
 }
 
 
-def render_blocks(blocks: list[str | list[str]]) -> str:
+def localized_text(value: str, rtl: bool = False) -> str:
+    escaped = html.escape(value)
+    if rtl:
+        terms = ["OOF® — OriginOpen® Foundation", "Global AI Incident Intelligence™", "AI Incident Intelligence", "Structured Reality™", "OOF®", "UCL™"]
+        pattern = "|".join(re.escape(html.escape(term)) for term in terms)
+        escaped = re.sub(pattern, lambda match: '<bdi dir="ltr">' + match.group(0) + '</bdi>', escaped)
+    return escaped
+
+
+def render_blocks(blocks: list[str | list[str]], rtl: bool = False) -> str:
     rendered = []
     for block in blocks:
         if isinstance(block, list):
-            rendered.append("<ul>" + "".join(f"<li>{html.escape(item)}</li>" for item in block) + "</ul>")
+            rendered.append("<ul>" + "".join(f"<li>{localized_text(item, rtl)}</li>" for item in block) + "</ul>")
         else:
-            rendered.append(f"<p>{html.escape(block)}</p>")
+            rendered.append(f"<p>{localized_text(block, rtl)}</p>")
     return "\n".join(rendered)
 
 
@@ -253,15 +367,15 @@ def render_page(prefix: str, details: dict[str, str], translation: dict) -> str:
     for heading, blocks in translation["sections"]:
         extra = ""
         if heading == "Global AI Incident Intelligence™":
-            extra = f'<p><a href="../ai-incidents/"><strong>{html.escape(translation["incident_link"])}</strong></a></p>'
+            extra = f'<p><a href="../ai-incidents/"><strong>{localized_text(translation["incident_link"], prefix == "ar")}</strong></a></p>'
         sections.append(
             '<section class="container"><div class="oof-warning3">'
-            f'<h2>{html.escape(heading)}</h2>{render_blocks(blocks)}{extra}'
+            f'<h2>{localized_text(heading, prefix == "ar")}</h2>{render_blocks(blocks, prefix == "ar")}{extra}'
             '</div><section class="viewbor"></section></section>'
         )
     title = f'OOF® — OriginOpen® Foundation | {details["native"]}'
     return f'''<!doctype html>
-<html lang="{details["code"]}">
+<html lang="{details["code"]}"{' dir="rtl"' if prefix == 'ar' else ''}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -273,14 +387,14 @@ def render_page(prefix: str, details: dict[str, str], translation: dict) -> str:
 <div id="header"></div>
   <section class="container">
     <div class="oof-localization-notice">
-      <p><strong>{html.escape(translation["notice_title"])}</strong></p>
-      <p>{html.escape(translation["notice"])}</p>
-      <p><a href="../index.html" hreflang="en">{html.escape(translation["canonical"])}</a></p>
+      <p><strong>{localized_text(translation["notice_title"], prefix == "ar")}</strong></p>
+      <p>{localized_text(translation["notice"], prefix == "ar")}</p>
+      <p><a href="../index.html" hreflang="en">{localized_text(translation["canonical"], prefix == "ar")}</a></p>
     </div>
-    <h1>{html.escape(translation["hero"])}</h1>
+    <h1>{localized_text(translation["hero"], prefix == "ar")}</h1>
     <div class="oof-warning3">
-      <p>{html.escape(translation["tagline"])}</p>
-      <p>{html.escape(translation["validity"])}</p>
+      <p>{localized_text(translation["tagline"], prefix == "ar")}</p>
+      <p>{localized_text(translation["validity"], prefix == "ar")}</p>
     </div>
     <section class="viewbor"></section>
   </section>

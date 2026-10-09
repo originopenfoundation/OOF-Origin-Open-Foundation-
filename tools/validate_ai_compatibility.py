@@ -29,6 +29,8 @@ LOCALIZED_LANGUAGES = {
     "hi": "hi-IN",
     "ko": "ko-KR",
     "ru": "ru-RU",
+    "it": "it-IT",
+    "ar": "ar",
 }
 
 
