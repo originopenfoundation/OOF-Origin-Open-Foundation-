@@ -59,3 +59,16 @@ python -m unittest tests.test_localization
 Serve the repository over HTTP to check dynamically loaded shared UI. Verify
 `/ko/` and `/ko/index.html` at desktop and mobile widths, Korean/German/English
 switching, the Korean footer, and the English canonical and PDF links.
+
+## Italian and Arabic access layers
+
+Italian (`it/`, `it-IT`) and Modern Standard Arabic (`ar/`, `ar`) follow the German
+public introduction structure. Italian uses validità, integrità, interoperabilità
+and significato canonico; Arabic uses الصلاحية, سلامة النظام, التشغيل البيني and
+المعنى المرجعي المعتمد. Normative methodology remains in English.
+
+Arabic declares `dir="rtl"`, right-aligns public content and mirrors list/notice
+indentation. Protected Latin names use `bdi` isolation; localized footer names use
+Unicode direction isolates. Shared canonical navigation retains LTR geometry,
+and email addresses retain LTR direction. Both PDF buttons explicitly name the
+existing canonical English PDF. Check both `/ar/` and `/ar/index.html` on mobile.

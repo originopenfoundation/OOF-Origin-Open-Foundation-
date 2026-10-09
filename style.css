@@ -3416,3 +3416,15 @@ padding:10px;
     width: calc(100vw - 32px);
   }
 }
+
+/* Arabic access layer: retain shared navigation geometry and isolate Latin identity. */
+html[dir="rtl"] #header { direction: ltr; }
+html[dir="rtl"] .oof-semantic-main,
+html[dir="rtl"] .oof-semantic-main h1,
+html[dir="rtl"] .oof-semantic-main h2,
+html[dir="rtl"] .oof-semantic-main p,
+html[dir="rtl"] .oof-semantic-main li { text-align: right; }
+html[dir="rtl"] .oof-semantic-main ul { padding-left: 0; padding-right: 1.5em; }
+html[dir="rtl"] .oof-localization-notice { border-left: 0; border-right: 3px solid currentColor; }
+html[dir="rtl"] .footer-contact,
+html[dir="rtl"] .footer-email { direction: ltr; unicode-bidi: isolate; }

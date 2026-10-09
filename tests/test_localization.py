@@ -36,6 +36,36 @@ class PageLinks(HTMLParser):
 
 
 class LocalizationTests(unittest.TestCase):
+    def test_italian_and_arabic_metadata_assets_and_search(self):
+        search = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
+        for prefix, code, locale, native in [("it", "it-IT", "it_IT", "Italiano"), ("ar", "ar", "ar_AR", "العربية")]:
+            with self.subTest(language=prefix):
+                source = (ROOT / prefix / "index.html").read_text(encoding="utf-8")
+                self.assertIn('lang="' + code + '"', source)
+                self.assertIn('property="og:locale" content="' + locale + '"', source)
+                self.assertIn('href="../index.html" hreflang="en"', source)
+                self.assertNotIn("\ufffd", source)
+                for term in ("OOF®", "Structured Reality™", "UCL™", "Global AI Incident Intelligence™"):
+                    self.assertIn(term, source)
+                parser = PageLinks()
+                parser.feed(source)
+                self.assertEqual(len(parser.ids), len(set(parser.ids)))
+                for target in parser.targets:
+                    parsed = urlparse(target)
+                    if not parsed.scheme and not parsed.netloc and parsed.path:
+                        self.assertTrue((ROOT / prefix / unquote(parsed.path)).resolve().exists(), target)
+                entry = next(item for item in search if item["url"] == prefix + "/index.html")
+                self.assertIn(native, entry["title"])
+
+    def test_arabic_rtl_and_protected_name_isolation(self):
+        source = (ROOT / "ar/index.html").read_text(encoding="utf-8")
+        self.assertIn('<html lang="ar" dir="rtl">', source)
+        self.assertIn('<bdi dir="ltr">Structured Reality™</bdi>', source)
+        self.assertIn('<bdi dir="ltr">OOF®</bdi>', source)
+        italian = (ROOT / "it/index.html").read_text(encoding="utf-8")
+        self.assertNotIn('dir="rtl"', italian)
+
+
     def test_russian_discovery_and_canonical_boundary(self):
         source = (ROOT / "ru/index.html").read_text(encoding="utf-8")
         self.assertIn('<html lang="ru-RU">', source)
