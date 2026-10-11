@@ -51,15 +51,57 @@
   "createdAt": "2026-08-15T14:19:30.138000Z",
   "updatedAt": "2026-08-15T14:19:30.138000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-432320-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-432320-V5",
     "incidentId": "OOF-AII-432320",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "when"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "571e4f43e0194a4c7463b0b9ca2a47dfc79b1064fcb7b9337e76b7dc2749d139",
+      "normalizedFields": {
+        "organization": "Youtube Content Creators, Synthetic Media Creators, Science Communicators, Hank Green, Content Creators",
+        "system": "Youtube, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Youtube Users",
+          "Social Media Users",
+          "Epistemic Integrity"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-432320-EVID-571e4f43e019",
       "incidentSourceHash": "571e4f43e0194a4c7463b0b9ca2a47dfc79b1064fcb7b9337e76b7dc2749d139",
@@ -320,8 +362,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-432320-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-432320-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

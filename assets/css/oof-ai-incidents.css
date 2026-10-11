@@ -92,7 +92,7 @@
 
 .oof-incident-metrics {
   display: grid;
-  grid-template-columns: repeat(8, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(110px, 100%), 1fr));
   margin: 0;
   border-block: 1px solid rgba(255, 255, 255, 0.45);
 }
@@ -121,7 +121,7 @@
 
 .oof-incident-filters {
   display: grid;
-  grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(140px, 1fr)) auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
   align-items: end;
   gap: 10px;
   padding: 18px 0;
@@ -649,6 +649,25 @@
 .oof-incident-detail-facts dt { font-size: 10px; font-weight: 800; text-transform: uppercase; }
 .oof-incident-detail-facts dd { margin: 5px 0 0; }
 
+.oof-confidence-dimensions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.oof-confidence-dimensions > div {
+  min-width: 0;
+  padding: 14px;
+  background: #878988;
+}
+
+.oof-confidence-dimensions dt { font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.oof-confidence-dimensions dd { margin: 5px 0 8px; font-size: 18px; font-weight: 800; }
+.oof-confidence-dimensions p { margin: 0; font-size: 12px; }
+
 .oof-incident-detail > article > section {
   max-width: 880px;
   padding: 18px 0;
@@ -755,6 +774,7 @@
   .oof-incident-detail-facts div:nth-child(2) { border-right: 0; }
   .oof-incident-detail-facts div:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
   .oof-incident-detail-architectures { grid-template-columns: 1fr; }
+  .oof-confidence-dimensions { grid-template-columns: 1fr; }
   .oof-incident-directory-list li { grid-template-columns: 1fr; gap: 5px; }
   .oof-incident-directory-list li > span { white-space: normal; }
 }

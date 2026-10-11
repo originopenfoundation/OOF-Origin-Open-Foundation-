@@ -55,15 +55,57 @@
   "createdAt": "2026-10-03T00:00:00Z",
   "updatedAt": "2026-10-03T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-411238-V2",
+    "assessmentIdentity": "OOF-AII-ASMT-411238-V3",
     "incidentId": "OOF-AII-411238",
-    "analysisVersion": 2,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 3,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "tool"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "ff5edcfbca2dad8ad82163dcbf5e8b0cc9e85612a0709e5243fb49927c3c14d9",
+      "normalizedFields": {
+        "organization": "Anthropic, Ai Service Providers",
+        "system": "Claude Code, Llm Integrated Code Assistants, Ai Agent Systems, Enterprise Ai Systems, Unicode Characters",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Ai Coding Assistant Users",
+          "Privacy",
+          "Claude Code Users"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-411238-EVID-ff5edcfbca2d",
       "incidentSourceHash": "ff5edcfbca2dad8ad82163dcbf5e8b0cc9e85612a0709e5243fb49927c3c14d9",
@@ -319,8 +361,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-411238-V1",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-411238-V2",
     "reassessmentReason": "Material analysis engine change"
   }
 }

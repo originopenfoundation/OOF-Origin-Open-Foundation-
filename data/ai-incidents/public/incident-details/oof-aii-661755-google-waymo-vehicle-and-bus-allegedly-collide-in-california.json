@@ -55,15 +55,74 @@
   "createdAt": "2026-03-23T04:06:40.510000Z",
   "updatedAt": "2026-03-23T04:06:40.510000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-661755-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-661755-V5",
     "incidentId": "OOF-AII-661755",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "autonomous",
+          "execution",
+          "self"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "df6b851ca7a64eedc0207c71b60e7067928a80ce7cd27374ce97c46e01239e58",
+      "normalizedFields": {
+        "organization": "Google",
+        "system": "Waymo, Waymo'S Autonomous Driving System",
+        "technology": null,
+        "industry": "transportation and storage",
+        "aiSystemType": "autonomous navigation; self-driving",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Mountain View Municipal Bus Passengers",
+          "Mountain View Municipal Bus"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"transportation and storage\"]",
+          "normalizedValue": "transportation and storage",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"autonomous navigation\", \"self-driving\"]",
+          "normalizedValue": "autonomous navigation; self-driving",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-661755-EVID-df6b851ca7a6",
       "incidentSourceHash": "df6b851ca7a64eedc0207c71b60e7067928a80ce7cd27374ce97c46e01239e58",
@@ -324,8 +383,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-661755-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-661755-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -53,15 +53,58 @@
   "createdAt": "2026-07-31T02:49:03.068000Z",
   "updatedAt": "2026-07-31T02:49:03.068000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-926070-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-926070-V5",
     "incidentId": "OOF-AII-926070",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.59,
+        "matchedTerms": [
+          "flow",
+          "value"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "3dfbd9db391dd892a6ac282b2d74972386956aba45da79eaaeb08407a2148906",
+      "normalizedFields": {
+        "organization": "Udr, Residential Property Management Companies, Landlords",
+        "system": "Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Udr Tenants In San Diego",
+          "Renters",
+          "Jacob Keller"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-926070-EVID-3dfbd9db391d",
       "incidentSourceHash": "3dfbd9db391dd892a6ac282b2d74972386956aba45da79eaaeb08407a2148906",
@@ -140,17 +183,16 @@
         "architectureId": "vfm",
         "label": "VFM® — Value Flow Mechanisms Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-        "score": 44.61,
+        "score": 34.86,
         "matchedTerms": [
           "flow",
-          "value",
-          "previously"
+          "value"
         ],
         "role": "Primary",
-        "governedMechanism": "flow, value, previously",
-        "reasonForRelevance": "Available reporting describes flow, value, previously. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Extinction Standard (VXSS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported flow, value, previously concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-        "governanceFocus": "When does value cease to exist as recoverable value within the governed lifecycle?",
+        "governedMechanism": "flow, value",
+        "reasonForRelevance": "Available reporting describes flow, value. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Change Standard (VCS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported flow, value concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+        "governanceFocus": "When has existing value materially changed, and what change has occurred to it?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:1618"
@@ -159,22 +201,21 @@
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": [
           {
-            "objectId": "OOF-KO-STD-VFM-11",
-            "name": "Value Extinction Standard (VXSS)",
+            "objectId": "OOF-KO-STD-VFM-06",
+            "name": "Value Change Standard (VCS)",
             "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vxss.html",
+            "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vcs.html",
             "matchedTerms": [
               "value",
-              "flow",
-              "previously"
+              "flow"
             ],
-            "score": 9,
-            "governedSpace": "Value Extinction",
-            "coreQuestion": "When does value cease to exist as recoverable value within the governed lifecycle?",
+            "score": 8,
+            "governedSpace": "Value Change",
+            "coreQuestion": "When has existing value materially changed, and what change has occurred to it?",
             "parentObjectId": null,
             "canonicalProvenance": {
               "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-              "contentHash": "821bfd8ee83137f3e9f4ab85e21289732064395a9f08d123eb08aacd9aa3cd2c",
+              "contentHash": "7ce46016eff5ed0cf9f6cfb7d79732362c5f06336cbc7f983db31c9feadd8b72",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
           }
@@ -182,41 +223,40 @@
       },
       "contributingArchitectures": []
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving flow, value, previously. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving flow, value. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: VFM® — Value Flow Mechanisms Architecture.",
     "governanceQuestions": [
-      "When does value cease to exist as recoverable value within the governed lifecycle?",
+      "When has existing value materially changed, and what change has occurred to it?",
       "What operational authority and controls applied to Udr, Residential Property Management Companies, Landlords at the relevant time?",
       "What evidence would establish how Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns flow, value, previously, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns flow, value, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1618"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving flow, value, previously. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving flow, value. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "VFM® — Value Flow Mechanisms Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-VFM",
       "contributingArchitectures": [],
-      "parentStandard": "OOF-KO-STD-VFM-11",
+      "parentStandard": "OOF-KO-STD-VFM-06",
       "coreModule": null,
-      "governedMechanism": "flow, value, previously",
+      "governedMechanism": "flow, value",
       "governanceQuestions": [
-        "When does value cease to exist as recoverable value within the governed lifecycle?",
+        "When has existing value materially changed, and what change has occurred to it?",
         "What operational authority and controls applied to Udr, Residential Property Management Companies, Landlords at the relevant time?",
         "What evidence would establish how Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns flow, value, previously, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns flow, value, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
         "flow",
-        "value",
-        "previously"
+        "value"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -227,15 +267,14 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported flow, value, previously.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported flow, value, previously.",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported flow, value.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported flow, value.",
         "evidenceBasis": [
           "aiid:1618"
         ],
         "basis": [
           "flow",
-          "value",
-          "previously"
+          "value"
         ],
         "architectureReference": "OOF-KO-ARCH-VFM",
         "confidenceState": "Limited",
@@ -264,8 +303,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-926070-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-926070-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

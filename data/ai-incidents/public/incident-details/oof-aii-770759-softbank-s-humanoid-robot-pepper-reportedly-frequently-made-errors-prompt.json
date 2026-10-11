@@ -55,15 +55,73 @@
   "createdAt": "2021-07-13T00:00:00Z",
   "updatedAt": "2021-07-13T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-770759-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-770759-V5",
     "incidentId": "OOF-AII-770759",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "autonomous",
+          "execution",
+          "arts"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "9b1ad2aa3fa1731b7bd054dd44b7b15ded413b2964c2ae4d4eb9cb367ec497d3",
+      "normalizedFields": {
+        "organization": "Softbank",
+        "system": "yes",
+        "technology": null,
+        "industry": "administrative and support service activities; other service activities; financial and insurance activities; Arts, entertainment and recreation; human health and social work activities",
+        "aiSystemType": "chant scripture; entertain guests; household administration; cheerleading; exercise demonstration; concierge",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Softbank"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"administrative and support service activities\", \"other service activities\", \"financial and insurance activities\", \"Arts, entertainment and recreation\", \"human health and social work activities\"]",
+          "normalizedValue": "administrative and support service activities; other service activities; financial and insurance activities; Arts, entertainment and recreation; human health and social work activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"chant scripture\", \"entertain guests\", \"household administration\", \"cheerleading\", \"exercise demonstration\", \"concierge\"]",
+          "normalizedValue": "chant scripture; entertain guests; household administration; cheerleading; exercise demonstration; concierge",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-770759-EVID-9b1ad2aa3fa1",
       "incidentSourceHash": "9b1ad2aa3fa1731b7bd054dd44b7b15ded413b2964c2ae4d4eb9cb367ec497d3",
@@ -282,8 +340,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-770759-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-770759-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

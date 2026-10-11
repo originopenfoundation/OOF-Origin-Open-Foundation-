@@ -55,15 +55,73 @@
   "createdAt": "2020-12-04T00:00:00Z",
   "updatedAt": "2020-12-04T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-210456-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-210456-V6",
     "incidentId": "OOF-AII-210456",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "classification",
+          "evidence"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "ff5b720f1460e5bc3b010fd0695ef0199cd0c2d1afeda88fb0c234198925cb12",
+      "normalizedFields": {
+        "organization": "California Bar'S Committee Of Bar Examiners",
+        "system": "yes",
+        "technology": null,
+        "industry": "Education; professional, scientific and technical activities",
+        "aiSystemType": "classification",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "California Bar Exam Takers",
+          "Flagged California Bar Exam Takers"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"Education\", \"professional, scientific and technical activities\"]",
+          "normalizedValue": "Education; professional, scientific and technical activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"classification\"]",
+          "normalizedValue": "classification",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-210456-EVID-ff5b720f1460",
       "incidentSourceHash": "ff5b720f1460e5bc3b010fd0695ef0199cd0c2d1afeda88fb0c234198925cb12",
@@ -169,53 +227,6 @@
       },
       "contributingArchitectures": [
         {
-          "objectId": "OOF-KO-ARCH-VFM",
-          "architectureId": "vfm",
-          "label": "VFM® — Value Flow Mechanisms Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 12.67,
-          "matchedTerms": [
-            "classification",
-            "otherwise",
-            "third"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "classification, otherwise, third",
-          "reasonForRelevance": "Available reporting describes classification, otherwise, third. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported classification, otherwise, third concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-          "governanceFocus": "How should classification, otherwise, third be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:131"
-          ],
-          "confidence": 0.59,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-PGA",
-          "architectureId": "pga",
-          "label": "PGA™ — Prediction Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-          "score": 12.51,
-          "matchedTerms": [
-            "without",
-            "evidence"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "without, evidence",
-          "reasonForRelevance": "Available reporting describes without, evidence. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported without, evidence concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-          "governanceFocus": "How should without, evidence be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:131"
-          ],
-          "confidence": 0.59,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
           "objectId": "OOF-KO-ARCH-OBIDENITY",
           "architectureId": "obidenity",
           "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
@@ -309,13 +320,13 @@
       ]
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving classification, evidence. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "INTEGROS® — Integrity Governance Architecture frames the primary governed problem. VFM® — Value Flow Mechanisms Architecture, PGA™ — Prediction Governance Architecture, OBIDENITY® — Origin-Bound Identity Governance Architecture, CLA™ — Classification Architecture, ASGA™ — Autonomous Systems Governance Architecture, ORA™ - Operational Reality Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "INTEGROS® — Integrity Governance Architecture frames the primary governed problem. OBIDENITY® — Origin-Bound Identity Governance Architecture, CLA™ — Classification Architecture, ASGA™ — Autonomous Systems Governance Architecture, ORA™ - Operational Reality Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "How should classification, evidence be governed in the conditions described by the available incident evidence?",
-      "How should classification, otherwise, third be governed in the conditions described by the available incident evidence?",
-      "How should without, evidence be governed in the conditions described by the available incident evidence?",
       "How should classification be governed in the conditions described by the available incident evidence?",
-      "What operational authority and controls applied to California Bar'S Committee Of Bar Examiners at the relevant time?"
+      "What operational authority and controls applied to California Bar'S Committee Of Bar Examiners at the relevant time?",
+      "What evidence would establish how yes produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The governance significance lies in how classification, evidence moved from system activity into a reported real-world consequence, and which controls within INTEGROS® — Integrity Governance Architecture should be examined next.",
     "methodologicalReasoningChain": {
@@ -326,8 +337,6 @@
       "governedSpace": "INTEGROS® — Integrity Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-INTEGROS",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-VFM",
-        "OOF-KO-ARCH-PGA",
         "OOF-KO-ARCH-OBIDENITY",
         "OOF-KO-ARCH-CLA",
         "OOF-KO-ARCH-ASGA",
@@ -338,10 +347,10 @@
       "governedMechanism": "classification, evidence",
       "governanceQuestions": [
         "How should classification, evidence be governed in the conditions described by the available incident evidence?",
-        "How should classification, otherwise, third be governed in the conditions described by the available incident evidence?",
-        "How should without, evidence be governed in the conditions described by the available incident evidence?",
         "How should classification be governed in the conditions described by the available incident evidence?",
-        "What operational authority and controls applied to California Bar'S Committee Of Bar Examiners at the relevant time?"
+        "What operational authority and controls applied to California Bar'S Committee Of Bar Examiners at the relevant time?",
+        "What evidence would establish how yes produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
       "incidentGovernanceInsight": "The governance significance lies in how classification, evidence moved from system activity into a reported real-world consequence, and which controls within INTEGROS® — Integrity Governance Architecture should be examined next.",
       "deepestJustifiedLevel": "Architecture"
@@ -371,39 +380,6 @@
           "evidence"
         ],
         "architectureReference": "OOF-KO-ARCH-INTEGROS",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported classification, otherwise, third.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported classification, otherwise, third.",
-        "evidenceBasis": [
-          "aiid:131"
-        ],
-        "basis": [
-          "classification",
-          "otherwise",
-          "third"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, evidence.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, evidence.",
-        "evidenceBasis": [
-          "aiid:131"
-        ],
-        "basis": [
-          "without",
-          "evidence"
-        ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -487,8 +463,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-210456-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-210456-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -53,15 +53,58 @@
   "createdAt": "2026-07-22T00:00:00Z",
   "updatedAt": "2026-07-22T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-506186-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-506186-V6",
     "incidentId": "OOF-AII-506186",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.59,
+        "matchedTerms": [
+          "models",
+          "intended",
+          "capability"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "4ef8db5d1a18c15ca860dd5725d6c4e223a7a616c99be0b96301dc9c60d01529",
+      "normalizedFields": {
+        "organization": "Openai, Ai Agent System Deployers",
+        "system": "Gpt 5.6 Sol, Unidentified Pre Release Openai Model, Large Language Models, Openai Large Language Models, Exploitgym, Openai Research Testing Infrastructure, Hugging Face Production Infrastructure, Ai Agent Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Hugging Face",
+          "Openai"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-506186-EVID-4ef8db5d1a18",
       "incidentSourceHash": "4ef8db5d1a18c15ca860dd5725d6c4e223a7a616c99be0b96301dc9c60d01529",
@@ -330,8 +373,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-506186-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-506186-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

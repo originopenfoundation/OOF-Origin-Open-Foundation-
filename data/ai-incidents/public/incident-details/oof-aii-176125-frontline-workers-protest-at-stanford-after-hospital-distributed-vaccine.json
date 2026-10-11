@@ -53,15 +53,78 @@
   "createdAt": "2020-12-18T00:00:00Z",
   "updatedAt": "2020-12-18T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-176125-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-176125-V5",
     "incidentId": "OOF-AII-176125",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.75,
+        "populatedFields": 6,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "distributed"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "ed5d975a2f140f808a31587d50d7829059be14c199f14b5e9f9911be6a9f61de",
+      "normalizedFields": {
+        "organization": "Stanford Medical Center",
+        "system": null,
+        "technology": null,
+        "industry": "human health and social work activities",
+        "aiSystemType": "",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Stanford Medical Frontline Workers",
+          "Stanford Medical Residents"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "system",
+          "rawValue": "no",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"human health and social work activities\"]",
+          "normalizedValue": "human health and social work activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[]",
+          "normalizedValue": "",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-176125-EVID-ed5d975a2f14",
       "incidentSourceHash": "ed5d975a2f140f808a31587d50d7829059be14c199f14b5e9f9911be6a9f61de",
@@ -104,14 +167,15 @@
         "In 2020, Stanford Medical Center's distribution algorithm only designated 7 of 5,000 vaccines to Medical Residents, who are frontline workers regularly exposed to COVID-19."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
     "severityAssessment": {
       "level": "Moderate",
       "score": 4,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -191,7 +255,7 @@
     "governanceQuestions": [
       "How should distributed be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Stanford Medical Center at the relevant time?",
-      "What evidence would establish how no produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The governance significance lies in how distributed moved from system activity into a reported real-world consequence, and which controls within CLIA® — Cognitive Governance Intelligence Architecture should be examined next.",
@@ -211,7 +275,7 @@
       "governanceQuestions": [
         "How should distributed be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Stanford Medical Center at the relevant time?",
-        "What evidence would establish how no produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
       "incidentGovernanceInsight": "The governance significance lies in how distributed moved from system activity into a reported real-world consequence, and which controls within CLIA® — Cognitive Governance Intelligence Architecture should be examined next.",
@@ -262,11 +326,13 @@
     ],
     "evidenceGaps": [
       "Only one independent source group is represented; corroboration is not established.",
-      "AI technology is not specified in the source record."
+      "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record."
     ],
     "uncertainties": [
       "Only one independent source group is represented; corroboration is not established.",
-      "AI technology is not specified in the source record."
+      "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record."
     ],
     "analysisType": "Automated",
     "humanReview": {
@@ -275,8 +341,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-176125-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-176125-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

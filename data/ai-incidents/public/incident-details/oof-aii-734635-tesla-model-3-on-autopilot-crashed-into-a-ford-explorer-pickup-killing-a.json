@@ -57,15 +57,75 @@
   "createdAt": "2019-08-24T00:00:00Z",
   "updatedAt": "2019-08-24T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-734635-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-734635-V6",
     "incidentId": "OOF-AII-734635",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "autonomous",
+          "execution",
+          "classification"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "e46047d0564dbecb1faecbb93c1744d0adc51ea2fba8ae60f910fab7e1b2429e",
+      "normalizedFields": {
+        "organization": "Tesla",
+        "system": "yes",
+        "technology": null,
+        "industry": "transportation and storage",
+        "aiSystemType": "autonomous navigation; semi-autonomous driving; object detection; classification",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Jovani Maldonado",
+          "Benjamin Maldonado",
+          "California Public"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"transportation and storage\"]",
+          "normalizedValue": "transportation and storage",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"autonomous navigation\", \"semi-autonomous driving\", \"object detection\", \"classification\"]",
+          "normalizedValue": "autonomous navigation; semi-autonomous driving; object detection; classification",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-734635-EVID-e46047d0564d",
       "incidentSourceHash": "e46047d0564dbecb1faecbb93c1744d0adc51ea2fba8ae60f910fab7e1b2429e",
@@ -379,8 +439,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-734635-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-734635-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

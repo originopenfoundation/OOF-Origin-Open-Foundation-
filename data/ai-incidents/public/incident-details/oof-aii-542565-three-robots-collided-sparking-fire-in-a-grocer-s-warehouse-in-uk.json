@@ -52,15 +52,75 @@
   "createdAt": "2021-07-16T00:00:00Z",
   "updatedAt": "2021-07-16T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-542565-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-542565-V5",
     "incidentId": "OOF-AII-542565",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Evidence Insufficient",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.75,
+        "populatedFields": 6,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Evidence Insufficient",
+        "score": 0.0,
+        "matchedTerms": [],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "8b80d10f4504b7e78b6256844241d48e5e2871a1e6c24b5d84c86d44790f43d0",
+      "normalizedFields": {
+        "organization": "Ocado",
+        "system": null,
+        "technology": null,
+        "industry": "wholesale and retail trade; transportation and storage",
+        "aiSystemType": "",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Ocado"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "system",
+          "rawValue": "no",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"wholesale and retail trade\", \"transportation and storage\"]",
+          "normalizedValue": "wholesale and retail trade; transportation and storage",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[]",
+          "normalizedValue": "",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-542565-EVID-8b80d10f4504",
       "incidentSourceHash": "8b80d10f4504b7e78b6256844241d48e5e2871a1e6c24b5d84c86d44790f43d0",
@@ -103,14 +163,15 @@
         "A collision involving three robots at an Ocado's warehouse in Erith, UK, resulting in a fire but no reports of injuries."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
     "severityAssessment": {
       "level": "Moderate",
       "score": 4,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -145,7 +206,7 @@
     "governanceRelationship": "No architecture relationship is asserted because the governed space remains unresolved.",
     "governanceQuestions": [
       "What operational authority and controls applied to Ocado at the relevant time?",
-      "What evidence would establish how no produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": null,
@@ -162,7 +223,7 @@
       "governedMechanism": null,
       "governanceQuestions": [
         "What operational authority and controls applied to Ocado at the relevant time?",
-        "What evidence would establish how no produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
       "incidentGovernanceInsight": null,
@@ -181,11 +242,13 @@
     "evidenceGaps": [
       "Only one independent source group is represented; corroboration is not established.",
       "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record.",
       "Available evidence is insufficient for architecture relevance analysis."
     ],
     "uncertainties": [
       "Only one independent source group is represented; corroboration is not established.",
       "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record.",
       "Available evidence is insufficient for architecture relevance analysis."
     ],
     "analysisType": "Automated",
@@ -195,8 +258,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-542565-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-542565-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

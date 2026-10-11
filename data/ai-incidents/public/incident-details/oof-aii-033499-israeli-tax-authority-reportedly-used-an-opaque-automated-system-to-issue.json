@@ -56,15 +56,73 @@
   "createdAt": "2025-11-17T21:48:29.998000Z",
   "updatedAt": "2025-11-17T21:48:29.998000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-033499-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-033499-V6",
     "incidentId": "OOF-AII-033499",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "authority",
+          "decision"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "e54dbd296576f05b0b50a3ece69f900cbff7c22c2c7dae263cafa0d30640f354",
+      "normalizedFields": {
+        "organization": "Israeli Tax Authority",
+        "system": "Israeli Tax Authority Fine Calculation Algorithm, Israeli Tax Authority Administrative Automation System, Closed Source Tax Decision Software",
+        "technology": null,
+        "industry": "real estate activities; public administration",
+        "aiSystemType": "",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Moshe Har Shemesh",
+          "Israeli People Having Tax Fines"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"real estate activities\", \"public administration\"]",
+          "normalizedValue": "real estate activities; public administration",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[]",
+          "normalizedValue": "",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-033499-EVID-e54dbd296576",
       "incidentSourceHash": "e54dbd296576f05b0b50a3ece69f900cbff7c22c2c7dae263cafa0d30640f354",
@@ -470,11 +528,13 @@
     ],
     "evidenceGaps": [
       "Only one independent source group is represented; corroboration is not established.",
-      "AI technology is not specified in the source record."
+      "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record."
     ],
     "uncertainties": [
       "Only one independent source group is represented; corroboration is not established.",
-      "AI technology is not specified in the source record."
+      "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record."
     ],
     "analysisType": "Automated",
     "humanReview": {
@@ -483,8 +543,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-033499-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-033499-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

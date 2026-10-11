@@ -55,15 +55,72 @@
   "createdAt": "2018-11-06T00:00:00Z",
   "updatedAt": "2018-11-06T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-280495-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-280495-V6",
     "incidentId": "OOF-AII-280495",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.59,
+        "matchedTerms": [
+          "recognition",
+          "enforcement"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "2e4e8895414afde628d1cff15fafd8bfa3387bf3dfbb5f20815d3ed2eb9e2936",
+      "normalizedFields": {
+        "organization": "Ningbo Traffic Police",
+        "system": "yes",
+        "technology": null,
+        "industry": "law enforcement",
+        "aiSystemType": "jaywalking detection; facial recognition",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Dong Mingzhu"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"law enforcement\"]",
+          "normalizedValue": "law enforcement",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"jaywalking detection\", \"facial recognition\"]",
+          "normalizedValue": "jaywalking detection; facial recognition",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-280495-EVID-2e4e8895414a",
       "incidentSourceHash": "2e4e8895414afde628d1cff15fafd8bfa3387bf3dfbb5f20815d3ed2eb9e2936",
@@ -321,8 +378,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-280495-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-280495-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

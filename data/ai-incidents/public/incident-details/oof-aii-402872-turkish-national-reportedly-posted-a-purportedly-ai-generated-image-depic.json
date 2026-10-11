@@ -54,15 +54,60 @@
   "createdAt": "2026-08-15T17:58:02.498000Z",
   "updatedAt": "2026-08-15T17:58:02.498000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-402872-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-402872-V6",
     "incidentId": "OOF-AII-402872",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "evidence",
+          "identity",
+          "origin"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "22abeb81fc645a9e08229ab81544311092176c8d3210cf51ebc110f3f15c9030",
+      "normalizedFields": {
+        "organization": "Synthetic Media Creators, Scammers, Melih Gogebakan, Information Manipulation Actors, Deepfake Creators",
+        "system": "Synthetic Media Generation Technology, Synthetic Image Generation Technology, Deepfake Technology",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Public Figures",
+          "Eric Trump",
+          "Epistemic Integrity",
+          "American Public Figures"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-402872-EVID-22abeb81fc64",
       "incidentSourceHash": "22abeb81fc645a9e08229ab81544311092176c8d3210cf51ebc110f3f15c9030",
@@ -141,21 +186,21 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-VFM",
-        "architectureId": "vfm",
-        "label": "VFM® — Value Flow Mechanisms Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-        "score": 56.4,
+        "objectId": "OOF-KO-ARCH-OBIDENITY",
+        "architectureId": "obidenity",
+        "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
+        "score": 40.7,
         "matchedTerms": [
-          "while",
-          "origin",
-          "does"
+          "evidence",
+          "identity",
+          "origin"
         ],
         "role": "Primary",
-        "governedMechanism": "while, origin, does",
-        "reasonForRelevance": "Available reporting describes while, origin, does. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Degradation Standard (VDGS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported while, origin, does concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-        "governanceFocus": "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
+        "governedMechanism": "evidence, identity, origin",
+        "reasonForRelevance": "Available reporting describes evidence, identity, origin. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining Origin Integrity Standard (OIS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported evidence, identity, origin concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+        "governanceFocus": "How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:1639"
@@ -164,132 +209,83 @@
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": [
           {
-            "objectId": "OOF-KO-STD-VFM-08",
-            "name": "Value Degradation Standard (VDGS)",
+            "objectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
+            "name": "Origin Integrity Standard (OIS)",
             "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vdgs.html",
+            "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois.html",
             "matchedTerms": [
-              "while",
-              "does"
+              "identity",
+              "origin"
             ],
-            "score": 11,
-            "governedSpace": "Value Degradation",
-            "coreQuestion": "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
+            "score": 4,
+            "governedSpace": null,
+            "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
               "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-              "contentHash": "d8fb7ad6b81614399d5c3b958412109a4e80a6983c3dac423c4dacddf5f56510",
+              "contentHash": "dc6e3ae8d403e9ce277c764c23ebb081902f8f86fa51b70a553198f78844b57b",
+              "authorityState": "CANONICAL_AUTHORITATIVE"
+            }
+          },
+          {
+            "objectId": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
+            "name": "Origin Evidence Verification Module (OEVM)",
+            "artifactType": "CoreModule",
+            "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois-oevm.html",
+            "matchedTerms": [
+              "evidence",
+              "origin",
+              "identity"
+            ],
+            "score": 10,
+            "governedSpace": "Origin Evidence Verification",
+            "coreQuestion": null,
+            "parentObjectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
+            "canonicalProvenance": {
+              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "contentHash": "a3cbee6b4d2a8f5519390263567bd46c17aad68e72b4a4f0d2eb0a8c5ba9c658",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
           }
         ]
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-OBIDENITY",
-          "architectureId": "obidenity",
-          "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-          "score": 40.7,
-          "matchedTerms": [
-            "evidence",
-            "identity",
-            "origin"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "evidence, identity, origin",
-          "reasonForRelevance": "Available reporting describes evidence, identity, origin. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining Origin Integrity Standard (OIS) in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported evidence, identity, origin concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
-          "governanceFocus": "How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "ParentStandard",
-          "supportingEvidence": [
-            "aiid:1639"
-          ],
-          "confidence": 0.61,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": [
-            {
-              "objectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
-              "name": "Origin Integrity Standard (OIS)",
-              "artifactType": "ParentStandard",
-              "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois.html",
-              "matchedTerms": [
-                "identity",
-                "origin"
-              ],
-              "score": 4,
-              "governedSpace": null,
-              "coreQuestion": null,
-              "parentObjectId": null,
-              "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-                "contentHash": "dc6e3ae8d403e9ce277c764c23ebb081902f8f86fa51b70a553198f78844b57b",
-                "authorityState": "CANONICAL_AUTHORITATIVE"
-              }
-            },
-            {
-              "objectId": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
-              "name": "Origin Evidence Verification Module (OEVM)",
-              "artifactType": "CoreModule",
-              "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois-oevm.html",
-              "matchedTerms": [
-                "evidence",
-                "origin",
-                "identity"
-              ],
-              "score": 10,
-              "governedSpace": "Origin Evidence Verification",
-              "coreQuestion": null,
-              "parentObjectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
-              "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-                "contentHash": "a3cbee6b4d2a8f5519390263567bd46c17aad68e72b4a4f0d2eb0a8c5ba9c658",
-                "authorityState": "CANONICAL_AUTHORITATIVE"
-              }
-            }
-          ]
-        }
-      ]
+      "contributingArchitectures": []
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving while, origin, does. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "VFM® — Value Flow Mechanisms Architecture frames the primary governed problem. OBIDENITY® — Origin-Bound Identity Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving evidence, identity, origin. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: OBIDENITY® — Origin-Bound Identity Governance Architecture.",
     "governanceQuestions": [
-      "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
       "How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Synthetic Media Creators, Scammers, Melih Gogebakan, Information Manipulation Actors, Deepfake Creators at the relevant time?",
       "What evidence would establish how Synthetic Media Generation Technology, Synthetic Image Generation Technology, Deepfake Technology produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how while, origin, does moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
+    "incidentGovernanceInsight": "The governance significance lies in how evidence, identity, origin moved from system activity into a reported real-world consequence, and which controls within OBIDENITY® — Origin-Bound Identity Governance Architecture should be examined next.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1639"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving while, origin, does. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "VFM® — Value Flow Mechanisms Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-VFM",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-OBIDENITY"
-      ],
-      "parentStandard": "OOF-KO-STD-VFM-08",
-      "coreModule": null,
-      "governedMechanism": "while, origin, does",
+      "governedProblem": "The incident appears to expose a governance problem involving evidence, identity, origin. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-OBIDENITY",
+      "contributingArchitectures": [],
+      "parentStandard": "OOF-OID-OBID-OIS-2026-07-12-0001",
+      "coreModule": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
+      "governedMechanism": "evidence, identity, origin",
       "governanceQuestions": [
-        "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
         "How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Synthetic Media Creators, Scammers, Melih Gogebakan, Information Manipulation Actors, Deepfake Creators at the relevant time?",
         "What evidence would establish how Synthetic Media Generation Technology, Synthetic Image Generation Technology, Deepfake Technology produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how while, origin, does moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
-      "deepestJustifiedLevel": "ParentStandard"
+      "incidentGovernanceInsight": "The governance significance lies in how evidence, identity, origin moved from system activity into a reported real-world consequence, and which controls within OBIDENITY® — Origin-Bound Identity Governance Architecture should be examined next.",
+      "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "while",
-        "origin",
-        "does"
+        "evidence",
+        "identity",
+        "origin"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -298,23 +294,6 @@
       "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
     },
     "governanceFindings": [
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported while, origin, does.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported while, origin, does.",
-        "evidenceBasis": [
-          "aiid:1639"
-        ],
-        "basis": [
-          "while",
-          "origin",
-          "does"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
       {
         "type": "Governance Signal",
         "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported evidence, identity, origin.",
@@ -352,8 +331,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-402872-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-402872-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

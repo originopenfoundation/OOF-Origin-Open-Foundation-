@@ -54,15 +54,78 @@
   "createdAt": "2014-01-21T00:00:00Z",
   "updatedAt": "2014-01-21T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-657804-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-657804-V6",
     "incidentId": "OOF-AII-657804",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "recognition",
+          "other"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "7523efd491261b2cf96d371dd9dea8ab0f5071c2bfd6291758a51c725ddcbb94",
+      "normalizedFields": {
+        "organization": "Nest Labs",
+        "system": null,
+        "technology": "Gesture Recognition",
+        "industry": "other",
+        "aiSystemType": null,
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Fire Victims"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "system",
+          "rawValue": "no",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
+        {
+          "field": "technology",
+          "rawValue": "[\"Gesture Recognition\"]",
+          "normalizedValue": "Gesture Recognition",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"other\"]",
+          "normalizedValue": "other",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-657804-EVID-7523efd49126",
       "incidentSourceHash": "7523efd491261b2cf96d371dd9dea8ab0f5071c2bfd6291758a51c725ddcbb94",
@@ -105,14 +168,15 @@
         "In testing, Google Nest engineers demonstrated that the Nest Wave feature of their Nest Protect: Smoke + CO Alarm could inadvertently silence genuine alarms."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
     "severityAssessment": {
       "level": "Low",
       "score": 1,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -163,7 +227,7 @@
     "governanceQuestions": [
       "How should recognition, other be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Nest Labs at the relevant time?",
-      "What evidence would establish how no produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The governance significance lies in how recognition, other moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
@@ -181,7 +245,7 @@
       "governanceQuestions": [
         "How should recognition, other be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Nest Labs at the relevant time?",
-        "What evidence would establish how no produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
       "incidentGovernanceInsight": "The governance significance lies in how recognition, other moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
@@ -232,8 +296,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-657804-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-657804-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

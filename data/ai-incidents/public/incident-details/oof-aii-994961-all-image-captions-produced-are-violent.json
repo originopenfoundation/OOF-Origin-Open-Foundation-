@@ -52,15 +52,88 @@
   "createdAt": "2018-04-02T00:00:00Z",
   "updatedAt": "2018-04-02T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-994961-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-994961-V6",
     "incidentId": "OOF-AII-994961",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.75,
+        "populatedFields": 6,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "interpretation",
+          "memory"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "f4b47305bd89d0a0876078ffa65d564f495eeffb9937afebcea8d0c56fbc3614",
+      "normalizedFields": {
+        "organization": "Mit Media Lab",
+        "system": "yes",
+        "technology": null,
+        "industry": "professional, scientific and technical activities",
+        "aiSystemType": "Generate Captions; image identification; image interpretation",
+        "impactTypes": [
+          "AI system safety, failures, and limitations"
+        ],
+        "affectedParties": []
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"professional, scientific and technical activities\"]",
+          "normalizedValue": "professional, scientific and technical activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"Generate Captions\", \"image identification\", \"image interpretation\"]",
+          "normalizedValue": "Generate Captions; image identification; image interpretation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "no"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "affectedParties",
+          "rawValue": [
+            "Unknown"
+          ],
+          "normalizedValue": [],
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-994961-EVID-f4b47305bd89",
       "incidentSourceHash": "f4b47305bd89d0a0876078ffa65d564f495eeffb9937afebcea8d0c56fbc3614",
@@ -109,8 +182,8 @@
     },
     "severityAssessment": {
       "level": "Low",
-      "score": 1,
-      "confidence": 0.79,
+      "score": 0,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -123,10 +196,10 @@
         "informationImpact": 0,
         "controlFailure": 0,
         "persistence": 0,
-        "affectedPopulation": 1
+        "affectedPopulation": 0
       },
       "matchedEvidence": {},
-      "rationale": "Automated evidence-based severity is Low from 1 supported dimensions: affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+      "rationale": "Automated evidence-based severity is Low from 0 supported dimensions: no material severity dimension identified. This is an automated analysis, not an OOF® approved determination.",
       "rubricVersion": "OOF-AII-SEV-1.0"
     },
     "architectureAnalysis": {
@@ -269,8 +342,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-994961-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-994961-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

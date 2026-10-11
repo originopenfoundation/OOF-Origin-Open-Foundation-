@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "3.2",
+  "engineVersion": "3.2.2",
+  "title": "OOF® Global AI Incident Intelligence™ — V3.2 Stage A Implementation & Capability Audit",
+  "dataset": {
+    "incidentRecords": 262,
+    "latestAssessments": 262,
+    "sourceRecordsModified": false,
+    "placeholderSystemValuesNormalized": 16,
+    "serializedIndustryValuesNormalized": 140,
+    "geographicallyAssigned": 220,
+    "locationNotSpecified": 42,
+    "architecturesRepresented": 17,
+    "crossArchitectureAssessments": 149,
+    "singleSourceAssessments": 262,
+    "oofApprovedAssessments": 0
+  },
+  "llmIntegration": {
+    "status": "NOT INTEGRATED",
+    "finding": "The Stage A assessment path is deterministic Python and does not call an LLM API, submit prompts, consume model tokens, or require an LLM response cache."
+  },
+  "sourceConnectors": [
+    {
+      "name": "ManualOOFIncidentAdapter",
+      "status": "IMPLEMENTED",
+      "mode": "local review inbox"
+    },
+    {
+      "name": "AIIDWeeklyExcelAdapter",
+      "status": "IMPLEMENTED",
+      "mode": "bounded official weekly snapshot"
+    }
+  ],
+  "validosIntegration": {
+    "status": "KNOWLEDGE-LAYER RETRIEVAL",
+    "finding": "VALIDOS may be retrieved as canonical methodology; no independent VALIDOS verification or approval is asserted."
+  },
+  "performance": {
+    "currentMode": "deterministic batch generation with static public projections",
+    "futureDailyIntakeTarget": "maximum 10 newly admitted incidents per governed cycle",
+    "newSchedulerOrConnectorImplemented": false
+  },
+  "qualityGates": {
+    "fullDatasetAudited": 262,
+    "criticalDefects": 0,
+    "repeatedGenericInsights": 22,
+    "result": "PASS WITH REVIEW FLAGS"
+  },
+  "humanReviewQueue": {
+    "items": 130,
+    "automaticApproval": false
+  },
+  "stageBDeferred": [
+    "new source connectors",
+    "full multi-source VALIDOS verification",
+    "public submission forms",
+    "prevention guidance",
+    "new public redesign or SEO routes",
+    "new scheduler",
+    "GIE",
+    "new architecture",
+    "multi-agent processing"
+  ]
+}

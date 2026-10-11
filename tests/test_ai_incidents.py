@@ -218,6 +218,56 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertFalse(assessment["oofApproved"])
         self.assertIn("not an official investigation", assessment["assessmentDisclosure"])
 
+    def test_v3_normalization_removes_placeholders_and_parses_serialized_industry(self):
+        item = record(title="Automated system report")
+        item["system"] = "no"
+        item["industry"] = '["public administration", "law enforcement"]'
+        normalized, provenance = engine.normalized_incident_view(item)
+        self.assertIsNone(normalized["system"])
+        self.assertEqual(normalized["industry"], "public administration; law enforcement")
+        self.assertFalse(provenance["sourceRecordModified"])
+        self.assertEqual(item["system"], "no")
+        self.assertEqual(item["industry"], '["public administration", "law enforcement"]')
+
+    def test_v3_placeholder_values_never_reach_questions_or_evidence_terms(self):
+        item = record(title="Automated reporting incident")
+        item["summary"] = "A public report described an automated outcome."
+        item["system"] = "no"
+        item["industry"] = '["public administration"]'
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-11T00:00:00Z")
+        questions = " ".join(assessment["governanceQuestions"]).casefold()
+        terms = {
+            term.casefold()
+            for assignment in [assessment["architectureAnalysis"].get("primaryArchitecture"), *assessment["architectureAnalysis"].get("contributingArchitectures", [])]
+            if assignment for term in assignment.get("matchedTerms", [])
+        }
+        self.assertNotIn("how no produced", questions)
+        self.assertNotIn("no", terms)
+
+    def test_v3_exposes_three_independent_confidence_dimensions(self):
+        item = record(title="Deepfake impersonation report")
+        item["summary"] = "A cloned voice reportedly impersonated an executive."
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-11T00:00:00Z")
+        self.assertEqual(set(assessment["confidenceDimensions"]), {
+            "sourceCorroboration", "extractionCompleteness", "methodologicalAssignment",
+        })
+        self.assertFalse(assessment["sourceNormalization"]["sourceRecordModified"])
+
+    def test_country_geometry_codes_cover_france_without_duplicate_primary_codes(self):
+        geojson = json.loads((ROOT / "assets" / "data" / "ne_50m_admin_0_countries.geojson").read_text(encoding="utf-8"))
+        resolved = []
+        for feature in geojson["features"]:
+            properties = feature.get("properties") or {}
+            primary = properties.get("ISO_A2") or properties.get("iso_a2")
+            extended = properties.get("ISO_A2_EH") or properties.get("iso_a2_eh")
+            code = extended if primary == "-99" else primary
+            if code and code != "-99":
+                resolved.append(str(code).upper())
+        self.assertIn("FR", resolved)
+        store = json.loads((ROOT / "data" / "ai-incidents" / "incident-store.json").read_text(encoding="utf-8"))
+        incident_codes = {item.get("countryCode") for item in store["incidents"] if item.get("countryCode")}
+        self.assertFalse(incident_codes - set(resolved))
+
     def test_v3_architecture_roles_and_findings_are_traceable(self):
         item = record(title="Autonomous deepfake agent made an incorrect prediction")
         item["summary"] = "An autonomous agent used a cloned identity and produced an incorrect predictive decision."

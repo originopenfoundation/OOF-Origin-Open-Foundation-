@@ -60,15 +60,77 @@
   "createdAt": "2026-05-18T03:36:33.158000Z",
   "updatedAt": "2026-05-18T03:36:33.158000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-071938-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-071938-V6",
     "incidentId": "OOF-AII-071938",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "identity",
+          "verification",
+          "integrity"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "06048d1cdac2170cc47d6fe06551faecce3398a16e6b6038a8cafbb67f4df6f9",
+      "normalizedFields": {
+        "organization": "University Of Toronto",
+        "system": "Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru",
+        "technology": null,
+        "industry": "Education",
+        "aiSystemType": "exam proctoring; remote proctoring; identification or detection",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "University Students",
+          "University Of Toronto Students",
+          "Students",
+          "Educational Communities",
+          "Students Of Color"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"Education\"]",
+          "normalizedValue": "Education",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"exam proctoring\", \"remote proctoring\", \"identification or detection\"]",
+          "normalizedValue": "exam proctoring; remote proctoring; identification or detection",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-071938-EVID-06048d1cdac2",
       "incidentSourceHash": "06048d1cdac2170cc47d6fe06551faecce3398a16e6b6038a8cafbb67f4df6f9",
@@ -333,8 +395,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-071938-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-071938-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

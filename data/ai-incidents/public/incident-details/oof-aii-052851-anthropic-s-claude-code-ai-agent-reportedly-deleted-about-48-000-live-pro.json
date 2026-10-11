@@ -54,15 +54,58 @@
   "createdAt": "2026-09-30T00:00:00Z",
   "updatedAt": "2026-09-30T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-052851-V2",
+    "assessmentIdentity": "OOF-AII-ASMT-052851-V3",
     "incidentId": "OOF-AII-052851",
-    "analysisVersion": 2,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 3,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "agent",
+          "user"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "3d7d3778d223b5d2702ea0ba6a994aae97f2d0cb87319f65334d6b28d2e8cb2f",
+      "normalizedFields": {
+        "organization": "Thisisbubby (Reddit User), Ai Agent System Users, Ai Coding Assistant Users",
+        "system": "Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Enterprise Ai Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Thisisbubby (Reddit User)",
+          "Ai Coding Assistant Users",
+          "Ai Agent System Users"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-052851-EVID-3d7d3778d223",
       "incidentSourceHash": "3d7d3778d223b5d2702ea0ba6a994aae97f2d0cb87319f65334d6b28d2e8cb2f",
@@ -137,18 +180,16 @@
         "architectureId": "mgia",
         "label": "MGIA™ — Memory Governance Intelligence Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-        "score": 124.39,
+        "score": 96.25,
         "matchedTerms": [
           "agent",
-          "history",
-          "user",
-          "historical"
+          "user"
         ],
         "role": "Primary",
-        "governedMechanism": "agent, history, user, historical",
-        "reasonForRelevance": "Available reporting describes agent, history, user. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported agent, history, user concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
-        "governanceFocus": "How should agent, history, user be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "agent, user",
+        "reasonForRelevance": "Available reporting describes agent, user. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported agent, user concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+        "governanceFocus": "How should agent, user be governed in the conditions described by the available incident evidence?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1719"
@@ -157,44 +198,69 @@
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
-      "contributingArchitectures": []
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-CLIA",
+          "architectureId": "clia",
+          "label": "CLIA® — Cognitive Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
+          "score": 76.74,
+          "matchedTerms": [
+            "agent"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "agent",
+          "reasonForRelevance": "Available reporting describes agent. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agent concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+          "governanceFocus": "How should agent be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1719"
+          ],
+          "confidence": 0.62,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving agent, history, user, historical. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: MGIA™ — Memory Governance Intelligence Architecture.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving agent, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "MGIA™ — Memory Governance Intelligence Architecture frames the primary governed problem. CLIA® — Cognitive Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should agent, history, user be governed in the conditions described by the available incident evidence?",
+      "How should agent, user be governed in the conditions described by the available incident evidence?",
+      "How should agent be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Thisisbubby (Reddit User), Ai Agent System Users, Ai Coding Assistant Users at the relevant time?",
       "What evidence would establish how Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Enterprise Ai Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, history, user, historical, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, user, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1719"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving agent, history, user, historical. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving agent, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "MGIA™ — Memory Governance Intelligence Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-MGIA",
-      "contributingArchitectures": [],
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-CLIA"
+      ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "agent, history, user, historical",
+      "governedMechanism": "agent, user",
       "governanceQuestions": [
-        "How should agent, history, user be governed in the conditions described by the available incident evidence?",
+        "How should agent, user be governed in the conditions described by the available incident evidence?",
+        "How should agent be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Thisisbubby (Reddit User), Ai Agent System Users, Ai Coding Assistant Users at the relevant time?",
         "What evidence would establish how Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Enterprise Ai Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, history, user, historical, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, user, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
         "agent",
-        "history",
-        "user",
-        "historical"
+        "user"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -205,18 +271,31 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, history, user, historical.",
-        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, history, user, historical.",
+        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, user.",
+        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, user.",
         "evidenceBasis": [
           "aiid:1719"
         ],
         "basis": [
           "agent",
-          "history",
-          "user",
-          "historical"
+          "user"
         ],
         "architectureReference": "OOF-KO-ARCH-MGIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
+        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
+        "evidenceBasis": [
+          "aiid:1719"
+        ],
+        "basis": [
+          "agent"
+        ],
+        "architectureReference": "OOF-KO-ARCH-CLIA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -243,8 +322,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-052851-V1",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-052851-V2",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -53,15 +53,60 @@
   "createdAt": "2026-09-08T00:00:00Z",
   "updatedAt": "2026-09-08T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-135293-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-135293-V5",
     "incidentId": "OOF-AII-135293",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.83,
+        "matchedTerms": [
+          "autonomous",
+          "execution",
+          "safety",
+          "self"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "b302505cb48bab13719743892b3cdcd05fff67366fced455b9f1cb0f5291ac6f",
+      "normalizedFields": {
+        "organization": "Avride, Automated Driving System Deployers, Autonomous Vehicle Fleet Operators",
+        "system": "Automated Driving Systems, Avride Automated Driving System",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Animal Life",
+          "Ducks",
+          "Nesting Duck Near Mueller Lake Park Austin Texas"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-135293-EVID-b302505cb48b",
       "incidentSourceHash": "b302505cb48bab13719743892b3cdcd05fff67366fced455b9f1cb0f5291ac6f",
@@ -333,8 +378,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-135293-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-135293-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

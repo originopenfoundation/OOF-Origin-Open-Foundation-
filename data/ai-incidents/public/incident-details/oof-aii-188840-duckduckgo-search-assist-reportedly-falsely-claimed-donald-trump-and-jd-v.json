@@ -56,15 +56,65 @@
   "createdAt": "2026-08-18T00:00:00Z",
   "updatedAt": "2026-08-18T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-188840-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-188840-V6",
     "incidentId": "OOF-AII-188840",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "evidence",
+          "integrity",
+          "validation",
+          "reporting"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "c05bb107561f9d0bb2af1c50c2ca67a4aa342bfee16bfac65de9d55f835dcaf6",
+      "normalizedFields": {
+        "organization": "Duckduckgo",
+        "system": "Duckduckgo Search Assist, Duckduckgo, Ai Search Technology, Search Engines",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Donald Trump",
+          "Jd Vance",
+          "Robert F. Kennedy Jr.",
+          "Elected Officials",
+          "General Public",
+          "Epistemic Integrity",
+          "General Public Of The United States",
+          "Public Figures"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-188840-EVID-c05bb107561f",
       "incidentSourceHash": "c05bb107561f9d0bb2af1c50c2ca67a4aa342bfee16bfac65de9d55f835dcaf6",
@@ -465,8 +515,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-188840-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-188840-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

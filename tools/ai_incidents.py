@@ -603,6 +603,12 @@ def _architecture_projection(architecture: dict | None) -> dict | None:
     }
 
 
+def _normalized_public_field(record: dict, field: str, fallback=None):
+    analysis = record.get("automatedAnalysis") or {}
+    normalized = (analysis.get("sourceNormalization") or {}).get("normalizedFields") or {}
+    return normalized.get(field) if field in normalized else record.get(field, fallback)
+
+
 def _list_projection(record: dict) -> dict:
     analysis = record.get("automatedAnalysis") or {}
     architecture_analysis = analysis.get("architectureAnalysis") or {}
@@ -623,8 +629,8 @@ def _list_projection(record: dict) -> dict:
         "reportedAt": record.get("reportedAt"),
         "country": record.get("country") or "Location not specified",
         "countryCode": record.get("countryCode"),
-        "industry": record.get("industry") or "Industry not specified",
-        "system": record.get("system"),
+        "industry": _normalized_public_field(record, "industry") or "Industry not specified",
+        "system": _normalized_public_field(record, "system"),
         "severity": _public_severity(record),
         "source": {
             "publisher": source.get("publisher"),
@@ -671,7 +677,7 @@ def _aggregate_public_records(records: list[dict], generated: str) -> dict:
                 entry["label"] = architecture.get("label") or architecture_id.upper()
                 entry["canonicalUrl"] = architecture.get("canonicalUrl")
                 entry["methodologyReferences"] += len(architecture.get("relevantStandardsModules") or [])
-        industry_counts[record.get("industry") or "Industry not specified"] += 1
+        industry_counts[_normalized_public_field(record, "industry") or "Industry not specified"] += 1
         country_code = record.get("countryCode")
         if country_code:
             assigned += 1

@@ -54,15 +54,73 @@
   "createdAt": "2021-04-28T00:00:00Z",
   "updatedAt": "2021-04-28T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-085522-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-085522-V6",
     "incidentId": "OOF-AII-085522",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "enforcement",
+          "autonomous",
+          "execution"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "445d6b84b530564f6e5b5dd4068207a3143620545335a05cf6d1f88a5512bd54",
+      "normalizedFields": {
+        "organization": "New York City Police Department",
+        "system": "maybe",
+        "technology": null,
+        "industry": "law enforcement",
+        "aiSystemType": "law enforcement",
+        "impactTypes": [
+          "Human-Computer Interaction",
+          "yes"
+        ],
+        "affectedParties": [
+          "New York City Low Income Communities"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"law enforcement\"]",
+          "normalizedValue": "law enforcement",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"law enforcement\"]",
+          "normalizedValue": "law enforcement",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-085522-EVID-445d6b84b530",
       "incidentSourceHash": "445d6b84b530564f6e5b5dd4068207a3143620545335a05cf6d1f88a5512bd54",
@@ -365,8 +423,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-085522-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-085522-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

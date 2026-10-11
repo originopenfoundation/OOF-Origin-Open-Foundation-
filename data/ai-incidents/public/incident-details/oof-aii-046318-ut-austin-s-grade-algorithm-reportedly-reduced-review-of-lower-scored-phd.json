@@ -62,15 +62,79 @@
   "createdAt": "2026-09-03T21:32:49.453000Z",
   "updatedAt": "2026-09-03T21:32:49.453000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-046318-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-046318-V6",
     "incidentId": "OOF-AII-046318",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "decision",
+          "learning"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "8b34b69bf9e032128f0ae10d22d59175dac5915815ec95f7ec16d2512f676023",
+      "normalizedFields": {
+        "organization": "University Of Texas At Austin'S Department Of Computer Science, Risto Miikkulainen, Austin Waters",
+        "system": "Graduate Admissions Evaluator (Grade), Automated Admissions Screening Systems, Ai Enabled Decision Support Systems",
+        "technology": null,
+        "industry": "Education",
+        "aiSystemType": "assess applicants",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "University Students",
+          "University Of Texas At Austin Phd Applicants Of Marginalized Groups",
+          "University Applicants",
+          "Students",
+          "Phd Applicants From Underrepresented Groups",
+          "Phd Applicants",
+          "Educational Communities",
+          "Computer Science Phd Applicants"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"Education\"]",
+          "normalizedValue": "Education",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"assess applicants\"]",
+          "normalizedValue": "assess applicants",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-046318-EVID-8b34b69bf9e0",
       "incidentSourceHash": "8b34b69bf9e032128f0ae10d22d59175dac5915815ec95f7ec16d2512f676023",
@@ -181,21 +245,20 @@
           "architectureId": "pga",
           "label": "PGA™ — Prediction Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-          "score": 22.07,
+          "score": 19.51,
           "matchedTerms": [
-            "support",
-            "historical"
+            "support"
           ],
           "role": "Contributing",
-          "governedMechanism": "support, historical",
-          "reasonForRelevance": "Available reporting describes support, historical. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported support, historical concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-          "governanceFocus": "How should support, historical be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "support",
+          "reasonForRelevance": "Available reporting describes support. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported support concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+          "governanceFocus": "How should support be governed in the conditions described by the available incident evidence?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:135"
           ],
-          "confidence": 0.61,
+          "confidence": 0.6,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         }
@@ -205,7 +268,7 @@
     "governanceRelationship": "CLIA® — Cognitive Governance Intelligence Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "How should decision, learning be governed in the conditions described by the available incident evidence?",
-      "How should support, historical be governed in the conditions described by the available incident evidence?",
+      "How should support be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to University Of Texas At Austin'S Department Of Computer Science, Risto Miikkulainen, Austin Waters at the relevant time?",
       "What evidence would establish how Graduate Admissions Evaluator (Grade), Automated Admissions Screening Systems, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
@@ -226,7 +289,7 @@
       "governedMechanism": "decision, learning",
       "governanceQuestions": [
         "How should decision, learning be governed in the conditions described by the available incident evidence?",
-        "How should support, historical be governed in the conditions described by the available incident evidence?",
+        "How should support be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to University Of Texas At Austin'S Department Of Computer Science, Risto Miikkulainen, Austin Waters at the relevant time?",
         "What evidence would establish how Graduate Admissions Evaluator (Grade), Automated Admissions Screening Systems, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
@@ -265,14 +328,13 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support, historical.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support, historical.",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
         "evidenceBasis": [
           "aiid:135"
         ],
         "basis": [
-          "support",
-          "historical"
+          "support"
         ],
         "architectureReference": "OOF-KO-ARCH-PGA",
         "confidenceState": "Moderate",
@@ -295,8 +357,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-046318-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-046318-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

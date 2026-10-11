@@ -60,15 +60,87 @@
   "createdAt": "2026-08-31T16:22:59.889000Z",
   "updatedAt": "2026-08-31T16:22:59.889000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-571155-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-571155-V6",
     "incidentId": "OOF-AII-571155",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "information",
+          "communication",
+          "structure"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "32daa95d090b33dedf7e7e40df0624a98e662130a92d8465f5d33b84eda2e8be",
+      "normalizedFields": {
+        "organization": "Google",
+        "system": "Google Photos Face Grouping, Facial Recognition Systems, Faceprint Generation Systems, Biometric Data Processing Systems",
+        "technology": null,
+        "industry": "information and communication",
+        "aiSystemType": "facial recognition; facial grouping",
+        "impactTypes": [
+          "Privacy & Security"
+        ],
+        "affectedParties": [
+          "Illinois Residents",
+          "Google Photos Users Residing In Illinois",
+          "Google Photos Users",
+          "Privacy",
+          "Biometric Data Subjects"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"information and communication\"]",
+          "normalizedValue": "information and communication",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"facial recognition\", \"facial grouping\"]",
+          "normalizedValue": "facial recognition; facial grouping",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Privacy & Security",
+            "no"
+          ],
+          "normalizedValue": [
+            "Privacy & Security"
+          ],
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-571155-EVID-32daa95d090b",
       "incidentSourceHash": "32daa95d090b33dedf7e7e40df0624a98e662130a92d8465f5d33b84eda2e8be",
@@ -148,18 +220,17 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 98.02,
+        "score": 59.0,
         "matchedTerms": [
-          "without",
           "information",
           "communication",
           "structure"
         ],
         "role": "Primary",
-        "governedMechanism": "without, information, communication, structure",
-        "reasonForRelevance": "Available reporting describes without, information, communication. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Communication & Reliance Standard (PCRS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported without, information, communication concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
+        "governedMechanism": "information, communication, structure",
+        "reasonForRelevance": "Available reporting describes information, communication, structure. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Monitoring & Revision Standard (PMRS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported information, communication, structure concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:254"
@@ -168,61 +239,88 @@
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": [
           {
-            "objectId": "OOF-KO-STD-PGA-09",
-            "name": "Prediction Communication & Reliance Standard (PCRS)",
+            "objectId": "OOF-KO-STD-PGA-10",
+            "name": "Prediction Monitoring & Revision Standard (PMRS)",
             "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pcrs.html",
+            "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pmrs.html",
             "matchedTerms": [
-              "without",
-              "communication"
+              "structure",
+              "information"
             ],
-            "score": 12,
+            "score": 7,
             "governedSpace": null,
-            "coreQuestion": "How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
+            "coreQuestion": "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
             "parentObjectId": null,
             "canonicalProvenance": {
               "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-              "contentHash": "719c10864c4aab01f5cf0809e9ea1e7e2458c4e026fc08fff391f7e000b07e47",
+              "contentHash": "53a96d6758ffdf70603f98ec0b14ad54e4bb89e8948525baa498c31e6411ad5f",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
           }
         ]
       },
-      "contributingArchitectures": []
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-VFM",
+          "architectureId": "vfm",
+          "label": "VFM® — Value Flow Mechanisms Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
+          "score": 57.45,
+          "matchedTerms": [
+            "recognition",
+            "classification"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "recognition, classification",
+          "reasonForRelevance": "Available reporting describes recognition, classification. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported recognition, classification concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+          "governanceFocus": "How should recognition, classification be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:254"
+          ],
+          "confidence": 0.65,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving without, information, communication, structure. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving information, communication, structure. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
+      "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
+      "How should recognition, classification be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Google at the relevant time?",
       "What evidence would establish how Google Photos Face Grouping, Facial Recognition Systems, Faceprint Generation Systems, Biometric Data Processing Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how without, information, communication, structure moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "The governance significance lies in how information, communication, structure moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:254"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving without, information, communication, structure. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving information, communication, structure. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "PGA™ — Prediction Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-PGA",
-      "contributingArchitectures": [],
-      "parentStandard": "OOF-KO-STD-PGA-09",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-VFM"
+      ],
+      "parentStandard": "OOF-KO-STD-PGA-10",
       "coreModule": null,
-      "governedMechanism": "without, information, communication, structure",
+      "governedMechanism": "information, communication, structure",
       "governanceQuestions": [
-        "How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
+        "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
+        "How should recognition, classification be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Google at the relevant time?",
         "What evidence would establish how Google Photos Face Grouping, Facial Recognition Systems, Faceprint Generation Systems, Biometric Data Processing Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how without, information, communication, structure moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "The governance significance lies in how information, communication, structure moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "without",
         "information",
         "communication",
         "structure"
@@ -236,18 +334,33 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, information, communication, structure.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, information, communication, structure.",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, communication, structure.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, communication, structure.",
         "evidenceBasis": [
           "aiid:254"
         ],
         "basis": [
-          "without",
           "information",
           "communication",
           "structure"
         ],
         "architectureReference": "OOF-KO-ARCH-PGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition, classification.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition, classification.",
+        "evidenceBasis": [
+          "aiid:254"
+        ],
+        "basis": [
+          "recognition",
+          "classification"
+        ],
+        "architectureReference": "OOF-KO-ARCH-VFM",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -268,8 +381,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-571155-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-571155-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

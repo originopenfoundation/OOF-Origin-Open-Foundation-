@@ -55,15 +55,59 @@
   "createdAt": "2026-09-05T01:17:03.020000Z",
   "updatedAt": "2026-09-05T01:17:03.020000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-417118-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-417118-V5",
     "incidentId": "OOF-AII-417118",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "agent",
+          "access"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "a3ff27f7feea390a9ed96acb29b916ddae10cf619c7593ebb09605344e55d6b2",
+      "normalizedFields": {
+        "organization": "Katie Jacobs Stanton, Ai Agent System Deployers",
+        "system": "Instinct, Ai Personal Assistants, Ai Agent Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Katie Jacobs Stanton",
+          "Instinct Users",
+          "Email Account Holders",
+          "Ai Agent System Users"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-417118-EVID-a3ff27f7feea",
       "incidentSourceHash": "a3ff27f7feea390a9ed96acb29b916ddae10cf619c7593ebb09605344e55d6b2",
@@ -138,72 +182,29 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-PGA",
-        "architectureId": "pga",
-        "label": "PGA™ — Prediction Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 52.02,
+        "objectId": "OOF-KO-ARCH-MGIA",
+        "architectureId": "mgia",
+        "label": "MGIA™ — Memory Governance Intelligence Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
+        "score": 47.77,
         "matchedTerms": [
-          "without",
-          "changes"
+          "agent",
+          "access"
         ],
         "role": "Primary",
-        "governedMechanism": "without, changes",
-        "reasonForRelevance": "Available reporting describes without, changes. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Monitoring & Revision Standard (PMRS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported without, changes concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
-        "methodologyDepth": "ParentStandard",
+        "governedMechanism": "agent, access",
+        "reasonForRelevance": "Available reporting describes agent, access. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported agent, access concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+        "governanceFocus": "How should agent, access be governed in the conditions described by the available incident evidence?",
+        "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1674"
         ],
         "confidence": 0.66,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
-        "relevantStandardsModules": [
-          {
-            "objectId": "OOF-KO-STD-PGA-10",
-            "name": "Prediction Monitoring & Revision Standard (PMRS)",
-            "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pmrs.html",
-            "matchedTerms": [
-              "without",
-              "changes"
-            ],
-            "score": 6,
-            "governedSpace": null,
-            "coreQuestion": "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
-            "parentObjectId": null,
-            "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-              "contentHash": "53a96d6758ffdf70603f98ec0b14ad54e4bb89e8948525baa498c31e6411ad5f",
-              "authorityState": "CANONICAL_AUTHORITATIVE"
-            }
-          }
-        ]
+        "relevantStandardsModules": []
       },
       "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-MGIA",
-          "architectureId": "mgia",
-          "label": "MGIA™ — Memory Governance Intelligence Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-          "score": 47.77,
-          "matchedTerms": [
-            "agent",
-            "access"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "agent, access",
-          "reasonForRelevance": "Available reporting describes agent, access. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported agent, access concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
-          "governanceFocus": "How should agent, access be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1674"
-          ],
-          "confidence": 0.64,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
         {
           "objectId": "OOF-KO-ARCH-CLIA",
           "architectureId": "clia",
@@ -223,51 +224,50 @@
           "supportingEvidence": [
             "aiid:1674"
           ],
-          "confidence": 0.61,
+          "confidence": 0.62,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         }
       ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving without, changes. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. MGIA™ — Memory Governance Intelligence Architecture, CLIA® — Cognitive Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving agent, access. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "MGIA™ — Memory Governance Intelligence Architecture frames the primary governed problem. CLIA® — Cognitive Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
       "How should agent, access be governed in the conditions described by the available incident evidence?",
       "How should agent, trust be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Katie Jacobs Stanton, Ai Agent System Deployers at the relevant time?",
-      "What evidence would establish how Instinct, Ai Personal Assistants, Ai Agent Systems produced or enabled the reported outcome?"
+      "What evidence would establish how Instinct, Ai Personal Assistants, Ai Agent Systems produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns without, changes, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, access, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1674"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving without, changes. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "PGA™ — Prediction Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-PGA",
+      "governedProblem": "The incident appears to expose a governance problem involving agent, access. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "MGIA™ — Memory Governance Intelligence Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-MGIA",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-MGIA",
         "OOF-KO-ARCH-CLIA"
       ],
-      "parentStandard": "OOF-KO-STD-PGA-10",
+      "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "without, changes",
+      "governedMechanism": "agent, access",
       "governanceQuestions": [
-        "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
         "How should agent, access be governed in the conditions described by the available incident evidence?",
         "How should agent, trust be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Katie Jacobs Stanton, Ai Agent System Deployers at the relevant time?",
-        "What evidence would establish how Instinct, Ai Personal Assistants, Ai Agent Systems produced or enabled the reported outcome?"
+        "What evidence would establish how Instinct, Ai Personal Assistants, Ai Agent Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns without, changes, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
-      "deepestJustifiedLevel": "ParentStandard"
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, access, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "without",
-        "changes"
+        "agent",
+        "access"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -276,22 +276,6 @@
       "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
     },
     "governanceFindings": [
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, changes.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, changes.",
-        "evidenceBasis": [
-          "aiid:1674"
-        ],
-        "basis": [
-          "without",
-          "changes"
-        ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
       {
         "type": "Governance Signal",
         "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, access.",
@@ -346,8 +330,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-417118-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-417118-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

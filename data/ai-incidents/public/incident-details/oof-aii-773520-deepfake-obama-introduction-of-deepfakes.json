@@ -55,15 +55,89 @@
   "createdAt": "2017-07-01T00:00:00Z",
   "updatedAt": "2017-07-01T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-773520-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-773520-V6",
     "incidentId": "OOF-AII-773520",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 1.0,
+        "populatedFields": 8,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "evidence",
+          "identity",
+          "origin"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "d802753ba61692315bf6569582d0a8cf01980265cfb1161a81d4f19cea595998",
+      "normalizedFields": {
+        "organization": "University Of Washington, Fakeapp",
+        "system": "yes",
+        "technology": "Neural Network; Face Detection; Recurrent Neural Network; Generative Adversarial Network",
+        "industry": "Arts, entertainment and recreation; professional, scientific and technical activities",
+        "aiSystemType": "content generation; deepfake video generation",
+        "impactTypes": [
+          "Misinformation"
+        ],
+        "affectedParties": [
+          "Barack Obama"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "technology",
+          "rawValue": "[\"Neural Network\", \"Face Detection\", \"Recurrent Neural Network\", \"Generative Adversarial Network\"]",
+          "normalizedValue": "Neural Network; Face Detection; Recurrent Neural Network; Generative Adversarial Network",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"Arts, entertainment and recreation\", \"professional, scientific and technical activities\"]",
+          "normalizedValue": "Arts, entertainment and recreation; professional, scientific and technical activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"content generation\", \"deepfake video generation\"]",
+          "normalizedValue": "content generation; deepfake video generation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Misinformation",
+            "no"
+          ],
+          "normalizedValue": [
+            "Misinformation"
+          ],
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-773520-EVID-d802753ba616",
       "incidentSourceHash": "d802753ba61692315bf6569582d0a8cf01980265cfb1161a81d4f19cea595998",
@@ -365,8 +439,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-773520-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-773520-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

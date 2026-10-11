@@ -53,15 +53,79 @@
   "createdAt": "2021-02-12T00:00:00Z",
   "updatedAt": "2021-02-12T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-700117-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-700117-V6",
     "incidentId": "OOF-AII-700117",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.75,
+        "populatedFields": 6,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "considered",
+          "allocation"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "e8155daab0b1029300e4e323fe4588dd0a3958e18e27645eea9803bbb9d16d41",
+      "normalizedFields": {
+        "organization": "California Department Of Public Health",
+        "system": null,
+        "technology": null,
+        "industry": "public administration; human health and social work activities",
+        "aiSystemType": "vaccine allocation",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "maybe"
+        ],
+        "affectedParties": [
+          "California Low Income Neighborhoods",
+          "California Communities Of Color"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "system",
+          "rawValue": "no",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"public administration\", \"human health and social work activities\"]",
+          "normalizedValue": "public administration; human health and social work activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"vaccine allocation\"]",
+          "normalizedValue": "vaccine allocation",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-700117-EVID-e8155daab0b1",
       "incidentSourceHash": "e8155daab0b1029300e4e323fe4588dd0a3958e18e27645eea9803bbb9d16d41",
@@ -104,14 +168,15 @@
         "California's vaccine-distribution algorithm used ZIP codes as opposed to census tracts in its decision-making, which critics said undermined equity and access for vulnerable communities who are largely low-income, underserved neighborhoods with low Healthy Places Index scores."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
     "severityAssessment": {
       "level": "Low",
       "score": 3,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 1,
         "scale": 0,
@@ -169,7 +234,7 @@
     "governanceQuestions": [
       "How should considered, allocation be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to California Department Of Public Health at the relevant time?",
-      "What evidence would establish how no produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The governance significance lies in how considered, allocation moved from system activity into a reported real-world consequence, and which controls within LIGA™ — Liability Governance Architecture should be examined next.",
@@ -187,7 +252,7 @@
       "governanceQuestions": [
         "How should considered, allocation be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to California Department Of Public Health at the relevant time?",
-        "What evidence would establish how no produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
       "incidentGovernanceInsight": "The governance significance lies in how considered, allocation moved from system activity into a reported real-world consequence, and which controls within LIGA™ — Liability Governance Architecture should be examined next.",
@@ -238,8 +303,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-700117-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-700117-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

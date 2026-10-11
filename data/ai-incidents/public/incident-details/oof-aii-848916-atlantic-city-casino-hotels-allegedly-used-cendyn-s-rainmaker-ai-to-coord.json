@@ -54,15 +54,60 @@
   "createdAt": "2026-08-08T13:49:42Z",
   "updatedAt": "2026-08-08T13:49:42Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-848916-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-848916-V5",
     "incidentId": "OOF-AII-848916",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "flow",
+          "value",
+          "time"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "23d471268223126b1f40977bf178a1d92f1654a3eb81c09142efa83c2d289eaf",
+      "normalizedFields": {
+        "organization": "Tropicana Casino And Resort Atlantic City, Mgm Resorts International, Hotels, Harrah'S Resort Atlantic City, Hard Rock International, Hard Rock Hotel And Casino Atlantic City, Companies, Casinos, Casino Hotels, Caesars Entertainment, Caesars Atlantic City Hotel And Casino, Borgata Hotel Casino And Spa, Atlantic City Casino Hotels Using Rainmaker Pricing Software",
+        "system": "Revcaster, Rainmaker, Guestrev, Grouprev, Algorithmic Pricing Systems, Ai Powered Dynamic Pricing Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Hotel Customers",
+          "Customers",
+          "Casino Hotel Customers",
+          "Atlantic City Casino Hotel Guests Allegedly Charged Anti Competitively High Room Rates"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-848916-EVID-23d471268223",
       "incidentSourceHash": "23d471268223126b1f40977bf178a1d92f1654a3eb81c09142efa83c2d289eaf",
@@ -265,8 +310,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-848916-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-848916-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

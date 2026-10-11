@@ -58,15 +58,67 @@
   "createdAt": "2026-09-08T15:32:51.830000Z",
   "updatedAt": "2026-09-24T20:53:08.905000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-857693-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-857693-V5",
     "incidentId": "OOF-AII-857693",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.75,
+        "matchedTerms": [
+          "identified",
+          "later",
+          "rights",
+          "required"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "65aea3a9315f7c405b574feb45ffdc2eb0fe591637a9e02dbabeacf1793924ec",
+      "normalizedFields": {
+        "organization": "Xai, Mzx Tech Llc, Data Center Operators",
+        "system": "Unpermitted Energy Infrastructure, Methane Gas Turbines, Grok, Energy Infrastructure, Data Centers, Colossus 2",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Southaven Mississippi Residents",
+          "South Memphis Tennessee Residents",
+          "Predominantly Black Communities",
+          "Minorities",
+          "General Public Of The United States",
+          "General Public Of Tennessee",
+          "General Public Of Mississippi",
+          "General Public",
+          "Environmental Quality",
+          "Black People"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-857693-EVID-65aea3a9315f",
       "incidentSourceHash": "65aea3a9315f7c405b574feb45ffdc2eb0fe591637a9e02dbabeacf1793924ec",
@@ -187,39 +239,12 @@
           }
         ]
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-VFM",
-          "architectureId": "vfm",
-          "label": "VFM® — Value Flow Mechanisms Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 20.68,
-          "matchedTerms": [
-            "identified",
-            "while",
-            "described",
-            "persistent"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "identified, while, described, persistent",
-          "reasonForRelevance": "Available reporting describes identified, while, described. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported identified, while, described concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-          "governanceFocus": "How should identified, while, described be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1677"
-          ],
-          "confidence": 0.63,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        }
-      ]
+      "contributingArchitectures": []
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving identified, later, rights, required. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "LIGA™ — Liability Governance Architecture frames the primary governed problem. VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: LIGA™ — Liability Governance Architecture.",
     "governanceQuestions": [
       "What conditions must exist, fail, change, or be satisfied for potential Liability to proceed toward determination under the applicable Liability Basis?",
-      "How should identified, while, described be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Xai, Mzx Tech Llc, Data Center Operators at the relevant time?",
       "What evidence would establish how Unpermitted Energy Infrastructure, Methane Gas Turbines, Grok, Energy Infrastructure, Data Centers, Colossus 2 produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
@@ -232,15 +257,12 @@
       "governedProblem": "The incident appears to expose a governance problem involving identified, later, rights, required. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "LIGA™ — Liability Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-LIGA",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-VFM"
-      ],
+      "contributingArchitectures": [],
       "parentStandard": "OOF-KO-STD-LIGA-05",
       "coreModule": null,
       "governedMechanism": "identified, later, rights, required",
       "governanceQuestions": [
         "What conditions must exist, fail, change, or be satisfied for potential Liability to proceed toward determination under the applicable Liability Basis?",
-        "How should identified, while, described be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Xai, Mzx Tech Llc, Data Center Operators at the relevant time?",
         "What evidence would establish how Unpermitted Energy Infrastructure, Methane Gas Turbines, Grok, Energy Infrastructure, Data Centers, Colossus 2 produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
@@ -280,24 +302,6 @@
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported identified, while, described, persistent.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported identified, while, described, persistent.",
-        "evidenceBasis": [
-          "aiid:1677"
-        ],
-        "basis": [
-          "identified",
-          "while",
-          "described",
-          "persistent"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
       }
     ],
     "evidenceGaps": [
@@ -319,8 +323,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-857693-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-857693-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

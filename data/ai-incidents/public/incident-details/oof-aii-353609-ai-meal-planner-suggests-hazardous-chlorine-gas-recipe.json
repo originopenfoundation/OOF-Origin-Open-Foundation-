@@ -54,15 +54,81 @@
   "createdAt": "2023-11-04T23:57:38Z",
   "updatedAt": "2023-11-04T23:57:38Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-353609-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-353609-V6",
     "incidentId": "OOF-AII-353609",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "safety"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "c56398609b2421375d730c118687880a86fc889b05f74a64426d3fea66a4d6de",
+      "normalizedFields": {
+        "organization": "Pak 'N' Save",
+        "system": "yes",
+        "technology": null,
+        "industry": "accommodation and food service activities; wholesale and retail trade",
+        "aiSystemType": "recipe generation; text generation",
+        "impactTypes": [
+          "Misinformation"
+        ],
+        "affectedParties": [
+          "Potential Users Of The Savey Meal Bot"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"accommodation and food service activities\", \"wholesale and retail trade\"]",
+          "normalizedValue": "accommodation and food service activities; wholesale and retail trade",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"recipe generation\", \"text generation\"]",
+          "normalizedValue": "recipe generation; text generation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Misinformation",
+            "no"
+          ],
+          "normalizedValue": [
+            "Misinformation"
+          ],
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-353609-EVID-c56398609b24",
       "incidentSourceHash": "c56398609b2421375d730c118687880a86fc889b05f74a64426d3fea66a4d6de",
@@ -161,29 +227,6 @@
       },
       "contributingArchitectures": [
         {
-          "objectId": "OOF-KO-ARCH-PGA",
-          "architectureId": "pga",
-          "label": "PGA™ — Prediction Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-          "score": 8.37,
-          "matchedTerms": [
-            "when",
-            "including"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "when, including",
-          "reasonForRelevance": "Available reporting describes when, including. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported when, including concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-          "governanceFocus": "How should when, including be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:594"
-          ],
-          "confidence": 0.55,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
           "objectId": "OOF-KO-ARCH-AGA",
           "architectureId": "aga",
           "label": "AGA™ — Accountability Governance Architecture",
@@ -274,13 +317,13 @@
       ]
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving safety. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "AIG® - Governance Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture, AGA™ — Accountability Governance Architecture, MGIA™ — Memory Governance Intelligence Architecture, VFM® — Value Flow Mechanisms Architecture, ASGA™ — Autonomous Systems Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "AIG® - Governance Architecture frames the primary governed problem. AGA™ — Accountability Governance Architecture, MGIA™ — Memory Governance Intelligence Architecture, VFM® — Value Flow Mechanisms Architecture, ASGA™ — Autonomous Systems Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "How should safety be governed in the conditions described by the available incident evidence?",
-      "How should when, including be governed in the conditions described by the available incident evidence?",
       "How should oversight be governed in the conditions described by the available incident evidence?",
       "How should when be governed in the conditions described by the available incident evidence?",
-      "What operational authority and controls applied to Pak 'N' Save at the relevant time?"
+      "What operational authority and controls applied to Pak 'N' Save at the relevant time?",
+      "What evidence would establish how yes produced or enabled the reported outcome?"
     ],
     "incidentGovernanceInsight": "The governance significance lies in how safety moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
     "methodologicalReasoningChain": {
@@ -291,7 +334,6 @@
       "governedSpace": "AIG® - Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-AIG",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-PGA",
         "OOF-KO-ARCH-AGA",
         "OOF-KO-ARCH-MGIA",
         "OOF-KO-ARCH-VFM",
@@ -302,10 +344,10 @@
       "governedMechanism": "safety",
       "governanceQuestions": [
         "How should safety be governed in the conditions described by the available incident evidence?",
-        "How should when, including be governed in the conditions described by the available incident evidence?",
         "How should oversight be governed in the conditions described by the available incident evidence?",
         "How should when be governed in the conditions described by the available incident evidence?",
-        "What operational authority and controls applied to Pak 'N' Save at the relevant time?"
+        "What operational authority and controls applied to Pak 'N' Save at the relevant time?",
+        "What evidence would establish how yes produced or enabled the reported outcome?"
       ],
       "incidentGovernanceInsight": "The governance significance lies in how safety moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
       "deepestJustifiedLevel": "Architecture"
@@ -333,22 +375,6 @@
           "safety"
         ],
         "architectureReference": "OOF-KO-ARCH-AIG",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported when, including.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported when, including.",
-        "evidenceBasis": [
-          "aiid:594"
-        ],
-        "basis": [
-          "when",
-          "including"
-        ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -429,8 +455,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-353609-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-353609-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

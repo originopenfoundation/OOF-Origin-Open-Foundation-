@@ -54,15 +54,83 @@
   "createdAt": "2016-12-22T00:00:00Z",
   "updatedAt": "2016-12-22T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-805486-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-805486-V5",
     "incidentId": "OOF-AII-805486",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "learning",
+          "memory",
+          "agent"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "47b6e504a4e9f8fc0c90874cf5f0e6241e18a3b7748cc7579f8f276490a0d841",
+      "normalizedFields": {
+        "organization": "Openai",
+        "system": "yes",
+        "technology": null,
+        "industry": "Arts, entertainment and recreation",
+        "aiSystemType": "optimize movement to win a computer game",
+        "impactTypes": [
+          "AI system safety, failures, and limitations"
+        ],
+        "affectedParties": [
+          "Openai"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"Arts, entertainment and recreation\"]",
+          "normalizedValue": "Arts, entertainment and recreation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"optimize movement to win a computer game\"]",
+          "normalizedValue": "optimize movement to win a computer game",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "no"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-805486-EVID-47b6e504a4e9",
       "incidentSourceHash": "47b6e504a4e9f8fc0c90874cf5f0e6241e18a3b7748cc7579f8f276490a0d841",
@@ -318,8 +386,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-805486-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-805486-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

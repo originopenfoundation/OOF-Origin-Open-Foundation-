@@ -55,15 +55,60 @@
   "createdAt": "2026-09-27T00:00:00Z",
   "updatedAt": "2026-09-27T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-719717-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-719717-V5",
     "incidentId": "OOF-AII-719717",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "been",
+          "later"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "b00d48f50dbb287fb82af661b229126b752fdd95d3b2d5ca38fb12c7a9fa5032",
+      "normalizedFields": {
+        "organization": "Z.Ai, Ai Service Providers",
+        "system": "Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Zcode Users",
+          "Information Integrity",
+          "Privacy",
+          "Software Developers",
+          "Ai Coding Assistant Users"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-719717-EVID-b00d48f50dbb",
       "incidentSourceHash": "b00d48f50dbb287fb82af661b229126b752fdd95d3b2d5ca38fb12c7a9fa5032",
@@ -138,62 +183,64 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-PGA",
-        "architectureId": "pga",
-        "label": "PGA™ — Prediction Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 48.77,
+        "objectId": "OOF-KO-ARCH-LIGA",
+        "architectureId": "liga",
+        "label": "LIGA™ — Liability Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
+        "score": 6.5,
         "matchedTerms": [
-          "without"
+          "been",
+          "later"
         ],
         "role": "Primary",
-        "governedMechanism": "without",
-        "reasonForRelevance": "Available reporting describes without. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported without concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "How should without be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "been, later",
+        "reasonForRelevance": "Available reporting describes been, later. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported been, later concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
+        "governanceFocus": "How should been, later be governed in the conditions described by the available incident evidence?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1714"
         ],
-        "confidence": 0.66,
+        "confidence": 0.54,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
       "contributingArchitectures": []
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving without. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving been, later. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: LIGA™ — Liability Governance Architecture.",
     "governanceQuestions": [
-      "How should without be governed in the conditions described by the available incident evidence?",
+      "How should been, later be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
       "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns without, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns been, later, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1714"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving without. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "PGA™ — Prediction Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-PGA",
+      "governedProblem": "The incident appears to expose a governance problem involving been, later. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "LIGA™ — Liability Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-LIGA",
       "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "without",
+      "governedMechanism": "been, later",
       "governanceQuestions": [
-        "How should without be governed in the conditions described by the available incident evidence?",
+        "How should been, later be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
         "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns without, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns been, later, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "without"
+        "been",
+        "later"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -204,15 +251,16 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without.",
+        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported been, later.",
+        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported been, later.",
         "evidenceBasis": [
           "aiid:1714"
         ],
         "basis": [
-          "without"
+          "been",
+          "later"
         ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
+        "architectureReference": "OOF-KO-ARCH-LIGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -239,8 +287,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-719717-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-719717-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

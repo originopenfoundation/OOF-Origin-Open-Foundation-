@@ -53,15 +53,59 @@
   "createdAt": "2026-10-04T00:00:00Z",
   "updatedAt": "2026-10-04T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-878840-V2",
+    "assessmentIdentity": "OOF-AII-ASMT-878840-V3",
     "incidentId": "OOF-AII-878840",
-    "analysisVersion": 2,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 3,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "models"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "e52317c68a6fffd1c06f52f9b81f426a3f0f103cc34592f42347ffb31d2e1f88",
+      "normalizedFields": {
+        "organization": "Lawrence Wheeler, District Court Of Stephens County (Oklahoma), Judges, Legal Professionals",
+        "system": "Chatgpt, Large Language Models, Chatbots",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Michael Beason",
+          "Parties To Legal Proceedings",
+          "Judicial Integrity",
+          "Epistemic Integrity",
+          "Adriane Capers"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-878840-EVID-e52317c68a6f",
       "incidentSourceHash": "e52317c68a6fffd1c06f52f9b81f426a3f0f103cc34592f42347ffb31d2e1f88",
@@ -236,8 +280,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-878840-V1",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-878840-V2",
     "reassessmentReason": "Material analysis engine change"
   }
 }

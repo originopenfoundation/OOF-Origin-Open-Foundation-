@@ -53,15 +53,72 @@
   "createdAt": "2026-09-05T01:52:02.889000Z",
   "updatedAt": "2026-09-05T01:52:02.889000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-301698-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-301698-V6",
     "incidentId": "OOF-AII-301698",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "reliability"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "370ba9ac811dd634311dd6835eb70887857f72fc5f3c9bae3c0ecf2f7a72a376",
+      "normalizedFields": {
+        "organization": "Deliveroo",
+        "system": "Algorithmic Management Systems",
+        "technology": null,
+        "industry": "accommodation and food service activities",
+        "aiSystemType": "shift assignment; rank the reliability of workers",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "Deliveroo Workers With Legitimate Reasons For Cancelling Shifts",
+          "Deliveroo Workers"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"accommodation and food service activities\"]",
+          "normalizedValue": "accommodation and food service activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"shift assignment\", \"rank the reliability of workers\"]",
+          "normalizedValue": "shift assignment; rank the reliability of workers",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-301698-EVID-370ba9ac811d",
       "incidentSourceHash": "370ba9ac811dd634311dd6835eb70887857f72fc5f3c9bae3c0ecf2f7a72a376",
@@ -275,8 +332,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-301698-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-301698-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -60,15 +60,79 @@
   "createdAt": "2026-09-05T01:45:22.219000Z",
   "updatedAt": "2026-09-05T01:45:22.219000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-836165-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-836165-V6",
     "incidentId": "OOF-AII-836165",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.75,
+        "matchedTerms": [
+          "value",
+          "over",
+          "growth",
+          "linkage"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "5d6417e8c0daef52e23f090c57bfccf393a19cb8fbe57ffffefcae848f979a85",
+      "normalizedFields": {
+        "organization": "New York City Department Of Education",
+        "system": "New York City Value Added Teacher Evaluation Model, New York City Teacher Data Reports, Ai Enabled Decision Support Systems, Algorithmic Management Systems",
+        "technology": null,
+        "industry": "Education",
+        "aiSystemType": "",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Teachers",
+          "Students",
+          "New York City Teachers",
+          "New York City Students",
+          "Epistemic Integrity",
+          "Educational Communities"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"Education\"]",
+          "normalizedValue": "Education",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[]",
+          "normalizedValue": "",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-836165-EVID-5d6417e8c0da",
       "incidentSourceHash": "5d6417e8c0daef52e23f090c57bfccf393a19cb8fbe57ffffefcae848f979a85",
@@ -306,11 +370,13 @@
     ],
     "evidenceGaps": [
       "Only one independent source group is represented; corroboration is not established.",
-      "AI technology is not specified in the source record."
+      "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record."
     ],
     "uncertainties": [
       "Only one independent source group is represented; corroboration is not established.",
-      "AI technology is not specified in the source record."
+      "AI technology is not specified in the source record.",
+      "AI system type is not specified in the source record."
     ],
     "analysisType": "Automated",
     "humanReview": {
@@ -319,8 +385,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-836165-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-836165-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

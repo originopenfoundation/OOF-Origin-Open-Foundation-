@@ -58,15 +58,65 @@
   "createdAt": "2026-08-07T22:37:22.385000Z",
   "updatedAt": "2026-08-07T22:37:22.385000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-318619-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-318619-V6",
     "incidentId": "OOF-AII-318619",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.83,
+        "matchedTerms": [
+          "material",
+          "models",
+          "evidence",
+          "other",
+          "reference"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "ba0d5e7304b0606336f10268a7837377c5922fc21c1f92e57739ee3a048174a5",
+      "normalizedFields": {
+        "organization": "Synthetic Media Creators, Russell Bloodworth Iii, Grok Users, Deepfake Creators, Chatbot Users, Ai Generated Csam Creators",
+        "system": "X (Twitter), Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms, Large Language Models, Grok Image Generation, Grok Image Editing, Grok, Deepfake Technology, Chatbots",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Victims Of Deepfake Child Abuse",
+          "Victims Of Deepfake Abuse",
+          "Victims Of Csam",
+          "Minors Depicted In Synthetic Sexual Content",
+          "Minors",
+          "Epistemic Integrity",
+          "Children Depicted In Synthetic Sexual Content"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-318619-EVID-ba0d5e7304b0",
       "incidentSourceHash": "ba0d5e7304b0606336f10268a7837377c5922fc21c1f92e57739ee3a048174a5",
@@ -412,8 +462,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-318619-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-318619-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

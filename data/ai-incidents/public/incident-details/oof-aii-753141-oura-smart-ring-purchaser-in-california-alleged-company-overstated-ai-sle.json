@@ -51,15 +51,57 @@
   "createdAt": "2026-08-31T00:47:46.321000Z",
   "updatedAt": "2026-08-31T00:47:46.321000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-753141-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-753141-V5",
     "incidentId": "OOF-AII-753141",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "tracking"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "5d17cfe1343ff51c29cea9347e6188cf7dccb11f7ea89251865e34278f5af8be",
+      "normalizedFields": {
+        "organization": "Oura",
+        "system": "Wearable Health Tracking Systems, Oura Sleep Staging Algorithm, Oura Ring 4, Ai Sleep Tracking Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Oura Ring Users",
+          "Madison Surber",
+          "Consumers"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-753141-EVID-5d17cfe1343f",
       "incidentSourceHash": "5d17cfe1343ff51c29cea9347e6188cf7dccb11f7ea89251865e34278f5af8be",
@@ -234,8 +276,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-753141-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-753141-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -52,15 +52,78 @@
   "createdAt": "2015-05-19T00:00:00Z",
   "updatedAt": "2015-05-19T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-264476-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-264476-V5",
     "incidentId": "OOF-AII-264476",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 1.0,
+        "populatedFields": 8,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "communication",
+          "information"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "beadaa222ef1e56b83b370f6155b1bb01360be202c0c9bb65ba33dd9d1234a22",
+      "normalizedFields": {
+        "organization": "Youtube",
+        "system": "yes",
+        "technology": "Content-based Filtering; Collaborative Filtering",
+        "industry": "Arts, entertainment and recreation; information and communication",
+        "aiSystemType": "content moderation",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "Minors"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "technology",
+          "rawValue": "[\"Content-based Filtering\", \"Collaborative Filtering\"]",
+          "normalizedValue": "Content-based Filtering; Collaborative Filtering",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"Arts, entertainment and recreation\", \"information and communication\"]",
+          "normalizedValue": "Arts, entertainment and recreation; information and communication",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"content moderation\"]",
+          "normalizedValue": "content moderation",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-264476-EVID-beadaa222ef1",
       "incidentSourceHash": "beadaa222ef1e56b83b370f6155b1bb01360be202c0c9bb65ba33dd9d1234a22",
@@ -235,8 +298,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-264476-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-264476-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

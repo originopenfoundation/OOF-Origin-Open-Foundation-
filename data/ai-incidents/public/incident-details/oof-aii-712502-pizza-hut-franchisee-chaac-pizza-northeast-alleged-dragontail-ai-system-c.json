@@ -53,15 +53,60 @@
   "createdAt": "2026-09-05T02:08:48.754000Z",
   "updatedAt": "2026-09-05T02:08:48.754000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-712502-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-712502-V6",
     "incidentId": "OOF-AII-712502",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.59,
+        "matchedTerms": [
+          "value",
+          "lost"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "a38f3c5dd3570efd21cc539c447131a9273924134fe68ed9c7e52bc662688822",
+      "normalizedFields": {
+        "organization": "Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast",
+        "system": "Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Restaurants",
+          "Pizza Hut",
+          "Consumers",
+          "Companies",
+          "Chaac Pizza Northeast"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-712502-EVID-a38f3c5dd357",
       "incidentSourceHash": "a38f3c5dd3570efd21cc539c447131a9273924134fe68ed9c7e52bc662688822",
@@ -153,81 +198,152 @@
         "architectureId": "vfm",
         "label": "VFM® — Value Flow Mechanisms Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-        "score": 17.43,
+        "score": 10.93,
         "matchedTerms": [
           "value",
-          "while",
           "lost"
         ],
         "role": "Primary",
-        "governedMechanism": "value, while, lost",
-        "reasonForRelevance": "Available reporting describes value, while, lost. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Degradation Standard (VDGS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported value, while, lost concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-        "governanceFocus": "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
+        "governedMechanism": "value, lost",
+        "reasonForRelevance": "Available reporting describes value, lost. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Restoration Standard (VRSS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported value, lost concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+        "governanceFocus": "How should value, lost be governed in the conditions described by the available incident evidence?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:1662"
         ],
-        "confidence": 0.63,
+        "confidence": 0.58,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": [
           {
-            "objectId": "OOF-KO-STD-VFM-08",
-            "name": "Value Degradation Standard (VDGS)",
+            "objectId": "OOF-KO-STD-VFM-10",
+            "name": "Value Restoration Standard (VRSS)",
             "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vdgs.html",
+            "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vrss.html",
             "matchedTerms": [
               "value",
-              "while"
+              "lost"
             ],
-            "score": 5,
-            "governedSpace": "Value Degradation",
-            "coreQuestion": "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
+            "score": 4,
+            "governedSpace": "Value Restoration",
+            "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
               "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-              "contentHash": "d8fb7ad6b81614399d5c3b958412109a4e80a6983c3dac423c4dacddf5f56510",
+              "contentHash": "0337ff4d3c9114c58b5737b0f10a6e9e1a99b10f2a973619ed07dff1beaedf5b",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
           }
         ]
       },
-      "contributingArchitectures": []
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-AGA",
+          "architectureId": "aga",
+          "label": "AGA™ — Accountability Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
+          "score": 8.54,
+          "matchedTerms": [
+            "chain"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "chain",
+          "reasonForRelevance": "Available reporting describes chain. This makes AGA™ — Accountability Governance Architecture relevant to examining AGA™ — Accountability Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported chain concern falls within the governed questions represented by AGA™ — Accountability Governance Architecture.",
+          "governanceFocus": "How should chain be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1662"
+          ],
+          "confidence": 0.55,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-OBIDENITY",
+          "architectureId": "obidenity",
+          "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
+          "score": 8.54,
+          "matchedTerms": [
+            "chain"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "chain",
+          "reasonForRelevance": "Available reporting describes chain. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining OBIDENITY® — Origin-Bound Identity Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported chain concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+          "governanceFocus": "How should chain be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1662"
+          ],
+          "confidence": 0.55,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-VEGA",
+          "architectureId": "vega",
+          "label": "VEGA™ — Value Execution Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/vega/vega-about.html",
+          "score": 7.67,
+          "matchedTerms": [
+            "value"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "value",
+          "reasonForRelevance": "Available reporting describes value. This makes VEGA™ — Value Execution Governance Architecture relevant to examining VEGA™ — Value Execution Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported value concern falls within the governed questions represented by VEGA™ — Value Execution Governance Architecture.",
+          "governanceFocus": "How should value be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1662"
+          ],
+          "confidence": 0.55,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving value, while, lost. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: VFM® — Value Flow Mechanisms Architecture.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving value, lost. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "VFM® — Value Flow Mechanisms Architecture frames the primary governed problem. AGA™ — Accountability Governance Architecture, OBIDENITY® — Origin-Bound Identity Governance Architecture, VEGA™ — Value Execution Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
+      "How should value, lost be governed in the conditions described by the available incident evidence?",
+      "How should chain be governed in the conditions described by the available incident evidence?",
+      "How should value be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast at the relevant time?",
-      "What evidence would establish how Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash produced or enabled the reported outcome?",
-      "What additional independent evidence is required to resolve the material evidence gaps?"
+      "What evidence would establish how Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns value, while, lost, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns value, lost, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1662"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving value, while, lost. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving value, lost. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "VFM® — Value Flow Mechanisms Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-VFM",
-      "contributingArchitectures": [],
-      "parentStandard": "OOF-KO-STD-VFM-08",
-      "coreModule": null,
-      "governedMechanism": "value, while, lost",
-      "governanceQuestions": [
-        "How does existing value weaken, decline, deteriorate, or become progressively impaired while value still exists?",
-        "What operational authority and controls applied to Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast at the relevant time?",
-        "What evidence would establish how Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash produced or enabled the reported outcome?",
-        "What additional independent evidence is required to resolve the material evidence gaps?"
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-AGA",
+        "OOF-KO-ARCH-OBIDENITY",
+        "OOF-KO-ARCH-VEGA"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns value, while, lost, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "parentStandard": "OOF-KO-STD-VFM-10",
+      "coreModule": null,
+      "governedMechanism": "value, lost",
+      "governanceQuestions": [
+        "How should value, lost be governed in the conditions described by the available incident evidence?",
+        "How should chain be governed in the conditions described by the available incident evidence?",
+        "How should value be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast at the relevant time?",
+        "What evidence would establish how Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash produced or enabled the reported outcome?"
+      ],
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns value, lost, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
         "value",
-        "while",
         "lost"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
@@ -239,17 +355,61 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported value, while, lost.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported value, while, lost.",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported value, lost.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported value, lost.",
         "evidenceBasis": [
           "aiid:1662"
         ],
         "basis": [
           "value",
-          "while",
           "lost"
         ],
         "architectureReference": "OOF-KO-ARCH-VFM",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to AGA™ — Accountability Governance Architecture for the reported chain.",
+        "statement": "Available evidence indicated relevance to AGA™ — Accountability Governance Architecture for the reported chain.",
+        "evidenceBasis": [
+          "aiid:1662"
+        ],
+        "basis": [
+          "chain"
+        ],
+        "architectureReference": "OOF-KO-ARCH-AGA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported chain.",
+        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported chain.",
+        "evidenceBasis": [
+          "aiid:1662"
+        ],
+        "basis": [
+          "chain"
+        ],
+        "architectureReference": "OOF-KO-ARCH-OBIDENITY",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to VEGA™ — Value Execution Governance Architecture for the reported value.",
+        "statement": "Available evidence indicated relevance to VEGA™ — Value Execution Governance Architecture for the reported value.",
+        "evidenceBasis": [
+          "aiid:1662"
+        ],
+        "basis": [
+          "value"
+        ],
+        "architectureReference": "OOF-KO-ARCH-VEGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -276,8 +436,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-712502-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-712502-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

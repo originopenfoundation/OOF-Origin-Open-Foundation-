@@ -53,15 +53,57 @@
   "createdAt": "2026-09-05T00:45:21.094000Z",
   "updatedAt": "2026-09-05T00:45:21.094000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-396718-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-396718-V5",
     "incidentId": "OOF-AII-396718",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "agent",
+          "autonomy"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "10692e47571ada048149957f7d207376f936c661c7d14830ef90bafa223ada08",
+      "normalizedFields": {
+        "organization": "Matt Shumer, Ai Agent System Deployers",
+        "system": "Openai Large Language Models, Openai Codex, Llm Integrated Code Assistants, Large Language Models, Gpt 5.6 Sol, Chatbots, Ai Agent Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Matt Shumer",
+          "Ai Agent System Users"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-396718-EVID-10692e47571a",
       "incidentSourceHash": "10692e47571ada048149957f7d207376f936c661c7d14830ef90bafa223ada08",
@@ -282,8 +324,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-396718-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-396718-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

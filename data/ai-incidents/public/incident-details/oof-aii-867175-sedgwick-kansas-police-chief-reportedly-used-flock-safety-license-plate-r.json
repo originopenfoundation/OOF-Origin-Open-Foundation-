@@ -53,15 +53,58 @@
   "createdAt": "2026-09-23T00:00:00Z",
   "updatedAt": "2026-09-23T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-867175-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-867175-V6",
     "incidentId": "OOF-AII-867175",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "safety",
+          "enforcement"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "93e9768afc7a80ac89ca3c269b1cfa489b04ddf8aefe478482a8d8f6ab9a60f3",
+      "normalizedFields": {
+        "organization": "Lee Nygaard, Law Enforcement, Police Departments In The United States, Sedgwick Police Department (Kansas)",
+        "system": "Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Lee Nygaard'S Unnamed Former Girlfriend",
+          "Unnamed Boyfriend Of Lee Nygaard'S Former Girlfriend",
+          "Privacy"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-867175-EVID-93e9768afc7a",
       "incidentSourceHash": "93e9768afc7a80ac89ca3c269b1cfa489b04ddf8aefe478482a8d8f6ab9a60f3",
@@ -336,8 +379,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-867175-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-867175-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

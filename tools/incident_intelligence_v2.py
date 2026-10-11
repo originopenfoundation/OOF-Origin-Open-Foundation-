@@ -8,6 +8,7 @@ remains explicitly unapproved, and consumes the existing OOF Knowledge Layer.
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
 import math
@@ -24,8 +25,15 @@ DATA_ROOT = ROOT / "data" / "ai-incidents"
 STORE_PATH = DATA_ROOT / "incident-store.json"
 ANALYSIS_PATH = DATA_ROOT / "analysis-store.json"
 KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
+REVIEW_QUEUE_PATH = DATA_ROOT / "human-review-queue.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
-ENGINE_VERSION = "3.1.0"
+ENGINE_VERSION = "3.2.2"
+
+PLACEHOLDER_VALUES = {"", "no", "none", "null", "unknown", "n a", "not specified", "unspecified"}
+NORMALIZED_FIELDS = (
+    "organization", "system", "technology", "industry", "aiSystemType",
+    "impactTypes", "affectedParties",
+)
 
 STOPWORDS = {
     "about", "across", "after", "against", "architecture", "based", "before", "between",
@@ -33,6 +41,8 @@ STOPWORDS = {
     "activity", "architecture", "control", "data", "human", "layer", "management", "method", "model",
     "module", "modules", "oof", "operational", "risk", "standard", "standards", "system", "systems", "that",
     "their", "these", "this", "through", "under", "using", "where", "which", "with",
+    "including", "while", "without", "otherwise", "previously", "whether", "history",
+    "historical", "collaboration", "collaborative",
 }
 
 # These are mechanism-to-language expansions, not architecture assignments.
@@ -125,6 +135,68 @@ def normalized_text(value) -> str:
 
 def tokens(value) -> list[str]:
     return [word for word in normalized_text(value).split() if len(word) >= 4 and word not in STOPWORDS]
+
+
+def _parse_serialized_collection(value):
+    """Parse source-export collections without executing or inventing data."""
+    if not isinstance(value, str):
+        return value
+    candidate = value.strip()
+    if not (candidate.startswith("[") and candidate.endswith("]")):
+        return value
+    for parser in (json.loads, ast.literal_eval):
+        try:
+            parsed = parser(candidate)
+        except (ValueError, SyntaxError, TypeError, json.JSONDecodeError):
+            continue
+        if isinstance(parsed, (list, tuple)):
+            return list(parsed)
+    return value
+
+
+def _clean_source_value(value):
+    value = _parse_serialized_collection(value)
+    if isinstance(value, (list, tuple, set)):
+        cleaned = []
+        for item in value:
+            normalized = normalized_text(item)
+            if normalized in PLACEHOLDER_VALUES:
+                continue
+            text = str(item).strip()
+            if text and text not in cleaned:
+                cleaned.append(text)
+        return cleaned
+    if normalized_text(value) in PLACEHOLDER_VALUES:
+        return None
+    return str(value).strip() if value is not None else None
+
+
+def normalized_incident_view(record: dict) -> tuple[dict, dict]:
+    """Return an analytical view while retaining the immutable raw source record."""
+    normalized = dict(record)
+    transformations = []
+    for field in NORMALIZED_FIELDS:
+        raw = record.get(field)
+        cleaned = _clean_source_value(raw)
+        if field in {"impactTypes", "affectedParties"}:
+            analytical = cleaned if isinstance(cleaned, list) else [cleaned] if cleaned else []
+        else:
+            analytical = "; ".join(cleaned) if isinstance(cleaned, list) else cleaned
+        normalized[field] = analytical
+        if raw != analytical:
+            transformations.append({
+                "field": field,
+                "rawValue": raw,
+                "normalizedValue": analytical,
+                "reason": "placeholder removed" if analytical is None else "serialized collection normalized",
+            })
+    return normalized, {
+        "policyVersion": "OOF-AII-NORM-3.2",
+        "sourceRecordModified": False,
+        "rawRecordHash": content_hash(immutable_source_view(record)),
+        "normalizedFields": {field: normalized.get(field) for field in NORMALIZED_FIELDS},
+        "transformations": transformations,
+    }
 
 
 def immutable_source_view(record: dict) -> dict:
@@ -436,6 +508,44 @@ def assessment_confidence(record: dict, evidence: dict, architecture: dict) -> s
     return "Limited"
 
 
+def confidence_dimensions(record: dict, evidence: dict, architecture: dict) -> dict:
+    source_count = evidence["corroboration"]["independentSourceCount"]
+    source_score = min(1.0, source_count / 2)
+    source_level = "Corroborated" if source_count >= 2 else "Single-source" if source_count == 1 else "No source"
+
+    fields = ("summary", "countryCode", "organization", "system", "technology", "industry", "impactTypes", "affectedParties")
+    populated = sum(bool(record.get(field)) for field in fields)
+    extraction_score = populated / len(fields)
+    extraction_level = "High" if extraction_score >= 0.75 else "Moderate" if extraction_score >= 0.5 else "Limited"
+
+    primary = architecture.get("primaryArchitecture")
+    if not primary:
+        methodology_score = 0.0
+        methodology_level = "Evidence Insufficient"
+    else:
+        term_count = len(primary.get("matchedTerms") or [])
+        reference_depth = len(primary.get("relevantStandardsModules") or [])
+        methodology_score = min(0.95, 0.35 + term_count * 0.08 + reference_depth * 0.08)
+        methodology_level = "High" if methodology_score >= 0.75 else "Moderate" if methodology_score >= 0.55 else "Limited"
+    return {
+        "sourceCorroboration": {
+            "level": source_level, "score": round(source_score, 2),
+            "independentSourceCount": source_count,
+            "disclosure": "Measures source-group corroboration only; it does not establish factual truth.",
+        },
+        "extractionCompleteness": {
+            "level": extraction_level, "score": round(extraction_score, 2),
+            "populatedFields": populated, "evaluatedFields": len(fields),
+            "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness.",
+        },
+        "methodologicalAssignment": {
+            "level": methodology_level, "score": round(methodology_score, 2),
+            "matchedTerms": (primary or {}).get("matchedTerms", []),
+            "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review.",
+        },
+    }
+
+
 def incident_evidence(record: dict, evidence: dict) -> dict:
     sources = evidence.get("sources", [])
     reported = []
@@ -565,11 +675,14 @@ def uncertainty_notes(record: dict, evidence: dict, architecture: dict) -> list[
 
 
 def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supersedes: str | None, reason: str | None, created_at: str) -> dict:
-    evidence = evidence_snapshot(record)
+    raw_record = record
+    record, normalization = normalized_incident_view(raw_record)
+    evidence = evidence_snapshot(raw_record)
     architecture = architecture_analysis(record, knowledge)
     severity = severity_assessment(record, evidence)
     primary = architecture.get("primaryArchitecture")
     confidence_state = assessment_confidence(record, evidence, architecture)
+    dimensions = confidence_dimensions(record, evidence, architecture)
     evidence_view = incident_evidence(record, evidence)
     gaps = uncertainty_notes(record, evidence, architecture)
     questions = governance_questions(record, architecture, gaps)
@@ -602,6 +715,8 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
         "assessmentLabel": "Automated Preliminary Governance Assessment",
         "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
         "assessmentConfidence": confidence_state,
+        "confidenceDimensions": dimensions,
+        "sourceNormalization": normalization,
         "evidenceSnapshot": evidence,
         "incidentEvidence": evidence_view,
         "severityAssessment": severity,
@@ -667,6 +782,7 @@ def build(
     knowledge_root: Path = KNOWLEDGE_ROOT,
     created_at: str | None = None,
     backfill_report_path: Path | None = None,
+    review_queue_path: Path | None = None,
 ) -> dict:
     records = read_json(store_path, {"incidents": []}).get("incidents", [])
     knowledge = KnowledgeLayer(knowledge_root)
@@ -742,6 +858,8 @@ def build(
             "assessmentsSkipped": skipped,
             "generationFailures": failures,
         })
+    queue_path = review_queue_path or (REVIEW_QUEUE_PATH if analysis_path == ANALYSIS_PATH else analysis_path.with_name("human-review-queue.json"))
+    write_json(queue_path, build_review_queue(assessments, records, generated_at))
     return {"incidentCount": len(records), "assessmentsCreated": created, "assessmentsSkipped": skipped, "changedArchitectures": len(changed), "generationFailures": len(failures)}
 
 
@@ -753,6 +871,41 @@ def latest_assessments(path: Path = ANALYSIS_PATH) -> dict[str, dict]:
         if current is None or assessment["analysisVersion"] > current["analysisVersion"]:
             latest[assessment["incidentId"]] = assessment
     return latest
+
+
+def build_review_queue(assessments: list[dict], records: list[dict], generated_at: str | None = None) -> dict:
+    records_by_id = {item["id"]: item for item in records}
+    latest = {}
+    for assessment in assessments:
+        incident_id = assessment["incidentId"]
+        if assessment["analysisVersion"] > latest.get(incident_id, {}).get("analysisVersion", 0):
+            latest[incident_id] = assessment
+    queue = []
+    for incident_id, assessment in sorted(latest.items()):
+        reasons = []
+        severity = assessment.get("severityAssessment", {}).get("level")
+        methodology = assessment.get("confidenceDimensions", {}).get("methodologicalAssignment", {}).get("level")
+        record = records_by_id.get(incident_id, {})
+        source_count = assessment.get("evidenceSnapshot", {}).get("corroboration", {}).get("independentSourceCount", 0)
+        if severity in {"High", "Critical"}:
+            reasons.append(f"{severity} automated severity")
+        if methodology in {"Limited", "Evidence Insufficient"}:
+            reasons.append("weak or unresolved methodological assignment")
+        if source_count < 2 and re.search(r"\b(caused|causing|resulted in|led to)\b", normalized_text(record.get("title"))):
+            reasons.append("causal wording with single-source evidence")
+        if reasons:
+            queue.append({
+                "incidentId": incident_id,
+                "assessmentIdentity": assessment.get("assessmentIdentity"),
+                "priority": "Urgent" if severity == "Critical" else "High" if severity == "High" else "Standard",
+                "reasons": reasons,
+                "status": "Awaiting authorized human review",
+                "autoApprovalPermitted": False,
+            })
+    return {
+        "schemaVersion": "1.0", "engineVersion": ENGINE_VERSION,
+        "generatedAt": generated_at or now_iso(), "reviewRequired": len(queue), "items": queue,
+    }
 
 
 def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[str]:
@@ -786,8 +939,25 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
             questions = assessment.get("governanceQuestions") or []
             if not 1 <= len(questions) <= 5:
                 errors.append(f"Assessment must contain 1-5 governance questions: {identity}")
+            if any(re.search(r"\b(no|unknown|n a|not specified)\b", normalized_text(question)) for question in questions):
+                errors.append(f"Governance question contains a source placeholder: {identity}")
             if not assessment.get("assessmentDisclosure"):
                 errors.append(f"Assessment disclosure is missing: {identity}")
+            dimensions = assessment.get("confidenceDimensions") or {}
+            if set(dimensions) != {"sourceCorroboration", "extractionCompleteness", "methodologicalAssignment"}:
+                errors.append(f"Three confidence dimensions are missing: {identity}")
+            normalization = assessment.get("sourceNormalization") or {}
+            if normalization.get("sourceRecordModified") is not False or not normalization.get("rawRecordHash"):
+                errors.append(f"Source normalization provenance is missing: {identity}")
+            bad_terms = PLACEHOLDER_VALUES | {"including", "while", "without", "otherwise", "previously", "whether"}
+            architecture_for_terms = assessment.get("architectureAnalysis", {})
+            evidence_terms = {
+                normalized_text(term)
+                for item in [architecture_for_terms.get("primaryArchitecture"), *architecture_for_terms.get("contributingArchitectures", [])]
+                if item for term in item.get("matchedTerms", [])
+            }
+            if evidence_terms & bad_terms:
+                errors.append(f"Weak or placeholder evidence term found: {identity}")
             for finding in assessment.get("governanceFindings") or []:
                 if not finding.get("evidenceBasis") or not finding.get("architectureReference") or not finding.get("status"):
                     errors.append(f"Governance finding lacks evidence, architecture, or status: {identity}")

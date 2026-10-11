@@ -55,15 +55,74 @@
   "createdAt": "2016-06-30T00:00:00Z",
   "updatedAt": "2016-06-30T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-786732-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-786732-V6",
     "incidentId": "OOF-AII-786732",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.75,
+        "matchedTerms": [
+          "object",
+          "been",
+          "harm",
+          "multiple"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "0a75717ea0c6b090e06346fe721e411c4fd34f31f41155016a6a9a5a24baf935",
+      "normalizedFields": {
+        "organization": "Tesla",
+        "system": "yes",
+        "technology": null,
+        "industry": "transportation and storage",
+        "aiSystemType": "navigation; object detection; object recognition",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Motorists"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"transportation and storage\"]",
+          "normalizedValue": "transportation and storage",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"navigation\", \"object detection\", \"object recognition\"]",
+          "normalizedValue": "navigation; object detection; object recognition",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-786732-EVID-0a75717ea0c6",
       "incidentSourceHash": "0a75717ea0c6b090e06346fe721e411c4fd34f31f41155016a6a9a5a24baf935",
@@ -185,31 +244,6 @@
       },
       "contributingArchitectures": [
         {
-          "objectId": "OOF-KO-ARCH-VFM",
-          "architectureId": "vfm",
-          "label": "VFM® — Value Flow Mechanisms Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 33.71,
-          "matchedTerms": [
-            "recognition",
-            "object",
-            "while",
-            "occurred"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "recognition, object, while, occurred",
-          "reasonForRelevance": "Available reporting describes recognition, object, while. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported recognition, object, while concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-          "governanceFocus": "How should recognition, object, while be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:20"
-          ],
-          "confidence": 0.65,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
           "objectId": "OOF-KO-ARCH-PGA",
           "architectureId": "pga",
           "label": "PGA™ — Prediction Governance Architecture",
@@ -231,15 +265,39 @@
           "confidence": 0.64,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-VFM",
+          "architectureId": "vfm",
+          "label": "VFM® — Value Flow Mechanisms Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
+          "score": 27.21,
+          "matchedTerms": [
+            "recognition",
+            "object",
+            "occurred"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "recognition, object, occurred",
+          "reasonForRelevance": "Available reporting describes recognition, object, occurred. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported recognition, object, occurred concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+          "governanceFocus": "How should recognition, object, occurred be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:20"
+          ],
+          "confidence": 0.62,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
         }
       ]
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving object, been, harm, multiple. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "LIGA™ — Liability Governance Architecture frames the primary governed problem. VFM® — Value Flow Mechanisms Architecture, PGA™ — Prediction Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "LIGA™ — Liability Governance Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "On what governed basis can Liability potentially exist?",
-      "How should recognition, object, while be governed in the conditions described by the available incident evidence?",
       "How should object, multiple be governed in the conditions described by the available incident evidence?",
+      "How should recognition, object, occurred be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Tesla at the relevant time?",
       "What evidence would establish how yes produced or enabled the reported outcome?"
     ],
@@ -252,16 +310,16 @@
       "governedSpace": "LIGA™ — Liability Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-LIGA",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-VFM",
-        "OOF-KO-ARCH-PGA"
+        "OOF-KO-ARCH-PGA",
+        "OOF-KO-ARCH-VFM"
       ],
       "parentStandard": "OOF-KO-STD-LIGA-03",
       "coreModule": null,
       "governedMechanism": "object, been, harm, multiple",
       "governanceQuestions": [
         "On what governed basis can Liability potentially exist?",
-        "How should recognition, object, while be governed in the conditions described by the available incident evidence?",
         "How should object, multiple be governed in the conditions described by the available incident evidence?",
+        "How should recognition, object, occurred be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Tesla at the relevant time?",
         "What evidence would establish how yes produced or enabled the reported outcome?"
       ],
@@ -303,24 +361,6 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition, object, while, occurred.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition, object, while, occurred.",
-        "evidenceBasis": [
-          "aiid:20"
-        ],
-        "basis": [
-          "recognition",
-          "object",
-          "while",
-          "occurred"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
         "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported object, multiple.",
         "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported object, multiple.",
         "evidenceBasis": [
@@ -331,6 +371,23 @@
           "multiple"
         ],
         "architectureReference": "OOF-KO-ARCH-PGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition, object, occurred.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition, object, occurred.",
+        "evidenceBasis": [
+          "aiid:20"
+        ],
+        "basis": [
+          "recognition",
+          "object",
+          "occurred"
+        ],
+        "architectureReference": "OOF-KO-ARCH-VFM",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -351,8 +408,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-786732-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-786732-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

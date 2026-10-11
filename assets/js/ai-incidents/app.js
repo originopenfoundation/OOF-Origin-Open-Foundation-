@@ -190,7 +190,9 @@ function escapeHtml(value) {
 function countryCodeForFeature(feature) {
   const properties = feature.properties || {};
   const primary = properties.ISO_A2 || properties.iso_a2;
-  return primary === "-99" ? null : primary;
+  const extended = properties.ISO_A2_EH || properties.iso_a2_eh;
+  const code = primary === "-99" ? extended : primary;
+  return code && code !== "-99" ? String(code).toUpperCase() : null;
 }
 
 function wireFilters() {
@@ -433,7 +435,14 @@ function appendAnalysis(body, analysis, architectureLinks) {
     body.textContent = "No automated assessment is available for this record.";
     return;
   }
-  appendDefinitionList(body, [["Assessment confidence", analysis.assessmentConfidence || "Evidence Insufficient"], ["OOF Approved", analysis.oofApproved ? "Yes" : "No"], ["Evidence", analysis.evidenceSnapshot?.corroboration?.status || "Insufficient evidence"], ["Severity", analysis.severityAssessment?.level || "Insufficient Evidence"]]);
+  const confidence = analysis.confidenceDimensions || {};
+  appendDefinitionList(body, [
+    ["Source corroboration", confidence.sourceCorroboration?.level || analysis.evidenceSnapshot?.corroboration?.status || "Insufficient evidence"],
+    ["Extraction completeness", confidence.extractionCompleteness?.level || "Not assessed"],
+    ["Methodological assignment", confidence.methodologicalAssignment?.level || analysis.assessmentConfidence || "Evidence Insufficient"],
+    ["OOF Approved", analysis.oofApproved ? "Yes" : "No"],
+    ["Severity", analysis.severityAssessment?.level || "Insufficient Evidence"],
+  ]);
   appendAnalysisText(body, "Assessment disclosure", analysis.assessmentDisclosure, "oof-analysis-disclosure");
   const evidence = analysis.incidentEvidence || {};
   appendAnalysisList(body, "Known facts from the incident record", evidence.knownFacts, (row, item) => { row.textContent = item; });

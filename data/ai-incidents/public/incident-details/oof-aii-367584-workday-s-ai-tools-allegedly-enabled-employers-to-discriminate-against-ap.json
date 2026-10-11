@@ -57,15 +57,76 @@
   "createdAt": "2026-08-29T14:27:20.596000Z",
   "updatedAt": "2026-08-29T14:27:20.596000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-367584-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-367584-V5",
     "incidentId": "OOF-AII-367584",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.59,
+        "matchedTerms": [
+          "communication",
+          "information",
+          "over"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "14150c9f72affcec0959d9d9d260734f1f2593a4d076947fc765af14f2228458",
+      "normalizedFields": {
+        "organization": "Workday",
+        "system": "Enterprise Ai Systems",
+        "technology": null,
+        "industry": "professional, scientific and technical activities; information and communication",
+        "aiSystemType": "recruitment screening; job screening",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "maybe"
+        ],
+        "affectedParties": [
+          "Derek Mobley",
+          "Applicants With Disabilities",
+          "Applicants Over 40",
+          "African American Applicants"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"professional, scientific and technical activities\", \"information and communication\"]",
+          "normalizedValue": "professional, scientific and technical activities; information and communication",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"recruitment screening\", \"job screening\"]",
+          "normalizedValue": "recruitment screening; job screening",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-367584-EVID-14150c9f72af",
       "incidentSourceHash": "14150c9f72affcec0959d9d9d260734f1f2593a4d076947fc765af14f2228458",
@@ -245,8 +306,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-367584-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-367584-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

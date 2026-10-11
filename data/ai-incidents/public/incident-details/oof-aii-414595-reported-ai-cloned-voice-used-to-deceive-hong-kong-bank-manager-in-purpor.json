@@ -58,15 +58,76 @@
   "createdAt": "2025-05-04T01:42:26Z",
   "updatedAt": "2025-05-04T01:42:26Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-414595-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-414595-V6",
     "incidentId": "OOF-AII-414595",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "evidence",
+          "identity",
+          "origin"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "572c216509635dd79272c06b0e9b516a0a24a7be1d9d5c2b8bd297055046d54d",
+      "normalizedFields": {
+        "organization": "Cybercriminals, Scammers, Transnational Fraud Rings",
+        "system": "Unknown Real Time Speech Synthesis Technology, Deepfake Technology, Synthetic Audio Generation Technology",
+        "technology": null,
+        "industry": "financial and insurance activities; other",
+        "aiSystemType": "deepfake audio generation; audio deepfake",
+        "impactTypes": [
+          "Malicious Actors & Misuse",
+          "yes"
+        ],
+        "affectedParties": [
+          "Unnamed Japanese Firm",
+          "Unnamed Hong Kong Based Branch Manager Of Unnamed Japanese Firm",
+          "General Public Of The United Arab Emirates",
+          "Centennial Bank"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"financial and insurance activities\", \"other\"]",
+          "normalizedValue": "financial and insurance activities; other",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"deepfake audio generation\", \"audio deepfake\"]",
+          "normalizedValue": "deepfake audio generation; audio deepfake",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-414595-EVID-572c21650963",
       "incidentSourceHash": "572c216509635dd79272c06b0e9b516a0a24a7be1d9d5c2b8bd297055046d54d",
@@ -489,8 +550,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-414595-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-414595-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

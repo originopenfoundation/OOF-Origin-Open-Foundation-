@@ -55,15 +55,60 @@
   "createdAt": "2026-09-23T00:00:00Z",
   "updatedAt": "2026-09-23T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-251835-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-251835-V6",
     "incidentId": "OOF-AII-251835",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "safety",
+          "enforcement"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "7d017deb2ffa4d3fe8bca77c46f8a800b60ffe9dcec447d10a12519843e8dd27",
+      "normalizedFields": {
+        "organization": "Colwich Police Department (Kansas), Law Enforcement, Catoosa Police Department (Oklahoma), Police Departments In The United States",
+        "system": "Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Matthew Spurlock",
+          "Leah Spurlock",
+          "Motorists",
+          "Road Users",
+          "Drivers"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-251835-EVID-7d017deb2ffa",
       "incidentSourceHash": "7d017deb2ffa4d3fe8bca77c46f8a800b60ffe9dcec447d10a12519843e8dd27",
@@ -325,8 +370,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-251835-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-251835-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

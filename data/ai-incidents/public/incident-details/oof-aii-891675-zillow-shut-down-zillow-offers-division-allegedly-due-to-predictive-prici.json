@@ -56,15 +56,84 @@
   "createdAt": "2026-09-03T21:33:10.131000Z",
   "updatedAt": "2026-09-03T21:33:10.131000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-891675-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-891675-V6",
     "incidentId": "OOF-AII-891675",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 1.0,
+        "populatedFields": 8,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.95,
+        "matchedTerms": [
+          "predictive",
+          "prediction",
+          "probability",
+          "support",
+          "uncertainty",
+          "forecasting",
+          "changes"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "be98633fb443136417a38b7a2bac3770b19cfadd17b9d9acfbcdd91011eab9e4",
+      "normalizedFields": {
+        "organization": "Zillow",
+        "system": "Ai Enabled Decision Support Systems",
+        "technology": "Regression; Multimodal Learning; Diverse Data",
+        "industry": "real estate activities",
+        "aiSystemType": "price determination; home valuation; estimating house prices; real estate market forecasting",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Zillow Offers Staff",
+          "Zillow"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "technology",
+          "rawValue": "[\"Regression\", \"Multimodal Learning\", \"Diverse Data\"]",
+          "normalizedValue": "Regression; Multimodal Learning; Diverse Data",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"real estate activities\"]",
+          "normalizedValue": "real estate activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"price determination\", \"home valuation\", \"estimating house prices\", \"real estate market forecasting\"]",
+          "normalizedValue": "price determination; home valuation; estimating house prices; real estate market forecasting",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-891675-EVID-be98633fb443",
       "incidentSourceHash": "be98633fb443136417a38b7a2bac3770b19cfadd17b9d9acfbcdd91011eab9e4",
@@ -316,8 +385,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-891675-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-891675-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

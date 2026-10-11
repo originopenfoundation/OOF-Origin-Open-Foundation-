@@ -52,15 +52,69 @@
   "createdAt": "2017-12-03T00:00:00Z",
   "updatedAt": "2017-12-03T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-140374-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-140374-V5",
     "incidentId": "OOF-AII-140374",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Evidence Insufficient",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.75,
+        "populatedFields": 6,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Evidence Insufficient",
+        "score": 0.0,
+        "matchedTerms": [],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "cbf707287eb97c657525576a42d9c9bc1d651ef57b351631481583a61695afae",
+      "normalizedFields": {
+        "organization": "Delhi Metro Rail Corporation",
+        "system": null,
+        "technology": null,
+        "industry": "transportation and storage",
+        "aiSystemType": null,
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Delhi Metro Rail Corporation"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "system",
+          "rawValue": "no",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"transportation and storage\"]",
+          "normalizedValue": "transportation and storage",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-140374-EVID-cbf707287eb9",
       "incidentSourceHash": "cbf707287eb97c657525576a42d9c9bc1d651ef57b351631481583a61695afae",
@@ -103,14 +157,15 @@
         "A driverless metro train in Delhi, India crashed during a test run due to faulty brakes."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
     "severityAssessment": {
       "level": "Low",
       "score": 1,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -138,7 +193,7 @@
     "governanceRelationship": "No architecture relationship is asserted because the governed space remains unresolved.",
     "governanceQuestions": [
       "What operational authority and controls applied to Delhi Metro Rail Corporation at the relevant time?",
-      "What evidence would establish how no produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": null,
@@ -155,7 +210,7 @@
       "governedMechanism": null,
       "governanceQuestions": [
         "What operational authority and controls applied to Delhi Metro Rail Corporation at the relevant time?",
-        "What evidence would establish how no produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
       "incidentGovernanceInsight": null,
@@ -190,8 +245,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-140374-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-140374-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

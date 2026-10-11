@@ -2,12 +2,14 @@
 """Generate indexable static entry routes for the incident intelligence UI."""
 
 from pathlib import Path
+import argparse
 import html
 import json
 import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DISCOVERY_BLOCK_RE = re.compile(r"<!-- OOF AI DISCOVERY START -->.*?<!-- OOF AI DISCOVERY END -->\s*", re.S)
 SOURCE = ROOT / "ai-incidents" / "index.html"
 ROUTES = {
     "map": "Global AI Incident Map",
@@ -24,6 +26,17 @@ ROUTES = {
 
 def text(value) -> str:
     return html.escape(str(value or ""), quote=True)
+
+
+def generated_page_signature(value: str) -> tuple[str, tuple[str, ...]]:
+    """Compare generated body content while allowing discovery metadata injection."""
+    value = DISCOVERY_BLOCK_RE.sub("", value)
+    value = re.sub(r"<head\b.*?</head>", " ", value, flags=re.I | re.S)
+    value = re.sub(r"<(script|style|noscript)\b.*?</\1>", " ", value, flags=re.I | re.S)
+    links = tuple(re.findall(r"<a\b[^>]*\bhref=[\"']([^\"']+)", value, flags=re.I))
+    visible = re.sub(r"<[^>]+>", " ", value)
+    visible = re.sub(r"\s+", " ", html.unescape(visible)).strip()
+    return visible, links
 
 
 def public_slug(record: dict) -> str:
@@ -67,6 +80,27 @@ def architecture_markup(analysis: dict) -> str:
     return f'<section><h2>Architecture intelligence</h2><div class="oof-incident-detail-architectures">{"".join(cards)}</div></section>'
 
 
+def confidence_markup(analysis: dict) -> str:
+    dimensions = analysis.get("confidenceDimensions") or {}
+    labels = {
+        "sourceCorroboration": "Source corroboration",
+        "extractionCompleteness": "Extraction completeness",
+        "methodologicalAssignment": "Methodological assignment confidence",
+    }
+    items = []
+    for key, label in labels.items():
+        value = dimensions.get(key) or {}
+        if not value:
+            continue
+        items.append(
+            '<div><dt>' + text(label) + '</dt><dd>' + text(value.get("level") or "Not assessed") + '</dd>'
+            '<p>' + text(value.get("disclosure")) + '</p></div>'
+        )
+    if not items:
+        return ""
+    return '<section><h2>Assessment confidence dimensions</h2><dl class="oof-confidence-dimensions">' + "".join(items) + '</dl></section>'
+
+
 def build_incident_detail(record: dict) -> str:
     analysis = record.get("automatedAnalysis") or {}
     evidence = analysis.get("incidentEvidence") or {}
@@ -104,6 +138,7 @@ def build_incident_detail(record: dict) -> str:
 <header><p class="oof-incident-id">{text(record['id'])}</p><h1>{text(record['title'])}</h1><p class="oof-detail-lede">{text(record.get('summary') or 'No public summary is available.')}</p></header>
 <dl class="oof-incident-detail-facts"><div><dt>Event date</dt><dd>{text((record.get('occurredAt') or record.get('reportedAt') or 'Unknown')[:10])}</dd></div><div><dt>Country</dt><dd>{text(record.get('country') or 'Location not specified')}</dd></div><div><dt>Severity</dt><dd>{text(severity)}</dd></div><div><dt>Evidence state</dt><dd>{text(evidence.get('evidenceState') or 'Insufficient evidence')}</dd></div></dl>
 <section class="oof-detail-disclosure"><h2>Assessment status</h2><p>{text(disclosure)}</p>{source_markup}</section>
+{confidence_markup(analysis)}
 {list_markup('Known facts from the incident record', evidence.get('knownFacts') or [])}
 {list_markup('Reported claims', evidence.get('reportedClaims') or [])}
 {list_markup('Material unknowns', evidence.get('materialUnknowns') or [])}
@@ -136,7 +171,17 @@ fetch("/header.html").then(r=>r.text()).then(v=>{{document.getElementById("heade
 </script></body></html>'''
 
 
-def build() -> None:
+def build(check: bool = False) -> None:
+    mismatches = []
+
+    def emit(target: Path, value: str) -> None:
+        if check:
+            if not target.exists() or generated_page_signature(target.read_text(encoding="utf-8")) != generated_page_signature(value):
+                mismatches.append(str(target.relative_to(ROOT)))
+            return
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(value, encoding="utf-8")
+
     source = SOURCE.read_text(encoding="utf-8")
     for route, title in ROUTES.items():
         page = re.sub(r'<html lang="en" data-ai-incidents-view="[^"]+">', f'<html lang="en" data-ai-incidents-view="{route}">', source, count=1)
@@ -148,8 +193,7 @@ def build() -> None:
             count=1,
         )
         target = ROOT / "ai-incidents" / route / "index.html"
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(page, encoding="utf-8")
+        emit(target, page)
     payload = json.loads((ROOT / "data" / "ai-incidents" / "incident-store.json").read_text(encoding="utf-8"))
     analyses = json.loads((ROOT / "data" / "ai-incidents" / "analysis-store.json").read_text(encoding="utf-8"))
     latest = {}
@@ -166,22 +210,30 @@ def build() -> None:
         record["automatedAnalysis"] = latest.get(record["id"])
         public_records.append(record)
         target = ROOT / "ai-incidents" / "incidents" / public_slug(record) / "index.html"
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(build_incident_detail(record), encoding="utf-8")
+        emit(target, build_incident_detail(record))
         detail_count += 1
     directory = ROOT / "ai-incidents" / "incidents" / "index.html"
-    directory.parent.mkdir(parents=True, exist_ok=True)
-    directory.write_text(build_incident_directory(public_records), encoding="utf-8")
+    emit(directory, build_incident_directory(public_records))
     expected_directories = {public_slug(record) for record in public_records}
     for child in directory.parent.iterdir():
         if not child.is_dir() or child.name in expected_directories:
             continue
-        for generated_file in child.iterdir():
-            if generated_file.is_file():
-                generated_file.unlink()
-        child.rmdir()
+        if check:
+            mismatches.append(str(child.relative_to(ROOT)))
+        else:
+            for generated_file in child.iterdir():
+                if generated_file.is_file():
+                    generated_file.unlink()
+            child.rmdir()
+    if mismatches:
+        raise SystemExit("Generated AI incident pages are stale:\n- " + "\n- ".join(mismatches[:50]))
+    if check:
+        print(f"Verified {len(ROUTES)} AI incident routes, the incident index, and {detail_count} incident detail pages.")
+        return
     print(f"Generated {len(ROUTES)} AI incident routes, the incident index, and {detail_count} incident detail pages.")
 
 
 if __name__ == "__main__":
-    build()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true", help="Verify generated pages without writing files")
+    build(check=parser.parse_args().check)

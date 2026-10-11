@@ -54,15 +54,83 @@
   "createdAt": "2018-01-25T00:00:00Z",
   "updatedAt": "2018-01-25T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-228347-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-228347-V6",
     "incidentId": "OOF-AII-228347",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "communication",
+          "information",
+          "when"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "64b2f879f6b99cd33716f426ca00b1cf41b8860d463c9dd099b743f4de8e8e92",
+      "normalizedFields": {
+        "organization": "Google",
+        "system": "yes",
+        "technology": null,
+        "industry": "Arts, entertainment and recreation; information and communication",
+        "aiSystemType": "image recognition; image organization; image splicing; image editing",
+        "impactTypes": [
+          "AI system safety, failures, and limitations"
+        ],
+        "affectedParties": [
+          "Alex Harker"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"Arts, entertainment and recreation\", \"information and communication\"]",
+          "normalizedValue": "Arts, entertainment and recreation; information and communication",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"image recognition\", \"image organization\", \"image splicing\", \"image editing\"]",
+          "normalizedValue": "image recognition; image organization; image splicing; image editing",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "no"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-228347-EVID-64b2f879f6b9",
       "incidentSourceHash": "64b2f879f6b99cd33716f426ca00b1cf41b8860d463c9dd099b743f4de8e8e92",
@@ -255,8 +323,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-228347-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-228347-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -56,15 +56,72 @@
   "createdAt": "2026-08-29T14:30:11.092000Z",
   "updatedAt": "2026-08-29T14:30:11.092000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-650176-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-650176-V6",
     "incidentId": "OOF-AII-650176",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "recognition"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "9bbc26ca2fdb7a35aeff6f3f3445737b75b097726b7f7c9f27d7f799e37da25b",
+      "normalizedFields": {
+        "organization": "Hirevue",
+        "system": "Enterprise Ai Systems",
+        "technology": null,
+        "industry": "administrative and support service activities; professional, scientific and technical activities",
+        "aiSystemType": "candidate assessment; virtual interview; emotion recognition; facial expression recognition; speech recognition",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "Job Applicants Using Hirevue",
+          "Hirevue Customers"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"administrative and support service activities\", \"professional, scientific and technical activities\"]",
+          "normalizedValue": "administrative and support service activities; professional, scientific and technical activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"candidate assessment\", \"virtual interview\", \"emotion recognition\", \"facial expression recognition\", \"speech recognition\"]",
+          "normalizedValue": "candidate assessment; virtual interview; emotion recognition; facial expression recognition; speech recognition",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-650176-EVID-9bbc26ca2fdb",
       "incidentSourceHash": "9bbc26ca2fdb7a35aeff6f3f3445737b75b097726b7f7c9f27d7f799e37da25b",
@@ -320,8 +377,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-650176-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-650176-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

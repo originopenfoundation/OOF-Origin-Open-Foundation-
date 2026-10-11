@@ -53,15 +53,60 @@
   "createdAt": "2026-09-16T00:00:00Z",
   "updatedAt": "2026-09-16T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-633313-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-633313-V5",
     "incidentId": "OOF-AII-633313",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "models",
+          "when"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "cfda784f5bfc07737dcb905fd1ff7ed33b5dfa0f9c8f29dc7ae5d6366277ff7f",
+      "normalizedFields": {
+        "organization": "Zurich Oerlikon Child Stabbing Suspect, Violent Attack Planners And Assailants",
+        "system": "Chatbots, Chatgpt, Large Language Models, Openai Large Language Models, Ai Search Technology",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Minors",
+          "Men And Boys",
+          "Boys",
+          "Three Boys Injured In Zurich Oerlikon Knife Attack",
+          "Victims Of Violent Attack Planners And Assailants"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-633313-EVID-cfda784f5bfc",
       "incidentSourceHash": "cfda784f5bfc07737dcb905fd1ff7ed33b5dfa0f9c8f29dc7ae5d6366277ff7f",
@@ -242,8 +287,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-633313-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-633313-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

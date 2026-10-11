@@ -13,6 +13,8 @@ import incident_intelligence_v2 as engine
 ROOT = Path(__file__).resolve().parents[1]
 JSON_REPORT = ROOT / "data" / "ai-incidents" / "methodological-accuracy-audit.json"
 MARKDOWN_REPORT = ROOT / "docs" / "AI_INCIDENT_KNOWLEDGE_LAYER_METHODOLOGICAL_ACCURACY.md"
+STAGE_A_JSON_REPORT = ROOT / "data" / "ai-incidents" / "v3-2-stage-a-capability-audit.json"
+STAGE_A_REPORT = ROOT / "docs" / "AI_INCIDENT_V3_2_STAGE_A_IMPLEMENTATION_CAPABILITY_AUDIT.md"
 
 
 def load_records() -> dict[str, dict]:
@@ -103,6 +105,18 @@ def audit_item(assessment: dict, record: dict, knowledge: engine.KnowledgeLayer)
     questions = assessment.get("governanceQuestions") or []
     if not questions or any(not question.endswith("?") for question in questions):
         problems.append("Governance questions are absent or malformed")
+    if any("how no produced" in engine.normalized_text(question) for question in questions):
+        problems.append("Governance question contains a source placeholder")
+    forbidden_terms = engine.PLACEHOLDER_VALUES | {"including", "while", "without", "otherwise", "previously", "whether"}
+    evidence_terms = {engine.normalized_text(term) for item in assignments for term in item.get("matchedTerms", [])}
+    if evidence_terms & forbidden_terms:
+        problems.append("Weak or placeholder terms were used as assignment evidence")
+    dimensions = assessment.get("confidenceDimensions") or {}
+    if set(dimensions) != {"sourceCorroboration", "extractionCompleteness", "methodologicalAssignment"}:
+        problems.append("Three distinct confidence dimensions are absent")
+    normalization = assessment.get("sourceNormalization") or {}
+    if normalization.get("sourceRecordModified") is not False or not normalization.get("rawRecordHash"):
+        problems.append("Normalization provenance does not preserve the raw record boundary")
     insight = assessment.get("incidentGovernanceInsight")
     if assessment.get("assessmentConfidence") != "Evidence Insufficient" and not insight:
         problems.append("Governance insight is absent despite sufficient evidence")
@@ -118,7 +132,7 @@ def audit_item(assessment: dict, record: dict, knowledge: engine.KnowledgeLayer)
         "evidenceTerms": sorted({term for item in assignments for term in item.get("matchedTerms", [])}),
         "governanceQuestions": questions,
         "governanceInsight": insight,
-        "methodologicalCorrectness": "SUPPORTED" if not problems else "REVIEW_REQUIRED",
+        "methodologicalCorrectness": "STRUCTURALLY VALID" if not problems else "REVIEW_REQUIRED",
         "supportingEvidence": [source.get("sourceId") for source in record.get("sources", [])],
         "problems": problems,
     }
@@ -128,20 +142,19 @@ def main() -> int:
     knowledge = engine.KnowledgeLayer()
     records = load_records()
     latest = list(engine.latest_assessments().values())
-    sample = sample_assessments(latest)
-    audited = [audit_item(item, records[item["incidentId"]], knowledge) for item in sample]
+    audited = [audit_item(item, records[item["incidentId"]], knowledge) for item in sorted(latest, key=lambda value: value["incidentId"])]
     insight_counts = Counter(item["governanceInsight"] for item in audited if item.get("governanceInsight"))
     repeated_insights = [text for text, count in insight_counts.items() if count > 1]
     problems = [problem for item in audited for problem in item["problems"]]
     payload = {
         "schemaVersion": "1.0", "engineVersion": engine.ENGINE_VERSION,
         "knowledgeBuildId": knowledge.manifest.get("buildId"),
-        "sampleMethod": "Deterministic greedy coverage of architecture, severity, evidence and methodology-depth traits",
+        "sampleMethod": "Full-dataset deterministic audit of every latest assessment",
         "sampleSize": len(audited), "auditedIncidents": audited,
         "identifiedProblems": problems,
         "repeatedGenericInsights": repeated_insights,
         "overallMethodologicalAssessment": (
-            "The audited automated selections are canonically traceable and satisfy the implemented evidence-depth constraints. "
+            "The audited automated selections are structurally valid, canonically traceable, and satisfy the implemented evidence-depth constraints. "
             "They remain preliminary and require authorized human review for substantive correctness."
             if not problems and not repeated_insights else
             "One or more sampled selections require review; consult identifiedProblems and repeatedGenericInsights."
@@ -168,7 +181,7 @@ def main() -> int:
         "| Incident | Primary architecture | Standards / modules | Result |\n|---|---|---|---|\n"
         + "\n".join(rows)
         + "\n\n## D. Identified Problems\n\n"
-        + ("\n".join(f"- {problem}" for problem in problems) if problems else "No structural or canonical-reference failure was found in the reproducible sample.")
+        + ("\n".join(f"- {problem}" for problem in problems) if problems else "No structural or canonical-reference failure was found in the full-dataset audit.")
         + "\n\n## E. Corrections Implemented\n\n"
         "- Hierarchical retrieval prevents orphan Core Module assignments.\n"
         "- Sparse evidence remains at Architecture depth.\n"
@@ -180,7 +193,95 @@ def main() -> int:
         + payload["overallMethodologicalAssessment"] + "\n",
         encoding="utf-8", newline="\n",
     )
-    print(json.dumps({"sampleSize": len(audited), "problems": len(problems), "repeatedGenericInsights": len(repeated_insights)}, indent=2))
+    review_queue = engine.read_json(engine.REVIEW_QUEUE_PATH, {"items": []})
+    placeholder_systems = sum(
+        1 for record in records.values()
+        if engine.normalized_text(record.get("system")) in engine.PLACEHOLDER_VALUES
+    )
+    serialized_industries = sum(
+        1 for record in records.values()
+        if isinstance(record.get("industry"), str) and record["industry"].strip().startswith("[")
+    )
+    architecture_ids = {
+        assignment.get("objectId")
+        for assessment in latest
+        for assignment in [assessment.get("architectureAnalysis", {}).get("primaryArchitecture"),
+                           *assessment.get("architectureAnalysis", {}).get("contributingArchitectures", [])]
+        if assignment and assignment.get("objectId")
+    }
+    cross_architecture = sum(
+        1 for assessment in latest
+        if assessment.get("architectureAnalysis", {}).get("contributingArchitectures")
+    )
+    capability = {
+        "schemaVersion": "3.2", "engineVersion": engine.ENGINE_VERSION,
+        "title": "OOF® Global AI Incident Intelligence™ — V3.2 Stage A Implementation & Capability Audit",
+        "dataset": {
+            "incidentRecords": len(records), "latestAssessments": len(latest), "sourceRecordsModified": False,
+            "placeholderSystemValuesNormalized": placeholder_systems,
+            "serializedIndustryValuesNormalized": serialized_industries,
+            "geographicallyAssigned": sum(bool(record.get("countryCode")) for record in records.values()),
+            "locationNotSpecified": sum(not bool(record.get("countryCode")) for record in records.values()),
+            "architecturesRepresented": len(architecture_ids),
+            "crossArchitectureAssessments": cross_architecture,
+            "singleSourceAssessments": sum(
+                assessment.get("evidenceSnapshot", {}).get("corroboration", {}).get("independentSourceCount", 0) < 2
+                for assessment in latest
+            ),
+            "oofApprovedAssessments": sum(assessment.get("oofApproved") is True for assessment in latest),
+        },
+        "llmIntegration": {
+            "status": "NOT INTEGRATED",
+            "finding": "The Stage A assessment path is deterministic Python and does not call an LLM API, submit prompts, consume model tokens, or require an LLM response cache.",
+        },
+        "sourceConnectors": [
+            {"name": "ManualOOFIncidentAdapter", "status": "IMPLEMENTED", "mode": "local review inbox"},
+            {"name": "AIIDWeeklyExcelAdapter", "status": "IMPLEMENTED", "mode": "bounded official weekly snapshot"},
+        ],
+        "validosIntegration": {
+            "status": "KNOWLEDGE-LAYER RETRIEVAL",
+            "finding": "VALIDOS may be retrieved as canonical methodology; no independent VALIDOS verification or approval is asserted.",
+        },
+        "performance": {
+            "currentMode": "deterministic batch generation with static public projections",
+            "futureDailyIntakeTarget": "maximum 10 newly admitted incidents per governed cycle",
+            "newSchedulerOrConnectorImplemented": False,
+        },
+        "qualityGates": {
+            "fullDatasetAudited": len(audited), "criticalDefects": len(problems),
+            "repeatedGenericInsights": len(repeated_insights),
+            "result": "FAIL" if problems else "PASS WITH REVIEW FLAGS" if repeated_insights else "PASS",
+        },
+        "humanReviewQueue": {"items": len(review_queue.get("items", [])), "automaticApproval": False},
+        "stageBDeferred": [
+            "new source connectors", "full multi-source VALIDOS verification", "public submission forms",
+            "prevention guidance", "new public redesign or SEO routes", "new scheduler", "GIE",
+            "new architecture", "multi-agent processing",
+        ],
+    }
+    engine.write_json(STAGE_A_JSON_REPORT, capability)
+    STAGE_A_REPORT.write_text(
+        "# OOF® Global AI Incident Intelligence™ — V3.2 Stage A Implementation & Capability Audit\n\n"
+        "## 1. Executive Result\n\n"
+        f"Quality gate: **{capability['qualityGates']['result']}**. Audited all {len(audited)} latest assessments while preserving all {len(records)} raw incident records.\n\n"
+        "## 2. Baseline and Scope\n\nStage A covers trust foundation, semantic quality, deterministic normalization, technical capability disclosure, and review controls.\n\n"
+        "## 3. Map Integrity\n\nCountry geometry resolution uses ISO_A2 with ISO_A2_EH fallback for Natural Earth `-99` records, including France. Antarctica remains excluded from the public map.\n\n"
+        "## 4. Source Normalization\n\nPlaceholders are removed from the analytical view, serialized source arrays are safely parsed, transformations are recorded, and raw source records remain unchanged.\n\n"
+        "## 5. Semantic Matching\n\nWeak connective terms are excluded and deeper methodology remains evidence-gated and hierarchical.\n\n"
+        "## 6. Governance Questions\n\nQuestions are generated only from normalized source fields and are checked for placeholder leakage and grammatical structure.\n\n"
+        "## 7. Confidence Model\n\nSource corroboration, extraction completeness, and methodological assignment confidence are stored and disclosed independently.\n\n"
+        "## 8. Human Review\n\nHigh-risk, weak-assignment, and causal-overstatement candidates enter a review queue. Automated approval is prohibited.\n\n"
+        "## 9. Assessment History\n\nEngine 3.2 creates a new assessment version and retains superseded versions and raw evidence hashes.\n\n"
+        "## 10. LLM Capability\n\nNo LLM is integrated into this assessment path; there are no model prompts, token calls, or response-cache dependencies.\n\n"
+        "## 11. Source Connectors\n\nThe current adapters are the manual review inbox and the bounded AIID weekly snapshot adapter. No Stage B connector was added.\n\n"
+        "## 12. VALIDOS Status\n\nVALIDOS is available through canonical Knowledge Layer retrieval; this does not constitute independent VALIDOS verification or approval.\n\n"
+        "## 13. Performance and Daily Cycle\n\nThe static deterministic build supports governed incremental processing. A future cycle is capped by policy at 10 newly admitted incidents; no new scheduler was implemented.\n\n"
+        "## 14. Quality Gates\n\n"
+        f"Full-dataset assessments: {len(audited)}. Critical defects: {len(problems)}. Repeated generic insights: {len(repeated_insights)}.\n\n"
+        "## 15. Deferred Stage B\n\nNew connectors, full multi-source verification, forms, prevention guidance, redesign, SEO expansion, scheduler work, GIE, new architectures, and multi-agent processing remain deferred.\n",
+        encoding="utf-8", newline="\n",
+    )
+    print(json.dumps({"audited": len(audited), "problems": len(problems), "repeatedGenericInsights": len(repeated_insights), "result": capability["qualityGates"]["result"]}, indent=2))
     return 1 if problems else 0
 
 

@@ -54,15 +54,61 @@
   "createdAt": "2026-08-25T16:13:57Z",
   "updatedAt": "2026-08-25T16:13:57Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-770685-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-770685-V6",
     "incidentId": "OOF-AII-770685",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.83,
+        "matchedTerms": [
+          "state",
+          "evidence",
+          "integrity",
+          "validation"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "414a7110a991004cb1eeab7d40e75c7df841ecc789f633e1d4d888ddeab013c6",
+      "normalizedFields": {
+        "organization": "Musick Peeler And Garrett Llp, Legal Professionals, Lawyers, Law Firms, Jacquelene Robinson",
+        "system": "Irys, Ai Assisted Legal Research Systems, Ai Assisted Legal Drafting Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Parties To Legal Proceedings",
+          "Judicial Integrity",
+          "Fa'Alagilagi Meni Siliga",
+          "Epistemic Integrity"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-770685-EVID-414a7110a991",
       "incidentSourceHash": "414a7110a991004cb1eeab7d40e75c7df841ecc789f633e1d4d888ddeab013c6",
@@ -206,95 +252,6 @@
       },
       "contributingArchitectures": [
         {
-          "objectId": "OOF-KO-ARCH-LIGA",
-          "architectureId": "liga",
-          "label": "LIGA™ — Liability Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 44.1,
-          "matchedTerms": [
-            "state",
-            "identified",
-            "evidence",
-            "otherwise"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "state, identified, evidence, otherwise",
-          "reasonForRelevance": "Available reporting describes state, identified, evidence. This makes LIGA™ — Liability Governance Architecture relevant to examining Liability State & Change Standard (LSCS) in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported state, identified, evidence concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-          "governanceFocus": "What is the current governed state of Liability, and how may that state legitimately change?",
-          "methodologyDepth": "ParentStandard",
-          "supportingEvidence": [
-            "aiid:1658"
-          ],
-          "confidence": 0.62,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": [
-            {
-              "objectId": "OOF-KO-STD-LIGA-09",
-              "name": "Liability State & Change Standard (LSCS)",
-              "artifactType": "ParentStandard",
-              "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-lscs.html",
-              "matchedTerms": [
-                "state",
-                "evidence"
-              ],
-              "score": 17,
-              "governedSpace": "Liability State & Change",
-              "coreQuestion": "What is the current governed state of Liability, and how may that state legitimately change?",
-              "parentObjectId": null,
-              "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-                "contentHash": "36abdceec87206007196094afa9ebccbed0bcb176057b0bed98864c4a5fe7de5",
-                "authorityState": "CANONICAL_AUTHORITATIVE"
-              }
-            }
-          ]
-        },
-        {
-          "objectId": "OOF-KO-ARCH-VFM",
-          "architectureId": "vfm",
-          "label": "VFM® — Value Flow Mechanisms Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 41.34,
-          "matchedTerms": [
-            "state",
-            "identified",
-            "otherwise"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "state, identified, otherwise",
-          "reasonForRelevance": "Available reporting describes state, identified, otherwise. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Identification Standard (VIS) in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported state, identified, otherwise concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-          "governanceFocus": "What value is being governed, and how can it be sufficiently identified and bounded before its origin, existence, state, and lifecycle are determined?",
-          "methodologyDepth": "ParentStandard",
-          "supportingEvidence": [
-            "aiid:1658"
-          ],
-          "confidence": 0.61,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": [
-            {
-              "objectId": "OOF-KO-STD-VFM-01",
-              "name": "Value Identification Standard (VIS)",
-              "artifactType": "ParentStandard",
-              "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vis.html",
-              "matchedTerms": [
-                "state",
-                "identified"
-              ],
-              "score": 7,
-              "governedSpace": "Value Identification",
-              "coreQuestion": "What value is being governed, and how can it be sufficiently identified and bounded before its origin, existence, state, and lifecycle are determined?",
-              "parentObjectId": null,
-              "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-                "contentHash": "f31f744df80b1a5d1f106c88c4be359d113dbf6ec2c91b287e534553dc7d628b",
-                "authorityState": "CANONICAL_AUTHORITATIVE"
-              }
-            }
-          ]
-        },
-        {
           "objectId": "OOF-KO-ARCH-PGA",
           "architectureId": "pga",
           "label": "PGA™ — Prediction Governance Architecture",
@@ -339,6 +296,50 @@
           ]
         },
         {
+          "objectId": "OOF-KO-ARCH-LIGA",
+          "architectureId": "liga",
+          "label": "LIGA™ — Liability Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
+          "score": 38.41,
+          "matchedTerms": [
+            "state",
+            "identified",
+            "evidence"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "state, identified, evidence",
+          "reasonForRelevance": "Available reporting describes state, identified, evidence. This makes LIGA™ — Liability Governance Architecture relevant to examining Liability State & Change Standard (LSCS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported state, identified, evidence concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
+          "governanceFocus": "What is the current governed state of Liability, and how may that state legitimately change?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:1658"
+          ],
+          "confidence": 0.6,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-KO-STD-LIGA-09",
+              "name": "Liability State & Change Standard (LSCS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-lscs.html",
+              "matchedTerms": [
+                "state",
+                "evidence"
+              ],
+              "score": 17,
+              "governedSpace": "Liability State & Change",
+              "coreQuestion": "What is the current governed state of Liability, and how may that state legitimately change?",
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "contentHash": "36abdceec87206007196094afa9ebccbed0bcb176057b0bed98864c4a5fe7de5",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
+        },
+        {
           "objectId": "OOF-KO-ARCH-MGIA",
           "architectureId": "mgia",
           "label": "MGIA™ — Memory Governance Intelligence Architecture",
@@ -364,13 +365,13 @@
       ]
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving state, evidence, integrity, validation. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "INTEGROS® — Integrity Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture, VFM® — Value Flow Mechanisms Architecture, PGA™ — Prediction Governance Architecture, MGIA™ — Memory Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "INTEGROS® — Integrity Governance Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture, LIGA™ — Liability Governance Architecture, MGIA™ — Memory Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "How should state, evidence, integrity be governed in the conditions described by the available incident evidence?",
-      "What is the current governed state of Liability, and how may that state legitimately change?",
-      "What value is being governed, and how can it be sufficiently identified and bounded before its origin, existence, state, and lifecycle are determined?",
       "What assumptions must hold for the prediction and its stated probability, confidence, feasibility, or expected outcome to remain meaningful?",
-      "How should state, integrity be governed in the conditions described by the available incident evidence?"
+      "What is the current governed state of Liability, and how may that state legitimately change?",
+      "How should state, integrity be governed in the conditions described by the available incident evidence?",
+      "What operational authority and controls applied to Musick Peeler And Garrett Llp, Legal Professionals, Lawyers, Law Firms, Jacquelene Robinson at the relevant time?"
     ],
     "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns state, evidence, integrity, validation, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
     "methodologicalReasoningChain": {
@@ -381,9 +382,8 @@
       "governedSpace": "INTEGROS® — Integrity Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-INTEGROS",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-LIGA",
-        "OOF-KO-ARCH-VFM",
         "OOF-KO-ARCH-PGA",
+        "OOF-KO-ARCH-LIGA",
         "OOF-KO-ARCH-MGIA"
       ],
       "parentStandard": "OOF-OID-INTEGROS-ISS-2026-07-17-0005",
@@ -391,10 +391,10 @@
       "governedMechanism": "state, evidence, integrity, validation",
       "governanceQuestions": [
         "How should state, evidence, integrity be governed in the conditions described by the available incident evidence?",
-        "What is the current governed state of Liability, and how may that state legitimately change?",
-        "What value is being governed, and how can it be sufficiently identified and bounded before its origin, existence, state, and lifecycle are determined?",
         "What assumptions must hold for the prediction and its stated probability, confidence, feasibility, or expected outcome to remain meaningful?",
-        "How should state, integrity be governed in the conditions described by the available incident evidence?"
+        "What is the current governed state of Liability, and how may that state legitimately change?",
+        "How should state, integrity be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Musick Peeler And Garrett Llp, Legal Professionals, Lawyers, Law Firms, Jacquelene Robinson at the relevant time?"
       ],
       "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns state, evidence, integrity, validation, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
       "deepestJustifiedLevel": "CoreModule"
@@ -434,41 +434,6 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported state, identified, evidence, otherwise.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported state, identified, evidence, otherwise.",
-        "evidenceBasis": [
-          "aiid:1658"
-        ],
-        "basis": [
-          "state",
-          "identified",
-          "evidence",
-          "otherwise"
-        ],
-        "architectureReference": "OOF-KO-ARCH-LIGA",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported state, identified, otherwise.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported state, identified, otherwise.",
-        "evidenceBasis": [
-          "aiid:1658"
-        ],
-        "basis": [
-          "state",
-          "identified",
-          "otherwise"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
         "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported state, evidence, identified.",
         "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported state, evidence, identified.",
         "evidenceBasis": [
@@ -480,6 +445,23 @@
           "identified"
         ],
         "architectureReference": "OOF-KO-ARCH-PGA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported state, identified, evidence.",
+        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported state, identified, evidence.",
+        "evidenceBasis": [
+          "aiid:1658"
+        ],
+        "basis": [
+          "state",
+          "identified",
+          "evidence"
+        ],
+        "architectureReference": "OOF-KO-ARCH-LIGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -522,8 +504,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-770685-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-770685-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

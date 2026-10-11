@@ -52,15 +52,88 @@
   "createdAt": "2020-09-01T00:00:00Z",
   "updatedAt": "2020-09-01T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-281468-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-281468-V5",
     "incidentId": "OOF-AII-281468",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.75,
+        "populatedFields": 6,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "communication",
+          "information"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "6d68a9242b7a467b0ef1242e797b507b2837d1e6679c56e365c77c956f1e7bb5",
+      "normalizedFields": {
+        "organization": null,
+        "system": "yes",
+        "technology": null,
+        "industry": "Arts, entertainment and recreation; information and communication",
+        "aiSystemType": "text generation",
+        "impactTypes": [
+          "Misinformation"
+        ],
+        "affectedParties": [
+          "Reddit Users"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "organization",
+          "rawValue": "Unknown",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"Arts, entertainment and recreation\", \"information and communication\"]",
+          "normalizedValue": "Arts, entertainment and recreation; information and communication",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"text generation\"]",
+          "normalizedValue": "text generation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Misinformation",
+            "no"
+          ],
+          "normalizedValue": [
+            "Misinformation"
+          ],
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-281468-EVID-6d68a9242b7a",
       "incidentSourceHash": "6d68a9242b7a467b0ef1242e797b507b2837d1e6679c56e365c77c956f1e7bb5",
@@ -103,14 +176,15 @@
         "Philosopher AI, a GPT-3-powered controversial text generator, was allegedly used by an anonymous actor on AskReddit subreddit, whose posts featured a mixture of harmless stories, conspiracy theories, and sensitive topic discussions."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The responsible operating organization is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
     "severityAssessment": {
       "level": "Low",
       "score": 3,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -164,7 +238,7 @@
     "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
     "governanceQuestions": [
       "How should communication, information be governed in the conditions described by the available incident evidence?",
-      "What operational authority and controls applied to Unknown at the relevant time?",
+      "Who held operational authority for the reported system or activity at the relevant time?",
       "What evidence would establish how yes produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
@@ -182,7 +256,7 @@
       "governedMechanism": "communication, information",
       "governanceQuestions": [
         "How should communication, information be governed in the conditions described by the available incident evidence?",
-        "What operational authority and controls applied to Unknown at the relevant time?",
+        "Who held operational authority for the reported system or activity at the relevant time?",
         "What evidence would establish how yes produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
@@ -234,8 +308,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-281468-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-281468-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

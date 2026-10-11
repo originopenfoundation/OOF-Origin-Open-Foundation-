@@ -63,15 +63,69 @@
   "createdAt": "2026-10-03T17:32:02.622000Z",
   "updatedAt": "2026-10-03T17:32:02.622000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-773171-V3",
+    "assessmentIdentity": "OOF-AII-ASMT-773171-V4",
     "incidentId": "OOF-AII-773171",
-    "analysisVersion": 3,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 4,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "High",
+        "score": 0.75,
+        "matchedTerms": [
+          "evidence",
+          "identity",
+          "origin"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "cbf325867ce8aa38b7be3e3603635c15fdaf156e2aa7d9f8c7765e56ed18faf8",
+      "normalizedFields": {
+        "organization": "Synthetic Media Creators, Storm 1679, Russian State Linked Actors, Operation Overload, Matryoshka, Information Manipulation Actors In Russia, Information Manipulation Actors, Influence Operation Groups, Deepfake Creators",
+        "system": "X (Twitter), Synthetic Video Generation Technology, Synthetic Media Generation Technology, Social Media Platforms, Deepfake Technology",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "X (Twitter) Users",
+          "Voters In The United States",
+          "Voters",
+          "Social Media Users",
+          "News Organizations",
+          "Mother Jones",
+          "Mark Thompson",
+          "Journalists",
+          "Epistemic Integrity",
+          "Democratic National Committee",
+          "Democratic Integrity",
+          "Cnn",
+          "Clara Jeffery"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-773171-EVID-cbf325867ce8",
       "incidentSourceHash": "cbf325867ce8aa38b7be3e3603635c15fdaf156e2aa7d9f8c7765e56ed18faf8",
@@ -429,8 +483,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-773171-V2",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-773171-V3",
     "reassessmentReason": "Material analysis engine change"
   }
 }

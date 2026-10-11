@@ -57,15 +57,79 @@
   "createdAt": "2026-05-28T16:54:18.755000Z",
   "updatedAt": "2026-05-28T16:54:18.755000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-189788-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-189788-V6",
     "incidentId": "OOF-AII-189788",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.75,
+        "matchedTerms": [
+          "allocation",
+          "state",
+          "determination",
+          "harm"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "97360eef330cb2116c59070a9ee7cb9ca0079d10e6f7aaa62b4becc4804269b1",
+      "normalizedFields": {
+        "organization": "Washington Dc Government, State Governments, Pennsylvania State Government, Missouri State Government, Iowa State Government, Idaho State Government, Arkansas State Government",
+        "system": "Algorithmic Home Care Assistance Allocation Systems",
+        "technology": null,
+        "industry": "human health and social work activities",
+        "aiSystemType": "welfare determination; benefits allocation",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Tammy Dobbs",
+          "Larkin Seiler",
+          "Economically Vulnerable People",
+          "Economically Vulnerable Patients",
+          "Elderly Individuals",
+          "People With Disabilities"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"human health and social work activities\"]",
+          "normalizedValue": "human health and social work activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"welfare determination\", \"benefits allocation\"]",
+          "normalizedValue": "welfare determination; benefits allocation",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-189788-EVID-97360eef330c",
       "incidentSourceHash": "97360eef330cb2116c59070a9ee7cb9ca0079d10e6f7aaa62b4becc4804269b1",
@@ -268,8 +332,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-189788-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-189788-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

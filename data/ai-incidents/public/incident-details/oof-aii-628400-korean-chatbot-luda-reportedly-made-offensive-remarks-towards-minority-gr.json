@@ -62,15 +62,88 @@
   "createdAt": "2026-06-17T18:49:25.984000Z",
   "updatedAt": "2026-06-17T18:49:25.984000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-628400-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-628400-V6",
     "incidentId": "OOF-AII-628400",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 1.0,
+        "populatedFields": 8,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "learning",
+          "cognition",
+          "decision",
+          "reasoning"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "081f19befa1ef9b6368aeef04ed45dba67c35b42643772747f3b51b78f3f3c8b",
+      "normalizedFields": {
+        "organization": "Facebook Messenger",
+        "system": "Chatbots, Luda",
+        "technology": "Autoencoder; Distributional Learning",
+        "industry": "information and communication; Arts, entertainment and recreation",
+        "aiSystemType": "chat bot",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "Korean Facebook Messenger Users",
+          "People With Disabilities In South Korea",
+          "Gender Minorities In South Korea",
+          "Minorities",
+          "Minorities In Korea",
+          "Chatbot Users",
+          "Luda Users",
+          "General Public",
+          "General Public Of South Korea"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "technology",
+          "rawValue": "[\"Autoencoder\", \"Distributional Learning\"]",
+          "normalizedValue": "Autoencoder; Distributional Learning",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"information and communication\", \"Arts, entertainment and recreation\"]",
+          "normalizedValue": "information and communication; Arts, entertainment and recreation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"chat bot\"]",
+          "normalizedValue": "chat bot",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-628400-EVID-081f19befa1e",
       "incidentSourceHash": "081f19befa1ef9b6368aeef04ed45dba67c35b42643772747f3b51b78f3f3c8b",
@@ -316,8 +389,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-628400-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-628400-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

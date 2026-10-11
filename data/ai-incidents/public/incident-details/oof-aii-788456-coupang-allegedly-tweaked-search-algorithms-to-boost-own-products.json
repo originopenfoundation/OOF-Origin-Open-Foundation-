@@ -55,15 +55,72 @@
   "createdAt": "2021-07-04T00:00:00Z",
   "updatedAt": "2021-07-04T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-788456-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-788456-V6",
     "incidentId": "OOF-AII-788456",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.43,
+        "matchedTerms": [
+          "potentially"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "d2c924856d1fcac33d674a2d0a4d38e7741a628c8c44fef7a2f5160cb2e85eb6",
+      "normalizedFields": {
+        "organization": "Coupang",
+        "system": "yes",
+        "technology": null,
+        "industry": "wholesale and retail trade",
+        "aiSystemType": "product promotion; search result ranking",
+        "impactTypes": [
+          "Socioeconomic & Environmental Harms",
+          "maybe"
+        ],
+        "affectedParties": [
+          "Coupang Suppliers",
+          "Coupang Customers"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"wholesale and retail trade\"]",
+          "normalizedValue": "wholesale and retail trade",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"product promotion\", \"search result ranking\"]",
+          "normalizedValue": "product promotion; search result ranking",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-788456-EVID-d2c924856d1f",
       "incidentSourceHash": "d2c924856d1fcac33d674a2d0a4d38e7741a628c8c44fef7a2f5160cb2e85eb6",
@@ -234,8 +291,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-788456-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-788456-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

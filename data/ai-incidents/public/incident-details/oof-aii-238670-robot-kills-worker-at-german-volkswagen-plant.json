@@ -54,15 +54,72 @@
   "createdAt": "2014-07-15T00:00:00Z",
   "updatedAt": "2014-07-15T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-238670-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-238670-V5",
     "incidentId": "OOF-AII-238670",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.75,
+        "populatedFields": 6,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "autonomous",
+          "execution"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "f365db7b61cddd12082b8d448a3a2474c846f4d67f1b4d8fe899f878aab1b428",
+      "normalizedFields": {
+        "organization": "Volkswagen",
+        "system": null,
+        "technology": null,
+        "industry": "manufacturing",
+        "aiSystemType": null,
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Robotics Consultant"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "system",
+          "rawValue": "no",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"manufacturing\"]",
+          "normalizedValue": "manufacturing",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-238670-EVID-f365db7b61cd",
       "incidentSourceHash": "f365db7b61cddd12082b8d448a3a2474c846f4d67f1b4d8fe899f878aab1b428",
@@ -105,14 +162,15 @@
         "A Volkswagen plant robot \"crushed to death\" a worker by pinning him to a metal plate."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
     "severityAssessment": {
       "level": "High",
       "score": 12,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 3,
         "scale": 0,
@@ -215,7 +273,7 @@
     "governanceQuestions": [
       "How should autonomous, execution be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Volkswagen at the relevant time?",
-      "What evidence would establish how no produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The governance significance lies in how autonomous, execution moved from system activity into a reported real-world consequence, and which controls within ASGA™ — Autonomous Systems Governance Architecture should be examined next.",
@@ -233,7 +291,7 @@
       "governanceQuestions": [
         "How should autonomous, execution be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Volkswagen at the relevant time?",
-        "What evidence would establish how no produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
       "incidentGovernanceInsight": "The governance significance lies in how autonomous, execution moved from system activity into a reported real-world consequence, and which controls within ASGA™ — Autonomous Systems Governance Architecture should be examined next.",
@@ -286,8 +344,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-238670-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-238670-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

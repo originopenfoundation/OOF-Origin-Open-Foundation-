@@ -54,15 +54,79 @@
   "createdAt": "2023-10-03T13:52:19Z",
   "updatedAt": "2023-10-03T13:52:19Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-184939-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-184939-V6",
     "incidentId": "OOF-AII-184939",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 1.0,
+        "populatedFields": 8,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.59,
+        "matchedTerms": [
+          "communication",
+          "information",
+          "object"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "f7c46819d984f3ce3f068c205a3d181712bd9db151b6af9353ff4eb5947a4e64",
+      "normalizedFields": {
+        "organization": "Google",
+        "system": "yes",
+        "technology": "Face Detection; Convolutional Neural Network; Keyword Filtering",
+        "industry": "information and communication",
+        "aiSystemType": "image classification; image categorization; Image Tagging; object recognition",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "Black People"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "technology",
+          "rawValue": "[\"Face Detection\", \"Convolutional Neural Network\", \"Keyword Filtering\"]",
+          "normalizedValue": "Face Detection; Convolutional Neural Network; Keyword Filtering",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"information and communication\"]",
+          "normalizedValue": "information and communication",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"image classification\", \"image categorization\", \"Image Tagging\", \"object recognition\"]",
+          "normalizedValue": "image classification; image categorization; Image Tagging; object recognition",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-184939-EVID-f7c46819d984",
       "incidentSourceHash": "f7c46819d984f3ce3f068c205a3d181712bd9db151b6af9353ff4eb5947a4e64",
@@ -237,8 +301,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-184939-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-184939-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

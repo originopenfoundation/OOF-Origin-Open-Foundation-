@@ -60,15 +60,64 @@
   "createdAt": "2026-08-18T15:09:58Z",
   "updatedAt": "2026-08-18T15:09:58Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-024523-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-024523-V5",
     "incidentId": "OOF-AII-024523",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.67,
+        "matchedTerms": [
+          "agent",
+          "multi"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "e049c2fac8fb96612d7d0e87e31a83ae97c55a9eea9822003e4765c6193773c8",
+      "normalizedFields": {
+        "organization": "Threat Actors, Hackers, China Linked Threat Actors, Ai Agent System Deployers, Agentic Threat Actors",
+        "system": "Openclaw, Large Language Models, Hermes Agent, Ai Agent Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Taiwanese Government Employees",
+          "Taiwanese Government Agencies",
+          "Taiwan Ministry Of Justice",
+          "Privacy",
+          "National Security And Intelligence Stakeholders",
+          "Information Security",
+          "Governments",
+          "Government Of Taiwan",
+          "Government Agencies"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-024523-EVID-e049c2fac8fb",
       "incidentSourceHash": "e049c2fac8fb96612d7d0e87e31a83ae97c55a9eea9822003e4765c6193773c8",
@@ -246,22 +295,21 @@
           "architectureId": "pga",
           "label": "PGA™ — Prediction Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-          "score": 61.77,
+          "score": 52.02,
           "matchedTerms": [
             "agents",
-            "models",
-            "without"
+            "models"
           ],
           "role": "Contributing",
-          "governedMechanism": "agents, models, without",
-          "reasonForRelevance": "Available reporting describes agents, models, without. This makes PGA™ — Prediction Governance Architecture relevant to examining Collective Prediction Governance Standard (CPGS) in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported agents, models, without concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+          "governedMechanism": "agents, models",
+          "reasonForRelevance": "Available reporting describes agents, models. This makes PGA™ — Prediction Governance Architecture relevant to examining Collective Prediction Governance Standard (CPGS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agents, models concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
           "governanceFocus": "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
           "methodologyDepth": "ParentStandard",
           "supportingEvidence": [
             "aiid:1646"
           ],
-          "confidence": 0.63,
+          "confidence": 0.61,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": [
             {
@@ -368,15 +416,14 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported agents, models, without.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported agents, models, without.",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported agents, models.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported agents, models.",
         "evidenceBasis": [
           "aiid:1646"
         ],
         "basis": [
           "agents",
-          "models",
-          "without"
+          "models"
         ],
         "architectureReference": "OOF-KO-ARCH-PGA",
         "confidenceState": "Moderate",
@@ -403,8 +450,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-024523-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-024523-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

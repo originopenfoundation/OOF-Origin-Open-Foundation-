@@ -69,15 +69,74 @@
   "createdAt": "2026-08-25T20:31:06.166000Z",
   "updatedAt": "2026-08-25T20:31:06.166000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-437009-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-437009-V5",
     "incidentId": "OOF-AII-437009",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.5,
+        "populatedFields": 4,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "permission",
+          "provenance"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "bbfb95f26d39c7be9d162944f99bf357884c88a1c4238865d0b3212cfb833f5b",
+      "normalizedFields": {
+        "organization": "Uncharted Labs, Synthetic Media Generation Technology Developers, Synthetic Audio Generation Technology Developers, Ai Service Providers, Ai Music Generation System Developers",
+        "system": "Yt Dlp, Youtube, Udio, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Spotify, Music Streaming Services",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Warner Music Group",
+          "Universal Music Group",
+          "Sony Music Entertainment",
+          "Songwriters",
+          "Record Labels",
+          "Musicians",
+          "Intellectual Property Rights Holders",
+          "Independent Artists",
+          "Copyright Holders",
+          "Tony Justice",
+          "David Woulard",
+          "Stan Burjek",
+          "James Burjek",
+          "Berk Ergoz",
+          "Hamza Jilani",
+          "Maatkara Wilson",
+          "Arjun Singh",
+          "Magnus Fiennes",
+          "Michael Mell"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-437009-EVID-bbfb95f26d39",
       "incidentSourceHash": "bbfb95f26d39c7be9d162944f99bf357884c88a1c4238865d0b3212cfb833f5b",
@@ -148,21 +207,20 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-PGA",
-        "architectureId": "pga",
-        "label": "PGA™ — Prediction Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 89.82,
+        "objectId": "OOF-KO-ARCH-OBIDENITY",
+        "architectureId": "obidenity",
+        "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
+        "score": 62.2,
         "matchedTerms": [
-          "without",
-          "models",
-          "record"
+          "permission",
+          "provenance"
         ],
         "role": "Primary",
-        "governedMechanism": "without, models, record",
-        "reasonForRelevance": "Available reporting describes without, models, record. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported without, models, record concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "How should without, models, record be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "permission, provenance",
+        "reasonForRelevance": "Available reporting describes permission, provenance. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining OBIDENITY® — Origin-Bound Identity Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported permission, provenance concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+        "governanceFocus": "How should permission, provenance be governed in the conditions described by the available incident evidence?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1656"
@@ -173,20 +231,20 @@
       },
       "contributingArchitectures": [
         {
-          "objectId": "OOF-KO-ARCH-OBIDENITY",
-          "architectureId": "obidenity",
-          "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-          "score": 62.2,
+          "objectId": "OOF-KO-ARCH-PGA",
+          "architectureId": "pga",
+          "label": "PGA™ — Prediction Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+          "score": 41.05,
           "matchedTerms": [
-            "permission",
-            "provenance"
+            "models",
+            "record"
           ],
           "role": "Contributing",
-          "governedMechanism": "permission, provenance",
-          "reasonForRelevance": "Available reporting describes permission, provenance. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining OBIDENITY® — Origin-Bound Identity Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported permission, provenance concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
-          "governanceFocus": "How should permission, provenance be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "models, record",
+          "reasonForRelevance": "Available reporting describes models, record. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported models, record concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+          "governanceFocus": "How should models, record be governed in the conditions described by the available incident evidence?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:1656"
@@ -197,45 +255,44 @@
         }
       ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving without, models, record. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. OBIDENITY® — Origin-Bound Identity Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving permission, provenance. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "OBIDENITY® — Origin-Bound Identity Governance Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should without, models, record be governed in the conditions described by the available incident evidence?",
       "How should permission, provenance be governed in the conditions described by the available incident evidence?",
+      "How should models, record be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Uncharted Labs, Synthetic Media Generation Technology Developers, Synthetic Audio Generation Technology Developers, Ai Service Providers, Ai Music Generation System Developers at the relevant time?",
       "What evidence would establish how Yt Dlp, Youtube, Udio, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Spotify, Music Streaming Services produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns without, models, record, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns permission, provenance, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1656"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving without, models, record. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "PGA™ — Prediction Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-PGA",
+      "governedProblem": "The incident appears to expose a governance problem involving permission, provenance. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-OBIDENITY",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-OBIDENITY"
+        "OOF-KO-ARCH-PGA"
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "without, models, record",
+      "governedMechanism": "permission, provenance",
       "governanceQuestions": [
-        "How should without, models, record be governed in the conditions described by the available incident evidence?",
         "How should permission, provenance be governed in the conditions described by the available incident evidence?",
+        "How should models, record be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Uncharted Labs, Synthetic Media Generation Technology Developers, Synthetic Audio Generation Technology Developers, Ai Service Providers, Ai Music Generation System Developers at the relevant time?",
         "What evidence would establish how Yt Dlp, Youtube, Udio, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Spotify, Music Streaming Services produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns without, models, record, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns permission, provenance, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "without",
-        "models",
-        "record"
+        "permission",
+        "provenance"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -244,23 +301,6 @@
       "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
     },
     "governanceFindings": [
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, models, record.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, models, record.",
-        "evidenceBasis": [
-          "aiid:1656"
-        ],
-        "basis": [
-          "without",
-          "models",
-          "record"
-        ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
       {
         "type": "Governance Signal",
         "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported permission, provenance.",
@@ -273,6 +313,22 @@
           "provenance"
         ],
         "architectureReference": "OOF-KO-ARCH-OBIDENITY",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported models, record.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported models, record.",
+        "evidenceBasis": [
+          "aiid:1656"
+        ],
+        "basis": [
+          "models",
+          "record"
+        ],
+        "architectureReference": "OOF-KO-ARCH-PGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -299,8 +355,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-437009-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-437009-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

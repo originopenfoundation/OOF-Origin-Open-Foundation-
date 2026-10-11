@@ -51,15 +51,58 @@
   "createdAt": "2026-08-29T15:03:17.890000Z",
   "updatedAt": "2026-08-29T15:03:17.890000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-998473-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-998473-V5",
     "incidentId": "OOF-AII-998473",
-    "analysisVersion": 4,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 5,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "knowledge",
+          "user"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "b09d90861a19c4a8f7e4d4e535f6545da00291c44c7bebd856e9f1aaa7a24858",
+      "normalizedFields": {
+        "organization": "Granola, Ai Transcription Tool Users",
+        "system": "Granola, Ai Transcription Tools, Enterprise Ai Systems",
+        "technology": null,
+        "industry": null,
+        "aiSystemType": null,
+        "impactTypes": [],
+        "affectedParties": [
+          "Tarra Chamberlain",
+          "Privacy",
+          "People Recorded Without Consent"
+        ]
+      },
+      "transformations": []
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-998473-EVID-b09d90861a19",
       "incidentSourceHash": "b09d90861a19c4a8f7e4d4e535f6545da00291c44c7bebd856e9f1aaa7a24858",
@@ -135,88 +178,113 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-PGA",
-        "architectureId": "pga",
-        "label": "PGA™ — Prediction Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 65.03,
+        "objectId": "OOF-KO-ARCH-MGIA",
+        "architectureId": "mgia",
+        "label": "MGIA™ — Memory Governance Intelligence Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
+        "score": 18.29,
         "matchedTerms": [
-          "without",
-          "models",
-          "participants",
-          "further"
+          "knowledge",
+          "user"
         ],
         "role": "Primary",
-        "governedMechanism": "without, models, participants, further",
-        "reasonForRelevance": "Available reporting describes without, models, participants. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Monitoring & Revision Standard (PMRS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported without, models, participants concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
-        "methodologyDepth": "ParentStandard",
+        "governedMechanism": "knowledge, user",
+        "reasonForRelevance": "Available reporting describes knowledge, user. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported knowledge, user concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+        "governanceFocus": "How should knowledge, user be governed in the conditions described by the available incident evidence?",
+        "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1652"
         ],
-        "confidence": 0.66,
+        "confidence": 0.64,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
-        "relevantStandardsModules": [
-          {
-            "objectId": "OOF-KO-STD-PGA-10",
-            "name": "Prediction Monitoring & Revision Standard (PMRS)",
-            "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pmrs.html",
-            "matchedTerms": [
-              "without",
-              "further"
-            ],
-            "score": 6,
-            "governedSpace": null,
-            "coreQuestion": "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
-            "parentObjectId": null,
-            "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
-              "contentHash": "53a96d6758ffdf70603f98ec0b14ad54e4bb89e8948525baa498c31e6411ad5f",
-              "authorityState": "CANONICAL_AUTHORITATIVE"
-            }
-          }
-        ]
+        "relevantStandardsModules": []
       },
-      "contributingArchitectures": []
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-PGA",
+          "architectureId": "pga",
+          "label": "PGA™ — Prediction Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+          "score": 16.26,
+          "matchedTerms": [
+            "models",
+            "participants",
+            "further"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "models, participants, further",
+          "reasonForRelevance": "Available reporting describes models, participants, further. This makes PGA™ — Prediction Governance Architecture relevant to examining Collective Prediction Governance Standard (CPGS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported models, participants, further concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+          "governanceFocus": "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:1652"
+          ],
+          "confidence": 0.62,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-KO-STD-PGA-08",
+              "name": "Collective Prediction Governance Standard (CPGS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-cpgs.html",
+              "matchedTerms": [
+                "models",
+                "participants"
+              ],
+              "score": 4,
+              "governedSpace": null,
+              "coreQuestion": "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "contentHash": "bf11b8830d2fa50fc4ec3dc5056734b97a1c42e1994d23552f5bd505ddbbe121",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
+        }
+      ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving without, models, participants, further. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving knowledge, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "MGIA™ — Memory Governance Intelligence Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
+      "How should knowledge, user be governed in the conditions described by the available incident evidence?",
+      "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
       "What operational authority and controls applied to Granola, Ai Transcription Tool Users at the relevant time?",
       "What evidence would establish how Granola, Ai Transcription Tools, Enterprise Ai Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how without, models, participants, further moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "The governance significance lies in how knowledge, user moved from system activity into a reported real-world consequence, and which controls within MGIA™ — Memory Governance Intelligence Architecture should be examined next.",
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1652"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving without, models, participants, further. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "PGA™ — Prediction Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-PGA",
-      "contributingArchitectures": [],
-      "parentStandard": "OOF-KO-STD-PGA-10",
+      "governedProblem": "The incident appears to expose a governance problem involving knowledge, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "MGIA™ — Memory Governance Intelligence Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-MGIA",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-PGA"
+      ],
+      "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "without, models, participants, further",
+      "governedMechanism": "knowledge, user",
       "governanceQuestions": [
-        "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
+        "How should knowledge, user be governed in the conditions described by the available incident evidence?",
+        "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
         "What operational authority and controls applied to Granola, Ai Transcription Tool Users at the relevant time?",
         "What evidence would establish how Granola, Ai Transcription Tools, Enterprise Ai Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how without, models, participants, further moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
-      "deepestJustifiedLevel": "ParentStandard"
+      "incidentGovernanceInsight": "The governance significance lies in how knowledge, user moved from system activity into a reported real-world consequence, and which controls within MGIA™ — Memory Governance Intelligence Architecture should be examined next.",
+      "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "without",
-        "models",
-        "participants",
-        "further"
+        "knowledge",
+        "user"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -227,13 +295,28 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, models, participants, further.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported without, models, participants, further.",
+        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported knowledge, user.",
+        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported knowledge, user.",
         "evidenceBasis": [
           "aiid:1652"
         ],
         "basis": [
-          "without",
+          "knowledge",
+          "user"
+        ],
+        "architectureReference": "OOF-KO-ARCH-MGIA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported models, participants, further.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported models, participants, further.",
+        "evidenceBasis": [
+          "aiid:1652"
+        ],
+        "basis": [
           "models",
           "participants",
           "further"
@@ -263,8 +346,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-998473-V3",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-998473-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

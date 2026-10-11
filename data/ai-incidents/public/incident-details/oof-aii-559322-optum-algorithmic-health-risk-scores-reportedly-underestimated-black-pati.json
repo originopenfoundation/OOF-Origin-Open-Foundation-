@@ -54,15 +54,73 @@
   "createdAt": "2026-09-03T21:27:40.269000Z",
   "updatedAt": "2026-09-03T21:27:40.269000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-559322-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-559322-V6",
     "incidentId": "OOF-AII-559322",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 0.88,
+        "populatedFields": 7,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Moderate",
+        "score": 0.59,
+        "matchedTerms": [
+          "support",
+          "evidence",
+          "compared"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "1f4cecb2274f82aed89f5c716062ed2a91e60efaee9fa99961ab0bca8c8ecad6",
+      "normalizedFields": {
+        "organization": "Unnamed Large Academic Hospital",
+        "system": "Optum, Enterprise Ai Systems, Ai Enabled Decision Support Systems",
+        "technology": null,
+        "industry": "human health and social work activities",
+        "aiSystemType": "assign risk; predict healthcare needs",
+        "impactTypes": [
+          "Discrimination and Toxicity",
+          "yes"
+        ],
+        "affectedParties": [
+          "Black Patients"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "industry",
+          "rawValue": "[\"human health and social work activities\"]",
+          "normalizedValue": "human health and social work activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"assign risk \", \"predict healthcare needs\"]",
+          "normalizedValue": "assign risk; predict healthcare needs",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-559322-EVID-1f4cecb2274f",
       "incidentSourceHash": "1f4cecb2274f82aed89f5c716062ed2a91e60efaee9fa99961ab0bca8c8ecad6",
@@ -369,8 +427,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-559322-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-559322-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

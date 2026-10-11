@@ -67,15 +67,91 @@
   "createdAt": "2026-09-03T22:44:06.618000Z",
   "updatedAt": "2026-09-03T22:44:06.618000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-114551-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-114551-V6",
     "incidentId": "OOF-AII-114551",
-    "analysisVersion": 5,
-    "engineVersion": "3.1.0",
+    "analysisVersion": 6,
+    "engineVersion": "3.2.2",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
+    "confidenceDimensions": {
+      "sourceCorroboration": {
+        "level": "Single-source",
+        "score": 0.5,
+        "independentSourceCount": 1,
+        "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+      },
+      "extractionCompleteness": {
+        "level": "High",
+        "score": 1.0,
+        "populatedFields": 8,
+        "evaluatedFields": 8,
+        "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+      },
+      "methodologicalAssignment": {
+        "level": "Limited",
+        "score": 0.51,
+        "matchedTerms": [
+          "support",
+          "enforcement"
+        ],
+        "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+      }
+    },
+    "sourceNormalization": {
+      "policyVersion": "OOF-AII-NORM-3.2",
+      "sourceRecordModified": false,
+      "rawRecordHash": "980c2b541fe762dd64b2c5d08a84de3d6b9587a6ed733fea3743aa04bec3c4ac",
+      "normalizedFields": {
+        "organization": "Troy Police Department, Syracuse Police Department, San Francisco Police Department, San Antonio Police Department, New York City Police Department, Fall River Police Department, Chicago Police Department",
+        "system": "Ai Enabled Decision Support Systems, Shotspotter",
+        "technology": "Acoustic Triangulation",
+        "industry": "law enforcement",
+        "aiSystemType": "detect gunshots; locate gunshots; identify weapon calibre; predict shooter movement",
+        "impactTypes": [
+          "AI system safety, failures, and limitations",
+          "yes"
+        ],
+        "affectedParties": [
+          "Troy Residents",
+          "Troy Police Department",
+          "Syracuse Residents",
+          "Syracuse Police Department",
+          "San Francisco Residents",
+          "San Francisco Police Department",
+          "San Antonio Residents",
+          "San Antonio Police Department",
+          "New York City Residents",
+          "New York City Police Department",
+          "Fall River Residents",
+          "Fall River Police Department",
+          "Chicago Residents",
+          "Chicago Police Department"
+        ]
+      },
+      "transformations": [
+        {
+          "field": "technology",
+          "rawValue": "[\"Acoustic Triangulation\"]",
+          "normalizedValue": "Acoustic Triangulation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "industry",
+          "rawValue": "[\"law enforcement\"]",
+          "normalizedValue": "law enforcement",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "aiSystemType",
+          "rawValue": "[\"detect gunshots\", \"locate gunshots\", \"identify weapon calibre\", \"predict shooter movement\"]",
+          "normalizedValue": "detect gunshots; locate gunshots; identify weapon calibre; predict shooter movement",
+          "reason": "serialized collection normalized"
+        }
+      ]
+    },
     "evidenceSnapshot": {
       "snapshotId": "OOF-AII-114551-EVID-980c2b541fe7",
       "incidentSourceHash": "980c2b541fe762dd64b2c5d08a84de3d6b9587a6ed733fea3743aa04bec3c4ac",
@@ -472,8 +548,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-09T15:50:33Z",
-    "supersedes": "OOF-AII-ASMT-114551-V4",
+    "createdAt": "2026-10-11T19:21:32Z",
+    "supersedes": "OOF-AII-ASMT-114551-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }
