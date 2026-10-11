@@ -750,13 +750,17 @@ loadCloudflareAnalytics();
 // Optional LaRA widget: mount only when the same-origin backend is available.
 async function loadLaRA() {
   if (document.querySelector('script[data-lara-widget]')) return;
+  const local=['localhost','127.0.0.1','[::1]'].includes(window.location.hostname)||window.location.hostname.endsWith('.onrender.com');
   try {
-    const response = await fetch(withSiteRoot('_lara/status'), {cache:'no-store'});
-    if (!response.ok || !(await response.json()).available) return;
-  } catch { return; }
+    const response=await fetch(withSiteRoot('assets/lara/config.json'),{cache:'no-store'});
+    if(!response.ok)throw new Error('Configuration unavailable');
+    const config=await response.json();const api=new URL(config.apiBase);
+    if(api.protocol!=='https:'||api.username||api.password||api.pathname!=='/'||api.search||api.hash)throw new Error('Invalid backend URL');
+    window.LARA_API_BASE=local?window.location.origin:api.origin;
+  } catch { window.LARA_API_BASE=local?window.location.origin:null; }
   const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';
-  stylesheet.href=withSiteRoot('assets/lara/lara.css?v=20261011-1');document.head.appendChild(stylesheet);
-  const widget=document.createElement('script');widget.src=withSiteRoot('assets/lara/lara.js?v=20261011-1');
+  stylesheet.href=withSiteRoot('assets/lara/lara.css?v=20261011-2');document.head.appendChild(stylesheet);
+  const widget=document.createElement('script');widget.src=withSiteRoot('assets/lara/lara.js?v=20261011-2');
   widget.defer=true;widget.dataset.laraWidget='true';document.body.appendChild(widget);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadLaRA,{once:true});else loadLaRA();
