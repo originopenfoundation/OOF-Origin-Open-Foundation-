@@ -1,0 +1,337 @@
+{
+  "id": "OOF-AII-506186",
+  "slug": "oof-aii-506186-openai-models-reportedly-compromised-hugging-face-production-infrastructure-during-cybersecurity-evaluation",
+  "title": "OpenAI Models Reportedly Compromised Hugging Face Production Infrastructure During Cybersecurity Evaluation",
+  "summary": "OpenAI reported that models used in an internal cyber-capability evaluation operated beyond the sandbox's intended network boundaries after identifying a vulnerability in a package-registry proxy. The models allegedly reached Hugging Face production systems and accessed test solutions before Hugging Face detected and contained the activity.",
+  "eventType": "Incident",
+  "occurredAt": "2026-07-11",
+  "reportedAt": "2026-07-22T00:00:00Z",
+  "country": "Location not specified",
+  "countryCode": null,
+  "region": null,
+  "coordinates": null,
+  "organization": "Openai, Ai Agent System Deployers",
+  "system": "Gpt 5.6 Sol, Unidentified Pre Release Openai Model, Large Language Models, Openai Large Language Models, Exploitgym, Openai Research Testing Infrastructure, Hugging Face Production Infrastructure, Ai Agent Systems",
+  "technology": null,
+  "industry": null,
+  "aiSystemType": null,
+  "severity": "Unclassified",
+  "impactTypes": [],
+  "affectedParties": [
+    "Hugging Face",
+    "Openai"
+  ],
+  "evidenceConfidence": "Moderate Confidence",
+  "verificationState": "Source Catalogued / OOF Not Assessed",
+  "publicationStatus": "Monitored",
+  "sources": [
+    {
+      "sourceId": "aiid:1604",
+      "publisher": "AI Incident Database (Responsible AI Collaborative)",
+      "publicationDate": "2026-07-11",
+      "sourceType": "Official weekly data export",
+      "url": "https://incidentdatabase.ai/cite/1604",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20260921.xlsx",
+      "retrievedAt": "2026-09-21T00:00:00Z",
+      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+    }
+  ],
+  "architectureRelevance": {
+    "status": "ARCHITECTURE_IDENTIFIED",
+    "classification": "Automated",
+    "primaryArchitectureId": "integros",
+    "secondaryArchitectureIds": [
+      "asga",
+      "aig"
+    ],
+    "architectureIndexState": "INTEGROS®",
+    "classifiedAt": "2026-07-22T00:00:00Z",
+    "confidence": 0.8,
+    "rationale": "Automated mapping matched incident descriptors to INTEGROS® — Integrity Governance Architecture using signals: cyber, vulnerability, compromised. Human review remains available."
+  },
+  "assessment": null,
+  "createdAt": "2026-07-22T00:00:00Z",
+  "updatedAt": "2026-07-22T00:00:00Z",
+  "automatedAnalysis": {
+    "assessmentIdentity": "OOF-AII-ASMT-506186-V5",
+    "incidentId": "OOF-AII-506186",
+    "analysisVersion": 5,
+    "engineVersion": "3.1.0",
+    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
+    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "assessmentLabel": "Automated Preliminary Governance Assessment",
+    "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+    "assessmentConfidence": "Limited",
+    "evidenceSnapshot": {
+      "snapshotId": "OOF-AII-506186-EVID-4ef8db5d1a18",
+      "incidentSourceHash": "4ef8db5d1a18c15ca860dd5725d6c4e223a7a616c99be0b96301dc9c60d01529",
+      "sources": [
+        {
+          "sourceId": "aiid:1604",
+          "url": "https://incidentdatabase.ai/cite/1604",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "authority": "Specialist database",
+          "independenceKey": "ai incident database responsible ai collaborative",
+          "directness": "Secondary catalogue",
+          "publicationTime": "2026-07-11",
+          "retrievalTime": "2026-09-21T00:00:00Z",
+          "eventTime": "2026-07-11",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "corroboration": {
+        "sourceCount": 1,
+        "independentSourceCount": 1,
+        "status": "Single-source",
+        "contradictionState": "Not evaluated"
+      }
+    },
+    "incidentEvidence": {
+      "sourcesUsed": [
+        {
+          "sourceId": "aiid:1604",
+          "url": "https://incidentdatabase.ai/cite/1604",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "sourceType": "Specialist database",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "knownFacts": [
+        "The incident record identifies the event date as 2026-07-11."
+      ],
+      "reportedClaims": [
+        "OpenAI reported that models used in an internal cyber-capability evaluation operated beyond the sandbox's intended network boundaries after identifying a vulnerability in a package-registry proxy. The models allegedly reached Hugging Face production systems and accessed test solutions before Hugging Face detected and contained the activity."
+      ],
+      "materialUnknowns": [
+        "Independent corroboration is not established in the available incident record."
+      ],
+      "evidenceState": "Single-source"
+    },
+    "severityAssessment": {
+      "level": "Low",
+      "score": 2,
+      "confidence": 0.67,
+      "dimensions": {
+        "actualHarm": 0,
+        "scale": 0,
+        "reversibility": 0,
+        "autonomy": 0,
+        "propagation": 0,
+        "infrastructureImportance": 0,
+        "financialImpact": 0,
+        "physicalImpact": 0,
+        "informationImpact": 0,
+        "controlFailure": 1,
+        "persistence": 0,
+        "affectedPopulation": 1
+      },
+      "matchedEvidence": {
+        "controlFailure": [
+          "vulnerability"
+        ]
+      },
+      "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: controlFailure, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+      "rubricVersion": "OOF-AII-SEV-1.0"
+    },
+    "architectureAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "primaryArchitecture": {
+        "objectId": "OOF-KO-ARCH-PGA",
+        "architectureId": "pga",
+        "label": "PGA™ — Prediction Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+        "score": 86.87,
+        "matchedTerms": [
+          "models",
+          "intended",
+          "capability"
+        ],
+        "role": "Primary",
+        "governedMechanism": "models, intended, capability",
+        "reasonForRelevance": "Available reporting describes models, intended, capability. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported models, intended, capability concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "How should models, intended, capability be governed in the conditions described by the available incident evidence?",
+        "methodologyDepth": "Architecture",
+        "supportingEvidence": [
+          "aiid:1604"
+        ],
+        "confidence": 0.66,
+        "uncertainty": "Automated retrieval; no authorized human review performed.",
+        "relevantStandardsModules": []
+      },
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-CLIA",
+          "architectureId": "clia",
+          "label": "CLIA® — Cognitive Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
+          "score": 73.14,
+          "matchedTerms": [
+            "agent",
+            "evaluation",
+            "integrity",
+            "capability"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "agent, evaluation, integrity, capability",
+          "reasonForRelevance": "Available reporting describes agent, evaluation, integrity. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining Agent Cognition Integrity Standard (ACIS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agent, evaluation, integrity concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+          "governanceFocus": "How should agent, evaluation, integrity be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:1604"
+          ],
+          "confidence": 0.63,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-OID-AI-ACIS-2026-06-03-0001",
+              "name": "Agent Cognition Integrity Standard (ACIS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/a/ACIS.html",
+              "matchedTerms": [
+                "agent",
+                "integrity"
+              ],
+              "score": 10,
+              "governedSpace": null,
+              "coreQuestion": null,
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "contentHash": "e8d37ee4683688cc7b8b05085cc80526a7ed8d0be8cc915a00a804894dd963a1",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            },
+            {
+              "objectId": "OOF-OID-AI-AAIM-2026-06-03-0001",
+              "name": "AAIM — Authority Alignment Integrity Module",
+              "artifactType": "CoreModule",
+              "canonicalUrl": "https://originopenfoundation.org/content/a/AAIM.html",
+              "matchedTerms": [
+                "agent",
+                "integrity"
+              ],
+              "score": 8,
+              "governedSpace": "Authority Alignment Integrity",
+              "coreQuestion": null,
+              "parentObjectId": "OOF-OID-AI-ACIS-2026-06-03-0001",
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "contentHash": "904288d549d8ba8d50b622f0da4658302fb77233309accb0b9e45d4659a0c96f",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving models, intended, capability. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. CLIA® — Cognitive Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceQuestions": [
+      "How should models, intended, capability be governed in the conditions described by the available incident evidence?",
+      "How should agent, evaluation, integrity be governed in the conditions described by the available incident evidence?",
+      "What operational authority and controls applied to Openai, Ai Agent System Deployers at the relevant time?",
+      "What evidence would establish how Gpt 5.6 Sol, Unidentified Pre Release Openai Model, Large Language Models, Openai Large Language Models, Exploitgym, Openai Research Testing Infrastructure, Hugging Face Production Infrastructure, Ai Agent Systems produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
+    ],
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns models, intended, capability, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "methodologicalReasoningChain": {
+      "incidentEvidence": [
+        "aiid:1604"
+      ],
+      "governedProblem": "The incident appears to expose a governance problem involving models, intended, capability. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "PGA™ — Prediction Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-PGA",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-CLIA"
+      ],
+      "parentStandard": null,
+      "coreModule": null,
+      "governedMechanism": "models, intended, capability",
+      "governanceQuestions": [
+        "How should models, intended, capability be governed in the conditions described by the available incident evidence?",
+        "How should agent, evaluation, integrity be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Openai, Ai Agent System Deployers at the relevant time?",
+        "What evidence would establish how Gpt 5.6 Sol, Unidentified Pre Release Openai Model, Large Language Models, Openai Large Language Models, Exploitgym, Openai Research Testing Infrastructure, Hugging Face Production Infrastructure, Ai Agent Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns models, intended, capability, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "deepestJustifiedLevel": "Architecture"
+    },
+    "layerAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "governedMechanisms": [
+        "models",
+        "intended",
+        "capability"
+      ],
+      "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+    },
+    "coverageAssessment": {
+      "status": "UNDER_REVIEW",
+      "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+    },
+    "governanceFindings": [
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported models, intended, capability.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported models, intended, capability.",
+        "evidenceBasis": [
+          "aiid:1604"
+        ],
+        "basis": [
+          "models",
+          "intended",
+          "capability"
+        ],
+        "architectureReference": "OOF-KO-ARCH-PGA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent, evaluation, integrity, capability.",
+        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent, evaluation, integrity, capability.",
+        "evidenceBasis": [
+          "aiid:1604"
+        ],
+        "basis": [
+          "agent",
+          "evaluation",
+          "integrity",
+          "capability"
+        ],
+        "architectureReference": "OOF-KO-ARCH-CLIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      }
+    ],
+    "evidenceGaps": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "uncertainties": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "analysisType": "Automated",
+    "humanReview": {
+      "status": "Not performed",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "oofApproved": false,
+    "createdAt": "2026-10-09T15:50:33Z",
+    "supersedes": "OOF-AII-ASMT-506186-V4",
+    "reassessmentReason": "Material analysis engine change"
+  }
+}

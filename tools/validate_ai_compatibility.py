@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import html
 import re
@@ -73,6 +74,13 @@ def expected_language(page_relative: str) -> str:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--allow-visible-changes",
+        action="store_true",
+        help="Validate an intentional uncommitted content update; CI remains strict by default.",
+    )
+    args = parser.parse_args()
     errors: list[str] = []
     pages = public_pages()
     canonicals: set[str] = set()
@@ -199,7 +207,7 @@ def main() -> int:
             ).decode("utf-8")
         except subprocess.CalledProcessError:
             baseline = None
-        if baseline is not None and text_content(source) != text_content(baseline):
+        if baseline is not None and text_content(source) != text_content(baseline) and not args.allow_visible_changes:
             errors.append(f"{relative(path)}: visible page text changed")
 
     graph = json.loads((ROOT / "data" / "oof-site-knowledge-graph.json").read_text(encoding="utf-8"))
@@ -221,12 +229,17 @@ def main() -> int:
     if graph_urls != knowledge_urls:
         errors.append("Knowledge graph and canonical English page sets differ")
 
+    def linked_file_exists(url: str) -> bool:
+        parsed_path = unquote(urlparse(url or "").path.lstrip("/"))
+        if not parsed_path:
+            parsed_path = "index.html"
+        elif str(urlparse(url or "").path).endswith("/"):
+            parsed_path = f"{parsed_path.rstrip('/')}/index.html"
+        return (ROOT / parsed_path).is_file()
+
     for item in graph_pages:
         for link in item.get("relatedLink", []):
-            target = unquote(urlparse(link).path.lstrip("/"))
-            if not target:
-                target = "index.html"
-            if not (ROOT / target).is_file():
+            if not linked_file_exists(link):
                 errors.append(f'Knowledge graph link target is missing: {item.get("url")} -> {link}')
 
     typed = json.loads((ROOT / "data" / "oof-typed-relationships.json").read_text(encoding="utf-8"))
@@ -237,8 +250,7 @@ def main() -> int:
         if relation.get("type") not in allowed_types:
             errors.append(f"Unknown typed relationship: {relation}")
         for field in ("source", "target"):
-            target = unquote(urlparse(relation.get(field, "")).path.lstrip("/")) or "index.html"
-            if not (ROOT / target).is_file():
+            if not linked_file_exists(relation.get(field, "")):
                 errors.append(f"Typed relationship has missing {field}: {relation}")
 
     sitemap_root = ET.parse(ROOT / "sitemap.xml").getroot()

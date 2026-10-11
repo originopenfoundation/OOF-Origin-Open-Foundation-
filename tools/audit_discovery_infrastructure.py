@@ -66,7 +66,10 @@ def resolve_link(source: str, href: str, shared_navigation: bool = False) -> str
     if not path:
         return "index.html"
     if path.startswith("/"):
-        return posixpath.normpath(path.lstrip("/"))
+        normalized = posixpath.normpath(path.lstrip("/"))
+        if normalized in {"", "."}:
+            return "index.html"
+        return f"{normalized}/index.html" if path.endswith("/") else normalized
     if path.startswith("../") or path.startswith("./"):
         base = Path(source).parent
         candidate = (base / path).as_posix()
@@ -79,9 +82,11 @@ def resolve_link(source: str, href: str, shared_navigation: bool = False) -> str
                     parts.pop()
                 continue
             parts.append(part)
-        return "/".join(parts)
+        normalized = "/".join(parts)
+        return f"{normalized}/index.html" if path.endswith("/") else normalized
     if shared_navigation or "/" in path:
-        return posixpath.normpath(path)
+        normalized = posixpath.normpath(path)
+        return f"{normalized}/index.html" if path.endswith("/") else normalized
     return (Path(source).parent / path).as_posix()
 
 

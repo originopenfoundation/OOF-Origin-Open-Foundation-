@@ -582,8 +582,169 @@ def _public_architectures(record: dict) -> list[dict]:
     return [{"architectureId": legacy.get("primaryArchitectureId")}] if legacy.get("primaryArchitectureId") else []
 
 
+def _incident_date(record: dict) -> str:
+    return str(record.get("occurredAt") or record.get("reportedAt") or record.get("createdAt") or "")
+
+
+def public_incident_slug(record: dict) -> str:
+    """Return a readable canonical slug that remains safe on Windows checkouts."""
+    return slugify(f"{record.get('id', '')}-{record.get('title', '')}")[:88].rstrip("-")
+
+
+def _architecture_projection(architecture: dict | None) -> dict | None:
+    if not architecture:
+        return None
+    return {
+        "architectureId": architecture.get("architectureId"),
+        "label": architecture.get("label") or architecture.get("architectureIndexState"),
+        "canonicalUrl": architecture.get("canonicalUrl"),
+        "role": architecture.get("role"),
+        "methodologyDepth": architecture.get("methodologyDepth"),
+    }
+
+
+def _list_projection(record: dict) -> dict:
+    analysis = record.get("automatedAnalysis") or {}
+    architecture_analysis = analysis.get("architectureAnalysis") or {}
+    architectures = _public_architectures(record)
+    primary = architecture_analysis.get("primaryArchitecture")
+    if not primary and architectures:
+        primary = architectures[0]
+    source = (record.get("sources") or [{}])[0]
+    corroboration = (analysis.get("evidenceSnapshot") or {}).get("corroboration") or {}
+    public_slug = public_incident_slug(record)
+    return {
+        "id": record["id"],
+        "slug": public_slug,
+        "title": record["title"],
+        "summary": record.get("summary"),
+        "eventType": record.get("eventType"),
+        "occurredAt": record.get("occurredAt"),
+        "reportedAt": record.get("reportedAt"),
+        "country": record.get("country") or "Location not specified",
+        "countryCode": record.get("countryCode"),
+        "industry": record.get("industry") or "Industry not specified",
+        "system": record.get("system"),
+        "severity": _public_severity(record),
+        "source": {
+            "publisher": source.get("publisher"),
+            "url": source.get("url"),
+            "publicationDate": source.get("publicationDate"),
+        },
+        "primaryArchitecture": _architecture_projection(primary),
+        "contributingArchitectures": [
+            value for value in (_architecture_projection(item) for item in architecture_analysis.get("contributingArchitectures", [])) if value
+        ],
+        "architectureCount": len(architectures),
+        "assessment": {
+            "available": bool(analysis),
+            "label": analysis.get("assessmentLabel"),
+            "confidence": analysis.get("assessmentConfidence"),
+            "analysisVersion": analysis.get("analysisVersion"),
+            "coverage": (analysis.get("coverageAssessment") or {}).get("status") or architecture_analysis.get("status"),
+            "corroboration": corroboration.get("status") or "Insufficient evidence",
+            "oofApproved": analysis.get("oofApproved") is True,
+        },
+        "detailUrl": f"/ai-incidents/incidents/{public_slug}/",
+    }
+
+
+def _aggregate_public_records(records: list[dict], generated: str) -> dict:
+    architecture_counts = defaultdict(lambda: {"primary": 0, "contributing": 0, "methodologyReferences": 0, "label": None, "canonicalUrl": None})
+    industry_counts = Counter()
+    country_counts = defaultdict(lambda: {"country": None, "count": 0, "critical": 0})
+    trend_counts = defaultdict(lambda: {"total": 0, "critical": 0, "high": 0, "moderate": 0, "low": 0})
+    evidence_counts = Counter()
+    assigned = 0
+    for record in records:
+        analysis = record.get("automatedAnalysis") or {}
+        architecture_analysis = analysis.get("architectureAnalysis") or {}
+        primary = architecture_analysis.get("primaryArchitecture")
+        contributing = architecture_analysis.get("contributingArchitectures") or []
+        for role, values in (("primary", [primary] if primary else []), ("contributing", contributing)):
+            for architecture in values:
+                architecture_id = architecture.get("architectureId")
+                if not architecture_id:
+                    continue
+                entry = architecture_counts[architecture_id]
+                entry[role] += 1
+                entry["label"] = architecture.get("label") or architecture_id.upper()
+                entry["canonicalUrl"] = architecture.get("canonicalUrl")
+                entry["methodologyReferences"] += len(architecture.get("relevantStandardsModules") or [])
+        industry_counts[record.get("industry") or "Industry not specified"] += 1
+        country_code = record.get("countryCode")
+        if country_code:
+            assigned += 1
+            country_counts[country_code]["country"] = record.get("country") or country_code
+            country_counts[country_code]["count"] += 1
+            if _public_severity(record) == "Critical":
+                country_counts[country_code]["critical"] += 1
+        date = _incident_date(record)
+        period = date[:7] if len(date) >= 7 else "Date not specified"
+        severity = _public_severity(record).casefold()
+        trend_counts[period]["total"] += 1
+        if severity in trend_counts[period]:
+            trend_counts[period][severity] += 1
+        corroboration = (analysis.get("evidenceSnapshot") or {}).get("corroboration") or {}
+        evidence_counts[corroboration.get("status") or "Insufficient evidence"] += 1
+    return {
+        "generatedAt": generated,
+        "scopeNotice": "Counts describe the current public dataset, not global AI incident prevalence or architecture quality.",
+        "geography": {
+            "total": len(records),
+            "geographicallyAssigned": assigned,
+            "locationNotSpecified": len(records) - assigned,
+            "countries": [
+                {"countryCode": code, **values}
+                for code, values in sorted(country_counts.items(), key=lambda item: (-item[1]["count"], item[1]["country"] or item[0]))
+            ],
+        },
+        "architectures": [
+            {"architectureId": architecture_id, **values}
+            for architecture_id, values in sorted(architecture_counts.items(), key=lambda item: (-(item[1]["primary"] + item[1]["contributing"]), item[0]))
+        ],
+        "industries": [{"industry": name, "count": count} for name, count in industry_counts.most_common()],
+        "trends": [{"period": period, **values} for period, values in sorted(trend_counts.items())],
+        "evidence": [{"status": status, "count": count} for status, count in evidence_counts.most_common()],
+    }
+
+
+def validate_public_export() -> dict:
+    summary = read_json(PUBLIC_ROOT / "summary.json", {})
+    index = read_json(PUBLIC_ROOT / "incident-index.json", {"items": []})
+    items = index.get("items") or []
+    errors = []
+    ids = [item.get("id") for item in items]
+    slugs = [item.get("slug") for item in items]
+    if summary.get("totalIncidents") != len(items):
+        errors.append("summary total does not match the public incident index")
+    if len(ids) != len(set(ids)):
+        errors.append("duplicate incident IDs found in the public incident index")
+    if len(slugs) != len(set(slugs)):
+        errors.append("duplicate incident slugs found in the public incident index")
+    for item in items:
+        missing = [key for key in ("id", "slug", "title", "detailUrl") if not item.get(key)]
+        if missing:
+            errors.append(f"{item.get('id') or 'unknown incident'} missing {', '.join(missing)}")
+        source_url = (item.get("source") or {}).get("url")
+        if not source_url:
+            errors.append(f"{item.get('id')} is missing a public source reference")
+        elif not re.match(r"^https?://", source_url):
+            errors.append(f"{item.get('id')} has a malformed source URL")
+        detail_path = PUBLIC_ROOT / "incident-details" / f"{item.get('slug')}.json"
+        if not detail_path.exists():
+            errors.append(f"{item.get('id')} is missing its public detail projection")
+        else:
+            detail = read_json(detail_path, {})
+            if detail.get("id") != item.get("id"):
+                errors.append(f"{item.get('id')} does not match its public detail projection")
+    if errors:
+        raise ValueError("Public incident export validation failed:\n- " + "\n- ".join(errors[:50]))
+    return {"incidents": len(items), "errors": 0}
+
+
 def export_public(records: list[dict]) -> None:
-    records = public_records(records)
+    records = sorted(public_records(records), key=lambda item: (_incident_date(item), item.get("id") or ""), reverse=True)
     generated = now_iso()
     countries = defaultdict(lambda: {"incidentCount": 0, "criticalIncidents": 0, "coverage": Counter()})
     architectures = set()
@@ -639,13 +800,31 @@ def export_public(records: list[dict]) -> None:
     }
     write_json(PUBLIC_ROOT / "summary.json", summary)
     write_json(PUBLIC_ROOT / "map.json", map_data)
+    projections = [_list_projection(record) for record in records]
+    write_json(PUBLIC_ROOT / "incident-index.json", {"generatedAt": generated, "total": len(records), "items": projections})
+    write_json(PUBLIC_ROOT / "aggregations.json", _aggregate_public_records(records, generated))
+    detail_root = PUBLIC_ROOT / "incident-details"
+    detail_root.mkdir(parents=True, exist_ok=True)
+    expected_details = set()
+    for record in records:
+        detail_name = f"{public_incident_slug(record)}.json"
+        expected_details.add(detail_name)
+        write_json(detail_root / detail_name, record)
+    for stale in detail_root.glob("*.json"):
+        if stale.name not in expected_details:
+            stale.unlink()
     page_size = 25
     pages = max(1, (len(records) + page_size - 1) // page_size)
     for page in range(1, pages + 1):
         start = (page - 1) * page_size
         write_json(PUBLIC_ROOT / f"incidents-page-{page}.json", {
-            "page": page, "pageSize": page_size, "total": len(records), "items": records[start:start + page_size]
+            "page": page, "pageSize": page_size, "total": len(records), "items": projections[start:start + page_size]
         })
+    for stale in PUBLIC_ROOT.glob("incidents-page-*.json"):
+        match = re.search(r"incidents-page-(\d+)\.json$", stale.name)
+        if match and int(match.group(1)) > pages:
+            stale.unlink()
+    validate_public_export()
 
 
 def sync() -> dict:
@@ -696,7 +875,8 @@ def main() -> int:
     else:
         for incident in repository.list():
             validate_incident(incident)
-        print(f"Validated {len(repository.list())} canonical incident records.")
+        result = validate_public_export()
+        print(f"Validated {len(repository.list())} canonical incident records and {result['incidents']} public projections.")
     return 0
 
 

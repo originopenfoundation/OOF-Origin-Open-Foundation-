@@ -1,0 +1,326 @@
+{
+  "id": "OOF-AII-411238",
+  "slug": "oof-aii-411238-anthropic-s-claude-code-ai-coding-tool-reportedly-used-hidden-unicode-markers-to-classify-custom-api-routing",
+  "title": "Anthropic's Claude Code AI Coding Tool Reportedly Used Hidden Unicode Markers to Classify Custom API Routing",
+  "summary": "Researchers found that Anthropic's Claude Code AI coding tool classified custom API endpoint hostnames and two system timezones, encoding the results in system prompts with visually similar Unicode apostrophes and altered date separators. Anthropic said the mechanism was an anti-reseller and anti-distillation experiment launched in March and removed it after disclosure.",
+  "eventType": "Incident",
+  "occurredAt": "2026-04-02",
+  "reportedAt": "2026-10-03T00:00:00Z",
+  "country": "Location not specified",
+  "countryCode": null,
+  "region": null,
+  "coordinates": null,
+  "organization": "Anthropic, Ai Service Providers",
+  "system": "Claude Code, Llm Integrated Code Assistants, Ai Agent Systems, Enterprise Ai Systems, Unicode Characters",
+  "technology": null,
+  "industry": null,
+  "aiSystemType": null,
+  "severity": "Unclassified",
+  "impactTypes": [],
+  "affectedParties": [
+    "Ai Coding Assistant Users",
+    "Privacy",
+    "Claude Code Users"
+  ],
+  "evidenceConfidence": "Moderate Confidence",
+  "verificationState": "Source Catalogued / OOF Not Assessed",
+  "publicationStatus": "Monitored",
+  "sources": [
+    {
+      "sourceId": "aiid:1723",
+      "publisher": "AI Incident Database (Responsible AI Collaborative)",
+      "publicationDate": "2026-04-02",
+      "sourceType": "Official weekly data export",
+      "url": "https://incidentdatabase.ai/cite/1723",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
+      "retrievedAt": "2026-10-05T00:00:00Z",
+      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+    }
+  ],
+  "architectureRelevance": {
+    "status": "ARCHITECTURE_IDENTIFIED",
+    "classification": "Automated",
+    "primaryArchitectureId": "cla",
+    "secondaryArchitectureIds": [
+      "asga",
+      "clia",
+      "aig"
+    ],
+    "architectureIndexState": "CLA™",
+    "classifiedAt": "2026-10-03T00:00:00Z",
+    "confidence": 0.74,
+    "rationale": "Automated mapping matched incident descriptors to CLA™ — Classification Architecture using signals: classify, classified. Human review remains available."
+  },
+  "assessment": null,
+  "createdAt": "2026-10-03T00:00:00Z",
+  "updatedAt": "2026-10-03T00:00:00Z",
+  "automatedAnalysis": {
+    "assessmentIdentity": "OOF-AII-ASMT-411238-V2",
+    "incidentId": "OOF-AII-411238",
+    "analysisVersion": 2,
+    "engineVersion": "3.1.0",
+    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
+    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "assessmentLabel": "Automated Preliminary Governance Assessment",
+    "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+    "assessmentConfidence": "Limited",
+    "evidenceSnapshot": {
+      "snapshotId": "OOF-AII-411238-EVID-ff5edcfbca2d",
+      "incidentSourceHash": "ff5edcfbca2dad8ad82163dcbf5e8b0cc9e85612a0709e5243fb49927c3c14d9",
+      "sources": [
+        {
+          "sourceId": "aiid:1723",
+          "url": "https://incidentdatabase.ai/cite/1723",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "authority": "Specialist database",
+          "independenceKey": "ai incident database responsible ai collaborative",
+          "directness": "Secondary catalogue",
+          "publicationTime": "2026-04-02",
+          "retrievalTime": "2026-10-05T00:00:00Z",
+          "eventTime": "2026-04-02",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "corroboration": {
+        "sourceCount": 1,
+        "independentSourceCount": 1,
+        "status": "Single-source",
+        "contradictionState": "Not evaluated"
+      }
+    },
+    "incidentEvidence": {
+      "sourcesUsed": [
+        {
+          "sourceId": "aiid:1723",
+          "url": "https://incidentdatabase.ai/cite/1723",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "sourceType": "Specialist database",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "knownFacts": [
+        "The incident record identifies the event date as 2026-04-02."
+      ],
+      "reportedClaims": [
+        "Researchers found that Anthropic's Claude Code AI coding tool classified custom API endpoint hostnames and two system timezones, encoding the results in system prompts with visually similar Unicode apostrophes and altered date separators. Anthropic said the mechanism was an anti-reseller and anti-distillation experiment launched in March and removed it after disclosure."
+      ],
+      "materialUnknowns": [
+        "Independent corroboration is not established in the available incident record."
+      ],
+      "evidenceState": "Single-source"
+    },
+    "severityAssessment": {
+      "level": "Low",
+      "score": 2,
+      "confidence": 0.67,
+      "dimensions": {
+        "actualHarm": 0,
+        "scale": 0,
+        "reversibility": 1,
+        "autonomy": 0,
+        "propagation": 0,
+        "infrastructureImportance": 0,
+        "financialImpact": 0,
+        "physicalImpact": 0,
+        "informationImpact": 0,
+        "controlFailure": 0,
+        "persistence": 0,
+        "affectedPopulation": 1
+      },
+      "matchedEvidence": {
+        "reversibility": [
+          "removed"
+        ]
+      },
+      "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: reversibility, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+      "rubricVersion": "OOF-AII-SEV-1.0"
+    },
+    "architectureAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "primaryArchitecture": {
+        "objectId": "OOF-KO-ARCH-ASGA",
+        "architectureId": "asga",
+        "label": "ASGA™ — Autonomous Systems Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
+        "score": 32.51,
+        "matchedTerms": [
+          "tool"
+        ],
+        "role": "Primary",
+        "governedMechanism": "tool",
+        "reasonForRelevance": "Available reporting describes tool. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported tool concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
+        "governanceFocus": "How should tool be governed in the conditions described by the available incident evidence?",
+        "methodologyDepth": "Architecture",
+        "supportingEvidence": [
+          "aiid:1723"
+        ],
+        "confidence": 0.66,
+        "uncertainty": "Automated retrieval; no authorized human review performed.",
+        "relevantStandardsModules": []
+      },
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-CLIA",
+          "architectureId": "clia",
+          "label": "CLIA® — Cognitive Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
+          "score": 23.02,
+          "matchedTerms": [
+            "agent"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "agent",
+          "reasonForRelevance": "Available reporting describes agent. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agent concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+          "governanceFocus": "How should agent be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1723"
+          ],
+          "confidence": 0.6,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-MGIA",
+          "architectureId": "mgia",
+          "label": "MGIA™ — Memory Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
+          "score": 23.02,
+          "matchedTerms": [
+            "agent"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "agent",
+          "reasonForRelevance": "Available reporting describes agent. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agent concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+          "governanceFocus": "How should agent be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1723"
+          ],
+          "confidence": 0.6,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
+    },
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving tool. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "ASGA™ — Autonomous Systems Governance Architecture frames the primary governed problem. CLIA® — Cognitive Governance Intelligence Architecture, MGIA™ — Memory Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceQuestions": [
+      "How should tool be governed in the conditions described by the available incident evidence?",
+      "How should agent be governed in the conditions described by the available incident evidence?",
+      "What operational authority and controls applied to Anthropic, Ai Service Providers at the relevant time?",
+      "What evidence would establish how Claude Code, Llm Integrated Code Assistants, Ai Agent Systems, Enterprise Ai Systems, Unicode Characters produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
+    ],
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns tool, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "methodologicalReasoningChain": {
+      "incidentEvidence": [
+        "aiid:1723"
+      ],
+      "governedProblem": "The incident appears to expose a governance problem involving tool. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "ASGA™ — Autonomous Systems Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-ASGA",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-CLIA",
+        "OOF-KO-ARCH-MGIA"
+      ],
+      "parentStandard": null,
+      "coreModule": null,
+      "governedMechanism": "tool",
+      "governanceQuestions": [
+        "How should tool be governed in the conditions described by the available incident evidence?",
+        "How should agent be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Anthropic, Ai Service Providers at the relevant time?",
+        "What evidence would establish how Claude Code, Llm Integrated Code Assistants, Ai Agent Systems, Enterprise Ai Systems, Unicode Characters produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns tool, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "deepestJustifiedLevel": "Architecture"
+    },
+    "layerAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "governedMechanisms": [
+        "tool"
+      ],
+      "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+    },
+    "coverageAssessment": {
+      "status": "UNDER_REVIEW",
+      "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+    },
+    "governanceFindings": [
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported tool.",
+        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported tool.",
+        "evidenceBasis": [
+          "aiid:1723"
+        ],
+        "basis": [
+          "tool"
+        ],
+        "architectureReference": "OOF-KO-ARCH-ASGA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
+        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
+        "evidenceBasis": [
+          "aiid:1723"
+        ],
+        "basis": [
+          "agent"
+        ],
+        "architectureReference": "OOF-KO-ARCH-CLIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent.",
+        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent.",
+        "evidenceBasis": [
+          "aiid:1723"
+        ],
+        "basis": [
+          "agent"
+        ],
+        "architectureReference": "OOF-KO-ARCH-MGIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      }
+    ],
+    "evidenceGaps": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "uncertainties": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "analysisType": "Automated",
+    "humanReview": {
+      "status": "Not performed",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "oofApproved": false,
+    "createdAt": "2026-10-09T15:50:33Z",
+    "supersedes": "OOF-AII-ASMT-411238-V1",
+    "reassessmentReason": "Material analysis engine change"
+  }
+}

@@ -4,9 +4,51 @@
   padding: 28px 0 64px;
 }
 
+.oof-incident-app [hidden] { display: none !important; }
+
 .oof-incident-app a {
   color: #fff !important;
 }
+
+.oof-incident-app :focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.oof-incident-state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.oof-incident-state[data-state="error"] { border-color: #ffd0d5; }
+
+.oof-incident-state button {
+  margin-left: auto;
+  padding: 7px 12px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.oof-incident-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: oof-incident-spin 0.8s linear infinite;
+}
+
+.oof-incident-state[data-state="error"] .oof-incident-spinner { display: none; }
+
+@keyframes oof-incident-spin { to { transform: rotate(360deg); } }
 
 .oof-incident-header,
 .oof-incident-section-heading {
@@ -42,6 +84,11 @@
 }
 
 .oof-incident-nav::-webkit-scrollbar { display: none; }
+
+.oof-incident-nav a[aria-current="page"] {
+  font-weight: 800;
+  text-decoration-thickness: 3px;
+}
 
 .oof-incident-metrics {
   display: grid;
@@ -147,7 +194,8 @@
 }
 
 #incident-map .leaflet-interactive:focus {
-  outline: none;
+  outline: 3px solid #fff;
+  outline-offset: 1px;
 }
 
 #incident-map .leaflet-popup-content-wrapper,
@@ -181,6 +229,109 @@
 .oof-incident-map-legend .high { background: #c56b21; }
 .oof-incident-map-legend .very-high { background: #a52a35; }
 .oof-incident-map-legend .neutral { background: #777b79; }
+
+.oof-geography-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 16px;
+  border-block: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.oof-geography-summary div {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.oof-geography-summary div:last-child { border-right: 0; }
+.oof-geography-summary b { font-size: 22px; }
+.oof-geography-summary span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
+
+.oof-country-table-wrap {
+  width: 100%;
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+.oof-data-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.oof-data-table th,
+.oof-data-table td {
+  padding: 9px 10px;
+  border-block: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: left;
+}
+
+.oof-data-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.oof-table-action,
+.oof-view-link {
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.oof-incident-analysis-view {
+  padding: 20px 0 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.oof-view-intro {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(280px, 1.3fr);
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+.oof-view-intro h2,
+.oof-view-intro p { margin: 0; }
+.oof-view-intro h2 { font-size: 22px; }
+
+.oof-aggregate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.oof-aggregate-card {
+  min-width: 0;
+  padding: 16px;
+  background: #777a78;
+}
+
+.oof-aggregate-card h2 { margin: 0 0 12px; font-size: 16px; }
+
+.oof-aggregate-counts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 12px;
+}
+
+.oof-aggregate-counts div { min-width: 0; padding-right: 8px; }
+.oof-aggregate-counts dt { min-height: 30px; font-size: 9px; font-weight: 700; text-transform: uppercase; }
+.oof-aggregate-counts dd { margin: 2px 0 0; font-size: 20px; font-weight: 800; }
+
+.oof-bar-list { border-top: 1px solid rgba(255, 255, 255, 0.3); }
+.oof-bar-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 50px minmax(180px, 2fr);
+  gap: 14px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.oof-bar-row i { position: relative; height: 7px; background: rgba(255, 255, 255, 0.2); }
+.oof-bar-row i::before { position: absolute; inset: 0 auto 0 0; width: var(--bar-size); background: #fff; content: ""; }
 
 .oof-incident-list {
   display: grid;
@@ -364,6 +515,18 @@
   margin-top: 3px !important;
 }
 
+.oof-architecture-intelligence-card ul,
+.oof-incident-detail-architecture ul {
+  margin: 0.45rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.oof-methodology-withheld {
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  margin-top: 0.7rem !important;
+  padding-top: 0.65rem;
+}
+
 .oof-architecture-methodology-depth {
   padding-top: 8px;
   border-top: 1px solid rgba(255, 255, 255, 0.24);
@@ -427,6 +590,19 @@
   cursor: pointer;
 }
 
+.oof-incident-pagination a {
+  min-width: 86px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  text-align: center;
+  text-decoration: none;
+}
+
+.oof-incident-pagination a[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
 .oof-incident-pagination button:disabled {
   cursor: default;
   opacity: 0.45;
@@ -435,6 +611,76 @@
 .oof-incident-methodology {
   max-width: 780px;
 }
+
+.oof-incident-detail {
+  max-width: 980px;
+}
+
+.oof-detail-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 22px;
+  font-size: 12px;
+}
+
+.oof-incident-detail h1 {
+  max-width: 900px;
+  margin: 4px 0 12px;
+  font-size: 34px;
+  line-height: 1.14;
+}
+
+.oof-detail-lede {
+  max-width: 820px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.oof-incident-detail-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 24px 0;
+  border-block: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.oof-incident-detail-facts div { padding: 12px; border-right: 1px solid rgba(255, 255, 255, 0.25); }
+.oof-incident-detail-facts div:last-child { border-right: 0; }
+.oof-incident-detail-facts dt { font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.oof-incident-detail-facts dd { margin: 5px 0 0; }
+
+.oof-incident-detail > article > section {
+  max-width: 880px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.oof-incident-detail section h2 { margin: 0 0 9px; font-size: 19px; }
+.oof-detail-disclosure { padding: 16px !important; border: 1px solid rgba(255, 255, 255, 0.45) !important; }
+
+.oof-incident-detail-architectures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.oof-incident-detail-architecture { padding: 14px; background: #777a78; }
+.oof-incident-detail-architecture h3 { margin: 0 0 3px; font-size: 15px; }
+.oof-detail-role { margin: 0 0 12px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+
+.oof-incident-directory { max-width: 980px; }
+.oof-incident-directory h1 { margin-bottom: 8px; }
+.oof-incident-directory-list { margin: 28px 0 0; padding: 0; list-style: none; }
+.oof-incident-directory-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+.oof-incident-directory-list li > span { font-size: 11px; white-space: nowrap; }
 
 .oof-incident-methodology h2,
 .oof-incident-methodology h3 {
@@ -468,10 +714,12 @@
 @media (max-width: 1050px) {
   .oof-incident-metrics { grid-template-columns: repeat(4, 1fr); }
   .oof-incident-filters { grid-template-columns: repeat(2, 1fr); }
+  .oof-aggregate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 780px) {
   .oof-incident-list { grid-template-columns: 1fr; }
+  .oof-view-intro { grid-template-columns: 1fr; gap: 8px; }
 }
 
 @media (max-width: 620px) {
@@ -486,7 +734,13 @@
   }
   .oof-incident-metrics { grid-template-columns: repeat(2, 1fr); }
   .oof-incident-filters { grid-template-columns: 1fr; }
-  #incident-map { height: 430px; min-height: 0; }
+  #incident-map { height: 58vh; min-height: 360px; }
+  .oof-geography-summary { grid-template-columns: 1fr; }
+  .oof-geography-summary div { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+  .oof-geography-summary div:last-child { border-bottom: 0; }
+  .oof-aggregate-grid { grid-template-columns: 1fr; }
+  .oof-bar-row { grid-template-columns: minmax(0, 1fr) 40px; }
+  .oof-bar-row i { grid-column: 1 / -1; }
   .oof-incident-row dl {
     grid-template-columns: max-content minmax(0, 1fr);
     grid-template-rows: none;
@@ -496,4 +750,11 @@
   .oof-analysis-status { grid-template-columns: 1fr; }
   .oof-analysis-status dd { text-align: left; }
   .oof-architecture-intelligence { grid-template-columns: 1fr; }
+  .oof-incident-detail h1 { font-size: 26px; }
+  .oof-incident-detail-facts { grid-template-columns: 1fr 1fr; }
+  .oof-incident-detail-facts div:nth-child(2) { border-right: 0; }
+  .oof-incident-detail-facts div:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+  .oof-incident-detail-architectures { grid-template-columns: 1fr; }
+  .oof-incident-directory-list li { grid-template-columns: 1fr; gap: 5px; }
+  .oof-incident-directory-list li > span { white-space: normal; }
 }

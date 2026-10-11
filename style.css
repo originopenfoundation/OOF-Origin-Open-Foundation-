@@ -2655,6 +2655,87 @@ padding:10px;
   max-width: none;
 }
 
+.oof-authority-reference-gallery {
+  display: grid;
+  gap: 18px;
+}
+
+.oof-reference-status-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.oof-reference-status-heading h2,
+.oof-reference-status-heading p {
+  margin: 0;
+}
+
+.oof-reference-status-heading > p {
+  max-width: 440px;
+  text-align: right;
+}
+
+.oof-reference-status-label {
+  margin-bottom: 6px !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.oof-reference-figure {
+  margin: 0;
+}
+
+.oof-reference-figure > a {
+  display: block;
+  background: #fff;
+  line-height: 0;
+}
+
+.oof-authority-reference-gallery .oof-reference-visual {
+  max-width: none;
+}
+
+.oof-reference-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0 2px;
+}
+
+.oof-reference-figure figcaption span {
+  white-space: nowrap;
+}
+
+.oof-reference-supersession-notice {
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.oof-reference-supersession-notice p {
+  margin: 6px 0 0;
+}
+
+@media (max-width: 719px) {
+  .oof-reference-status-heading,
+  .oof-reference-figure figcaption {
+    display: grid;
+    gap: 8px;
+  }
+
+  .oof-reference-status-heading > p {
+    text-align: left;
+  }
+
+  .oof-reference-figure figcaption span {
+    white-space: normal;
+  }
+}
+
 @media (min-width: 960px) {
   body.oof-sidebar-layout > .oof-semantic-main > .oof-semantic-article > section.container.oof-reality-boundary-gallery {
     width: calc(100vw - 380px);

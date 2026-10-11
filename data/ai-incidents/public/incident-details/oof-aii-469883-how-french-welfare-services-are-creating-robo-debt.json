@@ -1,0 +1,394 @@
+{
+  "id": "OOF-AII-469883",
+  "slug": "oof-aii-469883-how-french-welfare-services-are-creating-robo-debt",
+  "title": "How French welfare services are creating ‘robo-debt’",
+  "summary": "A French welfare office using software to automatically evaluate cases incorrectly notified a woman receiving benefits that she owed €542.",
+  "eventType": "Incident",
+  "occurredAt": "2021-03-17",
+  "reportedAt": "2021-03-17T00:00:00Z",
+  "country": "France",
+  "countryCode": "FR",
+  "region": "Europe",
+  "coordinates": null,
+  "organization": "French Welfare Offices",
+  "system": "no",
+  "technology": null,
+  "industry": "[\"administrative and support service activities\", \"human health and social work activities\"]",
+  "aiSystemType": "[\"welfare determination\"]",
+  "severity": "Unclassified",
+  "impactTypes": [
+    "AI system safety, failures, and limitations",
+    "yes"
+  ],
+  "affectedParties": [
+    "Lucie Inland"
+  ],
+  "evidenceConfidence": "Moderate Confidence",
+  "verificationState": "Source Catalogued / OOF Not Assessed",
+  "publicationStatus": "Monitored",
+  "sources": [
+    {
+      "sourceId": "aiid:100",
+      "publisher": "AI Incident Database (Responsible AI Collaborative)",
+      "publicationDate": "2021-03-17",
+      "sourceType": "Official weekly data export",
+      "url": "https://incidentdatabase.ai/cite/100",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
+      "retrievedAt": "2026-10-05T00:00:00Z",
+      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+    }
+  ],
+  "architectureRelevance": {
+    "status": "ARCHITECTURE_IDENTIFIED",
+    "classification": "Automated",
+    "primaryArchitectureId": "aig",
+    "secondaryArchitectureIds": [],
+    "architectureIndexState": "AIG®",
+    "classifiedAt": "2021-03-17T00:00:00Z",
+    "confidence": 0.55,
+    "rationale": "Automated mapping assigned the general AI governance architecture because no more specific approved architecture signal was sufficiently explicit. Human review remains available."
+  },
+  "assessment": null,
+  "createdAt": "2021-03-17T00:00:00Z",
+  "updatedAt": "2021-03-17T00:00:00Z",
+  "automatedAnalysis": {
+    "assessmentIdentity": "OOF-AII-ASMT-469883-V5",
+    "incidentId": "OOF-AII-469883",
+    "analysisVersion": 5,
+    "engineVersion": "3.1.0",
+    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
+    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "assessmentLabel": "Automated Preliminary Governance Assessment",
+    "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+    "assessmentConfidence": "Moderate",
+    "evidenceSnapshot": {
+      "snapshotId": "OOF-AII-469883-EVID-e19a684fb3e6",
+      "incidentSourceHash": "e19a684fb3e674aba2acb86f4b931505c9d9ba1a147956081927a3df38b2f3aa",
+      "sources": [
+        {
+          "sourceId": "aiid:100",
+          "url": "https://incidentdatabase.ai/cite/100",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "authority": "Specialist database",
+          "independenceKey": "ai incident database responsible ai collaborative",
+          "directness": "Secondary catalogue",
+          "publicationTime": "2021-03-17",
+          "retrievalTime": "2026-10-05T00:00:00Z",
+          "eventTime": "2021-03-17",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "corroboration": {
+        "sourceCount": 1,
+        "independentSourceCount": 1,
+        "status": "Single-source",
+        "contradictionState": "Not evaluated"
+      }
+    },
+    "incidentEvidence": {
+      "sourcesUsed": [
+        {
+          "sourceId": "aiid:100",
+          "url": "https://incidentdatabase.ai/cite/100",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "sourceType": "Specialist database",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "knownFacts": [
+        "The incident record identifies the event date as 2021-03-17.",
+        "The incident record identifies the location as France."
+      ],
+      "reportedClaims": [
+        "A French welfare office using software to automatically evaluate cases incorrectly notified a woman receiving benefits that she owed €542."
+      ],
+      "materialUnknowns": [
+        "Independent corroboration is not established in the available incident record."
+      ],
+      "evidenceState": "Single-source"
+    },
+    "severityAssessment": {
+      "level": "Low",
+      "score": 2,
+      "confidence": 0.79,
+      "dimensions": {
+        "actualHarm": 1,
+        "scale": 0,
+        "reversibility": 0,
+        "autonomy": 0,
+        "propagation": 0,
+        "infrastructureImportance": 0,
+        "financialImpact": 0,
+        "physicalImpact": 0,
+        "informationImpact": 0,
+        "controlFailure": 0,
+        "persistence": 0,
+        "affectedPopulation": 1
+      },
+      "matchedEvidence": {
+        "actualHarm": [
+          "incorrect"
+        ]
+      },
+      "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: actualHarm, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+      "rubricVersion": "OOF-AII-SEV-1.0"
+    },
+    "architectureAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "primaryArchitecture": {
+        "objectId": "OOF-KO-ARCH-PGA",
+        "architectureId": "pga",
+        "label": "PGA™ — Prediction Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+        "score": 13.01,
+        "matchedTerms": [
+          "support"
+        ],
+        "role": "Primary",
+        "governedMechanism": "support",
+        "reasonForRelevance": "Available reporting describes support. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported support concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "How should support be governed in the conditions described by the available incident evidence?",
+        "methodologyDepth": "Architecture",
+        "supportingEvidence": [
+          "aiid:100"
+        ],
+        "confidence": 0.59,
+        "uncertainty": "Automated retrieval; no authorized human review performed.",
+        "relevantStandardsModules": []
+      },
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-LIGA",
+          "architectureId": "liga",
+          "label": "LIGA™ — Liability Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
+          "score": 12.92,
+          "matchedTerms": [
+            "determination"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "determination",
+          "reasonForRelevance": "Available reporting describes determination. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported determination concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
+          "governanceFocus": "How should determination be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:100"
+          ],
+          "confidence": 0.59,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-TREGA",
+          "architectureId": "trega",
+          "label": "TREGA™ — Tax-Relevant Event Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/About%20TREGA%E2%84%A2%20-%20Tax-Relevant%20Event%20Governance%20Architecture.html",
+          "score": 8.61,
+          "matchedTerms": [
+            "determination"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "determination",
+          "reasonForRelevance": "Available reporting describes determination. This makes TREGA™ — Tax-Relevant Event Governance Architecture relevant to examining TREGA™ — Tax-Relevant Event Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported determination concern falls within the governed questions represented by TREGA™ — Tax-Relevant Event Governance Architecture.",
+          "governanceFocus": "How should determination be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:100"
+          ],
+          "confidence": 0.56,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-VALIDOS",
+          "architectureId": "validos",
+          "label": "VALIDOS® — Validation Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/v/validos-about.html",
+          "score": 8.61,
+          "matchedTerms": [
+            "determination"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "determination",
+          "reasonForRelevance": "Available reporting describes determination. This makes VALIDOS® — Validation Governance Architecture relevant to examining VALIDOS® — Validation Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported determination concern falls within the governed questions represented by VALIDOS® — Validation Governance Architecture.",
+          "governanceFocus": "How should determination be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:100"
+          ],
+          "confidence": 0.56,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-VFM",
+          "architectureId": "vfm",
+          "label": "VFM® — Value Flow Mechanisms Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
+          "score": 8.61,
+          "matchedTerms": [
+            "determination"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "determination",
+          "reasonForRelevance": "Available reporting describes determination. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported determination concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+          "governanceFocus": "How should determination be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:100"
+          ],
+          "confidence": 0.56,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
+    },
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving support. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture, TREGA™ — Tax-Relevant Event Governance Architecture, VALIDOS® — Validation Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceQuestions": [
+      "How should support be governed in the conditions described by the available incident evidence?",
+      "How should determination be governed in the conditions described by the available incident evidence?",
+      "What operational authority and controls applied to French Welfare Offices at the relevant time?",
+      "What evidence would establish how no produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
+    ],
+    "incidentGovernanceInsight": "The governance significance lies in how support moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "methodologicalReasoningChain": {
+      "incidentEvidence": [
+        "aiid:100"
+      ],
+      "governedProblem": "The incident appears to expose a governance problem involving support. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "PGA™ — Prediction Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-PGA",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-LIGA",
+        "OOF-KO-ARCH-TREGA",
+        "OOF-KO-ARCH-VALIDOS",
+        "OOF-KO-ARCH-VFM"
+      ],
+      "parentStandard": null,
+      "coreModule": null,
+      "governedMechanism": "support",
+      "governanceQuestions": [
+        "How should support be governed in the conditions described by the available incident evidence?",
+        "How should determination be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to French Welfare Offices at the relevant time?",
+        "What evidence would establish how no produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "The governance significance lies in how support moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "deepestJustifiedLevel": "Architecture"
+    },
+    "layerAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "governedMechanisms": [
+        "support"
+      ],
+      "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+    },
+    "coverageAssessment": {
+      "status": "UNDER_REVIEW",
+      "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+    },
+    "governanceFindings": [
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
+        "evidenceBasis": [
+          "aiid:100"
+        ],
+        "basis": [
+          "support"
+        ],
+        "architectureReference": "OOF-KO-ARCH-PGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported determination.",
+        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported determination.",
+        "evidenceBasis": [
+          "aiid:100"
+        ],
+        "basis": [
+          "determination"
+        ],
+        "architectureReference": "OOF-KO-ARCH-LIGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to TREGA™ — Tax-Relevant Event Governance Architecture for the reported determination.",
+        "statement": "Available evidence indicated relevance to TREGA™ — Tax-Relevant Event Governance Architecture for the reported determination.",
+        "evidenceBasis": [
+          "aiid:100"
+        ],
+        "basis": [
+          "determination"
+        ],
+        "architectureReference": "OOF-KO-ARCH-TREGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to VALIDOS® — Validation Governance Architecture for the reported determination.",
+        "statement": "Available evidence indicated relevance to VALIDOS® — Validation Governance Architecture for the reported determination.",
+        "evidenceBasis": [
+          "aiid:100"
+        ],
+        "basis": [
+          "determination"
+        ],
+        "architectureReference": "OOF-KO-ARCH-VALIDOS",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported determination.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported determination.",
+        "evidenceBasis": [
+          "aiid:100"
+        ],
+        "basis": [
+          "determination"
+        ],
+        "architectureReference": "OOF-KO-ARCH-VFM",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      }
+    ],
+    "evidenceGaps": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "AI technology is not specified in the source record."
+    ],
+    "uncertainties": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "AI technology is not specified in the source record."
+    ],
+    "analysisType": "Automated",
+    "humanReview": {
+      "status": "Not performed",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "oofApproved": false,
+    "createdAt": "2026-10-09T15:50:33Z",
+    "supersedes": "OOF-AII-ASMT-469883-V4",
+    "reassessmentReason": "Material analysis engine change"
+  }
+}

@@ -23,9 +23,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install incident validation dependencies
+        run: pip install -r requirements-ai-incidents.txt
+
       - name: Rebuild AI discovery files
         run: |
           python tools/build_localization.py
+          python tools/build_ai_incident_pages.py
           python tools/build_ai_compatibility.py
 
       - name: Rebuild URL and version governance files
@@ -49,7 +53,15 @@ jobs:
         run: python tools/validate_knowledge_infrastructure.py
 
       - name: Validate automated incident intelligence
-        run: python tools/incident_intelligence_v2.py validate
+        run: |
+          python tools/ai_incidents.py validate
+          python tools/incident_intelligence_v2.py validate
+
+      - name: Run incident intelligence tests
+        run: python -m unittest tests.test_ai_incidents
+
+      - name: Audit incident methodology accuracy
+        run: python tools/audit_ai_incident_methodology.py
 
       - name: Run knowledge retrieval tests
         run: python -m unittest tests.test_knowledge_infrastructure

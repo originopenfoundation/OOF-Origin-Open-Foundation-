@@ -25,7 +25,7 @@ STORE_PATH = DATA_ROOT / "incident-store.json"
 ANALYSIS_PATH = DATA_ROOT / "analysis-store.json"
 KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
-ENGINE_VERSION = "3.0.0"
+ENGINE_VERSION = "3.1.0"
 
 STOPWORDS = {
     "about", "across", "after", "against", "architecture", "based", "before", "between",
@@ -154,6 +154,11 @@ class KnowledgeLayer:
             architecture_id = item.get("architectureId")
             if architecture_id in self.architectures:
                 self.children[architecture_id].append(item)
+        self.children_by_parent = defaultdict(list)
+        for item in self.objects.values():
+            parent_id = item.get("parentObjectId")
+            if parent_id in self.objects:
+                self.children_by_parent[parent_id].append(item)
         self.corpora = {architecture_id: self._corpus(architecture_id) for architecture_id in self.architectures}
         self.document_frequency = Counter(
             term for corpus in self.corpora.values() for term in set(corpus)
@@ -226,22 +231,65 @@ class KnowledgeLayer:
                 })
         return sorted(ranked, key=lambda item: (-item["score"], item["architectureId"]))
 
-    def references(self, architecture_object_id: str, record: dict, limit: int = 3) -> list[dict]:
+    def _reference_candidate(self, item: dict, incident_terms: Counter[str]) -> dict | None:
+        corpus = Counter()
+        for field in ("canonicalName", "canonicalDefinition", "governedSpace", "coreQuestion", "category", "subcategory"):
+            corpus.update(tokens(item.get(field)))
+        matched = sorted(
+            set(incident_terms) & set(corpus),
+            key=lambda term: (-incident_terms[term] * min(corpus[term], 3), term),
+        )
+        score = sum(incident_terms[term] * min(corpus[term], 3) for term in matched)
+        if not score:
+            return None
+        return {
+            "objectId": item["id"], "name": item.get("canonicalName"), "artifactType": item.get("artifactType"),
+            "canonicalUrl": item.get("canonicalUrl"), "matchedTerms": matched[:8], "score": score,
+            "governedSpace": item.get("governedSpace"), "coreQuestion": item.get("coreQuestion"),
+            "parentObjectId": item.get("parentObjectId"),
+            "canonicalProvenance": {
+                "knowledgeBuildId": self.manifest.get("buildId"),
+                "contentHash": item.get("provenance", {}).get("contentHash"),
+                "authorityState": item.get("authorityState"),
+            },
+        }
+
+    def references(self, architecture_object_id: str, record: dict) -> list[dict]:
+        """Return only the deepest methodology justified by incident evidence.
+
+        Parent Standards and Core Modules are ranked inside the selected
+        architecture. A module can only be emitted beneath a selected parent,
+        and sparse records remain at architecture depth.
+        """
         incident_terms = self._incident_terms(record)
-        ranked = []
+        evidence_depth = sum(bool(record.get(field)) for field in (
+            "summary", "system", "technology", "industry", "organization", "impactTypes", "affectedParties",
+        ))
+        if evidence_depth < 2 or len(incident_terms) < 3:
+            return []
+        parents = []
         for item in self.children.get(architecture_object_id, []):
-            corpus = Counter()
-            for field in ("canonicalName", "canonicalDefinition", "governedSpace", "coreQuestion", "category", "subcategory"):
-                corpus.update(tokens(item.get(field)))
-            matched = sorted(set(incident_terms) & set(corpus))
-            score = sum(incident_terms[term] * min(corpus[term], 3) for term in matched)
-            if score:
-                ranked.append({
-                    "objectId": item["id"], "name": item.get("canonicalName"), "artifactType": item.get("artifactType"),
-                    "canonicalUrl": item.get("canonicalUrl"), "matchedTerms": matched[:8], "score": score,
-                    "governedSpace": item.get("governedSpace"), "coreQuestion": item.get("coreQuestion"),
-                })
-        return sorted(ranked, key=lambda item: (-item["score"], item["name"] or ""))[:limit]
+            if item.get("artifactType") != "ParentStandard":
+                continue
+            candidate = self._reference_candidate(item, incident_terms)
+            if candidate and candidate["score"] >= 4 and len(candidate["matchedTerms"]) >= 2:
+                parents.append(candidate)
+        if not parents:
+            return []
+        parent = sorted(parents, key=lambda item: (-item["score"], item["name"] or ""))[0]
+        references = [parent]
+        if evidence_depth < 4:
+            return references
+        modules = []
+        for item in self.children_by_parent.get(parent["objectId"], []):
+            if item.get("artifactType") != "CoreModule":
+                continue
+            candidate = self._reference_candidate(item, incident_terms)
+            if candidate and candidate["score"] >= 6 and len(candidate["matchedTerms"]) >= 2:
+                modules.append(candidate)
+        if modules:
+            references.append(sorted(modules, key=lambda item: (-item["score"], item["name"] or ""))[0])
+        return references
 
 
 def source_authority(source: dict) -> str:
@@ -482,6 +530,26 @@ def governance_insight(architecture: dict, confidence_state: str) -> str | None:
     )
 
 
+def methodological_reasoning_chain(record: dict, architecture: dict, questions: list[str], insight: str | None) -> dict:
+    primary = architecture.get("primaryArchitecture")
+    references = primary.get("relevantStandardsModules", []) if primary else []
+    parent = next((item for item in references if item.get("artifactType") == "ParentStandard"), None)
+    module = next((item for item in references if item.get("artifactType") == "CoreModule"), None)
+    return {
+        "incidentEvidence": [source.get("sourceId") for source in record.get("sources") or []],
+        "governedProblem": primary_governance_problem(architecture) if primary else None,
+        "governedSpace": primary.get("label") if primary else None,
+        "primaryArchitecture": primary.get("objectId") if primary else None,
+        "contributingArchitectures": [item["objectId"] for item in architecture.get("contributingArchitectures", [])],
+        "parentStandard": parent.get("objectId") if parent else None,
+        "coreModule": module.get("objectId") if module else None,
+        "governedMechanism": primary.get("governedMechanism") if primary else None,
+        "governanceQuestions": questions,
+        "incidentGovernanceInsight": insight,
+        "deepestJustifiedLevel": module.get("artifactType") if module else parent.get("artifactType") if parent else "Architecture" if primary else "Unresolved",
+    }
+
+
 def uncertainty_notes(record: dict, evidence: dict, architecture: dict) -> list[str]:
     notes = []
     if evidence["corroboration"]["independentSourceCount"] < 2:
@@ -504,6 +572,8 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
     confidence_state = assessment_confidence(record, evidence, architecture)
     evidence_view = incident_evidence(record, evidence)
     gaps = uncertainty_notes(record, evidence, architecture)
+    questions = governance_questions(record, architecture, gaps)
+    insight = governance_insight(architecture, confidence_state)
     findings = []
     for item in [primary, *architecture.get("contributingArchitectures", [])]:
         if not item:
@@ -538,8 +608,9 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
         "architectureAnalysis": architecture,
         "primaryGovernanceProblem": primary_governance_problem(architecture),
         "governanceRelationship": governance_relationship(architecture),
-        "governanceQuestions": governance_questions(record, architecture, gaps),
-        "incidentGovernanceInsight": governance_insight(architecture, confidence_state),
+        "governanceQuestions": questions,
+        "incidentGovernanceInsight": insight,
+        "methodologicalReasoningChain": methodological_reasoning_chain(record, architecture, questions, insight),
         "layerAnalysis": {
             "status": "AUTOMATED_ANALYSIS" if primary else "INSUFFICIENT_EVIDENCE",
             "governedMechanisms": primary.get("matchedTerms", []) if primary else [],
@@ -722,11 +793,32 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
                     errors.append(f"Governance finding lacks evidence, architecture, or status: {identity}")
         architecture = assessment.get("architectureAnalysis", {})
         items = [architecture.get("primaryArchitecture")] + architecture.get("contributingArchitectures", [])
+        chain = assessment.get("methodologicalReasoningChain")
+        if assessment.get("engineVersion") == ENGINE_VERSION and not chain:
+            errors.append(f"Methodological reasoning chain is missing: {identity}")
         for item in (item for item in items if item):
             if not item.get("reasonForRelevance") or not item.get("supportingEvidence"):
                 errors.append(f"Architecture assignment lacks explanation or evidence: {identity}")
             if item.get("objectId") not in knowledge_ids:
                 errors.append(f"Architecture assignment references unknown knowledge object: {identity}")
+            references = item.get("relevantStandardsModules") or []
+            parent_ids = {reference.get("objectId") for reference in references if reference.get("artifactType") == "ParentStandard"}
+            for reference in references:
+                object_id = reference.get("objectId")
+                canonical = knowledge.objects.get(object_id)
+                if canonical is None:
+                    errors.append(f"Methodology reference is not canonical: {identity} -> {object_id}")
+                    continue
+                if canonical.get("architectureId") != item.get("objectId"):
+                    errors.append(f"Methodology reference belongs to another architecture: {identity} -> {object_id}")
+                if reference.get("name") != canonical.get("canonicalName") or reference.get("canonicalUrl") != canonical.get("canonicalUrl"):
+                    errors.append(f"Methodology reference name or URL is stale: {identity} -> {object_id}")
+                if (
+                    assessment.get("engineVersion") == ENGINE_VERSION
+                    and reference.get("artifactType") == "CoreModule"
+                    and canonical.get("parentObjectId") not in parent_ids
+                ):
+                    errors.append(f"Core Module lacks its selected Parent Standard: {identity} -> {object_id}")
     for incident_id, values in versions.items():
         if sorted(values) != list(range(1, max(values) + 1)):
             errors.append(f"Assessment versions are not continuous: {incident_id}")

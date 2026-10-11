@@ -1,0 +1,270 @@
+{
+  "id": "OOF-AII-290080",
+  "slug": "oof-aii-290080-emotion-detection-models-showed-disparate-performance-along-racial-lines",
+  "title": "Emotion Detection Models Showed Disparate Performance along Racial Lines",
+  "summary": "Emotion detection tools by Face++ and Microsoft's Face API allegedly scored smiling or defaulted ambiguous facial photos for Black faces as negative emotion more often than for white faces.",
+  "eventType": "Incident",
+  "occurredAt": "2018-11-09",
+  "reportedAt": "2018-11-09T00:00:00Z",
+  "country": "United States of America",
+  "countryCode": "US",
+  "region": "North America",
+  "coordinates": null,
+  "organization": "Megvii, Microsoft",
+  "system": "yes",
+  "technology": null,
+  "industry": "[\"information and communication\", \"unclear\"]",
+  "aiSystemType": "[\"emotion detection\"]",
+  "severity": "Unclassified",
+  "impactTypes": [
+    "Discrimination and Toxicity",
+    "yes"
+  ],
+  "affectedParties": [
+    "Black People"
+  ],
+  "evidenceConfidence": "Moderate Confidence",
+  "verificationState": "Source Catalogued / OOF Not Assessed",
+  "publicationStatus": "Monitored",
+  "sources": [
+    {
+      "sourceId": "aiid:454",
+      "publisher": "AI Incident Database (Responsible AI Collaborative)",
+      "publicationDate": "2018-11-09",
+      "sourceType": "Official weekly data export",
+      "url": "https://incidentdatabase.ai/cite/454",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
+      "retrievedAt": "2026-10-05T00:00:00Z",
+      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+    }
+  ],
+  "architectureRelevance": {
+    "status": "ARCHITECTURE_IDENTIFIED",
+    "classification": "Automated",
+    "primaryArchitectureId": "cla",
+    "secondaryArchitectureIds": [
+      "obidenity",
+      "aig"
+    ],
+    "architectureIndexState": "CLA™",
+    "classifiedAt": "2018-11-09T00:00:00Z",
+    "confidence": 0.68,
+    "rationale": "Automated mapping matched incident descriptors to CLA™ — Classification Architecture using signals: detection. Human review remains available."
+  },
+  "assessment": null,
+  "createdAt": "2018-11-09T00:00:00Z",
+  "updatedAt": "2018-11-09T00:00:00Z",
+  "automatedAnalysis": {
+    "assessmentIdentity": "OOF-AII-ASMT-290080-V4",
+    "incidentId": "OOF-AII-290080",
+    "analysisVersion": 4,
+    "engineVersion": "3.1.0",
+    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
+    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "assessmentLabel": "Automated Preliminary Governance Assessment",
+    "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+    "assessmentConfidence": "Moderate",
+    "evidenceSnapshot": {
+      "snapshotId": "OOF-AII-290080-EVID-e4372a69dc91",
+      "incidentSourceHash": "e4372a69dc9194466620fbe23dac4e8ce372638c184f4c11df3cc625d78fd2ad",
+      "sources": [
+        {
+          "sourceId": "aiid:454",
+          "url": "https://incidentdatabase.ai/cite/454",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "authority": "Specialist database",
+          "independenceKey": "ai incident database responsible ai collaborative",
+          "directness": "Secondary catalogue",
+          "publicationTime": "2018-11-09",
+          "retrievalTime": "2026-10-05T00:00:00Z",
+          "eventTime": "2018-11-09",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "corroboration": {
+        "sourceCount": 1,
+        "independentSourceCount": 1,
+        "status": "Single-source",
+        "contradictionState": "Not evaluated"
+      }
+    },
+    "incidentEvidence": {
+      "sourcesUsed": [
+        {
+          "sourceId": "aiid:454",
+          "url": "https://incidentdatabase.ai/cite/454",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "sourceType": "Specialist database",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "knownFacts": [
+        "The incident record identifies the event date as 2018-11-09.",
+        "The incident record identifies the location as United States of America."
+      ],
+      "reportedClaims": [
+        "Emotion detection tools by Face++ and Microsoft's Face API allegedly scored smiling or defaulted ambiguous facial photos for Black faces as negative emotion more often than for white faces."
+      ],
+      "materialUnknowns": [
+        "Independent corroboration is not established in the available incident record."
+      ],
+      "evidenceState": "Single-source"
+    },
+    "severityAssessment": {
+      "level": "Low",
+      "score": 2,
+      "confidence": 0.79,
+      "dimensions": {
+        "actualHarm": 1,
+        "scale": 0,
+        "reversibility": 0,
+        "autonomy": 0,
+        "propagation": 0,
+        "infrastructureImportance": 0,
+        "financialImpact": 0,
+        "physicalImpact": 0,
+        "informationImpact": 0,
+        "controlFailure": 0,
+        "persistence": 0,
+        "affectedPopulation": 1
+      },
+      "matchedEvidence": {
+        "actualHarm": [
+          "discrimination"
+        ]
+      },
+      "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: actualHarm, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+      "rubricVersion": "OOF-AII-SEV-1.0"
+    },
+    "architectureAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "primaryArchitecture": {
+        "objectId": "OOF-KO-ARCH-PGA",
+        "architectureId": "pga",
+        "label": "PGA™ — Prediction Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+        "score": 95.72,
+        "matchedTerms": [
+          "performance",
+          "models",
+          "communication",
+          "information"
+        ],
+        "role": "Primary",
+        "governedMechanism": "performance, models, communication, information",
+        "reasonForRelevance": "Available reporting describes performance, models, communication. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Record & Continuity Standard (PRCS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported performance, models, communication concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "How must a prediction and its complete history remain identifiable, reconstructable, versioned, and historically continuous across formation, revision, supersession, outcome, performance assessment, retirement, and lifecycle re-entry?",
+        "methodologyDepth": "ParentStandard",
+        "supportingEvidence": [
+          "aiid:454"
+        ],
+        "confidence": 0.66,
+        "uncertainty": "Automated retrieval; no authorized human review performed.",
+        "relevantStandardsModules": [
+          {
+            "objectId": "OOF-KO-STD-PGA-12",
+            "name": "Prediction Record & Continuity Standard (PRCS)",
+            "artifactType": "ParentStandard",
+            "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-prcs.html",
+            "matchedTerms": [
+              "performance",
+              "communication"
+            ],
+            "score": 10,
+            "governedSpace": null,
+            "coreQuestion": "How must a prediction and its complete history remain identifiable, reconstructable, versioned, and historically continuous across formation, revision, supersession, outcome, performance assessment, retirement, and lifecycle re-entry?",
+            "parentObjectId": null,
+            "canonicalProvenance": {
+              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "contentHash": "e71104ffd18ac20b250eb7cc4031eb4dddb278787fd3ef4ec8753e04f713098c",
+              "authorityState": "CANONICAL_AUTHORITATIVE"
+            }
+          }
+        ]
+      },
+      "contributingArchitectures": []
+    },
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving performance, models, communication, information. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
+    "governanceQuestions": [
+      "How must a prediction and its complete history remain identifiable, reconstructable, versioned, and historically continuous across formation, revision, supersession, outcome, performance assessment, retirement, and lifecycle re-entry?",
+      "What operational authority and controls applied to Megvii, Microsoft at the relevant time?",
+      "What evidence would establish how yes produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
+    ],
+    "incidentGovernanceInsight": "The governance significance lies in how performance, models, communication, information moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "methodologicalReasoningChain": {
+      "incidentEvidence": [
+        "aiid:454"
+      ],
+      "governedProblem": "The incident appears to expose a governance problem involving performance, models, communication, information. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "PGA™ — Prediction Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-PGA",
+      "contributingArchitectures": [],
+      "parentStandard": "OOF-KO-STD-PGA-12",
+      "coreModule": null,
+      "governedMechanism": "performance, models, communication, information",
+      "governanceQuestions": [
+        "How must a prediction and its complete history remain identifiable, reconstructable, versioned, and historically continuous across formation, revision, supersession, outcome, performance assessment, retirement, and lifecycle re-entry?",
+        "What operational authority and controls applied to Megvii, Microsoft at the relevant time?",
+        "What evidence would establish how yes produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "The governance significance lies in how performance, models, communication, information moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "deepestJustifiedLevel": "ParentStandard"
+    },
+    "layerAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "governedMechanisms": [
+        "performance",
+        "models",
+        "communication",
+        "information"
+      ],
+      "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+    },
+    "coverageAssessment": {
+      "status": "UNDER_REVIEW",
+      "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+    },
+    "governanceFindings": [
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported performance, models, communication, information.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported performance, models, communication, information.",
+        "evidenceBasis": [
+          "aiid:454"
+        ],
+        "basis": [
+          "performance",
+          "models",
+          "communication",
+          "information"
+        ],
+        "architectureReference": "OOF-KO-ARCH-PGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      }
+    ],
+    "evidenceGaps": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "AI technology is not specified in the source record."
+    ],
+    "uncertainties": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "AI technology is not specified in the source record."
+    ],
+    "analysisType": "Automated",
+    "humanReview": {
+      "status": "Not performed",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "oofApproved": false,
+    "createdAt": "2026-10-09T15:50:33Z",
+    "supersedes": "OOF-AII-ASMT-290080-V3",
+    "reassessmentReason": "Material analysis engine change"
+  }
+}

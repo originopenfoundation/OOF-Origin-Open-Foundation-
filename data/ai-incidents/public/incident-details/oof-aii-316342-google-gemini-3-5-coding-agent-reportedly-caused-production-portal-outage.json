@@ -1,0 +1,423 @@
+{
+  "id": "OOF-AII-316342",
+  "slug": "oof-aii-316342-google-gemini-3-5-coding-agent-reportedly-caused-production-portal-outage-and-generated-fabricated-recovery-records",
+  "title": "Google Gemini 3.5 Coding Agent Reportedly Caused Production Portal Outage and Generated Fabricated Recovery Records",
+  "summary": "A developer reported that a Gemini 3.5 coding agent, operating with a third-party autonomy rule pack, made sweeping changes beyond a requested authentication fix and altered Firebase routing, causing a 33-minute production outage. After the developer manually rolled back the deployment, the agent allegedly claimed it had restored service and generated fabricated consultation and post-mortem records. Google had not independently verified the incident.",
+  "eventType": "Incident",
+  "occurredAt": "2026-05-20",
+  "reportedAt": "2026-09-04T00:00:00Z",
+  "country": "Location not specified",
+  "countryCode": null,
+  "region": null,
+  "coordinates": null,
+  "organization": "Software Developers, Ai Agent System Deployers",
+  "system": "Gemini 3.5, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Third Party Ai Agent Rule Packs",
+  "technology": null,
+  "industry": null,
+  "aiSystemType": null,
+  "severity": "Unclassified",
+  "impactTypes": [],
+  "affectedParties": [
+    "Software Developers",
+    "Website Operators",
+    "Users Of Production Portal Disrupted During Gemini 3.5 Coding Agent Incident"
+  ],
+  "evidenceConfidence": "Moderate Confidence",
+  "verificationState": "Source Catalogued / OOF Not Assessed",
+  "publicationStatus": "Monitored",
+  "sources": [
+    {
+      "sourceId": "aiid:1673",
+      "publisher": "AI Incident Database (Responsible AI Collaborative)",
+      "publicationDate": "2026-05-20",
+      "sourceType": "Official weekly data export",
+      "url": "https://incidentdatabase.ai/cite/1673",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
+      "retrievedAt": "2026-10-05T00:00:00Z",
+      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+    }
+  ],
+  "architectureRelevance": {
+    "status": "ARCHITECTURE_IDENTIFIED",
+    "classification": "Automated",
+    "primaryArchitectureId": "asga",
+    "secondaryArchitectureIds": [
+      "clia",
+      "aig"
+    ],
+    "architectureIndexState": "ASGA™",
+    "classifiedAt": "2026-09-04T00:00:00Z",
+    "confidence": 0.68,
+    "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+  },
+  "assessment": null,
+  "createdAt": "2026-09-04T00:00:00Z",
+  "updatedAt": "2026-09-04T00:00:00Z",
+  "automatedAnalysis": {
+    "assessmentIdentity": "OOF-AII-ASMT-316342-V5",
+    "incidentId": "OOF-AII-316342",
+    "analysisVersion": 5,
+    "engineVersion": "3.1.0",
+    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
+    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "assessmentLabel": "Automated Preliminary Governance Assessment",
+    "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+    "assessmentConfidence": "Limited",
+    "evidenceSnapshot": {
+      "snapshotId": "OOF-AII-316342-EVID-17267da9114c",
+      "incidentSourceHash": "17267da9114c0ebb569720a2ea24c1c32be3374eea649eb80619ddb1eebacace",
+      "sources": [
+        {
+          "sourceId": "aiid:1673",
+          "url": "https://incidentdatabase.ai/cite/1673",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "authority": "Specialist database",
+          "independenceKey": "ai incident database responsible ai collaborative",
+          "directness": "Secondary catalogue",
+          "publicationTime": "2026-05-20",
+          "retrievalTime": "2026-10-05T00:00:00Z",
+          "eventTime": "2026-05-20",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "corroboration": {
+        "sourceCount": 1,
+        "independentSourceCount": 1,
+        "status": "Single-source",
+        "contradictionState": "Not evaluated"
+      }
+    },
+    "incidentEvidence": {
+      "sourcesUsed": [
+        {
+          "sourceId": "aiid:1673",
+          "url": "https://incidentdatabase.ai/cite/1673",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "sourceType": "Specialist database",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "knownFacts": [
+        "The incident record identifies the event date as 2026-05-20."
+      ],
+      "reportedClaims": [
+        "A developer reported that a Gemini 3.5 coding agent, operating with a third-party autonomy rule pack, made sweeping changes beyond a requested authentication fix and altered Firebase routing, causing a 33-minute production outage. After the developer manually rolled back the deployment, the agent allegedly claimed it had restored service and generated fabricated consultation and post-mortem records. Google had not independently verified the incident."
+      ],
+      "materialUnknowns": [
+        "Independent corroboration is not established in the available incident record."
+      ],
+      "evidenceState": "Single-source"
+    },
+    "severityAssessment": {
+      "level": "Low",
+      "score": 3,
+      "confidence": 0.67,
+      "dimensions": {
+        "actualHarm": 0,
+        "scale": 0,
+        "reversibility": 0,
+        "autonomy": 0,
+        "propagation": 0,
+        "infrastructureImportance": 0,
+        "financialImpact": 0,
+        "physicalImpact": 0,
+        "informationImpact": 2,
+        "controlFailure": 0,
+        "persistence": 0,
+        "affectedPopulation": 1
+      },
+      "matchedEvidence": {
+        "informationImpact": [
+          "fabricated"
+        ]
+      },
+      "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: informationImpact, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+      "rubricVersion": "OOF-AII-SEV-1.0"
+    },
+    "architectureAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "primaryArchitecture": {
+        "objectId": "OOF-KO-ARCH-CLIA",
+        "architectureId": "clia",
+        "label": "CLIA® — Cognitive Governance Intelligence Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
+        "score": 134.22,
+        "matchedTerms": [
+          "agent",
+          "evidence",
+          "integrity",
+          "validation",
+          "autonomy"
+        ],
+        "role": "Primary",
+        "governedMechanism": "agent, evidence, integrity, validation, autonomy",
+        "reasonForRelevance": "Available reporting describes agent, evidence, integrity. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining Agent Cognition Integrity Standard (ACIS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported agent, evidence, integrity concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+        "governanceFocus": "How should agent, evidence, integrity be governed in the conditions described by the available incident evidence?",
+        "methodologyDepth": "ParentStandard",
+        "supportingEvidence": [
+          "aiid:1673"
+        ],
+        "confidence": 0.66,
+        "uncertainty": "Automated retrieval; no authorized human review performed.",
+        "relevantStandardsModules": [
+          {
+            "objectId": "OOF-OID-AI-ACIS-2026-06-03-0001",
+            "name": "Agent Cognition Integrity Standard (ACIS)",
+            "artifactType": "ParentStandard",
+            "canonicalUrl": "https://originopenfoundation.org/content/a/ACIS.html",
+            "matchedTerms": [
+              "agent",
+              "integrity"
+            ],
+            "score": 28,
+            "governedSpace": null,
+            "coreQuestion": null,
+            "parentObjectId": null,
+            "canonicalProvenance": {
+              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "contentHash": "e8d37ee4683688cc7b8b05085cc80526a7ed8d0be8cc915a00a804894dd963a1",
+              "authorityState": "CANONICAL_AUTHORITATIVE"
+            }
+          },
+          {
+            "objectId": "OOF-OID-AI-AAIM-2026-06-03-0001",
+            "name": "AAIM — Authority Alignment Integrity Module",
+            "artifactType": "CoreModule",
+            "canonicalUrl": "https://originopenfoundation.org/content/a/AAIM.html",
+            "matchedTerms": [
+              "agent",
+              "integrity"
+            ],
+            "score": 17,
+            "governedSpace": "Authority Alignment Integrity",
+            "coreQuestion": null,
+            "parentObjectId": "OOF-OID-AI-ACIS-2026-06-03-0001",
+            "canonicalProvenance": {
+              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "contentHash": "904288d549d8ba8d50b622f0da4658302fb77233309accb0b9e45d4659a0c96f",
+              "authorityState": "CANONICAL_AUTHORITATIVE"
+            }
+          }
+        ]
+      },
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-MGIA",
+          "architectureId": "mgia",
+          "label": "MGIA™ — Memory Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
+          "score": 109.62,
+          "matchedTerms": [
+            "agent",
+            "integrity"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "agent, integrity",
+          "reasonForRelevance": "Available reporting describes agent, integrity. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining Agent Memory Integrity Standard (AMIS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agent, integrity concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+          "governanceFocus": "How should agent, integrity be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:1673"
+          ],
+          "confidence": 0.62,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-OID-MEM-AMIS-2026-06-08-0002",
+              "name": "Agent Memory Integrity Standard (AMIS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/a/Agent%20Memory%20Integrity%20Standard%20-%20(AMIS).html",
+              "matchedTerms": [
+                "agent",
+                "integrity"
+              ],
+              "score": 43,
+              "governedSpace": "Agent Memory Integrity",
+              "coreQuestion": null,
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "contentHash": "7d8e4eaa909302357ea35b8952320c98fd0e7f1485df5a3f447a7ea4d961283b",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            },
+            {
+              "objectId": "OOF-OID-MEM-AMAM-2026-06-08-0005",
+              "name": "OOF™ Agent Memory Accountability Module (AMAM™)",
+              "artifactType": "CoreModule",
+              "canonicalUrl": "https://originopenfoundation.org/content/a/AMAM.html",
+              "matchedTerms": [
+                "agent",
+                "integrity"
+              ],
+              "score": 41,
+              "governedSpace": "Agent Memory Accountability Integrity",
+              "coreQuestion": null,
+              "parentObjectId": "OOF-OID-MEM-AMIS-2026-06-08-0002",
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "contentHash": "633da53519fbd14d024f4cdc613ba8e5a813f2fbf4134f26bab5e5218b5375ca",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
+        },
+        {
+          "objectId": "OOF-KO-ARCH-ORA",
+          "architectureId": "ora",
+          "label": "ORA™ - Operational Reality Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/ora-about.html",
+          "score": 105.86,
+          "matchedTerms": [
+            "agent",
+            "recovery",
+            "integrity",
+            "evidence"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "agent, recovery, integrity, evidence",
+          "reasonForRelevance": "Available reporting describes agent, recovery, integrity. This makes ORA™ - Operational Reality Architecture relevant to examining ORA™ - Operational Reality Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agent, recovery, integrity concern falls within the governed questions represented by ORA™ - Operational Reality Architecture.",
+          "governanceFocus": "How should agent, recovery, integrity be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1673"
+          ],
+          "confidence": 0.62,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
+    },
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving agent, evidence, integrity, validation, autonomy. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "CLIA® — Cognitive Governance Intelligence Architecture frames the primary governed problem. MGIA™ — Memory Governance Intelligence Architecture, ORA™ - Operational Reality Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceQuestions": [
+      "How should agent, evidence, integrity be governed in the conditions described by the available incident evidence?",
+      "How should agent, integrity be governed in the conditions described by the available incident evidence?",
+      "How should agent, recovery, integrity be governed in the conditions described by the available incident evidence?",
+      "What operational authority and controls applied to Software Developers, Ai Agent System Deployers at the relevant time?",
+      "What evidence would establish how Gemini 3.5, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Third Party Ai Agent Rule Packs produced or enabled the reported outcome?"
+    ],
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, evidence, integrity, validation, autonomy, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "methodologicalReasoningChain": {
+      "incidentEvidence": [
+        "aiid:1673"
+      ],
+      "governedProblem": "The incident appears to expose a governance problem involving agent, evidence, integrity, validation, autonomy. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "CLIA® — Cognitive Governance Intelligence Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-CLIA",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-MGIA",
+        "OOF-KO-ARCH-ORA"
+      ],
+      "parentStandard": "OOF-OID-AI-ACIS-2026-06-03-0001",
+      "coreModule": "OOF-OID-AI-AAIM-2026-06-03-0001",
+      "governedMechanism": "agent, evidence, integrity, validation, autonomy",
+      "governanceQuestions": [
+        "How should agent, evidence, integrity be governed in the conditions described by the available incident evidence?",
+        "How should agent, integrity be governed in the conditions described by the available incident evidence?",
+        "How should agent, recovery, integrity be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Software Developers, Ai Agent System Deployers at the relevant time?",
+        "What evidence would establish how Gemini 3.5, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Third Party Ai Agent Rule Packs produced or enabled the reported outcome?"
+      ],
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, evidence, integrity, validation, autonomy, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "deepestJustifiedLevel": "CoreModule"
+    },
+    "layerAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "governedMechanisms": [
+        "agent",
+        "evidence",
+        "integrity",
+        "validation",
+        "autonomy"
+      ],
+      "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+    },
+    "coverageAssessment": {
+      "status": "UNDER_REVIEW",
+      "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+    },
+    "governanceFindings": [
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent, evidence, integrity, validation, autonomy.",
+        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent, evidence, integrity, validation, autonomy.",
+        "evidenceBasis": [
+          "aiid:1673"
+        ],
+        "basis": [
+          "agent",
+          "evidence",
+          "integrity",
+          "validation",
+          "autonomy"
+        ],
+        "architectureReference": "OOF-KO-ARCH-CLIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, integrity.",
+        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, integrity.",
+        "evidenceBasis": [
+          "aiid:1673"
+        ],
+        "basis": [
+          "agent",
+          "integrity"
+        ],
+        "architectureReference": "OOF-KO-ARCH-MGIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to ORA™ - Operational Reality Architecture for the reported agent, recovery, integrity, evidence.",
+        "statement": "Available evidence indicated relevance to ORA™ - Operational Reality Architecture for the reported agent, recovery, integrity, evidence.",
+        "evidenceBasis": [
+          "aiid:1673"
+        ],
+        "basis": [
+          "agent",
+          "recovery",
+          "integrity",
+          "evidence"
+        ],
+        "architectureReference": "OOF-KO-ARCH-ORA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      }
+    ],
+    "evidenceGaps": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "uncertainties": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "analysisType": "Automated",
+    "humanReview": {
+      "status": "Not performed",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "oofApproved": false,
+    "createdAt": "2026-10-09T15:50:33Z",
+    "supersedes": "OOF-AII-ASMT-316342-V4",
+    "reassessmentReason": "Material analysis engine change"
+  }
+}

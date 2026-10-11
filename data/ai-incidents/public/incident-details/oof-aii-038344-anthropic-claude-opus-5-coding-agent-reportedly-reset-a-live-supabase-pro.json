@@ -1,0 +1,293 @@
+{
+  "id": "OOF-AII-038344",
+  "slug": "oof-aii-038344-anthropic-claude-opus-5-coding-agent-reportedly-reset-a-live-supabase-production-database-during-prisma-migration-work",
+  "title": "Anthropic Claude Opus 5 Coding Agent Reportedly Reset a Live Supabase Production Database During Prisma Migration Work",
+  "summary": "A developer reported that a Claude Opus 5 coding agent reset a live Supabase database while autonomously repairing a personal project's schema. The agent ran `prisma migrate diff` with the production URL supplied as the disposable shadow database, causing Prisma to drop all 22 tables. The developer had granted the agent production access; most content was later recovered or rebuilt.",
+  "eventType": "Incident",
+  "occurredAt": "2026-07-28",
+  "reportedAt": "2026-09-04T00:00:00Z",
+  "country": "Location not specified",
+  "countryCode": null,
+  "region": null,
+  "coordinates": null,
+  "organization": "Software Developers, Ai Agent System Deployers, Alone_Ad_3375 (Reddit User)",
+  "system": "Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers",
+  "technology": null,
+  "industry": null,
+  "aiSystemType": null,
+  "severity": "Unclassified",
+  "impactTypes": [],
+  "affectedParties": [
+    "Software Developers",
+    "Ai Agent System Users",
+    "Database Operators"
+  ],
+  "evidenceConfidence": "Moderate Confidence",
+  "verificationState": "Source Catalogued / OOF Not Assessed",
+  "publicationStatus": "Monitored",
+  "sources": [
+    {
+      "sourceId": "aiid:1676",
+      "publisher": "AI Incident Database (Responsible AI Collaborative)",
+      "publicationDate": "2026-07-28",
+      "sourceType": "Official weekly data export",
+      "url": "https://incidentdatabase.ai/cite/1676",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
+      "retrievedAt": "2026-10-05T00:00:00Z",
+      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+    }
+  ],
+  "architectureRelevance": {
+    "status": "ARCHITECTURE_IDENTIFIED",
+    "classification": "Automated",
+    "primaryArchitectureId": "asga",
+    "secondaryArchitectureIds": [
+      "clia",
+      "aig"
+    ],
+    "architectureIndexState": "ASGA™",
+    "classifiedAt": "2026-09-04T00:00:00Z",
+    "confidence": 0.68,
+    "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+  },
+  "assessment": null,
+  "createdAt": "2026-09-04T00:00:00Z",
+  "updatedAt": "2026-09-04T00:00:00Z",
+  "automatedAnalysis": {
+    "assessmentIdentity": "OOF-AII-ASMT-038344-V4",
+    "incidentId": "OOF-AII-038344",
+    "analysisVersion": 4,
+    "engineVersion": "3.1.0",
+    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
+    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "assessmentLabel": "Automated Preliminary Governance Assessment",
+    "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+    "assessmentConfidence": "Limited",
+    "evidenceSnapshot": {
+      "snapshotId": "OOF-AII-038344-EVID-41c52fd83b20",
+      "incidentSourceHash": "41c52fd83b20994c9d12b309cfa4b7917b574d1bbc78dbd38fca7cb013636ad5",
+      "sources": [
+        {
+          "sourceId": "aiid:1676",
+          "url": "https://incidentdatabase.ai/cite/1676",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "authority": "Specialist database",
+          "independenceKey": "ai incident database responsible ai collaborative",
+          "directness": "Secondary catalogue",
+          "publicationTime": "2026-07-28",
+          "retrievalTime": "2026-10-05T00:00:00Z",
+          "eventTime": "2026-07-28",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "corroboration": {
+        "sourceCount": 1,
+        "independentSourceCount": 1,
+        "status": "Single-source",
+        "contradictionState": "Not evaluated"
+      }
+    },
+    "incidentEvidence": {
+      "sourcesUsed": [
+        {
+          "sourceId": "aiid:1676",
+          "url": "https://incidentdatabase.ai/cite/1676",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "sourceType": "Specialist database",
+          "verificationState": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "knownFacts": [
+        "The incident record identifies the event date as 2026-07-28."
+      ],
+      "reportedClaims": [
+        "A developer reported that a Claude Opus 5 coding agent reset a live Supabase database while autonomously repairing a personal project's schema. The agent ran `prisma migrate diff` with the production URL supplied as the disposable shadow database, causing Prisma to drop all 22 tables. The developer had granted the agent production access; most content was later recovered or rebuilt."
+      ],
+      "materialUnknowns": [
+        "Independent corroboration is not established in the available incident record."
+      ],
+      "evidenceState": "Single-source"
+    },
+    "severityAssessment": {
+      "level": "Low",
+      "score": 3,
+      "confidence": 0.67,
+      "dimensions": {
+        "actualHarm": 0,
+        "scale": 0,
+        "reversibility": 0,
+        "autonomy": 2,
+        "propagation": 0,
+        "infrastructureImportance": 0,
+        "financialImpact": 0,
+        "physicalImpact": 0,
+        "informationImpact": 0,
+        "controlFailure": 0,
+        "persistence": 0,
+        "affectedPopulation": 1
+      },
+      "matchedEvidence": {
+        "autonomy": [
+          "autonomous"
+        ]
+      },
+      "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: autonomy, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+      "rubricVersion": "OOF-AII-SEV-1.0"
+    },
+    "architectureAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "primaryArchitecture": {
+        "objectId": "OOF-KO-ARCH-MGIA",
+        "architectureId": "mgia",
+        "label": "MGIA™ — Memory Governance Intelligence Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
+        "score": 102.71,
+        "matchedTerms": [
+          "agent",
+          "access",
+          "user"
+        ],
+        "role": "Primary",
+        "governedMechanism": "agent, access, user",
+        "reasonForRelevance": "Available reporting describes agent, access, user. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported agent, access, user concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+        "governanceFocus": "How should agent, access, user be governed in the conditions described by the available incident evidence?",
+        "methodologyDepth": "Architecture",
+        "supportingEvidence": [
+          "aiid:1676"
+        ],
+        "confidence": 0.66,
+        "uncertainty": "Automated retrieval; no authorized human review performed.",
+        "relevantStandardsModules": []
+      },
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-CLIA",
+          "architectureId": "clia",
+          "label": "CLIA® — Cognitive Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
+          "score": 84.42,
+          "matchedTerms": [
+            "agent"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "agent",
+          "reasonForRelevance": "Available reporting describes agent. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported agent concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+          "governanceFocus": "How should agent be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1676"
+          ],
+          "confidence": 0.62,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
+    },
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving agent, access, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "MGIA™ — Memory Governance Intelligence Architecture frames the primary governed problem. CLIA® — Cognitive Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceQuestions": [
+      "How should agent, access, user be governed in the conditions described by the available incident evidence?",
+      "How should agent be governed in the conditions described by the available incident evidence?",
+      "What operational authority and controls applied to Software Developers, Ai Agent System Deployers, Alone_Ad_3375 (Reddit User) at the relevant time?",
+      "What evidence would establish how Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
+    ],
+    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, access, user, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "methodologicalReasoningChain": {
+      "incidentEvidence": [
+        "aiid:1676"
+      ],
+      "governedProblem": "The incident appears to expose a governance problem involving agent, access, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "MGIA™ — Memory Governance Intelligence Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-MGIA",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-CLIA"
+      ],
+      "parentStandard": null,
+      "coreModule": null,
+      "governedMechanism": "agent, access, user",
+      "governanceQuestions": [
+        "How should agent, access, user be governed in the conditions described by the available incident evidence?",
+        "How should agent be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Software Developers, Ai Agent System Deployers, Alone_Ad_3375 (Reddit User) at the relevant time?",
+        "What evidence would establish how Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns agent, access, user, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "deepestJustifiedLevel": "Architecture"
+    },
+    "layerAnalysis": {
+      "status": "AUTOMATED_ANALYSIS",
+      "governedMechanisms": [
+        "agent",
+        "access",
+        "user"
+      ],
+      "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+    },
+    "coverageAssessment": {
+      "status": "UNDER_REVIEW",
+      "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+    },
+    "governanceFindings": [
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, access, user.",
+        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, access, user.",
+        "evidenceBasis": [
+          "aiid:1676"
+        ],
+        "basis": [
+          "agent",
+          "access",
+          "user"
+        ],
+        "architectureReference": "OOF-KO-ARCH-MGIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
+        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
+        "evidenceBasis": [
+          "aiid:1676"
+        ],
+        "basis": [
+          "agent"
+        ],
+        "architectureReference": "OOF-KO-ARCH-CLIA",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      }
+    ],
+    "evidenceGaps": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "uncertainties": [
+      "Only one independent source group is represented; corroboration is not established.",
+      "Country could not be resolved from the available evidence.",
+      "AI technology is not specified in the source record.",
+      "industry is not specified in the source record.",
+      "AI system type is not specified in the source record."
+    ],
+    "analysisType": "Automated",
+    "humanReview": {
+      "status": "Not performed",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "oofApproved": false,
+    "createdAt": "2026-10-09T15:50:33Z",
+    "supersedes": "OOF-AII-ASMT-038344-V3",
+    "reassessmentReason": "Material analysis engine change"
+  }
+}

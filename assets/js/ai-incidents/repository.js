@@ -17,14 +17,22 @@ export class IncidentRepository {
     return this.request("map.json");
   }
 
+  aggregations() {
+    return this.request("aggregations.json");
+  }
+
   page(page = 1) {
     return this.request(`incidents-page-${Math.max(1, Number(page) || 1)}.json`);
   }
 
-  async all() {
-    const first = await this.page(1);
-    const pageCount = Math.max(1, Math.ceil(first.total / first.pageSize));
-    const remaining = await Promise.all(Array.from({ length: pageCount - 1 }, (_, index) => this.page(index + 2)));
-    return { ...first, items: [first, ...remaining].flatMap((page) => page.items) };
+  index() {
+    return this.request("incident-index.json");
+  }
+
+  detail(slug) {
+    if (!/^[a-z0-9-]+$/.test(String(slug || ""))) {
+      return Promise.reject(new Error("Invalid incident detail identifier"));
+    }
+    return this.request(`incident-details/${slug}.json`);
   }
 }

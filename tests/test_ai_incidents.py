@@ -113,6 +113,7 @@ class IncidentDomainTests(unittest.TestCase):
 
     def test_v3_analysis_is_separate_versioned_and_never_implicitly_approved(self):
         original = (ROOT / "data" / "ai-incidents" / "incident-store.json").read_bytes()
+        expected = len(incidents.public_records(incidents.FileIncidentRepository().list()))
         with tempfile.TemporaryDirectory() as temporary:
             temporary = Path(temporary)
             analysis_path = temporary / "analysis.json"
@@ -124,7 +125,7 @@ class IncidentDomainTests(unittest.TestCase):
             report_after_first = report_path.read_bytes()
             second = engine.build(analysis_path=analysis_path, snapshot_path=snapshot_path, created_at="2026-10-02T13:00:00Z")
             assessments = json.loads(analysis_path.read_text(encoding="utf-8"))["assessments"]
-            self.assertEqual(first["assessmentsCreated"], 252)
+            self.assertEqual(first["assessmentsCreated"], expected)
             self.assertEqual(second["assessmentsCreated"], 0)
             self.assertEqual(analysis_path.read_bytes(), analysis_after_first)
             self.assertEqual(snapshot_path.read_bytes(), snapshot_after_first)
@@ -160,9 +161,42 @@ class IncidentDomainTests(unittest.TestCase):
             ranked = knowledge.rank({"title": "Deepfake impersonation incident", "summary": "Identity was fabricated."})
             self.assertEqual(ranked[0]["architectureId"], "test")
 
+    def test_v3_methodology_depth_is_evidence_gated_and_hierarchical(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            objects = {"objects": [
+                {"id": "ARCH", "canonicalName": "Identity Architecture", "acronym": "ID", "artifactType": "Architecture", "authorityState": "CANONICAL_AUTHORITATIVE", "canonicalUrl": "https://example.test/arch"},
+                {"id": "STD", "canonicalName": "Identity Provenance Standard", "artifactType": "ParentStandard", "authorityState": "CANONICAL_AUTHORITATIVE", "architectureId": "ARCH", "canonicalUrl": "https://example.test/std", "governedSpace": "identity provenance impersonation"},
+                {"id": "MOD", "canonicalName": "Impersonation Evidence Module", "artifactType": "CoreModule", "authorityState": "CANONICAL_AUTHORITATIVE", "architectureId": "ARCH", "parentObjectId": "STD", "canonicalUrl": "https://example.test/mod", "governedSpace": "identity provenance impersonation evidence"},
+            ]}
+            (root / "objects-core.json").write_text(json.dumps(objects), encoding="utf-8")
+            (root / "relationships.json").write_text(json.dumps({"relationships": []}), encoding="utf-8")
+            (root / "manifest.json").write_text(json.dumps({"buildId": "TEST"}), encoding="utf-8")
+            knowledge = engine.KnowledgeLayer(root)
+            sparse = knowledge.references("ARCH", {"title": "Identity impersonation report"})
+            rich = knowledge.references("ARCH", {
+                "title": "Identity impersonation evidence report", "summary": "Identity provenance evidence showed impersonation.",
+                "system": "Identity system", "technology": "identity evidence classifier", "organization": "Test operator",
+            })
+            self.assertEqual(sparse, [])
+            self.assertEqual([item["artifactType"] for item in rich], ["ParentStandard", "CoreModule"])
+            self.assertEqual(rich[1]["parentObjectId"], rich[0]["objectId"])
+
+    def test_v3_assessment_exposes_complete_methodological_reasoning_chain(self):
+        item = record(title="Deepfake impersonation caused a reported fraud")
+        item["summary"] = "A cloned identity and voice were used to impersonate an executive."
+        item["system"] = "Voice cloning system"
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-09T00:00:00Z")
+        chain = assessment["methodologicalReasoningChain"]
+        self.assertEqual(chain["incidentEvidence"], ["source-1"])
+        self.assertEqual(chain["primaryArchitecture"], assessment["architectureAnalysis"]["primaryArchitecture"]["objectId"])
+        self.assertIn(chain["deepestJustifiedLevel"], {"Architecture", "ParentStandard", "CoreModule"})
+        self.assertEqual(chain["governanceQuestions"], assessment["governanceQuestions"])
+
     def test_v3_assignments_are_explainable_and_source_linked(self):
         latest = engine.latest_assessments()
-        self.assertEqual(len(latest), 252)
+        expected = len(incidents.public_records(incidents.FileIncidentRepository().list()))
+        self.assertEqual(len(latest), expected)
         for assessment in latest.values():
             architecture = assessment["architectureAnalysis"]
             assignments = [architecture.get("primaryArchitecture"), *architecture.get("contributingArchitectures", [])]
@@ -196,6 +230,56 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertEqual(assigned[0]["role"], "Primary")
         self.assertTrue(all(value["whyItMattersHere"] and value["governanceFocus"] for value in assigned))
         self.assertTrue(all(finding["evidenceBasis"] and finding["architectureReference"] for finding in assessment["governanceFindings"]))
+
+    def test_public_export_is_complete_lightweight_and_valid(self):
+        result = incidents.validate_public_export()
+        summary = incidents.read_json(incidents.PUBLIC_ROOT / "summary.json", {})
+        index = incidents.read_json(incidents.PUBLIC_ROOT / "incident-index.json", {})
+        first_page = incidents.read_json(incidents.PUBLIC_ROOT / "incidents-page-1.json", {})
+        self.assertEqual(result["incidents"], summary["totalIncidents"])
+        self.assertEqual(len(index["items"]), summary["totalIncidents"])
+        self.assertLessEqual(len(first_page["items"]), 25)
+        self.assertNotIn("automatedAnalysis", first_page["items"][0])
+        self.assertTrue(first_page["items"][0]["detailUrl"].startswith("/ai-incidents/incidents/"))
+        representative = index["items"][:20]
+        self.assertEqual(len(representative), 20)
+        for item in representative:
+            detail = incidents.read_json(incidents.PUBLIC_ROOT / "incident-details" / f"{item['slug']}.json", {})
+            self.assertEqual(detail["id"], item["id"])
+            self.assertTrue(item["source"]["url"].startswith("https://"))
+        dates = [item.get("occurredAt") or item.get("reportedAt") or "" for item in representative]
+        self.assertEqual(dates, sorted(dates, reverse=True))
+
+    def test_public_export_rejects_missing_detail_projection(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            original_root = incidents.PUBLIC_ROOT
+            try:
+                incidents.PUBLIC_ROOT = Path(temporary)
+                incidents.write_json(incidents.PUBLIC_ROOT / "summary.json", {"totalIncidents": 1})
+                incidents.write_json(incidents.PUBLIC_ROOT / "incident-index.json", {"items": [{
+                    "id": "OOF-AII-TEST", "slug": "missing", "title": "Missing detail",
+                    "detailUrl": "/ai-incidents/incidents/missing/", "source": {"url": "https://example.test/source"},
+                }]})
+                with self.assertRaisesRegex(ValueError, "missing its public detail projection"):
+                    incidents.validate_public_export()
+            finally:
+                incidents.PUBLIC_ROOT = original_root
+
+    def test_public_export_rejects_duplicate_identity_and_malformed_source(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            original_root = incidents.PUBLIC_ROOT
+            try:
+                incidents.PUBLIC_ROOT = Path(temporary)
+                bad = {
+                    "id": "OOF-AII-DUPLICATE", "slug": "duplicate", "title": "Duplicate",
+                    "detailUrl": "/ai-incidents/incidents/duplicate/", "source": {"url": "not-a-url"},
+                }
+                incidents.write_json(incidents.PUBLIC_ROOT / "summary.json", {"totalIncidents": 2})
+                incidents.write_json(incidents.PUBLIC_ROOT / "incident-index.json", {"items": [bad, bad]})
+                with self.assertRaisesRegex(ValueError, "duplicate incident IDs"):
+                    incidents.validate_public_export()
+            finally:
+                incidents.PUBLIC_ROOT = original_root
 
 
 if __name__ == "__main__":
