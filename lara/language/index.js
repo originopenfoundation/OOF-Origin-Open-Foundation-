@@ -11,6 +11,8 @@ function detect(text,preferred='auto'){
   if(preferred&&preferred!=='auto'&&LANGUAGES[preferred])return preferred;
   const explicit=String(text).match(/(?:in|to|auf|po|v)\s+(english|slovak|german|deutsch|slovenčine|slovensky|anglicky|nemčine|nemecky)\b/iu)?.[1]?.toLowerCase();
   if(explicit)return /english|anglicky/.test(explicit)?'en':/slovak|sloven|slovensky/.test(explicit)?'sk':'de';
+  if(/^(?:ahoj\b|dobrý deň|kto si\b|s čím\b|čo vieš\b|vysvetli\b)/iu.test(String(text).trim()))return 'sk';
+  if(/^(?:hallo\b|guten tag\b|wer bist du\b|was kannst du\b|erkläre\b)/iu.test(String(text).trim()))return 'de';
   for(const [lang,re] of scripts)if(re.test(text))return lang;
   const lowered=String(text).toLocaleLowerCase();let best=Object.keys(LANGUAGES)[0]||'en',score=0;
   for(const [lang,words] of Object.entries(lexicon)){const n=words.reduce((sum,w)=>sum+(lowered.includes(w)?1:0),0);if(n>score){best=lang;score=n;}}
