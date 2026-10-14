@@ -1,6 +1,7 @@
 'use strict';
 // Read-only, in-memory view of the shared registry. No new knowledge database.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const {chunks:presentedChunks}=require('../security/presentation');
 const ALLOWED=new Set(['CANONICAL_AUTHORITATIVE','SUPPORTING_CITABLE']);
 const normalize=value=>String(value).toLowerCase().replace(/[®™]/g,'').replace(/\babout\b/g,' ').replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
 const accessible=item=>item.visibility==='public'&&Array.isArray(item.allowedConsumers)&&item.allowedConsumers.includes('LaRA')&&ALLOWED.has(item.authorityState);
@@ -24,7 +25,7 @@ function readShared(root){
   const source=html.replace(/<!-- OOF AI DISCOVERY START -->[\s\S]*?<!-- OOF AI DISCOVERY END -->\s*/g,'').replace(/\r\n|\r/g,'\n');
   const hash=crypto.createHash('sha256').update(source).digest('hex');
   if(hash!==rep.provenance.contentHash){diagnostics.changed++;continue;}
-  const text=textOf(html),chunks=[];for(let i=0;i<text.length;i+=1320)chunks.push({text:text.slice(i,i+1500)});
+  const text=textOf(html),chunks=presentedChunks(text);
   resources.push({resource_id:rep.id,object_id:object?.id||null,representation_id:rep.id,
    title:rep.title,resource_type:object?.artifactType||rep.artifactTypeHint||'Methodology Resource',
    canonical_url:rep.canonicalUrl,authority_state:rep.authorityState,authority_domain:rep.authorityDomain,

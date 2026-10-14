@@ -9,5 +9,13 @@ const assess=[/\b(assess|evaluate|adequate|gap|should we|should who|validate|evi
  /[\u3040-\u30ff]*(評価|すべき|リスク|証拠|決定|ガバナンス)/u,
  /[\uac00-\ud7af]*(평가|해야|위험|결정|증거|거버넌스)/u,
  /\b(posúď|posúdiť|medzera|mali by|kto by mal|dôkaz|riziko|rozhodnut|riadenie|zodpovednosť)\b/i];
-function classify(question, requested='auto') { if(requested==='assessment')return 'methodology_application'; if(requested==='knowledge')return 'knowledge_retrieval'; return assess.some(r=>r.test(question))?'methodology_application':'knowledge_retrieval'; }
+function classify(question, requested='auto') {
+ if(requested==='assessment')return 'methodology_application';
+ if(requested==='knowledge')return 'knowledge_retrieval';
+ // A subject such as governance or authority is not an assessment request.
+ if(/^(?:what (?:is|are)|explain|define|describe|tell me|how does|how do|čo je|co je|vysvetli|was ist|erkläre|erklaere)\b/iu.test(question.trim()))return 'knowledge_retrieval';
+ const request=/\b(?:assess|evaluate|validate|should we|is (?:our|my|this) .+ (?:safe|adequate|valid)|posúď|posúdiť|vyhodnoť|bewerte|beurteile|prüfe)\b/iu.test(question);
+ const problem=/\b(?:our|my|we|i am worried|i'm worried)\b.*\b(?:risk|dangerous|failure|decision|gap)\b/iu.test(question);
+ return (request||problem)&&assess.some(r=>r.test(question))?'methodology_application':'knowledge_retrieval';
+}
 module.exports={classify};
