@@ -9,6 +9,8 @@ const stopWords=new Set((config.stop_words||[]).map(normalize));
 const scripts=(config.script_detection||[]).map(x=>[x.language,new RegExp(x.pattern,'u')]);
 function detect(text,preferred='auto'){
   if(preferred&&preferred!=='auto'&&LANGUAGES[preferred])return preferred;
+  const explicit=String(text).match(/(?:in|to|auf|po|v)\s+(english|slovak|german|deutsch|slovenčine|slovensky|anglicky|nemčine|nemecky)\b/iu)?.[1]?.toLowerCase();
+  if(explicit)return /english|anglicky/.test(explicit)?'en':/slovak|sloven|slovensky/.test(explicit)?'sk':'de';
   for(const [lang,re] of scripts)if(re.test(text))return lang;
   const lowered=String(text).toLocaleLowerCase();let best=Object.keys(LANGUAGES)[0]||'en',score=0;
   for(const [lang,words] of Object.entries(lexicon)){const n=words.reduce((sum,w)=>sum+(lowered.includes(w)?1:0),0);if(n>score){best=lang;score=n;}}
@@ -18,8 +20,11 @@ function queryTerms(text,lang){
   const original=String(text);const lowered=original.toLocaleLowerCase();
   const names=[...original.matchAll(/\b[A-Z][A-Z0-9]{1,9}\b/g)].map(m=>m[0]);
   const words=lowered.match(/[\p{L}\p{N}™®-]{2,}/gu)||[];const knownAliases=aliases[lang]||{};
-  const normalized=words.map(normalize).filter(w=>!stopWords.has(w));
+  const noise=new Set(['explain','describe','define','tell','please','briefly','simple','simpler','language','answer','question','seriously','professionally','odpovedz','vysvetli','slovensky','slovak','english','german','deutsch','erklare','bitte']);
+  const subjects=new Set(['governance','architecture','authority','standard','module','knowledge']);
+  const normalized=words.map(normalize).filter(w=>(!stopWords.has(w)||subjects.has(w))&&!noise.has(w));
   for(const [from,to] of Object.entries(knownAliases))if(lowered.includes(from.toLocaleLowerCase())&&!stopWords.has(normalize(to)))normalized.push(to);
-  return [...new Set([...names,...normalized])];
+  const terms=[...new Set([...names.map(normalize),...normalized])];
+  return terms.length>1?terms.filter(w=>w!=='oof'):terms;
 }
 module.exports={LANGUAGES,lexicon,aliases,config,detect,queryTerms};

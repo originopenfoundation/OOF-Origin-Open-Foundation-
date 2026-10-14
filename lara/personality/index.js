@@ -12,14 +12,14 @@ function configuration(env={}) {
 // context in every language. Only server-derived purpose may be passed as context.
 function select({question='',requested='auto',context={},recentQuestions=[]}={},config=configuration()) {
  const text=[...recentQuestions.slice(-2),question].join(' ').normalize('NFKC').toLowerCase();
- const sensitive=context.sensitive===true||/(suicid|self.harm|kill myself|hurt myself|medical advice|legal advice|domestic violence|panic attack|samovražd|ublížiť si|zabiť sa|lekársk|právn[aeuy]|diagnóz|zneužív|depres|zdravotn)/u.test(text);
+ const sensitive=context.sensitive===true||/(suicid|self.harm|kill myself|hurt myself|medical advice|legal advice|domestic violence|panic attack|samovražd|ublížiť si|zabiť sa|lekársk|právn[aeuy]|diagnóz|zneužív|depres|zdravotn|(?:worried|afraid|concerned).*(?:danger|harm|decision)|obáv.*(?:nebezpeč|rozhodnut)|sorge.*(?:gefähr|entscheidung))/u.test(text);
  let mode=sensitive?'sensitive':MODES.includes(requested)?requested:null;
- if(!mode&&/(answer formally|professional mode|formal communication|odpovedaj formálne|profesionálny režim|formálnu odpoveď)/u.test(question.toLowerCase()))mode='professional';
+ if(!sensitive&&/(answer formally|professional mode|formal communication|completely professional|stop joking|seriously|professionally|odpovedaj formálne|profesionálny režim|formálnu odpoveď|bez humoru|prestaň žartovať|ernst|professionell)/u.test(question.toLowerCase()))mode='professional';
  if(!mode&&context.purpose==='exploration')mode='exploration';
  if(!mode&&/(let.s brainstorm|explore alternatives|what if|brainstorm|preskúmajme|aké alternatívy|čo keby)/u.test(question.toLowerCase()))mode='exploration';
  if(!mode&&(context.purpose==='technical'||/(canonical definition|official definition|architecture|governance|technical analysis|kanonick|oficiáln[au] definíci|architektúr)/u.test(question.toLowerCase())))mode='professional';
  mode=mode||config.defaultMode;
- return Object.freeze({enabled:config.enabled,version:config.version,mode,humor:mode==='sensitive'||mode==='professional'||!config.enabled?'off':config.humor});
+ return Object.freeze({enabled:config.enabled,version:config.version,mode,humor:mode==='sensitive'||mode==='professional'||context.humor==='off'||!config.enabled?'off':config.humor});
 }
 function instructions(selection) {
  if(!selection?.enabled)return '';
