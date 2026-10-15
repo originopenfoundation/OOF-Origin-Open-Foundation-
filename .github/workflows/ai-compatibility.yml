@@ -70,4 +70,11 @@ jobs:
         run: python -m unittest tests.test_localization
 
       - name: Verify generated files are current
-        run: git diff --exit-code
+        shell: bash
+        run: |
+          if ! git diff --quiet; then
+            changed_files="$(git diff --name-only | paste -sd ', ' -)"
+            echo "::error title=Generated files are stale::$changed_files"
+            git diff --stat
+            exit 1
+          fi
