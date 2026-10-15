@@ -131,7 +131,10 @@ class KnowledgeRegistry:
             if key == "oof" and needle != "oof":
                 continue
             ratio = SequenceMatcher(None, needle, key).ratio()
-            if needle in key or key in needle:
+            # A shared generic token (for example "object") is not enough to
+            # turn an otherwise unknown query into a governed candidate.
+            # Acronym typos still qualify through the base similarity score.
+            if (needle in key or key in needle) and len(key.split()) >= 2:
                 ratio = max(ratio, min(0.94, 0.68 + min(len(needle), len(key)) / max(len(needle), len(key)) * 0.25))
             if ratio < 0.68:
                 continue
