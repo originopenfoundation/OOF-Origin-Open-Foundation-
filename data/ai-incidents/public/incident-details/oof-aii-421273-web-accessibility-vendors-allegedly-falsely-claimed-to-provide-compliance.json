@@ -53,10 +53,10 @@
   "createdAt": "2021-11-21T00:00:00Z",
   "updatedAt": "2021-11-21T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-421273-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-421273-V7",
     "incidentId": "OOF-AII-421273",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -141,7 +141,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -164,6 +165,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Web Accessibility Vendors Allegedly Falsely Claimed to Provide Compliance Using AI",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that AI-powered web accessibility vendors allegedly overstated to customers about their products' utility for people with disabilities, falsely claiming to deliver automated compliance solutions. (2021-11-21, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/148",
+      "eventDate": "2021-11-21",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -250,7 +260,39 @@
       "What evidence would establish how yes produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how compliance moved from system activity into a reported real-world consequence, and which controls within OBIDENITY® — Origin-Bound Identity Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should compliance be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing compliance were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for compliance, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains compliance under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "obidenity",
+      "mechanisms": [
+        "compliance"
+      ],
+      "patternKey": "b152f07afd8dc153"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:148"
@@ -271,7 +313,7 @@
         "What evidence would establish how yes produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how compliance moved from system activity into a reported real-world consequence, and which controls within OBIDENITY® — Origin-Bound Identity Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should compliance be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -333,8 +375,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-421273-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-421273-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

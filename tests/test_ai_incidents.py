@@ -253,6 +253,34 @@ class IncidentDomainTests(unittest.TestCase):
         })
         self.assertFalse(assessment["sourceNormalization"]["sourceRecordModified"])
 
+    def test_v34_adds_evidence_bounded_report_and_prevention_guidance(self):
+        item = record(title="Deepfake impersonation report")
+        item["summary"] = "A cloned voice reportedly impersonated an executive."
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-15T00:00:00Z")
+        self.assertIn(assessment["evidenceSnapshot"]["publicEvidenceStatus"], {
+            "Source-Reported", "Independently Corroborated", "Officially Documented",
+            "Evidence Insufficient", "Contradicted / Disputed",
+        })
+        self.assertIn("reports that", assessment["oofIncidentReport"]["report"])
+        self.assertTrue(assessment["preventionGuidance"]["recommendedPreventiveControl"])
+        self.assertEqual(len(assessment["practicalChecklist"]), 4)
+        self.assertFalse(assessment["oofApproved"])
+
+    def test_candidate_queue_is_persistent_deduplicated_and_daily_limited(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            queue_path = temporary / "queue.json"
+            repository = incidents.FileIncidentRepository(temporary / "store.json")
+            candidates = [record(f"source-{index}", f"Incident {index}") for index in range(12)]
+            first = incidents.queue_candidates(candidates, repository.list(), queue_path)
+            second = incidents.queue_candidates(candidates, repository.list(), queue_path)
+            processed = incidents.process_candidate_queue(repository, limit=10, path=queue_path)
+            self.assertEqual(first["added"], 12)
+            self.assertEqual(second["added"], 0)
+            self.assertEqual(processed["processed"], 10)
+            self.assertEqual(processed["remaining"], 2)
+            self.assertEqual(len(repository.list()), 10)
+
     def test_country_geometry_codes_cover_france_without_duplicate_primary_codes(self):
         geojson = json.loads((ROOT / "assets" / "data" / "ne_50m_admin_0_countries.geojson").read_text(encoding="utf-8"))
         resolved = []

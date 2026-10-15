@@ -60,10 +60,10 @@
   "createdAt": "2026-08-18T15:09:58Z",
   "updatedAt": "2026-08-18T15:09:58Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-024523-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-024523-V7",
     "incidentId": "OOF-AII-024523",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -140,7 +140,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -163,6 +164,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Suspected China-Linked Hackers Reportedly Used AI Agents to Compromise Taiwanese Government Systems and Exfiltrate Personnel Records",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that From July 1–4, 2026, suspected China-linked hackers reportedly used a multi-agent framework built on Hermes and OpenClaw to compromise Taiwanese government systems. The agents reportedly compromised 85 credentials and used persistent access to connected systems to exfiltrate more than 2,564 personnel records. Taiwan later confirmed an overseas AI-assisted campaign against government agencies, without attributing it to China. (2026-07-01, Taiwan).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1646",
+      "eventDate": "2026-07-01",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "High",
@@ -344,7 +354,53 @@
       "What operational authority and controls applied to Threat Actors, Hackers, China Linked Threat Actors, Ai Agent System Deployers, Agentic Threat Actors at the relevant time?",
       "What evidence would establish how Openclaw, Large Language Models, Hermes Agent, Ai Agent Systems produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how agent, multi moved from system activity into a reported real-world consequence, and which controls within CLIA® — Cognitive Governance Intelligence Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to CLIA® — Cognitive Governance Intelligence Architecture because the reported activity reached a real-world consequence involving Openclaw, Large Language Models, Hermes Agent, Ai Agent Systems. The next governance test is: How should agent, multi be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing agent, multi were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for agent, multi, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Multi-Agent Cognition Integrity Standard (MCIS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/m/MCIS.html",
+          "objectId": "OOF-OID-AI-MCIS-2026-06-03-0001"
+        },
+        {
+          "name": "CSIM — Cognitive Synchronization Integrity Module",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/c/CSIM.html",
+          "objectId": "OOF-OID-AI-CSIM-2026-06-03-0001"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains agent, multi under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "clia",
+      "mechanisms": [
+        "agent",
+        "multi"
+      ],
+      "patternKey": "a775925b55f99c01"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1646"
@@ -366,7 +422,7 @@
         "What operational authority and controls applied to Threat Actors, Hackers, China Linked Threat Actors, Ai Agent System Deployers, Agentic Threat Actors at the relevant time?",
         "What evidence would establish how Openclaw, Large Language Models, Hermes Agent, Ai Agent Systems produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how agent, multi moved from system activity into a reported real-world consequence, and which controls within CLIA® — Cognitive Governance Intelligence Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to CLIA® — Cognitive Governance Intelligence Architecture because the reported activity reached a real-world consequence involving Openclaw, Large Language Models, Hermes Agent, Ai Agent Systems. The next governance test is: How should agent, multi be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -450,8 +506,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-024523-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-024523-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -55,10 +55,10 @@
   "createdAt": "2026-09-03T22:45:24.350000Z",
   "updatedAt": "2026-09-03T22:45:24.350000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-937438-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-937438-V8",
     "incidentId": "OOF-AII-937438",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -145,7 +145,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -168,6 +169,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Colorado Police’s Automated License Plate Reader (ALPR) Matched a Family’s Minivan’s Plate to That of a Stolen Vehicle Allegedly, Resulting in Detainment at Gunpoint",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that An automated plate reader reportedly matched a license plate information, but of a family’s minivan and an alleged motorcycle in Montana that was reportedly stolen earlier in the year, resulting in them and their children being held at gunpoint and detained in handcuffs by multiple Aurora police officers. (2020-08-03, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/244",
+      "eventDate": "2020-08-03",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "High",
@@ -290,7 +300,42 @@
       "What evidence would establish how Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how support, information, enforcement, multiple moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Ai Enabled Decision Support Systems. The next governance test is: How should support, information, enforcement be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing support, information, enforcement, multiple were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for support, information, enforcement, multiple, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains support, information, enforcement, multiple under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "pga",
+      "mechanisms": [
+        "support",
+        "information",
+        "enforcement",
+        "multiple"
+      ],
+      "patternKey": "4a056a0310ee48e2"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:244"
@@ -311,7 +356,7 @@
         "What evidence would establish how Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how support, information, enforcement, multiple moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Ai Enabled Decision Support Systems. The next governance test is: How should support, information, enforcement be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -380,8 +425,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-937438-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-937438-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Reallocation &amp; Exception Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Reallocation &amp; Exception Module | OOF®. RREM — Resource Reallocation &amp; Exception Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Reallocation &amp; Exception Module | OOF®" />
+<meta property="og:description" content="Resource Reallocation &amp; Exception Module | OOF®. RREM — Resource Reallocation &amp; Exception Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Reallocation &amp; Exception Module | OOF®" />
+<meta name="twitter:description" content="Resource Reallocation &amp; Exception Module | OOF®. RREM — Resource Reallocation &amp; Exception Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Reallocation &amp; Exception Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html","name":"Resource Reallocation & Exception Module | OOF®","description":"Resource Reallocation & Exception Module | OOF®. RREM — Resource Reallocation & Exception Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Reallocation & Exception Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html"}]},"headline":"Resource Reallocation & Exception Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-rrem-4.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Prioritization & Allocation Standard (RPAS)","Governance & Enforcement","Resource Governance","Resource Reallocation & Exception Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Prioritization & Allocation Standard (RPAS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Reallocation & Exception Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Prioritization & Allocation Standard (RPAS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Reallocation & Exception Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RREM — Resource Reallocation &amp; Exception Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Prioritization &amp; Allocation Standard (RPAS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Reallocation &amp; Exception Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RPAS-RREM-04</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RPAS-RREM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 6 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RREM — Resource Reallocation &amp; Exception Module governs how an existing or planned Resource Allocation may be legitimately modified, redistributed, reduced, increased, deferred, redirected, temporarily overridden, or otherwise transitioned when material changes, conflicts, emergencies, failures, new claims, changed priorities, changed capacity, or other governed conditions make the existing Allocation no longer sufficient, feasible, appropriate, or valid.</p>
+<p>RREM also governs narrowly bounded exceptions to established Allocation rules or limits where competent authority and sufficient justification permit such deviation.</p>
+<p>Its foundational distinction is:</p>
+<p>Changed Conditions ≠ Automatic Reallocation.</p>
+<p>And its exception boundary is:</p>
+<p>Exception ≠ Governance Bypass.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>Resource Allocation occurs within a changing operational environment.</p>
+<p>After an Allocation has been established:</p>
+<p>Resource Availability may change; Demand may change; Dependency may change; Criticality may change; Priority may change; Access may change; rights may change; infrastructure may fail; Scarcity may intensify; new legitimate claims may emerge; emergencies may occur.</p>
+<p>An existing Resource distribution may therefore cease to represent the appropriate governed state.</p>
+<p>RREM determines whether such change requires Reallocation and governs the transition from the existing Allocation to a revised Allocation state.</p>
+<p>It also determines whether a justified exception to an established Allocation rule or limit may be considered, under what authority, for what scope, for what duration, and with what evidence.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>When materially relevant conditions change or an exceptional condition arises, should an existing or planned Resource Allocation be maintained, modified, redistributed, reduced, increased, deferred, redirected, or exceptionally overridden, under what authority and boundaries, and with what evidence and reassessment requirements?</p>
+<h1 id="4-position-in-rpas-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RPAS Governance</h1>
+<p>Canonical progression:</p>
+<p>Legitimate Competing Claims → Resource Priority Determination → Allocation Basis → Allocation Limits → Resource Allocation → Change / Conflict / Exceptional Condition → Reallocation or Exception Determination → Updated Allocation State → Reassessment</p>
+<p>RREM governs:</p>
+<p>Existing Allocation + Material Change / Exception Condition → Governed Allocation Transition</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RREM governs:</p>
+<p>Resource Reallocation &amp; Exception Governance</p>
+<p>This space concerns legitimate changes to established or planned Resource distributions and narrowly governed deviations from ordinary Allocation rules or limits.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A proposed or required transition from an existing Resource Allocation State to a revised Resource Allocation State, including any governed exception associated with that transition.</p>
+<p>Canonical relationship:</p>
+<p>**Existing Resource Allocation</p>
+<p>Material Change / Exception Condition Current Priority Current Allocation Basis Current Allocation Limits Authority Evidence → Reallocation / Exception Determination → Updated Resource Allocation State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RREM governs:</p>
+<p>Reallocation triggers; material change detection; Reallocation necessity; Reallocation authority; Reallocation scope; partial Reallocation; full Reallocation; temporary Reallocation; emergency Reallocation; scheduled Reallocation; claim addition; claim removal; capacity redistribution; Allocation reduction; Allocation increase; Allocation deferral; Allocation redirection; Allocation displacement; priority-driven Reallocation; capacity-driven Reallocation; constraint-driven Reallocation; exception requests; exception eligibility; exception authority; exception justification; exception scope; exception duration; exception conditions; exception evidence; temporary override; exception expiration; exception renewal; exception withdrawal; conflict; uncertainty; transition evidence; reassessment; versioning; traceability.</p>
+<p>RREM does not independently:</p>
+<p>determine Resource Demand; determine Dependency or Criticality;</p>
+<p>determine original Resource Priority; establish the original Allocation Basis; establish ordinary Allocation Limits; create Resource rights; authorize Resource Access; implement technical Resource controls; measure Consumption; govern Scarcity as a whole; determine long-term Sustainability.</p>
+<h1 id="8-reallocation-principle" data-oof-section-id="true" role="heading" aria-level="2">8. Reallocation Principle</h1>
+<p>An established Allocation should not be treated as permanent merely because it was once legitimate.</p>
+<p>Previously Valid Allocation ≠ Permanently Valid Allocation.</p>
+<p>When materially relevant conditions change, the Allocation may require reassessment.</p>
+<h1 id="9-reallocation-trigger" data-oof-section-id="true" role="heading" aria-level="2">9. Reallocation Trigger</h1>
+<p>A Reallocation Trigger is an event, state change, evidence change, or governance condition that may materially affect the validity or appropriateness of an existing Resource Allocation.</p>
+<h1 id="10-trigger-boundary" data-oof-section-id="true" role="heading" aria-level="2">10. Trigger Boundary</h1>
+<p>Reallocation Trigger ≠ Reallocation Decision.</p>
+<p>Detection of change initiates governance evaluation.</p>
+<p>It does not automatically determine the outcome.</p>
+<h1 id="11-materiality" data-oof-section-id="true" role="heading" aria-level="2">11. Materiality</h1>
+<p>Not every change requires Reallocation.</p>
+<p>RREM should determine whether the change is materially relevant to:</p>
+<p>Priority; Allocable Capacity; Allocation Basis; Allocation Limits; claim legitimacy; Resource feasibility; continuity; other Allocation conditions.</p>
+<h1 id="12-material-change" data-oof-section-id="true" role="heading" aria-level="2">12. Material Change</h1>
+<p>A Material Change is a change capable of altering the legitimate Resource distribution.</p>
+<h1 id="13-non-material-change" data-oof-section-id="true" role="heading" aria-level="2">13. Non-Material Change</h1>
+<p>A change that does not materially affect the governed Allocation may be recorded without triggering Resource redistribution.</p>
+<h1 id="14-resource-availability-change" data-oof-section-id="true" role="heading" aria-level="2">14. Resource Availability Change</h1>
+<p>A change in Resource Availability may require Reallocation where existing assignments can no longer be supported or additional capacity becomes legitimately allocable.</p>
+<h1 id="15-capacity-reduction" data-oof-section-id="true" role="heading" aria-level="2">15. Capacity Reduction</h1>
+<p>Loss of Resource capacity may require existing allocations to be reduced or redistributed.</p>
+<h1 id="16-capacity-increase" data-oof-section-id="true" role="heading" aria-level="2">16. Capacity Increase</h1>
+<p>Additional Resource capacity may permit:</p>
+<p>previously deferred claims; partial allocations to increase; reserve restoration; new legitimate claims; other governed distribution changes.</p>
+<h1 id="17-capacity-boundary" data-oof-section-id="true" role="heading" aria-level="2">17. Capacity Boundary</h1>
+<p>Additional Capacity ≠ Automatic Allocation Increase.</p>
+<p>New capacity must still enter the governed Allocation process.</p>
+<h1 id="18-demand-change" data-oof-section-id="true" role="heading" aria-level="2">18. Demand Change</h1>
+<p>Material increases or decreases in validated Resource Demand may trigger Reallocation.</p>
+<h1 id="19-demand-reduction" data-oof-section-id="true" role="heading" aria-level="2">19. Demand Reduction</h1>
+<p>Reduced Demand may release Resource capacity for legitimate redistribution.</p>
+<h1 id="20-demand-increase" data-oof-section-id="true" role="heading" aria-level="2">20. Demand Increase</h1>
+<p>Increased Demand does not automatically create increased Allocation.</p>
+<p>Increased Demand ≠ Automatic Increased Allocation.</p>
+<h1 id="21-dependency-change" data-oof-section-id="true" role="heading" aria-level="2">21. Dependency Change</h1>
+<p>A change in Resource Dependency may materially affect the basis for existing Allocation.</p>
+<h1 id="22-criticality-change" data-oof-section-id="true" role="heading" aria-level="2">22. Criticality Change</h1>
+<p>A change in Criticality may trigger Priority reassessment and potentially Reallocation.</p>
+<h1 id="23-criticality-boundary" data-oof-section-id="true" role="heading" aria-level="2">23. Criticality Boundary</h1>
+<p>Changed Criticality ≠ Automatic Reallocation Outcome.</p>
+<p>RPDM may first need to reassess Priority.</p>
+<h1 id="24-priority-change" data-oof-section-id="true" role="heading" aria-level="2">24. Priority Change</h1>
+<p>A materially changed Resource Priority may require the existing Resource distribution to be reconsidered.</p>
+<h1 id="25-priority-boundary" data-oof-section-id="true" role="heading" aria-level="2">25. Priority Boundary</h1>
+<p>Changed Priority ≠ Automatic Resource Transfer.</p>
+<p>The updated Allocation must remain within the current Allocation Basis and Allocation Limits or those must also be reassessed.</p>
+<h1 id="26-access-change" data-oof-section-id="true" role="heading" aria-level="2">26. Access Change</h1>
+<p>Changes in Resource Access may require Allocation modification.</p>
+<p>Examples include:</p>
+<p>Access restriction; Access suspension; Access withdrawal; Access expiration; Access scope modification.</p>
+<h1 id="27-access-boundary" data-oof-section-id="true" role="heading" aria-level="2">27. Access Boundary</h1>
+<p>Loss of Access may invalidate Allocation, but RREM does not itself revoke Access.</p>
+<p>RAGS governs Access.</p>
+<p>RREM governs the Allocation consequence.</p>
+<h1 id="28-rights-change" data-oof-section-id="true" role="heading" aria-level="2">28. Rights Change</h1>
+<p>Modification, expiration, suspension, transfer, or termination of a Resource right may affect an existing Allocation.</p>
+<h1 id="29-rights-boundary" data-oof-section-id="true" role="heading" aria-level="2">29. Rights Boundary</h1>
+<p>RREM does not determine the underlying Resource right.</p>
+<p>It governs its Allocation consequence.</p>
+<h1 id="30-new-legitimate-claim" data-oof-section-id="true" role="heading" aria-level="2">30. New Legitimate Claim</h1>
+<p>A new legitimate Resource claim may enter an existing Allocation context.</p>
+<p>Its existence does not automatically displace existing allocations.</p>
+<h1 id="31-new-claim-boundary" data-oof-section-id="true" role="heading" aria-level="2">31. New Claim Boundary</h1>
+<p>New Legitimate Claim ≠ Automatic Existing-Allocation Reduction.</p>
+<p>The new claim must enter the relevant Priority and Allocation governance process.</p>
+<h1 id="32-claim-removal" data-oof-section-id="true" role="heading" aria-level="2">32. Claim Removal</h1>
+<p>Where a claim is legitimately removed from the Allocation context, its assigned capacity may become available for redistribution.</p>
+<h1 id="33-infrastructure-change" data-oof-section-id="true" role="heading" aria-level="2">33. Infrastructure Change</h1>
+<p>Infrastructure failure, degradation, restoration, expansion, or topology change may alter feasible Resource distribution.</p>
+<h1 id="34-local-constraint-change" data-oof-section-id="true" role="heading" aria-level="2">34. Local Constraint Change</h1>
+<p>A Resource system may require Reallocation even when aggregate capacity remains unchanged because a local delivery constraint changes.</p>
+<h1 id="35-scarcity-change" data-oof-section-id="true" role="heading" aria-level="2">35. Scarcity Change</h1>
+<p>A new or intensified Scarcity state may require tighter Resource distribution.</p>
+<p>RSCS governs the Scarcity condition.</p>
+<p>RREM governs its effect on existing allocations.</p>
+<h1 id="36-scarcity-recovery" data-oof-section-id="true" role="heading" aria-level="2">36. Scarcity Recovery</h1>
+<p>Reduced Scarcity may permit existing Allocation restrictions to be relaxed.</p>
+<p>It does not automatically restore previous allocations.</p>
+<h1 id="37-emergency-condition" data-oof-section-id="true" role="heading" aria-level="2">37. Emergency Condition</h1>
+<p>An emergency may require rapid Reallocation to preserve:</p>
+<p>life; safety; critical infrastructure; essential operations; system continuity; other legitimately protected functions.</p>
+<h1 id="38-emergency-reallocation" data-oof-section-id="true" role="heading" aria-level="2">38. Emergency Reallocation</h1>
+<p>Emergency Reallocation may use accelerated decision procedures where competent governance permits.</p>
+<h1 id="39-emergency-boundary" data-oof-section-id="true" role="heading" aria-level="2">39. Emergency Boundary</h1>
+<p>Emergency ≠ Unlimited Reallocation Authority.</p>
+<p>Authority, scope, duration, evidence, and affected claims should remain governed.</p>
+<h1 id="40-reallocation-authority" data-oof-section-id="true" role="heading" aria-level="2">40. Reallocation Authority</h1>
+<p>Material Resource redistribution should remain traceable to competent authority.</p>
+<h1 id="41-authority-origin" data-oof-section-id="true" role="heading" aria-level="2">41. Authority Origin</h1>
+<p>Where relevant:</p>
+<p class="podstand"><b>Authority:</b> Origin → Delegated Reallocation Authority → Reallocation Decision</p>
+<p>should remain traceable.</p>
+<h1 id="42-authority-scope" data-oof-section-id="true" role="heading" aria-level="2">42. Authority Scope</h1>
+<p>A Reallocation Authority should not modify Resource distributions outside its authorized scope.</p>
+<h1 id="43-automated-reallocation" data-oof-section-id="true" role="heading" aria-level="2">43. Automated Reallocation</h1>
+<p>Automated systems may execute Reallocation under predefined governance rules.</p>
+<h1 id="44-automation-boundary" data-oof-section-id="true" role="heading" aria-level="2">44. Automation Boundary</h1>
+<p>Automated Reallocation Capability ≠ Reallocation Authority.</p>
+<h1 id="45-reallocation-scope" data-oof-section-id="true" role="heading" aria-level="2">45. Reallocation Scope</h1>
+<p>RREM should determine how much of the existing Allocation context must be reconsidered.</p>
+<h1 id="46-targeted-reallocation" data-oof-section-id="true" role="heading" aria-level="2">46. Targeted Reallocation</h1>
+<p>A change affecting one claim or Resource segment may justify modification only of the affected Allocation dimensions.</p>
+<h1 id="47-full-reallocation" data-oof-section-id="true" role="heading" aria-level="2">47. Full Reallocation</h1>
+<p>A full Resource redistribution may be required where changes materially affect the overall Allocation context.</p>
+<h1 id="48-reallocation-scope-principle" data-oof-section-id="true" role="heading" aria-level="2">48. Reallocation Scope Principle</h1>
+<p>Local Change ≠ Automatic Full Reallocation.</p>
+<p>Conversely:</p>
+<p>Systemic Change ≠ Sufficiently Governed by Local Adjustment.</p>
+<h1 id="49-partial-reallocation" data-oof-section-id="true" role="heading" aria-level="2">49. Partial Reallocation</h1>
+<p>Only part of an existing Resource Allocation may need to change.</p>
+<h1 id="50-full-reallocation" data-oof-section-id="true" role="heading" aria-level="2">50. Full Reallocation</h1>
+<p>All materially relevant Resource assignments within the Allocation context may be reconsidered.</p>
+<h1 id="51-temporary-reallocation" data-oof-section-id="true" role="heading" aria-level="2">51. Temporary Reallocation</h1>
+<p>Resource capacity may be redistributed for a limited period.</p>
+<h1 id="52-permanent-reallocation" data-oof-section-id="true" role="heading" aria-level="2">52. Permanent Reallocation</h1>
+<p>A revised Allocation may remain in effect until another governed change occurs.</p>
+<h1 id="53-scheduled-reallocation" data-oof-section-id="true" role="heading" aria-level="2">53. Scheduled Reallocation</h1>
+<p>Some Resource systems may use predefined reassessment and Reallocation intervals.</p>
+<h1 id="54-event-driven-reallocation" data-oof-section-id="true" role="heading" aria-level="2">54. Event-Driven Reallocation</h1>
+<p>Material events may trigger Reallocation outside scheduled review cycles.</p>
+<h1 id="55-allocation-reduction" data-oof-section-id="true" role="heading" aria-level="2">55. Allocation Reduction</h1>
+<p>An existing Allocation may be reduced where current governance evidence no longer supports the previous level.</p>
+<h1 id="56-reduction-boundary" data-oof-section-id="true" role="heading" aria-level="2">56. Reduction Boundary</h1>
+<p>Allocation Reduction ≠ Access Revocation.</p>
+<p>An actor may retain legitimate Access while receiving less Resource capacity.</p>
+<h1 id="57-allocation-increase" data-oof-section-id="true" role="heading" aria-level="2">57. Allocation Increase</h1>
+<p>An existing Allocation may be increased where:</p>
+<p>capacity becomes available; Priority changes; Demand changes; limits change; other legitimate conditions support increase.</p>
+<h1 id="58-increase-boundary" data-oof-section-id="true" role="heading" aria-level="2">58. Increase Boundary</h1>
+<p>Allocation Increase ≠ Expanded Access Authority.</p>
+<p>The increased Allocation must remain within legitimate Access boundaries.</p>
+<h1 id="59-allocation-deferral" data-oof-section-id="true" role="heading" aria-level="2">59. Allocation Deferral</h1>
+<p>A Resource Allocation may be postponed while the claim remains legitimate.</p>
+<h1 id="60-deferral-boundary" data-oof-section-id="true" role="heading" aria-level="2">60. Deferral Boundary</h1>
+<p>Deferred Allocation ≠ Rejected Claim.</p>
+<h1 id="61-allocation-redirection" data-oof-section-id="true" role="heading" aria-level="2">61. Allocation Redirection</h1>
+<p>Resource capacity may be redirected from one:</p>
+<p>claim; location; Resource Source; time period; purpose</p>
+<p>to another where governance permits.</p>
+<h1 id="62-redirection-boundary" data-oof-section-id="true" role="heading" aria-level="2">62. Redirection Boundary</h1>
+<p>Redirection should preserve applicable:</p>
+<p>rights; Access; Source; purpose; authority; technical constraints.</p>
+<h1 id="63-allocation-displacement" data-oof-section-id="true" role="heading" aria-level="2">63. Allocation Displacement</h1>
+<p>A higher-priority or emergency claim may require reducing an existing lower-priority Allocation.</p>
+<p>Such displacement should be explicit and evidenced.</p>
+<h1 id="64-displacement-boundary" data-oof-section-id="true" role="heading" aria-level="2">64. Displacement Boundary</h1>
+<p>Higher Priority ≠ Automatic Total Displacement.</p>
+<p>Only the Resource redistribution justified by the governed Allocation context should occur.</p>
+<h1 id="65-reallocation-stability" data-oof-section-id="true" role="heading" aria-level="2">65. Reallocation Stability</h1>
+<p>Resource systems should avoid unnecessary redistribution where existing allocations remain legitimate and sufficient.</p>
+<h1 id="66-stability-principle" data-oof-section-id="true" role="heading" aria-level="2">66. Stability Principle</h1>
+<p>Ability to Reallocate ≠ Need to Reallocate.</p>
+<p>Unnecessary Reallocation may create:</p>
+<p>operational instability; transition cost; Resource waste; continuity risk.</p>
+<h1 id="67-reallocation-proportionality" data-oof-section-id="true" role="heading" aria-level="2">67. Reallocation Proportionality</h1>
+<p>The magnitude of Reallocation should be proportionate to the material governance change where appropriate.</p>
+<h1 id="68-transition-feasibility" data-oof-section-id="true" role="heading" aria-level="2">68. Transition Feasibility</h1>
+<p>A desired Reallocation may require a transition period.</p>
+<p>Immediate redistribution may be technically impossible or operationally harmful.</p>
+<h1 id="69-transition-boundary" data-oof-section-id="true" role="heading" aria-level="2">69. Transition Boundary</h1>
+<p>Reallocation Decision ≠ Instantaneous Resource Transition.</p>
+<h1 id="70-transition-plan" data-oof-section-id="true" role="heading" aria-level="2">70. Transition Plan</h1>
+<p>Where required, RREM should establish:</p>
+<p>current Allocation; target Allocation; transition sequence; effective time; temporary states; affected claims; technical dependencies.</p>
+<h1 id="71-exception-principle" data-oof-section-id="true" role="heading" aria-level="2">71. Exception Principle</h1>
+<p>An Exception permits a defined deviation from an ordinary Allocation rule, limit, or condition where competent governance explicitly authorizes it.</p>
+<h1 id="72-exception-boundary" data-oof-section-id="true" role="heading" aria-level="2">72. Exception Boundary</h1>
+<p>Exception ≠ Governance Bypass.</p>
+<p>An exception remains governed precisely because the ordinary rule is not being followed.</p>
+<h1 id="73-exception-eligibility" data-oof-section-id="true" role="heading" aria-level="2">73. Exception Eligibility</h1>
+<p>An exception should be considered only where the relevant governance framework permits exceptions.</p>
+<h1 id="74-exception-trigger" data-oof-section-id="true" role="heading" aria-level="2">74. Exception Trigger</h1>
+<p>Potential triggers may include:</p>
+<p>emergency; unforeseen operational condition;</p>
+<p>critical continuity requirement; temporary infrastructure failure; exceptional safety requirement; other predefined or competently recognized condition.</p>
+<h1 id="75-exception-request" data-oof-section-id="true" role="heading" aria-level="2">75. Exception Request</h1>
+<p>An Exception Request should identify:</p>
+<p>requested deviation; affected Resource; affected claim; ordinary rule or limit; reason; requested scope; requested duration; supporting evidence.</p>
+<h1 id="76-exception-authority" data-oof-section-id="true" role="heading" aria-level="2">76. Exception Authority</h1>
+<p>An exception requires authority competent to authorize deviation from the relevant rule or limit.</p>
+<h1 id="77-authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">77. Authority Boundary</h1>
+<p class="podstand"><b>Authority:</b> to Allocate ≠ Automatically Authority to Grant Exceptions.</p>
+<p>Exception authority may require a different or higher governance level.</p>
+<h1 id="78-exception-justification" data-oof-section-id="true" role="heading" aria-level="2">78. Exception Justification</h1>
+<p>The justification should explain why ordinary Allocation governance cannot sufficiently address the exceptional condition.</p>
+<h1 id="79-convenience-boundary" data-oof-section-id="true" role="heading" aria-level="2">79. Convenience Boundary</h1>
+<p>Operational Convenience ≠ Sufficient Exception Justification.</p>
+<h1 id="80-exception-scope" data-oof-section-id="true" role="heading" aria-level="2">80. Exception Scope</h1>
+<p>An exception should be no broader than legitimately required.</p>
+<p>It may be bounded by:</p>
+<p>Resource; claim; quantity; capacity; rate; Source; location; purpose; time; condition.</p>
+<h1 id="81-exception-duration" data-oof-section-id="true" role="heading" aria-level="2">81. Exception Duration</h1>
+<p>An exception should have a defined duration or termination condition where applicable.</p>
+<h1 id="82-temporary-exception" data-oof-section-id="true" role="heading" aria-level="2">82. Temporary Exception</h1>
+<p>A temporary exception expires when:</p>
+<p>its defined period ends; the exceptional condition ends; its authority is withdrawn; its evidence becomes invalid; another specified termination condition occurs.</p>
+<h1 id="83-permanent-exception-boundary" data-oof-section-id="true" role="heading" aria-level="2">83. Permanent Exception Boundary</h1>
+<p>A repeated or indefinite exception may indicate that the underlying governance rule requires formal reassessment.</p>
+<p>Repeated Exception ≠ Substitute for Rule Revision.</p>
+<h1 id="84-exception-conditions" data-oof-section-id="true" role="heading" aria-level="2">84. Exception Conditions</h1>
+<p>Exceptions may require conditions such as:</p>
+<p>enhanced monitoring; reduced duration; additional evidence; higher authority; compensating controls; mandatory reassessment.</p>
+<h1 id="85-limit-exception" data-oof-section-id="true" role="heading" aria-level="2">85. Limit Exception</h1>
+<p>A competent authority may permit deviation from a soft or otherwise exception-capable Allocation Limit.</p>
+<h1 id="86-hard-limit-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Hard Limit Boundary</h1>
+<p>A limit defined as non-overridable within the current governance context cannot be bypassed merely by labeling the action an exception.</p>
+<h1 id="87-physical-boundary" data-oof-section-id="true" role="heading" aria-level="2">87. Physical Boundary</h1>
+<p>Exception Authority Cannot Override Physical Reality.</p>
+<p>No governance exception can create Resource capacity that does not physically exist.</p>
+<h1 id="88-access-boundary-for-exceptions" data-oof-section-id="true" role="heading" aria-level="2">88. Access Boundary for Exceptions</h1>
+<p>An Allocation exception does not automatically expand Resource Access Authority.</p>
+<p>Where Access modification is required, RAGS must govern that change.</p>
+<h1 id="89-rights-boundary-for-exceptions" data-oof-section-id="true" role="heading" aria-level="2">89. Rights Boundary for Exceptions</h1>
+<p>An exception should not silently nullify or create Resource rights.</p>
+<h1 id="90-priority-exception" data-oof-section-id="true" role="heading" aria-level="2">90. Priority Exception</h1>
+<p>Where competent governance permits, an exceptional condition may alter ordinary Priority treatment.</p>
+<p>The deviation should remain explicit and temporary or otherwise formally governed.</p>
+<h1 id="91-allocation-rule-exception" data-oof-section-id="true" role="heading" aria-level="2">91. Allocation Rule Exception</h1>
+<p>A Resource may be distributed using a different rule under an exceptional condition.</p>
+<p>The alternate rule should be:</p>
+<p>authorized; defined; bounded; evidenced; traceable.</p>
+<h1 id="92-optimization-exception-boundary" data-oof-section-id="true" role="heading" aria-level="2">92. Optimization Exception Boundary</h1>
+<p>Optimization output does not independently justify deviation from Allocation rules.</p>
+<p>Better Optimized Outcome ≠ Exception Authority.</p>
+<h1 id="93-value-exception-boundary" data-oof-section-id="true" role="heading" aria-level="2">93. Value Exception Boundary</h1>
+<p>High economic or operational Value does not independently justify an exception.</p>
+<p>High Value ≠ Exception Authority.</p>
+<h1 id="94-market-exception-boundary" data-oof-section-id="true" role="heading" aria-level="2">94. Market Exception Boundary</h1>
+<p>Ability to pay more does not independently authorize deviation from established Allocation governance.</p>
+<h1 id="95-exception-conflict" data-oof-section-id="true" role="heading" aria-level="2">95. Exception Conflict</h1>
+<p>An Exception Request may conflict with:</p>
+<p>rights; Access; safety; continuity; other allocations; hard limits; Resource Availability; competent authority.</p>
+<p>Such conflicts should remain visible.</p>
+<h1 id="96-exception-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">96. Exception Uncertainty</h1>
+<p>Where evidence supporting an exception is materially uncertain, that uncertainty should remain part of the decision.</p>
+<h1 id="97-exception-evidence" data-oof-section-id="true" role="heading" aria-level="2">97. Exception Evidence</h1>
+<p>Exception evidence should be sufficient to establish:</p>
+<p>why deviation is required; what is affected; who authorizes it; how far deviation extends; how long it applies; what consequences may result.</p>
+<h1 id="98-exception-traceability" data-oof-section-id="true" role="heading" aria-level="2">98. Exception Traceability</h1>
+<p>Canonical traceability:</p>
+<p>Exception → Ordinary Rule / Limit → Exception Trigger → Justification → Exception Authority → Scope → Duration → Conditions → Evidence → Resulting Allocation State</p>
+<h1 id="99-reallocation-evidence" data-oof-section-id="true" role="heading" aria-level="2">99. Reallocation Evidence</h1>
+<p>Reallocation should preserve sufficient evidence to reconstruct:</p>
+<p>previous Allocation; material change; affected claims; updated Priority where relevant; current Allocation Basis; current Allocation Limits; Reallocation Authority; new Allocation state.</p>
+<h1 id="100-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">100. Evidence Provenance</h1>
+<p>Material evidence should preserve where relevant:</p>
+<p>source; time; Resource; claim; decision; authority; version.</p>
+<h1 id="101-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">101. Evidence Sufficiency</h1>
+<p>RREM should determine whether evidence is sufficient for the required Reallocation or exception decision.</p>
+<h1 id="102-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">102. Evidence Freshness</h1>
+<p>Evidence should remain sufficiently current for the Resource transition being governed.</p>
+<h1 id="103-reallocation-conflict" data-oof-section-id="true" role="heading" aria-level="2">103. Reallocation Conflict</h1>
+<p>Reallocation Conflict exists where legitimate governance inputs support materially incompatible Resource redistribution outcomes.</p>
+<h1 id="104-reallocation-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">104. Reallocation Uncertainty</h1>
+<p>Uncertainty may concern:</p>
+<p>Resource Availability; Demand; Priority; Access; rights; technical feasibility; transition consequence; exception conditions.</p>
+<h1 id="105-uncertainty-principle" data-oof-section-id="true" role="heading" aria-level="2">105. Uncertainty Principle</h1>
+<p>Uncertain Change ≠ Certain Reallocation.</p>
+<p>Material uncertainty should remain visible.</p>
+<h1 id="106-prediction-evidence" data-oof-section-id="true" role="heading" aria-level="2">106. Prediction Evidence</h1>
+<p>PGA™ may provide governed evidence concerning anticipated:</p>
+<p>capacity loss; Demand change; Scarcity; infrastructure failure; future Resource requirements.</p>
+<h1 id="107-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">107. Prediction Boundary</h1>
+<p>Predicted Change ≠ Current Reallocation Requirement by definition.</p>
+<p>Prediction may justify preparation or anticipatory governance where competent rules permit it.</p>
+<h1 id="108-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">108. Simulation Evidence</h1>
+<p>SIMULOS® may compare candidate Reallocation paths or exception consequences.</p>
+<h1 id="109-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">109. Simulation Boundary</h1>
+<p>Simulated Preferred Reallocation ≠ Governed Reallocation Decision.</p>
+<h1 id="110-reallocation-state" data-oof-section-id="true" role="heading" aria-level="2">110. Reallocation State</h1>
+<p>RREM should represent the governance state of the proposed or active Allocation transition.</p>
+<h1 id="111-minimum-reallocation-states" data-oof-section-id="true" role="heading" aria-level="2">111. Minimum Reallocation States</h1>
+<p>At minimum:</p>
+<p>Reallocation Not Required</p>
+<p>Reallocation Review Required</p>
+<p>Reallocation Proposed</p>
+<p>Reallocation Approved</p>
+<p>Reallocation Active</p>
+<p>Partial Reallocation</p>
+<p>Temporary Reallocation</p>
+<p>Emergency Reallocation</p>
+<p>Reallocation Deferred</p>
+<p>Reallocation Conflicted</p>
+<p>Reallocation Evidence-Limited</p>
+<p>Reallocation Unknown</p>
+<p>Reallocation Unresolved</p>
+<p>Reallocation Completed</p>
+<h1 id="112-exception-state" data-oof-section-id="true" role="heading" aria-level="2">112. Exception State</h1>
+<p>RREM should separately represent the state of any Allocation exception.</p>
+<h1 id="113-minimum-exception-states" data-oof-section-id="true" role="heading" aria-level="2">113. Minimum Exception States</h1>
+<p>At minimum:</p>
+<p>Exception Not Required</p>
+<p>Exception Requested</p>
+<p>Exception Under Review</p>
+<p>Exception Approved</p>
+<p>Exception Conditionally Approved</p>
+<p>Exception Active</p>
+<p>Exception Denied</p>
+<p>Exception Expired</p>
+<p>Exception Withdrawn</p>
+<p>Exception Evidence-Limited</p>
+<p>Exception Conflicted</p>
+<p>Exception Unknown</p>
+<p>Exception Unresolved</p>
+<p>Exception Closed</p>
+<h1 id="114-state-separation" data-oof-section-id="true" role="heading" aria-level="2">114. State Separation</h1>
+<p>Reallocation State ≠ Exception State.</p>
+<p>A Reallocation may occur without an exception.</p>
+<p>An exception may modify an Allocation without requiring complete Reallocation.</p>
+<h1 id="115-reallocation-profile" data-oof-section-id="true" role="heading" aria-level="2">115. Reallocation Profile</h1>
+<p>RREM should produce a:</p>
+<p>Resource Reallocation Profile</p>
+<p>for material Allocation transitions.</p>
+<h1 id="116-minimum-resource-reallocation-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">116. Minimum Resource Reallocation Profile Fields</h1>
+<p>At minimum:</p>
+<p>Reallocation ID</p>
+<p>Resource ID</p>
+<p>Previous Allocation ID</p>
+<p>Affected Claim IDs</p>
+<p>Reallocation Trigger</p>
+<p>Material Change</p>
+<p>Current Priority References</p>
+<p>Current Allocation Basis Reference</p>
+<p>Current Allocation Limit References</p>
+<p>Reallocation Authority</p>
+<p>Previous Allocation State</p>
+<p>Proposed Allocation State</p>
+<p>Reallocation Scope</p>
+<p>Transition Requirements</p>
+<p>Effective Time</p>
+<p>Duration where relevant</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Conflict State</p>
+<p>Uncertainty</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="117-resource-allocation-exception-profile" data-oof-section-id="true" role="heading" aria-level="2">117. Resource Allocation Exception Profile</h1>
+<p>Where an exception exists, RREM should produce a:</p>
+<p>Resource Allocation Exception Profile</p>
+<h1 id="118-minimum-resource-allocation-exception-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">118. Minimum Resource Allocation Exception Profile Fields</h1>
+<p>At minimum:</p>
+<p>Exception ID</p>
+<p>Resource ID</p>
+<p>Affected Allocation ID</p>
+<p>Affected Claim ID</p>
+<p>Ordinary Rule / Limit Reference</p>
+<p>Exception Trigger</p>
+<p>Exception Justification</p>
+<p>Exception Authority</p>
+<p class="podstand"><b>Authority:</b> Scope</p>
+<p>Requested Deviation</p>
+<p>Approved Deviation</p>
+<p>Exception Scope</p>
+<p>Conditions</p>
+<p>Effective Time</p>
+<p>Expiration / Termination Condition</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Conflict State</p>
+<p>Uncertainty</p>
+<p>Reassessment Requirement</p>
+<p>Exception State</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="119-exception-expiration" data-oof-section-id="true" role="heading" aria-level="2">119. Exception Expiration</h1>
+<p>An expired exception should not silently remain operational.</p>
+<h1 id="120-exception-renewal" data-oof-section-id="true" role="heading" aria-level="2">120. Exception Renewal</h1>
+<p>Where renewal is permitted, continuation should require renewed governance validation.</p>
+<p>Previous Exception ≠ Automatic Exception Renewal.</p>
+<h1 id="121-exception-withdrawal" data-oof-section-id="true" role="heading" aria-level="2">121. Exception Withdrawal</h1>
+<p>A competent authority may withdraw an active exception where its basis no longer remains valid.</p>
+<h1 id="122-exception-closure" data-oof-section-id="true" role="heading" aria-level="2">122. Exception Closure</h1>
+<p>Closure should preserve the final exception state and resulting Allocation state.</p>
+<h1 id="123-reallocation-reassessment" data-oof-section-id="true" role="heading" aria-level="2">123. Reallocation Reassessment</h1>
+<p>RREM should reassess an active or planned Reallocation when material evidence changes before or during transition.</p>
+<h1 id="124-exception-reassessment" data-oof-section-id="true" role="heading" aria-level="2">124. Exception Reassessment</h1>
+<p>Exceptions should be reassessed when:</p>
+<p>conditions change; duration approaches expiration; evidence changes; Resource conditions normalize; new risks emerge; authority changes.</p>
+<h1 id="125-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">125. Minimum Implementation Framework</h1>
+<p>A minimum operational RREM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Existing Allocation State</p>
+<p>Establish:</p>
+<p>current Allocation; affected claims; current Priority; Allocation Basis; Allocation Limits.</p>
+<p>Layer 2 — Change / Exception Detection</p>
+<p>Identify:</p>
+<p>material change; new claim; capacity change;</p>
+<p>conflict; emergency; exception request.</p>
+<p>Layer 3 — Materiality &amp; Eligibility</p>
+<p>Determine:</p>
+<p>whether Reallocation review is required; whether an exception is eligible for consideration.</p>
+<p>Layer 4 — Authority</p>
+<p>Validate:</p>
+<p>Reallocation Authority; Exception Authority where relevant; scope and delegation.</p>
+<p>Layer 5 — Reallocation / Exception Evaluation</p>
+<p>Evaluate:</p>
+<p>Priority; capacity; limits; claims; transition effects; exception justification; scope; duration.</p>
+<p>Layer 6 — Decision &amp; Transition</p>
+<p>Determine:</p>
+<p>maintain; modify; reduce; increase; defer; redirect; reallocate; approve / deny exception.</p>
+<p>Layer 7 — Evidence &amp; Reassessment</p>
+<p>Preserve:</p>
+<p>evidence; conflict; uncertainty; expiration; reassessment triggers; version.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Reallocation Profile</p>
+<p>and where applicable:</p>
+<p>Resource Allocation Exception Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>Existing Allocation → Material Change / Exception Condition → Materiality / Eligibility → Authority Validation → Reallocation / Exception Evaluation → Governed Decision → Allocation Transition → Updated Profile</p>
+<h1 id="126-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">126. Minimum Decision States</h1>
+<p>RREM must support both:</p>
+<p>Reallocation States</p>
+<p>and:</p>
+<p>Exception States</p>
+<p>without collapsing them into one state model.</p>
+<h1 id="127-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">127. Minimum Evidence Path</h1>
+<p>Where Reallocation or exception status cannot be sufficiently determined:</p>
+<p>Unresolved State → Material Evidence Gap → Affected Decision Dimension → Minimum Evidence Requirement → Evidence Acquisition / Verification → Reassessment → Updated Reallocation / Exception Determination → Profile Update</p>
+<h1 id="128-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">128. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Allocation / Exception Profile → Material Change → Materiality Test → Affected Governance Dimension → Evidence Refresh → Priority / Basis / Limits Review where required → Reallocation / Exception Redetermination → Updated Allocation State → Version Update</p>
+<h1 id="129-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">129. Governance Requirements</h1>
+<p>A conforming RREM implementation must:</p>
+<h1 id="1-identify-the-existing-or-planned-allocation-2-identify-affected-resource-claim" data-oof-section-id="true" role="heading" aria-level="2">1. identify the existing or planned Allocation; 2. identify affected Resource claims; 3. detect relevant change conditions; 4. distinguish triggers from decisions; 5. determine materiality;</h1>
+<h1 id="6-preserve-non-material-changes-where-relevant-7-support-resource-availability-c" data-oof-section-id="true" role="heading" aria-level="2">6. preserve non-material changes where relevant; 7. support Resource Availability changes; 8. support capacity reductions; 9. support capacity increases; 10. support Demand changes; 11. support Dependency changes; 12. support Criticality changes; 13. consume updated Priority where required; 14. support Access changes; 15. support rights changes; 16. support new legitimate claims; 17. support claim removal; 18. support infrastructure changes; 19. support local constraint changes; 20. support Scarcity changes; 21. support emergency conditions; 22. identify Reallocation Authority; 23. preserve Authority Origin where relevant; 24. validate Authority Scope; 25. support targeted Reallocation; 26. support full Reallocation; 27. support partial Reallocation; 28. support temporary Reallocation; 29. support scheduled Reallocation; 30. support event-driven Reallocation; 31. support Allocation reduction; 32. support Allocation increase; 33. support Allocation deferral; 34. support Allocation redirection; 35. support Allocation displacement; 36. preserve Reallocation stability; 37. evaluate Reallocation proportionality; 38. evaluate transition feasibility; 39. support transition planning where required; 40. identify Exception Requests; 41. determine exception eligibility; 42. identify Exception Authority; 43. preserve exception justification; 44. preserve exception scope; 45. preserve exception duration; 46. preserve exception conditions; 47. prevent exception-based governance bypass; 48. preserve hard-limit boundaries; 49. preserve Access boundaries; 50. preserve rights boundaries; 51. preserve exception conflict; 52. preserve exception uncertainty; 53. preserve Reallocation evidence; 54. preserve exception evidence; 55. determine evidence sufficiency; 56. preserve evidence provenance; 57. support Reallocation reassessment; 58. support exception reassessment; 59. support exception expiration; 60. support exception renewal where permitted; 61. support exception withdrawal; 62. preserve state separation; 63. support versioning; 64. produce Resource Reallocation Profiles; 65. produce Resource Allocation Exception Profiles where applicable.</h1>
+<h1 id="130-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">130. Governance Logic</h1>
+<p>Canonical RREM logic:</p>
+<p>Existing Resource Allocation → Change / Exception Detection → Materiality / Eligibility → Current Priority → Current Allocation Basis → Current Allocation Limits → Authority Validation → Reallocation / Exception Evaluation → Maintain / Modify / Reduce / Increase / Defer / Redirect / Reallocate / Exception Decision → Transition → Updated Resource Allocation State → Evidence → Reassessment</p>
+<h1 id="131-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">131. Governance Outputs</h1>
+<p>RREM may produce:</p>
+<p>Resource Reallocation Profile</p>
+<p>Resource Allocation Exception Profile</p>
+<p>Reallocation Trigger</p>
+<p>Material Change State</p>
+<p>Reallocation Requirement</p>
+<p>Reallocation Scope</p>
+<p>Reallocation Authority State</p>
+<p>Partial Reallocation State</p>
+<p>Temporary Reallocation State</p>
+<p>Emergency Reallocation State</p>
+<p>Allocation Reduction</p>
+<p>Allocation Increase</p>
+<p>Allocation Deferral</p>
+<p>Allocation Redirection</p>
+<p>Allocation Displacement</p>
+<p>Transition Plan</p>
+<p>Exception Eligibility State</p>
+<p>Exception Authority State</p>
+<p>Exception Scope</p>
+<p>Exception Duration</p>
+<p>Exception Conditions</p>
+<p>Exception State</p>
+<p>Reallocation Conflict State</p>
+<p>Exception Conflict State</p>
+<p>Evidence Sufficiency State</p>
+<p>Uncertainty</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="132-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">132. Failure Conditions</h1>
+<p>RREM should not be considered sufficiently completed where:</p>
+<p>every change automatically causes Reallocation; material changes are ignored; new capacity is automatically distributed; increased Demand automatically increases Allocation; Criticality change automatically determines the Reallocation outcome; Priority change automatically transfers Resource; Access consequences are confused with Access revocation; new claims automatically displace existing allocations; Scarcity automatically determines Reallocation without governance logic; emergency conditions create unlimited Reallocation Authority; technical capability is treated as Reallocation Authority; local changes automatically trigger unnecessary system-wide Reallocation; systemic changes are handled only through inadequate local adjustment; Allocation reduction is treated as Access revocation; Allocation increase expands Access without authority; deferred Allocation is treated as rejected claim; higher Priority automatically causes total displacement; Reallocation occurs where no material need exists; transition feasibility is ignored; exceptions are used as governance bypasses; exception authority is assumed from ordinary Allocation Authority; operational convenience is treated as sufficient exception justification; exceptions are broader or longer than justified; repeated exceptions substitute for formal rule revision; hard limits are bypassed by labeling an action an exception; exceptions are treated as capable of overriding physical reality; exceptions silently expand Access or create rights; optimization output creates exception authority; Value creates exception authority; material conflict is hidden; uncertainty is suppressed; predictions are treated automatically as current Reallocation requirements; simulation outputs are treated as decisions; expired exceptions continue silently; previous exceptions renew automatically; Reallocation and Exception states are conflated; material transitions cannot be traced to evidence and authority.</p>
+<h1 id="133-use-case-1-ai-data-center-gpu-emergency-reallocation" data-oof-section-id="true" role="heading" aria-level="2">133. Use Case 1 — AI Data Center GPU Emergency Reallocation</h1>
+<p>A data center has active GPU allocations across:</p>
+<p>safety-critical inference; customer production workloads; model training; experimental workloads.</p>
+<p>A cooling-system failure suddenly reduces usable GPU capacity by 30%.</p>
+<p>The existing allocations can no longer all be maintained.</p>
+<p>RREM identifies:</p>
+<p>capacity reduction as the Reallocation Trigger; the reduction as materially relevant; affected Allocation Profiles; updated Priority evidence; current Allocation Limits; Reallocation Authority.</p>
+<p>The resulting transition may:</p>
+<p>preserve the safety-critical minimum; reduce production capacity proportionally within governed limits; defer part of model training; temporarily suspend experimental Allocation.</p>
+<p>If emergency rules permit temporary deviation from an ordinary Allocation rule, RREM separately records that deviation through a Resource Allocation Exception Profile .</p>
+<p>When cooling capacity is restored, the emergency Allocation does not automatically become permanent.</p>
+<p>A new governed reassessment determines the appropriate Resource distribution.</p>
+<h1 id="134-use-case-2-regional-water-emergency-reallocation" data-oof-section-id="true" role="heading" aria-level="2">134. Use Case 2 — Regional Water Emergency Reallocation</h1>
+<p>A region has established water allocations for:</p>
+<p>essential household supply; healthcare; agriculture; industrial production.</p>
+<p>An unexpected Source contamination event removes a substantial portion of usable water capacity.</p>
+<p>RREM evaluates:</p>
+<p>the lost capacity; affected claims; updated Priority Profiles; current rights and Access boundaries; minimum Allocation Limits; alternative Sources; Reallocation Authority; transition feasibility.</p>
+<p>The resulting Reallocation may temporarily:</p>
+<p>protect minimum household supply; preserve healthcare requirements; reduce agricultural allocations; reduce or defer industrial allocations.</p>
+<p>Where an emergency exception is required to temporarily modify an ordinary Allocation rule, the exception receives:</p>
+<p>explicit authority; defined scope; defined duration; supporting evidence; termination conditions.</p>
+<p>When the contaminated Source returns to service, the emergency distribution is reassessed rather than automatically continued.</p>
+<h1 id="135-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">135. Critical Distinctions</h1>
+<p>Changed Conditions ≠ Automatic Reallocation</p>
+<p>Exception ≠ Governance Bypass</p>
+<p>Previously Valid Allocation ≠ Permanently Valid Allocation</p>
+<p>Reallocation Trigger ≠ Reallocation Decision</p>
+<p>Additional Capacity ≠ Automatic Allocation Increase</p>
+<p>Increased Demand ≠ Automatic Increased Allocation</p>
+<p>Changed Criticality ≠ Automatic Reallocation Outcome</p>
+<p>Changed Priority ≠ Automatic Resource Transfer</p>
+<p>New Legitimate Claim ≠ Automatic Existing-Allocation Reduction</p>
+<p>Emergency ≠ Unlimited Reallocation Authority</p>
+<p>Automated Reallocation Capability ≠ Reallocation Authority</p>
+<p>Local Change ≠ Automatic Full Reallocation</p>
+<p>Allocation Reduction ≠ Access Revocation</p>
+<p>Allocation Increase ≠ Expanded Access Authority</p>
+<p>Deferred Allocation ≠ Rejected Claim</p>
+<p>Higher Priority ≠ Automatic Total Displacement</p>
+<p>Ability to Reallocate ≠ Need to Reallocate</p>
+<p>Reallocation Decision ≠ Instantaneous Resource Transition</p>
+<p class="podstand"><b>Authority:</b> to Allocate ≠ Automatically Authority to Grant Exceptions</p>
+<p>Operational Convenience ≠ Sufficient Exception Justification</p>
+<p>Repeated Exception ≠ Substitute for Rule Revision</p>
+<p>Exception Authority Cannot Override Physical Reality</p>
+<p>Better Optimized Outcome ≠ Exception Authority</p>
+<p>High Value ≠ Exception Authority</p>
+<p>Uncertain Change ≠ Certain Reallocation</p>
+<p>Predicted Change ≠ Current Reallocation Requirement by definition</p>
+<p>Simulated Preferred Reallocation ≠ Governed Reallocation Decision</p>
+<p>Reallocation State ≠ Exception State</p>
+<p>Previous Exception ≠ Automatic Exception Renewal</p>
+<h1 id="136-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">136. Cross-Architecture Boundary</h1>
+<p>RREM may consume:</p>
+<p>RCHS — current Resource identity, Source, state, and context.</p>
+<p>RACS — changed Availability, usable capacity, reservation, and accessibility evidence.</p>
+<p>RDGS — changed Demand and concurrency evidence.</p>
+<p>RDCS — changed Dependency, Criticality, and consequence evidence.</p>
+<p>RAGS — changed Resource rights, Access authorization, restrictions, withdrawal, and continuity evidence.</p>
+<p>RPDM — current or reassessed Resource Priority Profiles.</p>
+<p>RABM — current Resource Allocation Basis Profile.</p>
+<p>RALM — current Resource Allocation Limit Profiles.</p>
+<p>RSCS — Scarcity and Constraint states.</p>
+<p>RSFS — substitution and flexibility evidence.</p>
+<p>RIRS — interdependency and resilience evidence.</p>
+<p>RCSS — continuity and sustainability constraints.</p>
+<p>GOA™ — Reallocation Authority, Exception Authority, and Delegation evidence.</p>
+<p>OBIDENITY® — identity, ownership, authority, permission, and provenance evidence.</p>
+<p>ORA™ — actual operational changes and transition state.</p>
+<p>PGA™ — governed prediction evidence.</p>
+<p>SIMULOS® — simulated Reallocation and exception consequences.</p>
+<p>VEGA™ — Value and efficiency evidence where legitimately relevant.</p>
+<p>RREM does not absorb these mechanisms.</p>
+<h1 id="137-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">137. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RACS determines Resource Availability and capacity.</p>
+<p>RDCS determines Dependency and Criticality.</p>
+<p>RAGS governs Access and rights.</p>
+<p>RPDM determines Priority.</p>
+<p>RABM establishes the Allocation Basis.</p>
+<p>RALM establishes Allocation Limits.</p>
+<p>RSCS determines Scarcity conditions.</p>
+<p>RREM governs whether changes in those governed inputs require an existing Resource Allocation to transition and whether a legitimate exception is permitted.</p>
+<h1 id="138-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">138. Canonical Boundary</h1>
+<p>RREM governs the determination, authorization, scope, transition, evidence, maintenance, reassessment, and closure of Resource Reallocation and legitimate Allocation exceptions when material changes or exceptional conditions affect an existing or planned Resource distribution.</p>
+<p>It does not determine original Resource Demand, Dependency, Criticality, Priority, ordinary Allocation Basis, ordinary Allocation Limits, Resource rights, Access authorization, physical Availability, technical Resource controls, Consumption, Scarcity Governance as a whole, or long-term Sustainability.</p>
+<p>Its principal governed outputs are the Resource Reallocation Profile and, where applicable, the Resource Allocation Exception Profile .</p>
+<h1 id="139-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">139. Canonical Closing Statement</h1>
+<p>A Resource Allocation cannot remain governed if it is treated as permanent when the reality supporting it has materially changed, nor can governance remain credible if every difficult condition becomes an excuse to bypass its rules.</p>
+<p>RREM governs both boundaries — enabling legitimate Resource redistribution when reality changes while ensuring that exceptional deviation remains authorized, bounded, evidenced, temporary where required, and fully traceable.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

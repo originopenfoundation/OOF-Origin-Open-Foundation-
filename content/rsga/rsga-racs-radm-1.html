@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Availability Determination Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Availability Determination Module | OOF®. RADM — Resource Availability Determination Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Availability Determination Module | OOF®" />
+<meta property="og:description" content="Resource Availability Determination Module | OOF®. RADM — Resource Availability Determination Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Availability Determination Module | OOF®" />
+<meta name="twitter:description" content="Resource Availability Determination Module | OOF®. RADM — Resource Availability Determination Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Availability Determination Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html","name":"Resource Availability Determination Module | OOF®","description":"Resource Availability Determination Module | OOF®. RADM — Resource Availability Determination Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Availability Determination Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html"}]},"headline":"Resource Availability Determination Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-racs-radm-1.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Availability & Capacity Standard (RACS)","Governance & Enforcement","Resource Governance","Resource Availability Determination Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Availability & Capacity Standard (RACS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Availability Determination Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Availability & Capacity Standard (RACS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Availability Determination Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RADM — Resource Availability Determination Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Availability &amp; Capacity Standard (RACS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Availability Determination Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RACS-RADM-01</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RACS-RADM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 4 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RADM — Resource Availability Determination Module governs how the actual availability of a characterized Resource or Resource System is established, evidenced, qualified, bounded, and reassessed so that Resource existence, nominal quantity, Source capacity, installed capacity, theoretical capacity, or declared availability are not treated automatically as actual Resource availability.</p>
+<p>RADM establishes the first governed Availability State within RACS.</p>
+<p>Resource Existence ≠ Resource Availability.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RADM receives a Governed Resource Characterization from RCHS and determines whether, where, when, and under which conditions the Resource is actually available.</p>
+<p>Its role is to transform:</p>
+<p>Characterized Resource</p>
+<p>into:</p>
+<p>Governed Resource Availability State</p>
+<p>before later RACS modules determine usable capacity, reservation state, temporal availability, location-specific accessibility, and Potentially Allocable Capacity.</p>
+<p>RADM answers:</p>
+<p>Does the Resource actually exist in an available state? How much is available? Where is it available? When is it available? Under what conditions is it available? What evidence establishes that availability? What uncertainty remains? When must the determination be reassessed?</p>
+<h1 id="3-core-question" data-oof-section-id="true" role="heading" aria-level="2">3. Core Question</h1>
+<p>What portion of the characterized Resource is actually available under the relevant Resource conditions?</p>
+<h1 id="4-position-in-racs-module-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RACS Module Flow</h1>
+<p>RADM — Resource Availability Determination Module → UCCM — Usable Capacity Condition Module → RVCM — Reserved Capacity Module → TAVM — Temporal Availability Module → LAAM — Location &amp; Accessibility Module</p>
+<p>RADM establishes the foundational Availability State.</p>
+<p>The subsequent modules refine what that availability means for usability, reservation, time, location, accessibility, and downstream capacity governance.</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RADM governs:</p>
+<p>Resource Availability Determination Governance</p>
+<p>This space concerns whether a characterized Resource exists in a condition that permits it to be represented as actually available within the governed Resource System.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>The Availability State of a characterized Resource or Resource System.</p>
+<p>The object may represent:</p>
+<p>Resource stock Resource flow Generation capacity</p>
+<p>Storage capacity Processing capacity Transmission capacity Compute capacity Cooling capacity Network capacity Regenerative Resource capacity Recovered Resource capacity Other materially constrained Resource capacity</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RADM applies to the determination of actual Resource availability from a sufficiently characterized Resource.</p>
+<p>Its Scope includes:</p>
+<p>availability identification; available quantity or capacity; availability basis; availability conditions; Source-related availability; Resource-State effects on availability; physical and technical availability constraints; supporting Resource effects; availability evidence; availability uncertainty; availability sufficiency; availability change; availability versioning; availability reassessment.</p>
+<p>RADM establishes whether Resource is available.</p>
+<p>It does not independently determine:</p>
+<p>full Usable Capacity; reservation legitimacy; final temporal availability profile; location-specific accessibility; access authorization; priority; allocation; consumption; scarcity; resilience; sustainability.</p>
+<h1 id="8-entry-requirement" data-oof-section-id="true" role="heading" aria-level="2">8. Entry Requirement</h1>
+<p>RADM begins with a sufficiently characterized Governed Resource.</p>
+<p>Canonical input:</p>
+<p>Governed Resource Characterization → RADM Availability Determination</p>
+<p>The input should preserve materially relevant:</p>
+<p>Resource Boundary Resource Type Constraint Profile Resource State Origin</p>
+<p>Source Resource Context Evidence Uncertainty</p>
+<p>Availability must not be determined from an unidentified or materially ambiguous Resource.</p>
+<h1 id="9-availability-as-a-governed-state" data-oof-section-id="true" role="heading" aria-level="2">9. Availability as a Governed State</h1>
+<p>Availability is not merely a numerical quantity.</p>
+<p>It is a governed Resource State established from evidence and applicable conditions.</p>
+<p>A complete availability representation may require:</p>
+<p>Quantity or capacity Location Time Resource State Source Condition Relevant constraints Evidence basis Uncertainty</p>
+<h1 id="10-resource-existence" data-oof-section-id="true" role="heading" aria-level="2">10. Resource Existence</h1>
+<p>Resource Existence establishes that the Resource is present within the relevant Resource reality.</p>
+<p>Existence is necessary for ordinary availability.</p>
+<p>It is not sufficient.</p>
+<p>Existing Resource ≠ Available Resource.</p>
+<h1 id="11-availability-determination" data-oof-section-id="true" role="heading" aria-level="2">11. Availability Determination</h1>
+<p>Availability Determination establishes whether and to what extent an existing Resource can legitimately be represented as available within the governed conditions.</p>
+<p>Canonical logic:</p>
+<p>**Existing Resource</p>
+<p>Relevant Conditions Evidence → Availability Determination**</p>
+<h1 id="12-actual-availability" data-oof-section-id="true" role="heading" aria-level="2">12. Actual Availability</h1>
+<p>Actual Availability represents Resource availability supported by sufficient evidence applicable to the relevant time, location, boundary, and Resource conditions.</p>
+<p>Actual Availability must not be inferred solely from nominal capacity.</p>
+<h1 id="13-nominal-availability" data-oof-section-id="true" role="heading" aria-level="2">13. Nominal Availability</h1>
+<p>Nominal Availability is an availability representation derived primarily from:</p>
+<p>Rated capacity Installed capacity Recorded inventory Contracted capacity Theoretical capacity Declared capacity</p>
+<p>Nominal Availability may be useful as an input.</p>
+<p>It is not automatically Actual Availability.</p>
+<p>Nominal Availability ≠ Actual Availability.</p>
+<h1 id="14-physical-availability" data-oof-section-id="true" role="heading" aria-level="2">14. Physical Availability</h1>
+<p>Physical Availability concerns whether the Resource physically exists in a state relevant to the governed Resource System.</p>
+<p>Physical presence alone does not establish usability or accessibility.</p>
+<h1 id="15-technical-availability" data-oof-section-id="true" role="heading" aria-level="2">15. Technical Availability</h1>
+<p>Technical Availability concerns whether technical conditions permit the Resource or capacity to participate in the relevant Resource System.</p>
+<p>Technical Availability may depend upon:</p>
+<p>Equipment state System configuration Connectivity Supporting infrastructure Technical compatibility</p>
+<h1 id="16-operational-availability" data-oof-section-id="true" role="heading" aria-level="2">16. Operational Availability</h1>
+<p>Operational Availability concerns whether Resource capacity is presently capable of participating in the relevant operational Resource environment.</p>
+<p>RADM may establish this availability dimension where necessary.</p>
+<p>ORA™ retains general Operational Reality governance.</p>
+<h1 id="17-source-availability" data-oof-section-id="true" role="heading" aria-level="2">17. Source Availability</h1>
+<p>ROSM establishes Source identity and Source structure.</p>
+<p>RADM determines whether the relevant Resource is actually available from that Source.</p>
+<p>Source Existence ≠ Source Availability.</p>
+<h1 id="18-source-capacity" data-oof-section-id="true" role="heading" aria-level="2">18. Source Capacity</h1>
+<p>A Source may possess nominal capacity.</p>
+<p>That does not establish that the capacity is currently available.</p>
+<p>Source capacity may be constrained by:</p>
+<p>Resource input Technical state Infrastructure Time Environment Supporting Resources Maintenance</p>
+<h1 id="19-multi-source-availability" data-oof-section-id="true" role="heading" aria-level="2">19. Multi-Source Availability</h1>
+<p>Where Resource is supplied through multiple Sources, RADM may determine availability by Source.</p>
+<p>This prevents aggregate availability from hiding Source-specific constraints.</p>
+<h1 id="20-source-aggregation" data-oof-section-id="true" role="heading" aria-level="2">20. Source Aggregation</h1>
+<p>Available Resource from multiple Sources may be aggregated only where aggregation is methodologically legitimate.</p>
+<p>Aggregation requires sufficient compatibility in:</p>
+<p>Resource identity Boundary Time Location Measurement basis Resource function</p>
+<h1 id="21-source-independence" data-oof-section-id="true" role="heading" aria-level="2">21. Source Independence</h1>
+<p>Multiple Sources must not automatically be treated as independent.</p>
+<p>Two nominally different Sources may depend upon the same upstream infrastructure, Resource, processor, network, or other common dependency.</p>
+<p>RADM preserves this where it materially affects actual availability.</p>
+<h1 id="22-resource-state-availability" data-oof-section-id="true" role="heading" aria-level="2">22. Resource-State Availability</h1>
+<p>RSDM establishes Resource State.</p>
+<p>RADM determines whether that state permits the Resource to be represented as available.</p>
+<p>Examples:</p>
+<p>Stored → potentially available</p>
+<p>Degraded → conditionally available</p>
+<p>Recoverable → not yet available as recovered Resource</p>
+<p>Contaminated → physically existing but availability-limited</p>
+<p>Resource State informs Availability; it does not equal Availability.</p>
+<h1 id="23-stored-resource" data-oof-section-id="true" role="heading" aria-level="2">23. Stored Resource</h1>
+<p>Stored Resource may contribute to availability.</p>
+<p>Its availability may depend upon:</p>
+<p>Release capability Resource condition Infrastructure Location Time Technical constraints</p>
+<p>Stored Resource ≠ Automatically Available Resource.</p>
+<h1 id="24-residual-resource" data-oof-section-id="true" role="heading" aria-level="2">24. Residual Resource</h1>
+<p>Residual Resource may physically exist after use.</p>
+<p>Residual existence does not establish current availability for a new function.</p>
+<p>Recovery or processing may first be required.</p>
+<h1 id="25-recoverable-resource" data-oof-section-id="true" role="heading" aria-level="2">25. Recoverable Resource</h1>
+<p>A Recoverable Resource has potential to return to useful Resource circulation.</p>
+<p>It is not necessarily currently available.</p>
+<p>Recoverable Resource ≠ Available Recovered Resource.</p>
+<h1 id="26-recovered-resource" data-oof-section-id="true" role="heading" aria-level="2">26. Recovered Resource</h1>
+<p>Recovered Resource may become available when it reaches a sufficiently established state for participation in the relevant Resource System.</p>
+<p>RRCS governs the Recovery mechanism.</p>
+<p>RADM determines the resulting Availability State.</p>
+<h1 id="27-regenerating-resource" data-oof-section-id="true" role="heading" aria-level="2">27. Regenerating Resource</h1>
+<p>A Resource undergoing regeneration must not automatically be counted as currently available merely because future regeneration is expected.</p>
+<p>Regenerating Resource ≠ Currently Available Resource.</p>
+<h1 id="28-regenerated-resource" data-oof-section-id="true" role="heading" aria-level="2">28. Regenerated Resource</h1>
+<p>A regenerated Resource may enter Availability Determination when sufficient evidence establishes the relevant regenerated state.</p>
+<p>Regeneration does not automatically establish unlimited availability.</p>
+<h1 id="29-degraded-resource" data-oof-section-id="true" role="heading" aria-level="2">29. Degraded Resource</h1>
+<p>A degraded Resource may remain partly available.</p>
+<p>RADM should preserve whether degradation affects:</p>
+<p>Quantity Capacity Condition Availability duration Availability certainty</p>
+<p>UCCM later determines detailed usable-capacity conditions.</p>
+<h1 id="30-damaged-resource" data-oof-section-id="true" role="heading" aria-level="2">30. Damaged Resource</h1>
+<p>Damaged Resource may physically exist while being partially or completely unavailable.</p>
+<p>The Availability State must follow actual Resource condition.</p>
+<h1 id="31-contaminated-resource" data-oof-section-id="true" role="heading" aria-level="2">31. Contaminated Resource</h1>
+<p>Contamination may reduce or eliminate availability for a particular Resource function.</p>
+<p>Physical existence must not be confused with functionally relevant availability.</p>
+<h1 id="32-unavailable-resource" data-oof-section-id="true" role="heading" aria-level="2">32. Unavailable Resource</h1>
+<p>A characterized Resource is Unavailable where sufficient evidence establishes that it cannot presently participate in the relevant Resource System under the governed conditions.</p>
+<p>Unavailable does not mean nonexistent.</p>
+<p>Unavailable Resource ≠ Nonexistent Resource.</p>
+<h1 id="33-temporarily-unavailable-resource" data-oof-section-id="true" role="heading" aria-level="2">33. Temporarily Unavailable Resource</h1>
+<p>Resource may be temporarily unavailable due to:</p>
+<p>Maintenance Outage Seasonal condition Infrastructure interruption Temporary Source loss Temporary supporting Resource constraint</p>
+<p>The expected duration should remain visible where material.</p>
+<h1 id="34-conditionally-available-resource" data-oof-section-id="true" role="heading" aria-level="2">34. Conditionally Available Resource</h1>
+<p>A Resource is Conditionally Available where availability depends upon one or more explicit conditions.</p>
+<p>The conditions must remain attached to the Availability State.</p>
+<p>Conditional Availability must not be represented as unconditional availability.</p>
+<h1 id="35-partially-available-resource" data-oof-section-id="true" role="heading" aria-level="2">35. Partially Available Resource</h1>
+<p>A Resource may be partially available.</p>
+<p>RADM must support partial availability rather than forcing binary Available / Unavailable classifications.</p>
+<h1 id="36-availability-fraction" data-oof-section-id="true" role="heading" aria-level="2">36. Availability Fraction</h1>
+<p>Where appropriate, Resource availability may be represented as:</p>
+<p>Available quantity Available capacity Available proportion Available flow Available throughput</p>
+<p>The native Resource measure should be preserved.</p>
+<h1 id="37-binary-availability" data-oof-section-id="true" role="heading" aria-level="2">37. Binary Availability</h1>
+<p>Binary availability may be appropriate only where Resource reality genuinely supports it.</p>
+<p>RADM must not force binary representation onto continuous or multidimensional Resource availability.</p>
+<h1 id="38-availability-quantity" data-oof-section-id="true" role="heading" aria-level="2">38. Availability Quantity</h1>
+<p>Available Quantity represents the physical amount of Resource established as available under the governed conditions.</p>
+<p>Quantity must retain its native measurement basis.</p>
+<h1 id="39-availability-capacity" data-oof-section-id="true" role="heading" aria-level="2">39. Availability Capacity</h1>
+<p>Available Capacity represents the capacity capable of participating in the relevant Resource System.</p>
+<p>Capacity may be expressed through:</p>
+<p>Power Rate Throughput Storage Compute capability Network capability Processing capability Other Resource-native measures</p>
+<h1 id="40-availability-rate" data-oof-section-id="true" role="heading" aria-level="2">40. Availability Rate</h1>
+<p>For flow-constrained Resources, availability may require a rate rather than total quantity alone.</p>
+<p>Available Quantity ≠ Available Flow Rate.</p>
+<h1 id="41-availability-duration" data-oof-section-id="true" role="heading" aria-level="2">41. Availability Duration</h1>
+<p>Resource availability may have a duration.</p>
+<p>Relevant states may include:</p>
+<p>Momentary Temporary Sustained Periodic Conditional Unknown</p>
+<p>Duration may materially affect downstream governance.</p>
+<h1 id="42-availability-continuity" data-oof-section-id="true" role="heading" aria-level="2">42. Availability Continuity</h1>
+<p>A Resource may be available intermittently.</p>
+<p>RADM should preserve continuity characteristics where necessary for accurate Availability Determination.</p>
+<p>Availability continuity does not itself establish long-term sustainability.</p>
+<h1 id="43-spatial-basis" data-oof-section-id="true" role="heading" aria-level="2">43. Spatial Basis</h1>
+<p>Availability must be associated with location where location materially affects Resource reality.</p>
+<p>A Resource available in one place may be unavailable in another.</p>
+<p>LAAM later performs detailed Location &amp; Accessibility governance.</p>
+<h1 id="44-temporal-basis" data-oof-section-id="true" role="heading" aria-level="2">44. Temporal Basis</h1>
+<p>Availability must be associated with the relevant time where availability changes materially through time.</p>
+<p>TAVM later performs detailed Temporal Availability governance.</p>
+<p>RADM must nevertheless avoid context-free availability claims.</p>
+<h1 id="45-present-availability" data-oof-section-id="true" role="heading" aria-level="2">45. Present Availability</h1>
+<p>Present Availability represents availability under the current governed conditions.</p>
+<p>Present Availability ≠ Future Availability.</p>
+<h1 id="46-historical-availability" data-oof-section-id="true" role="heading" aria-level="2">46. Historical Availability</h1>
+<p>Historical availability may support analysis.</p>
+<p>It must not be represented as current availability.</p>
+<h1 id="47-future-availability" data-oof-section-id="true" role="heading" aria-level="2">47. Future Availability</h1>
+<p>Future availability may be relevant to planning.</p>
+<p>Where future availability is predicted:</p>
+<p>Predicted Availability ≠ Current Availability.</p>
+<p>PGA™ governs Prediction.</p>
+<h1 id="48-availability-window" data-oof-section-id="true" role="heading" aria-level="2">48. Availability Window</h1>
+<p>Resource availability may apply only within a defined time window.</p>
+<p>The window must remain attached to the determination where material.</p>
+<h1 id="49-availability-context" data-oof-section-id="true" role="heading" aria-level="2">49. Availability Context</h1>
+<p>RCXM establishes Resource Context.</p>
+<p>RADM uses relevant Context to determine availability.</p>
+<p>Context may include:</p>
+<p>Location Time Quality Condition Infrastructure Environmental conditions Source conditions Supporting Resource conditions</p>
+<p>Context informs Availability; Context does not automatically determine Availability.</p>
+<h1 id="50-quality-and-availability" data-oof-section-id="true" role="heading" aria-level="2">50. Quality and Availability</h1>
+<p>Resource quality may affect availability for the governed function.</p>
+<p>A Resource may exist in substantial quantity while only a portion meets the required quality condition.</p>
+<p>Total Quantity ≠ Available Quality-Compatible Quantity.</p>
+<h1 id="51-condition-and-availability" data-oof-section-id="true" role="heading" aria-level="2">51. Condition and Availability</h1>
+<p>Resource condition may materially affect availability.</p>
+<p>RADM must preserve condition-based reductions where evidence supports them.</p>
+<h1 id="52-infrastructure-and-availability" data-oof-section-id="true" role="heading" aria-level="2">52. Infrastructure and Availability</h1>
+<p>Resource availability may depend upon infrastructure.</p>
+<p>Relevant infrastructure may include:</p>
+<p>Generation Processing Storage Transport Transmission Distribution Cooling Network Recovery</p>
+<p>Resource Stock Sufficiency ≠ Infrastructure Availability.</p>
+<h1 id="53-supporting-resource-availability" data-oof-section-id="true" role="heading" aria-level="2">53. Supporting Resource Availability</h1>
+<p>A Governed Resource may require another Resource to become available.</p>
+<p>Examples:</p>
+<p>Compute requires electricity.</p>
+<p>Cooling may require water and electricity.</p>
+<p>Water distribution may require electricity.</p>
+<p>Material processing may require energy.</p>
+<p>RADM may consume governed availability states of supporting Resources.</p>
+<h1 id="54-dependency-limited-availability" data-oof-section-id="true" role="heading" aria-level="2">54. Dependency-Limited Availability</h1>
+<p>Where a supporting Resource limits the Governed Resource, the resulting availability reduction should remain traceable.</p>
+<p>Example:</p>
+<p>**10,000 installed accelerators</p>
+<p>electricity sufficient for 7,000 → compute availability cannot automatically remain 10,000**</p>
+<h1 id="55-multi-dependency-availability" data-oof-section-id="true" role="heading" aria-level="2">55. Multi-Dependency Availability</h1>
+<p>A Resource may depend upon several supporting Resources simultaneously.</p>
+<p>Effective availability may therefore depend upon the combined condition of multiple dependencies.</p>
+<h1 id="56-bottleneck-availability" data-oof-section-id="true" role="heading" aria-level="2">56. Bottleneck Availability</h1>
+<p>Where one supporting condition limits the Resource, RADM may identify the active Availability bottleneck.</p>
+<p>The bottleneck must be evidence-based.</p>
+<h1 id="57-bottleneck-change" data-oof-section-id="true" role="heading" aria-level="2">57. Bottleneck Change</h1>
+<p>The active bottleneck may change.</p>
+<p>Removing one constraint may expose another.</p>
+<p>RADM therefore supports reassessment after material Resource-system change.</p>
+<h1 id="58-constraint-activation" data-oof-section-id="true" role="heading" aria-level="2">58. Constraint Activation</h1>
+<p>RTCM identifies Resource constraint characteristics.</p>
+<p>RADM determines whether a relevant constraint is currently affecting Availability.</p>
+<p>Potential Constraint ≠ Active Availability Constraint.</p>
+<h1 id="59-active-availability-constraint" data-oof-section-id="true" role="heading" aria-level="2">59. Active Availability Constraint</h1>
+<p>An Active Availability Constraint is a constraint currently reducing, limiting, conditioning, or preventing Resource availability.</p>
+<p>The constraint should remain traceable to its evidence basis.</p>
+<h1 id="60-inactive-constraint" data-oof-section-id="true" role="heading" aria-level="2">60. Inactive Constraint</h1>
+<p>A known Resource constraint may currently be inactive.</p>
+<p>It should not reduce current Availability merely because it could become relevant in another state.</p>
+<h1 id="61-constraint-interaction" data-oof-section-id="true" role="heading" aria-level="2">61. Constraint Interaction</h1>
+<p>Multiple active constraints may interact.</p>
+<p>Their combined effect may differ from the sum of individual effects.</p>
+<p>RADM should preserve material interactions where known.</p>
+<h1 id="62-availability-ceiling" data-oof-section-id="true" role="heading" aria-level="2">62. Availability Ceiling</h1>
+<p>A Resource System may have a maximum availability ceiling under current conditions.</p>
+<p>The ceiling may be lower than nominal capacity.</p>
+<h1 id="63-availability-floor" data-oof-section-id="true" role="heading" aria-level="2">63. Availability Floor</h1>
+<p>Where appropriate, a Resource System may have a minimum reliably established availability level.</p>
+<p>This may be useful where variable conditions prevent a single deterministic capacity claim.</p>
+<h1 id="64-availability-range" data-oof-section-id="true" role="heading" aria-level="2">64. Availability Range</h1>
+<p>Where exact availability cannot legitimately be established, RADM may represent a governed range.</p>
+<p>Example:</p>
+<p>Available Capacity: 70–80 MW</p>
+<p>provided the range has an evidence basis.</p>
+<p>Governed Range ≠ False Precision.</p>
+<h1 id="65-availability-threshold" data-oof-section-id="true" role="heading" aria-level="2">65. Availability Threshold</h1>
+<p>A domain may define thresholds relevant to whether Resource is considered sufficiently available for a particular function.</p>
+<p>Thresholds must be explicit and evidence-based.</p>
+<h1 id="66-availability-sufficiency-for-function" data-oof-section-id="true" role="heading" aria-level="2">66. Availability Sufficiency for Function</h1>
+<p>A Resource may be available but insufficient for a particular required function.</p>
+<p>Available Resource ≠ Sufficient Resource for every function.</p>
+<p>RADM may preserve this distinction without performing Demand governance.</p>
+<h1 id="67-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">67. Demand Boundary</h1>
+<p>RADM determines Resource availability independently from Demand determination.</p>
+<p>RDGS governs Demand.</p>
+<p>Availability ≠ Demand.</p>
+<p>RADM must not reduce Resource availability merely because current demand is low.</p>
+<p>Likewise, high demand does not increase physical Resource availability.</p>
+<h1 id="68-scarcity-boundary" data-oof-section-id="true" role="heading" aria-level="2">68. Scarcity Boundary</h1>
+<p>Low availability may contribute to scarcity.</p>
+<p>RADM does not determine Scarcity State.</p>
+<p>Low Availability ≠ Scarcity by definition.</p>
+<p>RSCS governs Scarcity &amp; Constraint.</p>
+<h1 id="69-access-boundary" data-oof-section-id="true" role="heading" aria-level="2">69. Access Boundary</h1>
+<p>RADM determines whether Resource is available.</p>
+<p>It does not determine whether an actor may legitimately access it.</p>
+<p>Available Resource ≠ Authorized Resource Access.</p>
+<p>RAGS governs Access.</p>
+<h1 id="70-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">70. Allocation Boundary</h1>
+<p>Availability does not establish allocation.</p>
+<p>Available Resource ≠ Allocated Resource.</p>
+<p>RPAS governs Prioritization &amp; Allocation.</p>
+<h1 id="71-reservation-boundary" data-oof-section-id="true" role="heading" aria-level="2">71. Reservation Boundary</h1>
+<p>RADM may identify that capacity is available before detailed reservation treatment.</p>
+<p>RVCM governs Reserved Capacity as the dedicated RACS module.</p>
+<p>RADM must not convert reservation status into an access-authority determination.</p>
+<h1 id="72-usability-boundary" data-oof-section-id="true" role="heading" aria-level="2">72. Usability Boundary</h1>
+<p>RADM establishes Availability.</p>
+<p>UCCM determines detailed Usable Capacity Conditions.</p>
+<p>Available Capacity ≠ Usable Capacity.</p>
+<p>This boundary is central to RACS.</p>
+<h1 id="73-temporal-boundary" data-oof-section-id="true" role="heading" aria-level="2">73. Temporal Boundary</h1>
+<p>RADM preserves time sufficient for legitimate Availability Determination.</p>
+<p>TAVM governs the detailed temporal availability structure.</p>
+<h1 id="74-location-and-accessibility-boundary" data-oof-section-id="true" role="heading" aria-level="2">74. Location &amp; Accessibility Boundary</h1>
+<p>RADM preserves location where necessary.</p>
+<p>LAAM governs detailed location and practical accessibility.</p>
+<p>Available at Source ≠ Accessible at Point of Use.</p>
+<h1 id="75-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">75. Consumption Boundary</h1>
+<p>Resource availability does not establish actual Resource consumption.</p>
+<p>RCUS governs Consumption &amp; Utilization.</p>
+<p>Available ≠ Consumed.</p>
+<h1 id="76-recovery-boundary" data-oof-section-id="true" role="heading" aria-level="2">76. Recovery Boundary</h1>
+<p>RADM may receive Recovered Resource as an input.</p>
+<p>RRCS governs the Recovery process.</p>
+<p>Recovery Mechanism ≠ Availability Determination.</p>
+<h1 id="77-substitution-boundary" data-oof-section-id="true" role="heading" aria-level="2">77. Substitution Boundary</h1>
+<p>Alternative Resource availability may become an input to substitution governance.</p>
+<p>RSFS determines whether substitution is appropriate.</p>
+<p>Alternative Resource Availability ≠ Valid Substitution.</p>
+<h1 id="78-resilience-boundary" data-oof-section-id="true" role="heading" aria-level="2">78. Resilience Boundary</h1>
+<p>Availability may affect resilience.</p>
+<p>RADM does not determine resilience.</p>
+<p>RIRS governs Interdependency &amp; Resilience.</p>
+<h1 id="79-sustainability-boundary" data-oof-section-id="true" role="heading" aria-level="2">79. Sustainability Boundary</h1>
+<p>Current availability does not establish long-term sustainability.</p>
+<p>Current Availability ≠ Long-Term Sustainability.</p>
+<p>RCSS governs Continuity &amp; Sustainability.</p>
+<h1 id="80-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">80. Value Boundary</h1>
+<p>Resource availability does not establish Value.</p>
+<p>A highly valuable Resource may be unavailable.</p>
+<p>An abundant Resource may have low Value in a particular context.</p>
+<p>Availability State ≠ Value State.</p>
+<h1 id="81-authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">81. Authority Boundary</h1>
+<p>Availability does not create authority.</p>
+<p>Available Resource ≠ Authority to Use Resource.</p>
+<p>GOA™ retains Governance Authority.</p>
+<h1 id="82-availability-evidence" data-oof-section-id="true" role="heading" aria-level="2">82. Availability Evidence</h1>
+<p>Every material Availability Determination should be supported by evidence proportionate to its governance significance.</p>
+<p>Evidence may include:</p>
+<p>Direct measurement Sensor data Inventory evidence Technical records Operational records Infrastructure status Source records Specialized Resource determinations</p>
+<h1 id="83-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">83. Evidence Provenance</h1>
+<p>Availability evidence should remain traceable to:</p>
+<p>Evidence Source Resource Boundary Location Time Method Measurement basis Version where applicable</p>
+<h1 id="84-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">84. Evidence Freshness</h1>
+<p>Availability may change rapidly.</p>
+<p>Evidence freshness must therefore follow the rate at which the Resource reality can materially change.</p>
+<p>Previously Available ≠ Currently Available.</p>
+<h1 id="85-directly-observed-availability" data-oof-section-id="true" role="heading" aria-level="2">85. Directly Observed Availability</h1>
+<p>Directly Observed Availability is established through sufficiently direct observation or measurement of the Resource under relevant conditions.</p>
+<p>The observation remains bounded by its time and location.</p>
+<h1 id="86-inferred-availability" data-oof-section-id="true" role="heading" aria-level="2">86. Inferred Availability</h1>
+<p>Availability may be inferred where direct measurement is unavailable.</p>
+<p>The inference basis must remain explicit.</p>
+<p>Inferred Availability ≠ Directly Observed Availability.</p>
+<h1 id="87-declared-availability" data-oof-section-id="true" role="heading" aria-level="2">87. Declared Availability</h1>
+<p>An operator, supplier, institution, or other actor may declare Resource availability.</p>
+<p>Declaration is evidence input.</p>
+<p>It is not automatically verified fact.</p>
+<p>Declared Availability ≠ Verified Availability.</p>
+<h1 id="88-contracted-availability" data-oof-section-id="true" role="heading" aria-level="2">88. Contracted Availability</h1>
+<p>Contracted Resource capacity may be relevant.</p>
+<p>Contractual entitlement or commitment does not establish physical availability.</p>
+<p>Contracted Capacity ≠ Physically Available Capacity.</p>
+<h1 id="89-predicted-availability" data-oof-section-id="true" role="heading" aria-level="2">89. Predicted Availability</h1>
+<p>Predicted future availability must remain distinguishable from current availability.</p>
+<p>PGA™ governs the underlying Prediction.</p>
+<h1 id="90-simulated-availability" data-oof-section-id="true" role="heading" aria-level="2">90. Simulated Availability</h1>
+<p>Simulation may produce potential Availability States.</p>
+<p>SIMULOS® governs the simulation.</p>
+<p>Simulated Availability ≠ Observed Availability.</p>
+<h1 id="91-assumed-availability" data-oof-section-id="true" role="heading" aria-level="2">91. Assumed Availability</h1>
+<p>Assumed Availability may be used temporarily where explicitly necessary.</p>
+<p>The assumption must remain visible.</p>
+<p>Availability Assumption ≠ Availability Evidence.</p>
+<h1 id="92-availability-confidence" data-oof-section-id="true" role="heading" aria-level="2">92. Availability Confidence</h1>
+<p>Where useful, RADM may represent confidence in the Availability Determination.</p>
+<p>Confidence must derive from evidence quality and uncertainty rather than arbitrary scoring.</p>
+<h1 id="93-availability-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">93. Availability Uncertainty</h1>
+<p>Material uncertainty may concern:</p>
+<p>Quantity Capacity Source Time Location Resource State Constraint activation Supporting Resource availability Evidence freshness</p>
+<p>Uncertainty must remain attached to the relevant determination.</p>
+<h1 id="94-uncertainty-propagation" data-oof-section-id="true" role="heading" aria-level="2">94. Uncertainty Propagation</h1>
+<p>Where Availability uncertainty could materially affect downstream governance, it must propagate.</p>
+<p>Uncertain Availability must not become certain capacity downstream without new evidence.</p>
+<h1 id="95-availability-conflict" data-oof-section-id="true" role="heading" aria-level="2">95. Availability Conflict</h1>
+<p>Availability Conflict exists where credible evidence supports materially incompatible Availability States.</p>
+<p>The conflict must remain visible until resolved or legitimately bounded.</p>
+<h1 id="96-conflict-resolution" data-oof-section-id="true" role="heading" aria-level="2">96. Conflict Resolution</h1>
+<p>Canonical logic:</p>
+<p>**Availability Claim A</p>
+<p>Availability Claim B → Boundary Check → Time Check → Location Check → Measurement-Basis Check → Evidence Comparison → Resolution or Preserved Conflict**</p>
+<h1 id="97-availability-evidence-gap" data-oof-section-id="true" role="heading" aria-level="2">97. Availability Evidence Gap</h1>
+<p>Where required evidence is missing, RADM should identify the specific gap rather than merely labeling the Resource unavailable.</p>
+<p>Unknown Availability ≠ Unavailable Resource.</p>
+<h1 id="98-unknown-availability" data-oof-section-id="true" role="heading" aria-level="2">98. Unknown Availability</h1>
+<p>Unknown Availability means available evidence is insufficient to establish whether the Resource is available.</p>
+<p>It must remain distinct from actual Unavailability.</p>
+<h1 id="99-availability-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">99. Availability Sufficiency</h1>
+<p>An Availability Determination is sufficient when available evidence and represented conditions are adequate for the downstream governance purpose.</p>
+<p>Sufficiency does not require universal knowledge.</p>
+<h1 id="100-availability-decision-states" data-oof-section-id="true" role="heading" aria-level="2">100. Availability Decision States</h1>
+<p>RADM should support at minimum:</p>
+<p>Available</p>
+<p>Conditionally Available</p>
+<p>Partially Available</p>
+<p>Temporarily Unavailable</p>
+<p>Unavailable</p>
+<p>Availability Evidence-Limited</p>
+<p>Availability Conflicted</p>
+<p>Availability Unknown</p>
+<p>Availability Unresolved</p>
+<h1 id="101-availability-state-transition" data-oof-section-id="true" role="heading" aria-level="2">101. Availability State Transition</h1>
+<p>Resource Availability may transition between states.</p>
+<p>Example:</p>
+<p>Available → Outage → Temporarily Unavailable → Restoration → Available</p>
+<p>Transitions should preserve cause and effective time where material.</p>
+<h1 id="102-availability-change-event" data-oof-section-id="true" role="heading" aria-level="2">102. Availability Change Event</h1>
+<p>A material Availability Change Event may include:</p>
+<p>Source loss Source restoration Outage Maintenance Infrastructure failure Infrastructure restoration Resource degradation Recovery completion Regeneration Supporting Resource loss Supporting Resource restoration</p>
+<h1 id="103-availability-change-detection" data-oof-section-id="true" role="heading" aria-level="2">103. Availability Change Detection</h1>
+<p>Canonical logic:</p>
+<p>Existing Availability State → New Evidence / Event</p>
+<p>→ Availability Impact Test → Material / Immaterial → State Retained or Revised</p>
+<h1 id="104-availability-reassessment-trigger" data-oof-section-id="true" role="heading" aria-level="2">104. Availability Reassessment Trigger</h1>
+<p>Reassessment should occur following material:</p>
+<p>Resource-State change Source change Constraint activation Constraint removal Infrastructure change Supporting Resource change Location change Time change Quality change Condition change New evidence Evidence expiry RCHS re-characterization</p>
+<h1 id="105-reassessment-frequency" data-oof-section-id="true" role="heading" aria-level="2">105. Reassessment Frequency</h1>
+<p>Reassessment frequency should follow:</p>
+<p>Resource volatility Context volatility Evidence freshness Dependency sensitivity Governance consequence</p>
+<p>A highly dynamic Resource may require event-driven or frequent reassessment.</p>
+<h1 id="106-availability-versioning" data-oof-section-id="true" role="heading" aria-level="2">106. Availability Versioning</h1>
+<p>Materially revised Availability States should be versioned where required.</p>
+<p>A version should preserve:</p>
+<p>Prior state New state Effective time Reason for change Evidence basis Known uncertainty</p>
+<h1 id="107-availability-history" data-oof-section-id="true" role="heading" aria-level="2">107. Availability History</h1>
+<p>Availability History may support:</p>
+<p>Audit Trend analysis Planning Prediction inputs Reliability assessment Governance reassessment</p>
+<p>Historical states must remain distinguishable from current states.</p>
+<h1 id="108-availability-comparability" data-oof-section-id="true" role="heading" aria-level="2">108. Availability Comparability</h1>
+<p>Two Availability States may be compared only where relevant conditions are sufficiently aligned.</p>
+<p>Relevant alignment may include:</p>
+<p>Resource boundary Time Location Measurement basis Resource State Source Context</p>
+<h1 id="109-cross-time-comparability" data-oof-section-id="true" role="heading" aria-level="2">109. Cross-Time Comparability</h1>
+<p>Availability at different times may differ materially.</p>
+<p>Comparison must preserve temporal context.</p>
+<h1 id="110-cross-location-comparability" data-oof-section-id="true" role="heading" aria-level="2">110. Cross-Location Comparability</h1>
+<p>Availability in different locations may differ materially.</p>
+<p>Comparison must preserve spatial context.</p>
+<h1 id="111-cross-source-comparability" data-oof-section-id="true" role="heading" aria-level="2">111. Cross-Source Comparability</h1>
+<p>Availability from different Sources may have different:</p>
+<p>Continuity Capacity Constraint Location Evidence Dependency</p>
+<p>Aggregate comparison must preserve material differences.</p>
+<h1 id="112-availability-aggregation" data-oof-section-id="true" role="heading" aria-level="2">112. Availability Aggregation</h1>
+<p>Availability may be aggregated only where:</p>
+<p>Resource identity is compatible; measurement bases are compatible; time periods are compatible; locations can legitimately be combined; capacity is not double-counted.</p>
+<h1 id="113-availability-disaggregation" data-oof-section-id="true" role="heading" aria-level="2">113. Availability Disaggregation</h1>
+<p>Aggregate availability must be disaggregated where internal differences materially affect downstream governance.</p>
+<h1 id="114-availability-double-counting" data-oof-section-id="true" role="heading" aria-level="2">114. Availability Double-Counting</h1>
+<p>RADM must prevent the same Resource capacity from being counted more than once through:</p>
+<p>Multiple Source labels Multiple functional labels Overlapping infrastructure records Duplicate inventories Overlapping capacity claims</p>
+<h1 id="115-native-measurement" data-oof-section-id="true" role="heading" aria-level="2">115. Native Measurement</h1>
+<p>Availability should remain expressed in the Resource's appropriate native measurement wherever possible.</p>
+<p>Examples:</p>
+<p>litres / m³ MW / MWh tonnes units GPU-hours bandwidth throughput</p>
+<h1 id="116-normalization-boundary" data-oof-section-id="true" role="heading" aria-level="2">116. Normalization Boundary</h1>
+<p>RADM does not replace native Resource measurement with a universal normalized Resource unit.</p>
+<p>Any later normalization must preserve the native Availability basis.</p>
+<p>Native Availability Measurement ≠ Normalized Resource Significance.</p>
+<h1 id="117-availability-profile" data-oof-section-id="true" role="heading" aria-level="2">117. Availability Profile</h1>
+<p>The principal RADM output is the:</p>
+<p>Resource Availability Profile</p>
+<p>It should contain sufficient information to identify:</p>
+<p>what Resource is available; how much is available; under which conditions; where; when; from which relevant Source; with which active constraints; on what evidence; with what uncertainty.</p>
+<h1 id="118-availability-profile-minimum-fields" data-oof-section-id="true" role="heading" aria-level="2">118. Availability Profile Minimum Fields</h1>
+<p>A minimum Resource Availability Profile should support:</p>
+<p>Resource ID Characterization Reference Availability State Available Quantity / Capacity Native Measurement Relevant Source Relevant Resource State</p>
+<p>Location Reference Temporal Reference Active Availability Constraints Evidence Basis Evidence Time Uncertainty Sufficiency State Version</p>
+<h1 id="119-racs-handoff" data-oof-section-id="true" role="heading" aria-level="2">119. RACS Handoff</h1>
+<p>RADM does not complete RACS.</p>
+<p>Its Resource Availability Profile becomes an input to the remaining RACS modules.</p>
+<p>Canonical handoff:</p>
+<p>Resource Availability Profile → Usable Capacity Conditions → Reserved Capacity → Temporal Availability → Location &amp; Accessibility → RACS Resource Availability &amp; Capacity Profile</p>
+<h1 id="120-downstream-release" data-oof-section-id="true" role="heading" aria-level="2">120. Downstream Release</h1>
+<p>RADM output may proceed when Availability is sufficiently established for further RACS governance.</p>
+<p>Conditional progression may occur where unresolved uncertainty remains explicitly preserved.</p>
+<p>Progression does not erase Availability uncertainty.</p>
+<h1 id="121-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">121. Failure Conditions</h1>
+<p>RADM should not be considered sufficiently completed where:</p>
+<p>Resource existence is treated automatically as availability; nominal capacity is represented as actual availability without evidence; installed capacity is treated automatically as available capacity; Source existence is treated automatically as Source availability; stored Resource is treated automatically as immediately available; recoverable Resource is represented as recovered available Resource; predicted availability is represented as current availability; historical availability is represented as current availability; declared availability is represented as verified availability; contracted capacity is represented as physical availability; unknown availability is represented as unavailability; supporting Resource constraints are ignored where material; active constraints are ignored; availability is double-counted; material uncertainty is hidden; availability evidence is materially stale; time or location is omitted where material.</p>
+<h1 id="122-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">122. Governance Requirements</h1>
+<p>A conforming RADM implementation must:</p>
+<h1 id="1-receive-a-sufficiently-characterized-governed-resource" data-oof-section-id="true" role="heading" aria-level="2">1. receive a sufficiently characterized Governed Resource;</h1>
+<h1 id="2-establish-resource-existence-separately-from-resource-availability-3-identify-" data-oof-section-id="true" role="heading" aria-level="2">2. establish Resource Existence separately from Resource Availability; 3. identify the applicable Availability basis; 4. determine actual available quantity or capacity where possible; 5. preserve native Resource measurement; 6. distinguish nominal from actual availability; 7. preserve relevant Source availability; 8. preserve Resource-State effects on availability; 9. preserve material quality and condition effects; 10. preserve infrastructure effects; 11. preserve supporting Resource effects; 12. identify active Availability constraints; 13. distinguish active from potential constraints; 14. preserve spatial context where material; 15. preserve temporal context where material; 16. distinguish present from future availability; 17. distinguish observed, inferred, declared, contracted, predicted, simulated, and assumed availability; 18. preserve evidence provenance; 19. preserve evidence freshness; 20. preserve material uncertainty; 21. distinguish Unknown from Unavailable; 22. support partial and conditional availability; 23. prevent Availability double-counting; 24. support Availability aggregation only where legitimate; 25. support disaggregation where material; 26. support Availability change detection; 27. support reassessment; 28. support versioning; 29. identify downstream RACS handoff conditions; 30. produce a governed Resource Availability Profile.</h1>
+<h1 id="123-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">123. Governance Logic</h1>
+<p>Canonical RADM logic:</p>
+<p>Governed Resource Characterization → Resource Existence → Availability Basis → Resource-State Check → Source Availability Check → Active Constraint Check → Supporting Resource Check → Spatial &amp; Temporal Context → Actual Availability Determination → Evidence Assessment → Uncertainty Assessment → Sufficiency Determination → Resource Availability Profile</p>
+<p>Where evidence is insufficient:</p>
+<p>Availability Question → Evidence Gap → Minimum Evidence Requirement → Evidence Acquisition → Reassessment</p>
+<p>Where conditions change:</p>
+<p>Existing Availability State → Material Change → Availability Impact Test → Revised State → Version Update → Downstream Reassessment</p>
+<h1 id="124-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">124. Governance Outputs</h1>
+<p>RADM may produce:</p>
+<p>Resource Availability Profile Availability State Available Quantity Available Capacity Availability Basis Source Availability State Physical Availability State Technical Availability State Operational Availability State Conditional Availability State Partial Availability State Availability Constraint State Availability Evidence State Availability Uncertainty State Availability Conflict State Availability Sufficiency State Availability Change Event Availability Version Reassessment Trigger RACS Handoff State</p>
+<h1 id="125-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">125. Minimum Implementation Framework</h1>
+<p>A minimum operational RADM implementation must contain at least eight governed layers.</p>
+<p>Layer 1 — Resource Reference</p>
+<p>Receive:</p>
+<p>Resource ID Governed Resource Characterization Boundary Version</p>
+<p>Layer 2 — Existence Check</p>
+<p>Determine:</p>
+<p>Existing Existence Conditional Existence Evidence-Limited Existence Unresolved</p>
+<p>Layer 3 — Availability Basis</p>
+<p>Identify relevant:</p>
+<p>Quantity Capacity Flow Throughput Source Resource State</p>
+<p>Layer 4 — Availability Conditions</p>
+<p>Assess:</p>
+<p>Physical Technical Infrastructure Supporting Resource Spatial Temporal Quality / Condition</p>
+<p>conditions where material.</p>
+<p>Layer 5 — Constraint Activation</p>
+<p>Determine whether known Resource constraints are:</p>
+<p>Active Inactive Conditional Unknown</p>
+<p>for current Availability.</p>
+<p>Layer 6 — Evidence &amp; Uncertainty</p>
+<p>Classify the determination as supported through:</p>
+<p>Observed Inferred Declared Contracted Predicted Simulated Assumed</p>
+<p>evidence or basis.</p>
+<p>Preserve uncertainty.</p>
+<p>Layer 7 — Availability Decision</p>
+<p>Determine:</p>
+<p>Available Conditionally Available Partially Available Temporarily Unavailable Unavailable Evidence-Limited Conflicted Unknown Unresolved</p>
+<p>Layer 8 — Governed Output &amp; Reassessment</p>
+<p>Produce:</p>
+<p>Resource Availability Profile Version Known limitations Reassessment triggers RACS handoff state</p>
+<p>Minimum machine-readable logic:</p>
+<p>Resource → Characterization → Existence</p>
+<p>→ Availability Basis → Conditions[] → Active Constraints[] → Evidence[] → Uncertainty[] → Availability State → Availability Profile</p>
+<h1 id="126-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">126. Minimum Decision States</h1>
+<p>At minimum, implementations must distinguish:</p>
+<p>Available</p>
+<p>Conditionally Available</p>
+<p>Partially Available</p>
+<p>Temporarily Unavailable</p>
+<p>Unavailable</p>
+<p>Availability Evidence-Limited</p>
+<p>Availability Conflicted</p>
+<p>Availability Unknown</p>
+<p>Availability Unresolved</p>
+<p>These states must not be collapsed into a simple yes/no flag where doing so would materially distort Resource reality.</p>
+<h1 id="127-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">127. Minimum Evidence Path</h1>
+<p>Where Availability cannot be established:</p>
+<p>Availability Unresolved → Material Missing Evidence → Minimum Evidence Requirement → Evidence Acquisition → Availability Reassessment → Updated Availability State</p>
+<p>RADM should seek sufficient evidence for governance rather than unlimited evidence accumulation.</p>
+<h1 id="128-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">128. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Availability Profile → New Evidence / Material Event → Availability Impact Test → State Retained or Revised → Profile Version Update → Downstream RACS Reassessment where required</p>
+<h1 id="129-use-case-1-ai-compute-availability" data-oof-section-id="true" role="heading" aria-level="2">129. Use Case 1 — AI Compute Availability</h1>
+<p>An AI data center contains:</p>
+<p>10,000 installed accelerators.</p>
+<p>Inventory therefore reports nominal compute capacity corresponding to 10,000 units.</p>
+<p>RADM does not automatically classify all 10,000 as available.</p>
+<p>Evidence establishes:</p>
+<p>400 units under maintenance; 200 units technically degraded; electricity conditions currently support operation of 8,900 units; cooling conditions support 9,200 units.</p>
+<p>The Resource reality therefore differs materially from installed capacity.</p>
+<p>RADM establishes the actual Resource Availability Profile from the governing constraints rather than reporting:</p>
+<p>Installed = Available.</p>
+<p>UCCM subsequently determines detailed usable-capacity conditions.</p>
+<p>RVCM determines reserved capacity.</p>
+<p>TAVM determines temporal availability.</p>
+<p>LAAM determines location and practical accessibility.</p>
+<p>10,000 installed accelerators do not establish 10,000 available accelerators.</p>
+<h1 id="130-use-case-2-regional-water-availability" data-oof-section-id="true" role="heading" aria-level="2">130. Use Case 2 — Regional Water Availability</h1>
+<p>A regional water system identifies a total physical Resource stock of:</p>
+<p>100 million m³.</p>
+<p>The physical quantity alone does not establish current Resource availability.</p>
+<p>Relevant evidence shows that portions of the Resource are:</p>
+<p>seasonally constrained; temporarily quality-limited; outside currently functional delivery infrastructure; subject to Source-specific flow constraints.</p>
+<p>RADM establishes which portion can legitimately be represented as currently available under the governed conditions.</p>
+<p>It does not determine:</p>
+<p>who may access the water; which users receive priority; how the Resource should be allocated; whether the region is in a governed Scarcity State; whether current use is sustainable.</p>
+<p>Those determinations remain downstream.</p>
+<p>Physical Resource stock is the starting point of Availability Determination, not its conclusion.</p>
+<h1 id="131-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">131. Critical Distinctions</h1>
+<p>Resource Existence ≠ Resource Availability</p>
+<p>Existing Resource ≠ Available Resource</p>
+<p>Unavailable Resource ≠ Nonexistent Resource</p>
+<p>Unknown Availability ≠ Unavailable Resource</p>
+<p>Nominal Availability ≠ Actual Availability</p>
+<p>Installed Capacity ≠ Available Capacity</p>
+<p>Source Existence ≠ Source Availability</p>
+<p>Stored Resource ≠ Automatically Available Resource</p>
+<p>Recoverable Resource ≠ Available Recovered Resource</p>
+<p>Regenerating Resource ≠ Currently Available Resource</p>
+<p>Resource State ≠ Availability State</p>
+<p>Potential Constraint ≠ Active Availability Constraint</p>
+<p>Available Quantity ≠ Available Flow Rate</p>
+<p>Present Availability ≠ Future Availability</p>
+<p>Historical Availability ≠ Current Availability</p>
+<p>Predicted Availability ≠ Current Availability</p>
+<p>Simulated Availability ≠ Observed Availability</p>
+<p>Declared Availability ≠ Verified Availability</p>
+<p>Contracted Capacity ≠ Physically Available Capacity</p>
+<p>Availability Assumption ≠ Availability Evidence</p>
+<p>Available Capacity ≠ Usable Capacity</p>
+<p>Available Resource ≠ Authorized Resource Access</p>
+<p>Available Resource ≠ Allocated Resource</p>
+<p>Availability ≠ Demand</p>
+<p>Low Availability ≠ Scarcity by definition</p>
+<p>Available ≠ Consumed</p>
+<p>Current Availability ≠ Long-Term Sustainability</p>
+<p>Availability State ≠ Value State</p>
+<p>Native Availability Measurement ≠ Normalized Resource Significance</p>
+<h1 id="132-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">132. Cross-Architecture Boundary</h1>
+<p>RADM may consume governed inputs from:</p>
+<p>RCHS specialized Resource domains technical systems infrastructure systems operational systems evidence systems Prediction systems simulation systems</p>
+<p>It does not absorb their governance domains.</p>
+<p>PGA™ governs Prediction.</p>
+<p>SIMULOS® governs Simulation.</p>
+<p>ORA™ governs general Operational Reality.</p>
+<p>ADIT® governs Audit and Evidence Governance.</p>
+<p>VALIDOS™ governs general Validation Governance.</p>
+<p>GOA™ governs Governance Authority.</p>
+<p>RADM governs only Resource Availability Determination within RACS.</p>
+<h1 id="133-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">133. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain-specific relevance or consequences.</p>
+<p>A hydrological system may establish physical water conditions.</p>
+<p>A grid system may establish electricity-system conditions.</p>
+<p>A compute platform may establish hardware state.</p>
+<p>A storage system may establish stored Resource quantity.</p>
+<p>RADM consumes those governed outputs to determine Resource Availability.</p>
+<p>It does not absorb the mechanisms that produced them.</p>
+<h1 id="134-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">134. Canonical Boundary</h1>
+<p>RADM governs whether and to what extent a sufficiently characterized Resource or Resource System is actually available under the relevant physical, technical, spatial, temporal, infrastructural, Source, Resource-State, and supporting Resource conditions.</p>
+<p>It does not independently determine full Usable Capacity, reservation legitimacy, final temporal availability structure, location-specific accessibility, access authorization, prioritization, allocation, consumption, scarcity, resilience, or sustainability.</p>
+<p>Its governed output is the Resource Availability Profile required for subsequent RACS governance.</p>
+<h1 id="135-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">135. Canonical Closing Statement</h1>
+<p>A Resource is not available because a record says it exists, because infrastructure says it is installed, or because a Source says it can supply it.</p>
+<p>RADM establishes availability from the Resource reality that can actually be evidenced.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

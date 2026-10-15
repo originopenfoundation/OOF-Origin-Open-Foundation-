@@ -52,10 +52,10 @@
   "createdAt": "2020-08-06T00:00:00Z",
   "updatedAt": "2020-08-06T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-900039-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-900039-V7",
     "incidentId": "OOF-AII-900039",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -151,7 +151,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -174,6 +175,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "OpenAI's GPT-3 Associated Muslims with Violence",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Users and researchers revealed generative AI GPT-3 associating Muslims to violence in prompts, resulting in disturbingly racist and explicit outputs such as casting Muslim actor as a terrorist. (2020-08-06, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/118",
+      "eventDate": "2020-08-06",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -237,7 +247,41 @@
       "What evidence would establish how yes produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how associated, communication, information moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should associated, communication, information be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing associated, communication, information were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for associated, communication, information, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains associated, communication, information under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "pga",
+      "mechanisms": [
+        "associated",
+        "communication",
+        "information"
+      ],
+      "patternKey": "4dfc1e2a3010e00b"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:118"
@@ -255,7 +299,7 @@
         "What evidence would establish how yes produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how associated, communication, information moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should associated, communication, information be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -305,8 +349,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-900039-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-900039-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

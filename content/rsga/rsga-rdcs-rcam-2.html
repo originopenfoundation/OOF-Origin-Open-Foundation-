@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Criticality Assessment Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Criticality Assessment Module | OOF®. RCAM — Resource Criticality Assessment Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Criticality Assessment Module | OOF®" />
+<meta property="og:description" content="Resource Criticality Assessment Module | OOF®. RCAM — Resource Criticality Assessment Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Criticality Assessment Module | OOF®" />
+<meta name="twitter:description" content="Resource Criticality Assessment Module | OOF®. RCAM — Resource Criticality Assessment Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Criticality Assessment Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html","name":"Resource Criticality Assessment Module | OOF®","description":"Resource Criticality Assessment Module | OOF®. RCAM — Resource Criticality Assessment Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Criticality Assessment Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html"}]},"headline":"Resource Criticality Assessment Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcam-2.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Dependency & Criticality Standard (RDCS)","Governance & Enforcement","Resource Governance","Resource Criticality Assessment Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Dependency & Criticality Standard (RDCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Criticality Assessment Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Dependency & Criticality Standard (RDCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Criticality Assessment Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RCAM — Resource Criticality Assessment Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Dependency &amp; Criticality Standard (RDCS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Criticality Assessment Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RDCS-RCAM-02</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RDCS-RCAM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 5 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RCAM — Resource Criticality Assessment Module governs how a mapped Resource Dependency is systematically assessed to determine the governance significance of that Dependency by evaluating Dependency strength, functional sensitivity, Resource thresholds, interruption tolerance, degradation tolerance, substitutability context, recovery conditions, consequence significance, temporal urgency, and other materially relevant Criticality factors without treating Resource Demand, Resource quantity, price, scarcity, or strategic importance as automatic substitutes for Resource Criticality.</p>
+<p>Resource Dependency ≠ Resource Criticality.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RDMM establishes:</p>
+<p>what depends upon what.</p>
+<p>RCAM determines:</p>
+<p>how significant that Dependency is.</p>
+<p>It converts mapped Resource Dependency relationships into structured Resource Criticality assessments suitable for downstream governance.</p>
+<h1 id="3-core-question" data-oof-section-id="true" role="heading" aria-level="2">3. Core Question</h1>
+<p>How critical is the mapped Resource Dependency under the relevant operating conditions, given the strength of reliance, Resource thresholds, tolerance, consequence, substitution possibilities, recovery conditions, and time sensitivity associated with Resource degradation or loss?</p>
+<h1 id="4-position-in-rdcs-module-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RDCS Module Flow</h1>
+<p>RDMM — Resource Dependency Mapping Module → RCAM — Resource Criticality Assessment Module → RCEM → RDCM → RCDM</p>
+<p>RDMM establishes the Dependency structure.</p>
+<p>RCAM performs the first governed assessment of Criticality across that structure.</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RCAM governs:</p>
+<p>Resource Criticality Assessment Governance</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>The Criticality of a mapped Resource Dependency.</p>
+<p>Criticality attaches to a relationship rather than to a Resource name alone.</p>
+<p>Canonical relationship:</p>
+<p>**Resource</p>
+<p>Dependent Object Function Operating Context Dependency Conditions → Resource Criticality**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RCAM governs:</p>
+<p>Dependency strength assessment; functional sensitivity; Resource sufficiency thresholds; degradation thresholds; failure thresholds;</p>
+<p>interruption tolerance; Resource quality tolerance; Resource rate tolerance; continuity requirements; substitutability context; substitution readiness; buffer context; redundancy context; recovery context; consequence significance; consequence timing; Criticality factors; Criticality assessment methodology; Criticality state; Criticality evidence; Criticality uncertainty; Criticality conflict; Criticality reassessment.</p>
+<p>RCAM does not determine:</p>
+<p>Resource Access; Resource Priority; Resource Allocation; Resource Consumption; Scarcity response; formal Resource Substitution governance; system-wide Resilience; long-term Sustainability.</p>
+<h1 id="8-criticality-assessment-input" data-oof-section-id="true" role="heading" aria-level="2">8. Criticality Assessment Input</h1>
+<p>RCAM principally receives:</p>
+<p>Resource Dependency Map</p>
+<p>and:</p>
+<p>Resource Dependency Relationship Profiles</p>
+<p>from RDMM.</p>
+<p>It may consume additional governed evidence relevant to Criticality.</p>
+<h1 id="9-criticality-assessment-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Criticality Assessment Principle</h1>
+<p>Criticality should emerge from the governed Dependency reality.</p>
+<p>It should not be assigned because a Resource is generally described as important.</p>
+<h1 id="10-criticality-is-relational" data-oof-section-id="true" role="heading" aria-level="2">10. Criticality Is Relational</h1>
+<p>Resource Criticality is relational and contextual.</p>
+<p>A Resource may be Critical for one function and non-critical for another.</p>
+<h1 id="11-criticality-object-integrity" data-oof-section-id="true" role="heading" aria-level="2">11. Criticality Object Integrity</h1>
+<p>A Criticality assessment should identify:</p>
+<p>Resource; dependent object; function; operating state; relevant time horizon.</p>
+<h1 id="12-resource-name-boundary" data-oof-section-id="true" role="heading" aria-level="2">12. Resource Name Boundary</h1>
+<p>Resource Name ≠ Resource Criticality.</p>
+<p>Calling electricity, water, compute, land, or a critical material “important” does not establish Criticality for a specific Dependency.</p>
+<h1 id="13-dependency-strength" data-oof-section-id="true" role="heading" aria-level="2">13. Dependency Strength</h1>
+<p>Dependency Strength describes how strongly the functional state of the dependent object relies upon the Resource.</p>
+<h1 id="14-dependency-strength-vs-demand" data-oof-section-id="true" role="heading" aria-level="2">14. Dependency Strength vs Demand</h1>
+<p>Dependency Strength must not be inferred directly from Resource Demand magnitude.</p>
+<p>Demand Magnitude ≠ Dependency Strength.</p>
+<h1 id="15-complete-dependency" data-oof-section-id="true" role="heading" aria-level="2">15. Complete Dependency</h1>
+<p>Complete Dependency exists where the relevant function cannot continue beyond the governed tolerance boundary without the Resource.</p>
+<h1 id="16-partial-dependency" data-oof-section-id="true" role="heading" aria-level="2">16. Partial Dependency</h1>
+<p>Partial Dependency exists where the function can continue at reduced capability after Resource degradation.</p>
+<h1 id="17-conditional-dependency-strength" data-oof-section-id="true" role="heading" aria-level="2">17. Conditional Dependency Strength</h1>
+<p>Dependency Strength may change according to operating conditions.</p>
+<h1 id="18-dependency-gradient" data-oof-section-id="true" role="heading" aria-level="2">18. Dependency Gradient</h1>
+<p>Dependency may exist along a continuum rather than as a binary state.</p>
+<h1 id="19-functional-sensitivity" data-oof-section-id="true" role="heading" aria-level="2">19. Functional Sensitivity</h1>
+<p>Functional Sensitivity describes how strongly functional performance responds to changes in Resource condition.</p>
+<h1 id="20-low-functional-sensitivity" data-oof-section-id="true" role="heading" aria-level="2">20. Low Functional Sensitivity</h1>
+<p>Substantial Resource degradation may produce little immediate functional effect.</p>
+<h1 id="21-high-functional-sensitivity" data-oof-section-id="true" role="heading" aria-level="2">21. High Functional Sensitivity</h1>
+<p>A small Resource degradation may produce substantial functional deterioration.</p>
+<h1 id="22-sensitivity-curve" data-oof-section-id="true" role="heading" aria-level="2">22. Sensitivity Curve</h1>
+<p>Where useful, RCAM may represent:</p>
+<p>Resource State → Functional State</p>
+<p>as a governed sensitivity relationship.</p>
+<h1 id="23-linear-sensitivity" data-oof-section-id="true" role="heading" aria-level="2">23. Linear Sensitivity</h1>
+<p>Functional degradation may approximately track Resource degradation.</p>
+<h1 id="24-non-linear-sensitivity" data-oof-section-id="true" role="heading" aria-level="2">24. Non-Linear Sensitivity</h1>
+<p>Small Resource changes may create disproportionately large functional effects.</p>
+<h1 id="25-threshold-sensitivity" data-oof-section-id="true" role="heading" aria-level="2">25. Threshold Sensitivity</h1>
+<p>A function may operate normally until a threshold is crossed and then degrade rapidly.</p>
+<h1 id="26-resource-sufficiency-threshold" data-oof-section-id="true" role="heading" aria-level="2">26. Resource Sufficiency Threshold</h1>
+<p>The Resource Sufficiency Threshold represents the Resource condition required to sustain the relevant function at the governed level.</p>
+<h1 id="27-degradation-threshold" data-oof-section-id="true" role="heading" aria-level="2">27. Degradation Threshold</h1>
+<p>The Degradation Threshold identifies the point at which Resource deterioration begins materially affecting the function.</p>
+<h1 id="28-failure-threshold" data-oof-section-id="true" role="heading" aria-level="2">28. Failure Threshold</h1>
+<p>The Failure Threshold identifies the Resource condition beyond which the function can no longer satisfy the governed requirement.</p>
+<h1 id="29-threshold-sequence" data-oof-section-id="true" role="heading" aria-level="2">29. Threshold Sequence</h1>
+<p>Where relevant:</p>
+<p>Normal Resource State → Reduced Resource State → Degradation Threshold → Critical Degradation → Failure Threshold → Functional Loss</p>
+<h1 id="30-threshold-evidence" data-oof-section-id="true" role="heading" aria-level="2">30. Threshold Evidence</h1>
+<p>Thresholds should be evidenced where they materially affect Criticality.</p>
+<h1 id="31-threshold-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">31. Threshold Uncertainty</h1>
+<p>Uncertain thresholds should remain explicitly uncertain.</p>
+<h1 id="32-binary-model-boundary" data-oof-section-id="true" role="heading" aria-level="2">32. Binary Model Boundary</h1>
+<p>A Resource Dependency should not be represented as simply:</p>
+<p>Available / Failed</p>
+<p>where material intermediate states exist.</p>
+<h1 id="33-quantity-tolerance" data-oof-section-id="true" role="heading" aria-level="2">33. Quantity Tolerance</h1>
+<p>Quantity Tolerance represents the Resource quantity reduction a function can absorb before material consequence occurs.</p>
+<h1 id="34-capacity-tolerance" data-oof-section-id="true" role="heading" aria-level="2">34. Capacity Tolerance</h1>
+<p>A function may tolerate reduced Resource capacity while maintaining sufficient operation.</p>
+<h1 id="35-rate-tolerance" data-oof-section-id="true" role="heading" aria-level="2">35. Rate Tolerance</h1>
+<p>A function may tolerate temporary reductions in Resource delivery rate.</p>
+<h1 id="36-quality-tolerance" data-oof-section-id="true" role="heading" aria-level="2">36. Quality Tolerance</h1>
+<p>A function may tolerate Resource quality degradation within defined boundaries.</p>
+<h1 id="37-performance-tolerance" data-oof-section-id="true" role="heading" aria-level="2">37. Performance Tolerance</h1>
+<p>A function may tolerate reduced Resource performance.</p>
+<h1 id="38-continuity-tolerance" data-oof-section-id="true" role="heading" aria-level="2">38. Continuity Tolerance</h1>
+<p>Some functions require continuous Resource supply.</p>
+<p>Others tolerate interruption.</p>
+<h1 id="39-interruption-tolerance" data-oof-section-id="true" role="heading" aria-level="2">39. Interruption Tolerance</h1>
+<p>Interruption Tolerance establishes how long Resource supply may be interrupted before material consequence begins.</p>
+<h1 id="40-time-to-impact" data-oof-section-id="true" role="heading" aria-level="2">40. Time-to-Impact</h1>
+<p>RCAM should identify:</p>
+<p>Time-to-Impact</p>
+<p>where the interval between Resource loss and material functional consequence affects Criticality.</p>
+<h1 id="41-immediate-impact" data-oof-section-id="true" role="heading" aria-level="2">41. Immediate Impact</h1>
+<p>Material consequence may begin effectively immediately.</p>
+<h1 id="42-delayed-impact" data-oof-section-id="true" role="heading" aria-level="2">42. Delayed Impact</h1>
+<p>Buffers, inventory, thermal inertia, storage, redundancy, or operational flexibility may delay consequence.</p>
+<h1 id="43-time-to-failure" data-oof-section-id="true" role="heading" aria-level="2">43. Time-to-Failure</h1>
+<p>Where appropriate, RCAM may distinguish:</p>
+<p>Time-to-Impact</p>
+<p>from:</p>
+<p>Time-to-Failure.</p>
+<p>A function may begin degrading before complete failure.</p>
+<h1 id="44-interruption-duration" data-oof-section-id="true" role="heading" aria-level="2">44. Interruption Duration</h1>
+<p>Criticality may increase as interruption duration increases.</p>
+<h1 id="45-duration-dependent-criticality" data-oof-section-id="true" role="heading" aria-level="2">45. Duration-Dependent Criticality</h1>
+<p>A Resource Dependency may be:</p>
+<p>Low Criticality at 30 seconds</p>
+<p>but:</p>
+<p>Critical at 6 hours.</p>
+<h1 id="46-temporal-criticality-profile" data-oof-section-id="true" role="heading" aria-level="2">46. Temporal Criticality Profile</h1>
+<p>Where material, RCAM should preserve Criticality across relevant time horizons rather than assigning one timeless label.</p>
+<h1 id="47-buffer-context" data-oof-section-id="true" role="heading" aria-level="2">47. Buffer Context</h1>
+<p>A buffer may delay the effect of Resource interruption.</p>
+<p>Examples:</p>
+<p>battery storage; water storage; material inventory; thermal storage; compute queue flexibility.</p>
+<h1 id="48-buffer-duration" data-oof-section-id="true" role="heading" aria-level="2">48. Buffer Duration</h1>
+<p>Buffer capacity should be translated into relevant operational duration where possible.</p>
+<h1 id="49-buffer-reliability" data-oof-section-id="true" role="heading" aria-level="2">49. Buffer Reliability</h1>
+<p>A theoretical buffer should not automatically be treated as an effective buffer.</p>
+<h1 id="50-buffer-availability" data-oof-section-id="true" role="heading" aria-level="2">50. Buffer Availability</h1>
+<p>The buffer must itself be available under the relevant conditions.</p>
+<h1 id="51-buffer-dependency" data-oof-section-id="true" role="heading" aria-level="2">51. Buffer Dependency</h1>
+<p>A buffer may depend upon other Resources.</p>
+<p>Example:</p>
+<p>A battery may require:</p>
+<p>control power; inverter functionality; cooling.</p>
+<h1 id="52-buffer-boundary" data-oof-section-id="true" role="heading" aria-level="2">52. Buffer Boundary</h1>
+<p>Temporary Buffering ≠ Dependency Elimination.</p>
+<h1 id="53-redundancy-context" data-oof-section-id="true" role="heading" aria-level="2">53. Redundancy Context</h1>
+<p>Multiple Resource Sources or pathways may reduce immediate vulnerability.</p>
+<h1 id="54-redundancy-effectiveness" data-oof-section-id="true" role="heading" aria-level="2">54. Redundancy Effectiveness</h1>
+<p>RCAM should evaluate whether redundancy is:</p>
+<p>independent; available; sufficient; activatable; appropriately located; capable of supporting the required function.</p>
+<h1 id="55-apparent-redundancy" data-oof-section-id="true" role="heading" aria-level="2">55. Apparent Redundancy</h1>
+<p>Two Resource paths may appear independent while sharing a common upstream Dependency.</p>
+<h1 id="56-common-mode-dependency" data-oof-section-id="true" role="heading" aria-level="2">56. Common-Mode Dependency</h1>
+<p>Common-mode relationships identified by RDMM should be considered in Criticality assessment.</p>
+<h1 id="57-redundancy-boundary" data-oof-section-id="true" role="heading" aria-level="2">57. Redundancy Boundary</h1>
+<p>Resource Redundancy ≠ Resource Independence.</p>
+<h1 id="58-substitutability-context" data-oof-section-id="true" role="heading" aria-level="2">58. Substitutability Context</h1>
+<p>A different Resource may potentially support the function.</p>
+<h1 id="59-substitute-functional-adequacy" data-oof-section-id="true" role="heading" aria-level="2">59. Substitute Functional Adequacy</h1>
+<p>A substitute must be capable of supporting the relevant function.</p>
+<h1 id="60-substitute-capacity" data-oof-section-id="true" role="heading" aria-level="2">60. Substitute Capacity</h1>
+<p>The substitute must have sufficient capacity for the required operating state.</p>
+<h1 id="61-substitute-availability" data-oof-section-id="true" role="heading" aria-level="2">61. Substitute Availability</h1>
+<p>A substitute that exists but is unavailable during the relevant interval may provide little Criticality reduction.</p>
+<h1 id="62-substitute-activation-time" data-oof-section-id="true" role="heading" aria-level="2">62. Substitute Activation Time</h1>
+<p>Criticality may depend upon how quickly the substitute can become operational.</p>
+<h1 id="63-substitute-quality" data-oof-section-id="true" role="heading" aria-level="2">63. Substitute Quality</h1>
+<p>Alternative Resource quality must satisfy the relevant functional requirements.</p>
+<h1 id="64-substitute-infrastructure" data-oof-section-id="true" role="heading" aria-level="2">64. Substitute Infrastructure</h1>
+<p>A substitute may require infrastructure that is not currently available.</p>
+<h1 id="65-partial-substitute" data-oof-section-id="true" role="heading" aria-level="2">65. Partial Substitute</h1>
+<p>A substitute may support only part of the required function.</p>
+<h1 id="66-conditional-substitute" data-oof-section-id="true" role="heading" aria-level="2">66. Conditional Substitute</h1>
+<p>A substitute may operate only under specific conditions.</p>
+<h1 id="67-theoretical-substitute-boundary" data-oof-section-id="true" role="heading" aria-level="2">67. Theoretical Substitute Boundary</h1>
+<p>Theoretical Substitute ≠ Operationally Available Substitute.</p>
+<h1 id="68-source-substitution" data-oof-section-id="true" role="heading" aria-level="2">68. Source Substitution</h1>
+<p>Alternative Sources of the same Resource may reduce Source Dependency.</p>
+<h1 id="69-resource-substitution" data-oof-section-id="true" role="heading" aria-level="2">69. Resource Substitution</h1>
+<p>A different Resource may potentially perform the function.</p>
+<p>These are distinct conditions.</p>
+<h1 id="70-source-substitutability-boundary" data-oof-section-id="true" role="heading" aria-level="2">70. Source Substitutability Boundary</h1>
+<p>Source Substitutability ≠ Resource Independence.</p>
+<h1 id="71-formal-substitution-boundary" data-oof-section-id="true" role="heading" aria-level="2">71. Formal Substitution Boundary</h1>
+<p>RCAM assesses substitutability as Criticality context.</p>
+<p>RSFS governs formal Resource Substitution &amp; Flexibility.</p>
+<h1 id="72-consequence-significance" data-oof-section-id="true" role="heading" aria-level="2">72. Consequence Significance</h1>
+<p>Criticality requires understanding what materially happens when the Resource Dependency cannot be satisfied.</p>
+<h1 id="73-functional-consequence" data-oof-section-id="true" role="heading" aria-level="2">73. Functional Consequence</h1>
+<p>Resource degradation may affect:</p>
+<p>output; performance; quality; availability; service level; capability.</p>
+<h1 id="74-operational-consequence" data-oof-section-id="true" role="heading" aria-level="2">74. Operational Consequence</h1>
+<p>Functional degradation may affect broader operation.</p>
+<h1 id="75-continuity-consequence" data-oof-section-id="true" role="heading" aria-level="2">75. Continuity Consequence</h1>
+<p>Resource interruption may threaten continued operation.</p>
+<h1 id="76-safety-relevant-consequence" data-oof-section-id="true" role="heading" aria-level="2">76. Safety-Relevant Consequence</h1>
+<p>A Resource Dependency may carry safety-relevant consequences.</p>
+<p>HAGA™ retains Harm Governance.</p>
+<p>RCAM consumes relevant consequence evidence without absorbing Harm governance.</p>
+<h1 id="77-economic-consequence" data-oof-section-id="true" role="heading" aria-level="2">77. Economic Consequence</h1>
+<p>Economic loss may inform consequence context.</p>
+<p>It does not independently determine Criticality.</p>
+<h1 id="78-societal-consequence" data-oof-section-id="true" role="heading" aria-level="2">78. Societal Consequence</h1>
+<p>A Resource Dependency may support broader societal functions.</p>
+<h1 id="79-consequence-scope" data-oof-section-id="true" role="heading" aria-level="2">79. Consequence Scope</h1>
+<p>Consequence may remain:</p>
+<p>local; functional; system-wide; cross-system; regional; societal</p>
+<p>depending upon the governed context.</p>
+<h1 id="80-consequence-timing" data-oof-section-id="true" role="heading" aria-level="2">80. Consequence Timing</h1>
+<p>The timing of consequence affects Criticality.</p>
+<h1 id="81-consequence-reversibility" data-oof-section-id="true" role="heading" aria-level="2">81. Consequence Reversibility</h1>
+<p>Some consequences may be fully reversible after Resource restoration.</p>
+<p>Others may not be.</p>
+<h1 id="82-recoverable-consequence" data-oof-section-id="true" role="heading" aria-level="2">82. Recoverable Consequence</h1>
+<p>A function may return to normal operation after Resource restoration.</p>
+<h1 id="83-persistent-consequence" data-oof-section-id="true" role="heading" aria-level="2">83. Persistent Consequence</h1>
+<p>Effects may continue after Resource availability returns.</p>
+<h1 id="84-recovery-context" data-oof-section-id="true" role="heading" aria-level="2">84. Recovery Context</h1>
+<p>Criticality assessment should consider how quickly the dependent function can recover.</p>
+<h1 id="85-resource-restoration-vs-recovery" data-oof-section-id="true" role="heading" aria-level="2">85. Resource Restoration vs Recovery</h1>
+<p>Resource Restored ≠ Function Fully Recovered.</p>
+<h1 id="86-recovery-time" data-oof-section-id="true" role="heading" aria-level="2">86. Recovery Time</h1>
+<p>Recovery may require:</p>
+<p>restart; inspection; reconfiguration; recalibration; reheating; cooling; data recovery; material replacement; process stabilization.</p>
+<h1 id="87-recovery-dependency" data-oof-section-id="true" role="heading" aria-level="2">87. Recovery Dependency</h1>
+<p>Recovery itself may depend upon additional Resources.</p>
+<h1 id="88-recovery-capability" data-oof-section-id="true" role="heading" aria-level="2">88. Recovery Capability</h1>
+<p>Available recovery capability may reduce prolonged consequence.</p>
+<h1 id="89-recovery-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">89. Recovery Uncertainty</h1>
+<p>Uncertain recovery time should remain visible in Criticality assessment.</p>
+<h1 id="90-propagation-context" data-oof-section-id="true" role="heading" aria-level="2">90. Propagation Context</h1>
+<p>A Resource Dependency may affect downstream functions.</p>
+<h1 id="91-dependency-chain-propagation" data-oof-section-id="true" role="heading" aria-level="2">91. Dependency Chain Propagation</h1>
+<p>RDMM provides Dependency chains.</p>
+<p>RCAM evaluates whether Resource failure across those chains materially increases Criticality.</p>
+<h1 id="92-local-vs-propagated-consequence" data-oof-section-id="true" role="heading" aria-level="2">92. Local vs Propagated Consequence</h1>
+<p>A Resource failure may remain local or propagate through multiple systems.</p>
+<h1 id="93-propagation-timing" data-oof-section-id="true" role="heading" aria-level="2">93. Propagation Timing</h1>
+<p>Propagation may be:</p>
+<p>immediate; progressive; threshold-triggered; delayed.</p>
+<h1 id="94-propagation-boundary" data-oof-section-id="true" role="heading" aria-level="2">94. Propagation Boundary</h1>
+<p>RIRS retains broader Resource Interdependency &amp; Resilience governance.</p>
+<p>RCAM uses propagation only insofar as it affects Criticality of the mapped Dependency.</p>
+<h1 id="95-dependency-concentration" data-oof-section-id="true" role="heading" aria-level="2">95. Dependency Concentration</h1>
+<p>Many functions may depend upon one Resource or Resource pathway.</p>
+<h1 id="96-concentration-significance" data-oof-section-id="true" role="heading" aria-level="2">96. Concentration Significance</h1>
+<p>Dependency concentration may increase consequence if that Resource relationship fails.</p>
+<h1 id="97-concentration-boundary" data-oof-section-id="true" role="heading" aria-level="2">97. Concentration Boundary</h1>
+<p>High concentration does not automatically establish Criticality.</p>
+<p>Its actual consequence must be assessed.</p>
+<h1 id="98-criticality-factors" data-oof-section-id="true" role="heading" aria-level="2">98. Criticality Factors</h1>
+<p>A Resource Criticality Assessment may consider:</p>
+<p>Dependency Strength; Functional Sensitivity; Resource Thresholds; Interruption Tolerance; Time-to-Impact; Time-to-Failure; Buffering; Redundancy; Substitutability; Substitution Time; Consequence Significance; Consequence Timing; Recovery Time; Propagation; Dependency Concentration.</p>
+<h1 id="99-factor-relevance" data-oof-section-id="true" role="heading" aria-level="2">99. Factor Relevance</h1>
+<p>Not every factor must be used for every Resource Dependency.</p>
+<p>Only materially relevant factors should govern the assessment.</p>
+<h1 id="100-criticality-assessment-structure" data-oof-section-id="true" role="heading" aria-level="2">100. Criticality Assessment Structure</h1>
+<p>Canonical structure:</p>
+<p>Mapped Dependency → Dependency Strength → Functional Sensitivity → Thresholds → Tolerance → Buffer / Redundancy → Substitutability → Consequence → Time Sensitivity → Recovery → Propagation → Criticality Assessment</p>
+<h1 id="101-criticality-classification" data-oof-section-id="true" role="heading" aria-level="2">101. Criticality Classification</h1>
+<p>RCAM should produce a governed Criticality State.</p>
+<h1 id="102-minimum-criticality-states" data-oof-section-id="true" role="heading" aria-level="2">102. Minimum Criticality States</h1>
+<p>At minimum:</p>
+<p>Low Criticality</p>
+<p>Moderate Criticality</p>
+<p>High Criticality</p>
+<p>Critical</p>
+<p>Criticality Evidence-Limited</p>
+<p>Criticality Conflicted</p>
+<p>Criticality Unknown</p>
+<p>Criticality Unresolved</p>
+<h1 id="103-low-criticality" data-oof-section-id="true" role="heading" aria-level="2">103. Low Criticality</h1>
+<p>Low Criticality indicates that Resource degradation or interruption produces limited governed consequence within the relevant conditions.</p>
+<h1 id="104-moderate-criticality" data-oof-section-id="true" role="heading" aria-level="2">104. Moderate Criticality</h1>
+<p>Moderate Criticality indicates material consequence that remains manageable within available tolerance, alternatives, or recovery capability.</p>
+<h1 id="105-high-criticality" data-oof-section-id="true" role="heading" aria-level="2">105. High Criticality</h1>
+<p>High Criticality indicates substantial consequence, limited tolerance, constrained alternatives, difficult recovery, or materially significant propagation.</p>
+<h1 id="106-critical" data-oof-section-id="true" role="heading" aria-level="2">106. Critical</h1>
+<p>Critical indicates that Resource degradation or interruption can create severe or unacceptable functional or operational consequence within the governed context and relevant time horizon.</p>
+<h1 id="107-criticality-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">107. Criticality Evidence-Limited</h1>
+<p>Available evidence is insufficient to support a stronger Criticality determination.</p>
+<h1 id="108-criticality-conflicted" data-oof-section-id="true" role="heading" aria-level="2">108. Criticality Conflicted</h1>
+<p>Credible evidence supports materially different Criticality assessments.</p>
+<h1 id="109-criticality-unknown" data-oof-section-id="true" role="heading" aria-level="2">109. Criticality Unknown</h1>
+<p>Insufficient information exists to determine Criticality.</p>
+<h1 id="110-criticality-unresolved" data-oof-section-id="true" role="heading" aria-level="2">110. Criticality Unresolved</h1>
+<p>Relevant evidence exists but a sufficiently governed Criticality determination has not yet been established.</p>
+<h1 id="111-criticality-classification-method" data-oof-section-id="true" role="heading" aria-level="2">111. Criticality Classification Method</h1>
+<p>Criticality classification should use a documented method.</p>
+<h1 id="112-qualitative-assessment" data-oof-section-id="true" role="heading" aria-level="2">112. Qualitative Assessment</h1>
+<p>Criticality may be assessed qualitatively where evidence and context support categorical governance.</p>
+<h1 id="113-quantitative-assessment" data-oof-section-id="true" role="heading" aria-level="2">113. Quantitative Assessment</h1>
+<p>Quantitative methods may be used where meaningful measurements exist.</p>
+<h1 id="114-hybrid-assessment" data-oof-section-id="true" role="heading" aria-level="2">114. Hybrid Assessment</h1>
+<p>A combination of quantitative and qualitative evidence may be appropriate.</p>
+<h1 id="115-universal-formula-boundary" data-oof-section-id="true" role="heading" aria-level="2">115. Universal Formula Boundary</h1>
+<p>RCAM does not impose one universal mathematical Criticality formula across all Resource types and operational contexts.</p>
+<h1 id="116-resource-specific-assessment" data-oof-section-id="true" role="heading" aria-level="2">116. Resource-Specific Assessment</h1>
+<p>Specialized Resource domains may require different technical indicators while remaining compatible with the same RDCS governance logic.</p>
+<h1 id="117-criticality-score" data-oof-section-id="true" role="heading" aria-level="2">117. Criticality Score</h1>
+<p>Implementations may produce a Criticality score where methodologically justified.</p>
+<h1 id="118-score-traceability" data-oof-section-id="true" role="heading" aria-level="2">118. Score Traceability</h1>
+<p>A Criticality score should remain traceable to the factors and evidence that produced it.</p>
+<h1 id="119-score-boundary" data-oof-section-id="true" role="heading" aria-level="2">119. Score Boundary</h1>
+<p>Criticality Score ≠ Criticality Evidence.</p>
+<p>The score represents an assessment outcome.</p>
+<p>It does not replace the underlying evidence.</p>
+<h1 id="120-false-precision" data-oof-section-id="true" role="heading" aria-level="2">120. False Precision</h1>
+<p>Criticality should not be expressed with precision unsupported by evidence.</p>
+<h1 id="121-criticality-evidence" data-oof-section-id="true" role="heading" aria-level="2">121. Criticality Evidence</h1>
+<p>Each material Criticality determination should retain evidence supporting its relevant factors.</p>
+<h1 id="122-evidence-sources" data-oof-section-id="true" role="heading" aria-level="2">122. Evidence Sources</h1>
+<p>Evidence may include:</p>
+<p>Resource Demand Profiles; Resource Dependency Maps; technical specifications; operational telemetry; functional testing; failure testing; historical interruption; incident evidence; recovery evidence; validated Simulation; engineering analysis.</p>
+<h1 id="123-observed-evidence" data-oof-section-id="true" role="heading" aria-level="2">123. Observed Evidence</h1>
+<p>Observed operational evidence should remain distinguishable from modeled evidence.</p>
+<h1 id="124-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">124. Simulation Evidence</h1>
+<p>Simulation may support Criticality assessment.</p>
+<p>Simulated Consequence ≠ Observed Consequence.</p>
+<p>SIMULOS® retains Simulation Governance.</p>
+<h1 id="125-prediction-evidence" data-oof-section-id="true" role="heading" aria-level="2">125. Prediction Evidence</h1>
+<p>Predicted future Resource or consequence states may inform future Criticality.</p>
+<p>Predicted Criticality ≠ Current Criticality.</p>
+<p>PGA™ retains Prediction Governance.</p>
+<h1 id="126-assumption" data-oof-section-id="true" role="heading" aria-level="2">126. Assumption</h1>
+<p>Where a Criticality factor depends upon assumption, the assumption should remain explicit.</p>
+<h1 id="127-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">127. Evidence Provenance</h1>
+<p>At minimum, relevant evidence should preserve:</p>
+<p>Criticality Assessment ID; Dependency ID; Resource ID; Function; evidence source; evidence time; operating state; method; version.</p>
+<h1 id="128-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">128. Evidence Freshness</h1>
+<p>Criticality evidence may become outdated after material operational change.</p>
+<h1 id="129-evidence-conflict" data-oof-section-id="true" role="heading" aria-level="2">129. Evidence Conflict</h1>
+<p>Conflicting evidence should not be silently averaged into a false certainty.</p>
+<h1 id="130-criticality-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">130. Criticality Uncertainty</h1>
+<p>Uncertainty may concern:</p>
+<p>Dependency Strength; Threshold; Tolerance; Buffer effectiveness; Redundancy; Substitutability; Consequence; Recovery; Propagation.</p>
+<h1 id="131-uncertainty-propagation" data-oof-section-id="true" role="heading" aria-level="2">131. Uncertainty Propagation</h1>
+<p>Material uncertainty in Criticality factors should propagate into the Criticality State.</p>
+<h1 id="132-criticality-confidence" data-oof-section-id="true" role="heading" aria-level="2">132. Criticality Confidence</h1>
+<p>Where implementations use confidence measures, confidence should reflect evidence sufficiency rather than rhetorical certainty.</p>
+<h1 id="133-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">133. Evidence Sufficiency</h1>
+<p>The evidence requirement should be proportional to the significance of the Criticality determination.</p>
+<h1 id="134-criticality-assessment-profile" data-oof-section-id="true" role="heading" aria-level="2">134. Criticality Assessment Profile</h1>
+<p>The principal RCAM output is the:</p>
+<p>Resource Criticality Assessment Profile</p>
+<h1 id="135-minimum-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">135. Minimum Profile Fields</h1>
+<p>At minimum:</p>
+<p>Criticality Assessment ID</p>
+<p>Dependency ID</p>
+<p>Resource ID</p>
+<p>Dependent Object</p>
+<p>Function</p>
+<p>Operating State</p>
+<p>Time Horizon</p>
+<p>Dependency Strength</p>
+<p>Functional Sensitivity</p>
+<p>Resource Sufficiency Threshold</p>
+<p>Degradation Threshold</p>
+<p>Failure Threshold where relevant</p>
+<p>Interruption Tolerance</p>
+<p>Time-to-Impact</p>
+<p>Time-to-Failure where relevant</p>
+<p>Buffer Context</p>
+<p>Redundancy Context</p>
+<p>Substitutability Context</p>
+<p>Consequence State</p>
+<p>Consequence Timing</p>
+<p>Recovery Context</p>
+<p>Propagation Context</p>
+<p>Criticality State</p>
+<p>Evidence Basis</p>
+<p>Criticality Uncertainty</p>
+<p>Sufficiency State</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="136-multi-horizon-criticality" data-oof-section-id="true" role="heading" aria-level="2">136. Multi-Horizon Criticality</h1>
+<p>Where Criticality changes materially over time, the profile should preserve multiple Criticality horizons.</p>
+<p>Example:</p>
+<p>0–5 minutes — Low</p>
+<p>5–60 minutes — Moderate</p>
+<p>1–4 hours — High</p>
+<p>&gt;4 hours — Critical</p>
+<p>where evidence supports those boundaries.</p>
+<h1 id="137-operating-state-criticality" data-oof-section-id="true" role="heading" aria-level="2">137. Operating-State Criticality</h1>
+<p>Criticality may differ between:</p>
+<p>normal operation; Peak operation; maintenance; standby; emergency; recovery.</p>
+<h1 id="138-location-specific-criticality" data-oof-section-id="true" role="heading" aria-level="2">138. Location-Specific Criticality</h1>
+<p>The same Resource Dependency may carry different Criticality at different locations because alternatives, buffers, infrastructure, or recovery conditions differ.</p>
+<h1 id="139-current-vs-future-criticality" data-oof-section-id="true" role="heading" aria-level="2">139. Current vs Future Criticality</h1>
+<p>Current and future Criticality should remain distinct.</p>
+<h1 id="140-criticality-reassessment" data-oof-section-id="true" role="heading" aria-level="2">140. Criticality Reassessment</h1>
+<p>Criticality should be reassessed after material change.</p>
+<h1 id="141-reassessment-triggers" data-oof-section-id="true" role="heading" aria-level="2">141. Reassessment Triggers</h1>
+<p>Triggers may include:</p>
+<p>Dependency change; Demand change; Resource threshold change; buffer change; new redundancy; loss of redundancy; new substitute; loss of substitute; operating-state change; consequence evidence; incident; recovery change; new Simulation; system redesign.</p>
+<h1 id="142-reassessment-logic" data-oof-section-id="true" role="heading" aria-level="2">142. Reassessment Logic</h1>
+<p>Canonical logic:</p>
+<p>Existing Criticality Assessment → Material Change / New Evidence</p>
+<p>→ Affected Criticality Factor Identification → Factor Reassessment → Criticality Retained or Revised → Version Update → Downstream RDCS Reassessment</p>
+<h1 id="143-versioning" data-oof-section-id="true" role="heading" aria-level="2">143. Versioning</h1>
+<p>Material Criticality changes should create a new assessment version.</p>
+<h1 id="144-historical-criticality" data-oof-section-id="true" role="heading" aria-level="2">144. Historical Criticality</h1>
+<p>Historical Criticality should remain distinguishable from current Criticality.</p>
+<h1 id="145-criticality-trend" data-oof-section-id="true" role="heading" aria-level="2">145. Criticality Trend</h1>
+<p class="podstand"><b>Version:</b> history may reveal increasing or decreasing Criticality.</p>
+<p>The underlying factor changes should remain explainable.</p>
+<h1 id="146-criticality-vs-resource-demand" data-oof-section-id="true" role="heading" aria-level="2">146. Criticality vs Resource Demand</h1>
+<p>Resource Demand tells us what is required.</p>
+<p>Resource Criticality tells us what the consequences of Dependency mean.</p>
+<h1 id="147-criticality-vs-resource-availability" data-oof-section-id="true" role="heading" aria-level="2">147. Criticality vs Resource Availability</h1>
+<p>A Resource may be highly Critical and currently available.</p>
+<p>It may also be highly Critical and unavailable.</p>
+<p>Criticality does not create Resource capacity.</p>
+<h1 id="148-criticality-vs-scarcity" data-oof-section-id="true" role="heading" aria-level="2">148. Criticality vs Scarcity</h1>
+<p>Resource Scarcity ≠ Resource Criticality.</p>
+<h1 id="149-criticality-vs-price" data-oof-section-id="true" role="heading" aria-level="2">149. Criticality vs Price</h1>
+<p>Resource Price ≠ Resource Criticality.</p>
+<h1 id="150-criticality-vs-value" data-oof-section-id="true" role="heading" aria-level="2">150. Criticality vs Value</h1>
+<p>VEGA™ governs Value.</p>
+<p>Value ≠ Resource Criticality.</p>
+<h1 id="151-criticality-vs-harm" data-oof-section-id="true" role="heading" aria-level="2">151. Criticality vs Harm</h1>
+<p>HAGA™ governs Harm.</p>
+<p>Harm evidence may inform Resource Criticality without making Harm and Criticality equivalent.</p>
+<h1 id="152-criticality-vs-liability" data-oof-section-id="true" role="heading" aria-level="2">152. Criticality vs Liability</h1>
+<p>LIGA™ governs Liability.</p>
+<p>Liability ≠ Resource Criticality.</p>
+<h1 id="153-criticality-vs-access" data-oof-section-id="true" role="heading" aria-level="2">153. Criticality vs Access</h1>
+<p>A highly Critical Dependency does not create Resource Access authorization.</p>
+<h1 id="154-criticality-vs-priority" data-oof-section-id="true" role="heading" aria-level="2">154. Criticality vs Priority</h1>
+<p>Criticality may become important evidence for Priority.</p>
+<p>It is not Priority itself.</p>
+<p>Resource Criticality ≠ Resource Priority.</p>
+<h1 id="155-criticality-vs-allocation" data-oof-section-id="true" role="heading" aria-level="2">155. Criticality vs Allocation</h1>
+<p>Critical Resource ≠ Automatically Allocated Resource.</p>
+<h1 id="156-criticality-vs-resilience" data-oof-section-id="true" role="heading" aria-level="2">156. Criticality vs Resilience</h1>
+<p>Criticality concerns significance of a Resource Dependency.</p>
+<p>RIRS later governs broader Resource Interdependency &amp; Resilience.</p>
+<h1 id="157-criticality-vs-sustainability" data-oof-section-id="true" role="heading" aria-level="2">157. Criticality vs Sustainability</h1>
+<p>A Critical Resource may still be consumed unsustainably.</p>
+<p>Resource Criticality ≠ Resource Sustainability.</p>
+<h1 id="158-assessment-independence" data-oof-section-id="true" role="heading" aria-level="2">158. Assessment Independence</h1>
+<p>RCAM must not manipulate Criticality to produce a preferred downstream Allocation outcome.</p>
+<h1 id="159-evidence-independence" data-oof-section-id="true" role="heading" aria-level="2">159. Evidence Independence</h1>
+<p>Evidence should determine Criticality.</p>
+<p>Desired Criticality should not determine accepted evidence.</p>
+<h1 id="160-structured-output-principle" data-oof-section-id="true" role="heading" aria-level="2">160. Structured Output Principle</h1>
+<p>RCAM should support:</p>
+<p>Evidence → Criticality Factors → Governed Factor States → Resource Criticality Assessment → Downstream Decision Evidence</p>
+<p>rather than:</p>
+<p>Resource Name → Assumed Importance → Criticality Label.</p>
+<h1 id="161-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">161. Minimum Implementation Framework</h1>
+<p>A minimum operational RCAM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Dependency Input</p>
+<p>Receive:</p>
+<p>Resource Dependency Map Resource Dependency Relationship Profile</p>
+<p>Layer 2 — Dependency Strength</p>
+<p>Assess:</p>
+<p>Partial / Complete Functional Sensitivity Operating-State Dependency</p>
+<p>Layer 3 — Threshold &amp; Tolerance</p>
+<p>Determine:</p>
+<p>Sufficiency Threshold Degradation Threshold Failure Threshold Interruption Tolerance Time-to-Impact</p>
+<p>Layer 4 — Buffer &amp; Alternative Context</p>
+<p>Assess:</p>
+<p>Buffer Redundancy Substitutability Substitution Time</p>
+<p>Layer 5 — Consequence</p>
+<p>Determine:</p>
+<p>Functional Consequence Operational Consequence Consequence Timing Propagation</p>
+<p>Layer 6 — Recovery</p>
+<p>Determine:</p>
+<p>Recovery Time Recovery Capability Recovery Dependency</p>
+<p>Layer 7 — Criticality Determination</p>
+<p>Determine:</p>
+<p>Criticality State Evidence Uncertainty Sufficiency</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Criticality Assessment Profile Version Reassessment triggers Downstream RDCS handoff state</p>
+<p>Minimum machine-readable logic:</p>
+<p>Dependency Profile → Dependency Strength → Functional Sensitivity → Threshold[] → Tolerance[] → Buffer → Redundancy → Substitute Context → Consequence[] → Recovery → Propagation → Evidence[] → Uncertainty[] → Criticality State → Resource Criticality Assessment Profile</p>
+<h1 id="162-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">162. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Low Criticality</p>
+<p>Moderate Criticality</p>
+<p>High Criticality</p>
+<p>Critical</p>
+<p>Criticality Evidence-Limited</p>
+<p>Criticality Conflicted</p>
+<p>Criticality Unknown</p>
+<p>Criticality Unresolved</p>
+<h1 id="163-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">163. Minimum Evidence Path</h1>
+<p>Where Criticality cannot be sufficiently assessed:</p>
+<p>Criticality Unresolved → Material Criticality Evidence Gap → Minimum Evidence Requirement → Evidence Acquisition → Factor Reassessment → Criticality Reassessment → Updated Resource Criticality Assessment Profile</p>
+<p>The objective is sufficient evidence for Criticality governance, not maximum possible data collection.</p>
+<h1 id="164-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">164. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Criticality Assessment → New Evidence / Material Change → Criticality Factor Impact Test → Affected Factor Reassessment → Criticality Retained / Revised → Version Update → Downstream RDCS Reassessment</p>
+<h1 id="165-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">165. Governance Requirements</h1>
+<p>A conforming RCAM implementation must:</p>
+<h1 id="1-receive-a-sufficiently-mapped-resource-dependency-2-identify-the-criticality-o" data-oof-section-id="true" role="heading" aria-level="2">1. receive a sufficiently mapped Resource Dependency; 2. identify the Criticality object; 3. preserve Resource, dependent object, and function identity; 4. establish the relevant operating state; 5. establish the relevant time horizon; 6. assess Dependency Strength; 7. assess Functional Sensitivity; 8. identify relevant Resource thresholds; 9. identify interruption tolerance; 10. identify Time-to-Impact where material; 11. identify Time-to-Failure where material; 12. identify buffer context; 13. evaluate effective redundancy; 14. identify common-mode limitations where known; 15. assess substitutability context; 16. distinguish theoretical from operational substitution; 17. assess consequence significance; 18. assess consequence timing; 19. assess recovery context; 20. assess propagation where relevant; 21. determine a governed Criticality State; 22. preserve evidence provenance; 23. preserve assumptions; 24. distinguish observed from simulated evidence; 25. distinguish current from predicted Criticality; 26. preserve material uncertainty; 27. preserve evidence conflict; 28. support multi-horizon Criticality where necessary; 29. support operating-state-specific Criticality where necessary; 30. support reassessment; 31. support versioning; 32. produce a Resource Criticality Assessment Profile; 33. preserve the boundary between Criticality and Priority; 34. preserve the boundary between Criticality and Allocation.</h1>
+<h1 id="166-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">166. Governance Logic</h1>
+<p>Canonical RCAM logic:</p>
+<p>Mapped Resource Dependency → Criticality Object → Dependency Strength → Functional Sensitivity → Resource Thresholds → Interruption Tolerance → Time-to-Impact → Buffer / Redundancy → Substitutability → Consequence → Consequence Timing → Recovery → Propagation → Evidence → Uncertainty → Criticality State → Resource Criticality Assessment Profile</p>
+<p>Where evidence is insufficient:</p>
+<p>Criticality Unresolved → Material Evidence Gap → Minimum Evidence Requirement → Evidence Acquisition → Reassessment</p>
+<h1 id="167-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">167. Governance Outputs</h1>
+<p>RCAM may produce:</p>
+<p>Resource Criticality Assessment Profile</p>
+<p>Criticality Assessment ID</p>
+<p>Dependency Strength State</p>
+<p>Functional Sensitivity State</p>
+<p>Resource Threshold State</p>
+<p>Degradation Threshold</p>
+<p>Failure Threshold</p>
+<p>Interruption Tolerance</p>
+<p>Time-to-Impact</p>
+<p>Time-to-Failure</p>
+<p>Buffer State</p>
+<p>Redundancy State</p>
+<p>Substitutability State</p>
+<p>Consequence State</p>
+<p>Consequence Timing</p>
+<p>Recovery State</p>
+<p>Propagation State</p>
+<p>Criticality State</p>
+<p>Evidence State</p>
+<p>Uncertainty State</p>
+<p>Sufficiency State</p>
+<p class="podstand"><b>Version:</b></p>
+<p>Reassessment Trigger</p>
+<h1 id="168-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">168. Failure Conditions</h1>
+<p>RCAM should not be considered sufficiently completed where:</p>
+<p>Resource Criticality is assigned from Resource name alone; Demand magnitude is treated as Criticality; Dependency existence is treated automatically as high Criticality; Resource quantity is treated as Dependency Strength; Resource thresholds are ignored where material; interruption tolerance is ignored; Time-to-Impact is ignored where material; buffers are treated as Dependency elimination; nominal redundancy is assumed to be effective redundancy; common-mode Dependency is ignored where known; theoretical substitution is treated as operational substitution; substitution time is ignored; consequence timing is ignored; Resource restoration is treated automatically as functional recovery; Criticality is inferred from Resource price; Scarcity is treated as Criticality; Value is treated as Criticality; predicted Criticality is represented as current Criticality; simulated consequence is represented as observed consequence; evidence conflict is suppressed; uncertainty is hidden; Criticality is manipulated to produce a preferred Priority; Criticality is treated as Allocation authority.</p>
+<h1 id="169-use-case-1-ai-data-center-electricity-criticality" data-oof-section-id="true" role="heading" aria-level="2">169. Use Case 1 — AI Data Center Electricity Criticality</h1>
+<p>RDMM maps several electricity dependencies in an AI data center:</p>
+<p>AI Compute → Electricity</p>
+<p>Cooling → Electricity</p>
+<p>Storage → Electricity</p>
+<p>Network Infrastructure → Electricity</p>
+<p>Control Systems → Electricity</p>
+<p>Their Criticality is not identical.</p>
+<p>A portion of AI training workload may be interruptible.</p>
+<p>Storage systems may have short battery protection.</p>
+<p>Network infrastructure may have independent backup.</p>
+<p>Cooling may continue briefly through thermal inertia but become increasingly critical as heat accumulates.</p>
+<p>Control systems may require only a small amount of electricity but may need near-continuous supply.</p>
+<p>RCAM therefore assesses each Dependency according to:</p>
+<p>Dependency Strength; interruption tolerance; Time-to-Impact; backup duration; alternative supply; consequence; recovery time.</p>
+<p>The result may show that the function with the smallest electricity Demand carries the highest immediate Criticality.</p>
+<p>Electricity Demand magnitude does not determine electricity Criticality.</p>
+<h1 id="170-use-case-2-regional-water-criticality" data-oof-section-id="true" role="heading" aria-level="2">170. Use Case 2 — Regional Water Criticality</h1>
+<p>RDMM maps water dependencies across:</p>
+<p>residential supply; industrial production; agriculture; cooling infrastructure; public services.</p>
+<p>Agriculture may represent the largest water Demand by volume.</p>
+<p>Some agricultural Demand may tolerate scheduling or temporary reduction.</p>
+<p>An industrial process may tolerate reduced production for several hours.</p>
+<p>Certain cooling functions may have much shorter interruption tolerance.</p>
+<p>Essential public services may require comparatively little water but experience severe consequence after sustained interruption.</p>
+<p>RCAM therefore evaluates:</p>
+<p>water Dependency Strength; minimum functional water requirement; interruption tolerance; stored water; alternative Sources; substitution feasibility; consequence timing; recovery conditions.</p>
+<p>The resulting Criticality states may differ substantially from the ranking produced by water volume alone.</p>
+<p>The largest water user is not automatically the most water-critical dependency.</p>
+<h1 id="171-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">171. Critical Distinctions</h1>
+<p>Resource Dependency ≠ Resource Criticality</p>
+<p>Demand Magnitude ≠ Dependency Strength</p>
+<p>High Dependency ≠ High Criticality by definition</p>
+<p>Resource Name ≠ Resource Criticality</p>
+<p>Temporary Buffering ≠ Dependency Elimination</p>
+<p>Resource Redundancy ≠ Resource Independence</p>
+<p>Theoretical Substitute ≠ Operationally Available Substitute</p>
+<p>Source Substitutability ≠ Resource Independence</p>
+<p>Resource Restored ≠ Function Fully Recovered</p>
+<p>Criticality Score ≠ Criticality Evidence</p>
+<p>Simulated Consequence ≠ Observed Consequence</p>
+<p>Predicted Criticality ≠ Current Criticality</p>
+<p>Resource Scarcity ≠ Resource Criticality</p>
+<p>Resource Price ≠ Resource Criticality</p>
+<p>Value ≠ Resource Criticality</p>
+<p>Resource Criticality ≠ Resource Priority</p>
+<p>Critical Resource ≠ Automatically Allocated Resource</p>
+<p>Resource Criticality ≠ Resource Sustainability</p>
+<h1 id="172-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">172. Cross-Architecture Boundary</h1>
+<p>RCAM governs Resource Criticality Assessment within RDCS.</p>
+<p>It may consume:</p>
+<p>RDMM Dependency Maps; RDGS Demand Profiles; RACS Availability &amp; Capacity context; ORA™ operational evidence; SIMULOS® simulated consequence evidence; PGA™ predicted future conditions; HAGA™ Harm evidence where relevant; LIGA™ Liability evidence where relevant; VEGA™ Value context where relevant; specialized Resource-domain evidence.</p>
+<p>It does not absorb those governance domains.</p>
+<h1 id="173-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">173. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>A Simulation may establish a possible interruption outcome.</p>
+<p>A Harm analysis may establish harmful consequence.</p>
+<p>A Value assessment may establish economic or operational Value.</p>
+<p>A technical system may establish failure thresholds.</p>
+<p>RCAM consumes these outputs only insofar as they establish Resource Criticality.</p>
+<h1 id="174-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">174. Canonical Boundary</h1>
+<p>RCAM governs the systematic assessment of the governance significance of a mapped Resource Dependency through Dependency Strength, Functional Sensitivity, Resource thresholds, tolerance, buffering, redundancy, substitutability, consequence, time sensitivity, recovery, propagation, evidence, and uncertainty.</p>
+<p>It does not determine Resource Access, Resource Priority, Resource Allocation, Scarcity response, formal Resource Substitution, system-wide Resilience, or long-term Sustainability.</p>
+<p>Its principal governed output is the Resource Criticality Assessment Profile .</p>
+<h1 id="175-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">175. Canonical Closing Statement</h1>
+<p>A Resource is not critical merely because it is heavily consumed, expensive, scarce, or generally important.</p>
+<p>RCAM establishes Criticality from the dependency itself — how strongly the function relies upon the Resource, how quickly degradation matters, what alternatives exist, what consequences follow, and how recovery changes those consequences — before Criticality is allowed to influence downstream Resource governance.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

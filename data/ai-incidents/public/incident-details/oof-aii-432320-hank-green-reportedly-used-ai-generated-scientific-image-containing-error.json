@@ -51,10 +51,10 @@
   "createdAt": "2026-08-15T14:19:30.138000Z",
   "updatedAt": "2026-08-15T14:19:30.138000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-432320-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-432320-V7",
     "incidentId": "OOF-AII-432320",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -124,7 +124,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -146,6 +147,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Hank Green Reportedly Used AI-Generated Scientific Image Containing Errors in Educational Video",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Science communicator and YouTuber Hank Green reportedly included an AI-generated scientific image containing factual and mathematical errors in a YouTube educational video. Green later said he knew the image was AI-generated when he used it and removed it after recognizing problems with the graphic. (2026-07-22).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1637",
+      "eventDate": "2026-07-22",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -257,7 +267,39 @@
       "What evidence would establish how Youtube, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns when, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting indicates that Youtube, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: How should when be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing when were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for when, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains when under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "vfm",
+      "mechanisms": [
+        "when"
+      ],
+      "patternKey": "6e94539cf24e59b0"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1637"
@@ -279,7 +321,7 @@
         "What evidence would establish how Youtube, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns when, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "incidentGovernanceInsight": "Available reporting indicates that Youtube, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: How should when be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -362,8 +404,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-432320-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-432320-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

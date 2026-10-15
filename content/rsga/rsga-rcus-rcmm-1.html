@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Consumption Measurement Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Consumption Measurement Module | OOF®. RCMM — Resource Consumption Measurement Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Consumption Measurement Module | OOF®" />
+<meta property="og:description" content="Resource Consumption Measurement Module | OOF®. RCMM — Resource Consumption Measurement Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Consumption Measurement Module | OOF®" />
+<meta name="twitter:description" content="Resource Consumption Measurement Module | OOF®. RCMM — Resource Consumption Measurement Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Consumption Measurement Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html","name":"Resource Consumption Measurement Module | OOF®","description":"Resource Consumption Measurement Module | OOF®. RCMM — Resource Consumption Measurement Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Consumption Measurement Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html"}]},"headline":"Resource Consumption Measurement Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcmm-1.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Consumption & Utilization Standard (RCUS)","Governance & Enforcement","Resource Governance","Resource Consumption Measurement Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Consumption Measurement Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Consumption Measurement Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RCMM — Resource Consumption Measurement Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Consumption &amp; Utilization Standard (RCUS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Consumption Measurement Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RCUS-RCMM-01</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RCUS-RCMM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 7 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RCMM — Resource Consumption Measurement Module governs how the actual Consumption of a defined Resource is identified, bounded, measured, calculated or estimated where necessary, temporally and spatially contextualized, evidenced, validated, and represented as a governed Resource Consumption state.</p>
+<p>RCMM establishes the measurement foundation required to distinguish what was actually consumed from what was merely:</p>
+<p>available; accessible; allocated; reserved; withdrawn; occupied; transferred;</p>
+<p>estimated; or expected to be consumed.</p>
+<p>Its foundational distinction is:</p>
+<p>Allocated Resource ≠ Consumed Resource.</p>
+<p>Its measurement principle is:</p>
+<p>Resource Quantity Without Measurement Boundary ≠ Governed Consumption Evidence.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RCUS requires operational evidence of actual Resource use.</p>
+<p>RCMM establishes that evidence for Resource Consumption.</p>
+<p>Its role is to determine:</p>
+<p>what Resource is being measured; what constitutes Consumption for that Resource; which Resource boundary applies; which native measurement unit applies; when Consumption occurred; where Consumption occurred; from which Resource Source it occurred; how Consumption was measured; whether the measurement is direct or estimated; whether gross and net Consumption differ; what uncertainty exists; whether the evidence is sufficient; what governed Consumption state can be established.</p>
+<p>RCMM therefore creates the measurement foundation upon which the wider Consumption &amp; Utilization governance layer depends.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>What quantity or capacity of the relevant Resource was actually consumed within the defined Resource, measurement, Source, location, purpose, and temporal boundary, using what measurement method and evidence, with what uncertainty, and with what resulting Resource Consumption state?</p>
+<h1 id="4-position-in-rcus-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RCUS Governance</h1>
+<p>Canonical progression:</p>
+<p>Governed Resource Allocation → Actual Resource Use → Consumption Measurement → Utilization Determination → Resource-Use Attribution → Allocation-to-Use Comparison → Resource-Use State → Residual / Released Resource State → Reassessment</p>
+<p>RCMM governs:</p>
+<p>Actual Resource Use → Governed Resource Consumption Measurement</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RCMM governs:</p>
+<p>Resource Consumption Measurement Governance</p>
+<p>This governed space concerns the determination of actual Resource Consumption through defined measurement boundaries, units, methods, evidence, uncertainty, and validation.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Consumption Measurement associated with a defined Resource, measurement boundary, Resource Source, location, time interval, operational context, and evidence basis.</p>
+<p>Canonical relationship:</p>
+<p>**Resource</p>
+<p>Measurement Boundary Consumption Definition Native Measurement Unit Measurement Method Operational Evidence Context → Resource Consumption Measurement → Resource Consumption State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RCMM governs:</p>
+<p>Consumption identification; Consumption definition; measurement boundaries; measurement points; native Resource units; gross Consumption; net Consumption; withdrawal measurement; return-flow measurement; Resource depletion; Resource transformation; Resource expenditure; Resource throughput where relevant; direct measurement; metered Consumption; telemetry-based measurement; inventory-based measurement; calculated Consumption; estimated Consumption; model-based estimation; measurement interval; temporal aggregation; spatial measurement; Source-specific measurement; measurement calibration evidence; measurement completeness; measurement uncertainty; measurement confidence; measurement conflict;</p>
+<p>measurement gaps; evidence sufficiency; Consumption states; measurement reassessment; versioning; traceability.</p>
+<p>RCMM does not independently:</p>
+<p>determine Resource Utilization; determine whether Consumption was productive; determine Resource-use purpose legitimacy; determine Resource Allocation; determine Resource Priority; authorize Resource Access; determine Resource Scarcity; govern Resource Recovery; determine Resource Sustainability; determine Value; determine Harm; determine Liability.</p>
+<h1 id="8-consumption-definition" data-oof-section-id="true" role="heading" aria-level="2">8. Consumption Definition</h1>
+<p>Before Resource Consumption can be measured, the Resource-specific meaning of Consumption must be sufficiently defined.</p>
+<p>Consumption may represent:</p>
+<p>physical depletion; energy expenditure; material transformation; net withdrawal; capacity-time expenditure; irreversible use; other Resource-specific operational reduction or commitment.</p>
+<h1 id="9-consumption-definition-boundary" data-oof-section-id="true" role="heading" aria-level="2">9. Consumption Definition Boundary</h1>
+<p>Resource Use ≠ Resource Consumption by definition.</p>
+<p>Different Resources may require different Consumption definitions.</p>
+<h1 id="10-resource-identity" data-oof-section-id="true" role="heading" aria-level="2">10. Resource Identity</h1>
+<p>Every Consumption Measurement should identify the Resource to which the measurement applies.</p>
+<h1 id="11-resource-type" data-oof-section-id="true" role="heading" aria-level="2">11. Resource Type</h1>
+<p>The Resource type may determine:</p>
+<p>measurement unit; measurement method; Consumption definition; measurement boundary; relevant uncertainty.</p>
+<h1 id="12-resource-source" data-oof-section-id="true" role="heading" aria-level="2">12. Resource Source</h1>
+<p>Where materially relevant, the Resource Source from which Consumption occurs should remain identifiable.</p>
+<h1 id="13-source-boundary" data-oof-section-id="true" role="heading" aria-level="2">13. Source Boundary</h1>
+<p>Consumption of Resource Type X ≠ Consumption from Every Source of Resource Type X.</p>
+<h1 id="14-measurement-boundary" data-oof-section-id="true" role="heading" aria-level="2">14. Measurement Boundary</h1>
+<p>Every governed Consumption Measurement should establish the boundary within which Resource Consumption is being determined.</p>
+<p>The boundary may be:</p>
+<p>physical; systemic; facility-level; process-level; device-level; organizational; geographic; temporal; Source-specific; other domain-appropriate boundary.</p>
+<h1 id="15-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">15. Boundary Principle</h1>
+<p>Resource Quantity Without Measurement Boundary ≠ Governed Consumption Evidence.</p>
+<p>A quantity alone cannot establish what was consumed unless the included and excluded Resource flows are sufficiently understood.</p>
+<h1 id="16-boundary-inclusion" data-oof-section-id="true" role="heading" aria-level="2">16. Boundary Inclusion</h1>
+<p>RCMM should identify materially relevant Resource flows included in the measurement.</p>
+<h1 id="17-boundary-exclusion" data-oof-section-id="true" role="heading" aria-level="2">17. Boundary Exclusion</h1>
+<p>Material exclusions should remain explicit where they could affect interpretation.</p>
+<h1 id="18-boundary-change" data-oof-section-id="true" role="heading" aria-level="2">18. Boundary Change</h1>
+<p>A material change in measurement boundary should remain visible.</p>
+<h1 id="19-boundary-comparability" data-oof-section-id="true" role="heading" aria-level="2">19. Boundary Comparability</h1>
+<p>Consumption measurements using materially different boundaries should not be treated automatically as directly comparable.</p>
+<h1 id="20-native-resource-unit" data-oof-section-id="true" role="heading" aria-level="2">20. Native Resource Unit</h1>
+<p>Consumption should be represented first in the applicable native Resource unit where sufficiently measurable.</p>
+<p>Examples include:</p>
+<p>kWh; MWh; litres; m³; kg; tonnes; litres of fuel; GPU-hours; CPU-hours; storage-byte-time; other Resource-specific units.</p>
+<h1 id="21-native-measurement-principle" data-oof-section-id="true" role="heading" aria-level="2">21. Native Measurement Principle</h1>
+<p>Native Resource Measurement ≠ Normalized Resource Significance.</p>
+<p>Normalization may occur elsewhere where methodologically justified.</p>
+<p>RCMM preserves the native measurement foundation.</p>
+<h1 id="22-unit-definition" data-oof-section-id="true" role="heading" aria-level="2">22. Unit Definition</h1>
+<p>The applicable measurement unit should be sufficiently defined to prevent ambiguous interpretation.</p>
+<h1 id="23-unit-consistency" data-oof-section-id="true" role="heading" aria-level="2">23. Unit Consistency</h1>
+<p>Comparative Consumption measurements should use compatible units or governed conversions.</p>
+<h1 id="24-unit-conversion" data-oof-section-id="true" role="heading" aria-level="2">24. Unit Conversion</h1>
+<p>Where unit conversion occurs, the conversion basis should remain identifiable.</p>
+<h1 id="25-conversion-boundary" data-oof-section-id="true" role="heading" aria-level="2">25. Conversion Boundary</h1>
+<p>Converted Quantity ≠ Original Measurement.</p>
+<p>Both should remain distinguishable where traceability requires it.</p>
+<h1 id="26-measurement-point" data-oof-section-id="true" role="heading" aria-level="2">26. Measurement Point</h1>
+<p>RCMM should identify where Resource Consumption is measured when the measurement point materially affects the result.</p>
+<p>Examples may include:</p>
+<p>Resource Source; facility inlet; system inlet; device input; process boundary; output boundary; return flow.</p>
+<h1 id="27-measurement-point-boundary" data-oof-section-id="true" role="heading" aria-level="2">27. Measurement-Point Boundary</h1>
+<p>Same Resource Flow Measured at Different Points ≠ Necessarily Same Consumption Value.</p>
+<p>Losses, transformations, returns, and intermediate use may occur between measurement points.</p>
+<h1 id="28-gross-consumption" data-oof-section-id="true" role="heading" aria-level="2">28. Gross Consumption</h1>
+<p>Gross Consumption may represent total Resource entering or being expended within the defined measurement boundary before applicable returns or adjustments.</p>
+<h1 id="29-net-consumption" data-oof-section-id="true" role="heading" aria-level="2">29. Net Consumption</h1>
+<p>Net Consumption may represent Resource Consumption after defined:</p>
+<p>returns; exports; releases; recovery-adjusted flows where methodologically appropriate; other valid Resource-specific adjustments.</p>
+<h1 id="30-gross-net-distinction" data-oof-section-id="true" role="heading" aria-level="2">30. Gross–Net Distinction</h1>
+<p>Gross Consumption ≠ Net Consumption.</p>
+<p>The applicable measurement must state which quantity is being represented.</p>
+<h1 id="31-withdrawal" data-oof-section-id="true" role="heading" aria-level="2">31. Withdrawal</h1>
+<p>For some Resources, Resource withdrawal is measurable independently of Resource Consumption.</p>
+<h1 id="32-withdrawal-boundary" data-oof-section-id="true" role="heading" aria-level="2">32. Withdrawal Boundary</h1>
+<p>Resource Withdrawal ≠ Resource Consumption by definition.</p>
+<p>Water provides a clear example.</p>
+<p>Water may be withdrawn, used, partially consumed, and partially returned.</p>
+<h1 id="33-return-flow" data-oof-section-id="true" role="heading" aria-level="2">33. Return Flow</h1>
+<p>Where Resource returns materially affect net Consumption, RCMM should preserve the return flow.</p>
+<h1 id="34-return-flow-boundary" data-oof-section-id="true" role="heading" aria-level="2">34. Return-Flow Boundary</h1>
+<p>Returned Resource ≠ Automatically Equivalent to Original Resource State.</p>
+<p>Quality, location, timing, temperature, contamination, or other conditions may differ.</p>
+<h1 id="35-resource-depletion" data-oof-section-id="true" role="heading" aria-level="2">35. Resource Depletion</h1>
+<p>Where Consumption reduces a Resource stock, RCMM should measure or estimate the depleted quantity where feasible.</p>
+<h1 id="36-resource-transformation" data-oof-section-id="true" role="heading" aria-level="2">36. Resource Transformation</h1>
+<p>Where Resource use transforms rather than destroys the Resource, the measurement should preserve the relevant transformation boundary.</p>
+<h1 id="37-transformation-principle" data-oof-section-id="true" role="heading" aria-level="2">37. Transformation Principle</h1>
+<p>Transformation ≠ Disappearance.</p>
+<p>The resulting Resource state may remain relevant to downstream governance.</p>
+<h1 id="38-energy-consumption" data-oof-section-id="true" role="heading" aria-level="2">38. Energy Consumption</h1>
+<p>For energy Resources, Consumption may be measured as energy expended within the defined boundary.</p>
+<h1 id="39-material-consumption" data-oof-section-id="true" role="heading" aria-level="2">39. Material Consumption</h1>
+<p>For material Resources, Consumption may involve:</p>
+<p>incorporation into products; physical transformation; depletion; loss; discard; other Resource-specific pathways.</p>
+<h1 id="40-capacity-time-consumption" data-oof-section-id="true" role="heading" aria-level="2">40. Capacity-Time Consumption</h1>
+<p>For some capacity Resources, Consumption may be represented through capacity-time.</p>
+<p>Examples include:</p>
+<p>GPU-hours; CPU-hours; machine-hours; storage-byte-time.</p>
+<h1 id="41-capacity-time-boundary" data-oof-section-id="true" role="heading" aria-level="2">41. Capacity-Time Boundary</h1>
+<p>Capacity-Time Consumption ≠ Physical Resource Depletion.</p>
+<p>The underlying physical asset may remain available after the Consumption interval.</p>
+<h1 id="42-throughput-measurement" data-oof-section-id="true" role="heading" aria-level="2">42. Throughput Measurement</h1>
+<p>Where throughput is materially relevant, RCMM may measure Resource passing through the governed system.</p>
+<h1 id="43-throughput-boundary" data-oof-section-id="true" role="heading" aria-level="2">43. Throughput Boundary</h1>
+<p>Throughput ≠ Net Consumption by definition.</p>
+<h1 id="44-direct-measurement" data-oof-section-id="true" role="heading" aria-level="2">44. Direct Measurement</h1>
+<p>Direct Measurement obtains Resource Consumption evidence directly from a measurement instrument or system designed to observe the relevant Resource quantity.</p>
+<h1 id="45-metered-consumption" data-oof-section-id="true" role="heading" aria-level="2">45. Metered Consumption</h1>
+<p>Metered Consumption is a form of Direct Measurement where a meter records Resource flow or expenditure.</p>
+<h1 id="46-telemetry-based-measurement" data-oof-section-id="true" role="heading" aria-level="2">46. Telemetry-Based Measurement</h1>
+<p>Operational telemetry may provide direct or near-direct Resource Consumption evidence depending upon the Resource and instrumentation.</p>
+<h1 id="47-direct-measurement-boundary" data-oof-section-id="true" role="heading" aria-level="2">47. Direct Measurement Boundary</h1>
+<p>Instrument Output ≠ Automatically Valid Consumption Evidence.</p>
+<p>The instrument, measurement point, calibration, boundary, unit, and operational context remain relevant.</p>
+<h1 id="48-calculated-consumption" data-oof-section-id="true" role="heading" aria-level="2">48. Calculated Consumption</h1>
+<p>Consumption may be calculated from measured variables where direct Consumption measurement is unavailable or unnecessary.</p>
+<h1 id="49-calculation-basis" data-oof-section-id="true" role="heading" aria-level="2">49. Calculation Basis</h1>
+<p>A calculated Consumption value should preserve:</p>
+<p>input variables; formula or method; units; assumptions; time interval; applicable Resource context.</p>
+<h1 id="50-estimated-consumption" data-oof-section-id="true" role="heading" aria-level="2">50. Estimated Consumption</h1>
+<p>Where direct measurement or sufficiently complete calculation is unavailable, Resource Consumption may be estimated.</p>
+<h1 id="51-estimation-boundary" data-oof-section-id="true" role="heading" aria-level="2">51. Estimation Boundary</h1>
+<p>Estimated Consumption ≠ Directly Measured Consumption.</p>
+<p>The distinction should remain visible in the governed state.</p>
+<h1 id="52-estimation-method" data-oof-section-id="true" role="heading" aria-level="2">52. Estimation Method</h1>
+<p>The estimation method should be explicit.</p>
+<p>Possible methods may include:</p>
+<p>engineering estimate; statistical estimate; sampling; proxy measurement; model-based inference; historical extrapolation; other validated method.</p>
+<h1 id="53-proxy-measurement" data-oof-section-id="true" role="heading" aria-level="2">53. Proxy Measurement</h1>
+<p>A proxy may be used where it has a sufficiently supported relationship to Resource Consumption.</p>
+<h1 id="54-proxy-boundary" data-oof-section-id="true" role="heading" aria-level="2">54. Proxy Boundary</h1>
+<p>Correlated Signal ≠ Resource Consumption Measurement by itself.</p>
+<p>The proxy relationship must be established.</p>
+<h1 id="55-model-based-estimation" data-oof-section-id="true" role="heading" aria-level="2">55. Model-Based Estimation</h1>
+<p>A computational model may estimate Resource Consumption where the methodology and inputs are sufficiently governed.</p>
+<h1 id="56-model-boundary" data-oof-section-id="true" role="heading" aria-level="2">56. Model Boundary</h1>
+<p>Model Output ≠ Measured Consumption.</p>
+<h1 id="57-historical-estimation" data-oof-section-id="true" role="heading" aria-level="2">57. Historical Estimation</h1>
+<p>Historical Resource-use patterns may support estimation where current direct measurement is unavailable.</p>
+<h1 id="58-historical-boundary" data-oof-section-id="true" role="heading" aria-level="2">58. Historical Boundary</h1>
+<p>Historical Consumption Pattern ≠ Current Consumption Fact.</p>
+<h1 id="59-measurement-method-hierarchy" data-oof-section-id="true" role="heading" aria-level="2">59. Measurement Method Hierarchy</h1>
+<p>RCMM may preserve a hierarchy of evidence quality where appropriate.</p>
+<p>For example:</p>
+<p>direct measurement; validated calculation; validated estimation; proxy inference; unknown.</p>
+<p>The hierarchy should reflect the Resource context rather than being treated as universally fixed.</p>
+<h1 id="60-measurement-interval" data-oof-section-id="true" role="heading" aria-level="2">60. Measurement Interval</h1>
+<p>Every Consumption Measurement should preserve the relevant time interval.</p>
+<h1 id="61-instantaneous-measurement" data-oof-section-id="true" role="heading" aria-level="2">61. Instantaneous Measurement</h1>
+<p>Some Resource variables may be measured instantaneously but require integration over time to establish Consumption.</p>
+<h1 id="62-interval-consumption" data-oof-section-id="true" role="heading" aria-level="2">62. Interval Consumption</h1>
+<p>Consumption may be determined over:</p>
+<p>seconds; minutes; hours; days; months; years; other operational intervals.</p>
+<h1 id="63-temporal-aggregation" data-oof-section-id="true" role="heading" aria-level="2">63. Temporal Aggregation</h1>
+<p>Consumption measurements may be aggregated across time where the underlying evidence permits.</p>
+<h1 id="64-temporal-aggregation-boundary" data-oof-section-id="true" role="heading" aria-level="2">64. Temporal Aggregation Boundary</h1>
+<p>Equal Total Consumption ≠ Equal Consumption Pattern.</p>
+<p>Two systems may consume the same annual Resource quantity while producing radically different peak or temporal conditions.</p>
+<h1 id="65-peak-consumption" data-oof-section-id="true" role="heading" aria-level="2">65. Peak Consumption</h1>
+<p>RCMM should preserve peak Consumption where materially relevant.</p>
+<h1 id="66-average-consumption" data-oof-section-id="true" role="heading" aria-level="2">66. Average Consumption</h1>
+<p>Average Consumption may support analysis but should not replace materially relevant peak evidence.</p>
+<h1 id="67-average-boundary" data-oof-section-id="true" role="heading" aria-level="2">67. Average Boundary</h1>
+<p>Average Consumption ≠ Peak Consumption.</p>
+<h1 id="68-temporal-granularity" data-oof-section-id="true" role="heading" aria-level="2">68. Temporal Granularity</h1>
+<p>The measurement interval should be sufficiently granular for the Resource governance question.</p>
+<h1 id="69-temporal-granularity-boundary" data-oof-section-id="true" role="heading" aria-level="2">69. Temporal Granularity Boundary</h1>
+<p>Annual Measurement ≠ Sufficient Evidence for Hourly Constraint by definition.</p>
+<h1 id="70-spatial-measurement" data-oof-section-id="true" role="heading" aria-level="2">70. Spatial Measurement</h1>
+<p>Resource Consumption may be measured at:</p>
+<p>device; facility; site; district; region; network; other geographic level.</p>
+<h1 id="71-spatial-aggregation" data-oof-section-id="true" role="heading" aria-level="2">71. Spatial Aggregation</h1>
+<p>Consumption may be aggregated across locations where governance permits.</p>
+<h1 id="72-spatial-boundary" data-oof-section-id="true" role="heading" aria-level="2">72. Spatial Boundary</h1>
+<p>Aggregate Consumption ≠ Local Consumption State.</p>
+<p>Local Resource conditions may remain materially different.</p>
+<h1 id="73-source-specific-measurement" data-oof-section-id="true" role="heading" aria-level="2">73. Source-Specific Measurement</h1>
+<p>Where multiple Resource Sources supply the same operational system, Source-specific Consumption should remain identifiable where materially relevant.</p>
+<h1 id="74-source-aggregation-boundary" data-oof-section-id="true" role="heading" aria-level="2">74. Source Aggregation Boundary</h1>
+<p>Aggregate Resource Consumption ≠ Source-Neutral Consumption.</p>
+<p>Source characteristics may matter to downstream governance.</p>
+<h1 id="75-measurement-completeness" data-oof-section-id="true" role="heading" aria-level="2">75. Measurement Completeness</h1>
+<p>RCMM should determine whether the relevant Resource flows are sufficiently captured by the measurement system.</p>
+<h1 id="76-partial-measurement" data-oof-section-id="true" role="heading" aria-level="2">76. Partial Measurement</h1>
+<p>A measurement may represent only part of total Consumption.</p>
+<p>Such evidence should not be silently represented as complete.</p>
+<h1 id="77-measurement-coverage" data-oof-section-id="true" role="heading" aria-level="2">77. Measurement Coverage</h1>
+<p>Where useful:</p>
+<p>Measurement Coverage = Measured Relevant Resource Scope / Defined Relevant Resource Scope</p>
+<p>The exact implementation depends upon the Resource context.</p>
+<h1 id="78-coverage-boundary" data-oof-section-id="true" role="heading" aria-level="2">78. Coverage Boundary</h1>
+<p>High Measurement Precision ≠ Complete Measurement Coverage.</p>
+<p>A highly precise meter may measure only one part of the relevant Resource system.</p>
+<h1 id="79-measurement-accuracy" data-oof-section-id="true" role="heading" aria-level="2">79. Measurement Accuracy</h1>
+<p>Where evidence permits, RCMM should preserve information relevant to measurement accuracy.</p>
+<h1 id="80-measurement-precision" data-oof-section-id="true" role="heading" aria-level="2">80. Measurement Precision</h1>
+<p>Precision should remain distinguishable from accuracy.</p>
+<h1 id="81-accuracy-precision-boundary" data-oof-section-id="true" role="heading" aria-level="2">81. Accuracy–Precision Boundary</h1>
+<p>High Precision ≠ High Accuracy.</p>
+<h1 id="82-calibration" data-oof-section-id="true" role="heading" aria-level="2">82. Calibration</h1>
+<p>Where measurement devices require calibration, relevant calibration evidence should remain traceable where material.</p>
+<h1 id="83-calibration-boundary" data-oof-section-id="true" role="heading" aria-level="2">83. Calibration Boundary</h1>
+<p>Device Present ≠ Device Validated.</p>
+<h1 id="84-measurement-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">84. Measurement Uncertainty</h1>
+<p>RCMM should preserve material uncertainty associated with Resource Consumption measurements.</p>
+<h1 id="85-sources-of-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">85. Sources of Uncertainty</h1>
+<p>Uncertainty may arise from:</p>
+<p>instrument tolerance; sampling; missing telemetry; estimated variables; conversion; boundary uncertainty; Source attribution; temporal aggregation; model assumptions.</p>
+<h1 id="86-uncertainty-representation" data-oof-section-id="true" role="heading" aria-level="2">86. Uncertainty Representation</h1>
+<p>Material uncertainty should be represented explicitly rather than hidden within an apparently exact number.</p>
+<h1 id="87-uncertainty-boundary" data-oof-section-id="true" role="heading" aria-level="2">87. Uncertainty Boundary</h1>
+<p>Numerical Precision ≠ Measurement Certainty.</p>
+<h1 id="88-measurement-confidence" data-oof-section-id="true" role="heading" aria-level="2">88. Measurement Confidence</h1>
+<p>Where useful, RCMM may establish a governed confidence state based on the available evidence.</p>
+<h1 id="89-minimum-measurement-confidence-states" data-oof-section-id="true" role="heading" aria-level="2">89. Minimum Measurement Confidence States</h1>
+<p>At minimum:</p>
+<p>High Confidence</p>
+<p>Moderate Confidence</p>
+<p>Limited Confidence</p>
+<p>Evidence-Limited</p>
+<p>Unknown</p>
+<p>The exact thresholds should be defined by the applicable implementation context.</p>
+<h1 id="90-measurement-gap" data-oof-section-id="true" role="heading" aria-level="2">90. Measurement Gap</h1>
+<p>A Measurement Gap exists where materially relevant Consumption cannot be directly measured or sufficiently estimated.</p>
+<h1 id="91-missing-data" data-oof-section-id="true" role="heading" aria-level="2">91. Missing Data</h1>
+<p>Missing measurement data should remain identifiable.</p>
+<h1 id="92-missing-data-boundary" data-oof-section-id="true" role="heading" aria-level="2">92. Missing-Data Boundary</h1>
+<p>Missing Measurement ≠ Zero Consumption.</p>
+<h1 id="93-gap-estimation" data-oof-section-id="true" role="heading" aria-level="2">93. Gap Estimation</h1>
+<p>Where legitimate, missing intervals may be estimated using an established method.</p>
+<h1 id="94-gap-estimation-boundary" data-oof-section-id="true" role="heading" aria-level="2">94. Gap Estimation Boundary</h1>
+<p>Estimated Missing Interval ≠ Observed Interval.</p>
+<h1 id="95-measurement-conflict" data-oof-section-id="true" role="heading" aria-level="2">95. Measurement Conflict</h1>
+<p>Measurement Conflict exists where materially relevant evidence sources produce incompatible Consumption values.</p>
+<h1 id="96-conflict-preservation" data-oof-section-id="true" role="heading" aria-level="2">96. Conflict Preservation</h1>
+<p>Conflicting measurements should not be silently averaged where doing so would conceal a material governance issue.</p>
+<h1 id="97-conflict-resolution" data-oof-section-id="true" role="heading" aria-level="2">97. Conflict Resolution</h1>
+<p>Resolution may require:</p>
+<p>measurement-source validation; boundary comparison; time synchronization; unit validation; calibration review; evidence hierarchy; additional measurement.</p>
+<h1 id="98-duplicate-measurement" data-oof-section-id="true" role="heading" aria-level="2">98. Duplicate Measurement</h1>
+<p>Multiple measurement systems may observe the same Resource flow.</p>
+<p>RCMM should prevent duplicate evidence from being automatically interpreted as additional Consumption.</p>
+<h1 id="99-double-counting-boundary" data-oof-section-id="true" role="heading" aria-level="2">99. Double-Counting Boundary</h1>
+<p>Multiple Records of the Same Resource Flow ≠ Multiple Consumption Events.</p>
+<h1 id="100-measurement-synchronization" data-oof-section-id="true" role="heading" aria-level="2">100. Measurement Synchronization</h1>
+<p>Where multiple data sources are combined, their temporal alignment may be materially relevant.</p>
+<h1 id="101-measurement-validation" data-oof-section-id="true" role="heading" aria-level="2">101. Measurement Validation</h1>
+<p>RCMM should validate whether the measurement is sufficiently suitable for the governed Consumption determination.</p>
+<h1 id="102-minimum-validation-dimensions" data-oof-section-id="true" role="heading" aria-level="2">102. Minimum Validation Dimensions</h1>
+<p>Validation may include:</p>
+<p>Resource identity; measurement boundary; measurement point; unit; method; time interval; Source; location; completeness; calibration where applicable; uncertainty; evidence provenance.</p>
+<h1 id="103-consumption-state" data-oof-section-id="true" role="heading" aria-level="2">103. Consumption State</h1>
+<p>RCMM should establish a governed Resource Consumption State.</p>
+<h1 id="104-minimum-consumption-states" data-oof-section-id="true" role="heading" aria-level="2">104. Minimum Consumption States</h1>
+<p>At minimum:</p>
+<p>Not Consumed</p>
+<p>Consumption Started</p>
+<p>Consumption Active</p>
+<p>Partially Consumed</p>
+<p>Consumed</p>
+<p>Consumption Suspended</p>
+<p>Consumption Completed</p>
+<p>Consumption Evidence-Limited</p>
+<p>Consumption Conflicted</p>
+<p>Consumption Unknown</p>
+<p>Consumption Unresolved</p>
+<h1 id="105-not-consumed" data-oof-section-id="true" role="heading" aria-level="2">105. Not Consumed</h1>
+<p>Sufficient evidence indicates that no Resource Consumption occurred within the defined boundary and period.</p>
+<h1 id="106-zero-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">106. Zero Consumption Boundary</h1>
+<p>Measured Zero Consumption ≠ Missing Measurement.</p>
+<p>These states must remain distinct.</p>
+<h1 id="107-consumption-started" data-oof-section-id="true" role="heading" aria-level="2">107. Consumption Started</h1>
+<p>Evidence indicates that Resource Consumption has begun.</p>
+<h1 id="108-consumption-active" data-oof-section-id="true" role="heading" aria-level="2">108. Consumption Active</h1>
+<p>Resource Consumption is currently occurring within the governed interval or operational state.</p>
+<h1 id="109-partially-consumed" data-oof-section-id="true" role="heading" aria-level="2">109. Partially Consumed</h1>
+<p>Only part of the relevant allocated, expected, available, or defined Resource quantity has been consumed.</p>
+<h1 id="110-consumed" data-oof-section-id="true" role="heading" aria-level="2">110. Consumed</h1>
+<p>The relevant Resource quantity or governed Consumption condition has been consumed according to the applicable definition.</p>
+<h1 id="111-consumption-suspended" data-oof-section-id="true" role="heading" aria-level="2">111. Consumption Suspended</h1>
+<p>Consumption has temporarily ceased while the Resource-use context remains open.</p>
+<h1 id="112-consumption-completed" data-oof-section-id="true" role="heading" aria-level="2">112. Consumption Completed</h1>
+<p>The governed Consumption interval or event has concluded.</p>
+<h1 id="113-consumption-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">113. Consumption Evidence-Limited</h1>
+<p>Available evidence supports only a limited Consumption determination.</p>
+<h1 id="114-consumption-conflicted" data-oof-section-id="true" role="heading" aria-level="2">114. Consumption Conflicted</h1>
+<p>Material evidence supports incompatible Consumption determinations.</p>
+<h1 id="115-consumption-unknown" data-oof-section-id="true" role="heading" aria-level="2">115. Consumption Unknown</h1>
+<p>Available evidence is insufficient to determine whether or how much Resource was consumed.</p>
+<h1 id="116-consumption-unresolved" data-oof-section-id="true" role="heading" aria-level="2">116. Consumption Unresolved</h1>
+<p>Relevant evidence exists, but the final Consumption determination cannot yet be established.</p>
+<h1 id="117-allocation-reference" data-oof-section-id="true" role="heading" aria-level="2">117. Allocation Reference</h1>
+<p>Where Resource Consumption follows a governed Allocation, RCMM should preserve the relevant Allocation reference.</p>
+<h1 id="118-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">118. Allocation Boundary</h1>
+<p>Allocation Quantity ≠ Consumption Quantity.</p>
+<p>Allocation provides context, not proof of Consumption.</p>
+<h1 id="119-reserved-capacity-boundary" data-oof-section-id="true" role="heading" aria-level="2">119. Reserved Capacity Boundary</h1>
+<p>Reserved Resource ≠ Consumed Resource.</p>
+<h1 id="120-accessible-resource-boundary" data-oof-section-id="true" role="heading" aria-level="2">120. Accessible Resource Boundary</h1>
+<p>Accessible Resource ≠ Consumed Resource.</p>
+<h1 id="121-available-resource-boundary" data-oof-section-id="true" role="heading" aria-level="2">121. Available Resource Boundary</h1>
+<p>Available Resource ≠ Consumed Resource.</p>
+<h1 id="122-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">122. Demand Boundary</h1>
+<p>Validated Demand ≠ Actual Consumption.</p>
+<p>Demand represents a Resource requirement.</p>
+<p>Consumption represents operational Resource use.</p>
+<h1 id="123-expected-consumption" data-oof-section-id="true" role="heading" aria-level="2">123. Expected Consumption</h1>
+<p>A system may have an expected Consumption level.</p>
+<p>Actual Consumption should remain distinguishable.</p>
+<h1 id="124-expectation-boundary" data-oof-section-id="true" role="heading" aria-level="2">124. Expectation Boundary</h1>
+<p>Expected Consumption ≠ Actual Consumption.</p>
+<h1 id="125-consumption-variance" data-oof-section-id="true" role="heading" aria-level="2">125. Consumption Variance</h1>
+<p>Where an expected or allocated Consumption basis exists:</p>
+<p>Consumption Variance = Actual Consumption − Reference Consumption</p>
+<p>The reference must be explicit.</p>
+<h1 id="126-variance-interpretation" data-oof-section-id="true" role="heading" aria-level="2">126. Variance Interpretation</h1>
+<p>Variance may support downstream governance but does not itself establish:</p>
+<p>efficiency; waste; misuse; Scarcity; Value; Harm.</p>
+<h1 id="127-resource-loss-measurement" data-oof-section-id="true" role="heading" aria-level="2">127. Resource Loss Measurement</h1>
+<p>Where Resource Loss is materially relevant to Consumption measurement, RCMM may quantify it within the defined boundary.</p>
+<h1 id="128-loss-boundary" data-oof-section-id="true" role="heading" aria-level="2">128. Loss Boundary</h1>
+<p>Measured Resource Loss ≠ Productive Resource Utilization.</p>
+<h1 id="129-residual-resource-signal" data-oof-section-id="true" role="heading" aria-level="2">129. Residual Resource Signal</h1>
+<p>RCMM may identify measurable Resource remaining after the primary Consumption process.</p>
+<h1 id="130-residual-boundary" data-oof-section-id="true" role="heading" aria-level="2">130. Residual Boundary</h1>
+<p>Measured Residual Resource ≠ Recovered Resource.</p>
+<p>Recovery belongs to RRCS.</p>
+<h1 id="131-released-capacity-signal" data-oof-section-id="true" role="heading" aria-level="2">131. Released Capacity Signal</h1>
+<p>For capacity-based Resources, RCMM may identify the end of capacity-time Consumption and the resulting release signal.</p>
+<h1 id="132-release-boundary" data-oof-section-id="true" role="heading" aria-level="2">132. Release Boundary</h1>
+<p>End of Capacity Consumption ≠ New Capacity Creation.</p>
+<h1 id="133-measurement-evidence" data-oof-section-id="true" role="heading" aria-level="2">133. Measurement Evidence</h1>
+<p>Every material Consumption determination should be supported by sufficient evidence.</p>
+<h1 id="134-evidence-types" data-oof-section-id="true" role="heading" aria-level="2">134. Evidence Types</h1>
+<p>Evidence may include:</p>
+<p>meter readings; sensor telemetry; system logs; billing records; inventory records; engineering calculations; validated estimates; operational records; other Resource-specific evidence.</p>
+<h1 id="135-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">135. Evidence Provenance</h1>
+<p>Where relevant, evidence should preserve:</p>
+<p>source; system; device; time; location; Resource; Resource Source; measurement method; version.</p>
+<h1 id="136-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">136. Evidence Freshness</h1>
+<p>Evidence should be sufficiently current for the Consumption state being determined.</p>
+<h1 id="137-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">137. Evidence Sufficiency</h1>
+<p>RCMM should determine whether available evidence is sufficient for the required Consumption determination.</p>
+<h1 id="138-evidence-sufficiency-boundary" data-oof-section-id="true" role="heading" aria-level="2">138. Evidence Sufficiency Boundary</h1>
+<p>More Data ≠ Automatically Better Consumption Evidence.</p>
+<p>Evidence relevance, boundary alignment, quality, and provenance matter.</p>
+<h1 id="139-consumption-measurement-profile" data-oof-section-id="true" role="heading" aria-level="2">139. Consumption Measurement Profile</h1>
+<p>The principal RCMM output is the:</p>
+<p>Resource Consumption Measurement Profile</p>
+<h1 id="140-minimum-resource-consumption-measurement-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">140. Minimum Resource Consumption Measurement Profile Fields</h1>
+<p>At minimum:</p>
+<p>Consumption Measurement ID</p>
+<p>Resource ID</p>
+<p>Resource Type</p>
+<p>Resource Source</p>
+<p>Allocation Reference where applicable</p>
+<p>Measurement Boundary</p>
+<p>Measurement Point</p>
+<p>Consumption Definition</p>
+<p>Native Resource Unit</p>
+<p>Original Measurement Unit</p>
+<p>Converted Unit where applicable</p>
+<p>Measurement Method</p>
+<p>Direct / Calculated / Estimated State</p>
+<p>Gross Consumption where applicable</p>
+<p>Return Flow where applicable</p>
+<p>Net Consumption where applicable</p>
+<p>Actual Consumption</p>
+<p>Measurement Start Time</p>
+<p>Measurement End Time</p>
+<p>Measurement Interval</p>
+<p>Location</p>
+<p>Measurement Coverage</p>
+<p>Measurement Completeness State</p>
+<p>Measurement Confidence</p>
+<p>Measurement Uncertainty</p>
+<p>Calibration Evidence where applicable</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Conflict State</p>
+<p>Consumption State</p>
+<p>Residual Resource Signal where relevant</p>
+<p>Released Capacity Signal where relevant</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="141-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">141. Minimum Implementation Framework</h1>
+<p>A minimum operational RCMM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Resource &amp; Consumption Definition</p>
+<p>Establish:</p>
+<p>Resource; Resource Type; Resource Source; what constitutes Consumption.</p>
+<p>Layer 2 — Measurement Boundary</p>
+<p>Establish:</p>
+<p>included Resource flows; excluded flows; measurement point; location; time interval.</p>
+<p>Layer 3 — Native Measurement</p>
+<p>Establish:</p>
+<p>native unit; measurement instrument or data source; gross / net basis; withdrawal / return relationship where relevant.</p>
+<p>Layer 4 — Measurement Method</p>
+<p>Determine:</p>
+<p>direct measurement; calculation; estimation; proxy; model-based method.</p>
+<p>Layer 5 — Measurement Validation</p>
+<p>Evaluate:</p>
+<p>coverage; completeness; unit consistency; calibration; time alignment; Source consistency.</p>
+<p>Layer 6 — Uncertainty &amp; Conflict</p>
+<p>Determine:</p>
+<p>measurement uncertainty; confidence; gaps; conflicting evidence; double-counting risk.</p>
+<p>Layer 7 — Consumption Determination</p>
+<p>Establish:</p>
+<p>Actual Consumption; Consumption State; residual / release signals where relevant.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Consumption Measurement Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>Resource → Consumption Definition → Measurement Boundary → Measurement Method → Measurement Evidence → Validation → Uncertainty / Conflict → Actual Consumption → Consumption State → Resource Consumption Measurement Profile</p>
+<h1 id="142-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">142. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Consumption Measured</p>
+<p>Consumption Calculated</p>
+<p>Consumption Estimated</p>
+<p>Consumption Partially Measured</p>
+<p>Consumption Evidence-Limited</p>
+<p>Consumption Conflicted</p>
+<p>Consumption Unknown</p>
+<p>Consumption Unresolved</p>
+<p>Measurement Reassessment Required</p>
+<p>These measurement-decision states may coexist with the operational Consumption states defined above.</p>
+<h1 id="143-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">143. Minimum Evidence Path</h1>
+<p>Where actual Consumption cannot be sufficiently determined:</p>
+<p>Consumption Unknown / Unresolved → Material Measurement Gap → Required Resource / Boundary / Interval → Minimum Evidence Requirement → Measurement / Evidence Acquisition → Measurement Validation → Consumption Redetermination → Resource Consumption Measurement Profile Update</p>
+<h1 id="144-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">144. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Consumption Measurement Profile → New Evidence / Measurement Change → Materiality Test → Boundary / Method / Unit / Source Review → Evidence Validation → Consumption Recalculation / Re-estimation → Consumption State Confirmation or Modification → Profile Update → Version Update</p>
+<h1 id="145-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">145. Governance Requirements</h1>
+<p>A conforming RCMM implementation must:</p>
+<h1 id="1-identify-the-resource-2-identify-the-resource-type-3-preserve-resource-source-" data-oof-section-id="true" role="heading" aria-level="2">1. identify the Resource; 2. identify the Resource type; 3. preserve Resource Source where material; 4. define what constitutes Consumption for the Resource; 5. establish the measurement boundary; 6. identify material boundary inclusions; 7. identify material boundary exclusions; 8. preserve boundary changes; 9. preserve boundary comparability; 10. use native Resource measurement where feasible; 11. identify the measurement unit; 12. preserve unit conversions; 13. identify the measurement point; 14. distinguish gross from net Consumption where applicable; 15. distinguish withdrawal from Consumption where applicable; 16. preserve return flows where relevant; 17. preserve Resource depletion where relevant; 18. preserve Resource transformation where relevant; 19. support capacity-time Consumption where relevant; 20. distinguish capacity-time Consumption from physical depletion; 21. preserve throughput where relevant; 22. support Direct Measurement; 23. support metered Consumption; 24. support telemetry-based measurement; 25. validate measurement context; 26. support calculated Consumption; 27. preserve calculation inputs and method; 28. support estimated Consumption where required; 29. preserve the estimation method; 30. support proxy measurement only where the proxy basis is established; 31. distinguish model output from measured Consumption; 32. distinguish historical patterns from current Consumption facts; 33. preserve measurement-method state;</h1>
+<h1 id="34-identify-the-measurement-interval-35-support-temporal-aggregation-36-preserve" data-oof-section-id="true" role="heading" aria-level="2">34. identify the measurement interval; 35. support temporal aggregation; 36. preserve peak Consumption where relevant; 37. preserve sufficient temporal granularity; 38. preserve spatial measurement context; 39. preserve sufficient spatial granularity; 40. preserve Source-specific measurement where material; 41. determine measurement completeness; 42. identify partial measurement; 43. preserve measurement coverage; 44. distinguish precision from completeness; 45. preserve accuracy evidence where available; 46. distinguish precision from accuracy; 47. preserve calibration evidence where material; 48. preserve measurement uncertainty; 49. identify material uncertainty sources; 50. prevent numerical precision from being represented as certainty; 51. preserve measurement confidence where used; 52. identify measurement gaps; 53. prevent missing measurements from being interpreted as zero Consumption; 54. preserve estimated missing intervals; 55. distinguish estimated intervals from observed intervals; 56. identify measurement conflicts; 57. preserve unresolved conflicts; 58. prevent inappropriate averaging of materially conflicting evidence; 59. detect double-counting risk; 60. prevent duplicate records from becoming duplicate Consumption; 61. preserve time synchronization where relevant; 62. validate Resource identity; 63. validate measurement boundary; 64. validate measurement point; 65. validate units; 66. validate measurement method; 67. validate temporal context; 68. validate Source context; 69. validate location context; 70. establish Consumption state; 71. distinguish measured zero from missing measurement; 72. preserve Allocation references where applicable; 73. distinguish Allocation from Consumption; 74. distinguish reserved capacity from Consumption; 75. distinguish accessible Resource from Consumption; 76. distinguish available Resource from Consumption; 77. distinguish Demand from Consumption; 78. distinguish expected from actual Consumption; 79. support Consumption variance where applicable; 80. preserve Resource Loss measurement where relevant; 81. identify residual Resource signals where relevant; 82. identify released capacity signals where relevant; 83. preserve evidence provenance; 84. preserve evidence freshness; 85. determine evidence sufficiency; 86. support measurement reassessment; 87. preserve version history; 88. produce a Resource Consumption Measurement Profile.</h1>
+<h1 id="146-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">146. Governance Logic</h1>
+<p>Canonical RCMM logic:</p>
+<p>Resource Identification → Consumption Definition → Measurement Boundary</p>
+<p>→ Measurement Point → Native Unit → Measurement Method → Resource-Use Evidence → Gross / Net Determination where applicable → Measurement Validation → Coverage / Completeness → Uncertainty / Conflict → Actual Consumption → Consumption State → Resource Consumption Measurement Profile → Reassessment</p>
+<h1 id="147-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">147. Governance Outputs</h1>
+<p>RCMM may produce:</p>
+<p>Resource Consumption Measurement Profile</p>
+<p>Actual Consumption</p>
+<p>Gross Consumption</p>
+<p>Net Consumption</p>
+<p>Withdrawal Quantity</p>
+<p>Return Flow</p>
+<p>Resource Depletion</p>
+<p>Resource Transformation Quantity</p>
+<p>Capacity-Time Consumption</p>
+<p>Resource Throughput</p>
+<p>Measurement Boundary</p>
+<p>Measurement Point</p>
+<p>Native Resource Unit</p>
+<p>Measurement Method State</p>
+<p>Measurement Coverage</p>
+<p>Measurement Completeness State</p>
+<p>Measurement Confidence</p>
+<p>Measurement Uncertainty</p>
+<p>Measurement Gap</p>
+<p>Measurement Conflict</p>
+<p>Consumption Variance</p>
+<p>Resource Loss Measurement</p>
+<p>Residual Resource Signal</p>
+<p>Released Capacity Signal</p>
+<p>Consumption State</p>
+<p>Evidence Sufficiency State</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="148-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">148. Critical Distinctions</h1>
+<p>Allocated Resource ≠ Consumed Resource</p>
+<p>Resource Quantity Without Measurement Boundary ≠ Governed Consumption Evidence</p>
+<p>Resource Use ≠ Resource Consumption by definition</p>
+<p>Consumption of Resource Type X ≠ Consumption from Every Source of Resource Type X</p>
+<p>Native Resource Measurement ≠ Normalized Resource Significance</p>
+<p>Converted Quantity ≠ Original Measurement</p>
+<p>Same Resource Flow Measured at Different Points ≠ Necessarily Same Consumption Value</p>
+<p>Gross Consumption ≠ Net Consumption</p>
+<p>Resource Withdrawal ≠ Resource Consumption by definition</p>
+<p>Returned Resource ≠ Automatically Equivalent to Original Resource State</p>
+<p>Transformation ≠ Disappearance</p>
+<p>Capacity-Time Consumption ≠ Physical Resource Depletion</p>
+<p>Throughput ≠ Net Consumption by definition</p>
+<p>Instrument Output ≠ Automatically Valid Consumption Evidence</p>
+<p>Estimated Consumption ≠ Directly Measured Consumption</p>
+<p>Correlated Signal ≠ Resource Consumption Measurement by itself</p>
+<p>Model Output ≠ Measured Consumption</p>
+<p>Historical Consumption Pattern ≠ Current Consumption Fact</p>
+<p>Equal Total Consumption ≠ Equal Consumption Pattern</p>
+<p>Average Consumption ≠ Peak Consumption</p>
+<p>Annual Measurement ≠ Sufficient Evidence for Hourly Constraint by definition</p>
+<p>Aggregate Consumption ≠ Local Consumption State</p>
+<p>Aggregate Resource Consumption ≠ Source-Neutral Consumption</p>
+<p>High Measurement Precision ≠ Complete Measurement Coverage</p>
+<p>High Precision ≠ High Accuracy</p>
+<p>Device Present ≠ Device Validated</p>
+<p>Numerical Precision ≠ Measurement Certainty</p>
+<p>Missing Measurement ≠ Zero Consumption</p>
+<p>Estimated Missing Interval ≠ Observed Interval</p>
+<p>Multiple Records of the Same Resource Flow ≠ Multiple Consumption Events</p>
+<p>Measured Zero Consumption ≠ Missing Measurement</p>
+<p>Allocation Quantity ≠ Consumption Quantity</p>
+<p>Reserved Resource ≠ Consumed Resource</p>
+<p>Accessible Resource ≠ Consumed Resource</p>
+<p>Available Resource ≠ Consumed Resource</p>
+<p>Validated Demand ≠ Actual Consumption</p>
+<p>Expected Consumption ≠ Actual Consumption</p>
+<p>Measured Resource Loss ≠ Productive Resource Utilization</p>
+<p>Measured Residual Resource ≠ Recovered Resource</p>
+<p>End of Capacity Consumption ≠ New Capacity Creation</p>
+<p>More Data ≠ Automatically Better Consumption Evidence</p>
+<h1 id="149-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">149. Cross-Architecture Boundary</h1>
+<p>RCMM may consume:</p>
+<p>RCHS — Resource identity, Resource type, Source, state, and context.</p>
+<p>RACS — Availability and capacity evidence.</p>
+<p>RDGS — Demand evidence without treating Demand as Consumption.</p>
+<p>RAGS — Resource Access context.</p>
+<p>RPAS — Resource Allocation evidence without treating Allocation as Consumption.</p>
+<p>RCUS — Parent Standard governance context for Consumption and Utilization.</p>
+<p>RSCS — Scarcity context where Consumption measurement occurs under constrained conditions.</p>
+<p>RRCS — downstream Recovery evidence without RCMM governing Recovery.</p>
+<p>RIRS — Resource interdependency evidence where measurement boundaries span dependent systems.</p>
+<p>ORA™ — operational reality evidence.</p>
+<p>PGA™ — predicted Consumption evidence without treating prediction as measurement.</p>
+<p>SIMULOS® — simulated Consumption evidence without treating simulation as observed Consumption.</p>
+<p>VEGA™ — Resource-use and efficiency analysis where Consumption evidence is required.</p>
+<p>RCMM does not absorb these mechanisms.</p>
+<h1 id="150-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">150. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RCMM governs Resource Consumption Measurement.</p>
+<p>It may produce evidence for:</p>
+<p>Utilization governance; Allocation reassessment; Scarcity governance; Recovery governance; Resilience governance; Sustainability governance; Value governance.</p>
+<p>Those mechanisms remain within their competent governance domains.</p>
+<h1 id="151-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">151. Canonical Boundary</h1>
+<p>RCMM governs how actual Resource Consumption is defined, bounded, measured, calculated or estimated, temporally and spatially contextualized, validated, evidenced, represented, and reassessed, including native units, measurement points, gross and net Consumption, withdrawal and return flows, capacity-time Consumption, measurement coverage, uncertainty, conflict, and Consumption state.</p>
+<p>It does not determine Resource Utilization, Resource-use productivity, Resource Allocation, Resource Priority, Access authorization, Scarcity, Recovery, Sustainability, Value, Harm, or Liability.</p>
+<p>Its principal governed output is the Resource Consumption Measurement Profile .</p>
+<h1 id="152-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">152. Canonical Closing Statement</h1>
+<p>Resource Consumption cannot be governed merely because a number exists. Governance must know what was measured, within which boundary, at which point, in which unit, during which period, from which Source, by which method, and with what uncertainty.</p>
+<p>RCMM establishes that measurement foundation — converting Resource use from an assumed or reported quantity into bounded, evidenced, traceable, and reassessable Resource Consumption.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

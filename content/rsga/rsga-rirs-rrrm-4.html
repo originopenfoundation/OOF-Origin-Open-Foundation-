@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Response &amp; Recovery Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Response &amp; Recovery Module | OOF®. RRRM — Resource Response &amp; Recovery Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Response &amp; Recovery Module | OOF®" />
+<meta property="og:description" content="Resource Response &amp; Recovery Module | OOF®. RRRM — Resource Response &amp; Recovery Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Response &amp; Recovery Module | OOF®" />
+<meta name="twitter:description" content="Resource Response &amp; Recovery Module | OOF®. RRRM — Resource Response &amp; Recovery Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta name="DC.title" content="Resource Response &amp; Recovery Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html","name":"Resource Response & Recovery Module | OOF®","description":"Resource Response & Recovery Module | OOF®. RRRM — Resource Response & Recovery Module Architecture: RSGA™ — Resource Sustainability Governance Architecture.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Response & Recovery Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html"}]},"headline":"Resource Response & Recovery Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrrm-4.html#webpage"}}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RRRM — Resource Response &amp; Recovery Module</p>
+<p class="podstand"><b>Architecture:</b></p>
+<p>RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b></p>
+<p>RIRS — Resource Interdependency &amp; Resilience Standard</p>
+<p class="podstand"><b>Category:</b></p>
+<p>Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b></p>
+<p>Resource Governance</p>
+<p class="podstand"><b>Type:</b></p>
+<p>Core Module</p>
+<p class="podstand"><b>Governed Space:</b></p>
+<p>Resource System Response &amp; Recovery Governance</p>
+<p class="podstand"><b>Module ID:</b></p>
+<p>RSGA-RIRS-RRRM-04</p>
+<p class="podstand"><b>Origin ID:</b></p>
+<p>OOF-RSGA-RIRS-RRRM</p>
+<p class="podstand"><b>Version:</b></p>
+<p>1.0</p>
+<p class="podstand"><b>Status:</b></p>
+<p>Canonical Open</p>
+<p class="podstand"><b>Effective Date:</b></p>
+<p>9 October 2026</p>
+<p class="podstand"><b>Compatibility:</b></p>
+<p>Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>AI-Readable:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>Authority:</b></p>
+<p>OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b></p>
+<p>Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b></p>
+<p>English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RRRM — Resource Response &amp; Recovery Module is the Core Module within RIRS that governs how the readiness, feasibility, execution evidence, functional outcomes, and limitations of Resource System response and recovery arrangements are identified, evaluated, bounded, validated, monitored, and reassessed under defined Resource disturbance conditions, with particular attention to the restoration or preservation of required operational functions across interconnected Resource dependencies.</p>
+<p>RRRM establishes the methodological conditions under which a documented response arrangement may be distinguished from an operationally ready response capability, an authorized intervention from an executed intervention, and the restoration of an individual Resource from the recovery of the affected Resource System.</p>
+<p>It evaluates whether response and recovery arrangements possess the necessary Resource support, operational conditions, authority references, coordination, timing, and evidence to achieve their defined functional objectives.</p>
+<p>RRRM does not create operational authority, command emergency interventions, execute Resource substitutions, or independently determine long-term Resource Sustainability.</p>
+<p>Response Plan Exists ≠ Response Capability Ready.</p>
+<p>Response Authorized ≠ Response Executed.</p>
+<p>Resource Restored ≠ Required Operational Function Restored.</p>
+<p>Local Recovery ≠ Resource System Recovery.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RRRM governs the assessment and evidence-based traceability of Resource System response and recovery arrangements.</p>
+<p>Its operational role is to establish:</p>
+<p>Resource System response context. Disturbance and propagation references. Vulnerability and resilience capacity references. Required operational functions. Response objectives. Recovery objectives. Response capability identity. Response readiness. Response prerequisites. Supporting Resource requirements. Response authority references. Response activation conditions. Response timing. Response coordination. Response feasibility. Response execution evidence. Response effectiveness. Recovery pathway identification. Recovery pathway feasibility. Recovery Resource requirements. Recovery dependencies. Recovery timing. Recovery state. Functional restoration. Partial recovery. Recovery integrity. Recovery limitations. Residual operational constraints. Evidence sufficiency. Response and recovery classification. Monitoring. Reassessment. Downstream resilience validation handoff.</p>
+<p>RRRM governs the methodological evaluation of response and recovery.</p>
+<p>It does not independently issue operational instructions or authorize interventions.</p>
+<h1 id="3-core-question" data-oof-section-id="true" role="heading" aria-level="2">3. Core Question</h1>
+<p>How should Resource System response and recovery arrangements be identified, validated, and governed so that documented plans, available capabilities, legitimate authority, activation readiness, execution evidence, supporting Resource dependencies, recovery pathways, and restored operational functions remain distinguishable from theoretical preparedness, unauthorized action, partial restoration, unsupported recovery claims, or assumptions of complete Resource System resilience?</p>
+<h1 id="4-position-in-architecture-governance-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in Architecture Governance Flow</h1>
+<p>RSGA™ Governance Flow</p>
+<p>Resource Characterization → Availability &amp; Capacity → Demand → Dependency &amp; Criticality → Access → Prioritization &amp; Allocation → Consumption &amp; Utilization → Scarcity &amp; Constraint → Recovery &amp; Circularity → Substitution &amp; Flexibility → Interdependency &amp; Resilience → Continuity &amp; Sustainability</p>
+<p>RIRS Core Module Flow</p>
+<h1 id="1-ridm-resource-interdependency-mapping-module-2-rdpm-resource-disturbance-and-p" data-oof-section-id="true" role="heading" aria-level="2">1. RIDM — Resource Interdependency Mapping Module 2. RDPM — Resource Disturbance &amp; Propagation Module 3. RRVM — Resource Vulnerability &amp; Resilience Capacity Module 4. RRRM — Resource Response &amp; Recovery Module 5. Resource Resilience Validation &amp; Monitoring Governance</h1>
+<p>The fifth position describes the remaining governed function; its canonical module name and identifier are established through its final module.</p>
+<p>RRRM occupies the fourth governance position within RIRS.</p>
+<p>It receives the Resource Interdependency Network Profile, Resource Disturbance &amp; Propagation Profile, and Resource Vulnerability &amp; Resilience Capacity Profile.</p>
+<p>It evaluates whether response and recovery arrangements are feasible, ready, appropriately authorized, executed where applicable, and capable of restoring the required operational functions.</p>
+<p>Resource Interdependency Network → Disturbance Propagation → Vulnerability &amp; Resilience Capacity → Response Readiness → Response Execution Evidence → Recovery Pathways → Functional Restoration → Resource Response &amp; Recovery Profile → Resilience Validation &amp; Monitoring Handoff</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>Resource System Response &amp; Recovery Governance</p>
+<p>This governed space concerns the readiness, feasibility, evidence, and functional outcomes of response and recovery arrangements within interconnected Resource Systems.</p>
+<p>It includes:</p>
+<p>Response objectives. Recovery objectives. Response readiness. Response prerequisites. Authority references. Activation conditions. Supporting Resource requirements. Response feasibility. Response execution evidence. Response timing. Recovery pathways. Recovery dependencies. Recovery Resource burden. Recovery timing.</p>
+<p>Functional restoration. Partial recovery. Recovery integrity. Residual constraints. Evidence sufficiency. Reassessment.</p>
+<p>It does not independently govern emergency command authority, Resource Access, Resource Allocation, substitution execution, physical repair operations, or long-term Sustainability.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Response &amp; Recovery Configuration connecting an identifiable Resource System, defined disturbance, required operational functions, response arrangements, recovery pathways, supporting Resource dependencies, authority references, operational readiness conditions, execution evidence, restoration outcomes, and remaining constraints within a defined operational and evidentiary boundary.</p>
+<p>The configuration must distinguish:</p>
+<p>Response Arrangement</p>
+<p>Response Capability</p>
+<p>Response Readiness</p>
+<p>Response Authorization</p>
+<p>Response Activation</p>
+<p>Response Execution</p>
+<p>Recovery Pathway</p>
+<p>Recovery Capability</p>
+<p>Recovery Execution</p>
+<p>Functional Restoration</p>
+<p>Residual Recovery Limitation</p>
+<p>A response or recovery arrangement may be assessed before a disturbance, during an operational event, or after recovery activities have occurred.</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RRRM governs:</p>
+<p>Response and recovery identity. Assessment boundary. Required operational functions. Disturbance references. Vulnerability references. Resilience capacity references. Response objectives. Response capability. Response readiness. Response prerequisites. Response authority references. Activation conditions. Response timing. Response coordination.</p>
+<p>Supporting Resource availability. Response feasibility. Response execution evidence. Response effectiveness. Recovery objectives. Recovery pathways. Recovery prerequisites. Recovery dependencies. Recovery Resource requirements. Recovery timing. Recovery state. Functional restoration. Partial recovery. Recovery integrity. Residual constraints. Evidence sufficiency. Monitoring. Reassessment. Downstream governance handoffs.</p>
+<p>RRRM does not independently establish operational permissions, command authority, Resource Allocation, Harm, Liability, or Sustainability.</p>
+<h1 id="8-foundational-governance-principles" data-oof-section-id="true" role="heading" aria-level="2">8. Foundational Governance Principles</h1>
+<p>8.1 Readiness Principle</p>
+<p>Response Plan Exists ≠ Response Capability Ready.</p>
+<p>8.2 Authority Principle</p>
+<p>Response Required ≠ Response Authorized.</p>
+<p>8.3 Execution Principle</p>
+<p>Response Authorized ≠ Response Executed.</p>
+<p>8.4 Feasibility Principle</p>
+<p>Recovery Pathway Identified ≠ Recovery Pathway Operationally Feasible.</p>
+<p>8.5 Resource Dependency Principle</p>
+<p>Recovery Resource Identified ≠ Recovery Resource Available.</p>
+<p>8.6 Functional Restoration Principle</p>
+<p>Resource Restored ≠ Required Operational Function Restored.</p>
+<p>8.7 System Recovery Principle</p>
+<p>Local Recovery ≠ Resource System Recovery.</p>
+<p>8.8 Evidence Principle</p>
+<p>Recovery Reported ≠ Recovery Validated.</p>
+<h1 id="9-resource-system-identity" data-oof-section-id="true" role="heading" aria-level="2">9. Resource System Identity</h1>
+<p>Every RRRM assessment must identify the Resource System.</p>
+<p>Minimum elements include:</p>
+<p>Resource System ID</p>
+<p>System Function</p>
+<p>Operational Context</p>
+<p>Assessment Boundary</p>
+<p>Required Operational Functions</p>
+<p>Resource Interdependency Network Reference</p>
+<p>Disturbance Propagation Profile Reference</p>
+<p>Vulnerability &amp; Resilience Capacity Profile Reference</p>
+<p>Relevant Time</p>
+<p>Location</p>
+<p>Evidence Basis</p>
+<h1 id="10-assessment-boundary" data-oof-section-id="true" role="heading" aria-level="2">10. Assessment Boundary</h1>
+<p>The assessment boundary determines which response and recovery arrangements are evaluated.</p>
+<p>Relevant dimensions include:</p>
+<p>Resource System Boundary</p>
+<p>Operational Function Boundary</p>
+<p>Disturbance Boundary</p>
+<p>Response Boundary</p>
+<p>Recovery Boundary</p>
+<p class="podstand"><b>Authority:</b> Reference Boundary</p>
+<p>Temporal Boundary</p>
+<p>Geographic Boundary</p>
+<p>Evidence Boundary</p>
+<h1 id="11-boundary-integrity" data-oof-section-id="true" role="heading" aria-level="2">11. Boundary Integrity</h1>
+<p>Recovery Evaluated Within Defined Boundary ≠ Entire Resource System Recovery Established.</p>
+<h1 id="12-required-operational-functions" data-oof-section-id="true" role="heading" aria-level="2">12. Required Operational Functions</h1>
+<p>RRRM must identify the functions that response and recovery arrangements are intended to preserve or restore.</p>
+<p>Relevant elements include:</p>
+<p>Function Identity</p>
+<p>Required Capacity</p>
+<p>Required Quality</p>
+<p>Required Availability</p>
+<p>Permitted Degradation</p>
+<p>Restoration Conditions</p>
+<p>Evidence Requirements</p>
+<h1 id="13-functional-requirement-integrity" data-oof-section-id="true" role="heading" aria-level="2">13. Functional Requirement Integrity</h1>
+<p>Function Restarted ≠ Function Restored to Required Operating Conditions.</p>
+<h1 id="14-disturbance-reference" data-oof-section-id="true" role="heading" aria-level="2">14. Disturbance Reference</h1>
+<p>RRRM must preserve the applicable Resource Disturbance &amp; Propagation Profile.</p>
+<p>Relevant elements include:</p>
+<p>Disturbance Identity</p>
+<p>Affected Nodes</p>
+<p>Propagation Pathways</p>
+<p>Affected Operational Functions</p>
+<p>Disturbance Duration</p>
+<p>Observed Consequences</p>
+<p>Potential Consequences</p>
+<p>Evidence State</p>
+<h1 id="15-vulnerability-and-capacity-reference" data-oof-section-id="true" role="heading" aria-level="2">15. Vulnerability &amp; Capacity Reference</h1>
+<p>RRRM must preserve the applicable Resource Vulnerability &amp; Resilience Capacity Profile.</p>
+<p>Relevant elements include:</p>
+<p>Structural Vulnerabilities</p>
+<p>Functional Vulnerabilities</p>
+<p>Available Buffers</p>
+<p>Usable Backup Capacity</p>
+<p>Supporting Resource Constraints</p>
+<p>Residual Vulnerabilities</p>
+<p>Capacity Duration</p>
+<h1 id="16-response-objective" data-oof-section-id="true" role="heading" aria-level="2">16. Response Objective</h1>
+<p>A response objective defines the intended operational outcome during a disturbance.</p>
+<p>Examples include:</p>
+<p>Preserve Required Cooling</p>
+<p>Maintain Essential Electricity Supply</p>
+<p>Prevent Further Resource Depletion</p>
+<p>Contain Disturbance Propagation</p>
+<p>Maintain Minimum Water Supply</p>
+<p>Preserve Required Production Functions</p>
+<p>Response objectives must remain bounded by actual operational requirements.</p>
+<h1 id="17-response-objective-integrity" data-oof-section-id="true" role="heading" aria-level="2">17. Response Objective Integrity</h1>
+<p>Response Objective Defined ≠ Response Objective Achievable.</p>
+<h1 id="18-response-arrangement-identity" data-oof-section-id="true" role="heading" aria-level="2">18. Response Arrangement Identity</h1>
+<p>A response arrangement represents an identifiable method, plan, or operational configuration intended to address a disturbance.</p>
+<p>Minimum elements include:</p>
+<p>Response Arrangement ID</p>
+<p>Target Disturbance</p>
+<p>Supported Function</p>
+<p>Required Resources</p>
+<p>Required Infrastructure</p>
+<p>Activation Conditions</p>
+<p class="podstand"><b>Authority:</b> Reference</p>
+<p>Expected Outcome</p>
+<p>Evidence Basis</p>
+<h1 id="19-response-capability" data-oof-section-id="true" role="heading" aria-level="2">19. Response Capability</h1>
+<p>Response capability concerns the actual ability to perform the required response under defined conditions.</p>
+<p>Relevant elements include:</p>
+<p>Available Resources</p>
+<p>Available Infrastructure</p>
+<p>Qualified Personnel or Systems</p>
+<p>Required Permissions</p>
+<p>Operational Procedures</p>
+<p>Coordination Conditions</p>
+<p>Time Requirements</p>
+<h1 id="20-capability-principle" data-oof-section-id="true" role="heading" aria-level="2">20. Capability Principle</h1>
+<p>Response Capability Documented ≠ Response Capability Operationally Available.</p>
+<h1 id="21-response-readiness" data-oof-section-id="true" role="heading" aria-level="2">21. Response Readiness</h1>
+<p>Response readiness concerns whether the response capability can be activated when required.</p>
+<p>Relevant dimensions include:</p>
+<p>Resource Readiness</p>
+<p>Infrastructure Readiness</p>
+<p>Personnel or System Readiness</p>
+<p>Communication Readiness</p>
+<p class="podstand"><b>Authority:</b> Readiness</p>
+<p>Activation Readiness</p>
+<p>Coordination Readiness</p>
+<p>Evidence Readiness</p>
+<h1 id="22-readiness-integrity" data-oof-section-id="true" role="heading" aria-level="2">22. Readiness Integrity</h1>
+<p>Response Capability Exists ≠ Response Capability Ready at the Required Time.</p>
+<h1 id="23-response-prerequisites" data-oof-section-id="true" role="heading" aria-level="2">23. Response Prerequisites</h1>
+<p>Response prerequisites may include:</p>
+<p>Supporting Resource Availability</p>
+<p>Equipment Availability</p>
+<p>Infrastructure Functionality</p>
+<p>Qualified Personnel</p>
+<p>Control System Availability</p>
+<p>Communication Capability</p>
+<p>Operational Permission</p>
+<p>Activation Conditions</p>
+<p>Missing prerequisites must remain visible.</p>
+<h1 id="24-prerequisite-principle" data-oof-section-id="true" role="heading" aria-level="2">24. Prerequisite Principle</h1>
+<p>Response Arrangement Technically Valid ≠ Response Prerequisites Satisfied.</p>
+<h1 id="25-response-authority-references" data-oof-section-id="true" role="heading" aria-level="2">25. Response Authority References</h1>
+<p>RRRM must preserve the authority basis relevant to response activation or execution.</p>
+<p>Relevant elements include:</p>
+<p>Responsible Authority</p>
+<p>Applicable Permission</p>
+<p>Delegation Reference</p>
+<p>Operational Scope</p>
+<p>Activation Condition</p>
+<p>Known Restriction</p>
+<p>Evidence Reference</p>
+<p>RRRM does not create, transfer, or expand authority.</p>
+<h1 id="26-authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">26. Authority Boundary</h1>
+<p>Operational Need ≠ Authority to Act.</p>
+<p>A disturbance does not automatically eliminate applicable authority and permission requirements.</p>
+<h1 id="27-response-activation-conditions" data-oof-section-id="true" role="heading" aria-level="2">27. Response Activation Conditions</h1>
+<p>Activation conditions determine when a response arrangement may become applicable.</p>
+<p>Examples include:</p>
+<p>Disturbance Detection</p>
+<p>Capacity Threshold Reached</p>
+<p>Primary Resource Unavailable</p>
+<p>Operational Function Degraded</p>
+<p>Authorized Trigger Received</p>
+<p>Required Supporting Resources Available</p>
+<h1 id="28-activation-integrity" data-oof-section-id="true" role="heading" aria-level="2">28. Activation Integrity</h1>
+<p>Activation Condition Met ≠ Response Successfully Activated.</p>
+<h1 id="29-response-timing" data-oof-section-id="true" role="heading" aria-level="2">29. Response Timing</h1>
+<p>Response timing may include:</p>
+<p>Detection Time</p>
+<p>Decision Time</p>
+<p>Authorization Time</p>
+<p>Activation Time</p>
+<p>Execution Start Time</p>
+<p>Effective Response Time</p>
+<p>Stabilization Time</p>
+<h1 id="30-timing-principle" data-oof-section-id="true" role="heading" aria-level="2">30. Timing Principle</h1>
+<p>Response Eventually Available ≠ Response Available Before Operational Failure.</p>
+<h1 id="31-response-coordination" data-oof-section-id="true" role="heading" aria-level="2">31. Response Coordination</h1>
+<p>Response arrangements may require coordination among:</p>
+<p>Resource Operators</p>
+<p>Infrastructure Operators</p>
+<p>Operational Functions</p>
+<p>External Resource Providers</p>
+<p>Control Systems</p>
+<p>Authorized Decision-Makers</p>
+<p>Supporting Service Providers</p>
+<p>Coordination requirements must remain explicit.</p>
+<h1 id="32-coordination-principle" data-oof-section-id="true" role="heading" aria-level="2">32. Coordination Principle</h1>
+<p>Multiple Response Capabilities ≠ Coordinated Response Capability.</p>
+<h1 id="33-supporting-resource-requirements" data-oof-section-id="true" role="heading" aria-level="2">33. Supporting Resource Requirements</h1>
+<p>Response arrangements may depend on additional Resources.</p>
+<p>Examples include:</p>
+<p>Backup Generators Requiring Fuel</p>
+<p>Emergency Cooling Requiring Electricity</p>
+<p>Water Transfer Requiring Pumping Capacity</p>
+<p>Alternative Production Requiring Materials</p>
+<p>Emergency Transport Requiring Fuel and Infrastructure</p>
+<h1 id="34-supporting-resource-integrity" data-oof-section-id="true" role="heading" aria-level="2">34. Supporting Resource Integrity</h1>
+<p>Response Resource Identified ≠ Supporting Resources Available.</p>
+<h1 id="35-response-feasibility" data-oof-section-id="true" role="heading" aria-level="2">35. Response Feasibility</h1>
+<p>Response feasibility concerns whether the response can achieve its defined objective under the relevant disturbance conditions.</p>
+<p>Relevant dimensions include:</p>
+<p>Technical Feasibility</p>
+<p>Resource Feasibility</p>
+<p>Infrastructure Feasibility</p>
+<p>Timing Feasibility</p>
+<p>Coordination Feasibility</p>
+<p class="podstand"><b>Authority:</b> Feasibility</p>
+<p>Operational Feasibility</p>
+<h1 id="36-feasibility-principle" data-oof-section-id="true" role="heading" aria-level="2">36. Feasibility Principle</h1>
+<p>Response Feasible Under Normal Conditions ≠ Response Feasible During Disturbance.</p>
+<h1 id="37-response-execution-evidence" data-oof-section-id="true" role="heading" aria-level="2">37. Response Execution Evidence</h1>
+<p>Where a response is executed, RRRM must preserve relevant evidence.</p>
+<p>Examples include:</p>
+<p>Activation Records</p>
+<p>Operational Logs</p>
+<p>Resource Flow Measurements</p>
+<p>Infrastructure State Changes</p>
+<p>Authorized Intervention Records</p>
+<p>Observed Functional Effects</p>
+<p>Time References</p>
+<h1 id="38-execution-evidence-principle" data-oof-section-id="true" role="heading" aria-level="2">38. Execution Evidence Principle</h1>
+<p>Response Initiated ≠ Response Objective Achieved.</p>
+<h1 id="39-response-effectiveness" data-oof-section-id="true" role="heading" aria-level="2">39. Response Effectiveness</h1>
+<p>Response effectiveness concerns whether the executed response achieved its defined operational objective.</p>
+<p>Relevant elements include:</p>
+<p>Target Function</p>
+<p>Expected Outcome</p>
+<p>Observed Outcome</p>
+<p>Time</p>
+<p>Resource Consumption</p>
+<p>Remaining Disturbance Effects</p>
+<p>Evidence Sufficiency</p>
+<h1 id="40-effectiveness-principle" data-oof-section-id="true" role="heading" aria-level="2">40. Effectiveness Principle</h1>
+<p>Response Completed ≠ Response Effective.</p>
+<h1 id="41-response-limitations" data-oof-section-id="true" role="heading" aria-level="2">41. Response Limitations</h1>
+<p>Response limitations may include:</p>
+<p>Insufficient Resource Capacity</p>
+<p>Delayed Activation</p>
+<p>Missing Authorization</p>
+<p>Unavailable Infrastructure</p>
+<p>Coordination Failure</p>
+<p>Supporting Resource Shortage</p>
+<p>Unverified Operational Readiness</p>
+<p>Disturbance Beyond Designed Conditions</p>
+<h1 id="42-limitation-principle" data-oof-section-id="true" role="heading" aria-level="2">42. Limitation Principle</h1>
+<p>Response Mechanism Available ≠ Response Mechanism Sufficient.</p>
+<h1 id="43-recovery-objective" data-oof-section-id="true" role="heading" aria-level="2">43. Recovery Objective</h1>
+<p>A recovery objective defines the operational function or Resource System state intended to be restored.</p>
+<p>Examples include:</p>
+<p>Restore Required Electricity Supply</p>
+<p>Restore Cooling Capacity</p>
+<p>Restore Water Distribution</p>
+<p>Restore Production Capability</p>
+<p>Restore Required Computing Capacity</p>
+<p>Restore Interdependent Resource Functions</p>
+<h1 id="44-recovery-objective-integrity" data-oof-section-id="true" role="heading" aria-level="2">44. Recovery Objective Integrity</h1>
+<p>Recovery Objective Defined ≠ Recovery Objective Achieved.</p>
+<h1 id="45-recovery-pathway-identification" data-oof-section-id="true" role="heading" aria-level="2">45. Recovery Pathway Identification</h1>
+<p>A recovery pathway represents an identifiable sequence of conditions or actions through which affected operational functions may be restored.</p>
+<p>Minimum elements include:</p>
+<p>Recovery Pathway ID</p>
+<p>Affected Function</p>
+<p>Required Resources</p>
+<p>Required Infrastructure</p>
+<p>Supporting Dependencies</p>
+<p>Required Conditions</p>
+<p class="podstand"><b>Authority:</b> References</p>
+<p>Expected Restoration State</p>
+<p>Evidence Basis</p>
+<h1 id="46-recovery-pathway-principle" data-oof-section-id="true" role="heading" aria-level="2">46. Recovery Pathway Principle</h1>
+<p>Recovery Pathway Identified ≠ Recovery Pathway Operationally Feasible.</p>
+<h1 id="47-recovery-dependencies" data-oof-section-id="true" role="heading" aria-level="2">47. Recovery Dependencies</h1>
+<p>Recovery may depend on Resource relationships different from those required during normal operation.</p>
+<p>Examples include:</p>
+<p>Electricity Required to Restart Pumping</p>
+<p>Water Required to Restart Cooling</p>
+<p>Computing Required to Restore Control Systems</p>
+<p>Transport Required to Deliver Replacement Equipment</p>
+<p>Fuel Required to Operate Temporary Infrastructure</p>
+<h1 id="48-recovery-dependency-principle" data-oof-section-id="true" role="heading" aria-level="2">48. Recovery Dependency Principle</h1>
+<p>Normal Operation Dependency Map ≠ Complete Recovery Dependency Map.</p>
+<p>Recovery-specific dependencies must be identified where material.</p>
+<h1 id="49-recovery-resource-requirements" data-oof-section-id="true" role="heading" aria-level="2">49. Recovery Resource Requirements</h1>
+<p>Recovery may consume additional Resources.</p>
+<p>Relevant elements include:</p>
+<p>Resource Type</p>
+<p>Required Quantity</p>
+<p>Required Quality</p>
+<p>Required Capacity</p>
+<p>Required Time</p>
+<p>Availability Reference</p>
+<p>Access Reference</p>
+<p>Allocation Reference</p>
+<p>Evidence Basis</p>
+<h1 id="50-recovery-resource-burden" data-oof-section-id="true" role="heading" aria-level="2">50. Recovery Resource Burden</h1>
+<p>Recovery Resource burden concerns the Resources required to achieve restoration.</p>
+<p>Relevant dimensions include:</p>
+<p>Energy Consumption</p>
+<p>Water Consumption</p>
+<p>Material Consumption</p>
+<p>Fuel Consumption</p>
+<p>Computational Capacity</p>
+<p>Transport Capacity</p>
+<p>Other Resource Requirements</p>
+<p>RRRM records the burden relevant to recovery feasibility.</p>
+<p>It does not independently determine overall Resource Sustainability.</p>
+<h1 id="51-recovery-burden-principle" data-oof-section-id="true" role="heading" aria-level="2">51. Recovery Burden Principle</h1>
+<p>Recovery Technically Possible ≠ Recovery Resource Requirements Available.</p>
+<h1 id="52-recovery-sequencing" data-oof-section-id="true" role="heading" aria-level="2">52. Recovery Sequencing</h1>
+<p>Recovery may require functions to be restored in a particular order.</p>
+<p>Examples include:</p>
+<p>Electricity Restoration Before Pumping</p>
+<p>Pumping Before Water Distribution</p>
+<p>Cooling Before Full Computing Load</p>
+<p>Infrastructure Inspection Before Production Restart</p>
+<p>Sequence requirements must remain explicit.</p>
+<h1 id="53-sequencing-principle" data-oof-section-id="true" role="heading" aria-level="2">53. Sequencing Principle</h1>
+<p>Individual Recovery Actions Feasible ≠ Complete Recovery Sequence Feasible.</p>
+<h1 id="54-recovery-timing" data-oof-section-id="true" role="heading" aria-level="2">54. Recovery Timing</h1>
+<p>Recovery timing may include:</p>
+<p>Recovery Start Time</p>
+<p>Resource Acquisition Time</p>
+<p>Infrastructure Restoration Time</p>
+<p>Functional Restart Time</p>
+<p>Functional Stabilization Time</p>
+<p>Validation Time</p>
+<p>Total Recovery Duration</p>
+<h1 id="55-recovery-time-principle" data-oof-section-id="true" role="heading" aria-level="2">55. Recovery Time Principle</h1>
+<p>Recovery Initiated ≠ Required Function Restored Within Acceptable Time.</p>
+<h1 id="56-recovery-state" data-oof-section-id="true" role="heading" aria-level="2">56. Recovery State</h1>
+<p>Recovery state must distinguish:</p>
+<p>Recovery Not Initiated</p>
+<p>Recovery Planned</p>
+<p>Recovery Ready</p>
+<p>Recovery Authorized</p>
+<p>Recovery In Progress</p>
+<p>Partial Recovery</p>
+<p>Function Restored</p>
+<p>System Recovery Pending</p>
+<p>System Recovery Validated</p>
+<p>Recovery Failed</p>
+<p>Recovery Evidence-Limited</p>
+<p>Recovery Unknown</p>
+<h1 id="57-functional-restoration" data-oof-section-id="true" role="heading" aria-level="2">57. Functional Restoration</h1>
+<p>Functional restoration concerns whether the required operational function has returned to its defined operating conditions.</p>
+<p>Relevant elements include:</p>
+<p>Function Identity</p>
+<p>Required Capacity</p>
+<p>Observed Capacity</p>
+<p>Required Quality</p>
+<p>Observed Quality</p>
+<p>Availability State</p>
+<p>Supporting Resource Conditions</p>
+<p>Evidence</p>
+<h1 id="58-restoration-integrity" data-oof-section-id="true" role="heading" aria-level="2">58. Restoration Integrity</h1>
+<p>Resource Supply Restored ≠ Dependent Operational Function Restored.</p>
+<h1 id="59-partial-recovery" data-oof-section-id="true" role="heading" aria-level="2">59. Partial Recovery</h1>
+<p>Partial recovery occurs where some functions or capacity are restored while others remain degraded or unavailable.</p>
+<p>RRRM must preserve:</p>
+<p>Restored Functions</p>
+<p>Unrestored Functions</p>
+<p>Remaining Capacity Constraints</p>
+<p>Remaining Supporting Resource Dependencies</p>
+<p>Residual Operational Limitations</p>
+<h1 id="60-partial-recovery-principle" data-oof-section-id="true" role="heading" aria-level="2">60. Partial Recovery Principle</h1>
+<p>Partial Recovery ≠ Complete Recovery.</p>
+<h1 id="61-local-recovery" data-oof-section-id="true" role="heading" aria-level="2">61. Local Recovery</h1>
+<p>Local recovery concerns restoration of a specific Resource, infrastructure component, or operational function.</p>
+<p>It may contribute to wider recovery.</p>
+<p>However, local restoration does not automatically establish system recovery.</p>
+<h1 id="62-local-recovery-principle" data-oof-section-id="true" role="heading" aria-level="2">62. Local Recovery Principle</h1>
+<p>Local Recovery ≠ Resource System Recovery.</p>
+<h1 id="63-resource-system-recovery" data-oof-section-id="true" role="heading" aria-level="2">63. Resource System Recovery</h1>
+<p>Resource System recovery concerns whether the required operational functions across the defined system boundary have been restored to their specified conditions.</p>
+<p>Relevant elements include:</p>
+<p>Required Functions</p>
+<p>Restoration States</p>
+<p>Supporting Resource Dependencies</p>
+<p>Operational Stability</p>
+<p>Residual Constraints</p>
+<p>Evidence Sufficiency</p>
+<h1 id="64-system-recovery-integrity" data-oof-section-id="true" role="heading" aria-level="2">64. System Recovery Integrity</h1>
+<p>All Components Restarted ≠ Resource System Recovery Validated.</p>
+<h1 id="65-recovery-integrity" data-oof-section-id="true" role="heading" aria-level="2">65. Recovery Integrity</h1>
+<p>Recovery integrity concerns whether the reported restoration state corresponds to the actual operational conditions.</p>
+<p>Relevant evidence may include:</p>
+<p>Operational Measurements</p>
+<p>Infrastructure State Records</p>
+<p>Resource Availability Records</p>
+<p>Functional Performance Records</p>
+<p>Stability Observations</p>
+<p>Independent Verification Where Applicable</p>
+<h1 id="66-recovery-integrity-principle" data-oof-section-id="true" role="heading" aria-level="2">66. Recovery Integrity Principle</h1>
+<p>Recovery Reported ≠ Recovery Validated.</p>
+<h1 id="67-alternative-recovery-configurations" data-oof-section-id="true" role="heading" aria-level="2">67. Alternative Recovery Configurations</h1>
+<p>A Resource System may recover through a configuration different from its original arrangement.</p>
+<p>Examples include:</p>
+<p>Alternative Electricity Supply</p>
+<p>Temporary Cooling Infrastructure</p>
+<p>Alternative Water Source</p>
+<p>Temporary Production Configuration</p>
+<p>Distributed Computing Reallocation</p>
+<p>RRRM must preserve the resulting dependency structure.</p>
+<h1 id="68-alternative-configuration-principle" data-oof-section-id="true" role="heading" aria-level="2">68. Alternative Configuration Principle</h1>
+<p>Operational Function Restored ≠ Original Resource Configuration Restored.</p>
+<h1 id="69-recovery-stability" data-oof-section-id="true" role="heading" aria-level="2">69. Recovery Stability</h1>
+<p>Recovery stability concerns whether restored functions remain operational under defined conditions.</p>
+<p>Relevant elements include:</p>
+<p>Resource Availability</p>
+<p>Supporting Infrastructure</p>
+<p>Operational Load</p>
+<p>Required Quality</p>
+<p>Relevant Duration</p>
+<p>Residual Disturbance Exposure</p>
+<h1 id="70-stability-principle" data-oof-section-id="true" role="heading" aria-level="2">70. Stability Principle</h1>
+<p>Function Restored Momentarily ≠ Function Stably Restored.</p>
+<h1 id="71-residual-recovery-constraints" data-oof-section-id="true" role="heading" aria-level="2">71. Residual Recovery Constraints</h1>
+<p>Residual constraints may include:</p>
+<p>Reduced Capacity</p>
+<p>Limited Resource Availability</p>
+<p>Temporary Infrastructure</p>
+<p>Unresolved Dependencies</p>
+<p>Restricted Operating Conditions</p>
+<p>Limited Backup Capacity</p>
+<p>Unverified Stability</p>
+<p>Remaining Disturbance Exposure</p>
+<h1 id="72-residual-constraint-principle" data-oof-section-id="true" role="heading" aria-level="2">72. Residual Constraint Principle</h1>
+<p>Recovery Completed Within Scope ≠ All Resource Constraints Eliminated.</p>
+<h1 id="73-response-and-recovery-evidence" data-oof-section-id="true" role="heading" aria-level="2">73. Response &amp; Recovery Evidence</h1>
+<p>RRRM may use:</p>
+<p>Response Plans</p>
+<p>Readiness Tests</p>
+<p class="podstand"><b>Authority:</b> Records</p>
+<p>Operational Logs</p>
+<p>Activation Records</p>
+<p>Resource Measurements</p>
+<p>Recovery Records</p>
+<p>Functional Performance Data</p>
+<p>Infrastructure Verification</p>
+<p>Validated Simulation Evidence</p>
+<p>Evidence must remain connected to the relevant disturbance and operational conditions.</p>
+<h1 id="74-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">74. Evidence Provenance</h1>
+<p>Evidence should preserve:</p>
+<p>Evidence ID</p>
+<p>Source</p>
+<p>Origin</p>
+<p>Method</p>
+<p>Time</p>
+<p>Location</p>
+<p>Affected Resource System</p>
+<p>Relevant Response or Recovery Arrangement</p>
+<p>Observed State</p>
+<p>Evidence Limitations</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="75-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">75. Evidence Sufficiency</h1>
+<p>Evidence sufficiency concerns whether available evidence supports the claimed response readiness, execution, recovery capability, or restoration state.</p>
+<p>Relevant dimensions include:</p>
+<p>Operational Relevance</p>
+<p>Time Validity</p>
+<p>Scenario Relevance</p>
+<p>Resource Availability Verification</p>
+<p class="podstand"><b>Authority:</b> Reference Verification</p>
+<p>Execution Evidence</p>
+<p>Functional Restoration Evidence</p>
+<p>Known Limitations</p>
+<h1 id="76-evidence-sufficiency-principle" data-oof-section-id="true" role="heading" aria-level="2">76. Evidence Sufficiency Principle</h1>
+<p>Documented Recovery Procedure ≠ Demonstrated Recovery Capability.</p>
+<h1 id="77-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">77. Simulation Evidence</h1>
+<p>Simulation may support response and recovery assessment.</p>
+<p>Relevant elements include:</p>
+<p>Disturbance Scenario</p>
+<p>Resource Network Model</p>
+<p>Response Assumptions</p>
+<p>Recovery Assumptions</p>
+<p>Resource Availability Inputs</p>
+<p class="podstand"><b>Authority:</b> Assumptions</p>
+<p>Timing Assumptions</p>
+<p>Functional Restoration Outputs</p>
+<p>Validation Status</p>
+<p>Uncertainty</p>
+<h1 id="78-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">78. Simulation Boundary</h1>
+<p>Simulated Recovery ≠ Operationally Demonstrated Recovery.</p>
+<h1 id="79-unknown-response-and-recovery-conditions" data-oof-section-id="true" role="heading" aria-level="2">79. Unknown Response &amp; Recovery Conditions</h1>
+<p>RRRM must support explicit unknown states.</p>
+<p>Examples include:</p>
+<p>Unknown Response Readiness</p>
+<p>Unknown Authority Reference</p>
+<p>Unknown Supporting Resource Availability</p>
+<p>Unknown Activation Time</p>
+<p>Unknown Recovery Pathway</p>
+<p>Unknown Recovery Duration</p>
+<p>Unknown Functional Restoration State</p>
+<p>Unknown conditions must not be silently treated as satisfied.</p>
+<h1 id="80-unknown-condition-principle" data-oof-section-id="true" role="heading" aria-level="2">80. Unknown Condition Principle</h1>
+<p>Recovery Capability Not Verified ≠ Recovery Capability Available.</p>
+<h1 id="81-evidence-conflict" data-oof-section-id="true" role="heading" aria-level="2">81. Evidence Conflict</h1>
+<p>Evidence may conflict.</p>
+<p>Examples include:</p>
+<p>Response Plan Conflicts with Operational Readiness</p>
+<p class="podstand"><b>Authority:</b> Records Conflict with Execution Claims</p>
+<p>Recovery Reports Conflict with Measurements</p>
+<p>Simulated Recovery Time Conflicts with Operational Results</p>
+<p>Different Sources Report Different Restoration States</p>
+<p>Conflicts must remain traceable.</p>
+<h1 id="82-evidence-conflict-principle" data-oof-section-id="true" role="heading" aria-level="2">82. Evidence Conflict Principle</h1>
+<p>Conflicting Recovery Evidence ≠ Validated Recovery Conclusion.</p>
+<h1 id="83-resource-response-and-recovery-profile" data-oof-section-id="true" role="heading" aria-level="2">83. Resource Response &amp; Recovery Profile</h1>
+<p>The principal governed output is the:</p>
+<p>Resource Response &amp; Recovery Profile</p>
+<p>It establishes the evidence-based relationship between Resource disturbances, response objectives, response readiness, authority references, execution evidence, recovery pathways, supporting Resource requirements, functional restoration, residual constraints, and validation states.</p>
+<p>The profile provides the response and recovery foundation for subsequent resilience validation and monitoring governance.</p>
+<h1 id="84-minimum-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">84. Minimum Profile Fields</h1>
+<p>At minimum:</p>
+<p>Response &amp; Recovery Profile ID</p>
+<p>Resource System ID</p>
+<p>Assessment Boundary</p>
+<p>Required Operational Functions</p>
+<p>Resource Interdependency Network Reference</p>
+<p>Disturbance Propagation Profile Reference</p>
+<p>Vulnerability &amp; Resilience Capacity Profile Reference</p>
+<p>Response Objective</p>
+<p>Response Arrangement ID</p>
+<p>Response Capability</p>
+<p>Response Readiness State</p>
+<p>Response Prerequisites</p>
+<p>Response Authority References</p>
+<p>Response Activation Conditions</p>
+<p>Response Timing</p>
+<p>Response Coordination Requirements</p>
+<p>Supporting Resource Requirements</p>
+<p>Response Feasibility State</p>
+<p>Response Execution Evidence</p>
+<p>Response Effectiveness State</p>
+<p>Response Limitations</p>
+<p>Recovery Objective</p>
+<p>Recovery Pathway Register</p>
+<p>Recovery Dependencies</p>
+<p>Recovery Resource Requirements</p>
+<p>Recovery Resource Burden</p>
+<p>Recovery Sequence</p>
+<p>Recovery Timing</p>
+<p>Recovery State</p>
+<p>Functional Restoration State</p>
+<p>Partial Recovery State</p>
+<p>Local Recovery References</p>
+<p>Resource System Recovery State</p>
+<p>Recovery Integrity Evidence</p>
+<p>Alternative Recovery Configuration References</p>
+<p>Recovery Stability</p>
+<p>Residual Recovery Constraints</p>
+<p>Evidence Provenance</p>
+<p>Evidence Sufficiency</p>
+<p>Missing Evidence</p>
+<p>Evidence Uncertainty</p>
+<p>Evidence Conflict</p>
+<p>Reassessment Trigger</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="85-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">85. Minimum Implementation Framework</h1>
+<p>A minimum operational RRRM implementation should contain ten governed layers.</p>
+<p>Layer 1 — Resource System &amp; Disturbance Context</p>
+<p>Establish the Resource System, required operational functions, disturbance conditions, and relevant dependency network.</p>
+<p>Layer 2 — Vulnerability &amp; Capacity Reference</p>
+<p>Connect response and recovery assessment to the applicable vulnerability and resilience capacity evidence.</p>
+<p>Layer 3 — Response Objective &amp; Capability</p>
+<p>Identify response objectives, arrangements, required Resources, and operational capabilities.</p>
+<p>Layer 4 — Response Readiness &amp; Authority</p>
+<p>Evaluate prerequisites, readiness, authority references, activation conditions, and coordination requirements.</p>
+<p>Layer 5 — Response Feasibility &amp; Execution Evidence</p>
+<p>Evaluate feasibility and preserve execution evidence where operational responses occur.</p>
+<p>Layer 6 — Recovery Pathway &amp; Dependency Assessment</p>
+<p>Identify recovery objectives, pathways, supporting Resource dependencies, and sequencing conditions.</p>
+<p>Layer 7 — Recovery Resource &amp; Timing Assessment</p>
+<p>Evaluate Resource requirements, recovery burden, available capacity, and expected or observed recovery time.</p>
+<p>Layer 8 — Functional Restoration &amp; Recovery Integrity</p>
+<p>Assess partial, local, and system-level restoration against required operational functions and evidence.</p>
+<p>Layer 9 — Residual Constraints &amp; Evidence Classification</p>
+<p>Preserve remaining limitations, uncertainty, conflicting evidence, and response and recovery states.</p>
+<p>Layer 10 — Governed Output &amp; Handoff</p>
+<p>Produce the Resource Response &amp; Recovery Profile and preserve downstream resilience validation and monitoring references.</p>
+<h1 id="86-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">86. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Assessment Not Initiated</p>
+<p>Response Objective Defined</p>
+<p>Response Arrangement Identified</p>
+<p>Response Capability Identified</p>
+<p>Response Readiness Pending</p>
+<p>Response Ready Within Defined Conditions</p>
+<p>Response Conditionally Ready</p>
+<p>Response Not Ready</p>
+<p class="podstand"><b>Authority:</b> Reference Pending</p>
+<p class="podstand"><b>Authority:</b> Reference Established</p>
+<p>Response Activation Pending</p>
+<p>Response Activated</p>
+<p>Response Executed</p>
+<p>Response Objective Achieved</p>
+<p>Response Objective Partially Achieved</p>
+<p>Response Failed</p>
+<p>Recovery Objective Defined</p>
+<p>Recovery Pathway Identified</p>
+<p>Recovery Feasibility Pending</p>
+<p>Recovery Feasible Within Defined Conditions</p>
+<p>Recovery Conditionally Feasible</p>
+<p>Recovery Not Feasible</p>
+<p>Recovery Authorized</p>
+<p>Recovery In Progress</p>
+<p>Partial Recovery</p>
+<p>Function Restored</p>
+<p>System Recovery Pending</p>
+<p>System Recovery Validated</p>
+<p>Recovery Failed</p>
+<p>Residual Constraints Identified</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Reassessment Required</p>
+<h1 id="87-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">87. Minimum Evidence Path</h1>
+<p>Where response readiness or recovery capability cannot be established:</p>
+<p>Resource System → Disturbance &amp; Vulnerability References → Required Operational Functions → Response / Recovery Objective → Candidate Arrangement → Resource &amp; Infrastructure Requirements → Authority &amp; Readiness Evidence → Evidence-Limited / Conflicted / Unknown State → Missing Evidence Identification → Evidence Acquisition → Feasibility Reassessment → Execution / Restoration Evidence Where Applicable → Response &amp; Recovery Classification → Resource Response &amp; Recovery Profile → Resilience Validation &amp; Monitoring Handoff</p>
+<p>Missing evidence must not be replaced by assumed readiness, authority, or recovery success.</p>
+<h1 id="88-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">88. Minimum Reassessment Framework</h1>
+<p>Current Resource Response &amp; Recovery Profile → New Disturbance / Readiness / Authority / Resource / Execution / Recovery Evidence → Materiality Assessment → Response Objective Review → Readiness Review → Authority Reference Review → Supporting Resource Review → Feasibility Review → Recovery Pathway Review → Restoration Review → Residual Constraint Review → Classification Update → Profile Update → Version Update</p>
+<p>Reassessment may be triggered by:</p>
+<p>Changed Resource dependencies. Changed disturbance conditions.</p>
+<p>Changed required operational functions. Changed response arrangements. Changed Resource availability. Changed supporting infrastructure. Changed authority references. Changed activation conditions. Changed response timing. Failed readiness tests. Changed recovery pathways. Changed recovery Resource requirements. Changed recovery timing. New execution evidence. New functional restoration evidence. New residual constraints. Conflicting recovery evidence.</p>
+<h1 id="89-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">89. Governance Requirements</h1>
+<p>A conforming RRRM implementation must satisfy the following requirements.</p>
+<p>Resource System &amp; Context</p>
+<h1 id="1-identify-the-resource-system-2-define-the-assessment-boundary-3-identify-requi" data-oof-section-id="true" role="heading" aria-level="2">1. Identify the Resource System. 2. Define the assessment boundary. 3. Identify required operational functions. 4. Preserve the Resource Interdependency Network reference. 5. Preserve the Disturbance Propagation Profile reference. 6. Preserve the Vulnerability &amp; Resilience Capacity Profile reference. 7. Preserve relevant time and location. 8. Preserve the evidence basis.</h1>
+<p>Response Objective &amp; Capability</p>
+<h1 id="9-define-response-objectives-10-identify-response-arrangements-11-identify-requi" data-oof-section-id="true" role="heading" aria-level="2">9. Define response objectives. 10. Identify response arrangements. 11. Identify required Resources. 12. Identify required infrastructure. 13. Identify required operational capabilities. 14. Preserve activation conditions. 15. Preserve expected outcomes. 16. Prevent defined response objectives from establishing feasibility. 17. Prevent documented response capability from establishing operational availability.</h1>
+<p>Readiness &amp; Authority Governance</p>
+<h1 id="18-evaluate-response-readiness-19-preserve-response-prerequisites-20-preserve-su" data-oof-section-id="true" role="heading" aria-level="2">18. Evaluate response readiness. 19. Preserve response prerequisites. 20. Preserve supporting Resource requirements. 21. Preserve personnel or system readiness where applicable. 22. Preserve communication readiness. 23. Preserve coordination requirements. 24. Preserve authority references. 25. Preserve applicable permission conditions. 26. Preserve authority limitations. 27. Prevent operational need from creating authority. 28. Prevent authority references from establishing execution. 29. Prevent capability existence from establishing readiness at the required time.</h1>
+<p>Response Feasibility &amp; Execution</p>
+<h1 id="30-evaluate-response-feasibility-31-preserve-technical-feasibility-32-preserve-r" data-oof-section-id="true" role="heading" aria-level="2">30. Evaluate response feasibility. 31. Preserve technical feasibility. 32. Preserve Resource feasibility.</h1>
+<h1 id="33-preserve-infrastructure-feasibility-34-preserve-timing-feasibility-35-preserv" data-oof-section-id="true" role="heading" aria-level="2">33. Preserve infrastructure feasibility. 34. Preserve timing feasibility. 35. Preserve coordination feasibility. 36. Preserve authority feasibility. 37. Preserve execution evidence where applicable. 38. Preserve response timing. 39. Preserve observed response outcomes. 40. Evaluate response effectiveness. 41. Preserve response limitations. 42. Prevent response initiation from establishing objective achievement. 43. Prevent response completion from establishing effectiveness.</h1>
+<p>Recovery Objective &amp; Pathway Governance</p>
+<h1 id="44-define-recovery-objectives-45-identify-recovery-pathways-46-preserve-recovery" data-oof-section-id="true" role="heading" aria-level="2">44. Define recovery objectives. 45. Identify recovery pathways. 46. Preserve recovery prerequisites. 47. Preserve supporting Resource dependencies. 48. Identify recovery-specific dependencies. 49. Preserve recovery sequence requirements. 50. Preserve authority references. 51. Evaluate recovery feasibility. 52. Prevent identified recovery pathways from establishing operational feasibility. 53. Prevent normal operation dependency maps from establishing complete recovery dependencies.</h1>
+<p>Recovery Resource &amp; Timing Governance</p>
+<h1 id="54-identify-recovery-resource-requirements-55-preserve-required-resource-quantit" data-oof-section-id="true" role="heading" aria-level="2">54. Identify recovery Resource requirements. 55. Preserve required Resource quantities. 56. Preserve required Resource qualities. 57. Preserve required Resource capacities. 58. Preserve Resource availability references. 59. Preserve Access references where relevant. 60. Preserve Allocation references where relevant. 61. Evaluate recovery Resource burden. 62. Preserve recovery timing. 63. Preserve expected restoration duration. 64. Preserve observed restoration duration where applicable. 65. Prevent technical recoverability from establishing Resource availability. 66. Prevent recovery initiation from establishing timely restoration.</h1>
+<p>Functional Restoration Governance</p>
+<h1 id="67-preserve-recovery-state-68-identify-restored-operational-functions-69-identif" data-oof-section-id="true" role="heading" aria-level="2">67. Preserve recovery state. 68. Identify restored operational functions. 69. Identify unrestored operational functions. 70. Preserve partial recovery. 71. Preserve local recovery. 72. Evaluate system-level recovery. 73. Preserve required functional thresholds. 74. Preserve observed functional performance. 75. Preserve alternative recovery configurations. 76. Evaluate recovery stability. 77. Preserve residual recovery constraints. 78. Prevent Resource restoration from automatically establishing functional restoration. 79. Prevent local recovery from establishing system recovery. 80. Prevent temporary restoration from establishing stable recovery.</h1>
+<p>Evidence Governance</p>
+<h1 id="81-preserve-evidence-provenance-82-evaluate-evidence-sufficiency-83-preserve-mis" data-oof-section-id="true" role="heading" aria-level="2">81. Preserve evidence provenance. 82. Evaluate evidence sufficiency. 83. Preserve missing evidence. 84. Support Evidence-Limited states.</h1>
+<h1 id="85-support-conflicted-states-86-support-unknown-states-87-preserve-material-unce" data-oof-section-id="true" role="heading" aria-level="2">85. Support Conflicted states. 86. Support Unknown states. 87. Preserve material uncertainty. 88. Distinguish simulated from operationally demonstrated recovery. 89. Preserve execution evidence. 90. Preserve functional restoration evidence. 91. Prevent recovery reports from establishing validated recovery without sufficient evidence. 92. Prevent conflicting evidence from establishing validated conclusions.</h1>
+<p>Lifecycle Governance</p>
+<h1 id="93-support-response-readiness-monitoring-94-support-recovery-capability-monitori" data-oof-section-id="true" role="heading" aria-level="2">93. Support response readiness monitoring. 94. Support recovery capability monitoring. 95. Preserve material changes in response arrangements. 96. Preserve changed authority references. 97. Preserve changed supporting Resource conditions. 98. Preserve changed recovery pathways. 99. Preserve new execution evidence. 100. Preserve new restoration evidence. 101. Support reassessment. 102. Preserve reassessment triggers. 103. Preserve effective time. 104. Preserve material version history.</h1>
+<p class="podstand"><b>Architecture:</b> Boundaries</p>
+<h1 id="105-maintain-ridm-interdependency-mapping-boundaries-106-maintain-rdpm-disturban" data-oof-section-id="true" role="heading" aria-level="2">105. Maintain RIDM interdependency mapping boundaries. 106. Maintain RDPM disturbance propagation boundaries. 107. Maintain RRVM vulnerability and resilience capacity boundaries. 108. Maintain RACS availability and capacity boundaries. 109. Maintain RAGS Access governance boundaries. 110. Maintain RPAS Allocation governance boundaries. 111. Maintain RSFS substitution and flexibility boundaries. 112. Preserve downstream resilience validation and monitoring handoffs. 113. Prevent response governance from creating operational authority. 114. Prevent recovery governance from independently authorizing Resource substitution. 115. Prevent response or recovery assessment from determining Harm or Liability. 116. Prevent response or recovery assessment from establishing long-term Sustainability. 117. Produce a Resource Response &amp; Recovery Profile.</h1>
+<h1 id="90-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">90. Governance Logic</h1>
+<p>Canonical RRRM logic:</p>
+<p>Resource System Identity → Required Operational Functions → Interdependency / Disturbance / Vulnerability References → Response Objective → Response Arrangement → Response Capability → Readiness &amp; Prerequisites → Authority References → Activation Conditions → Response Feasibility → Response Execution Evidence → Response Effectiveness → Recovery Objective → Recovery Pathways → Recovery Dependencies → Recovery Resource Requirements → Recovery Sequencing &amp; Timing → Recovery Execution Evidence → Functional Restoration → Partial / Local / System Recovery Assessment → Recovery Integrity &amp; Stability → Residual Constraints → Evidence Validation → Resource Response &amp; Recovery Profile → Monitoring &amp; Reassessment → Resilience Validation &amp; Monitoring Handoff</p>
+<h1 id="91-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">91. Governance Outputs</h1>
+<p>RRRM may produce:</p>
+<p>Resource Response &amp; Recovery Profile</p>
+<p>Resource System Identity Record</p>
+<p>Assessment Boundary Record</p>
+<p>Required Operational Function Register</p>
+<p>Response Objective Record</p>
+<p>Response Arrangement Register</p>
+<p>Response Capability Assessment</p>
+<p>Response Readiness State</p>
+<p>Response Prerequisite Register</p>
+<p>Response Authority Reference</p>
+<p>Response Activation Condition Record</p>
+<p>Response Timing Record</p>
+<p>Response Coordination Record</p>
+<p>Supporting Resource Requirement Register</p>
+<p>Response Feasibility Assessment</p>
+<p>Response Execution Evidence</p>
+<p>Response Effectiveness Assessment</p>
+<p>Response Limitation Record</p>
+<p>Recovery Objective Record</p>
+<p>Recovery Pathway Register</p>
+<p>Recovery Dependency Register</p>
+<p>Recovery Resource Requirement Register</p>
+<p>Recovery Resource Burden Assessment</p>
+<p>Recovery Sequence Record</p>
+<p>Recovery Timing Record</p>
+<p>Recovery State</p>
+<p>Functional Restoration Record</p>
+<p>Partial Recovery Record</p>
+<p>Local Recovery Record</p>
+<p>Resource System Recovery Assessment</p>
+<p>Recovery Integrity Assessment</p>
+<p>Alternative Recovery Configuration Record</p>
+<p>Recovery Stability Record</p>
+<p>Residual Recovery Constraint Register</p>
+<p>Evidence Sufficiency State</p>
+<p>Missing Evidence Record</p>
+<p>Evidence Uncertainty</p>
+<p>Evidence Conflict</p>
+<p>Reassessment Trigger</p>
+<p>Downstream Governance Handoff</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="92-practical-applications" data-oof-section-id="true" role="heading" aria-level="2">92. Practical Applications</h1>
+<p>AI Data Centers</p>
+<p>Evaluating emergency electricity response, cooling preservation, backup activation readiness, recovery sequencing, and computing function restoration.</p>
+<p>Energy Infrastructure</p>
+<p>Evaluating Resource response arrangements, supporting infrastructure dependencies, restoration sequencing, and recovery evidence.</p>
+<p>Water Systems</p>
+<p>Evaluating pumping restoration, treatment recovery, alternative supply readiness, storage dependencies, and water distribution restoration.</p>
+<p>Industrial Manufacturing</p>
+<p>Evaluating production recovery, material availability, alternative Resource arrangements, restart sequencing, and restoration constraints.</p>
+<p>Critical Infrastructure</p>
+<p>Evaluating response readiness, authority references, operational coordination, recovery feasibility, and evidence-based system restoration.</p>
+<h1 id="93-use-case-1-ai-data-center-cooling-recovery" data-oof-section-id="true" role="heading" aria-level="2">93. Use Case 1 — AI Data Center Cooling Recovery</h1>
+<p>An AI data center experiences an electricity interruption affecting cooling infrastructure.</p>
+<p>The facility maintains backup electricity and alternative cooling arrangements.</p>
+<p>RRRM establishes:</p>
+<p>Resource System: AI data center.</p>
+<p>Disturbance: Electricity supply interruption.</p>
+<p>Required Functions: Thermal control and computing operation.</p>
+<p>Response Objective: Preserve required cooling capacity.</p>
+<p>Response Arrangement: Backup electricity activation and applicable cooling control measures.</p>
+<p>Response Readiness: Evaluated against backup availability, fuel, infrastructure, activation time, and coordination.</p>
+<p class="podstand"><b>Authority:</b> References: Applicable operational authorization for backup activation and load management.</p>
+<p>Response Feasibility: Evaluated against actual supporting Resource availability and required response time.</p>
+<p>Recovery Objective: Restore stable cooling and computing functions.</p>
+<p>Recovery Dependencies: Electricity, cooling infrastructure, control systems, and relevant water supply.</p>
+<p>Recovery Sequence: Restore supporting power and cooling conditions before resuming computing load beyond the supported thermal capacity.</p>
+<p>Recovery Integrity: Verify that cooling and computing functions satisfy required operating conditions.</p>
+<p>Residual Constraints: Limited backup duration, reduced computing capacity, or temporary cooling restrictions.</p>
+<p>Output: Resource Response &amp; Recovery Profile.</p>
+<p>Backup activation alone does not establish complete recovery.</p>
+<p>Backup Power Activated ≠ Cooling and Computing Functions Restored.</p>
+<h1 id="94-use-case-2-industrial-water-supply-recovery" data-oof-section-id="true" role="heading" aria-level="2">94. Use Case 2 — Industrial Water Supply Recovery</h1>
+<p>An industrial facility experiences a water supply interruption affecting production.</p>
+<p>The facility maintains stored water and an alternative supply pathway.</p>
+<p>RRRM establishes:</p>
+<p>Resource System: Industrial production facility.</p>
+<p>Disturbance: Primary water supply interruption.</p>
+<p>Required Function: Water-supported production.</p>
+<p>Response Objective: Maintain the minimum required water supply.</p>
+<p>Response Arrangement: Use available storage and authorized alternative supply arrangements.</p>
+<p>Response Readiness: Evaluate storage accessibility, water quality, pumping capacity, and relevant permissions.</p>
+<p>Recovery Objective: Restore required production water availability.</p>
+<p>Recovery Dependencies: Electricity, pumping infrastructure, treatment capacity, and water distribution.</p>
+<p>Recovery Resource Burden: Additional energy, treatment inputs, transport, or other Resources needed for restoration.</p>
+<p>Recovery Sequence: Restore pumping and treatment before relying on the recovered supply for production.</p>
+<p>Functional Restoration: Verify required water quality, capacity, and availability.</p>
+<p>Residual Constraints: Reduced water capacity, temporary supply conditions, or limited storage replenishment.</p>
+<p>Output: Resource Response &amp; Recovery Profile.</p>
+<p>The restoration of a water source does not establish production recovery unless the supporting infrastructure and required operating conditions are also restored.</p>
+<p>Water Source Restored ≠ Production Water Function Restored.</p>
+<h1 id="95-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">95. Critical Distinctions</h1>
+<p>Response Plan Exists ≠ Response Capability Ready.</p>
+<p>Response Authorized ≠ Response Executed.</p>
+<p>Resource Restored ≠ Required Operational Function Restored.</p>
+<p>Local Recovery ≠ Resource System Recovery.</p>
+<p>Response Required ≠ Response Authorized.</p>
+<p>Recovery Pathway Identified ≠ Recovery Pathway Operationally Feasible.</p>
+<p>Recovery Resource Identified ≠ Recovery Resource Available.</p>
+<p>Recovery Reported ≠ Recovery Validated.</p>
+<p>Recovery Evaluated Within Defined Boundary ≠ Entire Resource System Recovery Established.</p>
+<p>Function Restarted ≠ Function Restored to Required Operating Conditions.</p>
+<p>Response Objective Defined ≠ Response Objective Achievable.</p>
+<p>Response Capability Documented ≠ Response Capability Operationally Available.</p>
+<p>Response Capability Exists ≠ Response Capability Ready at the Required Time.</p>
+<p>Response Arrangement Technically Valid ≠ Response Prerequisites Satisfied.</p>
+<p>Operational Need ≠ Authority to Act.</p>
+<p>Activation Condition Met ≠ Response Successfully Activated.</p>
+<p>Response Eventually Available ≠ Response Available Before Operational Failure.</p>
+<p>Multiple Response Capabilities ≠ Coordinated Response Capability.</p>
+<p>Response Resource Identified ≠ Supporting Resources Available.</p>
+<p>Response Feasible Under Normal Conditions ≠ Response Feasible During Disturbance.</p>
+<p>Response Initiated ≠ Response Objective Achieved.</p>
+<p>Response Completed ≠ Response Effective.</p>
+<p>Response Mechanism Available ≠ Response Mechanism Sufficient.</p>
+<p>Recovery Objective Defined ≠ Recovery Objective Achieved.</p>
+<p>Normal Operation Dependency Map ≠ Complete Recovery Dependency Map.</p>
+<p>Recovery Technically Possible ≠ Recovery Resource Requirements Available.</p>
+<p>Individual Recovery Actions Feasible ≠ Complete Recovery Sequence Feasible.</p>
+<p>Recovery Initiated ≠ Required Function Restored Within Acceptable Time.</p>
+<p>Resource Supply Restored ≠ Dependent Operational Function Restored.</p>
+<p>Partial Recovery ≠ Complete Recovery.</p>
+<p>All Components Restarted ≠ Resource System Recovery Validated.</p>
+<p>Operational Function Restored ≠ Original Resource Configuration Restored.</p>
+<p>Function Restored Momentarily ≠ Function Stably Restored.</p>
+<p>Recovery Completed Within Scope ≠ All Resource Constraints Eliminated.</p>
+<p>Documented Recovery Procedure ≠ Demonstrated Recovery Capability.</p>
+<p>Simulated Recovery ≠ Operationally Demonstrated Recovery.</p>
+<p>Recovery Capability Not Verified ≠ Recovery Capability Available.</p>
+<p>Conflicting Recovery Evidence ≠ Validated Recovery Conclusion.</p>
+<h1 id="96-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">96. Cross-Architecture Boundary</h1>
+<p>RRRM may consume evidence from:</p>
+<p>RIDM — Resource Interdependency Mapping Module</p>
+<p>RDPM — Resource Disturbance &amp; Propagation Module</p>
+<p>RRVM — Resource Vulnerability &amp; Resilience Capacity Module</p>
+<p>RCHS — Resource Characterization Standard</p>
+<p>RACS — Resource Availability &amp; Capacity Standard</p>
+<p>RDGS — Resource Demand Governance Standard</p>
+<p>RDCS — Resource Dependency &amp; Criticality Standard</p>
+<p>RAGS — Resource Access Governance Standard</p>
+<p>RPAS — Resource Prioritization &amp; Allocation Standard</p>
+<p>RCUS — Resource Consumption &amp; Utilization Standard</p>
+<p>RSCS — Resource Scarcity &amp; Constraint Standard</p>
+<p>RRCS — Resource Recovery &amp; Circularity Standard</p>
+<p>RSFS — Resource Substitution &amp; Flexibility Standard</p>
+<p>Its outputs support subsequent RIRS governance of:</p>
+<p>Resource Resilience Validation &amp; Monitoring</p>
+<p>Its downstream architecture relationship includes:</p>
+<p>RCSS — Resource Continuity &amp; Sustainability Standard</p>
+<p>Relevant external architecture relationships may include:</p>
+<p>GOA™ — Governance Architecture</p>
+<p>ORA™ — Operational Reality Architecture</p>
+<p>ASGA™ — Autonomous Systems Governance Architecture</p>
+<p>PGA™ — Prediction Governance Architecture</p>
+<p>SIMULOS® — Simulation Governance</p>
+<p>HAGA™ — Harm Governance Architecture</p>
+<p>LIGA™ — Liability Governance Architecture</p>
+<p>RRRM governs Resource System response and recovery readiness, feasibility, evidence, and functional outcomes.</p>
+<p>It does not absorb operational authority, Resource Access, Allocation, substitution execution, physical repair mechanisms, Harm, Liability, or Sustainability governance.</p>
+<h1 id="97-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">97. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RRRM may use Resource availability, dependency, disturbance, vulnerability, authority, response, and recovery evidence.</p>
+<p>It governs the relevance of those inputs to Resource System response readiness, recovery feasibility, functional restoration, and residual recovery constraints.</p>
+<p>It does not redefine the independent mechanisms that produced them.</p>
+<h1 id="98-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">98. Canonical Boundary</h1>
+<p>RRRM governs how the readiness, feasibility, execution evidence, functional outcomes, and limitations of Resource System response and recovery arrangements are identified, evaluated, bounded, validated, monitored, and reassessed under defined Resource disturbance conditions, with particular attention to the restoration or preservation of required operational functions across interconnected Resource dependencies.</p>
+<p>It does not independently authorize operational interventions, execute Resource substitutions, command recovery operations, determine Harm or Liability, or establish long-term Resource Sustainability.</p>
+<p>Its principal governed output is the Resource Response &amp; Recovery Profile .</p>
+<h1 id="99-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">99. Canonical Closing Statement</h1>
+<p>A Resource System does not recover merely because a response plan exists, backup equipment has been activated, or an individual Resource has returned. Recovery becomes operationally meaningful only when the required functions are restored through feasible, properly authorized, Resource-supported pathways and the resulting operating state is supported by sufficient evidence.</p>
+<p>RRRM establishes the governance conditions under which response readiness, recovery capability, and functional restoration become distinguishable from intention, execution claims, and partial repair — ensuring that operational need is never confused with authority, local restoration is not presented as system recovery, and unresolved Resource dependencies remain visible after a disturbance.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

@@ -57,10 +57,10 @@
   "createdAt": "2026-09-30T21:12:07Z",
   "updatedAt": "2026-09-30T21:12:07Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-558793-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-558793-V6",
     "incidentId": "OOF-AII-558793",
-    "analysisVersion": 4,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 6,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -135,7 +135,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -158,6 +159,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Flock Safety License-Plate Reader Reportedly Misread Plate, Leading Toledo, Ohio, Police to Stop Motorist at Gunpoint and Deploy K-9",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Toledo, Ohio, police stopped motorist Brandon Upchurch at gunpoint after a Flock Safety license-plate reader incorrectly matched his truck to a stolen plate. Officers released a K-9 that bit him and arrested him. Police later said the alert was a misread; one officer was reprimanded for failing to verify the plate, and all charges against Upchurch were later dropped. (2024-04-11, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1717",
+      "eventDate": "2024-04-11",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "High",
@@ -297,7 +307,54 @@
       "What evidence would establish how Surveillance Technology, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr) produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how safety, validation, enforcement moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Surveillance Technology, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr). The next governance test is: How should safety, validation, enforcement be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing safety, validation, enforcement were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for safety, validation, enforcement, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Behavioral Safety Standard - (BSS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/aig/Behavioral%20Safety%20Standard%20-%20(BSS).html",
+          "objectId": "OOF-OID-AIG-BSS-2026-06-26-0010"
+        },
+        {
+          "name": "Behavioral Safety Validation Module - (BSVM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/aig/BSVM.html",
+          "objectId": "OOF-OID-AIG-BSS-BSVM-2026-06-26-0004"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains safety, validation, enforcement under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "aig",
+      "mechanisms": [
+        "safety",
+        "validation",
+        "enforcement"
+      ],
+      "patternKey": "716fb0f8e9da12e5"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1717"
@@ -318,7 +375,7 @@
         "What evidence would establish how Surveillance Technology, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr) produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how safety, validation, enforcement moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Surveillance Technology, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr). The next governance test is: How should safety, validation, enforcement be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -390,8 +447,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-558793-V3",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-558793-V5",
     "reassessmentReason": "Material analysis engine change"
   }
 }

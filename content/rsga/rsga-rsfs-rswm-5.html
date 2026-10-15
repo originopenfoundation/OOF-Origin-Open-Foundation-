@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Substitution &amp; Flexibility Monitoring Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Substitution &amp; Flexibility Monitoring Module | OOF®. RSWM — Resource Substitution &amp; Flexibility Monitoring Module Architecture: RSGA™ — Resource." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Substitution &amp; Flexibility Monitoring Module | OOF®" />
+<meta property="og:description" content="Resource Substitution &amp; Flexibility Monitoring Module | OOF®. RSWM — Resource Substitution &amp; Flexibility Monitoring Module Architecture: RSGA™ — Resource." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Substitution &amp; Flexibility Monitoring Module | OOF®" />
+<meta name="twitter:description" content="Resource Substitution &amp; Flexibility Monitoring Module | OOF®. RSWM — Resource Substitution &amp; Flexibility Monitoring Module Architecture: RSGA™ — Resource." />
+<meta name="DC.title" content="Resource Substitution &amp; Flexibility Monitoring Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html","name":"Resource Substitution & Flexibility Monitoring Module | OOF®","description":"Resource Substitution & Flexibility Monitoring Module | OOF®. RSWM — Resource Substitution & Flexibility Monitoring Module Architecture: RSGA™ — Resource.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Substitution & Flexibility Monitoring Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html"}]},"headline":"Resource Substitution & Flexibility Monitoring Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rsfs-rswm-5.html#webpage"}}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RSWM — Resource Substitution &amp; Flexibility Monitoring</p>
+<p>Module</p>
+<p class="podstand"><b>Architecture:</b></p>
+<p>RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b></p>
+<p>RSFS — Resource Substitution &amp; Flexibility Standard</p>
+<p class="podstand"><b>Category:</b></p>
+<p>Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b></p>
+<p>Resource Governance</p>
+<p class="podstand"><b>Type:</b></p>
+<p>Core Module</p>
+<p class="podstand"><b>Governed Space:</b></p>
+<p>Resource Substitution &amp; Flexibility Effectiveness Monitoring Governance</p>
+<p class="podstand"><b>Module ID:</b></p>
+<p>RSGA-RSFS-RSWM-05</p>
+<p class="podstand"><b>Origin ID:</b></p>
+<p>OOF-RSGA-RSFS-RSWM</p>
+<p class="podstand"><b>Version:</b></p>
+<p>1.0</p>
+<p class="podstand"><b>Status:</b></p>
+<p>Canonical Open</p>
+<p class="podstand"><b>Effective Date:</b></p>
+<p>8 October 2026</p>
+<p class="podstand"><b>Compatibility:</b></p>
+<p>Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>AI-Readable:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>Authority:</b></p>
+<p>OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b></p>
+<p>Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b></p>
+<p>English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RSWM — Resource Substitution &amp; Flexibility Monitoring Module is the Core Module within RSFS that governs how activated Resource substitutions and Resource flexibility arrangements are observed, measured, evaluated, evidenced, classified, and reassessed against their original Resource requirements, authorized operational</p>
+<p>conditions, intended adaptation objectives, actual Resource-use outcomes, supporting dependencies, and material constraint transfers throughout their active operational lifecycle.</p>
+<p>RSWM establishes whether an activated substitution or flexibility arrangement is actually performing its intended function under the conditions in which it operates.</p>
+<p>It distinguishes successful activation from demonstrated effectiveness, temporary effectiveness from sustained effectiveness, and local Resource improvement from broader Resource dependency or constraint consequences.</p>
+<p>The module also establishes how material deviations, degradation, failures, changing conditions, and insufficient evidence trigger appropriate reassessment or referral to competent operational mechanisms.</p>
+<p>Substitution Activated ≠ Substitution Effective.</p>
+<p>Flexibility Activated ≠ Flexibility Effective.</p>
+<p>Short-Term Success ≠ Sustained Operational Effectiveness.</p>
+<p>Local Resource Improvement ≠ Net Resource System Improvement.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RSWM governs the monitoring and effectiveness-validation stage of Resource Substitution &amp; Flexibility Governance.</p>
+<p>Its operational role is to determine whether activated Resource substitution and flexibility arrangements continue to satisfy their defined requirements, conditions, and objectives.</p>
+<p>The module establishes:</p>
+<p>Monitoring case identity. Activated substitution or flexibility references. Original Resource requirement references. Operational baseline. Monitoring objectives. Effectiveness criteria. Resource-use measurement references. Functional performance monitoring. Capacity and quality monitoring. Reliability monitoring. Supporting Resource consumption. Dependency transfer observation. Constraint displacement observation. Flexibility response monitoring. Flexibility duration monitoring. Recovery performance. Operational deviation detection. Effectiveness classification. Evidence sufficiency. Monitoring uncertainty. Conflicting evidence. Degradation recognition. Failure recognition. Reassessment triggers. Corrective-action referrals. Suspension, fallback, and reversal references. Monitoring continuity. Profile updates. Downstream governance handoffs.</p>
+<p>RSWM does not independently authorize substitution, perform operational corrections, grant Resource Access, determine Allocation priority, or establish final Sustainability outcomes.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>How should activated Resource substitutions and flexibility arrangements be monitored, measured, evaluated, and reassessed so that actual operational effectiveness, requirement satisfaction, dependency transfer, constraint displacement, degradation, failure, and changing conditions remain distinguishable from successful activation, temporary performance, intended benefit, or unsupported claims of long-term Resource improvement?</p>
+<h1 id="4-position-in-architecture-governance-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in Architecture Governance Flow</h1>
+<p>RSGA™ Governance Flow</p>
+<p>Resource Characterization → Availability &amp; Capacity → Demand → Dependency &amp; Criticality → Access → Prioritization &amp; Allocation → Consumption &amp; Utilization → Scarcity &amp; Constraint → Recovery &amp; Circularity → Substitution &amp; Flexibility → Interdependency &amp; Resilience → Continuity &amp; Sustainability</p>
+<p>RSFS Core Module Flow</p>
+<h1 id="1-rsam-resource-substitution-assessment-module-2-rscm-resource-substitution-comp" data-oof-section-id="true" role="heading" aria-level="2">1. RSAM — Resource Substitution Assessment Module 2. RSCM — Resource Substitution Compatibility Module 3. RTSM — Resource Transition &amp; Substitution Module 4. RDFM — Resource Dependency Flexibility Module 5. RSWM — Resource Substitution &amp; Flexibility Monitoring Module</h1>
+<p>RSWM occupies the fifth and final governance position within RSFS.</p>
+<p>It receives activated substitution and flexibility evidence from RTSM and RDFM.</p>
+<p>It evaluates actual operational outcomes against the original requirements and established conditions.</p>
+<p>Its outputs support Resource Interdependency &amp; Resilience and Resource Continuity &amp; Sustainability governance.</p>
+<p>Monitoring may also trigger reassessment within RSAM, RSCM, RTSM, or RDFM.</p>
+<p>Activation → Observation → Measurement → Effectiveness Evaluation → Deviation Recognition → Reassessment / Referral → Updated Monitoring State</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>Resource Substitution &amp; Flexibility Effectiveness Monitoring Governance</p>
+<p>This governed space concerns the continuous or periodic observation and evidence-based evaluation of activated Resource substitution and flexibility arrangements.</p>
+<p>It includes operational performance, requirement satisfaction, Resource-use outcomes, dependency changes, constraint transfer, degradation, failure, effectiveness classification, monitoring uncertainty, and reassessment.</p>
+<p>It does not independently govern the original substitution assessment, technical compatibility validation, operational transition execution, flexibility mechanism activation, Resource Access, Allocation, Harm, Liability, Value, or final Sustainability determination.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>An Active Resource Substitution or Flexibility Monitoring Case connecting an activated Resource arrangement with its original requirement, intended objective, operational baseline, actual Resource-use evidence, performance conditions, dependency consequences, effectiveness state, and reassessment history.</p>
+<p>A monitoring case may concern:</p>
+<p>Activated Resource Substitution</p>
+<p>Activated Resource Flexibility</p>
+<p>Combined Substitution and Flexibility Arrangement</p>
+<p>Each arrangement must preserve its own identity and monitoring boundary.</p>
+<p>Canonical relationship:</p>
+<p>Activated Resource Arrangement → Original Requirement &amp; Objective → Operational Baseline → Monitoring Criteria → Resource-Use Observation → Functional &amp; Operational Performance → Supporting Resource Dependencies → Constraint Transfer → Effectiveness Evaluation → Deviation / Degradation / Failure Recognition → Reassessment or Corrective Referral → Resource Substitution &amp; Flexibility Monitoring Profile → Downstream Governance Handoff</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RSWM governs:</p>
+<p>Monitoring case identity. Activated arrangement references. Original requirement references. Operational baseline. Monitoring boundary. Monitoring objectives. Effectiveness criteria. Observation methods. Measurement references. Functional performance. Technical performance references. Resource quality. Resource capacity. Reliability. Actual Resource consumption. Supporting Resource consumption. Dependency transfer. Constraint displacement. Flexibility response. Flexibility duration. Flexibility recovery. Operational deviations. Degradation. Failure. Effectiveness states. Evidence sufficiency. Monitoring uncertainty. Evidence conflict. Monitoring continuity. Reassessment. Corrective referrals. Suspension and reversal references. Downstream governance outputs.</p>
+<p>RSWM does not independently execute operational corrections, authorize substitution, determine Access or Allocation rights, certify technical compliance, or declare overall Resource Sustainability.</p>
+<h1 id="8-foundational-governance-principles" data-oof-section-id="true" role="heading" aria-level="2">8. Foundational Governance Principles</h1>
+<p>8.1 Activation–Effectiveness Separation</p>
+<p>Substitution Activated ≠ Substitution Effective.</p>
+<p>Flexibility Activated ≠ Flexibility Effective.</p>
+<p>8.2 Requirement-Relative Effectiveness</p>
+<p>Operational Performance Must Be Evaluated Against the Actual Resource Requirement.</p>
+<p>8.3 Evidence-Based Monitoring</p>
+<p>Claimed Effectiveness ≠ Demonstrated Effectiveness.</p>
+<p>8.4 Temporal Integrity</p>
+<p>Short-Term Success ≠ Sustained Operational Effectiveness.</p>
+<p>8.5 Dependency Transparency</p>
+<p>Reduced Dependency on One Resource ≠ Reduced Total Dependency.</p>
+<p>8.6 Constraint Transparency</p>
+<p>Constraint Displacement ≠ Constraint Resolution.</p>
+<p>8.7 Sustainability Separation</p>
+<p>Operational Effectiveness ≠ Net Sustainability Benefit.</p>
+<h1 id="9-activated-arrangement-identity" data-oof-section-id="true" role="heading" aria-level="2">9. Activated Arrangement Identity</h1>
+<p>Every RSWM monitoring case must identify the activated Resource arrangement.</p>
+<p>Minimum references include:</p>
+<p>Arrangement ID</p>
+<p>Arrangement Type</p>
+<p>Original Resource Requirement ID</p>
+<p>Original Resource Configuration</p>
+<p>Activated Alternative Configuration</p>
+<p>Activation Event ID</p>
+<p>Activation Time</p>
+<p>Operational Location</p>
+<p>Applicable Authorization References</p>
+<p>Monitoring Start Time</p>
+<p>Evidence Basis</p>
+<h1 id="10-arrangement-identity-integrity" data-oof-section-id="true" role="heading" aria-level="2">10. Arrangement Identity Integrity</h1>
+<p>Monitoring evidence must remain connected to the actual activated arrangement.</p>
+<p>Planned Configuration ≠ Activated Configuration.</p>
+<p>Changes to the arrangement must be preserved through identifiable versions or new monitoring states.</p>
+<h1 id="11-original-resource-requirement" data-oof-section-id="true" role="heading" aria-level="2">11. Original Resource Requirement</h1>
+<p>RSWM must preserve the original Resource requirement against which effectiveness is evaluated.</p>
+<p>Relevant elements include:</p>
+<p>Required Function</p>
+<p>Required Quantity</p>
+<p>Required Quality</p>
+<p>Required Capacity</p>
+<p>Required Performance</p>
+<p>Required Reliability</p>
+<p>Required Location</p>
+<p>Required Time</p>
+<p>Required Duration</p>
+<p>Applicable Restrictions</p>
+<h1 id="12-requirement-preservation" data-oof-section-id="true" role="heading" aria-level="2">12. Requirement Preservation</h1>
+<p>Monitoring must not silently redefine the requirement to make an underperforming arrangement appear effective.</p>
+<p>Requirement Reduced After Activation ≠ Original Requirement Satisfied.</p>
+<p>Legitimate requirement changes must be separately identified and versioned.</p>
+<h1 id="13-intended-substitution-or-flexibility-objective" data-oof-section-id="true" role="heading" aria-level="2">13. Intended Substitution or Flexibility Objective</h1>
+<p>RSWM must preserve the intended operational objective.</p>
+<p>Examples include:</p>
+<p>Maintain Required Function</p>
+<p>Reduce Dependency on a Primary Resource</p>
+<p>Shift Resource Demand</p>
+<p>Increase Operational Flexibility</p>
+<p>Reduce Exposure to Resource Scarcity</p>
+<p>Improve Capacity Availability</p>
+<p>Support Resource Recovery Integration</p>
+<p>Maintain Operational Performance Under Changing Conditions</p>
+<h1 id="14-objective-outcome-separation" data-oof-section-id="true" role="heading" aria-level="2">14. Objective–Outcome Separation</h1>
+<p>Intended Improvement ≠ Observed Improvement.</p>
+<p>RSWM evaluates actual outcomes.</p>
+<p>It does not treat an objective as evidence that the objective was achieved.</p>
+<h1 id="15-operational-baseline" data-oof-section-id="true" role="heading" aria-level="2">15. Operational Baseline</h1>
+<p>RSWM must establish the relevant baseline for comparison.</p>
+<p>The baseline may include:</p>
+<p>Original Resource Consumption</p>
+<p>Original Resource Capacity</p>
+<p>Original Operational Performance</p>
+<p>Original Reliability</p>
+<p>Original Supporting Resource Dependencies</p>
+<p>Original Demand Pattern</p>
+<p>Original Resource Constraints</p>
+<p>Original Operating Conditions</p>
+<p>The baseline must remain associated with its measurement period and operational context.</p>
+<h1 id="16-baseline-integrity" data-oof-section-id="true" role="heading" aria-level="2">16. Baseline Integrity</h1>
+<p>Different Operating Conditions ≠ Directly Comparable Performance by Default.</p>
+<p>RSWM must preserve material differences between baseline and monitored conditions.</p>
+<h1 id="17-monitoring-boundary" data-oof-section-id="true" role="heading" aria-level="2">17. Monitoring Boundary</h1>
+<p>Every monitoring case must define its scope.</p>
+<p>Relevant boundaries include:</p>
+<p>Resource Arrangement</p>
+<p>Operational Function</p>
+<p>Resource System</p>
+<p>Location</p>
+<p>Monitoring Period</p>
+<p>Resource Types</p>
+<p>Supporting Dependencies</p>
+<p>Applicable Operating Conditions</p>
+<p>Relevant Exclusions</p>
+<h1 id="18-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">18. Boundary Principle</h1>
+<p>Improvement Within a Narrow Boundary ≠ Improvement Across the Entire Resource System.</p>
+<h1 id="19-monitoring-objectives" data-oof-section-id="true" role="heading" aria-level="2">19. Monitoring Objectives</h1>
+<p>Monitoring objectives define what must be observed and evaluated.</p>
+<p>Examples include:</p>
+<p>Requirement Satisfaction</p>
+<p>Resource Performance</p>
+<p>Resource Consumption</p>
+<p>Capacity Sufficiency</p>
+<p>Quality Compliance References</p>
+<p>Reliability</p>
+<p>Flexibility Response</p>
+<p>Flexibility Duration</p>
+<p>Supporting Resource Consumption</p>
+<p>Dependency Changes</p>
+<p>Constraint Transfer</p>
+<p>Operational Degradation</p>
+<h1 id="20-effectiveness-criteria" data-oof-section-id="true" role="heading" aria-level="2">20. Effectiveness Criteria</h1>
+<p>Effectiveness criteria must be established relative to the governed arrangement.</p>
+<p>Relevant dimensions may include:</p>
+<p>Functional Performance</p>
+<p>Capacity</p>
+<p>Quality</p>
+<p>Reliability</p>
+<p>Operating Conditions</p>
+<p>Duration</p>
+<p>Resource-Use Outcome</p>
+<p>Flexibility Response</p>
+<p>Recovery Performance</p>
+<p>Applicable Restrictions</p>
+<p>Criteria must remain traceable to the requirement and objective.</p>
+<h1 id="21-criteria-integrity" data-oof-section-id="true" role="heading" aria-level="2">21. Criteria Integrity</h1>
+<p>Effectiveness criteria must not be silently changed to produce a favorable result.</p>
+<p>Criteria Changed ≠ Effectiveness Demonstrated.</p>
+<h1 id="22-observation-methods" data-oof-section-id="true" role="heading" aria-level="2">22. Observation Methods</h1>
+<p>RSWM may use:</p>
+<p>Direct Measurement</p>
+<p>Operational Logs</p>
+<p>Resource Flow Records</p>
+<p>Equipment Monitoring</p>
+<p>System State Records</p>
+<p>Production Records</p>
+<p>Computational Workload Records</p>
+<p>Validated External Evidence</p>
+<p>Other Competent Observation Methods</p>
+<p>The observation method must remain identifiable.</p>
+<h1 id="23-measurement-integrity" data-oof-section-id="true" role="heading" aria-level="2">23. Measurement Integrity</h1>
+<p>Monitoring must distinguish measured values from estimates, models, and assumptions.</p>
+<p>Estimated Resource Use ≠ Measured Resource Use.</p>
+<p>Simulated Effectiveness ≠ Observed Effectiveness.</p>
+<h1 id="24-functional-performance-monitoring" data-oof-section-id="true" role="heading" aria-level="2">24. Functional Performance Monitoring</h1>
+<p>RSWM evaluates whether the activated arrangement continues to support the required function.</p>
+<p>Examples include:</p>
+<p>Cooling Performance</p>
+<p>Electricity Supply Performance</p>
+<p>Material Performance</p>
+<p>Water Supply Performance</p>
+<p>Computational Processing Performance</p>
+<p>Transport Performance</p>
+<p>Storage Performance</p>
+<h1 id="25-functional-performance-principle" data-oof-section-id="true" role="heading" aria-level="2">25. Functional Performance Principle</h1>
+<p>Resource Substitution Executed ≠ Required Function Maintained.</p>
+<h1 id="26-capacity-monitoring" data-oof-section-id="true" role="heading" aria-level="2">26. Capacity Monitoring</h1>
+<p>RSWM evaluates whether actual capacity satisfies the defined operational requirement.</p>
+<p>Relevant elements include:</p>
+<p>Required Capacity</p>
+<p>Actual Capacity</p>
+<p>Capacity Variability</p>
+<p>Capacity Restrictions</p>
+<p>Peak Capacity Conditions</p>
+<p>Duration of Capacity Availability</p>
+<h1 id="27-capacity-principle" data-oof-section-id="true" role="heading" aria-level="2">27. Capacity Principle</h1>
+<p>Nominal Substitution Capacity ≠ Demonstrated Operational Capacity.</p>
+<h1 id="28-quality-monitoring" data-oof-section-id="true" role="heading" aria-level="2">28. Quality Monitoring</h1>
+<p>RSWM evaluates whether the activated arrangement maintains the required quality conditions.</p>
+<p>Examples include:</p>
+<p>Water Quality</p>
+<p>Material Quality</p>
+<p>Energy Quality</p>
+<p>Output Quality</p>
+<p>Process Quality</p>
+<p>Other Resource-Specific Quality Requirements</p>
+<p>Technical compliance and certification remain subject to competent mechanisms.</p>
+<h1 id="29-quality-principle" data-oof-section-id="true" role="heading" aria-level="2">29. Quality Principle</h1>
+<p>Initial Quality Validation ≠ Continuous Quality Satisfaction.</p>
+<h1 id="30-reliability-monitoring" data-oof-section-id="true" role="heading" aria-level="2">30. Reliability Monitoring</h1>
+<p>RSWM evaluates reliability under actual operating conditions.</p>
+<p>Relevant elements include:</p>
+<p>Operational Stability</p>
+<p>Failure Frequency</p>
+<p>Performance Variability</p>
+<p>Unexpected Interruptions</p>
+<p>Recovery Capability</p>
+<p>Reliability Under Required Load</p>
+<h1 id="31-reliability-principle" data-oof-section-id="true" role="heading" aria-level="2">31. Reliability Principle</h1>
+<p>Successful Initial Operation ≠ Demonstrated Reliability.</p>
+<h1 id="32-resource-consumption-monitoring" data-oof-section-id="true" role="heading" aria-level="2">32. Resource Consumption Monitoring</h1>
+<p>RSWM preserves actual Resource consumption associated with the activated arrangement.</p>
+<p>Relevant dimensions include:</p>
+<p>Original Resource Consumption</p>
+<p>Alternative Resource Consumption</p>
+<p>Supporting Resource Consumption</p>
+<p>Consumption Timing</p>
+<p>Consumption Location</p>
+<p>Consumption Variability</p>
+<p>Applicable Measurement Units</p>
+<p>RSWM does not replace RCUS Resource Consumption &amp; Utilization governance.</p>
+<h1 id="33-consumption-principle" data-oof-section-id="true" role="heading" aria-level="2">33. Consumption Principle</h1>
+<p>Reduced Consumption of Resource A ≠ Reduced Total Resource Consumption.</p>
+<h1 id="34-supporting-resource-consumption" data-oof-section-id="true" role="heading" aria-level="2">34. Supporting Resource Consumption</h1>
+<p>Substitution or flexibility may introduce additional supporting Resource use.</p>
+<p>Examples include:</p>
+<p>Electricity</p>
+<p>Water</p>
+<p>Heat</p>
+<p>Chemicals</p>
+<p>Materials</p>
+<p>Transport</p>
+<p>Infrastructure Capacity</p>
+<p>Computational Capacity</p>
+<p>RSWM must preserve material supporting Resource consequences.</p>
+<h1 id="35-dependency-transfer-monitoring" data-oof-section-id="true" role="heading" aria-level="2">35. Dependency Transfer Monitoring</h1>
+<p>RSWM evaluates whether the activated arrangement changes relevant Resource dependencies.</p>
+<p>Possible outcomes include:</p>
+<p>Dependency Reduced</p>
+<p>Dependency Increased</p>
+<p>Dependency Transferred</p>
+<p>Dependency Diversified</p>
+<p>Dependency Unchanged</p>
+<p>Dependency Unknown</p>
+<p>Broader Resource System interdependency governance remains within RIRS.</p>
+<h1 id="36-dependency-principle" data-oof-section-id="true" role="heading" aria-level="2">36. Dependency Principle</h1>
+<p>Original Dependency Reduced ≠ Resource Independence Achieved.</p>
+<h1 id="37-constraint-transfer-monitoring" data-oof-section-id="true" role="heading" aria-level="2">37. Constraint Transfer Monitoring</h1>
+<p>RSWM evaluates whether substitution or flexibility has transferred Resource constraints.</p>
+<p>Relevant dimensions include:</p>
+<p>Capacity Constraints</p>
+<p>Availability Constraints</p>
+<p>Timing Constraints</p>
+<p>Location Constraints</p>
+<p>Infrastructure Constraints</p>
+<p>Supporting Resource Constraints</p>
+<p>Other Material Constraints</p>
+<h1 id="38-constraint-principle" data-oof-section-id="true" role="heading" aria-level="2">38. Constraint Principle</h1>
+<p>Constraint Reduced Locally ≠ Constraint Resolved System-Wide.</p>
+<h1 id="39-temporal-constraint-monitoring" data-oof-section-id="true" role="heading" aria-level="2">39. Temporal Constraint Monitoring</h1>
+<p>Resource flexibility may shift demand or constraints into another period.</p>
+<p>RSWM must preserve relevant time-dependent effects.</p>
+<p>Demand Shifted to Another Period ≠ Demand Eliminated.</p>
+<h1 id="40-spatial-constraint-monitoring" data-oof-section-id="true" role="heading" aria-level="2">40. Spatial Constraint Monitoring</h1>
+<p>Resource substitution or flexibility may shift Resource pressure between locations.</p>
+<p>RSWM must preserve relevant spatial consequences.</p>
+<p>Local Resource Relief ≠ Global Resource Relief.</p>
+<h1 id="41-substitution-effectiveness" data-oof-section-id="true" role="heading" aria-level="2">41. Substitution Effectiveness</h1>
+<p>Substitution effectiveness concerns whether the activated alternative satisfies the defined Resource requirement under actual operating conditions.</p>
+<p>It may be classified as:</p>
+<p>Effective</p>
+<p>Conditionally Effective</p>
+<p>Partially Effective</p>
+<p>Ineffective</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Reassessment Required</p>
+<h1 id="42-conditional-effectiveness" data-oof-section-id="true" role="heading" aria-level="2">42. Conditional Effectiveness</h1>
+<p>An arrangement may remain effective only under defined conditions.</p>
+<p>Examples include:</p>
+<p>Limited Operating Temperature</p>
+<p>Restricted Capacity</p>
+<p>Specific Water Quality</p>
+<p>Defined Load Range</p>
+<p>Limited Operating Duration</p>
+<p>Required Supporting Resource Availability</p>
+<p>Conditional effectiveness must not be represented as unrestricted effectiveness.</p>
+<h1 id="43-partial-effectiveness" data-oof-section-id="true" role="heading" aria-level="2">43. Partial Effectiveness</h1>
+<p>An arrangement may satisfy only part of the original requirement.</p>
+<p>Examples include:</p>
+<p>Partial Capacity Satisfaction</p>
+<p>Partial Functional Coverage</p>
+<p>Limited Duration</p>
+<p>Reduced Reliability</p>
+<p>Restricted Operating Range</p>
+<p>Partial effectiveness must remain distinguishable from complete requirement satisfaction.</p>
+<h1 id="44-flexibility-effectiveness" data-oof-section-id="true" role="heading" aria-level="2">44. Flexibility Effectiveness</h1>
+<p>Flexibility effectiveness concerns whether an activated flexibility arrangement produces the intended Resource-use adaptation while preserving applicable operational requirements.</p>
+<p>Relevant dimensions include:</p>
+<p>Actual Demand Shift</p>
+<p>Actual Capacity Redistribution</p>
+<p>Actual Resource Switching</p>
+<p>Actual Consumption Reduction</p>
+<p>Response Time</p>
+<p>Supported Duration</p>
+<p>Recovery Performance</p>
+<p>Operational Function Preservation</p>
+<h1 id="45-flexibility-effectiveness-principle" data-oof-section-id="true" role="heading" aria-level="2">45. Flexibility Effectiveness Principle</h1>
+<p>Flexibility Mechanism Activated ≠ Intended Adaptation Achieved.</p>
+<h1 id="46-flexibility-response-monitoring" data-oof-section-id="true" role="heading" aria-level="2">46. Flexibility Response Monitoring</h1>
+<p>RSWM evaluates whether the activated flexibility arrangement responds within the required time.</p>
+<p>Relevant elements include:</p>
+<p>Required Response Time</p>
+<p>Actual Response Time</p>
+<p>Response Delay</p>
+<p>Response Failure</p>
+<p>Applicable Operating Conditions</p>
+<h1 id="47-flexibility-duration-monitoring" data-oof-section-id="true" role="heading" aria-level="2">47. Flexibility Duration Monitoring</h1>
+<p>RSWM evaluates whether the flexibility arrangement maintains the intended adjustment for the required duration.</p>
+<p>Flexibility Achieved Briefly ≠ Flexibility Sustained for Required Duration.</p>
+<h1 id="48-flexibility-recovery-monitoring" data-oof-section-id="true" role="heading" aria-level="2">48. Flexibility Recovery Monitoring</h1>
+<p>RSWM evaluates whether the arrangement returns to the intended operating state after flexibility activation.</p>
+<p>Relevant elements include:</p>
+<p>Required Recovery State</p>
+<p>Actual Recovery State</p>
+<p>Recovery Time</p>
+<p>Recovery Resource Consumption</p>
+<p>Recovery Failure</p>
+<p>Residual Operational Restrictions</p>
+<h1 id="49-recovery-principle" data-oof-section-id="true" role="heading" aria-level="2">49. Recovery Principle</h1>
+<p>Flexibility Period Ended ≠ Original Operating State Restored.</p>
+<h1 id="50-operational-deviation" data-oof-section-id="true" role="heading" aria-level="2">50. Operational Deviation</h1>
+<p>An operational deviation occurs when observed conditions differ materially from the defined requirements or approved operating conditions.</p>
+<p>Examples include:</p>
+<p>Insufficient Capacity</p>
+<p>Quality Deviation</p>
+<p>Reliability Degradation</p>
+<p>Unexpected Resource Consumption</p>
+<p>Dependency Increase</p>
+<p>Constraint Transfer</p>
+<p>Response Delay</p>
+<p>Recovery Failure</p>
+<p>Operation Outside Authorized Conditions</p>
+<h1 id="51-deviation-principle" data-oof-section-id="true" role="heading" aria-level="2">51. Deviation Principle</h1>
+<p>Deviation Detected ≠ Deviation Resolved.</p>
+<h1 id="52-performance-degradation" data-oof-section-id="true" role="heading" aria-level="2">52. Performance Degradation</h1>
+<p>Degradation concerns a material decline in the effectiveness of an active arrangement.</p>
+<p>RSWM must preserve:</p>
+<p>Degradation Type</p>
+<p>Affected Requirement</p>
+<p>Observed Performance</p>
+<p>Previous Performance</p>
+<p>Time</p>
+<p>Operating Conditions</p>
+<p>Evidence</p>
+<p>Severity Reference Where Applicable</p>
+<p>Reassessment State</p>
+<h1 id="53-degradation-principle" data-oof-section-id="true" role="heading" aria-level="2">53. Degradation Principle</h1>
+<p>Previously Effective ≠ Currently Effective.</p>
+<h1 id="54-substitution-or-flexibility-failure" data-oof-section-id="true" role="heading" aria-level="2">54. Substitution or Flexibility Failure</h1>
+<p>Failure occurs where an arrangement does not satisfy a material required condition or can no longer support the intended function.</p>
+<p>RSWM must distinguish:</p>
+<p>Functional Failure</p>
+<p>Capacity Failure</p>
+<p>Quality Failure</p>
+<p>Reliability Failure</p>
+<p>Flexibility Response Failure</p>
+<p>Flexibility Duration Failure</p>
+<p>Recovery Failure</p>
+<p>Supporting Resource Failure</p>
+<p>Other Material Failure</p>
+<p>Failure recognition does not independently determine Harm or Liability.</p>
+<h1 id="55-failure-principle" data-oof-section-id="true" role="heading" aria-level="2">55. Failure Principle</h1>
+<p>Failure Observed ≠ Harm or Liability Determined.</p>
+<h1 id="56-monitoring-continuity" data-oof-section-id="true" role="heading" aria-level="2">56. Monitoring Continuity</h1>
+<p>RSWM must preserve monitoring continuity appropriate to the arrangement.</p>
+<p>Monitoring may be:</p>
+<p>Continuous</p>
+<p>Periodic</p>
+<p>Event-Triggered</p>
+<p>Condition-Triggered</p>
+<p>Transition-Triggered</p>
+<p>Reassessment-Triggered</p>
+<p>The required monitoring approach depends on the Resource, operational function, and applicable conditions.</p>
+<h1 id="57-monitoring-coverage" data-oof-section-id="true" role="heading" aria-level="2">57. Monitoring Coverage</h1>
+<p>Monitoring coverage must be sufficient to support the claimed effectiveness state.</p>
+<p>Relevant elements include:</p>
+<p>Observation Period</p>
+<p>Observation Frequency</p>
+<p>Operating Conditions Covered</p>
+<p>Capacity Range Covered</p>
+<p>Relevant Resource Types</p>
+<p>Relevant Dependencies</p>
+<p>Known Monitoring Gaps</p>
+<h1 id="58-coverage-principle" data-oof-section-id="true" role="heading" aria-level="2">58. Coverage Principle</h1>
+<p>Monitoring Data Exists ≠ Monitoring Coverage Sufficient.</p>
+<h1 id="59-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">59. Evidence Provenance</h1>
+<p>Monitoring evidence should preserve:</p>
+<p>Source</p>
+<p>Method</p>
+<p>Time</p>
+<p>Location</p>
+<p>Resource Arrangement Reference</p>
+<p>Measurement Basis</p>
+<p>Operating Conditions</p>
+<p>Responsible Evidence Origin</p>
+<p class="podstand"><b>Version:</b></p>
+<p>Evidence Content ≠ Methodology Instruction.</p>
+<h1 id="60-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">60. Evidence Sufficiency</h1>
+<p>RSWM must evaluate whether evidence is sufficient to support the claimed effectiveness state.</p>
+<p>Evidence sufficiency depends on:</p>
+<p>Original Requirement</p>
+<p>Monitoring Criteria</p>
+<p>Observation Coverage</p>
+<p>Measurement Quality</p>
+<p>Operating Conditions</p>
+<p>Monitoring Duration</p>
+<p>Known Limitations</p>
+<p>Uncertainty</p>
+<p>Conflicting Evidence</p>
+<p>A claim of sustained effectiveness requires evidence across an appropriate operational period.</p>
+<h1 id="61-missing-evidence" data-oof-section-id="true" role="heading" aria-level="2">61. Missing Evidence</h1>
+<p>Missing evidence may concern:</p>
+<p>Actual Resource Consumption</p>
+<p>Functional Performance</p>
+<p>Capacity</p>
+<p>Quality</p>
+<p>Reliability</p>
+<p>Supporting Resource Use</p>
+<p>Dependency Transfer</p>
+<p>Constraint Displacement</p>
+<p>Flexibility Response</p>
+<p>Flexibility Duration</p>
+<p>Recovery Performance</p>
+<p>Missing evidence must remain explicit.</p>
+<h1 id="62-evidence-conflict" data-oof-section-id="true" role="heading" aria-level="2">62. Evidence Conflict</h1>
+<p>RSWM must preserve material conflicts between monitoring evidence sources.</p>
+<p>Conflicts may concern:</p>
+<p>Resource Consumption</p>
+<p>Capacity</p>
+<p>Performance</p>
+<p>Reliability</p>
+<p>Operating Conditions</p>
+<p>Dependency Changes</p>
+<p>Constraint Transfer</p>
+<p>Effectiveness Classification</p>
+<p>Unresolved conflicts must not be silently converted into favorable effectiveness claims.</p>
+<h1 id="63-evidence-conflict-principle" data-oof-section-id="true" role="heading" aria-level="2">63. Evidence Conflict Principle</h1>
+<p>Conflicting Monitoring Evidence ≠ Demonstrated Effectiveness.</p>
+<h1 id="64-monitoring-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">64. Monitoring Uncertainty</h1>
+<p>RSWM must preserve uncertainty concerning:</p>
+<p>Measurement Accuracy</p>
+<p>Observation Coverage</p>
+<p>Operating Conditions</p>
+<p>Performance Variability</p>
+<p>Dependency Attribution</p>
+<p>Constraint Transfer</p>
+<p>Temporal Effects</p>
+<p>Spatial Effects</p>
+<p>Evidence Transferability</p>
+<p>Uncertainty must remain visible in the monitoring profile.</p>
+<h1 id="65-effectiveness-classification" data-oof-section-id="true" role="heading" aria-level="2">65. Effectiveness Classification</h1>
+<p>RSWM may classify an active arrangement as:</p>
+<p>Not Yet Evaluated</p>
+<p>Initially Effective</p>
+<p>Effective</p>
+<p>Conditionally Effective</p>
+<p>Partially Effective</p>
+<p>Sustained Effective</p>
+<p>Degrading</p>
+<p>Ineffective</p>
+<p>Failed</p>
+<p>Suspended</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Reassessment Required</p>
+<p>The classification must remain associated with the relevant requirement, conditions, and observation period.</p>
+<h1 id="66-sustained-effectiveness" data-oof-section-id="true" role="heading" aria-level="2">66. Sustained Effectiveness</h1>
+<p>Sustained effectiveness exists where evidence demonstrates that an arrangement continues to satisfy the defined requirements over an appropriate period and operating range.</p>
+<p>The required period depends on the governed Resource and operational context.</p>
+<p>Initial Success ≠ Sustained Effectiveness.</p>
+<p>Sustained effectiveness does not independently establish overall Sustainability.</p>
+<h1 id="67-effectiveness-boundary" data-oof-section-id="true" role="heading" aria-level="2">67. Effectiveness Boundary</h1>
+<p>Operationally Effective ≠ Sustainable.</p>
+<p>An arrangement may perform its intended function while creating unacceptable Resource dependencies, environmental consequences, or long-term constraints.</p>
+<p>Those broader conclusions require the applicable downstream governance mechanisms.</p>
+<h1 id="68-corrective-action-referral" data-oof-section-id="true" role="heading" aria-level="2">68. Corrective-Action Referral</h1>
+<p>Where monitoring identifies material deviations, degradation, failure, or unsupported effectiveness claims, RSWM must preserve the relevant referral.</p>
+<p>Possible referrals include:</p>
+<p class="podstand"><b>Compatibility:</b> Reassessment</p>
+<p>Operational Feasibility Reassessment</p>
+<p>Transition Review</p>
+<p>Flexibility Capacity Reassessment</p>
+<p>Operational Correction</p>
+<p>Suspension Review</p>
+<p>Fallback Review</p>
+<p>Reversal Review</p>
+<p>Resource Dependency Review</p>
+<p>Scarcity &amp; Constraint Review</p>
+<p>Resilience Review</p>
+<p>Sustainability Review</p>
+<p>RSWM does not independently execute these actions.</p>
+<h1 id="69-corrective-referral-principle" data-oof-section-id="true" role="heading" aria-level="2">69. Corrective Referral Principle</h1>
+<p>Corrective Action Recommended ≠ Corrective Action Authorized or Executed.</p>
+<h1 id="70-suspension-reference" data-oof-section-id="true" role="heading" aria-level="2">70. Suspension Reference</h1>
+<p>Monitoring may establish evidence supporting suspension consideration.</p>
+<p>RSWM should preserve:</p>
+<p>Suspension Trigger</p>
+<p>Affected Arrangement</p>
+<p>Relevant Evidence</p>
+<p>Applicable Conditions</p>
+<p>Competent Decision Reference</p>
+<p>Operational State</p>
+<p>Monitoring State</p>
+<p>The authority to suspend remains with competent mechanisms.</p>
+<h1 id="71-fallback-reference" data-oof-section-id="true" role="heading" aria-level="2">71. Fallback Reference</h1>
+<p>RSWM may identify conditions requiring fallback review.</p>
+<p>It must preserve the relevant evidence and arrangement references.</p>
+<p>Fallback Required ≠ Fallback Successfully Activated.</p>
+<h1 id="72-reversal-reference" data-oof-section-id="true" role="heading" aria-level="2">72. Reversal Reference</h1>
+<p>RSWM may identify conditions requiring substitution reversal.</p>
+<p>It must preserve:</p>
+<p>Reversal Trigger</p>
+<p>Affected Arrangement</p>
+<p>Relevant Failure or Degradation Evidence</p>
+<p>Competent Decision Reference</p>
+<p>Execution Reference Where Available</p>
+<p>Monitoring State</p>
+<p>Actual reversal execution remains governed by RTSM and competent operational mechanisms.</p>
+<h1 id="73-resource-substitution-and-flexibility-monitoring-profile" data-oof-section-id="true" role="heading" aria-level="2">73. Resource Substitution &amp; Flexibility Monitoring Profile</h1>
+<p>The principal governed output is the:</p>
+<p>Resource Substitution &amp; Flexibility Monitoring Profile</p>
+<p>It establishes the evidence-based relationship between an activated substitution or flexibility arrangement, its original requirement, monitoring criteria, observed Resource-use outcomes, supporting dependencies, constraint consequences, effectiveness classification, deviations, reassessment, and downstream governance referrals.</p>
+<h1 id="74-minimum-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">74. Minimum Profile Fields</h1>
+<p>At minimum:</p>
+<p>Monitoring Profile ID</p>
+<p>Monitoring Case ID</p>
+<p>Arrangement Type</p>
+<p>Activated Arrangement ID</p>
+<p>Original Resource Requirement ID</p>
+<p>Original Resource Configuration</p>
+<p>Activated Resource Configuration</p>
+<p>Activation Event ID</p>
+<p>Activation Time</p>
+<p>Monitoring Start Time</p>
+<p>Monitoring Boundary</p>
+<p>Operational Baseline</p>
+<p>Substitution or Flexibility Objective</p>
+<p>Monitoring Objectives</p>
+<p>Effectiveness Criteria</p>
+<p>Observation Method</p>
+<p>Measurement Method</p>
+<p>Observation Period</p>
+<p>Monitoring Frequency</p>
+<p>Monitoring Coverage</p>
+<p>Required Functional Performance</p>
+<p>Observed Functional Performance</p>
+<p>Required Capacity</p>
+<p>Observed Capacity</p>
+<p>Required Quality</p>
+<p>Observed Quality</p>
+<p>Required Reliability</p>
+<p>Observed Reliability</p>
+<p>Original Resource Consumption</p>
+<p>Alternative Resource Consumption</p>
+<p>Supporting Resource Consumption</p>
+<p>Dependency Transfer State</p>
+<p>Constraint Transfer State</p>
+<p>Temporal Constraint Transfer</p>
+<p>Spatial Constraint Transfer</p>
+<p>Flexibility Response Time</p>
+<p>Flexibility Duration</p>
+<p>Flexibility Recovery State</p>
+<p>Operational Deviation</p>
+<p>Performance Degradation</p>
+<p>Failure State</p>
+<p>Effectiveness Classification</p>
+<p>Sustained Effectiveness State</p>
+<p>Evidence Sufficiency</p>
+<p>Missing Evidence</p>
+<p>Evidence Uncertainty</p>
+<p>Evidence Conflict</p>
+<p>Corrective-Action Referral</p>
+<p>Suspension Reference</p>
+<p>Fallback Reference</p>
+<p>Reversal Reference</p>
+<p>Reassessment Trigger</p>
+<p>Downstream Governance Handoff</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="75-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">75. Minimum Implementation Framework</h1>
+<p>A minimum operational RSWM implementation should contain ten governed layers.</p>
+<p>Layer 1 — Activated Arrangement Identity</p>
+<p>Establish the activated substitution or flexibility arrangement and its original Resource requirement.</p>
+<p>Layer 2 — Operational Baseline</p>
+<p>Preserve the relevant baseline, original Resource-use conditions, and comparison boundaries.</p>
+<p>Layer 3 — Monitoring Criteria</p>
+<p>Define the functional, capacity, quality, reliability, Resource-use, dependency, and flexibility effectiveness criteria.</p>
+<p>Layer 4 — Observation &amp; Measurement</p>
+<p>Collect relevant operational evidence and preserve measurement methods, conditions, and provenance.</p>
+<p>Layer 5 — Operational Performance Evaluation</p>
+<p>Evaluate whether the arrangement satisfies the original Resource requirement under actual conditions.</p>
+<p>Layer 6 — Dependency &amp; Constraint Monitoring</p>
+<p>Evaluate supporting Resource consumption, dependency transfer, and constraint displacement.</p>
+<p>Layer 7 — Flexibility Performance Evaluation</p>
+<p>Where applicable, evaluate actual adjustment capacity, response time, duration, and recovery.</p>
+<p>Layer 8 — Effectiveness Classification</p>
+<p>Establish evidence-supported effectiveness, conditional effectiveness, partial effectiveness, degradation, failure, or uncertainty states.</p>
+<p>Layer 9 — Reassessment &amp; Corrective Referral</p>
+<p>Preserve material deviations, reassessment triggers, and referrals to competent governance mechanisms.</p>
+<p>Layer 10 — Governed Output &amp; Downstream Handoff</p>
+<p>Produce the Resource Substitution &amp; Flexibility Monitoring Profile and preserve relevant resilience and Sustainability governance references.</p>
+<h1 id="76-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">76. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Monitoring Not Initiated</p>
+<p>Monitoring Active</p>
+<p>Monitoring Coverage Insufficient</p>
+<p>Baseline Established</p>
+<p>Effectiveness Criteria Defined</p>
+<p>Observation Pending</p>
+<p>Initially Effective</p>
+<p>Effective</p>
+<p>Conditionally Effective</p>
+<p>Partially Effective</p>
+<p>Sustained Effective</p>
+<p>Effectiveness Degrading</p>
+<p>Ineffective</p>
+<p>Failed</p>
+<p>Monitoring Suspended</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Deviation Detected</p>
+<p>Corrective Review Required</p>
+<p class="podstand"><b>Compatibility:</b> Reassessment Required</p>
+<p>Transition Reassessment Required</p>
+<p>Flexibility Reassessment Required</p>
+<p>Fallback Review Required</p>
+<p>Reversal Review Required</p>
+<p>Downstream Governance Review Required</p>
+<h1 id="77-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">77. Minimum Evidence Path</h1>
+<p>Where actual effectiveness cannot be established:</p>
+<p>Activated Resource Arrangement → Original Requirement &amp; Objective → Monitoring Baseline → Effectiveness Criteria → Operational Observation → Measurement &amp; Evidence Evaluation → Evidence-Limited / Conflicted /</p>
+<p>Unknown State → Missing Evidence Identification → Evidence Acquisition → Effectiveness Reassessment → Effectiveness Classification → Resource Substitution &amp; Flexibility Monitoring Profile → Corrective or Downstream Governance Referral Where Required</p>
+<p>Missing evidence must not be replaced by assumed effectiveness.</p>
+<h1 id="78-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">78. Minimum Reassessment Framework</h1>
+<p>Current Resource Substitution &amp; Flexibility Monitoring Profile → New Performance / Consumption / Capacity / Quality / Reliability / Dependency / Constraint / Operating-Condition Evidence → Materiality Assessment → Baseline &amp; Criteria Review → Effectiveness Reassessment → Deviation / Degradation / Failure Review → Corrective Referral Where Required → Monitoring State Update → Profile Update → Version Update</p>
+<p>Reassessment may be triggered by:</p>
+<p>Changed Resource requirement. Changed activated configuration. Changed Resource consumption. Changed supporting Resource consumption. Changed capacity. Changed quality. Changed reliability. Changed operating conditions. New dependency transfer evidence. New constraint displacement evidence. Failed flexibility response. Failed flexibility recovery. Material performance degradation. Operational failure. Insufficient monitoring coverage. Conflicting evidence. Changed authorization conditions. New downstream governance findings.</p>
+<h1 id="79-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">79. Governance Requirements</h1>
+<p>A conforming RSWM implementation must satisfy the following requirements.</p>
+<p>Monitoring Identity &amp; Baseline</p>
+<h1 id="1-identify-the-activated-arrangement-2-preserve-the-original-resource-requiremen" data-oof-section-id="true" role="heading" aria-level="2">1. Identify the activated arrangement. 2. Preserve the original Resource requirement. 3. Preserve the original Resource configuration. 4. Preserve the activated configuration. 5. Preserve the activation event reference. 6. Establish the monitoring boundary. 7. Establish the operational baseline. 8. Preserve baseline conditions. 9. Preserve the substitution or flexibility objective. 10. Prevent silent modification of the original requirement.</h1>
+<p>Monitoring Criteria &amp; Evidence</p>
+<h1 id="11-define-effectiveness-criteria-12-preserve-observation-methods-13-preserve-mea" data-oof-section-id="true" role="heading" aria-level="2">11. Define effectiveness criteria. 12. Preserve observation methods. 13. Preserve measurement methods. 14. Preserve observation periods. 15. Preserve monitoring frequency. 16. Preserve monitoring coverage. 17. Preserve measurement provenance. 18. Distinguish measured from estimated values. 19. Distinguish simulated from observed effectiveness.</h1>
+<h1 id="20-preserve-material-monitoring-limitations" data-oof-section-id="true" role="heading" aria-level="2">20. Preserve material monitoring limitations.</h1>
+<p>Operational Performance</p>
+<h1 id="21-monitor-functional-performance-22-monitor-actual-capacity-23-monitor-applicab" data-oof-section-id="true" role="heading" aria-level="2">21. Monitor functional performance. 22. Monitor actual capacity. 23. Monitor applicable quality conditions. 24. Monitor reliability. 25. Preserve operating conditions. 26. Preserve relevant duration. 27. Preserve material performance variability. 28. Detect requirement deviations. 29. Prevent activation from establishing effectiveness. 30. Prevent initial success from establishing sustained effectiveness.</h1>
+<p>Resource Consumption &amp; Dependencies</p>
+<h1 id="31-preserve-original-resource-consumption-references-32-preserve-alternative-res" data-oof-section-id="true" role="heading" aria-level="2">31. Preserve original Resource consumption references. 32. Preserve alternative Resource consumption. 33. Preserve supporting Resource consumption. 34. Monitor material dependency transfer. 35. Monitor material constraint transfer. 36. Preserve temporal constraint displacement. 37. Preserve spatial constraint displacement. 38. Distinguish local from system-level effects. 39. Prevent reduced consumption of one Resource from establishing total Resource reduction. 40. Prevent operational effectiveness from establishing Sustainability.</h1>
+<p>Flexibility Effectiveness</p>
+<h1 id="41-monitor-actual-demand-shifting-42-monitor-actual-capacity-redistribution-43-m" data-oof-section-id="true" role="heading" aria-level="2">41. Monitor actual demand shifting. 42. Monitor actual capacity redistribution. 43. Monitor actual Resource switching where applicable. 44. Monitor actual consumption reduction. 45. Monitor flexibility response time. 46. Monitor flexibility duration. 47. Monitor flexibility recovery. 48. Preserve flexibility limitations. 49. Detect flexibility failure. 50. Prevent flexibility activation from establishing effectiveness.</h1>
+<p>Effectiveness Classification</p>
+<h1 id="51-support-initial-effectiveness-states-52-support-effective-states-53-support-c" data-oof-section-id="true" role="heading" aria-level="2">51. Support Initial Effectiveness states. 52. Support Effective states. 53. Support Conditional Effectiveness states. 54. Support Partial Effectiveness states. 55. Support Sustained Effectiveness states. 56. Support Degrading states. 57. Support Ineffective states. 58. Support Failed states. 59. Preserve classification conditions. 60. Preserve classification evidence.</h1>
+<p>Evidence Governance</p>
+<h1 id="61-evaluate-evidence-sufficiency-62-preserve-missing-evidence-63-support-evidenc" data-oof-section-id="true" role="heading" aria-level="2">61. Evaluate evidence sufficiency. 62. Preserve missing evidence. 63. Support Evidence-Limited states. 64. Support Conflicted states. 65. Support Unknown states. 66. Preserve material uncertainty. 67. Preserve evidence provenance. 68. Prevent unsupported effectiveness claims.</h1>
+<h1 id="69-preserve-material-evidence-conflicts-70-preserve-monitoring-coverage-limitati" data-oof-section-id="true" role="heading" aria-level="2">69. Preserve material evidence conflicts. 70. Preserve monitoring coverage limitations.</h1>
+<p>Deviation &amp; Reassessment</p>
+<h1 id="71-detect-operational-deviations-72-preserve-performance-degradation-73-preserve" data-oof-section-id="true" role="heading" aria-level="2">71. Detect operational deviations. 72. Preserve performance degradation. 73. Preserve failure evidence. 74. Support reassessment. 75. Preserve reassessment triggers. 76. Preserve corrective-action referrals. 77. Preserve suspension references. 78. Preserve fallback references. 79. Preserve reversal references. 80. Prevent corrective recommendations from creating operational authority.</h1>
+<p>Lifecycle &amp; Architecture Boundaries</p>
+<h1 id="81-preserve-material-version-history-82-preserve-effective-time-83-maintain-rsam" data-oof-section-id="true" role="heading" aria-level="2">81. Preserve material version history. 82. Preserve effective time. 83. Maintain RSAM assessment boundaries. 84. Maintain RSCM compatibility boundaries. 85. Maintain RTSM transition boundaries. 86. Maintain RDFM flexibility boundaries. 87. Maintain RCUS consumption governance boundaries. 88. Maintain RDCS dependency governance boundaries. 89. Maintain RSCS scarcity governance boundaries. 90. Maintain RIRS resilience governance boundaries. 91. Maintain RCSS Sustainability governance boundaries. 92. Preserve downstream governance handoffs. 93. Produce a Resource Substitution &amp; Flexibility Monitoring Profile.</h1>
+<h1 id="80-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">80. Governance Logic</h1>
+<p>Canonical RSWM logic:</p>
+<p>Activated Resource Substitution / Flexibility Arrangement → Original Requirement &amp; Objective → Operational Baseline → Monitoring Boundary &amp; Criteria → Resource-Use Observation → Functional / Capacity / Quality / Reliability Performance → Supporting Resource Consumption → Dependency &amp; Constraint Transfer → Flexibility Response / Duration / Recovery Where Applicable → Evidence Sufficiency &amp; Uncertainty → Effectiveness Classification → Deviation / Degradation / Failure Recognition → Reassessment &amp; Corrective Referral → Resource Substitution &amp; Flexibility Monitoring Profile → Interdependency / Resilience / Sustainability Governance Handoff</p>
+<h1 id="81-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">81. Governance Outputs</h1>
+<p>RSWM may produce:</p>
+<p>Resource Substitution &amp; Flexibility Monitoring Profile</p>
+<p>Monitoring Case Record</p>
+<p>Activated Arrangement Reference</p>
+<p>Original Requirement Reference</p>
+<p>Operational Baseline Record</p>
+<p>Monitoring Boundary Record</p>
+<p>Effectiveness Criteria Record</p>
+<p>Observation Record</p>
+<p>Measurement Record</p>
+<p>Monitoring Coverage Record</p>
+<p>Functional Performance State</p>
+<p>Capacity Performance State</p>
+<p>Quality Performance State</p>
+<p>Reliability Performance State</p>
+<p>Resource Consumption Record</p>
+<p>Supporting Resource Consumption Record</p>
+<p>Dependency Transfer Record</p>
+<p>Constraint Transfer Record</p>
+<p>Temporal Constraint Transfer Record</p>
+<p>Spatial Constraint Transfer Record</p>
+<p>Substitution Effectiveness State</p>
+<p>Flexibility Effectiveness State</p>
+<p>Flexibility Response Record</p>
+<p>Flexibility Duration Record</p>
+<p>Flexibility Recovery Record</p>
+<p>Operational Deviation Record</p>
+<p>Performance Degradation Record</p>
+<p>Failure Record</p>
+<p>Sustained Effectiveness State</p>
+<p>Evidence Sufficiency State</p>
+<p>Missing Evidence Record</p>
+<p>Evidence Uncertainty</p>
+<p>Evidence Conflict</p>
+<p>Corrective-Action Referral</p>
+<p>Suspension Reference</p>
+<p>Fallback Reference</p>
+<p>Reversal Reference</p>
+<p>Reassessment Trigger</p>
+<p>Downstream Governance Handoff</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="82-practical-applications" data-oof-section-id="true" role="heading" aria-level="2">82. Practical Applications</h1>
+<p>RSWM may support:</p>
+<p>Energy Systems</p>
+<p>Monitoring of actual performance, Resource consumption, reliability, and dependency consequences following energy- source substitution or flexible demand activation.</p>
+<p>Water Systems</p>
+<p>Monitoring of alternative water-source performance, treatment requirements, Resource consumption, operational reliability, and supporting energy dependencies.</p>
+<p>AI Data Centers</p>
+<p>Monitoring of cooling substitutions, electricity-demand shifting, computing capacity adaptation, and changes in water, energy, and infrastructure dependencies.</p>
+<p>Industrial Manufacturing</p>
+<p>Monitoring of recovered-material substitution, production performance, quality, Resource consumption, and process dependencies.</p>
+<p>Critical Infrastructure</p>
+<p>Monitoring of activated Resource alternatives and flexibility arrangements where continuity depends on sustained operational performance and timely recognition of degradation.</p>
+<h1 id="83-use-case-1-ai-data-center-cooling-substitution-monitoring" data-oof-section-id="true" role="heading" aria-level="2">83. Use Case 1 — AI Data Center Cooling Substitution Monitoring</h1>
+<p>An AI data center has activated an alternative cooling configuration intended to reduce freshwater consumption.</p>
+<p>RTSM has established the operational transition.</p>
+<p>RSWM evaluates the actual outcome.</p>
+<p>Original Requirement: Maintain required cooling performance for the computing infrastructure.</p>
+<p>Original Configuration: Water-intensive cooling arrangement.</p>
+<p>Activated Alternative: Alternative cooling configuration.</p>
+<p>Monitoring Baseline: Original water consumption, electricity consumption, cooling performance, and operating conditions.</p>
+<p>Functional Performance: Does the alternative maintain required thermal conditions?</p>
+<p>Capacity: Can it support the actual computational load?</p>
+<p>Reliability: Does cooling performance remain stable?</p>
+<p>Water Consumption: Has freshwater consumption actually decreased?</p>
+<p>Electricity Consumption: Has electricity demand increased?</p>
+<p>Dependency Transfer: Has reduced water dependency increased electricity or infrastructure dependency?</p>
+<p>Constraint Transfer: Has Resource pressure moved from water availability to electricity capacity?</p>
+<p>Effectiveness State: Is the alternative effective, conditionally effective, partially effective, or ineffective?</p>
+<p>The data center may demonstrate reduced freshwater consumption while experiencing increased electricity requirements.</p>
+<p>RSWM preserves both observations.</p>
+<p>It does not automatically classify the arrangement as sustainable.</p>
+<p>Water Savings Demonstrated ≠ Net Resource Sustainability Demonstrated.</p>
+<h1 id="84-use-case-2-industrial-material-substitution-monitoring" data-oof-section-id="true" role="heading" aria-level="2">84. Use Case 2 — Industrial Material Substitution Monitoring</h1>
+<p>A manufacturer has activated the use of a recovered material in place of a primary material.</p>
+<p>RSCM established compatibility, and RTSM governed the transition.</p>
+<p>RSWM evaluates the actual production outcome.</p>
+<p>Original Requirement: Maintain defined material performance and production quality.</p>
+<p>Original Configuration: Primary material input.</p>
+<p>Activated Alternative: Recovered secondary material.</p>
+<p>Monitoring Baseline: Original production quality, Resource consumption, reliability, and process conditions.</p>
+<p>Functional Performance: Does the recovered material support the required product function?</p>
+<p>Quality: Are the defined quality conditions maintained?</p>
+<p>Production Capacity: Can the manufacturing process maintain required output?</p>
+<p>Reliability: Does performance remain stable over repeated production cycles?</p>
+<p>Supporting Resources: Does the recovered material require additional energy, treatment, or processing?</p>
+<p>Dependency Transfer: Has reduced primary material dependency increased dependency on processing Resources?</p>
+<p>Effectiveness State: Is substitution effective within the defined manufacturing requirement?</p>
+<p>A recovered material may function successfully but require additional processing energy.</p>
+<p>RSWM preserves the operational performance and Resource dependency evidence without declaring an automatic net Sustainability benefit.</p>
+<p>Recovered Material Successfully Used ≠ Sustainable Material Substitution Proven.</p>
+<h1 id="85-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">85. Critical Distinctions</h1>
+<p>Substitution Activated ≠ Substitution Effective.</p>
+<p>Flexibility Activated ≠ Flexibility Effective.</p>
+<p>Short-Term Success ≠ Sustained Operational Effectiveness.</p>
+<p>Local Resource Improvement ≠ Net Resource System Improvement.</p>
+<p>Operational Performance Must Be Evaluated Against the Actual Resource Requirement.</p>
+<p>Claimed Effectiveness ≠ Demonstrated Effectiveness.</p>
+<p>Reduced Dependency on One Resource ≠ Reduced Total Dependency.</p>
+<p>Constraint Displacement ≠ Constraint Resolution.</p>
+<p>Operational Effectiveness ≠ Net Sustainability Benefit.</p>
+<p>Planned Configuration ≠ Activated Configuration.</p>
+<p>Requirement Reduced After Activation ≠ Original Requirement Satisfied.</p>
+<p>Intended Improvement ≠ Observed Improvement.</p>
+<p>Different Operating Conditions ≠ Directly Comparable Performance by Default.</p>
+<p>Improvement Within a Narrow Boundary ≠ Improvement Across the Entire Resource System.</p>
+<p>Criteria Changed ≠ Effectiveness Demonstrated.</p>
+<p>Estimated Resource Use ≠ Measured Resource Use.</p>
+<p>Simulated Effectiveness ≠ Observed Effectiveness.</p>
+<p>Resource Substitution Executed ≠ Required Function Maintained.</p>
+<p>Nominal Substitution Capacity ≠ Demonstrated Operational Capacity.</p>
+<p>Initial Quality Validation ≠ Continuous Quality Satisfaction.</p>
+<p>Successful Initial Operation ≠ Demonstrated Reliability.</p>
+<p>Reduced Consumption of Resource A ≠ Reduced Total Resource Consumption.</p>
+<p>Original Dependency Reduced ≠ Resource Independence Achieved.</p>
+<p>Constraint Reduced Locally ≠ Constraint Resolved System-Wide.</p>
+<p>Demand Shifted to Another Period ≠ Demand Eliminated.</p>
+<p>Local Resource Relief ≠ Global Resource Relief.</p>
+<p>Flexibility Mechanism Activated ≠ Intended Adaptation Achieved.</p>
+<p>Flexibility Achieved Briefly ≠ Flexibility Sustained for Required Duration.</p>
+<p>Flexibility Period Ended ≠ Original Operating State Restored.</p>
+<p>Deviation Detected ≠ Deviation Resolved.</p>
+<p>Previously Effective ≠ Currently Effective.</p>
+<p>Failure Observed ≠ Harm or Liability Determined.</p>
+<p>Monitoring Data Exists ≠ Monitoring Coverage Sufficient.</p>
+<p>Conflicting Monitoring Evidence ≠ Demonstrated Effectiveness.</p>
+<p>Initial Success ≠ Sustained Effectiveness.</p>
+<p>Operationally Effective ≠ Sustainable.</p>
+<p>Corrective Action Recommended ≠ Corrective Action Authorized or Executed.</p>
+<p>Fallback Required ≠ Fallback Successfully Activated.</p>
+<h1 id="86-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Cross-Architecture Boundary</h1>
+<p>RSWM may consume evidence from:</p>
+<p>RSAM — Resource Substitution Assessment Module</p>
+<p>RSCM — Resource Substitution Compatibility Module</p>
+<p>RTSM — Resource Transition &amp; Substitution Module</p>
+<p>RDFM — Resource Dependency Flexibility Module</p>
+<p>RCHS — Resource Characterization Standard</p>
+<p>RACS — Resource Availability &amp; Capacity Standard</p>
+<p>RDGS — Resource Demand Governance Standard</p>
+<p>RDCS — Resource Dependency &amp; Criticality Standard</p>
+<p>RAGS — Resource Access Governance Standard</p>
+<p>RPAS — Resource Prioritization &amp; Allocation Standard</p>
+<p>RCUS — Resource Consumption &amp; Utilization Standard</p>
+<p>RSCS — Resource Scarcity &amp; Constraint Standard</p>
+<p>RRCS — Resource Recovery &amp; Circularity Standard</p>
+<p>Its principal downstream handoffs are to:</p>
+<p>RIRS — Resource Interdependency &amp; Resilience Standard</p>
+<p>RCSS — Resource Continuity &amp; Sustainability Standard</p>
+<p>Relevant external architectural relationships include:</p>
+<p>ORA™ — Operational Reality Architecture</p>
+<p>VEGA™ — Value Execution Governance Architecture</p>
+<p>PGA™ — Prediction Governance Architecture</p>
+<p>SIMULOS® — Simulation Governance</p>
+<p>HAGA™ — Harm Governance Architecture</p>
+<p>LIGA™ — Liability Governance Architecture</p>
+<p>RSWM governs operational effectiveness monitoring for Resource substitution and flexibility.</p>
+<p>It does not absorb independent Resource Consumption, Resource Dependency, Scarcity, Resilience, Sustainability, Harm, Liability, or Value governance.</p>
+<h1 id="87-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">87. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RSWM may use operational measurements, Resource consumption evidence, technical performance records, dependency evidence, and constraint observations.</p>
+<p>It governs their relevance to substitution and flexibility effectiveness.</p>
+<p>It does not redefine the independent mechanisms that produced those inputs.</p>
+<h1 id="88-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">88. Canonical Boundary</h1>
+<p>RSWM governs how activated Resource substitutions and Resource flexibility arrangements are observed, measured, evaluated, evidenced, classified, and reassessed against their original Resource requirements, authorized operational conditions, intended adaptation objectives, actual Resource-use outcomes, supporting dependencies, and material constraint transfers throughout their active operational lifecycle.</p>
+<p>It does not independently authorize substitution, execute operational corrections, grant Resource Access, determine Allocation priority, certify technical compliance, establish Harm or Liability, or determine overall Resource Sustainability.</p>
+<p>Its principal governed output is the Resource Substitution &amp; Flexibility Monitoring Profile .</p>
+<h1 id="89-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">89. Canonical Closing Statement</h1>
+<p>A Resource substitution or flexibility arrangement cannot be considered effective merely because it has been approved, activated, or initially operated successfully. Effectiveness must be demonstrated against the original Resource requirement through actual operational evidence, sufficient monitoring coverage, preserved operating conditions, and transparent recognition of supporting Resource dependencies and transferred constraints.</p>
+<p>RSWM establishes the governance conditions under which Resource substitution and flexibility remain observable, verifiable, and reassessable throughout their active operational lifecycle — ensuring that operational success is evidenced rather than assumed, degradation is not concealed by historical performance, and local Resource improvements are not mistaken for sustainable Resource System outcomes.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

@@ -57,10 +57,10 @@
   "createdAt": "2019-08-24T00:00:00Z",
   "updatedAt": "2019-08-24T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-734635-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-734635-V8",
     "incidentId": "OOF-AII-734635",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -148,7 +148,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -171,6 +172,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Tesla Model 3 on Autopilot Crashed into a Ford Explorer Pickup, Killing a Fifteen-Year-Old in California",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that A Tesla Model 3 on Autopilot mode crashed into a pickup on a California freeway, where data and video from the company showed neither Autopilot nor the driver slowing the vehicle until seconds before the crash. (2019-08-24, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/105",
+      "eventDate": "2019-08-24",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -336,7 +346,54 @@
       "What operational authority and controls applied to Tesla at the relevant time?",
       "What evidence would establish how yes produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how autonomous, execution, classification moved from system activity into a reported real-world consequence, and which controls within ASGA™ — Autonomous Systems Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should autonomous, execution, classification be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing autonomous, execution, classification were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for autonomous, execution, classification, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Autonomous Execution Standard (AES)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes.html",
+          "objectId": "OOF-OID-ASGA-AES-2026-07-04-0003"
+        },
+        {
+          "name": "Execution Authorization Module (EAM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes-eam-1.html",
+          "objectId": "OOF-OID-ASGA-AES-EAM-2026-07-04-0001"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains autonomous, execution, classification under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "asga",
+      "mechanisms": [
+        "autonomous",
+        "execution",
+        "classification"
+      ],
+      "patternKey": "c81c094cd9ad8f33"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:105"
@@ -358,7 +415,7 @@
         "What operational authority and controls applied to Tesla at the relevant time?",
         "What evidence would establish how yes produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how autonomous, execution, classification moved from system activity into a reported real-world consequence, and which controls within ASGA™ — Autonomous Systems Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should autonomous, execution, classification be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -439,8 +496,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-734635-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-734635-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -353,36 +353,55 @@ function renderIncidents(items, architectureLinks, options) {
 
 function createIncidentCard(incident, architectureLinks) {
   const article = element("article", "oof-incident-row");
-  const headingBlock = document.createElement("div");
-  headingBlock.append(element("span", "oof-incident-id", incident.id));
+  const headingBlock = element("div", "oof-incident-card-main");
+  const eyebrow = element("p", "oof-incident-card-eyebrow");
+  eyebrow.append(
+    element("span", "oof-incident-id", incident.id),
+    element("span", "", incident.industry || "Industry not specified"),
+    element("span", "", incident.country || "Location not specified"),
+    element("time", "", (incident.occurredAt || incident.reportedAt || "Date not specified").slice(0, 10)),
+  );
+  headingBlock.append(eyebrow);
   const heading = element("h3", "");
   const detailLink = element("a", "", incident.title);
   detailLink.href = incident.detailUrl;
   heading.append(detailLink);
-  const summary = element("p", "oof-incident-summary", incident.summary || "No public summary available.");
-  headingBlock.append(heading, summary);
-  if ((incident.summary || "").length > 220) {
-    const toggle = element("button", "oof-incident-summary-toggle", "Show full summary");
-    toggle.type = "button";
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.addEventListener("click", () => {
-      const expanded = summary.classList.toggle("is-expanded");
-      toggle.setAttribute("aria-expanded", String(expanded));
-      toggle.textContent = expanded ? "Show less" : "Show full summary";
-    });
-    headingBlock.append(toggle);
-  }
-  if (incident.source?.url) {
-    const source = element("p", "oof-incident-source");
-    const sourceLink = element("a", "", "View source record");
-    sourceLink.href = incident.source.url;
-    sourceLink.target = "_blank";
-    sourceLink.rel = "noopener noreferrer";
-    source.append(sourceLink);
-    headingBlock.append(source);
-  }
-  article.append(headingBlock, incidentDefinitionList(incident, architectureLinks));
-  if (incident.assessment?.available) article.append(createLazyAnalysisPanel(incident, architectureLinks));
+  headingBlock.append(heading);
+
+  const status = element("dl", "oof-incident-card-status");
+  [
+    ["Evidence", incident.assessment?.evidenceStatus || "Evidence Insufficient"],
+    ["Source", incident.source?.publisher || "Source not identified"],
+    ["Severity", incident.severity || "Insufficient Evidence"],
+  ].forEach(([term, value]) => {
+    const group = document.createElement("div");
+    group.append(element("dt", "", term), element("dd", "", value));
+    status.append(group);
+  });
+  headingBlock.append(status);
+
+  const intelligence = element("div", "oof-incident-card-intelligence");
+  const architecture = incident.primaryArchitecture;
+  const architectureUrl = architectureLinks.get(String(architecture?.architectureId || "").toLowerCase()) || architecture?.canonicalUrl;
+  const focusHeading = element("h4", "", "Intelligence governance focus");
+  const focus = element("p", "");
+  if (architectureUrl) {
+    const link = element("a", "", architecture?.label || architecture?.architectureId?.toUpperCase());
+    link.href = architectureUrl;
+    focus.append(link);
+  } else focus.textContent = "Governed space unresolved";
+  const insight = element("p", "oof-incident-card-insight", incident.governanceInsight || "Available evidence does not yet support a case-specific governance conclusion.");
+  intelligence.append(focusHeading, focus, insight);
+  headingBlock.append(intelligence);
+
+  const actions = element("div", "oof-incident-card-actions");
+  const view = element("a", "oof-incident-primary-action", "View incident");
+  view.href = incident.detailUrl;
+  const verify = element("a", "oof-incident-secondary-action", "Help verify / Submit evidence");
+  verify.href = incident.verifyUrl || `/ai-incidents/verify/?incident=${encodeURIComponent(incident.slug)}`;
+  actions.append(view, verify);
+  headingBlock.append(actions);
+  article.append(headingBlock);
   return article;
 }
 

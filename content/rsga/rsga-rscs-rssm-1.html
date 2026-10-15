@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Scarcity State Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Scarcity State Module | OOF®. RSSM — Resource Scarcity State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Scarcity State Module | OOF®" />
+<meta property="og:description" content="Resource Scarcity State Module | OOF®. RSSM — Resource Scarcity State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Scarcity State Module | OOF®" />
+<meta name="twitter:description" content="Resource Scarcity State Module | OOF®. RSSM — Resource Scarcity State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta name="DC.title" content="Resource Scarcity State Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html","name":"Resource Scarcity State Module | OOF®","description":"Resource Scarcity State Module | OOF®. RSSM — Resource Scarcity State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Scarcity State Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html"}]},"headline":"Resource Scarcity State Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rssm-1.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Scarcity & Constraint Standard (RSCS)","Governance & Enforcement","Resource Governance","Resource Scarcity State Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Scarcity & Constraint Standard (RSCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Scarcity State Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Scarcity & Constraint Standard (RSCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Scarcity State Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RSSM — Resource Scarcity State Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Scarcity &amp; Constraint Standard (RSCS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Scarcity State Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RSCS-RSSM-01</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RSCS-RSSM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 7 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RSSM — Resource Scarcity State Module governs how the Scarcity State of a defined Resource or Resource capacity is determined, represented, evidenced, localized, temporally bounded, classified, monitored, and reassessed relative to the legitimate Resource requirements and applicable Resource conditions of the governed Resource System.</p>
+<p>RSSM establishes whether the Resource is:</p>
+<p>sufficient; approaching Scarcity; actively scarce; locally scarce; widely scarce; severely scarce; critically scarce; stabilizing; relaxing; resolved; or insufficiently evidenced for a reliable Scarcity determination.</p>
+<p>Its foundational distinctions are:</p>
+<p>Resource Scarcity ≠ Resource Absence.</p>
+<p>Resource Availability ≠ Resource Sufficiency.</p>
+<p>Resource Constraint ≠ Resource Scarcity.</p>
+<p>Unknown Scarcity State ≠ No Scarcity.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RSSM establishes the governed Resource Scarcity State.</p>
+<p>It answers a narrower question than the RSCS Parent Standard.</p>
+<p>RSCS governs the broader Scarcity and Constraint domain.</p>
+<p>RSSM determines whether the actual Resource conditions applicable to a defined Resource requirement constitute Scarcity and, if so, what Scarcity State currently applies.</p>
+<p>RSSM therefore transforms:</p>
+<p>**Resource-condition evidence</p>
+<p>legitimate Resource requirement applicable context**</p>
+<p>into:</p>
+<p>a governed Resource Scarcity State.</p>
+<p>It does not independently determine the complete cause, severity mechanism, escalation response, Recovery action, substitution decision, Allocation response, or long-term Sustainability condition.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>What is the current governed Scarcity State of the Resource relative to the applicable legitimate Resource requirement, Source, location, time horizon, usable and accessible capacity, and operational context, and with what evidence and confidence can that state be established?</p>
+<h1 id="4-position-in-rscs-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RSCS Governance</h1>
+<p>Canonical progression:</p>
+<p>Governed Resource State → Legitimate Resource Requirement → Applicable Resource Capacity → Resource Sufficiency Comparison → Scarcity State Determination → Constraint Characterization → Severity Evaluation → Scarcity Response / Monitoring → Resolution Assessment → Reassessment</p>
+<p>RSSM governs:</p>
+<p>Resource Sufficiency Evidence → Resource Scarcity State</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RSSM governs:</p>
+<p>Resource Scarcity State Governance</p>
+<p>This governed space concerns the determination and representation of whether a defined Resource is sufficient or scarce relative to the legitimate Resource requirements applicable within a defined Source, location, time horizon, capacity basis, and operational context.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Scarcity State associated with a defined Resource, legitimate Resource requirement, Resource capacity basis, Source, location, time horizon, and operational context.</p>
+<p>Canonical relationship:</p>
+<p>**Resource Identity</p>
+<p>Legitimate Resource Requirement Applicable Resource Capacity Resource Context Evidence → Resource Sufficiency Determination → Resource Scarcity State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RSSM governs:</p>
+<p>Resource Scarcity State determination; Resource sufficiency determination; Scarcity-state classification; Resource requirement reference; available-capacity reference; usable-capacity reference; accessible-capacity reference; allocable-capacity relevance; Source context; location context; temporal context; quality relevance; rate relevance; delivery relevance; Scarcity localization; Scarcity breadth; Scarcity persistence; Scarcity-state transition; Scarcity-state evidence; Scarcity-state uncertainty; Scarcity-state conflict; Scarcity-state confidence; Scarcity-state monitoring; Scarcity-state reassessment; traceability; versioning.</p>
+<p>RSSM does not independently:</p>
+<p>determine Resource Demand; determine Resource Dependency or Criticality; create Resource Access rights; determine Resource Priority; allocate Resources; measure Resource Consumption; determine the complete Constraint mechanism; determine the complete Constraint Severity model; authorize Scarcity responses; govern Resource Recovery; authorize Resource substitution; determine resilience; determine long-term Sustainability; determine Value; determine Harm; determine Liability.</p>
+<h1 id="8-resource-scarcity-state" data-oof-section-id="true" role="heading" aria-level="2">8. Resource Scarcity State</h1>
+<p>A Resource Scarcity State represents the governed condition of Resource sufficiency relative to legitimate Resource requirements within a defined context.</p>
+<p>Scarcity is therefore relational.</p>
+<p>It cannot be established solely from the existence or quantity of a Resource.</p>
+<h1 id="9-scarcity-state-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Scarcity-State Principle</h1>
+<p>Resource Quantity Alone ≠ Resource Scarcity State.</p>
+<p>A Scarcity determination requires both:</p>
+<p>Resource-condition evidence</p>
+<p>and</p>
+<p>a legitimate Resource requirement against which sufficiency can be evaluated.</p>
+<h1 id="10-resource-requirement-reference" data-oof-section-id="true" role="heading" aria-level="2">10. Resource Requirement Reference</h1>
+<p>Every Scarcity State should identify the Resource requirement against which sufficiency is evaluated.</p>
+<p>The requirement may derive from:</p>
+<p>validated Demand; critical dependency; minimum operational requirement; continuity requirement; governed Allocation commitment; other legitimate Resource requirement.</p>
+<h1 id="11-requirement-legitimacy" data-oof-section-id="true" role="heading" aria-level="2">11. Requirement Legitimacy</h1>
+<p>RSSM should not treat every expressed Resource request as a legitimate Resource requirement.</p>
+<p>Requested Resource Quantity ≠ Legitimate Resource Requirement by default.</p>
+<p>RDGS governs Resource Demand.</p>
+<h1 id="12-requirement-version" data-oof-section-id="true" role="heading" aria-level="2">12. Requirement Version</h1>
+<p>Where the applicable Resource requirement changes over time, RSSM should preserve the version or state applicable to the Scarcity determination.</p>
+<p>Current Requirement ≠ Historical Requirement.</p>
+<h1 id="13-resource-capacity-basis" data-oof-section-id="true" role="heading" aria-level="2">13. Resource Capacity Basis</h1>
+<p>RSSM should identify which Resource-capacity basis is relevant to the Scarcity determination.</p>
+<p>Possible capacity bases include:</p>
+<p>Available Capacity; Usable Capacity; Accessible Capacity; Allocable Capacity; deliverable capacity; other Resource-specific capacity.</p>
+<h1 id="14-capacity-basis-principle" data-oof-section-id="true" role="heading" aria-level="2">14. Capacity-Basis Principle</h1>
+<p>Nominal Capacity ≠ Scarcity-Relevant Capacity by default.</p>
+<p>The capacity basis must reflect the Resource conditions applicable to the legitimate requirement.</p>
+<h1 id="15-available-capacity" data-oof-section-id="true" role="heading" aria-level="2">15. Available Capacity</h1>
+<p>Available Capacity may provide an input to Scarcity determination.</p>
+<p>However:</p>
+<p>Available Capacity ≠ Sufficient Capacity.</p>
+<h1 id="16-usable-capacity" data-oof-section-id="true" role="heading" aria-level="2">16. Usable Capacity</h1>
+<p>Where Resource condition, quality, compatibility, infrastructure, or operational restrictions reduce actual usability, RSSM should use the relevant usable capacity.</p>
+<p>Physical Availability ≠ Operational Usability.</p>
+<h1 id="17-accessible-capacity" data-oof-section-id="true" role="heading" aria-level="2">17. Accessible Capacity</h1>
+<p>A Resource may be available and usable in principle while inaccessible to the relevant requirement.</p>
+<p>Usable Resource Somewhere ≠ Accessible Resource Here.</p>
+<h1 id="18-allocable-capacity" data-oof-section-id="true" role="heading" aria-level="2">18. Allocable Capacity</h1>
+<p>Where Resource capacity is reserved, protected, already committed, or otherwise unavailable for additional Allocation, allocable capacity may materially affect the Scarcity State.</p>
+<p>Available Capacity ≠ Allocable Capacity.</p>
+<h1 id="19-resource-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">19. Resource Sufficiency</h1>
+<p>Resource Sufficiency exists where the Resource conditions applicable to the governed context are sufficient to support the legitimate Resource requirement.</p>
+<h1 id="20-sufficiency-principle" data-oof-section-id="true" role="heading" aria-level="2">20. Sufficiency Principle</h1>
+<p>Resource Sufficiency ≠ Resource Abundance.</p>
+<p>A Resource may be sufficient without being abundant.</p>
+<h1 id="21-sufficiency-margin" data-oof-section-id="true" role="heading" aria-level="2">21. Sufficiency Margin</h1>
+<p>Where quantitatively meaningful, RSSM may preserve the margin between applicable Resource capacity and legitimate Resource requirement.</p>
+<p>Conceptually:</p>
+<p>Resource Sufficiency Margin = Applicable Resource Capacity − Legitimate Resource Requirement</p>
+<p>A positive margin may indicate sufficient Resource conditions.</p>
+<p>A negative margin may indicate Scarcity.</p>
+<p>A near-zero margin may indicate vulnerability to Scarcity.</p>
+<p>The exact calculation remains Resource-specific.</p>
+<h1 id="22-sufficiency-margin-boundary" data-oof-section-id="true" role="heading" aria-level="2">22. Sufficiency-Margin Boundary</h1>
+<p>Positive Sufficiency Margin ≠ Guaranteed Absence of Scarcity.</p>
+<p>Location, Source, timing, quality, rate, accessibility, delivery, or other Resource conditions may still create Scarcity.</p>
+<h1 id="23-negative-sufficiency-margin" data-oof-section-id="true" role="heading" aria-level="2">23. Negative Sufficiency Margin</h1>
+<p>A negative Resource Sufficiency Margin may provide evidence of Scarcity where the compared values are methodologically compatible.</p>
+<h1 id="24-numerical-gap-boundary" data-oof-section-id="true" role="heading" aria-level="2">24. Numerical-Gap Boundary</h1>
+<p>Negative Resource Sufficiency Margin ≠ Complete Scarcity Determination by itself.</p>
+<p>The comparison must remain valid within the governed Resource context.</p>
+<h1 id="25-comparison-compatibility" data-oof-section-id="true" role="heading" aria-level="2">25. Comparison Compatibility</h1>
+<p>RSSM should establish whether Resource requirement and capacity evidence are sufficiently compatible for Scarcity determination.</p>
+<p class="podstand"><b>Compatibility:</b> may require alignment of:</p>
+<p>Resource identity; Resource type; unit; capacity basis; Source; location; time horizon; quality; rate; operational context.</p>
+<h1 id="26-compatibility-principle" data-oof-section-id="true" role="heading" aria-level="2">26. Compatibility Principle</h1>
+<p>Numerically Comparable Resource Values ≠ Governance-Compatible Resource Values by default.</p>
+<h1 id="27-resource-identity-alignment" data-oof-section-id="true" role="heading" aria-level="2">27. Resource Identity Alignment</h1>
+<p>The Resource represented by capacity evidence should correspond sufficiently to the Resource required.</p>
+<h1 id="28-resource-type-boundary" data-oof-section-id="true" role="heading" aria-level="2">28. Resource-Type Boundary</h1>
+<p>Availability of Resource Type A ≠ Sufficiency of Resource Type B.</p>
+<h1 id="29-source-alignment" data-oof-section-id="true" role="heading" aria-level="2">29. Source Alignment</h1>
+<p>Scarcity may be Source-specific.</p>
+<p>RSSM should preserve the applicable Source where Source materially affects Resource sufficiency.</p>
+<h1 id="30-source-principle" data-oof-section-id="true" role="heading" aria-level="2">30. Source Principle</h1>
+<p>Availability From Another Source ≠ Absence of Source-Specific Scarcity.</p>
+<h1 id="31-location-alignment" data-oof-section-id="true" role="heading" aria-level="2">31. Location Alignment</h1>
+<p>Scarcity determination should preserve the location applicable to the Resource requirement.</p>
+<h1 id="32-location-principle" data-oof-section-id="true" role="heading" aria-level="2">32. Location Principle</h1>
+<p>Resource Sufficiency Somewhere ≠ Resource Sufficiency Where Required.</p>
+<h1 id="33-temporal-alignment" data-oof-section-id="true" role="heading" aria-level="2">33. Temporal Alignment</h1>
+<p>Resource capacity and Resource requirement should be compared across compatible time horizons.</p>
+<h1 id="34-temporal-principle" data-oof-section-id="true" role="heading" aria-level="2">34. Temporal Principle</h1>
+<p>Annual Resource Sufficiency ≠ Hourly Resource Sufficiency.</p>
+<p>A Resource may be sufficient over a long period while scarce during critical intervals.</p>
+<h1 id="35-rate-alignment" data-oof-section-id="true" role="heading" aria-level="2">35. Rate Alignment</h1>
+<p>A Resource may exist in sufficient total quantity but remain insufficient at the rate required.</p>
+<p>Quantity Sufficiency ≠ Rate Sufficiency.</p>
+<h1 id="36-quality-alignment" data-oof-section-id="true" role="heading" aria-level="2">36. Quality Alignment</h1>
+<p>Resource quality may determine whether Resource capacity is relevant to a particular requirement.</p>
+<p>Quantity Available at Inadequate Quality ≠ Sufficient Usable Resource.</p>
+<h1 id="37-delivery-alignment" data-oof-section-id="true" role="heading" aria-level="2">37. Delivery Alignment</h1>
+<p>A Resource may exist and satisfy quality conditions while delivery limitations prevent operational sufficiency.</p>
+<p>Resource Existence ≠ Resource Deliverability.</p>
+<h1 id="38-accessibility-alignment" data-oof-section-id="true" role="heading" aria-level="2">38. Accessibility Alignment</h1>
+<p>Scarcity determination should preserve whether the Resource can actually be accessed by the relevant participant, system, function, or location.</p>
+<h1 id="39-accessibility-principle" data-oof-section-id="true" role="heading" aria-level="2">39. Accessibility Principle</h1>
+<p>Inaccessible Resource Capacity ≠ Available Capacity for the Affected Requirement.</p>
+<h1 id="40-scarcity-context" data-oof-section-id="true" role="heading" aria-level="2">40. Scarcity Context</h1>
+<p>Every Scarcity State should preserve the materially relevant context in which Scarcity is determined.</p>
+<p>This may include:</p>
+<p>Resource; Source; location; time horizon; capacity basis; quality requirement; rate requirement; delivery condition; participant; system; function; operational state.</p>
+<h1 id="41-context-principle" data-oof-section-id="true" role="heading" aria-level="2">41. Context Principle</h1>
+<p>Scarcity Outside the Applicable Context ≠ Scarcity Within the Applicable Context.</p>
+<h1 id="42-localized-scarcity" data-oof-section-id="true" role="heading" aria-level="2">42. Localized Scarcity</h1>
+<p>Localized Scarcity exists where Resource insufficiency applies within a bounded operational or geographic context while broader Resource conditions may remain sufficient.</p>
+<h1 id="43-localized-scarcity-principle" data-oof-section-id="true" role="heading" aria-level="2">43. Localized Scarcity Principle</h1>
+<p>Localized Scarcity ≠ System-Wide Scarcity.</p>
+<h1 id="44-widespread-scarcity" data-oof-section-id="true" role="heading" aria-level="2">44. Widespread Scarcity</h1>
+<p>Widespread Scarcity exists where Resource insufficiency materially affects multiple locations, participants, systems, Sources, or operational areas.</p>
+<h1 id="45-widespread-scarcity-boundary" data-oof-section-id="true" role="heading" aria-level="2">45. Widespread Scarcity Boundary</h1>
+<p>Multiple Local Scarcity States ≠ Widespread Scarcity automatically.</p>
+<p>The breadth and relationship among affected areas must be established.</p>
+<h1 id="46-system-level-scarcity" data-oof-section-id="true" role="heading" aria-level="2">46. System-Level Scarcity</h1>
+<p>A Resource Scarcity State may become systemically significant where insufficiency materially affects the broader governed Resource System.</p>
+<h1 id="47-aggregate-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">47. Aggregate Sufficiency</h1>
+<p>Aggregate Resource sufficiency may conceal local Scarcity.</p>
+<p>Aggregate Resource Sufficiency ≠ Local Resource Sufficiency.</p>
+<h1 id="48-aggregate-scarcity" data-oof-section-id="true" role="heading" aria-level="2">48. Aggregate Scarcity</h1>
+<p>Aggregate shortage may coexist with sufficient Resource conditions for some specific locations or functions.</p>
+<p>Aggregate Scarcity ≠ Scarcity for Every Participant or Function.</p>
+<h1 id="49-scarcity-emerging" data-oof-section-id="true" role="heading" aria-level="2">49. Scarcity Emerging</h1>
+<p>Scarcity Emerging exists where evidence indicates that Resource sufficiency is deteriorating toward an active Scarcity State.</p>
+<h1 id="50-emerging-state-principle" data-oof-section-id="true" role="heading" aria-level="2">50. Emerging-State Principle</h1>
+<p>Scarcity Emerging ≠ Scarcity Active.</p>
+<h1 id="51-scarcity-active" data-oof-section-id="true" role="heading" aria-level="2">51. Scarcity Active</h1>
+<p>Scarcity Active exists where sufficient evidence establishes that applicable Resource conditions are insufficient relative to the legitimate Resource requirement.</p>
+<h1 id="52-active-scarcity-principle" data-oof-section-id="true" role="heading" aria-level="2">52. Active-Scarcity Principle</h1>
+<p>Scarcity Active ≠ Resource Exhaustion.</p>
+<p>A Resource may remain partially available while still being scarce.</p>
+<h1 id="53-severe-scarcity" data-oof-section-id="true" role="heading" aria-level="2">53. Severe Scarcity</h1>
+<p>Severe Scarcity represents a Resource Scarcity State with substantial governance significance.</p>
+<p>The complete severity mechanism remains governed elsewhere within RSCS.</p>
+<p>RSSM may consume the resulting severity classification.</p>
+<h1 id="54-critical-scarcity" data-oof-section-id="true" role="heading" aria-level="2">54. Critical Scarcity</h1>
+<p>Critical Scarcity represents a Scarcity State whose severity has reached the applicable critical governance level.</p>
+<p>Critical Scarcity ≠ Zero Resource Remaining.</p>
+<h1 id="55-scarcity-stabilized" data-oof-section-id="true" role="heading" aria-level="2">55. Scarcity Stabilized</h1>
+<p>Scarcity Stabilized exists where the Scarcity condition remains active but is no longer materially worsening within the applicable observation period.</p>
+<h1 id="56-stabilization-principle" data-oof-section-id="true" role="heading" aria-level="2">56. Stabilization Principle</h1>
+<p>Scarcity Stabilized ≠ Scarcity Resolved.</p>
+<h1 id="57-scarcity-relaxing" data-oof-section-id="true" role="heading" aria-level="2">57. Scarcity Relaxing</h1>
+<p>Scarcity Relaxing exists where Resource sufficiency is materially improving while Scarcity remains active.</p>
+<h1 id="58-relaxation-principle" data-oof-section-id="true" role="heading" aria-level="2">58. Relaxation Principle</h1>
+<p>Improving Resource Conditions ≠ Scarcity Resolution.</p>
+<h1 id="59-scarcity-resolved" data-oof-section-id="true" role="heading" aria-level="2">59. Scarcity Resolved</h1>
+<p>Scarcity Resolved exists where sufficient evidence establishes that the relevant Resource conditions once again satisfy the applicable legitimate Resource requirement.</p>
+<h1 id="60-resolution-principle" data-oof-section-id="true" role="heading" aria-level="2">60. Resolution Principle</h1>
+<p>Temporary Resource Improvement ≠ Scarcity Resolution.</p>
+<h1 id="61-no-scarcity" data-oof-section-id="true" role="heading" aria-level="2">61. No Scarcity</h1>
+<p>No Scarcity should be established only where sufficient evidence supports Resource sufficiency within the applicable governed context.</p>
+<h1 id="62-no-scarcity-evidence-principle" data-oof-section-id="true" role="heading" aria-level="2">62. No-Scarcity Evidence Principle</h1>
+<p>No Detected Scarcity ≠ Evidence of No Scarcity.</p>
+<p>Evidence sufficiency remains necessary.</p>
+<h1 id="63-scarcity-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">63. Scarcity Evidence-Limited</h1>
+<p>Scarcity Evidence-Limited applies where available evidence suggests a possible Scarcity condition but remains insufficient for a reliable determination.</p>
+<h1 id="64-scarcity-unknown" data-oof-section-id="true" role="heading" aria-level="2">64. Scarcity Unknown</h1>
+<p>Scarcity Unknown applies where Resource sufficiency cannot be adequately established.</p>
+<p>Scarcity Unknown ≠ No Scarcity.</p>
+<h1 id="65-scarcity-conflicted" data-oof-section-id="true" role="heading" aria-level="2">65. Scarcity Conflicted</h1>
+<p>Scarcity Conflicted applies where material evidence supports incompatible Scarcity determinations.</p>
+<h1 id="66-conflict-principle" data-oof-section-id="true" role="heading" aria-level="2">66. Conflict Principle</h1>
+<p>Conflicting Evidence ≠ Permission to Select the Most Convenient Scarcity State.</p>
+<h1 id="67-scarcity-unresolved" data-oof-section-id="true" role="heading" aria-level="2">67. Scarcity Unresolved</h1>
+<p>Scarcity Unresolved applies where relevant evidence exists but a sufficiently supported Scarcity determination cannot yet be completed.</p>
+<h1 id="68-minimum-scarcity-states" data-oof-section-id="true" role="heading" aria-level="2">68. Minimum Scarcity States</h1>
+<p>RSSM should support at minimum:</p>
+<p>No Scarcity</p>
+<p>Scarcity Emerging</p>
+<p>Scarcity Active</p>
+<p>Scarcity Localized</p>
+<p>Scarcity Widespread</p>
+<p>Scarcity Severe</p>
+<p>Scarcity Critical</p>
+<p>Scarcity Stabilized</p>
+<p>Scarcity Relaxing</p>
+<p>Scarcity Resolved</p>
+<p>Scarcity Evidence-Limited</p>
+<p>Scarcity Conflicted</p>
+<p>Scarcity Unknown</p>
+<p>Scarcity Unresolved</p>
+<p>Scarcity Reassessment Required</p>
+<h1 id="69-scarcity-state-dimensions" data-oof-section-id="true" role="heading" aria-level="2">69. Scarcity-State Dimensions</h1>
+<p>A Scarcity State may require multiple dimensions rather than a single label.</p>
+<p>These may include:</p>
+<p>activation state; spatial state; temporal state; severity state; evidence state; trend state.</p>
+<p>For example:</p>
+<p>**Scarcity Active</p>
+<p>Localized Temporary High Severity Evidence Sufficient Worsening**</p>
+<p>may represent one governed Resource condition.</p>
+<h1 id="70-multi-dimensional-principle" data-oof-section-id="true" role="heading" aria-level="2">70. Multi-Dimensional Principle</h1>
+<p>One Scarcity Label ≠ Complete Scarcity State by default.</p>
+<h1 id="71-temporal-scarcity-state" data-oof-section-id="true" role="heading" aria-level="2">71. Temporal Scarcity State</h1>
+<p>Scarcity may be:</p>
+<p>instantaneous; short-duration; temporary; recurring; persistent; other Resource-specific temporal state.</p>
+<h1 id="72-recurring-scarcity" data-oof-section-id="true" role="heading" aria-level="2">72. Recurring Scarcity</h1>
+<p>Scarcity may repeatedly emerge under similar conditions.</p>
+<p>Examples include:</p>
+<p>daily peaks; seasonal shortage; recurring infrastructure saturation; periodic Source limitation.</p>
+<h1 id="73-recurrence-principle" data-oof-section-id="true" role="heading" aria-level="2">73. Recurrence Principle</h1>
+<p>Scarcity Resolution Between Events ≠ Absence of Recurring Scarcity Pattern.</p>
+<h1 id="74-persistent-scarcity" data-oof-section-id="true" role="heading" aria-level="2">74. Persistent Scarcity</h1>
+<p>Persistent Scarcity exists where Resource insufficiency remains materially active across the applicable governance horizon.</p>
+<h1 id="75-persistence-boundary" data-oof-section-id="true" role="heading" aria-level="2">75. Persistence Boundary</h1>
+<p>Persistent Scarcity ≠ Structural Scarcity by definition.</p>
+<p>The underlying Constraint mechanism determines whether the condition is structural.</p>
+<h1 id="76-scarcity-trend" data-oof-section-id="true" role="heading" aria-level="2">76. Scarcity Trend</h1>
+<p>RSSM should preserve the direction of the Scarcity State where evidence permits.</p>
+<p>Minimum trend states:</p>
+<p>Improving</p>
+<p>Stable</p>
+<p>Worsening</p>
+<p>Volatile</p>
+<p>Unknown</p>
+<h1 id="77-trend-principle" data-oof-section-id="true" role="heading" aria-level="2">77. Trend Principle</h1>
+<p>Current Scarcity State ≠ Scarcity Direction.</p>
+<p>A Resource may remain critically scarce while improving.</p>
+<h1 id="78-scarcity-transition" data-oof-section-id="true" role="heading" aria-level="2">78. Scarcity Transition</h1>
+<p>RSSM should preserve material transitions between Scarcity States.</p>
+<p>Examples:</p>
+<p>No Scarcity → Scarcity Emerging</p>
+<p>Scarcity Emerging → Scarcity Active</p>
+<p>Scarcity Active → Scarcity Severe</p>
+<p>Scarcity Severe → Scarcity Stabilized</p>
+<p>Scarcity Stabilized → Scarcity Relaxing</p>
+<p>Scarcity Relaxing → Scarcity Resolved</p>
+<h1 id="79-transition-evidence" data-oof-section-id="true" role="heading" aria-level="2">79. Transition Evidence</h1>
+<p>A Scarcity-State transition should be supported by evidence appropriate to the Resource and governance context.</p>
+<h1 id="80-state-persistence" data-oof-section-id="true" role="heading" aria-level="2">80. State Persistence</h1>
+<p>A Scarcity State should not be changed merely because one observation differs from the preceding trend where the Resource requires sustained evidence.</p>
+<h1 id="81-state-persistence-principle" data-oof-section-id="true" role="heading" aria-level="2">81. State-Persistence Principle</h1>
+<p>Single Improved Observation ≠ Scarcity Resolution by default.</p>
+<h1 id="82-scarcity-state-monitoring" data-oof-section-id="true" role="heading" aria-level="2">82. Scarcity-State Monitoring</h1>
+<p>Active, Emerging, Recurring, Persistent, Evidence-Limited, Conflicted, or otherwise material Scarcity States should support monitoring appropriate to their governance significance.</p>
+<h1 id="83-monitoring-inputs" data-oof-section-id="true" role="heading" aria-level="2">83. Monitoring Inputs</h1>
+<p>Monitoring may consume:</p>
+<p>Resource availability; usable capacity; accessible capacity; allocable capacity; Resource requirement; Consumption; Utilization; Source state; location state; quality state; delivery state; rate state;</p>
+<p>reserve state; other relevant Resource evidence.</p>
+<h1 id="84-evidence-basis" data-oof-section-id="true" role="heading" aria-level="2">84. Evidence Basis</h1>
+<p>RSSM should preserve the evidence supporting the Scarcity State.</p>
+<p>Evidence may include outputs from:</p>
+<p>RCHS; RACS; RDGS; RDCS; RAGS; RPAS; RCUS; operational Resource systems; other governed evidence sources.</p>
+<h1 id="85-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">85. Evidence Provenance</h1>
+<p>Material Scarcity evidence should preserve sufficient provenance for traceability and reassessment.</p>
+<h1 id="86-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">86. Evidence Sufficiency</h1>
+<p>RSSM should determine whether available evidence is sufficient for the Scarcity State being asserted.</p>
+<p>Missing Resource Evidence ≠ Evidence of Scarcity.</p>
+<h1 id="87-evidence-sufficiency-boundary" data-oof-section-id="true" role="heading" aria-level="2">87. Evidence Sufficiency Boundary</h1>
+<p>Missing Resource Evidence ≠ Evidence of Resource Sufficiency.</p>
+<p>Insufficient evidence supports uncertainty, not an invented Resource state.</p>
+<h1 id="88-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">88. Evidence Freshness</h1>
+<p>Scarcity determinations should use evidence sufficiently current for the applicable Resource and time horizon.</p>
+<h1 id="89-historical-evidence" data-oof-section-id="true" role="heading" aria-level="2">89. Historical Evidence</h1>
+<p>Historical Scarcity evidence may support trend or recurrence analysis.</p>
+<p>However:</p>
+<p>Historical Scarcity ≠ Current Scarcity.</p>
+<h1 id="90-measurement-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">90. Measurement Uncertainty</h1>
+<p>Material uncertainty in Resource-capacity or requirement evidence should propagate into the Scarcity State.</p>
+<p>Uncertain Resource Capacity ≠ Certain Scarcity Determination.</p>
+<h1 id="91-requirement-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">91. Requirement Uncertainty</h1>
+<p>Uncertainty in the legitimate Resource requirement should remain visible.</p>
+<p>Uncertain Requirement ≠ Precise Scarcity Gap.</p>
+<h1 id="92-context-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">92. Context Uncertainty</h1>
+<p>Uncertainty regarding Source, location, timing, quality, accessibility, or other context should remain visible where material.</p>
+<h1 id="93-scarcity-confidence" data-oof-section-id="true" role="heading" aria-level="2">93. Scarcity Confidence</h1>
+<p>RSSM may preserve a confidence state or evidence-confidence representation appropriate to the implementation.</p>
+<p>Confidence must remain distinct from the Scarcity State itself.</p>
+<p>High Confidence ≠ High Scarcity Severity.</p>
+<h1 id="94-conflicting-capacity-evidence" data-oof-section-id="true" role="heading" aria-level="2">94. Conflicting Capacity Evidence</h1>
+<p>Where multiple Resource-capacity measurements conflict materially, RSSM should preserve the conflict until sufficiently resolved.</p>
+<h1 id="95-conflicting-requirement-evidence" data-oof-section-id="true" role="heading" aria-level="2">95. Conflicting Requirement Evidence</h1>
+<p>Where legitimate Resource requirement evidence conflicts materially, the Scarcity determination should preserve the unresolved state.</p>
+<h1 id="96-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">96. Prediction Boundary</h1>
+<p>Predicted future Scarcity may support monitoring and early warning.</p>
+<p>However:</p>
+<p>Predicted Scarcity ≠ Current Scarcity.</p>
+<p>PGA™ governs Prediction methodology where applicable.</p>
+<h1 id="97-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">97. Simulation Boundary</h1>
+<p>Simulation may test Resource sufficiency under hypothetical conditions.</p>
+<p>Simulated Scarcity ≠ Observed Scarcity.</p>
+<p>SIMULOS® governs simulation.</p>
+<h1 id="98-early-warning-boundary" data-oof-section-id="true" role="heading" aria-level="2">98. Early-Warning Boundary</h1>
+<p>A Resource may receive an Early-Warning signal while remaining currently sufficient.</p>
+<p>Early Warning ≠ Active Scarcity.</p>
+<h1 id="99-constraint-boundary" data-oof-section-id="true" role="heading" aria-level="2">99. Constraint Boundary</h1>
+<p>RSSM determines the Scarcity State.</p>
+<p>It does not need to fully determine every underlying Constraint mechanism.</p>
+<p>Scarcity State ≠ Complete Constraint Diagnosis.</p>
+<h1 id="100-severity-boundary" data-oof-section-id="true" role="heading" aria-level="2">100. Severity Boundary</h1>
+<p>RSSM may consume or represent Scarcity severity.</p>
+<p>It does not replace the dedicated RSCS mechanism responsible for evaluating Constraint Severity.</p>
+<p>Scarcity State ≠ Constraint Severity Model.</p>
+<h1 id="101-access-boundary" data-oof-section-id="true" role="heading" aria-level="2">101. Access Boundary</h1>
+<p>Scarcity may trigger Access review.</p>
+<p>However:</p>
+<p>Scarcity State ≠ Access Decision.</p>
+<p>RAGS retains Resource Access governance.</p>
+<h1 id="102-priority-boundary" data-oof-section-id="true" role="heading" aria-level="2">102. Priority Boundary</h1>
+<p>Scarcity may materially affect Priority governance.</p>
+<p>However:</p>
+<p>Scarcity State ≠ Priority Determination.</p>
+<p>RPAS retains Priority governance.</p>
+<h1 id="103-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">103. Allocation Boundary</h1>
+<p>Scarcity may justify Allocation reassessment.</p>
+<p>However:</p>
+<p>Scarcity State ≠ Allocation Authority.</p>
+<h1 id="104-recovery-boundary" data-oof-section-id="true" role="heading" aria-level="2">104. Recovery Boundary</h1>
+<p>Scarcity may increase the importance of Recovery.</p>
+<p>However:</p>
+<p>Scarcity State ≠ Recovery Decision.</p>
+<p>RRCS governs Resource Recovery &amp; Circularity.</p>
+<h1 id="105-substitution-boundary" data-oof-section-id="true" role="heading" aria-level="2">105. Substitution Boundary</h1>
+<p>Scarcity may increase the need to evaluate alternative Resources.</p>
+<p>However:</p>
+<p>Scarcity State ≠ Substitution Authorization.</p>
+<p>RSFS governs Resource Substitution &amp; Flexibility.</p>
+<h1 id="106-resilience-boundary" data-oof-section-id="true" role="heading" aria-level="2">106. Resilience Boundary</h1>
+<p>Scarcity may expose resilience weakness.</p>
+<p>RSSM may provide Scarcity-state evidence to RIRS.</p>
+<p>It does not determine Resource-system resilience.</p>
+<h1 id="107-sustainability-boundary" data-oof-section-id="true" role="heading" aria-level="2">107. Sustainability Boundary</h1>
+<p>A current Scarcity State may be relevant to Sustainability.</p>
+<p>However:</p>
+<p>Current Scarcity ≠ Long-Term Sustainability Determination.</p>
+<p>RCSS governs Resource Continuity &amp; Sustainability.</p>
+<h1 id="108-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">108. Value Boundary</h1>
+<p>A Resource may be scarce regardless of the Value produced through its use.</p>
+<p>High Value ≠ Absence of Scarcity.</p>
+<p>VEGA™ governs Value relationships where applicable.</p>
+<h1 id="109-price-boundary" data-oof-section-id="true" role="heading" aria-level="2">109. Price Boundary</h1>
+<p>Market price may correlate with Resource pressure.</p>
+<p>However:</p>
+<p>High Price ≠ Scarcity State.</p>
+<p>Low Price ≠ No Scarcity.</p>
+<h1 id="110-ownership-boundary" data-oof-section-id="true" role="heading" aria-level="2">110. Ownership Boundary</h1>
+<p>Resource ownership does not determine Scarcity.</p>
+<p>Ownership ≠ Resource Sufficiency.</p>
+<h1 id="111-optimization-boundary" data-oof-section-id="true" role="heading" aria-level="2">111. Optimization Boundary</h1>
+<p>Optimization may improve Resource sufficiency.</p>
+<p>However:</p>
+<p>Optimization ≠ Scarcity Resolution.</p>
+<h1 id="112-automated-scarcity-determination" data-oof-section-id="true" role="heading" aria-level="2">112. Automated Scarcity Determination</h1>
+<p>Software may support Scarcity-state calculation and classification.</p>
+<p>However:</p>
+<p>Automated Scarcity Classification ≠ Governance Authority.</p>
+<h1 id="113-scarcity-state-intervention-boundary" data-oof-section-id="true" role="heading" aria-level="2">113. Scarcity-State Intervention Boundary</h1>
+<p>RSSM may produce evidence supporting intervention.</p>
+<p>It does not independently authorize:</p>
+<p>reallocation; Access restriction; reserve release; Recovery; substitution; shutdown; other Resource intervention.</p>
+<p>Scarcity Evidence ≠ Intervention Authority.</p>
+<h1 id="114-resource-scarcity-state-profile" data-oof-section-id="true" role="heading" aria-level="2">114. Resource Scarcity State Profile</h1>
+<p>The principal RSSM output is the:</p>
+<p>Resource Scarcity State Profile</p>
+<h1 id="115-minimum-resource-scarcity-state-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">115. Minimum Resource Scarcity State Profile Fields</h1>
+<p>At minimum:</p>
+<p>Scarcity State ID</p>
+<p>Resource ID</p>
+<p>Resource Type</p>
+<p>Resource Source</p>
+<p>Location</p>
+<p>Applicable Time Horizon</p>
+<p>Resource Requirement Reference</p>
+<p>Resource Requirement Version</p>
+<p>Applicable Capacity Basis</p>
+<p>Available Capacity Reference</p>
+<p>Usable Capacity Reference</p>
+<p>Accessible Capacity Reference</p>
+<p>Allocable Capacity Reference where relevant</p>
+<p>Resource Sufficiency Margin where applicable</p>
+<p>Source State</p>
+<p>Location State</p>
+<p>Temporal State</p>
+<p>Quality State where relevant</p>
+<p>Rate State where relevant</p>
+<p>Delivery State where relevant</p>
+<p>Scarcity State</p>
+<p>Localized / Widespread State</p>
+<p>Temporal Scarcity State</p>
+<p>Scarcity Trend</p>
+<p>Scarcity Transition</p>
+<p>Severity Reference where available</p>
+<p>Evidence Basis</p>
+<p>Evidence Provenance</p>
+<p>Evidence Sufficiency</p>
+<p>Measurement Uncertainty</p>
+<p>Requirement Uncertainty</p>
+<p>Context Uncertainty</p>
+<p>Evidence Confidence</p>
+<p>Conflict State</p>
+<p>Monitoring State</p>
+<p>Reassessment Trigger</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="116-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">116. Minimum Implementation Framework</h1>
+<p>A minimum operational RSSM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Resource Reference</p>
+<p>Establish:</p>
+<p>Resource identity; Resource type; Source; location; time horizon.</p>
+<p>Layer 2 — Legitimate Requirement</p>
+<p>Establish:</p>
+<p>applicable Resource requirement; requirement basis; requirement version.</p>
+<p>Layer 3 — Capacity Basis</p>
+<p>Establish:</p>
+<p>available; usable; accessible; allocable; or other applicable Resource capacity.</p>
+<p>Layer 4 — Comparison Alignment</p>
+<p>Validate:</p>
+<p>Resource identity; unit; Source; location; time; quality; rate; capacity basis; operational context.</p>
+<p>Layer 5 — Sufficiency Determination</p>
+<p>Determine:</p>
+<p>sufficient; near-constrained; insufficient; unknown; conflicted.</p>
+<p>Layer 6 — Scarcity State</p>
+<p>Establish:</p>
+<p>activation; localization; temporal state; trend; evidence state.</p>
+<p>Layer 7 — Monitoring &amp; Reassessment</p>
+<p>Establish:</p>
+<p>monitoring requirement; state-transition trigger; reassessment trigger.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Scarcity State Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>**Resource Evidence</p>
+<p>Legitimate Resource Requirement Applicable Capacity → Comparison Alignment → Resource Sufficiency Determination → Scarcity State → Evidence / Uncertainty / Conflict → Monitoring / Reassessment → Resource Scarcity State Profile**</p>
+<h1 id="117-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">117. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Resource Sufficient</p>
+<p>Resource Near Scarcity</p>
+<p>Scarcity Emerging</p>
+<p>Scarcity Active</p>
+<p>Scarcity Localized</p>
+<p>Scarcity Widespread</p>
+<p>Scarcity Severe</p>
+<p>Scarcity Critical</p>
+<p>Scarcity Stabilized</p>
+<p>Scarcity Relaxing</p>
+<p>Scarcity Resolved</p>
+<p>Scarcity Evidence-Limited</p>
+<p>Scarcity Conflicted</p>
+<p>Scarcity Unknown</p>
+<p>Scarcity Unresolved</p>
+<p>Scarcity Reassessment Required</p>
+<h1 id="118-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">118. Minimum Evidence Path</h1>
+<p>Where the Scarcity State cannot be sufficiently determined:</p>
+<p>Scarcity Unknown / Evidence-Limited / Conflicted → Missing or Conflicting Requirement / Capacity / Source / Location / Time / Quality / Rate Evidence → Minimum Evidence Requirement → Evidence Acquisition → Comparison Alignment → Resource Sufficiency Determination → Scarcity-State Determination → Resource Scarcity State Profile Update</p>
+<h1 id="119-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">119. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Scarcity State Profile → New Resource Evidence / Requirement Change / Capacity Change / Source Change / Location Change / Operational Change → Materiality Test → Comparison Revalidation → Resource Sufficiency Reassessment → Scarcity-State Reassessment → Trend / Transition Review → Monitoring Review → Profile Update → Version Update</p>
+<h1 id="120-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">120. Governance Requirements</h1>
+<p>A conforming RSSM implementation must:</p>
+<h1 id="1-identify-the-governed-resource-2-preserve-resource-type-3-preserve-resource-so" data-oof-section-id="true" role="heading" aria-level="2">1. identify the governed Resource; 2. preserve Resource type; 3. preserve Resource Source where material; 4. preserve location where material; 5. preserve the applicable time horizon; 6. identify the legitimate Resource requirement; 7. preserve the requirement basis; 8. preserve the applicable requirement version; 9. distinguish requested Resource quantity from legitimate Resource requirement; 10. identify the applicable Resource-capacity basis; 11. preserve Available Capacity evidence; 12. preserve Usable Capacity evidence where relevant; 13. preserve Accessible Capacity evidence where relevant; 14. preserve Allocable Capacity evidence where relevant; 15. distinguish nominal capacity from Scarcity-relevant capacity; 16. distinguish Resource availability from Resource sufficiency; 17. distinguish physical availability from operational usability; 18. distinguish usable Resource from accessible Resource; 19. distinguish available capacity from allocable capacity; 20. establish Resource Sufficiency; 21. distinguish Resource Sufficiency from Resource abundance; 22. preserve Resource Sufficiency Margin where methodologically valid; 23. prevent positive Sufficiency Margin from proving absence of Scarcity automatically; 24. preserve negative Sufficiency Margin where methodologically valid; 25. prevent numerical gap from becoming complete Scarcity determination; 26. validate comparison compatibility; 27. align Resource identity; 28. align Resource type; 29. align measurement units; 30. align capacity basis; 31. align Source where material; 32. align location where material; 33. align time horizon; 34. align quality where material; 35. align rate where material; 36. align delivery conditions where material; 37. preserve accessibility context; 38. prevent numerically comparable values from becoming governance-compatible automatically; 39. preserve Scarcity context; 40. distinguish Scarcity outside the applicable context from Scarcity within it; 41. support Localized Scarcity; 42. distinguish Localized Scarcity from System-Wide Scarcity; 43. support Widespread Scarcity; 44. prevent multiple local Scarcity states from becoming Widespread Scarcity automatically; 45. support system-level Scarcity where evidenced; 46. distinguish aggregate Resource sufficiency from local sufficiency; 47. distinguish aggregate Scarcity from Scarcity for every participant or function;</h1>
+<h1 id="48-support-scarcity-emerging-49-distinguish-scarcity-emerging-from-scarcity-acti" data-oof-section-id="true" role="heading" aria-level="2">48. support Scarcity Emerging; 49. distinguish Scarcity Emerging from Scarcity Active; 50. support Scarcity Active; 51. distinguish Scarcity Active from Resource exhaustion; 52. support Scarcity Severe; 53. support Scarcity Critical; 54. prevent Critical Scarcity from requiring zero Resource remaining; 55. support Scarcity Stabilized; 56. distinguish Scarcity Stabilization from Scarcity Resolution; 57. support Scarcity Relaxing; 58. distinguish improving Resource conditions from Scarcity Resolution; 59. support Scarcity Resolved; 60. prevent temporary improvement from becoming Scarcity Resolution; 61. support No Scarcity; 62. require sufficient evidence for No Scarcity where material; 63. distinguish no detected Scarcity from evidence of No Scarcity; 64. support Scarcity Evidence-Limited; 65. support Scarcity Unknown; 66. prevent Scarcity Unknown from becoming No Scarcity; 67. support Scarcity Conflicted; 68. preserve conflicting evidence; 69. prevent convenient state selection under evidence conflict; 70. support Scarcity Unresolved; 71. support Scarcity Reassessment Required; 72. support multi-dimensional Scarcity representation; 73. distinguish one Scarcity label from complete Scarcity State; 74. preserve temporal Scarcity state; 75. support Recurring Scarcity; 76. preserve Scarcity recurrence; 77. distinguish resolution between events from absence of recurring Scarcity pattern; 78. support Persistent Scarcity; 79. distinguish Persistent Scarcity from Structural Scarcity; 80. preserve Scarcity Trend; 81. support Improving trend; 82. support Stable trend; 83. support Worsening trend; 84. support Volatile trend; 85. support Unknown trend; 86. distinguish current Scarcity State from Scarcity Direction; 87. preserve Scarcity-State transitions; 88. preserve transition evidence; 89. prevent isolated observations from changing Scarcity State without sufficient basis; 90. support Scarcity-state monitoring; 91. preserve relevant monitoring inputs; 92. preserve Scarcity evidence; 93. preserve evidence provenance; 94. determine evidence sufficiency; 95. prevent missing evidence from becoming evidence of Scarcity; 96. prevent missing evidence from becoming evidence of Resource sufficiency; 97. preserve evidence freshness; 98. distinguish historical Scarcity from current Scarcity; 99. propagate material capacity uncertainty; 100. propagate material requirement uncertainty; 101. propagate material context uncertainty; 102. prevent uncertain capacity from becoming certain Scarcity; 103. prevent uncertain requirement from becoming precise Scarcity gap; 104. preserve evidence confidence where used; 105. distinguish evidence confidence from Scarcity Severity; 106. preserve conflicting capacity evidence; 107. preserve conflicting requirement evidence; 108. distinguish predicted Scarcity from current Scarcity; 109. distinguish simulated Scarcity from observed Scarcity; 110. distinguish Early Warning from Active Scarcity; 111. distinguish Scarcity State from complete Constraint diagnosis; 112. distinguish Scarcity State from Constraint Severity model;</h1>
+<h1 id="113-prevent-scarcity-state-from-becoming-access-decision-114-prevent-scarcity-st" data-oof-section-id="true" role="heading" aria-level="2">113. prevent Scarcity State from becoming Access decision; 114. prevent Scarcity State from becoming Priority determination; 115. prevent Scarcity State from becoming Allocation authority; 116. prevent Scarcity State from becoming Recovery decision; 117. prevent Scarcity State from becoming substitution authorization; 118. prevent Scarcity State from becoming resilience determination; 119. prevent current Scarcity from becoming long-term Sustainability determination; 120. distinguish high Value from absence of Scarcity; 121. distinguish price from Scarcity State; 122. distinguish ownership from Resource sufficiency; 123. distinguish optimization from Scarcity Resolution; 124. distinguish automated Scarcity classification from governance authority; 125. distinguish Scarcity evidence from intervention authority; 126. preserve reassessment triggers; 127. preserve effective time; 128. preserve version history; 129. maintain traceability to supporting Resource evidence; 130. produce a Resource Scarcity State Profile.</h1>
+<h1 id="121-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">121. Governance Logic</h1>
+<p>Canonical RSSM logic:</p>
+<p>Governed Resource → Legitimate Resource Requirement → Applicable Resource Capacity → Source / Location / Time / Quality / Rate / Accessibility Context → Comparison Compatibility → Resource Sufficiency Determination → Resource Scarcity State → Localization / Temporal State / Trend → Evidence / Uncertainty / Conflict → Monitoring → Resource Scarcity State Profile → Reassessment</p>
+<h1 id="122-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">122. Governance Outputs</h1>
+<p>RSSM may produce:</p>
+<p>Resource Scarcity State Profile</p>
+<p>Resource Sufficiency Determination</p>
+<p>Resource Sufficiency Margin</p>
+<p>Scarcity Activation State</p>
+<p>Scarcity Localization State</p>
+<p>Scarcity Temporal State</p>
+<p>Scarcity Trend</p>
+<p>Scarcity Transition</p>
+<p>Scarcity Evidence State</p>
+<p>Scarcity Confidence State</p>
+<p>Scarcity Conflict State</p>
+<p>Scarcity Monitoring State</p>
+<p>Scarcity Reassessment Trigger</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="123-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">123. Critical Distinctions</h1>
+<p>Resource Scarcity ≠ Resource Absence</p>
+<p>Resource Availability ≠ Resource Sufficiency</p>
+<p>Resource Constraint ≠ Resource Scarcity</p>
+<p>Unknown Scarcity State ≠ No Scarcity</p>
+<p>Resource Quantity Alone ≠ Resource Scarcity State</p>
+<p>Requested Resource Quantity ≠ Legitimate Resource Requirement by default</p>
+<p>Current Requirement ≠ Historical Requirement</p>
+<p>Nominal Capacity ≠ Scarcity-Relevant Capacity by default</p>
+<p>Available Capacity ≠ Sufficient Capacity</p>
+<p>Physical Availability ≠ Operational Usability</p>
+<p>Usable Resource Somewhere ≠ Accessible Resource Here</p>
+<p>Available Capacity ≠ Allocable Capacity</p>
+<p>Resource Sufficiency ≠ Resource Abundance</p>
+<p>Positive Sufficiency Margin ≠ Guaranteed Absence of Scarcity</p>
+<p>Negative Resource Sufficiency Margin ≠ Complete Scarcity Determination by itself</p>
+<p>Numerically Comparable Resource Values ≠ Governance-Compatible Resource Values by default</p>
+<p>Availability From Another Source ≠ Absence of Source-Specific Scarcity</p>
+<p>Resource Sufficiency Somewhere ≠ Resource Sufficiency Where Required</p>
+<p>Annual Resource Sufficiency ≠ Hourly Resource Sufficiency</p>
+<p>Quantity Sufficiency ≠ Rate Sufficiency</p>
+<p>Quantity Available at Inadequate Quality ≠ Sufficient Usable Resource</p>
+<p>Resource Existence ≠ Resource Deliverability</p>
+<p>Inaccessible Resource Capacity ≠ Available Capacity for the Affected Requirement</p>
+<p>Scarcity Outside the Applicable Context ≠ Scarcity Within the Applicable Context</p>
+<p>Localized Scarcity ≠ System-Wide Scarcity</p>
+<p>Multiple Local Scarcity States ≠ Widespread Scarcity automatically</p>
+<p>Aggregate Resource Sufficiency ≠ Local Resource Sufficiency</p>
+<p>Aggregate Scarcity ≠ Scarcity for Every Participant or Function</p>
+<p>Scarcity Emerging ≠ Scarcity Active</p>
+<p>Scarcity Active ≠ Resource Exhaustion</p>
+<p>Critical Scarcity ≠ Zero Resource Remaining</p>
+<p>Scarcity Stabilized ≠ Scarcity Resolved</p>
+<p>Improving Resource Conditions ≠ Scarcity Resolution</p>
+<p>Temporary Resource Improvement ≠ Scarcity Resolution</p>
+<p>No Detected Scarcity ≠ Evidence of No Scarcity</p>
+<p>Scarcity Unknown ≠ No Scarcity</p>
+<p>Conflicting Evidence ≠ Permission to Select the Most Convenient Scarcity State</p>
+<p>One Scarcity Label ≠ Complete Scarcity State by default</p>
+<p>Scarcity Resolution Between Events ≠ Absence of Recurring Scarcity Pattern</p>
+<p>Persistent Scarcity ≠ Structural Scarcity by definition</p>
+<p>Current Scarcity State ≠ Scarcity Direction</p>
+<p>Single Improved Observation ≠ Scarcity Resolution by default</p>
+<p>Missing Resource Evidence ≠ Evidence of Scarcity</p>
+<p>Missing Resource Evidence ≠ Evidence of Resource Sufficiency</p>
+<p>Historical Scarcity ≠ Current Scarcity</p>
+<p>Uncertain Resource Capacity ≠ Certain Scarcity Determination</p>
+<p>Uncertain Requirement ≠ Precise Scarcity Gap</p>
+<p>High Confidence ≠ High Scarcity Severity</p>
+<p>Predicted Scarcity ≠ Current Scarcity</p>
+<p>Simulated Scarcity ≠ Observed Scarcity</p>
+<p>Early Warning ≠ Active Scarcity</p>
+<p>Scarcity State ≠ Complete Constraint Diagnosis</p>
+<p>Scarcity State ≠ Constraint Severity Model</p>
+<p>Scarcity State ≠ Access Decision</p>
+<p>Scarcity State ≠ Priority Determination</p>
+<p>Scarcity State ≠ Allocation Authority</p>
+<p>Scarcity State ≠ Recovery Decision</p>
+<p>Scarcity State ≠ Substitution Authorization</p>
+<p>Current Scarcity ≠ Long-Term Sustainability Determination</p>
+<p>High Value ≠ Absence of Scarcity</p>
+<p>High Price ≠ Scarcity State</p>
+<p>Low Price ≠ No Scarcity</p>
+<p>Ownership ≠ Resource Sufficiency</p>
+<p>Optimization ≠ Scarcity Resolution</p>
+<p>Automated Scarcity Classification ≠ Governance Authority</p>
+<p>Scarcity Evidence ≠ Intervention Authority</p>
+<h1 id="124-use-case-1-ai-data-center-compute-scarcity" data-oof-section-id="true" role="heading" aria-level="2">124. Use Case 1 — AI Data Center Compute Scarcity</h1>
+<p>An AI data center has:</p>
+<p>12,000 installed GPUs</p>
+<p>but only:</p>
+<p>9,000 GPUs are operationally usable; 7,500 are accessible to the relevant workload environment; 6,800 satisfy the required accelerator specification.</p>
+<p>A validated workload requirement requires capacity equivalent to 7,200 compatible GPUs during a defined training period.</p>
+<p>A simple inventory view would report 12,000 GPUs and conclude that capacity is sufficient.</p>
+<p>RSSM instead establishes the applicable Scarcity context:</p>
+<p>Resource — compatible accelerator capacity</p>
+<p>Location — governed data center environment</p>
+<p>Time — required training period</p>
+<p>Legitimate Requirement — 7,200 compatible GPUs</p>
+<p>Applicable Capacity — 6,800 usable and accessible compatible GPUs</p>
+<p>The resulting Resource condition is insufficient relative to the legitimate requirement.</p>
+<p>RSSM therefore establishes an Active Localized Resource Scarcity State , preserves the relevant evidence and uncertainty, and produces a Resource Scarcity State Profile.</p>
+<p>It does not independently decide whether another workload should be suspended, whether capacity should be reallocated, or whether alternative compute should be substituted.</p>
+<h1 id="125-use-case-2-regional-water-scarcity" data-oof-section-id="true" role="heading" aria-level="2">125. Use Case 2 — Regional Water Scarcity</h1>
+<p>A region contains enough annual water supply to exceed aggregate annual Demand.</p>
+<p>During a six-week dry period, however:</p>
+<p>Source A experiences reduced inflow; groundwater regeneration falls; treatment capacity is limited; one municipality experiences peak Demand; transport capacity prevents sufficient water from being transferred from another part of the region.</p>
+<p>Annual Resource quantity therefore suggests sufficiency.</p>
+<p>The operational context does not.</p>
+<p>RSSM establishes the applicable Scarcity determination using:</p>
+<p>the municipality as the relevant location; the six-week period as the relevant time horizon; treated and deliverable water as the relevant Resource capacity; validated municipal requirements as the legitimate Resource requirement.</p>
+<p>The evidence establishes a Localized Active Scarcity State even though aggregate annual regional water quantity remains sufficient.</p>
+<p>RSSM preserves that distinction without converting the local Scarcity State into a claim of system-wide regional water Scarcity.</p>
+<h1 id="126-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">126. Cross-Architecture Boundary</h1>
+<p>RSSM may consume:</p>
+<p>RCHS — Resource identity, type, Source, state, and context.</p>
+<p>RACS — Available, usable, reserved, temporal, location, and accessibility capacity evidence.</p>
+<p>RDGS — governed Resource Demand and legitimate requirement evidence.</p>
+<p>RDCS — Dependency and Criticality evidence relevant to Scarcity context.</p>
+<p>RAGS — Access conditions affecting accessible Resource capacity.</p>
+<p>RPAS — Allocation and reserve context.</p>
+<p>RCUS — actual Consumption and Utilization evidence.</p>
+<p>Other RSCS mechanisms may provide:</p>
+<p>Constraint mechanism; Constraint Severity; escalation; resolution; other Scarcity-governance evidence.</p>
+<p>RSSM may provide Scarcity-state evidence to:</p>
+<p>RRCS — Resource Recovery &amp; Circularity.</p>
+<p>RSFS — Resource Substitution &amp; Flexibility.</p>
+<p>RIRS — Resource Interdependency &amp; Resilience.</p>
+<p>RCSS — Resource Continuity &amp; Sustainability.</p>
+<p>ORA™ — operational reality relationships.</p>
+<p>PGA™ — prediction relationships without treating Prediction as current Scarcity.</p>
+<p>SIMULOS® — simulation relationships without treating simulation as observed Scarcity.</p>
+<p>VEGA™ — Value and efficiency relationships.</p>
+<p>HAGA™ — Harm governance.</p>
+<p>LIGA™ — Liability governance.</p>
+<p>RSSM does not absorb these mechanisms.</p>
+<h1 id="127-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">127. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RSSM governs the Resource Scarcity State .</p>
+<p>It does not govern the downstream decisions that Scarcity evidence may trigger.</p>
+<h1 id="128-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">128. Canonical Boundary</h1>
+<p>RSSM governs how the Scarcity State of a defined Resource or Resource capacity is determined, represented, evidenced, localized, temporally bounded, classified, monitored, and reassessed relative to the legitimate Resource requirement and applicable Resource conditions, including capacity basis, Source, location, time horizon, quality, rate, accessibility, delivery, evidence sufficiency, uncertainty, conflict, trend, and state transition.</p>
+<p>It does not independently determine Resource Demand, Resource Dependency or Criticality, Access rights, Resource Priority or Allocation, Resource Consumption measurement, complete Constraint diagnosis or Severity, Recovery action, substitution authorization, resilience, long-term Sustainability, Value, Harm, or Liability.</p>
+<p>Its principal governed output is the Resource Scarcity State Profile .</p>
+<h1 id="129-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">129. Canonical Closing Statement</h1>
+<p>Scarcity cannot be established by counting how much Resource exists. It must be determined against what is legitimately required, what capacity is actually usable and accessible, where and when that capacity is needed, and whether the evidence supports the resulting Resource state.</p>
+<p>RSSM turns Scarcity from a broad claim of shortage into a governed Resource state — distinguishing existence from sufficiency, aggregate availability from local reality, emerging pressure from active Scarcity, and uncertainty from evidence of absence.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

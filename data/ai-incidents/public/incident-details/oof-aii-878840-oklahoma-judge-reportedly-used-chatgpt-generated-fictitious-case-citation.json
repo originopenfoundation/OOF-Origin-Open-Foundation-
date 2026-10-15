@@ -53,10 +53,10 @@
   "createdAt": "2026-10-04T00:00:00Z",
   "updatedAt": "2026-10-04T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-878840-V3",
+    "assessmentIdentity": "OOF-AII-ASMT-878840-V5",
     "incidentId": "OOF-AII-878840",
-    "analysisVersion": 3,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 5,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -128,7 +128,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -151,6 +152,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Oklahoma Judge Reportedly Used ChatGPT-Generated Fictitious Case Citations in Family-Law Order",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Stephens County, Oklahoma, Associate District Judge Lawrence Wheeler reportedly used ChatGPT for legal research while preparing a family-law order that cited at least two nonexistent cases. The order denied a request for a psychological evaluation and reprimanded the requesting attorney; Wheeler later vacated it after the attorney challenged it before the Oklahoma Supreme Court. (2025-11-19, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1724",
+      "eventDate": "2025-11-19",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -212,7 +222,39 @@
       "What evidence would establish how Chatgpt, Large Language Models, Chatbots produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how models moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Chatgpt, Large Language Models, Chatbots. The next governance test is: How should models be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing models were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for models, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains models under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "pga",
+      "mechanisms": [
+        "models"
+      ],
+      "patternKey": "3ee231f448814e7c"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1724"
@@ -230,7 +272,7 @@
         "What evidence would establish how Chatgpt, Large Language Models, Chatbots produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how models moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Chatgpt, Large Language Models, Chatbots. The next governance test is: How should models be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -280,8 +322,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-878840-V2",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-878840-V4",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Consequence Evaluation Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Consequence Evaluation Module | OOF®. RCEM — Resource Consequence Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Consequence Evaluation Module | OOF®" />
+<meta property="og:description" content="Resource Consequence Evaluation Module | OOF®. RCEM — Resource Consequence Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Consequence Evaluation Module | OOF®" />
+<meta name="twitter:description" content="Resource Consequence Evaluation Module | OOF®. RCEM — Resource Consequence Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Consequence Evaluation Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html","name":"Resource Consequence Evaluation Module | OOF®","description":"Resource Consequence Evaluation Module | OOF®. RCEM — Resource Consequence Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Consequence Evaluation Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html"}]},"headline":"Resource Consequence Evaluation Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rcem-3.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Dependency & Criticality Standard (RDCS)","Governance & Enforcement","Resource Governance","Resource Dependency Consequence Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Dependency & Criticality Standard (RDCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Dependency Consequence Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Dependency & Criticality Standard (RDCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Dependency Consequence Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RCEM — Resource Consequence Evaluation Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Dependency &amp; Criticality Standard (RDCS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Dependency Consequence Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RDCS-RCEM-03</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RDCS-RCEM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 5 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RCEM — Resource Consequence Evaluation Module governs how the consequences arising from degradation, insufficiency, interruption, delay, quality deterioration, restricted delivery, or loss of a Resource are identified, bounded, structured, temporally located, evidenced, evaluated, and related to the affected Resource Dependency so that Resource Criticality reflects what actually happens when the Resource can no longer support the dependent function under the governed conditions.</p>
+<p>RCEM establishes the consequence layer of Resource Dependency &amp; Criticality governance.</p>
+<p>Resource Interruption ≠ Resource Consequence until the effect upon the dependent function or system is established.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RDMM establishes:</p>
+<p>what depends upon what.</p>
+<p>RCAM assesses:</p>
+<p>how critical the Dependency is under relevant Resource conditions.</p>
+<p>RCEM establishes:</p>
+<p>what actually happens when those Resource conditions deteriorate.</p>
+<p>It evaluates:</p>
+<p>functional degradation; functional loss; operational disruption; continuity effects; consequence timing; consequence duration; consequence propagation; recoverability; persistent effects; and the evidence supporting those consequence relationships.</p>
+<p>RCEM strengthens Resource Criticality by grounding it in explicit consequence pathways rather than assumed importance.</p>
+<h1 id="3-core-question" data-oof-section-id="true" role="heading" aria-level="2">3. Core Question</h1>
+<p>What materially happens to the Resource-dependent function, system, process, service, infrastructure, participant, or other governed object when the relevant Resource becomes degraded, insufficient, interrupted,</p>
+<p>delayed, restricted, or unavailable, when does that consequence occur, how far does it propagate, and what evidence supports that relationship?</p>
+<h1 id="4-position-in-rdcs-module-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RDCS Module Flow</h1>
+<p>RDMM — Resource Dependency Mapping Module → RCAM — Resource Criticality Assessment Module → RCEM — Resource Consequence Evaluation Module → RDCM → RCDM</p>
+<p>RCEM provides the explicit consequence evidence required for mature Resource Dependency and Criticality governance.</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RCEM governs:</p>
+<p>Resource Dependency Consequence Governance</p>
+<p>This space concerns consequences created when a Resource Dependency can no longer be satisfied under its governed conditions.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Dependency Consequence.</p>
+<p>Canonical relationship:</p>
+<p>Resource State Change → Dependency Impact → Functional Effect → Operational Consequence</p>
+<p>where materially relevant:</p>
+<p>→ Propagated Consequence</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RCEM governs:</p>
+<p>Resource degradation consequence; Resource insufficiency consequence; Resource interruption consequence; Resource delay consequence; Resource quality deterioration consequence; Resource rate restriction consequence; Resource loss consequence; functional degradation; functional failure; operational disruption; continuity consequence; consequence onset; consequence duration; consequence escalation; consequence propagation; consequence reversibility;</p>
+<p>persistent consequence; recovery-related consequence; consequence evidence; consequence uncertainty; consequence conflict; consequence reassessment.</p>
+<p>RCEM does not independently govern:</p>
+<p>Harm as a complete governance lifecycle; Liability; Resource Access; Resource Priority; Resource Allocation; Resource Scarcity response; formal Resource Substitution; system-wide Resilience; long-term Sustainability.</p>
+<h1 id="8-consequence-evaluation-input" data-oof-section-id="true" role="heading" aria-level="2">8. Consequence Evaluation Input</h1>
+<p>RCEM principally receives:</p>
+<p>Resource Dependency Maps; Resource Dependency Relationship Profiles; Resource Criticality Assessment Profiles.</p>
+<p>It may also consume relevant:</p>
+<p>operational evidence; failure evidence; incident evidence; technical analysis; Simulation outputs; Prediction outputs; recovery evidence; specialized domain evidence.</p>
+<h1 id="9-consequence-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Consequence Principle</h1>
+<p>A Resource should not be considered consequential merely because its loss is theoretically possible.</p>
+<p>RCEM establishes the relationship between Resource deterioration and actual or sufficiently evidenced functional consequence.</p>
+<h1 id="10-resource-state-change" data-oof-section-id="true" role="heading" aria-level="2">10. Resource State Change</h1>
+<p>A Resource consequence may originate from changes in:</p>
+<p>quantity; capacity; rate; quality; availability; continuity; delivery timing; location; accessibility; other materially relevant Resource conditions.</p>
+<h1 id="11-resource-degradation" data-oof-section-id="true" role="heading" aria-level="2">11. Resource Degradation</h1>
+<p>Resource Degradation exists where the Resource remains present but no longer satisfies its previous condition.</p>
+<h1 id="12-resource-insufficiency" data-oof-section-id="true" role="heading" aria-level="2">12. Resource Insufficiency</h1>
+<p>Resource Insufficiency exists where Resource conditions fall below the level required by the relevant Dependency.</p>
+<h1 id="13-resource-interruption" data-oof-section-id="true" role="heading" aria-level="2">13. Resource Interruption</h1>
+<p>Resource Interruption exists where Resource delivery or availability ceases temporarily.</p>
+<h1 id="14-resource-loss" data-oof-section-id="true" role="heading" aria-level="2">14. Resource Loss</h1>
+<p>Resource Loss exists where the Resource relationship becomes unavailable beyond the relevant governed interval or operational condition.</p>
+<h1 id="15-resource-delay" data-oof-section-id="true" role="heading" aria-level="2">15. Resource Delay</h1>
+<p>A Resource may remain available but arrive too late to support the dependent function.</p>
+<h1 id="16-resource-quality-deterioration" data-oof-section-id="true" role="heading" aria-level="2">16. Resource Quality Deterioration</h1>
+<p>Resource quantity may remain sufficient while quality becomes inadequate.</p>
+<h1 id="17-resource-rate-restriction" data-oof-section-id="true" role="heading" aria-level="2">17. Resource Rate Restriction</h1>
+<p>A Resource may remain available in total quantity while delivery rate becomes insufficient.</p>
+<h1 id="18-consequence-trigger" data-oof-section-id="true" role="heading" aria-level="2">18. Consequence Trigger</h1>
+<p>A Consequence Trigger is the Resource condition that initiates material effect upon the dependent function.</p>
+<h1 id="19-trigger-integrity" data-oof-section-id="true" role="heading" aria-level="2">19. Trigger Integrity</h1>
+<p>The Resource condition causing consequence should remain distinguishable from the consequence itself.</p>
+<p>Resource Failure ≠ Functional Consequence.</p>
+<h1 id="20-consequence-path" data-oof-section-id="true" role="heading" aria-level="2">20. Consequence Path</h1>
+<p>Canonical consequence path:</p>
+<p>Resource Condition Change → Dependency Threshold Crossing → Functional Effect → Operational Consequence</p>
+<p>where applicable:</p>
+<p>→ Downstream Consequence</p>
+<h1 id="21-functional-effect" data-oof-section-id="true" role="heading" aria-level="2">21. Functional Effect</h1>
+<p>The first material consequence may occur directly within the Resource-dependent function.</p>
+<h1 id="22-functional-degradation" data-oof-section-id="true" role="heading" aria-level="2">22. Functional Degradation</h1>
+<p>Functional Degradation occurs where the function continues but with reduced capability.</p>
+<h1 id="23-functional-performance-loss" data-oof-section-id="true" role="heading" aria-level="2">23. Functional Performance Loss</h1>
+<p>Resource degradation may reduce:</p>
+<p>throughput; speed; precision; quality; availability; capacity; service level.</p>
+<h1 id="24-partial-functional-loss" data-oof-section-id="true" role="heading" aria-level="2">24. Partial Functional Loss</h1>
+<p>A function may remain partially operational.</p>
+<h1 id="25-complete-functional-loss" data-oof-section-id="true" role="heading" aria-level="2">25. Complete Functional Loss</h1>
+<p>A Resource condition may cause complete loss of the relevant function.</p>
+<h1 id="26-functional-state-transition" data-oof-section-id="true" role="heading" aria-level="2">26. Functional State Transition</h1>
+<p>Where useful:</p>
+<p>Normal Function → Degraded Function → Severely Degraded Function → Functional Failure</p>
+<h1 id="27-threshold-driven-consequence" data-oof-section-id="true" role="heading" aria-level="2">27. Threshold-Driven Consequence</h1>
+<p>Functional consequence may begin only after a Resource threshold identified by RCAM is crossed.</p>
+<h1 id="28-progressive-consequence" data-oof-section-id="true" role="heading" aria-level="2">28. Progressive Consequence</h1>
+<p>Consequence may increase progressively as Resource conditions deteriorate.</p>
+<h1 id="29-non-linear-consequence" data-oof-section-id="true" role="heading" aria-level="2">29. Non-Linear Consequence</h1>
+<p>A small additional Resource degradation may cause a disproportionately large consequence after a critical threshold.</p>
+<h1 id="30-binary-consequence-boundary" data-oof-section-id="true" role="heading" aria-level="2">30. Binary Consequence Boundary</h1>
+<p>RCEM should not reduce consequence to:</p>
+<p>No Consequence / Failure</p>
+<p>where meaningful intermediate functional states exist.</p>
+<h1 id="31-operational-consequence" data-oof-section-id="true" role="heading" aria-level="2">31. Operational Consequence</h1>
+<p>Functional degradation may produce broader operational effects.</p>
+<h1 id="32-output-consequence" data-oof-section-id="true" role="heading" aria-level="2">32. Output Consequence</h1>
+<p>Resource degradation may reduce operational output.</p>
+<h1 id="33-quality-consequence" data-oof-section-id="true" role="heading" aria-level="2">33. Quality Consequence</h1>
+<p>Resource degradation may reduce output or service quality.</p>
+<h1 id="34-capacity-consequence" data-oof-section-id="true" role="heading" aria-level="2">34. Capacity Consequence</h1>
+<p>Available operational capacity may decline.</p>
+<h1 id="35-performance-consequence" data-oof-section-id="true" role="heading" aria-level="2">35. Performance Consequence</h1>
+<p>Operational performance may deteriorate.</p>
+<h1 id="36-availability-consequence" data-oof-section-id="true" role="heading" aria-level="2">36. Availability Consequence</h1>
+<p>A service or capability may become partially or fully unavailable.</p>
+<h1 id="37-continuity-consequence" data-oof-section-id="true" role="heading" aria-level="2">37. Continuity Consequence</h1>
+<p>Resource deterioration may threaten continued operation.</p>
+<h1 id="38-shutdown-consequence" data-oof-section-id="true" role="heading" aria-level="2">38. Shutdown Consequence</h1>
+<p>Resource loss may require:</p>
+<p>controlled shutdown; partial shutdown; emergency shutdown; automatic shutdown.</p>
+<h1 id="39-restart-consequence" data-oof-section-id="true" role="heading" aria-level="2">39. Restart Consequence</h1>
+<p>Restoring Resource may require a restart process before operation resumes.</p>
+<h1 id="40-consequence-onset" data-oof-section-id="true" role="heading" aria-level="2">40. Consequence Onset</h1>
+<p>RCEM should establish when material consequence begins after the relevant Resource condition changes.</p>
+<h1 id="41-immediate-consequence" data-oof-section-id="true" role="heading" aria-level="2">41. Immediate Consequence</h1>
+<p>Some consequences occur effectively immediately.</p>
+<h1 id="42-delayed-consequence" data-oof-section-id="true" role="heading" aria-level="2">42. Delayed Consequence</h1>
+<p>Some consequences occur only after:</p>
+<p>buffers are depleted; storage is exhausted; temperature changes; inventory is consumed; backup capacity expires; operational tolerance is exceeded.</p>
+<h1 id="43-time-to-impact" data-oof-section-id="true" role="heading" aria-level="2">43. Time-to-Impact</h1>
+<p>Time-to-Impact represents the interval between the relevant Resource condition change and the beginning of material consequence.</p>
+<h1 id="44-time-to-failure" data-oof-section-id="true" role="heading" aria-level="2">44. Time-to-Failure</h1>
+<p>Time-to-Failure represents the interval before the relevant function reaches its governed failure condition.</p>
+<h1 id="45-time-to-impact-vs-time-to-failure" data-oof-section-id="true" role="heading" aria-level="2">45. Time-to-Impact vs Time-to-Failure</h1>
+<p>Time-to-Impact ≠ Time-to-Failure.</p>
+<p>Functional degradation may begin long before complete failure.</p>
+<h1 id="46-consequence-duration" data-oof-section-id="true" role="heading" aria-level="2">46. Consequence Duration</h1>
+<p>RCEM should determine how long the consequence persists where material.</p>
+<h1 id="47-temporary-consequence" data-oof-section-id="true" role="heading" aria-level="2">47. Temporary Consequence</h1>
+<p>A consequence may disappear after Resource restoration.</p>
+<h1 id="48-persistent-consequence" data-oof-section-id="true" role="heading" aria-level="2">48. Persistent Consequence</h1>
+<p>A consequence may continue after the Resource itself has been restored.</p>
+<h1 id="49-permanent-consequence-context" data-oof-section-id="true" role="heading" aria-level="2">49. Permanent Consequence Context</h1>
+<p>Some consequences may not be fully reversible through Resource restoration.</p>
+<p>RCEM records this condition where relevant to Resource Dependency.</p>
+<h1 id="50-consequence-escalation" data-oof-section-id="true" role="heading" aria-level="2">50. Consequence Escalation</h1>
+<p>A Resource consequence may become more severe as interruption or degradation continues.</p>
+<h1 id="51-escalation-curve" data-oof-section-id="true" role="heading" aria-level="2">51. Escalation Curve</h1>
+<p>Where useful:</p>
+<p>Resource Interruption Duration → Consequence Severity</p>
+<p>may be represented explicitly.</p>
+<h1 id="52-duration-dependent-consequence" data-oof-section-id="true" role="heading" aria-level="2">52. Duration-Dependent Consequence</h1>
+<p>The same Resource interruption may produce:</p>
+<p>minor consequence at 5 minutes; material consequence at 1 hour; critical consequence at 6 hours.</p>
+<h1 id="53-consequence-plateau" data-oof-section-id="true" role="heading" aria-level="2">53. Consequence Plateau</h1>
+<p>Some consequences may reach a maximum state beyond which additional interruption does not materially change the affected function.</p>
+<h1 id="54-consequence-recovery" data-oof-section-id="true" role="heading" aria-level="2">54. Consequence Recovery</h1>
+<p>Resource restoration may begin recovery.</p>
+<p>It does not guarantee immediate restoration of the dependent function.</p>
+<h1 id="55-resource-restoration-boundary" data-oof-section-id="true" role="heading" aria-level="2">55. Resource Restoration Boundary</h1>
+<p>Resource Restored ≠ Consequence Resolved.</p>
+<h1 id="56-functional-recovery" data-oof-section-id="true" role="heading" aria-level="2">56. Functional Recovery</h1>
+<p>Functional Recovery occurs when the affected function returns to the required governed state.</p>
+<h1 id="57-recovery-delay" data-oof-section-id="true" role="heading" aria-level="2">57. Recovery Delay</h1>
+<p>Recovery may lag Resource restoration.</p>
+<h1 id="58-recovery-requirements" data-oof-section-id="true" role="heading" aria-level="2">58. Recovery Requirements</h1>
+<p>Recovery may require:</p>
+<p>restart; inspection; reconfiguration; recalibration; reheating; cooling; cleaning; data recovery; material replacement; process stabilization.</p>
+<h1 id="59-recovery-resource-dependency" data-oof-section-id="true" role="heading" aria-level="2">59. Recovery Resource Dependency</h1>
+<p>Recovery itself may require additional Resources.</p>
+<h1 id="60-recovery-consequence" data-oof-section-id="true" role="heading" aria-level="2">60. Recovery Consequence</h1>
+<p>The burden or delay associated with recovery may materially increase the significance of Resource interruption.</p>
+<h1 id="61-recovery-time" data-oof-section-id="true" role="heading" aria-level="2">61. Recovery Time</h1>
+<p>RCEM should preserve recovery time where it materially affects consequence.</p>
+<h1 id="62-recovery-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">62. Recovery Uncertainty</h1>
+<p>Uncertain recovery conditions should remain explicit.</p>
+<h1 id="63-reversible-consequence" data-oof-section-id="true" role="heading" aria-level="2">63. Reversible Consequence</h1>
+<p>A Reversible Consequence can be restored within the governed recovery conditions without persistent material effect.</p>
+<h1 id="64-partially-reversible-consequence" data-oof-section-id="true" role="heading" aria-level="2">64. Partially Reversible Consequence</h1>
+<p>Some effects may be recoverable while others persist.</p>
+<h1 id="65-irreversible-consequence-context" data-oof-section-id="true" role="heading" aria-level="2">65. Irreversible Consequence Context</h1>
+<p>Some effects may remain after Resource restoration and recovery efforts.</p>
+<h1 id="66-consequence-propagation" data-oof-section-id="true" role="heading" aria-level="2">66. Consequence Propagation</h1>
+<p>A Resource consequence may propagate beyond the directly dependent function.</p>
+<h1 id="67-direct-consequence" data-oof-section-id="true" role="heading" aria-level="2">67. Direct Consequence</h1>
+<p>Direct Consequence occurs in the object directly affected by the Resource Dependency.</p>
+<h1 id="68-indirect-consequence" data-oof-section-id="true" role="heading" aria-level="2">68. Indirect Consequence</h1>
+<p>Indirect Consequence occurs through another affected function, system, process, or infrastructure component.</p>
+<h1 id="69-propagated-consequence" data-oof-section-id="true" role="heading" aria-level="2">69. Propagated Consequence</h1>
+<p>Canonical structure:</p>
+<p>Resource Loss → Function A Degradation → System B Disruption → Function C Consequence</p>
+<h1 id="70-consequence-chain" data-oof-section-id="true" role="heading" aria-level="2">70. Consequence Chain</h1>
+<p>A Consequence Chain represents linked consequence relationships.</p>
+<h1 id="71-consequence-chain-integrity" data-oof-section-id="true" role="heading" aria-level="2">71. Consequence Chain Integrity</h1>
+<p>Each material link should remain identifiable where it affects Resource Criticality.</p>
+<h1 id="72-propagation-depth" data-oof-section-id="true" role="heading" aria-level="2">72. Propagation Depth</h1>
+<p>Consequence may propagate through one or multiple operational layers.</p>
+<h1 id="73-propagation-breadth" data-oof-section-id="true" role="heading" aria-level="2">73. Propagation Breadth</h1>
+<p>One Resource consequence may affect multiple dependent functions simultaneously.</p>
+<h1 id="74-shared-resource-consequence" data-oof-section-id="true" role="heading" aria-level="2">74. Shared Resource Consequence</h1>
+<p>Where several functions depend upon the same Resource, one Resource disruption may create multiple consequences.</p>
+<h1 id="75-common-dependency-consequence" data-oof-section-id="true" role="heading" aria-level="2">75. Common Dependency Consequence</h1>
+<p>Common Dependency identified by RDMM may create correlated consequences across apparently separate systems.</p>
+<h1 id="76-consequence-concentration" data-oof-section-id="true" role="heading" aria-level="2">76. Consequence Concentration</h1>
+<p>A single Resource relationship may therefore concentrate operational consequence.</p>
+<h1 id="77-local-consequence" data-oof-section-id="true" role="heading" aria-level="2">77. Local Consequence</h1>
+<p>A consequence may remain confined to one function or location.</p>
+<h1 id="78-system-consequence" data-oof-section-id="true" role="heading" aria-level="2">78. System Consequence</h1>
+<p>A local Resource disruption may become system-wide.</p>
+<h1 id="79-cross-system-consequence" data-oof-section-id="true" role="heading" aria-level="2">79. Cross-System Consequence</h1>
+<p>A Resource Dependency may affect multiple systems.</p>
+<h1 id="80-spatial-consequence" data-oof-section-id="true" role="heading" aria-level="2">80. Spatial Consequence</h1>
+<p>Consequence may differ by location.</p>
+<h1 id="81-temporal-consequence" data-oof-section-id="true" role="heading" aria-level="2">81. Temporal Consequence</h1>
+<p>Consequence may differ by time or operating state.</p>
+<h1 id="82-operating-state-consequence" data-oof-section-id="true" role="heading" aria-level="2">82. Operating-State Consequence</h1>
+<p>The same Resource loss may produce different consequences during:</p>
+<p>normal operation; Peak operation; maintenance; startup; shutdown; emergency; recovery.</p>
+<h1 id="83-contextual-consequence" data-oof-section-id="true" role="heading" aria-level="2">83. Contextual Consequence</h1>
+<p>Consequence must therefore be attached to the relevant Resource Dependency context.</p>
+<h1 id="84-consequence-magnitude" data-oof-section-id="true" role="heading" aria-level="2">84. Consequence Magnitude</h1>
+<p>Where measurable, consequence magnitude may be represented quantitatively.</p>
+<h1 id="85-consequence-severity" data-oof-section-id="true" role="heading" aria-level="2">85. Consequence Severity</h1>
+<p>Where appropriate, consequence may be classified using governed severity states.</p>
+<h1 id="86-severity-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Severity Boundary</h1>
+<p>Severity should not be assigned merely from Resource identity.</p>
+<h1 id="87-minimum-consequence-states" data-oof-section-id="true" role="heading" aria-level="2">87. Minimum Consequence States</h1>
+<p>A minimum implementation may distinguish:</p>
+<p>Limited Consequence</p>
+<p>Moderate Consequence</p>
+<p>Major Consequence</p>
+<p>Severe Consequence</p>
+<p>Consequence Evidence-Limited</p>
+<p>Consequence Conflicted</p>
+<p>Consequence Unknown</p>
+<p>Consequence Unresolved</p>
+<h1 id="88-limited-consequence" data-oof-section-id="true" role="heading" aria-level="2">88. Limited Consequence</h1>
+<p>The affected function experiences limited material degradation within the governed context.</p>
+<h1 id="89-moderate-consequence" data-oof-section-id="true" role="heading" aria-level="2">89. Moderate Consequence</h1>
+<p>Material operational degradation occurs but remains manageable within relevant tolerance and recovery conditions.</p>
+<h1 id="90-major-consequence" data-oof-section-id="true" role="heading" aria-level="2">90. Major Consequence</h1>
+<p>Substantial functional or operational degradation occurs.</p>
+<h1 id="91-severe-consequence" data-oof-section-id="true" role="heading" aria-level="2">91. Severe Consequence</h1>
+<p>Resource degradation or interruption creates severe functional or operational loss within the governed context.</p>
+<h1 id="92-consequence-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">92. Consequence Evidence-Limited</h1>
+<p>Evidence is insufficient for a stronger consequence determination.</p>
+<h1 id="93-consequence-conflicted" data-oof-section-id="true" role="heading" aria-level="2">93. Consequence Conflicted</h1>
+<p>Credible evidence supports materially different consequence states.</p>
+<h1 id="94-consequence-unknown" data-oof-section-id="true" role="heading" aria-level="2">94. Consequence Unknown</h1>
+<p>Available evidence does not establish the relevant consequence.</p>
+<h1 id="95-consequence-unresolved" data-oof-section-id="true" role="heading" aria-level="2">95. Consequence Unresolved</h1>
+<p>Evidence exists but does not yet support a sufficiently governed consequence determination.</p>
+<h1 id="96-consequence-type-vs-consequence-severity" data-oof-section-id="true" role="heading" aria-level="2">96. Consequence Type vs Consequence Severity</h1>
+<p>Consequence Type ≠ Consequence Severity.</p>
+<p>A functional consequence may be minor or severe.</p>
+<p>A continuity consequence may also vary substantially in severity.</p>
+<h1 id="97-consequence-magnitude-vs-criticality" data-oof-section-id="true" role="heading" aria-level="2">97. Consequence Magnitude vs Criticality</h1>
+<p>Consequence severity is an important Criticality input.</p>
+<p>It is not necessarily identical to Resource Criticality.</p>
+<h1 id="98-consequence-vs-dependency-strength" data-oof-section-id="true" role="heading" aria-level="2">98. Consequence vs Dependency Strength</h1>
+<p>A strong Dependency may produce limited consequence where the affected function has low operational significance.</p>
+<p>A partial Dependency may produce substantial consequence under certain conditions.</p>
+<h1 id="99-consequence-vs-demand" data-oof-section-id="true" role="heading" aria-level="2">99. Consequence vs Demand</h1>
+<p>High Resource Demand ≠ Severe Resource Consequence.</p>
+<h1 id="100-consequence-vs-scarcity" data-oof-section-id="true" role="heading" aria-level="2">100. Consequence vs Scarcity</h1>
+<p>Resource Scarcity ≠ Resource Consequence.</p>
+<p>Scarcity describes Resource constraint.</p>
+<p>Consequence describes what that constraint does to the dependent object.</p>
+<h1 id="101-consequence-vs-priority" data-oof-section-id="true" role="heading" aria-level="2">101. Consequence vs Priority</h1>
+<p>Severe consequence may inform downstream Priority.</p>
+<p>RCEM does not determine Priority.</p>
+<h1 id="102-consequence-vs-allocation" data-oof-section-id="true" role="heading" aria-level="2">102. Consequence vs Allocation</h1>
+<p>RCEM does not allocate Resource.</p>
+<h1 id="103-consequence-vs-harm" data-oof-section-id="true" role="heading" aria-level="2">103. Consequence vs Harm</h1>
+<p>Resource consequence and Harm must remain distinct.</p>
+<p>A Resource interruption may cause:</p>
+<p>functional degradation</p>
+<p>without necessarily producing:</p>
+<p>Harm</p>
+<p>within HAGA™.</p>
+<h1 id="104-harm-boundary" data-oof-section-id="true" role="heading" aria-level="2">104. Harm Boundary</h1>
+<p>Where Resource consequence produces or may produce Harm:</p>
+<p>RCEM governs the Resource Dependency consequence relationship.</p>
+<p>HAGA™ governs Harm.</p>
+<h1 id="105-consequence-vs-liability" data-oof-section-id="true" role="heading" aria-level="2">105. Consequence vs Liability</h1>
+<p>Resource consequence may create circumstances relevant to Liability.</p>
+<p>LIGA™ retains Liability Governance.</p>
+<h1 id="106-consequence-vs-value-loss" data-oof-section-id="true" role="heading" aria-level="2">106. Consequence vs Value Loss</h1>
+<p>Resource consequence may reduce Value.</p>
+<p>VEGA™ retains Value Governance.</p>
+<h1 id="107-consequence-vs-resilience" data-oof-section-id="true" role="heading" aria-level="2">107. Consequence vs Resilience</h1>
+<p>RCEM may identify propagation relevant to Resilience.</p>
+<p>RIRS retains broader Resource Interdependency &amp; Resilience Governance.</p>
+<h1 id="108-consequence-evidence" data-oof-section-id="true" role="heading" aria-level="2">108. Consequence Evidence</h1>
+<p>Material consequence determinations should remain traceable to evidence.</p>
+<h1 id="109-operational-evidence" data-oof-section-id="true" role="heading" aria-level="2">109. Operational Evidence</h1>
+<p>Evidence may include:</p>
+<p>telemetry; performance logs; operational records; service records; production records.</p>
+<h1 id="110-failure-evidence" data-oof-section-id="true" role="heading" aria-level="2">110. Failure Evidence</h1>
+<p>Observed Resource interruptions may reveal consequence relationships.</p>
+<h1 id="111-incident-evidence" data-oof-section-id="true" role="heading" aria-level="2">111. Incident Evidence</h1>
+<p>Historical incidents may establish:</p>
+<p>Time-to-Impact; degradation progression; failure conditions; recovery duration; propagation.</p>
+<h1 id="112-technical-evidence" data-oof-section-id="true" role="heading" aria-level="2">112. Technical Evidence</h1>
+<p>Engineering models and technical specifications may establish consequence thresholds.</p>
+<h1 id="113-experimental-evidence" data-oof-section-id="true" role="heading" aria-level="2">113. Experimental Evidence</h1>
+<p>Controlled testing may establish Resource-to-function consequence relationships.</p>
+<h1 id="114-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">114. Simulation Evidence</h1>
+<p>Simulation may establish possible consequence states where direct testing is impractical.</p>
+<h1 id="115-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">115. Simulation Boundary</h1>
+<p>Simulated Consequence ≠ Observed Consequence.</p>
+<p>SIMULOS® retains Simulation Governance.</p>
+<h1 id="116-prediction-evidence" data-oof-section-id="true" role="heading" aria-level="2">116. Prediction Evidence</h1>
+<p>Predicted future conditions may inform future consequence evaluation.</p>
+<h1 id="117-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">117. Prediction Boundary</h1>
+<p>Predicted Consequence ≠ Current Consequence.</p>
+<p>PGA™ retains Prediction Governance.</p>
+<h1 id="118-assumed-consequence" data-oof-section-id="true" role="heading" aria-level="2">118. Assumed Consequence</h1>
+<p>Where consequence is assumed rather than established, that status must remain explicit.</p>
+<h1 id="119-consequence-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">119. Consequence Evidence Provenance</h1>
+<p>At minimum, evidence should preserve where relevant:</p>
+<p>Consequence ID; Dependency ID; Resource ID; affected function; evidence source; evidence time; operating state; method; version.</p>
+<h1 id="120-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">120. Evidence Freshness</h1>
+<p>Consequence evidence may become outdated following material system change.</p>
+<h1 id="121-consequence-evidence-conflict" data-oof-section-id="true" role="heading" aria-level="2">121. Consequence Evidence Conflict</h1>
+<p>Technical models, historical evidence, and operational observation may produce different consequence assessments.</p>
+<p>The conflict should remain visible until governed resolution.</p>
+<h1 id="122-consequence-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">122. Consequence Uncertainty</h1>
+<p>Uncertainty may concern:</p>
+<p>trigger condition; threshold; Time-to-Impact; severity; duration; propagation; recovery; persistence.</p>
+<h1 id="123-uncertainty-preservation" data-oof-section-id="true" role="heading" aria-level="2">123. Uncertainty Preservation</h1>
+<p>Uncertainty should not be removed merely because downstream Criticality requires a decision.</p>
+<h1 id="124-consequence-confidence" data-oof-section-id="true" role="heading" aria-level="2">124. Consequence Confidence</h1>
+<p>Where confidence is represented, it should reflect evidence sufficiency.</p>
+<h1 id="125-false-precision" data-oof-section-id="true" role="heading" aria-level="2">125. False Precision</h1>
+<p>RCEM should not assign precise consequence values where evidence supports only ranges or categorical states.</p>
+<h1 id="126-consequence-range" data-oof-section-id="true" role="heading" aria-level="2">126. Consequence Range</h1>
+<p>Where appropriate, consequence may be represented as:</p>
+<p>minimum; expected; maximum; bounded range</p>
+<p>provided the methodology supporting the range is explicit.</p>
+<h1 id="127-scenario-specific-consequence" data-oof-section-id="true" role="heading" aria-level="2">127. Scenario-Specific Consequence</h1>
+<p>Different Resource degradation scenarios may produce different consequence states.</p>
+<h1 id="128-scenario-integrity" data-oof-section-id="true" role="heading" aria-level="2">128. Scenario Integrity</h1>
+<p>Scenario-specific consequences should not be silently merged into one universal consequence.</p>
+<h1 id="129-current-consequence-vs-potential-consequence" data-oof-section-id="true" role="heading" aria-level="2">129. Current Consequence vs Potential Consequence</h1>
+<p>Current Consequence ≠ Potential Consequence.</p>
+<h1 id="130-observed-consequence-vs-modeled-consequence" data-oof-section-id="true" role="heading" aria-level="2">130. Observed Consequence vs Modeled Consequence</h1>
+<p>Observed Consequence ≠ Modeled Consequence.</p>
+<h1 id="131-resource-consequence-profile" data-oof-section-id="true" role="heading" aria-level="2">131. Resource Consequence Profile</h1>
+<p>The principal RCEM output is the:</p>
+<p>Resource Consequence Profile</p>
+<h1 id="132-minimum-resource-consequence-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">132. Minimum Resource Consequence Profile Fields</h1>
+<p>At minimum:</p>
+<p>Consequence ID</p>
+<p>Dependency ID</p>
+<p>Criticality Assessment Reference</p>
+<p>Resource ID</p>
+<p>Affected Object</p>
+<p>Affected Function</p>
+<p>Resource Condition Trigger</p>
+<p>Resource Threshold</p>
+<p>Consequence Type</p>
+<p>Functional Effect</p>
+<p>Consequence State</p>
+<p>Time-to-Impact</p>
+<p>Time-to-Failure where relevant</p>
+<p>Consequence Duration</p>
+<p>Escalation State</p>
+<p>Propagation State</p>
+<p>Recovery State</p>
+<p>Recovery Time where relevant</p>
+<p>Persistence State</p>
+<p>Evidence Basis</p>
+<p>Consequence Uncertainty</p>
+<p>Sufficiency State</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="133-extended-consequence-fields" data-oof-section-id="true" role="heading" aria-level="2">133. Extended Consequence Fields</h1>
+<p>Where relevant:</p>
+<p>location; operating state; affected downstream functions; consequence chain; buffer state; substitute state; scenario reference; Simulation reference; Prediction reference; reassessment trigger.</p>
+<h1 id="134-consequence-graph" data-oof-section-id="true" role="heading" aria-level="2">134. Consequence Graph</h1>
+<p>Complex systems may represent Resource consequences as a directed graph.</p>
+<h1 id="135-consequence-graph-nodes" data-oof-section-id="true" role="heading" aria-level="2">135. Consequence Graph Nodes</h1>
+<p>Nodes may represent:</p>
+<p>Resource states; functions; systems; services; infrastructure; consequence states.</p>
+<h1 id="136-consequence-graph-edges" data-oof-section-id="true" role="heading" aria-level="2">136. Consequence Graph Edges</h1>
+<p>Edges represent sufficiently evidenced consequence relationships.</p>
+<h1 id="137-graph-direction" data-oof-section-id="true" role="heading" aria-level="2">137. Graph Direction</h1>
+<p>Consequence direction should remain explicit.</p>
+<h1 id="138-graph-evidence" data-oof-section-id="true" role="heading" aria-level="2">138. Graph Evidence</h1>
+<p>Material graph edges should remain traceable to evidence.</p>
+<h1 id="139-consequence-cascade" data-oof-section-id="true" role="heading" aria-level="2">139. Consequence Cascade</h1>
+<p>A Resource condition may initiate a cascade.</p>
+<p>Canonical representation:</p>
+<p>Resource State Change → Dependency Impact → Functional Consequence → Operational Consequence → Propagated Consequence</p>
+<h1 id="140-cascade-boundary" data-oof-section-id="true" role="heading" aria-level="2">140. Cascade Boundary</h1>
+<p>RCEM maps consequence propagation only as far as required to establish Resource Dependency significance.</p>
+<p>It does not absorb complete governance of every downstream domain.</p>
+<h1 id="141-consequence-aggregation" data-oof-section-id="true" role="heading" aria-level="2">141. Consequence Aggregation</h1>
+<p>Multiple consequences should not be blindly summed.</p>
+<h1 id="142-consequence-overlap" data-oof-section-id="true" role="heading" aria-level="2">142. Consequence Overlap</h1>
+<p>Two consequence pathways may describe the same downstream effect.</p>
+<p>Duplication should be identified.</p>
+<h1 id="143-shared-consequence" data-oof-section-id="true" role="heading" aria-level="2">143. Shared Consequence</h1>
+<p>Several Dependency paths may converge on one consequence.</p>
+<h1 id="144-consequence-deduplication" data-oof-section-id="true" role="heading" aria-level="2">144. Consequence Deduplication</h1>
+<p>Shared downstream consequences should not be counted repeatedly where doing so would create false severity.</p>
+<h1 id="145-cross-domain-consequence" data-oof-section-id="true" role="heading" aria-level="2">145. Cross-Domain Consequence</h1>
+<p>Resource loss may generate consequences relevant to:</p>
+<p>operations; Harm; Liability; Value; continuity; other governance domains.</p>
+<p>RCEM preserves the Resource consequence relationship while leaving domain-specific governance to the competent architecture.</p>
+<h1 id="146-consequence-reassessment" data-oof-section-id="true" role="heading" aria-level="2">146. Consequence Reassessment</h1>
+<p>Resource consequences should be reassessed after material change.</p>
+<h1 id="147-reassessment-triggers" data-oof-section-id="true" role="heading" aria-level="2">147. Reassessment Triggers</h1>
+<p>Triggers may include:</p>
+<p>Resource threshold change; Dependency change; function change; buffer change; new redundancy; new substitute; loss of substitute; new incident evidence; new failure test; recovery change; system redesign;</p>
+<p>new Simulation; new operational evidence.</p>
+<h1 id="148-reassessment-logic" data-oof-section-id="true" role="heading" aria-level="2">148. Reassessment Logic</h1>
+<p>Canonical logic:</p>
+<p>Existing Resource Consequence Profile → New Evidence / Material Change → Consequence Impact Test → Trigger / Timing / Severity / Propagation / Recovery Reassessment → Consequence Retained or Revised → Version Update → Criticality Reassessment</p>
+<h1 id="149-consequence-versioning" data-oof-section-id="true" role="heading" aria-level="2">149. Consequence Versioning</h1>
+<p>Material consequence changes should create a new governed version.</p>
+<h1 id="150-historical-consequence" data-oof-section-id="true" role="heading" aria-level="2">150. Historical Consequence</h1>
+<p>Historical consequence states should remain distinguishable from current consequence states.</p>
+<h1 id="151-consequence-learning" data-oof-section-id="true" role="heading" aria-level="2">151. Consequence Learning</h1>
+<p>Historical incidents may improve future consequence governance without automatically defining future consequence.</p>
+<h1 id="152-historical-boundary" data-oof-section-id="true" role="heading" aria-level="2">152. Historical Boundary</h1>
+<p>Historical Consequence ≠ Guaranteed Future Consequence.</p>
+<h1 id="153-structured-output-principle" data-oof-section-id="true" role="heading" aria-level="2">153. Structured Output Principle</h1>
+<p>RCEM should support:</p>
+<p>Resource Evidence → Resource State Change → Dependency Impact → Functional Consequence → Operational Consequence → Propagation → Recovery → Governed Consequence State</p>
+<p>rather than:</p>
+<p>Resource Interruption → Assumed Catastrophe.</p>
+<h1 id="154-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">154. Minimum Implementation Framework</h1>
+<p>A minimum operational RCEM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Dependency &amp; Criticality Input</p>
+<p>Receive:</p>
+<p>Resource Dependency Relationship Profile Resource Criticality Assessment Profile</p>
+<p>Layer 2 — Resource Condition</p>
+<p>Identify:</p>
+<p>Degradation Insufficiency Interruption Delay Quality Deterioration Rate Restriction Loss</p>
+<p>Layer 3 — Consequence Trigger</p>
+<p>Determine:</p>
+<p>Resource Threshold Trigger Condition Operating State</p>
+<p>Layer 4 — Functional Effect</p>
+<p>Determine:</p>
+<p>Functional Degradation Partial Functional Loss Complete Functional Loss</p>
+<p>Layer 5 — Temporal Consequence</p>
+<p>Determine:</p>
+<p>Time-to-Impact Time-to-Failure Duration Escalation</p>
+<p>Layer 6 — Propagation &amp; Recovery</p>
+<p>Determine:</p>
+<p>Propagation Consequence Chain Recovery Condition Recovery Time Persistence</p>
+<p>Layer 7 — Evidence &amp; Sufficiency</p>
+<p>Assess:</p>
+<p>Evidence Conflict Uncertainty Sufficiency</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Consequence Profile Version Reassessment triggers Criticality reassessment input</p>
+<p>Minimum machine-readable logic:</p>
+<p>Dependency Profile → Resource Condition Trigger → Threshold → Functional Effect → Consequence Type → Consequence State → Time-to-Impact → Duration → Propagation[] → Recovery → Evidence[] → Conflict[] → Uncertainty[] → Resource Consequence Profile</p>
+<h1 id="155-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">155. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Limited Consequence</p>
+<p>Moderate Consequence</p>
+<p>Major Consequence</p>
+<p>Severe Consequence</p>
+<p>Consequence Evidence-Limited</p>
+<p>Consequence Conflicted</p>
+<p>Consequence Unknown</p>
+<p>Consequence Unresolved</p>
+<h1 id="156-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">156. Minimum Evidence Path</h1>
+<p>Where consequence cannot be sufficiently established:</p>
+<p>Consequence Unresolved → Material Consequence Evidence Gap → Minimum Evidence Requirement → Evidence Acquisition / Testing / Simulation where appropriate → Consequence Reassessment → Updated Resource Consequence Profile</p>
+<p>The objective is sufficient consequence evidence for Resource Dependency and Criticality governance.</p>
+<h1 id="157-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">157. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Consequence Profile → New Evidence / Material Change → Consequence Impact Test → Trigger / Functional / Temporal / Propagation / Recovery Reassessment → Consequence Retained / Revised → Version Update → Criticality Reassessment</p>
+<h1 id="158-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">158. Governance Requirements</h1>
+<p>A conforming RCEM implementation must:</p>
+<h1 id="1-receive-a-mapped-resource-dependency-2-identify-the-relevant-resource-conditio" data-oof-section-id="true" role="heading" aria-level="2">1. receive a mapped Resource Dependency; 2. identify the relevant Resource condition change; 3. identify the consequence trigger; 4. preserve the Resource threshold where relevant; 5. identify the affected function; 6. distinguish Resource condition from functional consequence; 7. identify functional degradation where present; 8. identify partial or complete functional loss where relevant; 9. identify operational consequence; 10. establish Time-to-Impact where material; 11. distinguish Time-to-Impact from Time-to-Failure; 12. identify consequence duration where material; 13. identify escalation where material; 14. identify consequence propagation where material; 15. preserve direct and indirect consequence relationships; 16. identify recovery conditions; 17. distinguish Resource restoration from functional recovery; 18. identify persistent consequence where material; 19. preserve operating-state context; 20. preserve location context where material; 21. preserve evidence provenance; 22. distinguish observed from simulated consequence; 23. distinguish current from predicted consequence; 24. preserve assumptions; 25. preserve material uncertainty; 26. preserve evidence conflict; 27. prevent false precision; 28. prevent consequence double counting; 29. support reassessment; 30. support versioning; 31. produce a Resource Consequence Profile; 32. preserve the boundary between Resource consequence and Harm; 33. preserve the boundary between consequence and Priority; 34. preserve the boundary between consequence and Allocation.</h1>
+<h1 id="159-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">159. Governance Logic</h1>
+<p>Canonical RCEM logic:</p>
+<p>Mapped Resource Dependency → Resource Condition Change → Dependency Threshold → Consequence Trigger → Functional Effect → Operational Consequence → Consequence Timing → Escalation → Propagation → Recovery → Persistence</p>
+<p>→ Evidence → Conflict → Uncertainty → Consequence State → Resource Consequence Profile</p>
+<p>Where consequence is unresolved:</p>
+<p>Candidate Consequence → Material Evidence Gap → Minimum Evidence Requirement → Evidence Acquisition / Testing / Simulation → Consequence Reassessment</p>
+<h1 id="160-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">160. Governance Outputs</h1>
+<p>RCEM may produce:</p>
+<p>Resource Consequence Profile</p>
+<p>Consequence ID</p>
+<p>Resource Condition Trigger</p>
+<p>Threshold State</p>
+<p>Functional Effect</p>
+<p>Functional Degradation State</p>
+<p>Functional Loss State</p>
+<p>Operational Consequence State</p>
+<p>Time-to-Impact</p>
+<p>Time-to-Failure</p>
+<p>Consequence Duration</p>
+<p>Escalation State</p>
+<p>Propagation State</p>
+<p>Consequence Chain</p>
+<p>Recovery State</p>
+<p>Recovery Time</p>
+<p>Persistence State</p>
+<p>Evidence State</p>
+<p>Conflict State</p>
+<p>Uncertainty State</p>
+<p>Sufficiency State</p>
+<p class="podstand"><b>Version:</b></p>
+<p>Reassessment Trigger</p>
+<h1 id="161-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">161. Failure Conditions</h1>
+<p>RCEM should not be considered sufficiently completed where:</p>
+<p>Resource interruption is automatically treated as consequence without identifying functional effect; Resource condition and functional consequence are conflated; Resource quantity alone is used to infer consequence severity; functional degradation is ignored until complete failure; Time-to-Impact is ignored where material; Time-to-Failure is confused with Time-to-Impact; consequence duration is ignored where material; escalation is ignored; propagated consequences are ignored where material; shared consequences are double counted; Resource restoration is treated automatically as consequence resolution; recovery delay is ignored; persistent consequences are ignored; simulated consequence is represented as observed consequence; predicted consequence is represented as current consequence; historical consequence is treated as guaranteed future consequence; uncertainty is hidden; evidence conflict is suppressed; Resource consequence is automatically treated as Harm; consequence severity is automatically treated as Resource Priority; consequence is treated as Allocation authority.</p>
+<h1 id="162-use-case-1-ai-data-center-electricity-interruption" data-oof-section-id="true" role="heading" aria-level="2">162. Use Case 1 — AI Data Center Electricity Interruption</h1>
+<p>RDMM identifies electricity dependencies across:</p>
+<p>AI compute; cooling; storage; network infrastructure; control systems.</p>
+<p>RCAM establishes different Criticality states and interruption tolerances.</p>
+<p>RCEM then evaluates what actually happens during electricity degradation or interruption.</p>
+<p>For example:</p>
+<p>Grid interruption → battery systems activate → selected infrastructure remains operational</p>
+<p>while:</p>
+<p>non-essential AI training workload is suspended.</p>
+<p>Cooling may continue briefly through:</p>
+<p>backup electricity; thermal inertia; reduced compute load.</p>
+<p>If interruption continues:</p>
+<p>cooling capability declines → equipment temperature rises → compute capacity is reduced → additional workloads are suspended → service capability may eventually degrade.</p>
+<p>Resource restoration may not produce immediate full operation because systems may require:</p>
+<p>restart; thermal stabilization; integrity checks; workload rescheduling.</p>
+<p>RCEM preserves:</p>
+<p>which consequence occurs; when it begins; how it escalates; what functions it reaches; and how long recovery requires.</p>
+<p>The result is a governed consequence pathway rather than a generic statement that “electricity is critical.”</p>
+<h1 id="163-use-case-2-regional-water-interruption" data-oof-section-id="true" role="heading" aria-level="2">163. Use Case 2 — Regional Water Interruption</h1>
+<p>A regional water system supplies:</p>
+<p>households; industry; agriculture; cooling infrastructure; public services.</p>
+<p>RDMM maps the dependencies.</p>
+<p>RCAM establishes their differing Criticality and tolerance conditions.</p>
+<p>RCEM evaluates consequences under declining water availability.</p>
+<p>A short reduction may produce:</p>
+<p>limited operational effects</p>
+<p>because:</p>
+<p>storage exists; some Demand is deferrable; some processes can reduce throughput.</p>
+<p>A longer interruption may cause:</p>
+<p>industrial production reduction; cooling restrictions; service degradation; depletion of stored water; loss of selected operational functions.</p>
+<p>Consequences may occur at different times across different users.</p>
+<p>Restoration of water supply may also require:</p>
+<p>network stabilization; quality verification; process restart; system flushing</p>
+<p>before every function returns to normal.</p>
+<p>RCEM therefore distinguishes:</p>
+<p>Resource interruption</p>
+<p>from:</p>
+<p>the sequence of consequences created by that interruption.</p>
+<h1 id="164-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">164. Critical Distinctions</h1>
+<p>Resource Interruption ≠ Resource Consequence until the effect upon the dependent function or system is established</p>
+<p>Resource Failure ≠ Functional Consequence</p>
+<p>Time-to-Impact ≠ Time-to-Failure</p>
+<p>Resource Restored ≠ Consequence Resolved</p>
+<p>Consequence Type ≠ Consequence Severity</p>
+<p>High Resource Demand ≠ Severe Resource Consequence</p>
+<p>Resource Scarcity ≠ Resource Consequence</p>
+<p>Current Consequence ≠ Potential Consequence</p>
+<p>Observed Consequence ≠ Modeled Consequence</p>
+<p>Simulated Consequence ≠ Observed Consequence</p>
+<p>Predicted Consequence ≠ Current Consequence</p>
+<p>Historical Consequence ≠ Guaranteed Future Consequence</p>
+<p>Resource Consequence ≠ Harm</p>
+<p>Resource Consequence ≠ Liability</p>
+<p>Resource Consequence ≠ Resource Priority</p>
+<p>Resource Consequence ≠ Resource Allocation Authority</p>
+<h1 id="165-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">165. Cross-Architecture Boundary</h1>
+<p>RCEM governs consequences specifically insofar as they arise from Resource Dependency and are required to establish Resource Criticality.</p>
+<p>It may consume or provide evidence to:</p>
+<p>RCAM for Resource Criticality; ORA™ for Operational Reality evidence; SIMULOS® for simulated consequence pathways; PGA™ for predicted consequence states; HAGA™ for Harm governance where Resource consequences create Harm; LIGA™ for Liability governance where Resource consequences create Liability relevance; VEGA™ where Resource consequences affect governed Value; RIRS for broader Resource Interdependency &amp; Resilience governance.</p>
+<p>RCEM does not absorb these domains.</p>
+<h1 id="166-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">166. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>A Resource interruption may create functional degradation.</p>
+<p>That degradation may later create Harm.</p>
+<p>It may create economic Value loss.</p>
+<p>It may create Liability relevance.</p>
+<p>It may expose Resilience weakness.</p>
+<p>RCEM governs the Resource Dependency consequence.</p>
+<p>The competent architecture governs each subsequent domain-specific meaning.</p>
+<h1 id="167-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">167. Canonical Boundary</h1>
+<p>RCEM governs how changes in Resource condition become evidenced functional and operational consequences within a Resource Dependency, including consequence trigger, functional degradation, timing, duration, escalation, propagation, recovery, persistence, evidence, uncertainty, and reassessment.</p>
+<p>It does not determine Harm, Liability, Resource Access, Resource Priority, Resource Allocation, Scarcity response, formal Resource Substitution, system-wide Resilience, or long-term Sustainability.</p>
+<p>Its principal governed output is the Resource Consequence Profile .</p>
+<h1 id="168-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">168. Canonical Closing Statement</h1>
+<p>A Resource interruption becomes governance-significant not because the Resource disappeared, but because something that depended upon it changed as a result.</p>
+<p>RCEM makes that change explicit — what fails or degrades, when the consequence begins, how it develops, where it propagates, and what remains after the Resource returns — so that Resource Criticality is grounded in consequence rather than assumed importance.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

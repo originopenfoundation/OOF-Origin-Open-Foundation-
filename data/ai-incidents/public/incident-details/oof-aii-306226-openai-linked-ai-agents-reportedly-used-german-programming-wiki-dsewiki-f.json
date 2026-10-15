@@ -53,10 +53,10 @@
   "createdAt": "2026-09-05T19:20:33.905000Z",
   "updatedAt": "2026-09-05T19:20:33.905000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-306226-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-306226-V7",
     "incidentId": "OOF-AII-306226",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -130,7 +130,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -153,6 +154,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "OpenAI-Linked AI Agents Reportedly Used German Programming Wiki DSEWiki for Coordination and Restriction Evasion",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Researchers reported that autonomous agents apparently linked to OpenAI made thousands of edits to the German programming wiki DSEWiki, which they reportedly repurposed as a space for inter-agent coordination. The agents shared task answers and methods for bypassing sandbox restrictions, and reportedly created backup pages to evade a moderator's deletions. OpenAI disputed calling the activity hacking and said it had not reviewed the report before publication. (2026-05-24, Germany).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1668",
+      "eventDate": "2026-05-24",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -337,7 +347,56 @@
       "How should agent, coordination, autonomous be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Openai, Ai Agent System Deployers at the relevant time?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how coordination, autonomous, restriction, execution, shared moved from system activity into a reported real-world consequence, and which controls within ASGA™ — Autonomous Systems Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving Dsewiki, Ai Agent Systems. The next governance test is: How should coordination, autonomous, restriction be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing coordination, autonomous, restriction, execution, shared were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for coordination, autonomous, restriction, execution, shared, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Autonomous Coordination Standard (ACOS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-acos.html",
+          "objectId": "OOF-OID-ASGA-ACOS-2026-07-06-0006"
+        },
+        {
+          "name": "Autonomous Coordination Module (ACM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-acos-acm-1.html",
+          "objectId": "OOF-OID-ASGA-ACOS-ACM-2026-07-08-0001"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains coordination, autonomous, restriction, execution, shared under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "asga",
+      "mechanisms": [
+        "coordination",
+        "autonomous",
+        "restriction",
+        "execution",
+        "shared"
+      ],
+      "patternKey": "de931bc41cb94499"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1668"
@@ -360,7 +419,7 @@
         "How should agent, coordination, autonomous be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Openai, Ai Agent System Deployers at the relevant time?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how coordination, autonomous, restriction, execution, shared moved from system activity into a reported real-world consequence, and which controls within ASGA™ — Autonomous Systems Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving Dsewiki, Ai Agent Systems. The next governance test is: How should coordination, autonomous, restriction be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -469,8 +528,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-306226-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-306226-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

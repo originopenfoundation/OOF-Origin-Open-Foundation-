@@ -54,10 +54,10 @@
   "createdAt": "2014-01-21T00:00:00Z",
   "updatedAt": "2014-01-21T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-657804-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-657804-V8",
     "incidentId": "OOF-AII-657804",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -148,7 +148,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -172,6 +173,15 @@
         "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Nest Smoke Alarm Erroneously Stops Alarming",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that In testing, Google Nest engineers demonstrated that the Nest Wave feature of their Nest Protect: Smoke + CO Alarm could inadvertently silence genuine alarms. (2014-01-21, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/46",
+      "eventDate": "2014-01-21",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -230,7 +240,40 @@
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how recognition, other moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to VFM® — Value Flow Mechanisms Architecture because the reported activity reached a real-world consequence involving Nest Labs. The next governance test is: How should recognition, other be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing recognition, other were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for recognition, other, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains recognition, other under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "vfm",
+      "mechanisms": [
+        "recognition",
+        "other"
+      ],
+      "patternKey": "1d2d8938b548ef10"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:46"
@@ -248,7 +291,7 @@
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how recognition, other moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to VFM® — Value Flow Mechanisms Architecture because the reported activity reached a real-world consequence involving Nest Labs. The next governance test is: How should recognition, other be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -296,8 +339,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-657804-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-657804-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

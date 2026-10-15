@@ -30,6 +30,7 @@ PUBLIC_ROOT = DATA_ROOT / "public"
 STORE_PATH = DATA_ROOT / "incident-store.json"
 INBOX_PATH = DATA_ROOT / "manual-inbox.json"
 SYNC_STATE_PATH = DATA_ROOT / "sync-state.json"
+CANDIDATE_QUEUE_PATH = DATA_ROOT / "candidate-queue.json"
 ARCHITECTURE_REGISTRY = ROOT / "data" / "oof-architecture-registry.json"
 ANALYSIS_STORE_PATH = DATA_ROOT / "analysis-store.json"
 COUNTRY_GEOJSON = ROOT / "assets" / "data" / "ne_50m_admin_0_countries.geojson"
@@ -38,6 +39,7 @@ AIID_INCIDENT_URL = "https://incidentdatabase.ai/cite/{incident_id}"
 ALLOWED_EVENT_TYPES = {"Incident", "Hazard", "Near Miss", "Emerging Risk"}
 ALLOWED_EVIDENCE = {"Verified", "High Confidence", "Moderate Confidence", "Unverified"}
 ALLOWED_SEVERITY = {"Low", "Moderate", "High", "Critical", "Unclassified"}
+DAILY_PROCESSING_LIMIT = 10
 
 COUNTRY_ALIASES = {
     "u s": "US", "u s a": "US", "united states": "US", "united states of america": "US",
@@ -88,6 +90,53 @@ def read_json(path: Path, fallback):
 def write_json(path: Path, value) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def source_record_fingerprint(record: dict) -> str:
+    projection = {
+        key: record.get(key) for key in (
+            "id", "title", "summary", "eventType", "occurredAt", "reportedAt", "country",
+            "countryCode", "region", "organization", "system", "technology", "industry",
+            "aiSystemType", "impactTypes", "affectedParties", "sources",
+        )
+    }
+    return hashlib.sha256(json.dumps(projection, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def queue_candidates(candidates: Iterable[dict], existing: Iterable[dict], path: Path = CANDIDATE_QUEUE_PATH) -> dict:
+    payload = read_json(path, {"schemaVersion": "1.0", "updatedAt": None, "candidates": []})
+    queued = {item["record"]["id"]: item for item in payload.get("candidates", []) if item.get("record", {}).get("id")}
+    existing_fingerprints = {item["id"]: source_record_fingerprint(item) for item in existing}
+    added = refreshed = 0
+    for record in candidates:
+        fingerprint = source_record_fingerprint(record)
+        if existing_fingerprints.get(record["id"]) == fingerprint:
+            queued.pop(record["id"], None)
+            continue
+        entry = {
+            "incidentId": record["id"], "fingerprint": fingerprint,
+            "discoveredAt": queued.get(record["id"], {}).get("discoveredAt") or now_iso(),
+            "record": record,
+        }
+        if record["id"] in queued:
+            if queued[record["id"]].get("fingerprint") != fingerprint:
+                refreshed += 1
+        else:
+            added += 1
+        queued[record["id"]] = entry
+    ordered = sorted(queued.values(), key=lambda item: (item.get("discoveredAt") or "", item["incidentId"]))
+    write_json(path, {"schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": ordered})
+    return {"added": added, "refreshed": refreshed, "queued": len(ordered)}
+
+
+def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH) -> dict:
+    payload = read_json(path, {"schemaVersion": "1.0", "candidates": []})
+    candidates = payload.get("candidates", [])
+    selected = candidates[:limit]
+    created, updated = repository.upsert_sources(item["record"] for item in selected) if selected else (0, 0)
+    remaining = candidates[len(selected):]
+    write_json(path, {"schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": remaining})
+    return {"processed": len(selected), "created": created, "updated": updated, "remaining": len(remaining)}
 
 
 def slugify(value: str) -> str:
@@ -618,12 +667,16 @@ def _list_projection(record: dict) -> dict:
         primary = architectures[0]
     source = (record.get("sources") or [{}])[0]
     corroboration = (analysis.get("evidenceSnapshot") or {}).get("corroboration") or {}
+    evidence_status = (analysis.get("evidenceSnapshot") or {}).get("publicEvidenceStatus") or "Evidence Insufficient"
+    prevention = analysis.get("preventionGuidance") or {}
+    report = analysis.get("oofIncidentReport") or {}
     public_slug = public_incident_slug(record)
     return {
         "id": record["id"],
         "slug": public_slug,
         "title": record["title"],
         "summary": record.get("summary"),
+        "oofReport": report.get("report"),
         "eventType": record.get("eventType"),
         "occurredAt": record.get("occurredAt"),
         "reportedAt": record.get("reportedAt"),
@@ -649,9 +702,14 @@ def _list_projection(record: dict) -> dict:
             "analysisVersion": analysis.get("analysisVersion"),
             "coverage": (analysis.get("coverageAssessment") or {}).get("status") or architecture_analysis.get("status"),
             "corroboration": corroboration.get("status") or "Insufficient evidence",
+            "evidenceStatus": evidence_status,
             "oofApproved": analysis.get("oofApproved") is True,
         },
+        "governanceFocus": (primary or {}).get("governanceFocus"),
+        "governanceInsight": analysis.get("incidentGovernanceInsight"),
+        "preventionFocus": prevention.get("recommendedPreventiveControl"),
         "detailUrl": f"/ai-incidents/incidents/{public_slug}/",
+        "verifyUrl": f"/ai-incidents/verify/?incident={public_slug}",
     }
 
 
@@ -691,8 +749,8 @@ def _aggregate_public_records(records: list[dict], generated: str) -> dict:
         trend_counts[period]["total"] += 1
         if severity in trend_counts[period]:
             trend_counts[period][severity] += 1
-        corroboration = (analysis.get("evidenceSnapshot") or {}).get("corroboration") or {}
-        evidence_counts[corroboration.get("status") or "Insufficient evidence"] += 1
+        evidence = analysis.get("evidenceSnapshot") or {}
+        evidence_counts[evidence.get("publicEvidenceStatus") or "Evidence Insufficient"] += 1
     return {
         "generatedAt": generated,
         "scopeNotice": "Counts describe the current public dataset, not global AI incident prevalence or architecture quality.",
@@ -837,31 +895,34 @@ def sync() -> dict:
     repository = FileIncidentRepository()
     state = read_json(SYNC_STATE_PATH, {"sources": {}, "lastDailySummary": None})
     adapters = [ManualOOFIncidentAdapter(), AIIDWeeklyExcelAdapter()]
-    totals = {"recordsRetrieved": 0, "recordsCreated": 0, "recordsUpdated": 0, "duplicatesDetected": 0, "sourceErrors": []}
+    totals = {"recordsRetrieved": 0, "recordsQueued": 0, "recordsProcessed": 0, "recordsCreated": 0, "recordsUpdated": 0, "duplicatesDetected": 0, "queueRemaining": 0, "sourceErrors": []}
     for adapter in adapters:
         attempted = now_iso()
         source_state = state["sources"].get(adapter.name, {})
         try:
             raw = adapter.fetch_new_records(source_state.get("lastSuccessfulSync"))
             normalized = [enrich_incident(adapter.normalize(item)) for item in raw]
-            before = len(repository.list())
-            created, updated = repository.upsert_sources(normalized)
+            existing = repository.list()
+            queue_result = queue_candidates(normalized, existing)
             totals["recordsRetrieved"] += len(raw)
-            totals["recordsCreated"] += created
-            totals["recordsUpdated"] += updated
-            totals["duplicatesDetected"] += max(0, len(raw) - created - updated)
+            totals["recordsQueued"] += queue_result["added"]
+            totals["duplicatesDetected"] += max(0, len(raw) - queue_result["added"] - queue_result["refreshed"])
             state["sources"][adapter.name] = {
                 "lastAttemptedSync": attempted, "lastSuccessfulSync": now_iso(),
-                "recordsRetrieved": len(raw), "recordsCreated": created, "recordsUpdated": updated,
-                "duplicatesDetected": max(0, len(raw) - created - updated), "syncStatus": "success", "sourceErrors": [],
+                "recordsRetrieved": len(raw), "recordsQueued": queue_result["added"],
+                "duplicatesDetected": max(0, len(raw) - queue_result["added"] - queue_result["refreshed"]), "syncStatus": "success", "sourceErrors": [],
                 **adapter.metadata(),
             }
-            assert len(repository.list()) >= before
         except Exception as error:  # keep source failures isolated
             totals["sourceErrors"].append({"source": adapter.name, "error": str(error)})
             state["sources"][adapter.name] = {
                 **source_state, "lastAttemptedSync": attempted, "syncStatus": "failed", "sourceErrors": [str(error)]
             }
+    queue_result = process_candidate_queue(repository)
+    totals["recordsProcessed"] = queue_result["processed"]
+    totals["recordsCreated"] = queue_result["created"]
+    totals["recordsUpdated"] = queue_result["updated"]
+    totals["queueRemaining"] = queue_result["remaining"]
     export_public(repository.list())
     state["lastDailySummary"] = {"createdAt": now_iso(), **totals}
     write_json(SYNC_STATE_PATH, state)

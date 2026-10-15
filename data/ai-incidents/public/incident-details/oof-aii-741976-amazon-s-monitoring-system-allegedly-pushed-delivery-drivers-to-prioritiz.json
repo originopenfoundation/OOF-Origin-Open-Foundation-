@@ -53,10 +53,10 @@
   "createdAt": "2026-09-05T02:06:07.710000Z",
   "updatedAt": "2026-09-05T02:06:07.710000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-741976-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-741976-V7",
     "incidentId": "OOF-AII-741976",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -142,7 +142,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -165,6 +166,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Amazon's Monitoring System Allegedly Pushed Delivery Drivers to Prioritize Speed over Safety, Leading to Crash",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that A lawsuit cited Amazon as liable in a crash involving its delivery driver, alleging that Amazon’s AI-powered driver monitoring system pushed drivers to prioritize speed over safety. (2021-03-15, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/157",
+      "eventDate": "2021-03-15",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -252,7 +262,40 @@
       "What evidence would establish how Algorithmic Management Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how safety, monitoring moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Algorithmic Management Systems. The next governance test is: How should safety, monitoring be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing safety, monitoring were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for safety, monitoring, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains safety, monitoring under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "aig",
+      "mechanisms": [
+        "safety",
+        "monitoring"
+      ],
+      "patternKey": "c8733a9d96afb8d8"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:157"
@@ -273,7 +316,7 @@
         "What evidence would establish how Algorithmic Management Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how safety, monitoring moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Algorithmic Management Systems. The next governance test is: How should safety, monitoring be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -339,8 +382,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-741976-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-741976-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

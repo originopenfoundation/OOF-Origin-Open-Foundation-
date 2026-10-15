@@ -56,10 +56,10 @@
   "createdAt": "2026-09-04T01:57:39.383000Z",
   "updatedAt": "2026-09-04T01:57:39.383000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-844719-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-844719-V8",
     "incidentId": "OOF-AII-844719",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -134,7 +134,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -156,6 +157,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Yale Student Suspended and Given F After GPTZero Allegedly Misclassified Exam as AI-Generated",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that In 2024, Yale University reportedly used GPTZero as one factor in investigating whether Executive MBA student Thierry Rignol used AI on an exam. Rignol reportedly denied cheating and alleged the detector falsely classified his writing as AI-generated. Yale reportedly later suspended him for a year and gave him an F, while citing additional evidence and his conduct during the investigation. Rignol has challenged the process in federal court. (2024-06-11).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1632",
+      "eventDate": "2024-06-11",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -314,7 +324,49 @@
       "What evidence would establish how Gptzero, Ai Text Detection Systems, Ai Detector Technology, Ai Content Detection Models, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns models, support, evidence, institutions, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting indicates that Gptzero, Ai Text Detection Systems, Ai Detector Technology, Ai Content Detection Models, Ai Enabled Decision Support Systems raises a preliminary question for PGA™ — Prediction Governance Architecture: Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing models, support, evidence, institutions were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for models, support, evidence, institutions, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Collective Prediction Governance Standard (CPGS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-cpgs.html",
+          "objectId": "OOF-KO-STD-PGA-08"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains models, support, evidence, institutions under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "pga",
+      "mechanisms": [
+        "models",
+        "support",
+        "evidence",
+        "institutions"
+      ],
+      "patternKey": "a134ab5d400df519"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1632"
@@ -337,7 +389,7 @@
         "What evidence would establish how Gptzero, Ai Text Detection Systems, Ai Detector Technology, Ai Content Detection Models, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns models, support, evidence, institutions, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "incidentGovernanceInsight": "Available reporting indicates that Gptzero, Ai Text Detection Systems, Ai Detector Technology, Ai Content Detection Models, Ai Enabled Decision Support Systems raises a preliminary question for PGA™ — Prediction Governance Architecture: Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -443,8 +495,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-844719-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-844719-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

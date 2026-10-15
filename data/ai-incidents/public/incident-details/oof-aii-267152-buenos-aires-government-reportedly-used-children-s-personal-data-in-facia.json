@@ -62,10 +62,10 @@
   "createdAt": "2026-09-03T22:41:43.698000Z",
   "updatedAt": "2026-09-03T22:41:43.698000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-267152-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-267152-V8",
     "incidentId": "OOF-AII-267152",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -158,7 +158,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -181,6 +182,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Buenos Aires Government Reportedly Used Children's Personal Data in Facial Recognition System for Fugitives",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Beginning in April 2019, the Buenos Aires city government reportedly used data from Argentina’s CONARC fugitive database, including children’s identities and reference photos, in its live Facial Recognition System for Fugitives (SRFP). Human Rights Watch found at least 166 children had appeared in CONARC between 2017 and 2020 and warned that the system exposed them to privacy violations and elevated risks of false matches. (2019-04-24, Argentina).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/76",
+      "eventDate": "2019-04-24",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -265,7 +275,49 @@
       "What evidence would establish how Ultraip, Surveillance Technology, Sistema De Reconocimiento Facial De Profugos (Srfp), Law Enforcement Facial Recognition Systems, Facial Recognition Systems, Consulta Nacional De Rebeldias Y Capturas (Conarc), Buenos Aires Live Facial Recognition System, Biometric Data Processing Systems, Ai Identification And Tracking System, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how recognition, enforcement, identification, classification moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to VFM® — Value Flow Mechanisms Architecture because the reported activity reached a real-world consequence involving Ultraip, Surveillance Technology, Sistema De Reconocimiento Facial De Profugos (Srfp), Law Enforcement Facial Recognition Systems, Facial Recognition Systems, Consulta Nacional De Rebeldias Y Capturas (Conarc), Buenos Aires Live Facial Recognition System, Biometric Data Processing Systems, Ai Identification And Tracking System, Ai Enabled Decision Support Systems. The next governance test is: When can existing value be recognized as value within its defined governance context?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing recognition, enforcement, identification, classification were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for recognition, enforcement, identification, classification, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Value Recognition Standard (VRS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vrs.html",
+          "objectId": "OOF-KO-STD-VFM-04"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains recognition, enforcement, identification, classification under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "vfm",
+      "mechanisms": [
+        "recognition",
+        "enforcement",
+        "identification",
+        "classification"
+      ],
+      "patternKey": "df52cf745d6f414f"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:76"
@@ -283,7 +335,7 @@
         "What evidence would establish how Ultraip, Surveillance Technology, Sistema De Reconocimiento Facial De Profugos (Srfp), Law Enforcement Facial Recognition Systems, Facial Recognition Systems, Consulta Nacional De Rebeldias Y Capturas (Conarc), Buenos Aires Live Facial Recognition System, Biometric Data Processing Systems, Ai Identification And Tracking System, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how recognition, enforcement, identification, classification moved from system activity into a reported real-world consequence, and which controls within VFM® — Value Flow Mechanisms Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to VFM® — Value Flow Mechanisms Architecture because the reported activity reached a real-world consequence involving Ultraip, Surveillance Technology, Sistema De Reconocimiento Facial De Profugos (Srfp), Law Enforcement Facial Recognition Systems, Facial Recognition Systems, Consulta Nacional De Rebeldias Y Capturas (Conarc), Buenos Aires Live Facial Recognition System, Biometric Data Processing Systems, Ai Identification And Tracking System, Ai Enabled Decision Support Systems. The next governance test is: When can existing value be recognized as value within its defined governance context?",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -335,8 +387,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-267152-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-267152-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

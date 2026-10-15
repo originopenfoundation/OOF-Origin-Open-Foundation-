@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Vulnerability &amp; Resilience Capacity Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Vulnerability &amp; Resilience Capacity Module | OOF®. RRVM — Resource Vulnerability &amp; Resilience Capacity Module Architecture: RSGA™ — Resource." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Vulnerability &amp; Resilience Capacity Module | OOF®" />
+<meta property="og:description" content="Resource Vulnerability &amp; Resilience Capacity Module | OOF®. RRVM — Resource Vulnerability &amp; Resilience Capacity Module Architecture: RSGA™ — Resource." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Vulnerability &amp; Resilience Capacity Module | OOF®" />
+<meta name="twitter:description" content="Resource Vulnerability &amp; Resilience Capacity Module | OOF®. RRVM — Resource Vulnerability &amp; Resilience Capacity Module Architecture: RSGA™ — Resource." />
+<meta name="DC.title" content="Resource Vulnerability &amp; Resilience Capacity Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html","name":"Resource Vulnerability & Resilience Capacity Module | OOF®","description":"Resource Vulnerability & Resilience Capacity Module | OOF®. RRVM — Resource Vulnerability & Resilience Capacity Module Architecture: RSGA™ — Resource.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Vulnerability & Resilience Capacity Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html"}]},"headline":"Resource Vulnerability & Resilience Capacity Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rirs-rrvm-3.html#webpage"}}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RRVM — Resource Vulnerability &amp; Resilience Capacity</p>
+<p>Module</p>
+<p class="podstand"><b>Architecture:</b></p>
+<p>RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b></p>
+<p>RIRS — Resource Interdependency &amp; Resilience Standard</p>
+<p class="podstand"><b>Category:</b></p>
+<p>Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b></p>
+<p>Resource Governance</p>
+<p class="podstand"><b>Type:</b></p>
+<p>Core Module</p>
+<p class="podstand"><b>Governed Space:</b></p>
+<p>Resource System Vulnerability &amp; Resilience Capacity Governance</p>
+<p class="podstand"><b>Module ID:</b></p>
+<p>RSGA-RIRS-RRVM-03</p>
+<p class="podstand"><b>Origin ID:</b></p>
+<p>OOF-RSGA-RIRS-RRVM</p>
+<p class="podstand"><b>Version:</b></p>
+<p>1.0</p>
+<p class="podstand"><b>Status:</b></p>
+<p>Canonical Open</p>
+<p class="podstand"><b>Effective Date:</b></p>
+<p>9 October 2026</p>
+<p class="podstand"><b>Compatibility:</b></p>
+<p>Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>AI-Readable:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>Authority:</b></p>
+<p>OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b></p>
+<p>Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b></p>
+<p>English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RRVM — Resource Vulnerability &amp; Resilience Capacity Module is the Core Module within RIRS that governs how the vulnerability of interconnected Resource Systems and their available capacity to absorb, tolerate, contain, and withstand defined Resource disturbances are identified, assessed, bounded, evidenced, classified, and reassessed against actual dependency structures, required operational functions, disturbance conditions, Resource buffers, redundancy, pathway independence, and supporting Resource constraints.</p>
+<p>RRVM establishes the methodological conditions under which a Resource System's exposure to disturbance may be distinguished from its actual vulnerability and its nominal resilience arrangements from demonstrably usable resilience capacity.</p>
+<p>It evaluates the relationship between the Resource System's required operational functions, relevant disturbance scenarios, structural weaknesses, available protective capacity, and the operational limits within which those functions may remain supported.</p>
+<p>RRVM does not independently authorize protective interventions, execute Resource substitutions, govern recovery operations, or establish long-term Resource Sustainability.</p>
+<p>Disturbance Exposure ≠ Resource System Vulnerability.</p>
+<p>Nominal Backup Capacity ≠ Usable Resilience Capacity.</p>
+<p>Resource Redundancy ≠ Resource Resilience.</p>
+<p>Disturbance Tolerated Under Defined Conditions ≠ Universal Resilience Demonstrated.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RRVM governs the assessment of Resource System vulnerability and available resilience capacity before, during, or after relevant disturbances.</p>
+<p>Its operational role is to establish:</p>
+<p>Resource System assessment identity. Required operational functions. Relevant dependency network. Applicable disturbance scenarios. Disturbance exposure. Structural vulnerability. Functional vulnerability. Dependency concentration. Shared failure exposure. Disturbance tolerance.</p>
+<p>Available Resource buffers. Resource redundancy. Resource diversity. Pathway independence. Usable backup capacity. Resilience capacity. Resilience capacity constraints. Supporting Resource requirements. Resilience capacity duration. Capacity exhaustion conditions. Residual vulnerability. Evidence sufficiency. Vulnerability classification. Resilience capacity classification. Monitoring and reassessment. Downstream response and recovery handoffs.</p>
+<p>RRVM evaluates whether resilience capacity exists and is usable under defined conditions.</p>
+<p>It does not itself activate that capacity.</p>
+<h1 id="3-core-question" data-oof-section-id="true" role="heading" aria-level="2">3. Core Question</h1>
+<p>How should the vulnerability of an interconnected Resource System and its available capacity to withstand defined disturbances be evaluated so that disturbance exposure, dependency concentration, functional sensitivity, usable buffers, redundant capacity, pathway independence, supporting Resource requirements, and residual vulnerabilities remain distinguishable from theoretical protection, nominal backup arrangements, unverified readiness, or unsupported claims of system-level resilience?</p>
+<h1 id="4-position-in-architecture-governance-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in Architecture Governance Flow</h1>
+<p>RSGA™ Governance Flow</p>
+<p>Resource Characterization → Availability &amp; Capacity → Demand → Dependency &amp; Criticality → Access → Prioritization &amp; Allocation → Consumption &amp; Utilization → Scarcity &amp; Constraint → Recovery &amp; Circularity → Substitution &amp; Flexibility → Interdependency &amp; Resilience → Continuity &amp; Sustainability</p>
+<p>RIRS Core Module Flow</p>
+<h1 id="1-ridm-resource-interdependency-mapping-module-2-rdpm-resource-disturbance-and-p" data-oof-section-id="true" role="heading" aria-level="2">1. RIDM — Resource Interdependency Mapping Module 2. RDPM — Resource Disturbance &amp; Propagation Module 3. RRVM — Resource Vulnerability &amp; Resilience Capacity Module 4. Resource Response &amp; Recovery Governance 5. Resource Resilience Validation &amp; Monitoring Governance</h1>
+<p>The subsequent two positions describe governed functions; their canonical module names and identifiers are established through their respective final modules.</p>
+<p>RRVM occupies the third governance position within RIRS.</p>
+<p>It receives the Resource Interdependency Network Profile from RIDM and the Resource Disturbance &amp; Propagation Profile from RDPM.</p>
+<p>It evaluates vulnerability and usable resilience capacity under the relevant disturbance conditions.</p>
+<p>Its outputs support subsequent response readiness, recovery, validation, and continuity governance.</p>
+<p>Resource Interdependency Network → Disturbance Propagation → Vulnerability Assessment → Resilience Capacity Assessment → Resource Vulnerability &amp; Resilience Capacity Profile → Response &amp; Recovery Governance Handoff</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>Resource System Vulnerability &amp; Resilience Capacity Governance</p>
+<p>This governed space concerns the susceptibility of interconnected Resource Systems to defined disturbances and their available capacity to preserve required operational functions despite those disturbances.</p>
+<p>It includes:</p>
+<p>Structural vulnerability. Functional vulnerability. Disturbance sensitivity. Dependency concentration. Shared failure exposure. Disturbance tolerance. Resource buffers. Redundant capacity. Resource diversity. Pathway independence. Usable resilience capacity. Capacity duration. Supporting Resource constraints. Residual vulnerability. Evidence-based classification. Reassessment.</p>
+<p>It does not independently govern disturbance origin, propagation causation, operational response execution, recovery execution, or final Sustainability determination.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Vulnerability &amp; Resilience Capacity Configuration connecting an identifiable Resource System, its required operational functions, applicable disturbance scenarios, dependency structures, vulnerability conditions, available protective Resource arrangements, usable resilience capacity, capacity limitations, and residual vulnerabilities within a defined operational and evidentiary boundary.</p>
+<p>The configuration must preserve the distinction between:</p>
+<p>Disturbance Exposure</p>
+<p>Structural Vulnerability</p>
+<p>Functional Vulnerability</p>
+<p>Nominal Protective Capacity</p>
+<p>Operationally Usable Resilience Capacity</p>
+<p>Residual Vulnerability</p>
+<p>A configuration may concern an entire Resource System, a defined subsystem, or a particular operational function.</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RRVM governs:</p>
+<p>Resource System identity. Assessment boundary. Operational function requirements. Dependency network references. Disturbance scenario references.</p>
+<p>Disturbance exposure. Structural vulnerability. Functional vulnerability. Disturbance tolerance. Resource buffers. Resource redundancy. Resource diversity. Pathway independence. Backup capacity. Supporting Resource requirements. Capacity availability references. Capacity duration. Capacity exhaustion. Protective capacity limitations. Residual vulnerability. Evidence sufficiency. Vulnerability classification. Resilience capacity classification. Monitoring. Reassessment. Downstream governance handoffs.</p>
+<p>RRVM does not independently establish Resource Access, Allocation, substitution authorization, operational response, recovery completion, Harm, Liability, or Sustainability.</p>
+<h1 id="8-foundational-governance-principles" data-oof-section-id="true" role="heading" aria-level="2">8. Foundational Governance Principles</h1>
+<p>8.1 Exposure–Vulnerability Separation</p>
+<p>Disturbance Exposure ≠ Demonstrated Vulnerability.</p>
+<p>8.2 Structural Integrity Principle</p>
+<p>Resource Network Connectivity ≠ Resource System Vulnerability by Default.</p>
+<p>8.3 Capacity Reality Principle</p>
+<p>Nominal Capacity ≠ Usable Resilience Capacity.</p>
+<p>8.4 Redundancy Separation Principle</p>
+<p>Backup Resource Exists ≠ Backup Resource Can Preserve the Required Function.</p>
+<p>8.5 Independence Principle</p>
+<p>Multiple Resource Pathways ≠ Independent Failure Pathways.</p>
+<p>8.6 Duration Principle</p>
+<p>Temporary Capacity ≠ Sustained Disturbance Tolerance.</p>
+<p>8.7 Residual Vulnerability Principle</p>
+<p>Protective Capacity Identified ≠ Vulnerability Eliminated.</p>
+<p>8.8 Scenario Boundary Principle</p>
+<p>Resilience Capacity Under One Scenario ≠ Resilience Capacity Under Every Scenario.</p>
+<h1 id="9-resource-system-identity" data-oof-section-id="true" role="heading" aria-level="2">9. Resource System Identity</h1>
+<p>Every RRVM assessment must identify the Resource System.</p>
+<p>Minimum elements include:</p>
+<p>Resource System ID</p>
+<p>System Function</p>
+<p>Operational Context</p>
+<p>Assessment Boundary</p>
+<p>Required Operational Functions</p>
+<p>Resource Interdependency Network Reference</p>
+<p>Disturbance Scenario Reference</p>
+<p>Relevant Time</p>
+<p>Location</p>
+<p>Evidence Basis</p>
+<h1 id="10-assessment-boundary" data-oof-section-id="true" role="heading" aria-level="2">10. Assessment Boundary</h1>
+<p>The assessment boundary establishes which Resource relationships, operational functions, disturbance conditions, and protective arrangements are included.</p>
+<p>Relevant dimensions include:</p>
+<p>Physical Boundary</p>
+<p>Operational Boundary</p>
+<p>Resource Boundary</p>
+<p>Dependency Boundary</p>
+<p>Disturbance Boundary</p>
+<p>Temporal Boundary</p>
+<p>Geographic Boundary</p>
+<p>Evidence Boundary</p>
+<h1 id="11-boundary-integrity" data-oof-section-id="true" role="heading" aria-level="2">11. Boundary Integrity</h1>
+<p>Vulnerability Assessed Within Defined Boundary ≠ All System Vulnerabilities Assessed.</p>
+<p>Unknown or excluded dependencies must remain identifiable where material.</p>
+<h1 id="12-required-operational-functions" data-oof-section-id="true" role="heading" aria-level="2">12. Required Operational Functions</h1>
+<p>RRVM must identify the functions that resilience capacity is expected to preserve.</p>
+<p>Examples include:</p>
+<p>Computational Processing</p>
+<p>Cooling</p>
+<p>Water Supply</p>
+<p>Industrial Production</p>
+<p>Energy Distribution</p>
+<p>Material Processing</p>
+<p>Transport Operations</p>
+<p>Other Resource-Supported Functions</p>
+<p>The function's operational requirements must remain explicit.</p>
+<h1 id="13-functional-requirement-integrity" data-oof-section-id="true" role="heading" aria-level="2">13. Functional Requirement Integrity</h1>
+<p>Function Operating at Reduced Capacity ≠ Original Functional Requirement Satisfied.</p>
+<p>Permitted degradation must be distinguished from unapproved reduction of the required function.</p>
+<h1 id="14-dependency-network-reference" data-oof-section-id="true" role="heading" aria-level="2">14. Dependency Network Reference</h1>
+<p>RRVM must preserve the relevant Resource Interdependency Network Profile established through RIDM.</p>
+<p>It may use:</p>
+<p>Resource Nodes</p>
+<p>Supporting Infrastructure</p>
+<p>Dependency Relationships</p>
+<p>Shared Dependencies</p>
+<p>Critical Pathway References</p>
+<p>Alternative Pathways</p>
+<p>Unknown Dependencies</p>
+<p>RRVM does not independently redefine the network mapping mechanism.</p>
+<h1 id="15-disturbance-scenario-reference" data-oof-section-id="true" role="heading" aria-level="2">15. Disturbance Scenario Reference</h1>
+<p>RRVM must preserve the relevant disturbance scenario or observed disturbance from RDPM.</p>
+<p>Relevant elements include:</p>
+<p>Disturbance Type</p>
+<p>Disturbance Origin</p>
+<p>Magnitude</p>
+<p>Duration</p>
+<p>Timing</p>
+<p>Affected Nodes</p>
+<p>Propagation Pathways</p>
+<p>Operating Conditions</p>
+<p>Evidence State</p>
+<h1 id="16-scenario-integrity" data-oof-section-id="true" role="heading" aria-level="2">16. Scenario Integrity</h1>
+<p>Scenario Defined ≠ Scenario Operationally Validated.</p>
+<h1 id="17-disturbance-exposure" data-oof-section-id="true" role="heading" aria-level="2">17. Disturbance Exposure</h1>
+<p>Disturbance exposure concerns whether the Resource System may be affected by a defined disturbance.</p>
+<p>Exposure may arise from:</p>
+<p>Direct Resource Dependency</p>
+<p>Indirect Resource Dependency</p>
+<p>Shared Supporting Infrastructure</p>
+<p>Common-Cause Conditions</p>
+<p>Capacity Constraints</p>
+<p>Geographic Conditions</p>
+<p>Operational Configuration</p>
+<p>Exposure does not automatically establish material vulnerability.</p>
+<h1 id="18-exposure-principle" data-oof-section-id="true" role="heading" aria-level="2">18. Exposure Principle</h1>
+<p>Disturbance Exposure ≠ Operational Failure Inevitable.</p>
+<h1 id="19-structural-vulnerability" data-oof-section-id="true" role="heading" aria-level="2">19. Structural Vulnerability</h1>
+<p>Structural vulnerability concerns weaknesses arising from the configuration of Resource dependencies.</p>
+<p>Examples include:</p>
+<p>Dependency Concentration</p>
+<p>Shared Supporting Resources</p>
+<p>Single Supporting Pathway</p>
+<p>Limited Alternative Pathways</p>
+<p>Common-Cause Exposure</p>
+<p>Unverified Pathway Independence</p>
+<p>Critical Supporting Infrastructure</p>
+<p>Structural vulnerability must be evaluated against actual operational requirements.</p>
+<h1 id="20-structural-vulnerability-principle" data-oof-section-id="true" role="heading" aria-level="2">20. Structural Vulnerability Principle</h1>
+<p>Single Dependency Identified ≠ Unacceptable Vulnerability Automatically Established.</p>
+<p>A dependency's significance depends on the function, disturbance, tolerance, and available protective capacity.</p>
+<h1 id="21-functional-vulnerability" data-oof-section-id="true" role="heading" aria-level="2">21. Functional Vulnerability</h1>
+<p>Functional vulnerability concerns the susceptibility of required operational functions to disturbance-related degradation or interruption.</p>
+<p>Relevant elements include:</p>
+<p>Required Resource Capacity</p>
+<p>Minimum Operating Conditions</p>
+<p>Permitted Degradation</p>
+<p>Disturbance Sensitivity</p>
+<p>Functional Tolerance</p>
+<p>Supporting Resource Availability</p>
+<h1 id="22-functional-vulnerability-principle" data-oof-section-id="true" role="heading" aria-level="2">22. Functional Vulnerability Principle</h1>
+<p>Resource Capacity Reduced ≠ Operational Function Necessarily Failed.</p>
+<h1 id="23-dependency-concentration" data-oof-section-id="true" role="heading" aria-level="2">23. Dependency Concentration</h1>
+<p>Dependency concentration may increase vulnerability when multiple required functions rely on a limited supporting Resource arrangement.</p>
+<p>RRVM must distinguish concentration from its actual consequences under a defined disturbance.</p>
+<p>High Dependency Concentration ≠ High Vulnerability Without Context.</p>
+<h1 id="24-shared-failure-exposure" data-oof-section-id="true" role="heading" aria-level="2">24. Shared Failure Exposure</h1>
+<p>Shared failure exposure concerns whether multiple protective or operational arrangements may be affected by the same disturbance.</p>
+<p>Examples include:</p>
+<p>Shared Electricity Infrastructure</p>
+<p>Shared Cooling Infrastructure</p>
+<p>Shared Water Treatment</p>
+<p>Shared Transport Corridor</p>
+<p>Shared Control System</p>
+<h1 id="25-shared-failure-principle" data-oof-section-id="true" role="heading" aria-level="2">25. Shared Failure Principle</h1>
+<p>Multiple Backup Systems ≠ Multiple Independent Protective Systems.</p>
+<h1 id="26-disturbance-sensitivity" data-oof-section-id="true" role="heading" aria-level="2">26. Disturbance Sensitivity</h1>
+<p>Disturbance sensitivity concerns how operational performance changes in response to disturbance magnitude, duration, or conditions.</p>
+<p>Relevant dimensions include:</p>
+<p>Capacity Sensitivity</p>
+<p>Quality Sensitivity</p>
+<p>Timing Sensitivity</p>
+<p>Duration Sensitivity</p>
+<p>Environmental Sensitivity</p>
+<p>Infrastructure Sensitivity</p>
+<h1 id="27-sensitivity-principle" data-oof-section-id="true" role="heading" aria-level="2">27. Sensitivity Principle</h1>
+<p>Low Sensitivity to One Disturbance ≠ Low Sensitivity to Every Disturbance.</p>
+<h1 id="28-disturbance-tolerance" data-oof-section-id="true" role="heading" aria-level="2">28. Disturbance Tolerance</h1>
+<p>Disturbance tolerance concerns the ability to preserve defined operational requirements under specified disturbance conditions.</p>
+<p>Relevant elements include:</p>
+<p>Disturbance Magnitude</p>
+<p>Disturbance Duration</p>
+<p>Available Buffer Capacity</p>
+<p>Permitted Performance Degradation</p>
+<p>Minimum Functional Requirement</p>
+<p>Supporting Resource Conditions</p>
+<h1 id="29-tolerance-integrity" data-oof-section-id="true" role="heading" aria-level="2">29. Tolerance Integrity</h1>
+<p>Disturbance Tolerated Temporarily ≠ Disturbance Tolerated Indefinitely.</p>
+<h1 id="30-resource-buffers" data-oof-section-id="true" role="heading" aria-level="2">30. Resource Buffers</h1>
+<p>Resource buffers may temporarily absorb disturbance effects.</p>
+<p>Examples include:</p>
+<p>Stored Water</p>
+<p>Stored Energy</p>
+<p>Material Inventory</p>
+<p>Thermal Storage</p>
+<p>Computational Reserve Capacity</p>
+<p>Production Inventory</p>
+<p>Buffers must be evaluated against their actual usability.</p>
+<h1 id="31-buffer-capacity" data-oof-section-id="true" role="heading" aria-level="2">31. Buffer Capacity</h1>
+<p>Buffer capacity may depend on:</p>
+<p>Stored Quantity</p>
+<p>Usable Quantity</p>
+<p>Required Consumption Rate</p>
+<p>Access Conditions</p>
+<p>Infrastructure Readiness</p>
+<p>Quality Conditions</p>
+<p>Time Constraints</p>
+<h1 id="32-buffer-principle" data-oof-section-id="true" role="heading" aria-level="2">32. Buffer Principle</h1>
+<p>Stored Resource Quantity ≠ Usable Resource Buffer.</p>
+<h1 id="33-buffer-duration" data-oof-section-id="true" role="heading" aria-level="2">33. Buffer Duration</h1>
+<p>Buffer duration concerns how long an available buffer can support required functions under defined conditions.</p>
+<p>Relevant elements include:</p>
+<p>Available Quantity</p>
+<p>Required Demand</p>
+<p>Losses</p>
+<p>Operational Constraints</p>
+<p>Replenishment Conditions</p>
+<p>Disturbance Duration</p>
+<h1 id="34-buffer-duration-principle" data-oof-section-id="true" role="heading" aria-level="2">34. Buffer Duration Principle</h1>
+<p>Buffer Available ≠ Buffer Sufficient for the Disturbance Duration.</p>
+<h1 id="35-resource-redundancy" data-oof-section-id="true" role="heading" aria-level="2">35. Resource Redundancy</h1>
+<p>Resource redundancy concerns additional Resource arrangements capable of supporting the required function.</p>
+<p>RRVM evaluates whether redundancy contributes usable resilience capacity.</p>
+<p>Relevant elements include:</p>
+<p>Redundant Resource Identity</p>
+<p>Supported Function</p>
+<p>Nominal Capacity</p>
+<p>Available Capacity</p>
+<p>Supporting Dependencies</p>
+<p>Activation Requirements</p>
+<p>Operating Conditions</p>
+<h1 id="36-redundancy-principle" data-oof-section-id="true" role="heading" aria-level="2">36. Redundancy Principle</h1>
+<p>Redundant Resource Installed ≠ Redundant Resource Operationally Usable.</p>
+<h1 id="37-resource-diversity" data-oof-section-id="true" role="heading" aria-level="2">37. Resource Diversity</h1>
+<p>Resource diversity concerns different Resource sources, technologies, configurations, or pathways supporting an operational function.</p>
+<p>Diversity may reduce vulnerability under certain disturbances.</p>
+<p>However, it does not automatically establish independent failure exposure.</p>
+<h1 id="38-diversity-principle" data-oof-section-id="true" role="heading" aria-level="2">38. Diversity Principle</h1>
+<p>Resource Diversity ≠ Disturbance Independence.</p>
+<h1 id="39-pathway-independence" data-oof-section-id="true" role="heading" aria-level="2">39. Pathway Independence</h1>
+<p>Pathway independence concerns whether alternative Resource arrangements remain functionally separate under relevant disturbances.</p>
+<p>RRVM evaluates independence using evidence concerning:</p>
+<p>Supporting Resources</p>
+<p>Infrastructure</p>
+<p>Failure Exposure</p>
+<p>Operational Conditions</p>
+<p>Shared Control Dependencies</p>
+<p>Geographic Conditions</p>
+<h1 id="40-independence-integrity" data-oof-section-id="true" role="heading" aria-level="2">40. Independence Integrity</h1>
+<p>Physically Separate Equipment ≠ Independent Supporting Resource Pathways.</p>
+<h1 id="41-nominal-backup-capacity" data-oof-section-id="true" role="heading" aria-level="2">41. Nominal Backup Capacity</h1>
+<p>Nominal backup capacity represents the stated or designed capacity of a backup Resource arrangement.</p>
+<p>It must remain distinguishable from usable capacity.</p>
+<p>Rated Backup Capacity ≠ Available Backup Capacity.</p>
+<h1 id="42-usable-backup-capacity" data-oof-section-id="true" role="heading" aria-level="2">42. Usable Backup Capacity</h1>
+<p>Usable backup capacity concerns the capacity that can actually support the required operational function under the defined disturbance.</p>
+<p>Relevant elements include:</p>
+<p>Available Resource Quantity</p>
+<p>Available Infrastructure Capacity</p>
+<p>Operating Conditions</p>
+<p>Supporting Resource Availability</p>
+<p>Required Activation Time</p>
+<p>Applicable Restrictions</p>
+<p>Evidence Basis</p>
+<h1 id="43-capacity-availability-boundary" data-oof-section-id="true" role="heading" aria-level="2">43. Capacity Availability Boundary</h1>
+<p>RRVM uses Resource availability and capacity evidence governed by RACS.</p>
+<p>It does not independently redefine Resource availability.</p>
+<p>Capacity Exists ≠ Capacity Available Under Disturbance Conditions.</p>
+<h1 id="44-resilience-capacity" data-oof-section-id="true" role="heading" aria-level="2">44. Resilience Capacity</h1>
+<p>Resilience capacity concerns the usable ability of the Resource System to preserve required functions despite a defined disturbance.</p>
+<p>It may arise from:</p>
+<p>Available Resource Buffers</p>
+<p>Usable Redundant Capacity</p>
+<p>Independent Resource Pathways</p>
+<p>Available Flexibility</p>
+<p>Operational Tolerance</p>
+<p>Supporting Resource Capacity</p>
+<p>Permitted Degradation</p>
+<p>Resilience capacity must remain scenario-specific.</p>
+<h1 id="45-resilience-capacity-integrity" data-oof-section-id="true" role="heading" aria-level="2">45. Resilience Capacity Integrity</h1>
+<p>Resilience Mechanism Identified ≠ Resilience Capacity Demonstrated.</p>
+<h1 id="46-supporting-resource-requirements" data-oof-section-id="true" role="heading" aria-level="2">46. Supporting Resource Requirements</h1>
+<p>Protective arrangements may require additional Resources.</p>
+<p>Examples include:</p>
+<p>Backup Electricity Requires Fuel</p>
+<p>Alternative Cooling Requires Electricity</p>
+<p>Water Storage Requires Pumping</p>
+<p>Redundant Computing Requires Cooling</p>
+<p>Emergency Transport Requires Fuel and Infrastructure</p>
+<p>These supporting requirements must remain visible.</p>
+<h1 id="47-supporting-resource-principle" data-oof-section-id="true" role="heading" aria-level="2">47. Supporting Resource Principle</h1>
+<p>Protective Resource Available ≠ Supporting Resources Available.</p>
+<h1 id="48-capacity-duration" data-oof-section-id="true" role="heading" aria-level="2">48. Capacity Duration</h1>
+<p>Resilience capacity may be time-limited.</p>
+<p>Relevant elements include:</p>
+<p>Usable Resource Quantity</p>
+<p>Consumption Rate</p>
+<p>Replenishment Capability</p>
+<p>Supporting Resource Availability</p>
+<p>Operational Load</p>
+<p>Disturbance Duration</p>
+<h1 id="49-duration-integrity" data-oof-section-id="true" role="heading" aria-level="2">49. Duration Integrity</h1>
+<p>Resilience Capacity Sufficient for One Hour ≠ Resilience Capacity Sufficient for One Day.</p>
+<h1 id="50-capacity-exhaustion" data-oof-section-id="true" role="heading" aria-level="2">50. Capacity Exhaustion</h1>
+<p>Capacity exhaustion occurs when available protective capacity becomes insufficient to preserve required functions.</p>
+<p>Potential causes include:</p>
+<p>Resource Depletion</p>
+<p>Increased Demand</p>
+<p>Supporting Resource Failure</p>
+<p>Infrastructure Constraints</p>
+<p>Extended Disturbance</p>
+<p>Quality Degradation</p>
+<p>RRVM must preserve relevant exhaustion conditions.</p>
+<h1 id="51-exhaustion-principle" data-oof-section-id="true" role="heading" aria-level="2">51. Exhaustion Principle</h1>
+<p>Protective Capacity Initially Sufficient ≠ Protective Capacity Sufficient Throughout the Disturbance.</p>
+<h1 id="52-protective-capacity-constraints" data-oof-section-id="true" role="heading" aria-level="2">52. Protective Capacity Constraints</h1>
+<p>Protective capacity may be constrained by:</p>
+<p>Access Restrictions</p>
+<p>Allocation Conditions</p>
+<p>Infrastructure Limits</p>
+<p>Resource Quality</p>
+<p>Time Constraints</p>
+<p>Environmental Conditions</p>
+<p>Supporting Resource Dependencies</p>
+<p>Operational Readiness</p>
+<p>These constraints must remain explicit.</p>
+<h1 id="53-constraint-integrity" data-oof-section-id="true" role="heading" aria-level="2">53. Constraint Integrity</h1>
+<p>Protective Capacity Technically Possible ≠ Protective Capacity Operationally Available.</p>
+<h1 id="54-capacity-competition" data-oof-section-id="true" role="heading" aria-level="2">54. Capacity Competition</h1>
+<p>Multiple operational functions may compete for the same protective Resource capacity.</p>
+<p>Examples include:</p>
+<p>Computing and Cooling Sharing Backup Electricity</p>
+<p>Production and Safety Systems Sharing Stored Water</p>
+<p>Multiple Facilities Sharing Emergency Fuel</p>
+<p>RRVM identifies capacity competition as a resilience limitation.</p>
+<p>Allocation decisions remain governed by RPAS.</p>
+<h1 id="55-capacity-competition-principle" data-oof-section-id="true" role="heading" aria-level="2">55. Capacity Competition Principle</h1>
+<p>Shared Backup Capacity ≠ Full Backup Capacity Available to Every Dependent Function Simultaneously.</p>
+<h1 id="56-partial-functional-preservation" data-oof-section-id="true" role="heading" aria-level="2">56. Partial Functional Preservation</h1>
+<p>A Resource System may preserve some required functions while others degrade.</p>
+<p>RRVM must distinguish:</p>
+<p>All Required Functions Preserved</p>
+<p>Priority Functions Preserved</p>
+<p>Partial Function Preservation</p>
+<p>Function Degradation</p>
+<p>Function Failure</p>
+<p>Priority designations must derive from competent governance references.</p>
+<h1 id="57-partial-preservation-principle" data-oof-section-id="true" role="heading" aria-level="2">57. Partial Preservation Principle</h1>
+<p>Some Functions Preserved ≠ Entire Resource System Resilient.</p>
+<h1 id="58-residual-vulnerability" data-oof-section-id="true" role="heading" aria-level="2">58. Residual Vulnerability</h1>
+<p>Residual vulnerability concerns the vulnerability remaining after available resilience capacity is considered.</p>
+<p>Relevant elements include:</p>
+<p>Unresolved Shared Dependencies</p>
+<p>Insufficient Backup Capacity</p>
+<p>Limited Buffer Duration</p>
+<p>Unverified Pathway Independence</p>
+<p>Capacity Competition</p>
+<p>Supporting Resource Constraints</p>
+<p>Unknown Protective Capability</p>
+<h1 id="59-residual-vulnerability-principle" data-oof-section-id="true" role="heading" aria-level="2">59. Residual Vulnerability Principle</h1>
+<p>Resilience Capacity Identified ≠ Residual Vulnerability Eliminated.</p>
+<h1 id="60-vulnerability-classification" data-oof-section-id="true" role="heading" aria-level="2">60. Vulnerability Classification</h1>
+<p>RRVM may classify vulnerability as:</p>
+<p>Not Assessed</p>
+<p>Vulnerability Identified</p>
+<p>Conditionally Vulnerable</p>
+<p>Partially Vulnerable</p>
+<p>Vulnerability Within Defined Tolerance</p>
+<p>Vulnerability Exceeds Defined Tolerance</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Reassessment Required</p>
+<p>Classification must remain tied to the relevant disturbance scenario and operational function.</p>
+<h1 id="61-resilience-capacity-classification" data-oof-section-id="true" role="heading" aria-level="2">61. Resilience Capacity Classification</h1>
+<p>RRVM may classify resilience capacity as:</p>
+<p>Not Assessed</p>
+<p>Capacity Identified</p>
+<p>Capacity Conditionally Available</p>
+<p>Capacity Available Within Defined Conditions</p>
+<p>Capacity Partially Sufficient</p>
+<p>Capacity Insufficient</p>
+<p>Capacity Time-Limited</p>
+<p>Capacity Degraded</p>
+<p>Capacity Exhausted</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Reassessment Required</p>
+<p>No classification may imply universal resilience.</p>
+<h1 id="62-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">62. Evidence Provenance</h1>
+<p>RRVM may use:</p>
+<p>Resource Availability Records</p>
+<p>Capacity Measurements</p>
+<p>Infrastructure Documentation</p>
+<p>Operational Test Records</p>
+<p>Resource Storage Records</p>
+<p>Backup Equipment Records</p>
+<p>Dependency Network Evidence</p>
+<p>Disturbance Propagation Evidence</p>
+<p>Operational Observations</p>
+<p>Validated Simulation Evidence</p>
+<p>Each evidence source must remain identifiable.</p>
+<h1 id="63-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">63. Evidence Sufficiency</h1>
+<p>Evidence sufficiency concerns whether available evidence supports the vulnerability or resilience capacity conclusion.</p>
+<p>Relevant dimensions include:</p>
+<p>Source Reliability</p>
+<p>Operational Relevance</p>
+<p>Time Validity</p>
+<p>Scenario Relevance</p>
+<p>Capacity Verification</p>
+<p>Supporting Resource Verification</p>
+<p>Condition Coverage</p>
+<p>Known Limitations</p>
+<h1 id="64-evidence-sufficiency-principle" data-oof-section-id="true" role="heading" aria-level="2">64. Evidence Sufficiency Principle</h1>
+<p>Protective Arrangement Documented ≠ Protective Capacity Operationally Verified.</p>
+<h1 id="65-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">65. Simulation Evidence</h1>
+<p>Simulation may support vulnerability and resilience capacity assessment.</p>
+<p>Relevant elements include:</p>
+<p>Scenario Assumptions</p>
+<p>Resource Network Model</p>
+<p>Capacity Inputs</p>
+<p>Disturbance Inputs</p>
+<p>Protective Mechanisms</p>
+<p>Functional Requirements</p>
+<p>Model Validation</p>
+<p>Uncertainty</p>
+<p>Simulation evidence must remain distinguishable from operational observation.</p>
+<h1 id="66-simulation-principle" data-oof-section-id="true" role="heading" aria-level="2">66. Simulation Principle</h1>
+<p>Simulated Resilience Capacity ≠ Observed Resilience Capacity.</p>
+<h1 id="67-unknown-capacity-conditions" data-oof-section-id="true" role="heading" aria-level="2">67. Unknown Capacity Conditions</h1>
+<p>RRVM must support explicit unknown states.</p>
+<p>Examples include:</p>
+<p>Unknown Backup Availability</p>
+<p>Unknown Buffer Duration</p>
+<p>Unknown Supporting Resource Availability</p>
+<p>Unknown Pathway Independence</p>
+<p>Unknown Disturbance Tolerance</p>
+<p>Unknown Capacity Competition</p>
+<p>Unknown conditions must not be silently treated as sufficient.</p>
+<h1 id="68-unknown-capacity-principle" data-oof-section-id="true" role="heading" aria-level="2">68. Unknown Capacity Principle</h1>
+<p>Capacity Not Verified ≠ Capacity Available.</p>
+<h1 id="69-evidence-conflict" data-oof-section-id="true" role="heading" aria-level="2">69. Evidence Conflict</h1>
+<p>Evidence may conflict.</p>
+<p>Examples include:</p>
+<p>Rated Capacity Conflicts with Operational Measurement</p>
+<p>Backup Availability Records Conflict with Observed Readiness</p>
+<p>Simulation Conflicts with Operational Testing</p>
+<p>Supporting Resource Availability Is Disputed</p>
+<p>Different Sources Report Different Buffer Duration</p>
+<p>Conflicts must remain traceable.</p>
+<h1 id="70-evidence-conflict-principle" data-oof-section-id="true" role="heading" aria-level="2">70. Evidence Conflict Principle</h1>
+<p>Conflicting Capacity Evidence ≠ Validated Resilience Capacity.</p>
+<h1 id="71-resource-vulnerability-and-resilience-capacity-profile" data-oof-section-id="true" role="heading" aria-level="2">71. Resource Vulnerability &amp; Resilience Capacity Profile</h1>
+<p>The principal governed output is the:</p>
+<p>Resource Vulnerability &amp; Resilience Capacity Profile</p>
+<p>It establishes the evidence-based relationship between the Resource System, its required functions, disturbance exposure, structural and functional vulnerabilities, available protective arrangements, usable resilience capacity, capacity duration, constraints, and residual vulnerabilities.</p>
+<p>The profile provides the assessment foundation for subsequent response and recovery governance.</p>
+<h1 id="72-minimum-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">72. Minimum Profile Fields</h1>
+<p>At minimum:</p>
+<p>Vulnerability &amp; Resilience Capacity Profile ID</p>
+<p>Resource System ID</p>
+<p>Assessment Boundary</p>
+<p>Required Operational Functions</p>
+<p>Resource Interdependency Network Reference</p>
+<p>Disturbance Propagation Profile Reference</p>
+<p>Disturbance Scenario ID</p>
+<p>Disturbance Exposure</p>
+<p>Structural Vulnerability</p>
+<p>Functional Vulnerability</p>
+<p>Dependency Concentration References</p>
+<p>Shared Failure Exposure</p>
+<p>Disturbance Sensitivity</p>
+<p>Disturbance Tolerance</p>
+<p>Resource Buffer References</p>
+<p>Usable Buffer Capacity</p>
+<p>Buffer Duration</p>
+<p>Resource Redundancy References</p>
+<p>Resource Diversity References</p>
+<p>Pathway Independence Evidence</p>
+<p>Nominal Backup Capacity</p>
+<p>Usable Backup Capacity</p>
+<p>Resilience Capacity</p>
+<p>Supporting Resource Requirements</p>
+<p>Capacity Duration</p>
+<p>Capacity Exhaustion Conditions</p>
+<p>Protective Capacity Constraints</p>
+<p>Capacity Competition References</p>
+<p>Partial Function Preservation State</p>
+<p>Residual Vulnerability</p>
+<p>Vulnerability Classification</p>
+<p>Resilience Capacity Classification</p>
+<p>Evidence Provenance</p>
+<p>Evidence Sufficiency</p>
+<p>Missing Evidence</p>
+<p>Evidence Uncertainty</p>
+<p>Evidence Conflict</p>
+<p>Reassessment Trigger</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="73-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">73. Minimum Implementation Framework</h1>
+<p>A minimum operational RRVM implementation should contain ten governed layers.</p>
+<p>Layer 1 — Resource System &amp; Function Identity</p>
+<p>Establish the Resource System, required operational functions, assessment boundary, and relevant operating conditions.</p>
+<p>Layer 2 — Network &amp; Disturbance References</p>
+<p>Connect the assessment to the Resource Interdependency Network Profile and Resource Disturbance &amp; Propagation Profile.</p>
+<p>Layer 3 — Disturbance Exposure Assessment</p>
+<p>Identify disturbance exposure and the relevant dependency pathways.</p>
+<p>Layer 4 — Vulnerability Assessment</p>
+<p>Evaluate structural vulnerability, functional vulnerability, dependency concentration, and shared failure exposure.</p>
+<p>Layer 5 — Disturbance Tolerance Assessment</p>
+<p>Evaluate functional tolerance, permitted degradation, and disturbance duration conditions.</p>
+<p>Layer 6 — Protective Resource Assessment</p>
+<p>Identify Resource buffers, redundancy, diversity, alternative pathways, and their supporting dependencies.</p>
+<p>Layer 7 — Usable Resilience Capacity Assessment</p>
+<p>Evaluate actual usable capacity, capacity duration, resource competition, and exhaustion conditions.</p>
+<p>Layer 8 — Residual Vulnerability Assessment</p>
+<p>Identify vulnerabilities remaining after available protective capacity is considered.</p>
+<p>Layer 9 — Evidence &amp; Classification</p>
+<p>Preserve evidence provenance, uncertainty, vulnerability states, and resilience capacity classifications.</p>
+<p>Layer 10 — Governed Output &amp; Handoff</p>
+<p>Produce the Resource Vulnerability &amp; Resilience Capacity Profile and preserve downstream response and recovery governance references.</p>
+<h1 id="74-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">74. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Assessment Not Initiated</p>
+<p>Resource System Identified</p>
+<p>Network Reference Established</p>
+<p>Disturbance Scenario Established</p>
+<p>Exposure Assessment Pending</p>
+<p>Exposure Identified</p>
+<p>Vulnerability Assessment Pending</p>
+<p>Structural Vulnerability Identified</p>
+<p>Functional Vulnerability Identified</p>
+<p>Tolerance Assessment Pending</p>
+<p>Tolerance Established Within Defined Conditions</p>
+<p>Protective Capacity Identified</p>
+<p>Protective Capacity Conditionally Available</p>
+<p>Usable Resilience Capacity Identified</p>
+<p>Resilience Capacity Partially Sufficient</p>
+<p>Resilience Capacity Sufficient Within Defined Conditions</p>
+<p>Resilience Capacity Insufficient</p>
+<p>Resilience Capacity Time-Limited</p>
+<p>Resilience Capacity Degraded</p>
+<p>Resilience Capacity Exhausted</p>
+<p>Residual Vulnerability Identified</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Reassessment Required</p>
+<h1 id="75-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">75. Minimum Evidence Path</h1>
+<p>Where vulnerability or resilience capacity cannot be established:</p>
+<p>Resource System → Network &amp; Disturbance References → Operational Function Requirements → Disturbance Exposure → Vulnerability Conditions → Candidate Protective Capacity → Availability &amp; Supporting Resource Evidence → Evidence-Limited / Conflicted / Unknown State → Missing Evidence Identification → Evidence Acquisition → Capacity Reassessment → Vulnerability &amp; Resilience Capacity Classification → Resource Vulnerability &amp; Resilience Capacity Profile → Response &amp; Recovery Governance Handoff</p>
+<p>Missing evidence must not be replaced by assumed protective capacity.</p>
+<h1 id="76-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">76. Minimum Reassessment Framework</h1>
+<p>Current Resource Vulnerability &amp; Resilience Capacity Profile → New Resource / Capacity / Dependency / Disturbance / Operational Evidence → Materiality Assessment → Exposure Review → Vulnerability Review → Tolerance Review → Protective Capacity Review → Supporting Resource Review → Residual Vulnerability Review → Classification Update → Profile Update → Version Update</p>
+<p>Reassessment may be triggered by:</p>
+<p>Changed Resource System boundary. Changed required operational functions. New dependency relationships. Changed disturbance exposure. New shared failure conditions. Reduced Resource availability. Changed backup capacity. Changed Resource buffers. Changed operational demand. Changed capacity competition. Changed supporting Resource availability.</p>
+<p>New capacity exhaustion evidence. Failed backup testing. New operational disturbance evidence. Conflicting capacity evidence.</p>
+<h1 id="77-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">77. Governance Requirements</h1>
+<p>A conforming RRVM implementation must satisfy the following requirements.</p>
+<p>Resource System Identity</p>
+<h1 id="1-identify-the-resource-system-2-define-the-assessment-boundary-3-identify-requi" data-oof-section-id="true" role="heading" aria-level="2">1. Identify the Resource System. 2. Define the assessment boundary. 3. Identify required operational functions. 4. Preserve relevant operating conditions. 5. Preserve the Resource Interdependency Network reference. 6. Preserve the Disturbance Propagation Profile reference. 7. Preserve assessment time and location. 8. Preserve the evidence basis.</h1>
+<p>Exposure &amp; Vulnerability Governance</p>
+<h1 id="9-identify-disturbance-exposure-10-preserve-structural-vulnerability-11-preserve" data-oof-section-id="true" role="heading" aria-level="2">9. Identify disturbance exposure. 10. Preserve structural vulnerability. 11. Preserve functional vulnerability. 12. Preserve dependency concentration references. 13. Preserve shared failure exposure. 14. Evaluate disturbance sensitivity. 15. Preserve disturbance scenario conditions. 16. Distinguish exposure from demonstrated vulnerability. 17. Prevent network connectivity from automatically establishing vulnerability. 18. Prevent Resource capacity reduction from automatically establishing functional failure.</h1>
+<p>Disturbance Tolerance Governance</p>
+<h1 id="19-identify-required-functional-thresholds-20-preserve-permitted-degradation-con" data-oof-section-id="true" role="heading" aria-level="2">19. Identify required functional thresholds. 20. Preserve permitted degradation conditions. 21. Evaluate disturbance tolerance. 22. Preserve disturbance magnitude. 23. Preserve disturbance duration. 24. Preserve relevant operating conditions. 25. Prevent temporary tolerance from establishing unlimited tolerance. 26. Prevent reduced functional performance from automatically satisfying original requirements.</h1>
+<p>Resource Buffer Governance</p>
+<h1 id="27-identify-resource-buffers-28-preserve-stored-resource-quantities-29-evaluate-" data-oof-section-id="true" role="heading" aria-level="2">27. Identify Resource buffers. 28. Preserve stored Resource quantities. 29. Evaluate usable buffer capacity. 30. Preserve buffer operating conditions. 31. Evaluate buffer duration. 32. Preserve replenishment conditions. 33. Preserve buffer limitations. 34. Prevent stored quantity from automatically establishing usable capacity. 35. Prevent available buffers from automatically establishing sufficient duration.</h1>
+<p>Redundancy &amp; Diversity Governance</p>
+<h1 id="36-identify-redundant-resource-arrangements-37-preserve-nominal-backup-capacity-" data-oof-section-id="true" role="heading" aria-level="2">36. Identify redundant Resource arrangements. 37. Preserve nominal backup capacity. 38. Evaluate usable backup capacity. 39. Identify Resource diversity.</h1>
+<h1 id="40-evaluate-pathway-independence-41-preserve-shared-supporting-dependencies-42-p" data-oof-section-id="true" role="heading" aria-level="2">40. Evaluate pathway independence. 41. Preserve shared supporting dependencies. 42. Preserve common failure exposure. 43. Prevent redundancy from automatically establishing resilience. 44. Prevent physical separation from automatically establishing pathway independence. 45. Prevent rated backup capacity from automatically establishing available capacity.</h1>
+<p>Resilience Capacity Governance</p>
+<h1 id="46-identify-protective-resource-arrangements-47-evaluate-usable-resilience-capac" data-oof-section-id="true" role="heading" aria-level="2">46. Identify protective Resource arrangements. 47. Evaluate usable resilience capacity. 48. Preserve supporting Resource requirements. 49. Preserve capacity duration. 50. Identify capacity exhaustion conditions. 51. Identify protective capacity constraints. 52. Preserve capacity competition. 53. Preserve partial functional preservation states. 54. Prevent shared backup capacity from being counted independently for every dependent function. 55. Prevent initially sufficient capacity from establishing sustained sufficiency. 56. Prevent theoretical capacity from establishing operational availability.</h1>
+<p>Residual Vulnerability Governance</p>
+<h1 id="57-identify-residual-vulnerability-58-preserve-unresolved-shared-dependencies-59" data-oof-section-id="true" role="heading" aria-level="2">57. Identify residual vulnerability. 58. Preserve unresolved shared dependencies. 59. Preserve insufficient backup capacity. 60. Preserve limited buffer duration. 61. Preserve unverified pathway independence. 62. Preserve supporting Resource constraints. 63. Preserve unknown protective capabilities. 64. Prevent protective capacity identification from eliminating residual vulnerability by assumption.</h1>
+<p>Evidence Governance</p>
+<h1 id="65-preserve-evidence-provenance-66-evaluate-evidence-sufficiency-67-preserve-mis" data-oof-section-id="true" role="heading" aria-level="2">65. Preserve evidence provenance. 66. Evaluate evidence sufficiency. 67. Preserve missing evidence. 68. Support Evidence-Limited states. 69. Support Conflicted states. 70. Support Unknown states. 71. Preserve material uncertainty. 72. Distinguish simulated from observed capacity. 73. Preserve scenario assumptions. 74. Prevent documented protective arrangements from automatically establishing operational verification. 75. Prevent conflicting evidence from establishing validated resilience capacity.</h1>
+<p>Lifecycle Governance</p>
+<h1 id="76-support-vulnerability-monitoring-77-support-resilience-capacity-monitoring-78" data-oof-section-id="true" role="heading" aria-level="2">76. Support vulnerability monitoring. 77. Support resilience capacity monitoring. 78. Preserve material Resource changes. 79. Preserve changed dependency conditions. 80. Preserve changed disturbance exposure. 81. Preserve changed backup capacity. 82. Preserve changed supporting Resource availability. 83. Support reassessment. 84. Preserve reassessment triggers. 85. Preserve effective time. 86. Preserve material version history.</h1>
+<p class="podstand"><b>Architecture:</b> Boundaries</p>
+<h1 id="87-maintain-ridm-network-mapping-boundaries-88-maintain-rdpm-disturbance-propaga" data-oof-section-id="true" role="heading" aria-level="2">87. Maintain RIDM network mapping boundaries. 88. Maintain RDPM disturbance propagation boundaries.</h1>
+<h1 id="89-maintain-racs-availability-and-capacity-boundaries-90-maintain-rdcs-dependenc" data-oof-section-id="true" role="heading" aria-level="2">89. Maintain RACS availability and capacity boundaries. 90. Maintain RDCS dependency and criticality boundaries. 91. Maintain RAGS Access governance boundaries. 92. Maintain RPAS Allocation governance boundaries. 93. Maintain RSFS substitution and flexibility boundaries. 94. Preserve downstream response and recovery handoffs. 95. Prevent resilience capacity assessment from creating operational authority. 96. Prevent resilience capacity assessment from establishing recovery success. 97. Prevent resilience capacity assessment from establishing Sustainability. 98. Produce a Resource Vulnerability &amp; Resilience Capacity Profile.</h1>
+<h1 id="78-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">78. Governance Logic</h1>
+<p>Canonical RRVM logic:</p>
+<p>Resource System Identity → Required Operational Functions → Resource Interdependency Network Reference → Disturbance Scenario &amp; Propagation Reference → Disturbance Exposure → Structural &amp; Functional Vulnerability → Dependency Concentration &amp; Shared Failure Exposure → Disturbance Sensitivity &amp; Tolerance → Resource Buffers → Redundancy &amp; Diversity → Pathway Independence → Usable Backup Capacity → Supporting Resource Requirements → Resilience Capacity Duration → Capacity Competition &amp; Exhaustion → Residual Vulnerability → Evidence Validation → Vulnerability &amp; Resilience Capacity Classification → Resource Vulnerability &amp; Resilience Capacity Profile → Monitoring &amp; Reassessment → Response &amp; Recovery Governance Handoff</p>
+<h1 id="79-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">79. Governance Outputs</h1>
+<p>RRVM may produce:</p>
+<p>Resource Vulnerability &amp; Resilience Capacity Profile</p>
+<p>Resource System Identity Record</p>
+<p>Assessment Boundary Record</p>
+<p>Required Operational Function Register</p>
+<p>Disturbance Exposure Record</p>
+<p>Structural Vulnerability Assessment</p>
+<p>Functional Vulnerability Assessment</p>
+<p>Dependency Concentration Reference</p>
+<p>Shared Failure Exposure Record</p>
+<p>Disturbance Sensitivity Assessment</p>
+<p>Disturbance Tolerance Record</p>
+<p>Resource Buffer Register</p>
+<p>Usable Buffer Capacity Record</p>
+<p>Buffer Duration Record</p>
+<p>Resource Redundancy Assessment</p>
+<p>Resource Diversity Assessment</p>
+<p>Pathway Independence Assessment</p>
+<p>Nominal Backup Capacity Record</p>
+<p>Usable Backup Capacity Record</p>
+<p>Resilience Capacity Assessment</p>
+<p>Supporting Resource Requirement Register</p>
+<p>Capacity Duration Record</p>
+<p>Capacity Exhaustion Record</p>
+<p>Protective Capacity Constraint Register</p>
+<p>Capacity Competition Record</p>
+<p>Partial Functional Preservation State</p>
+<p>Residual Vulnerability Record</p>
+<p>Vulnerability Classification</p>
+<p>Resilience Capacity Classification</p>
+<p>Evidence Sufficiency State</p>
+<p>Missing Evidence Record</p>
+<p>Evidence Uncertainty</p>
+<p>Evidence Conflict</p>
+<p>Reassessment Trigger</p>
+<p>Downstream Governance Handoff</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="80-practical-applications" data-oof-section-id="true" role="heading" aria-level="2">80. Practical Applications</h1>
+<p>AI Data Centers</p>
+<p>Assessing the vulnerability of electricity, cooling, water, and computing dependencies and the usable capacity of backup systems under defined disturbances.</p>
+<p>Energy Infrastructure</p>
+<p>Evaluating Resource buffers, redundant supply capacity, shared infrastructure exposure, and disturbance tolerance.</p>
+<p>Water Systems</p>
+<p>Assessing water storage, pumping redundancy, treatment capacity, electricity dependencies, and usable protective capacity during supply interruptions.</p>
+<p>Industrial Manufacturing</p>
+<p>Evaluating inventory buffers, alternative energy sources, material dependencies, production capacity, and shared backup Resource constraints.</p>
+<p>Critical Infrastructure</p>
+<p>Assessing vulnerability, protective capacity, duration limits, and residual weaknesses in interconnected essential Resource Systems.</p>
+<h1 id="81-use-case-1-ai-data-center-backup-electricity-capacity" data-oof-section-id="true" role="heading" aria-level="2">81. Use Case 1 — AI Data Center Backup Electricity Capacity</h1>
+<p>An AI data center depends on electricity for computing and cooling.</p>
+<p>The facility maintains backup electricity capacity.</p>
+<p>RRVM establishes:</p>
+<p>Resource System: AI data center.</p>
+<p>Required Functions: Computing and thermal control.</p>
+<p>Disturbance Scenario: Primary electricity supply interruption.</p>
+<p>Structural Vulnerability: Computing and cooling share electrical infrastructure.</p>
+<p>Protective Resource: Backup electricity.</p>
+<p>Nominal Backup Capacity: Documented generator or storage capacity.</p>
+<p>Usable Backup Capacity: Capacity available under the actual disturbance, supporting Resource, and operating conditions.</p>
+<p>Supporting Resource Requirements: Fuel, control systems, electrical distribution, and other applicable dependencies.</p>
+<p>Capacity Competition: Computing and cooling may require the same backup supply.</p>
+<p>Capacity Duration: Determined by usable stored energy, fuel, operating load, and replenishment conditions.</p>
+<p>Residual Vulnerability: Backup supply may be insufficient to preserve all required functions for the full disturbance duration.</p>
+<p>Output: Resource Vulnerability &amp; Resilience Capacity Profile.</p>
+<p>The existence of backup electricity does not establish sufficient resilience capacity.</p>
+<p>Backup Electricity Installed ≠ Required Computing and Cooling Functions Protected.</p>
+<h1 id="82-use-case-2-industrial-water-storage-and-production-resilience" data-oof-section-id="true" role="heading" aria-level="2">82. Use Case 2 — Industrial Water Storage and Production Resilience</h1>
+<p>An industrial facility depends on water for production.</p>
+<p>The facility maintains water storage and an alternative supply pathway.</p>
+<p>RRVM establishes:</p>
+<p>Resource System: Industrial production facility.</p>
+<p>Required Function: Water-supported production.</p>
+<p>Disturbance Scenario: Primary water supply interruption.</p>
+<p>Structural Vulnerability: Primary and alternative supply may share pumping or electricity infrastructure.</p>
+<p>Resource Buffer: Stored water.</p>
+<p>Usable Buffer Capacity: Water quantity meeting the required operational quality and access conditions.</p>
+<p>Buffer Duration: Determined by usable water quantity and actual production demand.</p>
+<p>Alternative Pathway: Secondary water supply, subject to relevant Access and availability conditions.</p>
+<p>Supporting Resource Requirements: Electricity, pumping, treatment, and distribution infrastructure.</p>
+<p>Residual Vulnerability: Storage may support temporary production but remain insufficient for an extended interruption.</p>
+<p>Output: Resource Vulnerability &amp; Resilience Capacity Profile.</p>
+<p>The facility may possess substantial stored water while remaining vulnerable to a shared pumping failure.</p>
+<p>Water Stored ≠ Water Operationally Available.</p>
+<h1 id="83-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">83. Critical Distinctions</h1>
+<p>Disturbance Exposure ≠ Resource System Vulnerability.</p>
+<p>Nominal Backup Capacity ≠ Usable Resilience Capacity.</p>
+<p>Resource Redundancy ≠ Resource Resilience.</p>
+<p>Disturbance Tolerated Under Defined Conditions ≠ Universal Resilience Demonstrated.</p>
+<p>Resource Network Connectivity ≠ Resource System Vulnerability by Default.</p>
+<p>Backup Resource Exists ≠ Backup Resource Can Preserve the Required Function.</p>
+<p>Multiple Resource Pathways ≠ Independent Failure Pathways.</p>
+<p>Temporary Capacity ≠ Sustained Disturbance Tolerance.</p>
+<p>Protective Capacity Identified ≠ Vulnerability Eliminated.</p>
+<p>Vulnerability Assessed Within Defined Boundary ≠ All System Vulnerabilities Assessed.</p>
+<p>Function Operating at Reduced Capacity ≠ Original Functional Requirement Satisfied.</p>
+<p>Scenario Defined ≠ Scenario Operationally Validated.</p>
+<p>Disturbance Exposure ≠ Operational Failure Inevitable.</p>
+<p>Single Dependency Identified ≠ Unacceptable Vulnerability Automatically Established.</p>
+<p>Resource Capacity Reduced ≠ Operational Function Necessarily Failed.</p>
+<p>High Dependency Concentration ≠ High Vulnerability Without Context.</p>
+<p>Multiple Backup Systems ≠ Multiple Independent Protective Systems.</p>
+<p>Low Sensitivity to One Disturbance ≠ Low Sensitivity to Every Disturbance.</p>
+<p>Disturbance Tolerated Temporarily ≠ Disturbance Tolerated Indefinitely.</p>
+<p>Stored Resource Quantity ≠ Usable Resource Buffer.</p>
+<p>Buffer Available ≠ Buffer Sufficient for the Disturbance Duration.</p>
+<p>Redundant Resource Installed ≠ Redundant Resource Operationally Usable.</p>
+<p>Resource Diversity ≠ Disturbance Independence.</p>
+<p>Physically Separate Equipment ≠ Independent Supporting Resource Pathways.</p>
+<p>Rated Backup Capacity ≠ Available Backup Capacity.</p>
+<p>Capacity Exists ≠ Capacity Available Under Disturbance Conditions.</p>
+<p>Resilience Mechanism Identified ≠ Resilience Capacity Demonstrated.</p>
+<p>Protective Resource Available ≠ Supporting Resources Available.</p>
+<p>Resilience Capacity Sufficient for One Hour ≠ Resilience Capacity Sufficient for One Day.</p>
+<p>Protective Capacity Initially Sufficient ≠ Protective Capacity Sufficient Throughout the Disturbance.</p>
+<p>Protective Capacity Technically Possible ≠ Protective Capacity Operationally Available.</p>
+<p>Shared Backup Capacity ≠ Full Backup Capacity Available to Every Dependent Function Simultaneously.</p>
+<p>Some Functions Preserved ≠ Entire Resource System Resilient.</p>
+<p>Resilience Capacity Identified ≠ Residual Vulnerability Eliminated.</p>
+<p>Protective Arrangement Documented ≠ Protective Capacity Operationally Verified.</p>
+<p>Simulated Resilience Capacity ≠ Observed Resilience Capacity.</p>
+<p>Capacity Not Verified ≠ Capacity Available.</p>
+<p>Conflicting Capacity Evidence ≠ Validated Resilience Capacity.</p>
+<h1 id="84-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">84. Cross-Architecture Boundary</h1>
+<p>RRVM may consume evidence from:</p>
+<p>RIDM — Resource Interdependency Mapping Module</p>
+<p>RDPM — Resource Disturbance &amp; Propagation Module</p>
+<p>RCHS — Resource Characterization Standard</p>
+<p>RACS — Resource Availability &amp; Capacity Standard</p>
+<p>RDGS — Resource Demand Governance Standard</p>
+<p>RDCS — Resource Dependency &amp; Criticality Standard</p>
+<p>RAGS — Resource Access Governance Standard</p>
+<p>RPAS — Resource Prioritization &amp; Allocation Standard</p>
+<p>RCUS — Resource Consumption &amp; Utilization Standard</p>
+<p>RSCS — Resource Scarcity &amp; Constraint Standard</p>
+<p>RRCS — Resource Recovery &amp; Circularity Standard</p>
+<p>RSFS — Resource Substitution &amp; Flexibility Standard</p>
+<p>Its outputs support subsequent RIRS governance of:</p>
+<p>Resource Response &amp; Recovery</p>
+<p>Resource Resilience Validation &amp; Monitoring</p>
+<p>Its downstream architecture relationship includes:</p>
+<p>RCSS — Resource Continuity &amp; Sustainability Standard</p>
+<p>Relevant external architecture relationships may include:</p>
+<p>ORA™ — Operational Reality Architecture</p>
+<p>VEGA™ — Value Execution Governance Architecture</p>
+<p>PGA™ — Prediction Governance Architecture</p>
+<p>SIMULOS® — Simulation Governance</p>
+<p>HAGA™ — Harm Governance Architecture</p>
+<p>LIGA™ — Liability Governance Architecture</p>
+<p>RRVM governs Resource System vulnerability and usable resilience capacity.</p>
+<p>It does not absorb Resource availability, dependency criticality, operational response, recovery execution, Harm, Liability, or Sustainability governance.</p>
+<h1 id="85-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">85. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RRVM may use Resource availability, capacity, dependency, disturbance, substitution, and flexibility evidence.</p>
+<p>It governs the relevance of those inputs to Resource System vulnerability, disturbance tolerance, and usable resilience capacity.</p>
+<p>It does not redefine the independent mechanisms that produced them.</p>
+<h1 id="86-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Canonical Boundary</h1>
+<p>RRVM governs how the vulnerability of interconnected Resource Systems and their available capacity to absorb, tolerate, contain, and withstand defined Resource disturbances are identified, assessed, bounded, evidenced, classified, and reassessed against actual dependency structures, required operational functions, disturbance conditions, Resource buffers, redundancy, pathway independence, and supporting Resource constraints.</p>
+<p>It does not independently authorize operational interventions, execute Resource substitutions, govern recovery operations, determine Harm or Liability, or establish long-term Resource Sustainability.</p>
+<p>Its principal governed output is the Resource Vulnerability &amp; Resilience Capacity Profile .</p>
+<h1 id="87-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">87. Canonical Closing Statement</h1>
+<p>A Resource System's resilience cannot be established through nominal backup capacity, documented redundancy, or the existence of alternative Resource pathways alone. The decisive question is whether protective capacity is genuinely usable under the disturbance being assessed, for the required functions, within the necessary time, and without relying on unavailable supporting Resources.</p>
+<p>RRVM establishes the governance conditions under which Resource vulnerability and resilience capacity become operationally distinguishable and evidentially defensible — ensuring that theoretical protection is not mistaken for available capacity, temporary tolerance is not presented as sustained resilience, and residual vulnerabilities remain visible even where protective arrangements exist.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

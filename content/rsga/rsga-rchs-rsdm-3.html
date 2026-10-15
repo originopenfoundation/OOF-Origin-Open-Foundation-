@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource State Definition Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource State Definition Module | OOF®. RSDM — Resource State Definition Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource State Definition Module | OOF®" />
+<meta property="og:description" content="Resource State Definition Module | OOF®. RSDM — Resource State Definition Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource State Definition Module | OOF®" />
+<meta name="twitter:description" content="Resource State Definition Module | OOF®. RSDM — Resource State Definition Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta name="DC.title" content="Resource State Definition Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html","name":"Resource State Definition Module | OOF®","description":"Resource State Definition Module | OOF®. RSDM — Resource State Definition Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource State Definition Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html"}]},"headline":"Resource State Definition Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rchs-rsdm-3.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Characterization Standard (RCHS)","Governance & Enforcement","Resource Governance","Resource State Definition Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Characterization Standard (RCHS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource State Definition Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Characterization Standard (RCHS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource State Definition Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RSDM — Resource State Definition Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Characterization Standard (RCHS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource State Definition Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RCHS-RSDM-03</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RCHS-RSDM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> Pending</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RSDM — Resource State Definition Module governs how the current, conditional, transitional, residual, recoverable, recovered, secondary, stored, reserved, degraded, unavailable, and other materially relevant states of a Resource or Resource System are identified, distinguished, represented, evidenced, and reassessed without confusing Resource State with availability, access, allocation, consumption, operational status, Value, or sustainability.</p>
+<p>RSDM establishes the governed Resource State representation required for downstream Resource Sustainability governance.</p>
+<p>A Resource may continue to exist while changing state, function, location, accessibility, usability, or governance significance.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>After the Resource boundary has been established and its type and constraint characteristics identified, the governed system must determine the state in which the Resource currently exists.</p>
+<p>A Resource may be:</p>
+<p>Existing Stored In use Reserved Consumed Residual Embedded Recoverable Recovered Secondary Degraded Regenerating Unavailable Conditionally usable Transitional</p>
+<p>These states cannot be treated as interchangeable.</p>
+<p>RSDM answers:</p>
+<p>What state is the Resource in? When did that state become valid? Is the state directly observed or inferred? Can multiple state dimensions coexist? Is the state temporary or persistent? Has the Resource transitioned from another state? Does the Resource retain future usability or recovery potential? Is the state sufficiently evidenced? What would cause the state to change?</p>
+<h1 id="3-governed-object" data-oof-section-id="true" role="heading" aria-level="2">3. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>The materially relevant state of a Resource or Resource System within its established Resource boundary.</p>
+<p>RSDM governs Resource State.</p>
+<p>It does not determine:</p>
+<p>Resource availability quantity Actual usable capacity Access authorization Allocation entitlement Allocation decision Scarcity response Recovery execution Resource priority Value Liability General Operational State Long-term sustainability</p>
+<h1 id="4-position-in-parent-standard-internal-module-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in Parent Standard Internal Module Flow</h1>
+<p>The Resource Characterization Standard (RCHS) internal flow is:</p>
+<p>RBDM — Resource Boundary Definition Module → RTCM — Resource Type &amp; Constraint Module → RSDM — Resource State Definition Module → ROSM — Resource Origin &amp; Source Module → RCXM — Resource Context Module</p>
+<p>RBDM establishes what is inside the Governed Resource.</p>
+<p>RTCM establishes what type of Resource it is and what materially constrains it.</p>
+<p>RSDM establishes the state in which that Resource currently exists.</p>
+<h1 id="5-resource-state-requirement" data-oof-section-id="true" role="heading" aria-level="2">5. Resource State Requirement</h1>
+<p>Every Governed Resource must have a sufficiently explicit Resource State where state materially affects downstream governance.</p>
+<p>The Resource name alone is insufficient.</p>
+<p>“Water,” “electricity,” “compute,” “copper,” “storage,” “forest biomass,” or “fish stock” identifies a Resource category.</p>
+<p>It does not establish its state.</p>
+<p>Resource Identity ≠ Resource State.</p>
+<h1 id="6-resource-state-as-a-governed-representation" data-oof-section-id="true" role="heading" aria-level="2">6. Resource State as a Governed Representation</h1>
+<p>A Resource State is a governed representation of the condition or lifecycle position of a Resource at a defined point or period.</p>
+<p>A valid Resource State must remain connected to:</p>
+<p>Resource identity Resource boundary Relevant time Relevant location where applicable Supporting evidence Known uncertainty Previous state where relevant Transition mechanism where relevant</p>
+<p>A state without sufficient context may be methodologically ambiguous.</p>
+<h1 id="7-state-dimensions" data-oof-section-id="true" role="heading" aria-level="2">7. State Dimensions</h1>
+<p>A Resource may occupy multiple compatible state dimensions simultaneously.</p>
+<p>For example, a material may be:</p>
+<p>Stored + Recovered + Secondary + Degraded</p>
+<p>A compute Resource may be:</p>
+<p>Installed + Reserved + Temporarily Unavailable</p>
+<p>A water Resource may be:</p>
+<p>Existing + Stored + Quality-Constrained</p>
+<p>RSDM therefore does not force every Resource into one mutually exclusive state label.</p>
+<p>Resource State may be multidimensional.</p>
+<h1 id="8-primary-state" data-oof-section-id="true" role="heading" aria-level="2">8. Primary State</h1>
+<p>Where useful, RSDM may identify a Primary Resource State representing the dominant state relevant to the governed question.</p>
+<p>The Primary State must not erase additional material state dimensions.</p>
+<p>Primary State ≠ Complete State Representation.</p>
+<h1 id="9-secondary-state-attributes" data-oof-section-id="true" role="heading" aria-level="2">9. Secondary State Attributes</h1>
+<p>Additional state attributes may preserve characteristics not captured by the Primary State.</p>
+<p>Examples:</p>
+<p>Stored Reserved Degraded Contaminated Embedded Recoverable Regenerating Conditionally usable</p>
+<p>This allows the governed system to represent complex Resource reality without creating artificial single-state categories.</p>
+<h1 id="10-existing-resource-state" data-oof-section-id="true" role="heading" aria-level="2">10. Existing Resource State</h1>
+<p>Existing Resource State establishes that the Resource exists within the governed boundary.</p>
+<p>Existence alone does not establish:</p>
+<p>Availability Accessibility Usability Allocability Entitlement Sustainability</p>
+<p>Resource Existence ≠ Resource Availability.</p>
+<p>This is one of the foundational distinctions of RSGA™.</p>
+<h1 id="11-stored-resource-state" data-oof-section-id="true" role="heading" aria-level="2">11. Stored Resource State</h1>
+<p>A Stored Resource is retained for future use, release, processing, allocation, recovery, or another governed purpose.</p>
+<p>Storage may concern:</p>
+<p>Physical material Energy Water Data storage capacity Fuel Recovered Resource Reserve inventory</p>
+<p>Stored status does not automatically establish immediate availability.</p>
+<h1 id="12-reserved-resource-state" data-oof-section-id="true" role="heading" aria-level="2">12. Reserved Resource State</h1>
+<p>A Reserved Resource has been designated, withheld, protected, or otherwise marked for a defined purpose or dependency.</p>
+<p>RSDM records the state.</p>
+<p>It does not determine whether the reservation is legitimate.</p>
+<p>It does not determine reservation authority.</p>
+<p>It does not determine allocation priority.</p>
+<p>Reserved Resource State ≠ Reservation Authority ≠ Allocation Decision.</p>
+<h1 id="13-allocated-resource-state" data-oof-section-id="true" role="heading" aria-level="2">13. Allocated Resource State</h1>
+<p>Where allocation has already occurred, RSDM may represent the Resource as Allocated.</p>
+<p>Allocation governance itself belongs downstream.</p>
+<p>RSDM records the resulting Resource State where required for characterization.</p>
+<p>Allocated Resource ≠ Consumed Resource.</p>
+<h1 id="14-in-use-resource-state" data-oof-section-id="true" role="heading" aria-level="2">14. In-Use Resource State</h1>
+<p>A Resource may be actively serving a function without having reached functional end-of-use.</p>
+<p>Examples:</p>
+<p>Material within operating equipment Water within an active process Compute capacity executing workloads Battery capacity supporting operation</p>
+<p>In-use state does not itself establish efficient utilization or justified consumption.</p>
+<h1 id="15-consumed-resource-state" data-oof-section-id="true" role="heading" aria-level="2">15. Consumed Resource State</h1>
+<p>A Resource may enter a Consumed State when the governed use materially transforms, expends, depletes, disperses, or otherwise uses the Resource.</p>
+<p>Consumption does not necessarily mean that all Resource value or recoverable material has disappeared.</p>
+<p>Consumed Resource ≠ Non-Recoverable Resource.</p>
+<h1 id="16-utilized-resource-state" data-oof-section-id="true" role="heading" aria-level="2">16. Utilized Resource State</h1>
+<p>Utilization concerns the productive or functional use of Resource capacity.</p>
+<p>RSDM may record utilization-related state where it materially describes the Resource.</p>
+<p>It does not determine utilization efficiency.</p>
+<p>Consumption ≠ Utilization.</p>
+<p>A Resource may be consumed inefficiently.</p>
+<p>Capacity may also exist without being utilized.</p>
+<h1 id="17-residual-resource-state" data-oof-section-id="true" role="heading" aria-level="2">17. Residual Resource State</h1>
+<p>A Residual Resource remains after a process, use, transformation, extraction, or functional lifecycle.</p>
+<p>Residual Resource may retain:</p>
+<p>Physical quantity Material content Energy potential Recovery potential Secondary-use potential</p>
+<p>Residual does not mean worthless.</p>
+<h1 id="18-embedded-resource-state" data-oof-section-id="true" role="heading" aria-level="2">18. Embedded Resource State</h1>
+<p>An Embedded Resource remains incorporated within another object, asset, product, infrastructure, or material system.</p>
+<p>Examples:</p>
+<p>Metals in electronics Materials in buildings Battery materials Recoverable components in machinery</p>
+<p>Embedded Resource remains a Resource where materially relevant Resource capacity persists.</p>
+<h1 id="19-recoverable-resource-state" data-oof-section-id="true" role="heading" aria-level="2">19. Recoverable Resource State</h1>
+<p>A Resource enters Recoverable State when sufficient Resource capacity remains and a plausible recovery pathway exists.</p>
+<p>Recoverable State does not establish that recovery will occur.</p>
+<p>Recoverable Resource ≠ Recovered Resource.</p>
+<h1 id="20-recovery-pending-state" data-oof-section-id="true" role="heading" aria-level="2">20. Recovery-Pending State</h1>
+<p>Where a Resource has been identified for recovery but recovery has not yet occurred, RSDM may represent a Recovery- Pending State.</p>
+<p>This prevents intended future recovery from being represented as completed recovery.</p>
+<p>Planned Recovery ≠ Actual Recovery.</p>
+<h1 id="21-recovered-resource-state" data-oof-section-id="true" role="heading" aria-level="2">21. Recovered Resource State</h1>
+<p>A Recovered Resource has completed a relevant recovery process and re-entered a governed Resource form.</p>
+<p>Recovery may occur through:</p>
+<p>Reuse Repair Repurposing Refurbishment Remanufacturing Recycling Regeneration</p>
+<p>Recovered status does not automatically establish usability for every future purpose.</p>
+<h1 id="22-secondary-resource-state" data-oof-section-id="true" role="heading" aria-level="2">22. Secondary Resource State</h1>
+<p>A Secondary Resource is a Resource derived from prior use, recovery, processing, recycling, regeneration, or another post-primary pathway and capable of entering a subsequent Resource lifecycle.</p>
+<p>Secondary Resource ≠ Inferior Resource by definition.</p>
+<p>Its quality, usability, and applicability must be determined independently.</p>
+<h1 id="23-regenerating-resource-state" data-oof-section-id="true" role="heading" aria-level="2">23. Regenerating Resource State</h1>
+<p>A regenerative Resource may occupy a Regenerating State where relevant replenishment is occurring.</p>
+<p>Regeneration does not establish that regeneration is sufficient relative to extraction or demand.</p>
+<p>Regenerating ≠ Sustainably Regenerating.</p>
+<p>The sustainability balance belongs downstream.</p>
+<h1 id="24-regenerated-resource-state" data-oof-section-id="true" role="heading" aria-level="2">24. Regenerated Resource State</h1>
+<p>Where a relevant regenerative process has restored Resource capacity, the Resource may enter a Regenerated State.</p>
+<p>The criteria for biological, ecological, physical, or technical regeneration may originate in specialized domains.</p>
+<p>RSDM governs the resulting Resource State representation.</p>
+<h1 id="25-degraded-resource-state" data-oof-section-id="true" role="heading" aria-level="2">25. Degraded Resource State</h1>
+<p>A Resource may remain physically present while its condition, quality, capability, performance, or recoverability has deteriorated.</p>
+<p>Examples may include:</p>
+<p>Material degradation Battery degradation Water quality degradation Storage degradation Infrastructure-capacity degradation</p>
+<p>Resource Quantity may remain stable while Resource State deteriorates.</p>
+<h1 id="26-contaminated-resource-state" data-oof-section-id="true" role="heading" aria-level="2">26. Contaminated Resource State</h1>
+<p>Where contamination materially affects Resource characteristics, the Resource may require a Contaminated State.</p>
+<p>Contamination may affect:</p>
+<p>Usability Recovery Processing Quality Safety Substitution</p>
+<p>Specialized domains determine the underlying contamination condition.</p>
+<p>RSDM governs its Resource State relevance.</p>
+<h1 id="27-damaged-resource-state" data-oof-section-id="true" role="heading" aria-level="2">27. Damaged Resource State</h1>
+<p>A Resource or capacity may remain identifiable while damage changes its usable condition.</p>
+<p>Damage must not automatically be interpreted as total Resource loss.</p>
+<p>The Resource may remain:</p>
+<p>Repairable Recoverable Partially usable Repurposable Non-usable</p>
+<p>depending upon governed evidence.</p>
+<h1 id="28-unavailable-resource-state" data-oof-section-id="true" role="heading" aria-level="2">28. Unavailable Resource State</h1>
+<p>A Resource may exist but currently be unavailable.</p>
+<p>This may arise from:</p>
+<p>Location Infrastructure constraint Technical condition Temporal condition Source interruption Storage restriction Operational condition</p>
+<p>RSDM may represent unavailable state where relevant.</p>
+<p>Actual Availability &amp; Capacity determination belongs to RACS.</p>
+<h1 id="29-temporarily-unavailable-state" data-oof-section-id="true" role="heading" aria-level="2">29. Temporarily Unavailable State</h1>
+<p>Temporary unavailability must remain distinguishable from permanent loss.</p>
+<p>The state should preserve, where relevant:</p>
+<p>Start Expected duration Condition for restoration Evidence basis Uncertainty</p>
+<p>Temporary Unavailability ≠ Resource Loss.</p>
+<h1 id="30-inaccessible-resource-state" data-oof-section-id="true" role="heading" aria-level="2">30. Inaccessible Resource State</h1>
+<p>A Resource may exist but be physically, technically, geographically, or operationally inaccessible.</p>
+<p>This must remain separate from governance authorization.</p>
+<p>Resource Accessibility ≠ Resource Access Authorization.</p>
+<p>RSDM may represent the Resource condition.</p>
+<p>RAGS governs legitimate access conditions.</p>
+<h1 id="31-dormant-resource-state" data-oof-section-id="true" role="heading" aria-level="2">31. Dormant Resource State</h1>
+<p>A Resource may exist in a Dormant State where it is not currently active, flowing, used, released, or operationally engaged but remains potentially relevant.</p>
+<p>Examples may include:</p>
+<p>Dormant infrastructure capacity Inactive reserve assets Stored backup Resource</p>
+<p>Dormancy does not establish availability.</p>
+<h1 id="32-standby-resource-state" data-oof-section-id="true" role="heading" aria-level="2">32. Standby Resource State</h1>
+<p>A Resource may be maintained in Standby State for activation under defined conditions.</p>
+<p>Standby differs from active Resource provision.</p>
+<p>Relevant activation conditions should remain visible where material.</p>
+<h1 id="33-buffer-resource-state" data-oof-section-id="true" role="heading" aria-level="2">33. Buffer Resource State</h1>
+<p>A Resource may function as a buffer against variability, disruption, scarcity, or peak demand.</p>
+<p>Examples:</p>
+<p>Energy storage Water storage Reserve inventory Compute reserve Network reserve</p>
+<p>Buffer status describes function/state.</p>
+<p>It does not determine allocation priority.</p>
+<h1 id="34-surplus-resource-state" data-oof-section-id="true" role="heading" aria-level="2">34. Surplus Resource State</h1>
+<p>A Resource may appear to exceed current demand within a defined boundary and time period.</p>
+<p>Surplus must not automatically imply:</p>
+<p>Long-term abundance Transferability Allocability Lack of future dependency Sustainability</p>
+<p>Current Surplus ≠ Permanent Excess Capacity.</p>
+<h1 id="35-deficit-associated-resource-state" data-oof-section-id="true" role="heading" aria-level="2">35. Deficit-Associated Resource State</h1>
+<p>A Resource may be represented within a system experiencing a deficit relative to a defined requirement.</p>
+<p>RSDM may preserve the Resource state context.</p>
+<p>It does not independently determine scarcity governance or allocation response.</p>
+<h1 id="36-transitional-resource-state" data-oof-section-id="true" role="heading" aria-level="2">36. Transitional Resource State</h1>
+<p>A Transitional Resource State exists when the Resource is moving between materially distinct states.</p>
+<p>Examples:</p>
+<p>Primary → In Use In Use → Residual Residual → Recoverable Recoverable → Recovered Recovered → Secondary</p>
+<p>The transition itself may be governance-relevant.</p>
+<h1 id="37-state-transition" data-oof-section-id="true" role="heading" aria-level="2">37. State Transition</h1>
+<p>A Resource State Transition is a governed change from one Resource State to another.</p>
+<p>A transition should preserve:</p>
+<p>Prior state Transition trigger Transition mechanism Transition time Resulting state Evidence Uncertainty</p>
+<p>where materially relevant.</p>
+<h1 id="38-state-transition-chain" data-oof-section-id="true" role="heading" aria-level="2">38. State Transition Chain</h1>
+<p>RSDM supports lifecycle representation through chains such as:</p>
+<p>Primary Resource → Allocated</p>
+<p>→ In Use → Residual → Recoverable → Recovery-Pending → Recovered → Secondary Resource → New Use</p>
+<p>Not every Resource follows the same chain.</p>
+<p>The chain must follow Resource reality.</p>
+<h1 id="39-non-linear-state-transition" data-oof-section-id="true" role="heading" aria-level="2">39. Non-Linear State Transition</h1>
+<p>Resource lifecycle transitions may branch, reverse, repeat, or bypass states.</p>
+<p>For example:</p>
+<p>Residual Resource → Reuse</p>
+<p>or:</p>
+<p>Residual Resource → Recovery → Secondary Resource</p>
+<p>or:</p>
+<p>Degraded Resource → Repair → In Use</p>
+<p>RSDM must not force inherently non-linear Resource reality into an artificial linear lifecycle.</p>
+<h1 id="40-reversible-state" data-oof-section-id="true" role="heading" aria-level="2">40. Reversible State</h1>
+<p>Some Resource State transitions may be reversible.</p>
+<p>Examples:</p>
+<p>Stored ↔ Released</p>
+<p>Standby ↔ Active</p>
+<p>Reserved ↔ Unreserved</p>
+<p>Reversibility must be supported by Resource reality.</p>
+<h1 id="41-irreversible-state-transition" data-oof-section-id="true" role="heading" aria-level="2">41. Irreversible State Transition</h1>
+<p>Some transitions may be practically irreversible within the governed horizon.</p>
+<p>Examples may include:</p>
+<p>Certain forms of depletion Material dispersion Permanent contamination Destructive consumption</p>
+<p>Irreversibility must not be assumed merely because recovery is difficult.</p>
+<h1 id="42-state-persistence" data-oof-section-id="true" role="heading" aria-level="2">42. State Persistence</h1>
+<p>A Resource State may be:</p>
+<p>Momentary Temporary Conditional Persistent Long-term Unknown duration</p>
+<p>State duration may materially affect downstream governance.</p>
+<h1 id="43-state-activation-condition" data-oof-section-id="true" role="heading" aria-level="2">43. State Activation Condition</h1>
+<p>Conditional Resource States may activate only under defined circumstances.</p>
+<p>Examples:</p>
+<p>Emergency reserve activation Seasonal Resource availability Backup capacity activation Recovery eligibility after end-of-use</p>
+<p>Activation conditions should remain represented where material.</p>
+<h1 id="44-state-deactivation-condition" data-oof-section-id="true" role="heading" aria-level="2">44. State Deactivation Condition</h1>
+<p>A state may cease when defined conditions occur.</p>
+<p>For example:</p>
+<p>Reserved → Unreserved</p>
+<p>Unavailable → Available</p>
+<p>Recovery-Pending → Recovered</p>
+<p>RSDM must support explicit state termination where necessary.</p>
+<h1 id="45-state-time-reference" data-oof-section-id="true" role="heading" aria-level="2">45. State Time Reference</h1>
+<p>Every materially time-sensitive Resource State must be associated with an appropriate time reference.</p>
+<p>Possible forms:</p>
+<p>Point-in-time Interval Operating period Season Planning horizon Lifecycle phase</p>
+<p>Resource State without temporal context may become misleading.</p>
+<h1 id="46-state-location-reference" data-oof-section-id="true" role="heading" aria-level="2">46. State Location Reference</h1>
+<p>Where Resource State varies spatially, the state must remain associated with the relevant location.</p>
+<p>A Resource may be available at one location and inaccessible at another.</p>
+<p>A Resource may be degraded in one region and unaffected elsewhere.</p>
+<p>Same Resource Type ≠ Same Resource State across locations.</p>
+<h1 id="47-state-granularity" data-oof-section-id="true" role="heading" aria-level="2">47. State Granularity</h1>
+<p>Resource State must be represented at sufficient granularity for the governed question.</p>
+<p>Overly broad states may conceal material differences.</p>
+<p>Excessive granularity may create unnecessary complexity.</p>
+<p>State granularity must follow governance relevance.</p>
+<h1 id="48-aggregate-resource-state" data-oof-section-id="true" role="heading" aria-level="2">48. Aggregate Resource State</h1>
+<p>An aggregate Resource System may contain components in different states.</p>
+<p>For example:</p>
+<p>40% active 20% reserved 15% unavailable 15% degraded 10% recovery-pending</p>
+<p>An aggregate label must not erase materially relevant internal state differences.</p>
+<h1 id="49-mixed-state" data-oof-section-id="true" role="heading" aria-level="2">49. Mixed State</h1>
+<p>Where a Resource System contains materially different simultaneous states, RSDM may represent a Mixed Resource State.</p>
+<p>The component states must remain recoverable from the representation.</p>
+<p>Mixed State ≠ Unknown State.</p>
+<h1 id="50-unknown-resource-state" data-oof-section-id="true" role="heading" aria-level="2">50. Unknown Resource State</h1>
+<p>Where the Resource exists but its relevant state cannot be sufficiently established, RSDM must permit:</p>
+<p>Unknown Resource State</p>
+<p>Unknown must not be silently replaced by the most convenient assumed state.</p>
+<h1 id="51-uncertain-resource-state" data-oof-section-id="true" role="heading" aria-level="2">51. Uncertain Resource State</h1>
+<p>An Uncertain Resource State applies where evidence supports multiple plausible states or insufficient confidence exists for a definitive determination.</p>
+<p>State Uncertainty ≠ State Absence.</p>
+<h1 id="52-conflicted-resource-state" data-oof-section-id="true" role="heading" aria-level="2">52. Conflicted Resource State</h1>
+<p>A Conflicted Resource State exists where materially credible evidence supports incompatible state determinations.</p>
+<p>Conflict must remain visible until resolved or legitimately bounded.</p>
+<h1 id="53-conditional-resource-state" data-oof-section-id="true" role="heading" aria-level="2">53. Conditional Resource State</h1>
+<p>A Conditional Resource State is valid only if defined conditions hold.</p>
+<p>The condition must remain linked to the state.</p>
+<p>A conditional state must not be presented as unconditional fact.</p>
+<h1 id="54-predicted-resource-state" data-oof-section-id="true" role="heading" aria-level="2">54. Predicted Resource State</h1>
+<p>A future Resource State may be predicted.</p>
+<p>Predicted state must remain distinguishable from observed current state.</p>
+<p>Predicted Resource State ≠ Current Governed Resource State.</p>
+<p>PGA™ governs Prediction methodology where applicable.</p>
+<h1 id="55-scenario-resource-state" data-oof-section-id="true" role="heading" aria-level="2">55. Scenario Resource State</h1>
+<p>A Resource State may be represented under a defined scenario.</p>
+<p>Scenario states may support planning or simulation.</p>
+<p>They must remain explicitly identified as scenario-dependent.</p>
+<p>Scenario State ≠ Observed State.</p>
+<h1 id="56-simulated-resource-state" data-oof-section-id="true" role="heading" aria-level="2">56. Simulated Resource State</h1>
+<p>Simulation may produce possible Resource States.</p>
+<p>SIMULOS® or other competent simulation governance may establish simulation methodology.</p>
+<p>RSDM may consume the resulting governed state representation.</p>
+<p>Simulated State ≠ Observed Resource State.</p>
+<h1 id="57-observed-resource-state" data-oof-section-id="true" role="heading" aria-level="2">57. Observed Resource State</h1>
+<p>An Observed Resource State is supported by direct or sufficiently proximate evidence of the Resource condition.</p>
+<p>Observation quality may vary.</p>
+<p>Observed does not automatically mean fully validated.</p>
+<h1 id="58-inferred-resource-state" data-oof-section-id="true" role="heading" aria-level="2">58. Inferred Resource State</h1>
+<p>An Inferred Resource State is derived from evidence rather than directly observed.</p>
+<p>The inference basis must remain traceable where material.</p>
+<p>Inference ≠ Direct Observation.</p>
+<h1 id="59-declared-resource-state" data-oof-section-id="true" role="heading" aria-level="2">59. Declared Resource State</h1>
+<p>A Resource State may be declared by an operator, supplier, institution, or other source.</p>
+<p>Declaration alone does not establish independent validity.</p>
+<p>Declared State ≠ Verified State.</p>
+<h1 id="60-state-evidence" data-oof-section-id="true" role="heading" aria-level="2">60. State Evidence</h1>
+<p>Resource State determination must be supported by evidence proportionate to governance significance.</p>
+<p>Evidence may include:</p>
+<p>Measurement Sensor data Inventory records Technical records Operational records Inspection Scientific determination Recovery records Specialized domain output Governed inference</p>
+<p>RSDM defines the Resource State evidence requirement.</p>
+<p>It does not replace general Audit and Evidence Governance.</p>
+<h1 id="61-state-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">61. State Evidence Freshness</h1>
+<p>Resource State evidence may become stale.</p>
+<p>Freshness requirements depend upon:</p>
+<p>Resource volatility State-change frequency Governance significance Decision horizon Constraint sensitivity</p>
+<p>A historical state must not automatically be treated as current.</p>
+<p>Previously Valid State ≠ Current State.</p>
+<h1 id="62-state-provenance" data-oof-section-id="true" role="heading" aria-level="2">62. State Provenance</h1>
+<p>A governed Resource State should remain traceable to:</p>
+<p>Resource identity Boundary version State evidence Determination method Determination time Relevant location State version Known assumptions Known uncertainty</p>
+<p>This permits later reassessment and audit.</p>
+<h1 id="63-state-confidence" data-oof-section-id="true" role="heading" aria-level="2">63. State Confidence</h1>
+<p>Where appropriate, RSDM may represent confidence in a Resource State.</p>
+<p>Confidence must derive from defined evidence conditions rather than arbitrary numerical scoring.</p>
+<p>Possible conditions may include:</p>
+<p>Established Conditionally Established Evidence-Limited Conflicted Unresolved</p>
+<h1 id="64-state-assumption" data-oof-section-id="true" role="heading" aria-level="2">64. State Assumption</h1>
+<p>Where state representation depends upon an assumption, the assumption must remain visible if material.</p>
+<p>State Assumption ≠ State Evidence.</p>
+<p>An assumption must not silently become a governed fact through repeated reuse.</p>
+<h1 id="65-state-uncertainty-propagation" data-oof-section-id="true" role="heading" aria-level="2">65. State Uncertainty Propagation</h1>
+<p>Material uncertainty in Resource State must propagate into dependent downstream determinations until resolved or legitimately bounded.</p>
+<p>Uncertainty does not disappear because governance proceeds.</p>
+<p>Downstream systems must be able to identify that their inputs contain unresolved Resource State uncertainty.</p>
+<h1 id="66-state-materiality" data-oof-section-id="true" role="heading" aria-level="2">66. State Materiality</h1>
+<p>Not every Resource State difference requires governance treatment.</p>
+<p>A state difference is material when it could reasonably affect:</p>
+<p>Availability Capacity Demand interpretation Dependency Criticality Access Allocation Consumption Scarcity Recovery Substitution Resilience Continuity Sustainability</p>
+<p>RSDM should preserve material differences and avoid unnecessary state complexity.</p>
+<h1 id="67-resource-state-vs-availability-state" data-oof-section-id="true" role="heading" aria-level="2">67. Resource State vs Availability State</h1>
+<p>Resource State and Availability State must remain separate.</p>
+<p>A Resource may be:</p>
+<p>Stored but unavailable</p>
+<p>Recovered but not yet usable</p>
+<p>Existing but inaccessible</p>
+<p>Reserved and therefore unavailable for general allocation</p>
+<p>RSDM describes the Resource State.</p>
+<p>RACS determines Availability &amp; Capacity.</p>
+<p>Resource State ≠ Availability State.</p>
+<h1 id="68-resource-state-vs-accessibility" data-oof-section-id="true" role="heading" aria-level="2">68. Resource State vs Accessibility</h1>
+<p>A Resource may physically exist in a state that prevents practical access.</p>
+<p>RSDM may record the relevant Resource condition.</p>
+<p>RACS determines practical/technical accessibility.</p>
+<p>RAGS governs legitimate access authorization.</p>
+<p>Resource State ≠ Resource Accessibility ≠ Resource Access Authorization.</p>
+<h1 id="69-resource-state-vs-allocation" data-oof-section-id="true" role="heading" aria-level="2">69. Resource State vs Allocation</h1>
+<p>Allocated status may be represented after an allocation decision.</p>
+<p>RSDM does not decide allocation.</p>
+<p>State Representation ≠ Allocation Authority.</p>
+<p>RPAS governs prioritization and allocation.</p>
+<h1 id="70-resource-state-vs-consumption" data-oof-section-id="true" role="heading" aria-level="2">70. Resource State vs Consumption</h1>
+<p>A Resource may be allocated without being consumed.</p>
+<p>It may be consumed while leaving residual Resource.</p>
+<p>It may be utilized without being materially depleted.</p>
+<p>Allocation ≠ Consumption ≠ Utilization ≠ Resource Loss.</p>
+<h1 id="71-resource-state-vs-scarcity" data-oof-section-id="true" role="heading" aria-level="2">71. Resource State vs Scarcity</h1>
+<p>A Resource State may contribute to scarcity determination.</p>
+<p>It does not itself establish scarcity.</p>
+<p>For example, a large quantity of Resource may exist in an inaccessible state.</p>
+<p>Conversely, a small Resource stock may be sufficient relative to demand.</p>
+<p>Resource State ≠ Scarcity State.</p>
+<h1 id="72-resource-state-vs-sustainability" data-oof-section-id="true" role="heading" aria-level="2">72. Resource State vs Sustainability</h1>
+<p>A Resource may currently be in a healthy or abundant state while its long-term sustainability is deteriorating.</p>
+<p>Likewise, a currently constrained Resource may be sustainable under appropriate recovery or regeneration conditions.</p>
+<p>Current Resource State ≠ Sustainability State.</p>
+<h1 id="73-resource-state-vs-operational-state" data-oof-section-id="true" role="heading" aria-level="2">73. Resource State vs Operational State</h1>
+<p>RSDM governs Resource State.</p>
+<p>ORA™ governs general Operational Reality and Operational State.</p>
+<p>A system may be operational while a supporting Resource is degraded.</p>
+<p>A Resource may be available while the consuming system is non-operational.</p>
+<p>Resource State ≠ Operational State.</p>
+<h1 id="74-resource-state-vs-value-state" data-oof-section-id="true" role="heading" aria-level="2">74. Resource State vs Value State</h1>
+<p>Resource State does not determine Value.</p>
+<p>A Resource may be scarce yet low-value for a particular purpose.</p>
+<p>A recovered Resource may create substantial Value.</p>
+<p>A Resource may have high economic value while being unsustainable.</p>
+<p>Resource State ≠ Value State.</p>
+<p>VFM® and VEGA™ retain their respective Value governance domains.</p>
+<h1 id="75-resource-state-vs-ownership" data-oof-section-id="true" role="heading" aria-level="2">75. Resource State vs Ownership</h1>
+<p>A change in ownership does not necessarily change Resource State.</p>
+<p>Likewise, a Resource State transition does not necessarily change ownership.</p>
+<p>Resource State ≠ Ownership State.</p>
+<h1 id="76-resource-state-vs-authority" data-oof-section-id="true" role="heading" aria-level="2">76. Resource State vs Authority</h1>
+<p>Resource State describes the Resource.</p>
+<p>It does not establish authority to govern, access, reserve, allocate, consume, transfer, or recover it.</p>
+<p>Resource State ≠ Governance Authority.</p>
+<h1 id="77-state-transition-evidence" data-oof-section-id="true" role="heading" aria-level="2">77. State Transition Evidence</h1>
+<p>A material state transition should be supported by evidence sufficient to establish:</p>
+<p>Prior state Transition event or mechanism Resulting state</p>
+<p>Transition time Affected Resource quantity or capacity where relevant</p>
+<p>A claimed transition without sufficient evidence must remain qualified.</p>
+<h1 id="78-partial-state-transition" data-oof-section-id="true" role="heading" aria-level="2">78. Partial State Transition</h1>
+<p>Only part of a Resource may transition.</p>
+<p>Example:</p>
+<p>A material stock may become:</p>
+<p>60% In Use 20% Residual 10% Recovered 10% Lost / Unresolved</p>
+<p>RSDM must permit partial state transitions without forcing the entire Resource into one state.</p>
+<h1 id="79-state-quantity-association" data-oof-section-id="true" role="heading" aria-level="2">79. State Quantity Association</h1>
+<p>Where meaningful, Resource State should remain associated with the quantity or capacity occupying that state.</p>
+<p>This enables downstream governance to distinguish total Resource from Resource distributed across states.</p>
+<p>RSDM does not determine whether that quantity is allocable.</p>
+<h1 id="80-state-conservation-logic" data-oof-section-id="true" role="heading" aria-level="2">80. State Conservation Logic</h1>
+<p>Where the Resource permits meaningful conservation accounting, state transitions should avoid unexplained disappearance or duplication of Resource.</p>
+<p>Canonical logic:</p>
+<p>Prior Resource Quantity → State Transition → Resulting State Quantities → Accounted Difference / Loss / Transformation / Uncertainty</p>
+<p>This principle applies only where scientifically and operationally appropriate.</p>
+<h1 id="81-state-loss" data-oof-section-id="true" role="heading" aria-level="2">81. State Loss</h1>
+<p>A Resource may leave the governed lifecycle through:</p>
+<p>Irrecoverable consumption Dispersion Destruction Permanent contamination Export outside the governed boundary Other evidenced loss</p>
+<p>Loss must remain distinguishable from mere state uncertainty.</p>
+<p>Unobserved Resource ≠ Proven Resource Loss.</p>
+<h1 id="82-boundary-crossing-state" data-oof-section-id="true" role="heading" aria-level="2">82. Boundary Crossing State</h1>
+<p>A Resource may cross the established Resource boundary.</p>
+<p>Its state should distinguish, where material:</p>
+<p>Transferred Imported Exported Transferred to recovery Transferred to another Resource System</p>
+<p>Boundary crossing does not necessarily mean Resource destruction.</p>
+<h1 id="83-state-re-entry" data-oof-section-id="true" role="heading" aria-level="2">83. State Re-entry</h1>
+<p>A Resource may leave one governed lifecycle and later re-enter.</p>
+<p>Example:</p>
+<p>End-of-Use → External Recovery → Recovered Resource → Secondary Resource → Re-entry</p>
+<p>RSDM must permit traceable re-entry where materially relevant.</p>
+<h1 id="84-state-history" data-oof-section-id="true" role="heading" aria-level="2">84. State History</h1>
+<p>Where Resource State materially changes over time, RSDM should preserve State History.</p>
+<p>State History may contain:</p>
+<p>State Effective time End time Transition Evidence Version</p>
+<p>This supports trend analysis without treating historical state as current.</p>
+<h1 id="85-state-versioning" data-oof-section-id="true" role="heading" aria-level="2">85. State Versioning</h1>
+<p>Material changes in Resource State representation require distinguishable versions where necessary for traceability.</p>
+<p>A revised state should preserve:</p>
+<p>Prior state Revised state Reason Effective time Evidence change Affected downstream determinations</p>
+<h1 id="86-state-reassessment-trigger" data-oof-section-id="true" role="heading" aria-level="2">86. State Reassessment Trigger</h1>
+<p>RSDM requires reassessment when evidence indicates that the existing Resource State may no longer represent current Resource reality.</p>
+<p>Triggers may include:</p>
+<p>Consumption Release Reservation change Recovery Regeneration Degradation Contamination Repair Processing Transfer Infrastructure change Location change New evidence Boundary revision Resource Type revision</p>
+<h1 id="87-reassessment-logic" data-oof-section-id="true" role="heading" aria-level="2">87. Reassessment Logic</h1>
+<p>Canonical logic:</p>
+<p>Existing Resource State → New Evidence / Material Change → State Impact Test → State Retained or Revised → State Version Update → Downstream Reassessment Trigger where material</p>
+<p>A state change must not automatically invalidate every downstream determination.</p>
+<p>Only materially dependent determinations require reassessment.</p>
+<h1 id="88-state-comparability" data-oof-section-id="true" role="heading" aria-level="2">88. State Comparability</h1>
+<p>Two Resource observations must not be treated as directly comparable where their relevant Resource States differ materially without accounting for that difference.</p>
+<p>Same Resource Quantity ≠ Same Resource State.</p>
+<p>Comparability may require alignment of:</p>
+<p>Boundary Time Location State definition Measurement basis Relevant condition</p>
+<h1 id="89-state-equivalence" data-oof-section-id="true" role="heading" aria-level="2">89. State Equivalence</h1>
+<p>Two differently named states may be equivalent only if their underlying governed meaning is materially equivalent.</p>
+<p>Likewise, identical state labels from different systems may not be equivalent.</p>
+<p>Same State Label ≠ Same Governed State Meaning.</p>
+<p>Canonical definitions must therefore take precedence over informal naming.</p>
+<h1 id="90-state-normalization-boundary" data-oof-section-id="true" role="heading" aria-level="2">90. State Normalization Boundary</h1>
+<p>Normalization must not erase Resource State.</p>
+<p>A normalized Resource significance measure may use Resource State as an input.</p>
+<p>It must not replace the native state representation.</p>
+<p>Normalization ≠ State Substitution.</p>
+<h1 id="91-resource-state-profile" data-oof-section-id="true" role="heading" aria-level="2">91. Resource State Profile</h1>
+<p>The principal RSDM output is the:</p>
+<p>Resource State Profile</p>
+<p>The Profile may contain:</p>
+<p>Resource ID Boundary reference Primary State Secondary State Attributes State quantity or capacity where relevant Location Time Previous State Transition Evidence Evidence freshness State uncertainty State assumptions State confidence condition State version Reassessment triggers</p>
+<h1 id="92-state-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">92. State Sufficiency</h1>
+<p>A Resource State Profile is sufficient when materially relevant state information is established well enough for downstream Resource governance.</p>
+<p>Possible states:</p>
+<p>State Sufficient State Conditionally Sufficient State Partially Sufficient State Evidence-Limited State Conflicted State Insufficient State Unresolved</p>
+<p>State sufficiency requires governance-relevant completeness, not perfect knowledge.</p>
+<h1 id="93-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">93. Failure Conditions</h1>
+<p>RSDM should not be treated as sufficiently completed where:</p>
+<p>Resource State is materially undefined Existence is represented as availability Stored Resource is automatically treated as available Reserved Resource is automatically treated as allocable Consumed Resource is automatically treated as destroyed Embedded Resource is ignored where materially recoverable Recoverable Resource is represented as recovered</p>
+<p>Planned recovery is represented as completed recovery Regeneration is represented as sustainability Predicted state is represented as observed state Declared state is represented as verified state Material state uncertainty is hidden Historical state is represented as current Material mixed states are collapsed into one misleading aggregate state State transition lacks sufficient traceability Resource State is confused with Operational State or Value State</p>
+<p>Such conditions require correction, qualification, or escalation.</p>
+<h1 id="94-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">94. Governance Requirements</h1>
+<p>A conforming RSDM implementation must:</p>
+<h1 id="1-identify-the-governed-resource-and-applicable-boundary-2-define-materially-rel" data-oof-section-id="true" role="heading" aria-level="2">1. identify the Governed Resource and applicable boundary; 2. define materially relevant Resource States; 3. support multidimensional state representation; 4. distinguish existence from availability; 5. distinguish stored, reserved, allocated, consumed, and utilized states where relevant; 6. preserve residual and embedded Resource where materially relevant; 7. distinguish recoverable from recovered Resource; 8. distinguish recovered from Secondary Resource where relevant; 9. preserve regenerative and regeneration-related states; 10. preserve degraded, damaged, contaminated, or otherwise condition-relevant states where material; 11. support temporary, conditional, transitional, mixed, unknown, and conflicted states; 12. distinguish observed, inferred, declared, predicted, scenario, and simulated states; 13. preserve state time and location where material; 14. preserve evidence and evidence freshness; 15. preserve assumptions separately from evidence; 16. preserve material state uncertainty; 17. support partial state transitions; 18. preserve state transition history where material; 19. support state versioning; 20. support reassessment after material change; 21. identify downstream reassessment triggers; 22. prevent Resource State from being substituted for Availability, Access, Allocation, Scarcity, Operational State, Value, or Sustainability; 23. produce a governed Resource State Profile; 24. produce an explicit State Sufficiency condition.</h1>
+<h1 id="95-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">95. Governance Logic</h1>
+<p>Canonical RSDM logic:</p>
+<p>Governed Resource → Boundary Reference → Resource Type &amp; Constraint Profile → State Evidence → State Identification → State Dimensions → Primary State → Secondary State Attributes → Time &amp; Location → Transition Context → Evidence &amp; Provenance → Uncertainty → State Sufficiency → Resource State Profile</p>
+<p>Transition path:</p>
+<p>Prior State → Transition Trigger → Transition Mechanism → Resulting State → Evidence → State Version</p>
+<p>Uncertainty path:</p>
+<p>Unresolved State → Missing Evidence → Minimum Evidence Requirement → Additional Evidence → Reassessment</p>
+<h1 id="96-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">96. Governance Outputs</h1>
+<p>RSDM may produce:</p>
+<p>Resource State Profile Primary Resource State Secondary State Attributes State Quantity Association State Location State Time Reference State Transition Record Previous State Reference State History State Version State Evidence Reference Evidence Freshness State State Assumption Record State Uncertainty State State Sufficiency State State Conflict Record Reassessment Trigger Downstream Reassessment Trigger</p>
+<h1 id="97-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">97. Minimum Implementation Framework</h1>
+<p>A minimum operational implementation of RSDM must contain at least seven governed layers.</p>
+<p>Layer 1 — Resource Reference</p>
+<p>Receive:</p>
+<p>Resource ID Resource boundary reference Resource Type &amp; Constraint Profile Relevant location Relevant time horizon</p>
+<p>Layer 2 — State Identification</p>
+<p>Determine:</p>
+<p>Primary State Secondary State Attributes State quantity or capacity where relevant</p>
+<p>The implementation must permit multiple simultaneous compatible state attributes.</p>
+<p>Layer 3 — State Basis</p>
+<p>Classify the determination as:</p>
+<p>Observed Inferred Declared Predicted Scenario-Based Simulated</p>
+<p>These categories must not be silently merged.</p>
+<p>Layer 4 — Temporal &amp; Spatial Context</p>
+<p>Record where relevant:</p>
+<p>Effective time Expected duration Location Activation condition Deactivation condition</p>
+<p>Layer 5 — Transition Representation</p>
+<p>Where a transition occurred, record:</p>
+<p>Prior State Transition trigger Transition mechanism Resulting State Affected Resource quantity/capacity Transition time</p>
+<p>Layer 6 — Evidence &amp; Uncertainty</p>
+<p>Record:</p>
+<p>Evidence reference Evidence freshness Assumptions Uncertainty Conflict State sufficiency</p>
+<p>Layer 7 — Governed Output &amp; Reassessment</p>
+<p>Produce:</p>
+<p>Resource State Profile State version Known limitations State reassessment triggers Downstream reassessment triggers</p>
+<p>Minimum machine-readable logic:</p>
+<p>Resource → Boundary → Type &amp; Constraint Profile → State[] → State Basis → Time / Location → Transition[] → Evidence[]</p>
+<p>→ Uncertainty[] → Sufficiency State → Resource State Profile</p>
+<p>A compliant implementation may extend this structure.</p>
+<p>It must not remove the canonical distinctions required by RSDM.</p>
+<h1 id="98-minimum-state-model" data-oof-section-id="true" role="heading" aria-level="2">98. Minimum State Model</h1>
+<p>At minimum, implementations must be capable of representing where applicable:</p>
+<p>Existing Stored Reserved Allocated In Use Consumed Residual Embedded Recoverable Recovery-Pending Recovered Secondary Regenerating Regenerated Degraded Unavailable Transitional Unknown</p>
+<p>Not every Resource must pass through every state.</p>
+<p>Additional Resource-specific states may be added where justified.</p>
+<h1 id="99-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">99. Minimum Decision States</h1>
+<p>At minimum, an implementation must distinguish:</p>
+<p>State Established</p>
+<p>State Conditionally Established</p>
+<p>State Evidence-Limited</p>
+<p>State Conflicted</p>
+<p>State Unresolved</p>
+<p>State Profile Sufficient</p>
+<p>State Profile Conditionally Sufficient</p>
+<p>State Profile Insufficient</p>
+<p>These conditions prevent uncertain Resource reality from being converted into artificial certainty.</p>
+<h1 id="100-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">100. Minimum Evidence Path</h1>
+<p>Where a materially relevant Resource State cannot be established:</p>
+<p>Unresolved Resource State → Governance-Relevant Missing Evidence → Minimum Evidence Requirement → Evidence Acquisition → State Reassessment → Updated Resource State Profile</p>
+<p>Evidence collection should target the unresolved governance question rather than maximize data collection indiscriminately.</p>
+<h1 id="101-minimum-transition-framework" data-oof-section-id="true" role="heading" aria-level="2">101. Minimum Transition Framework</h1>
+<p>A minimum state-transition implementation must support:</p>
+<p>Current State → Trigger → Transition → Resulting State → Effective Time → Evidence → Version Update</p>
+<p>Where only part of a Resource transitions:</p>
+<p>Resource Quantity / Capacity → Transitioned Portion → Remaining Portion → Resulting State Distribution</p>
+<p>This prevents partial transitions from being represented as whole-Resource transitions.</p>
+<h1 id="102-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">102. Minimum Reassessment Framework</h1>
+<p>At minimum, RSDM must support reassessment following:</p>
+<p>Consumption Utilization change Reservation change Release Recovery Regeneration Degradation Contamination Damage Repair Processing Transfer Boundary crossing Location change Resource Type change Boundary revision New evidence Evidence expiry</p>
+<p>The system must determine whether the change affects only Resource Characterization or requires downstream RSGA™ reassessment.</p>
+<h1 id="103-use-case-1-critical-material-in-retired-ai-hardware" data-oof-section-id="true" role="heading" aria-level="2">103. Use Case 1 — Critical Material in Retired AI Hardware</h1>
+<p>A data-center operator retires a fleet of AI accelerators.</p>
+<p>A simplistic inventory model may classify the hardware as disposed assets and remove the associated materials from Resource governance.</p>
+<p>RSDM preserves the Resource lifecycle.</p>
+<p>Relevant Resource States may become:</p>
+<p>In Use → End of Functional Use → Embedded Resource → Recoverable Resource → Recovery-Pending → Recovered Resource → Secondary Resource</p>
+<p>The hardware's original operational function has ended.</p>
+<p>The underlying critical materials may still exist.</p>
+<p>RSDM therefore prevents:</p>
+<p>Equipment Retirement → Analytical Resource Disappearance</p>
+<p>The Module does not determine whether recovery is economically justified or technically optimal.</p>
+<p>It establishes the Resource State necessary for Resource Recovery &amp; Circularity governance to make later determinations.</p>
+<p>The end of a machine is not automatically the end of the Resources inside it.</p>
+<h1 id="104-use-case-2-reserved-electricity-storage" data-oof-section-id="true" role="heading" aria-level="2">104. Use Case 2 — Reserved Electricity Storage</h1>
+<p>An infrastructure operator maintains battery storage for emergency continuity.</p>
+<p>The physical energy exists within storage.</p>
+<p>Part of the stored capacity is reserved for emergency operation.</p>
+<p>Another portion may be available for normal system balancing.</p>
+<p>RSDM can represent:</p>
+<p>Stored Resource</p>
+<p>with simultaneous state attributes such as:</p>
+<p>Reserved Standby Operationally Ready</p>
+<p>The Module does not conclude that all stored energy is generally available.</p>
+<p>It does not determine whether the reservation is legitimate.</p>
+<p>It does not decide who receives the capacity.</p>
+<p>Those questions belong downstream.</p>
+<p>RSDM ensures that later governance does not incorrectly interpret:</p>
+<p>Stored Quantity = Generally Allocable Quantity</p>
+<p>Resource existence and storage state must remain distinct from availability and allocation authority.</p>
+<h1 id="105-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">105. Critical Distinctions</h1>
+<p>Resource Identity ≠ Resource State</p>
+<p>Resource State ≠ Availability State</p>
+<p>Resource State ≠ Accessibility</p>
+<p>Resource Accessibility ≠ Resource Access Authorization</p>
+<p>Existing ≠ Available</p>
+<p>Stored ≠ Available</p>
+<p>Reserved ≠ Generally Allocable</p>
+<p>Reserved Resource State ≠ Reservation Authority</p>
+<p>Allocated ≠ Consumed</p>
+<p>Consumption ≠ Utilization</p>
+<p>Consumed ≠ Destroyed</p>
+<p>Residual ≠ Waste by definition</p>
+<p>Embedded ≠ Lost</p>
+<p>Recoverable ≠ Recovered</p>
+<p>Recovery-Pending ≠ Recovered</p>
+<p>Recovered ≠ Automatically Usable</p>
+<p>Recovered ≠ Secondary by definition</p>
+<p>Regenerating ≠ Sustainably Regenerating</p>
+<p>Degraded ≠ Absent</p>
+<p>Unavailable ≠ Lost</p>
+<p>Temporary Unavailability ≠ Permanent Loss</p>
+<p>Mixed State ≠ Unknown State</p>
+<p>Predicted State ≠ Current State</p>
+<p>Scenario State ≠ Observed State</p>
+<p>Simulated State ≠ Observed State</p>
+<p>Declared State ≠ Verified State</p>
+<p>Inference ≠ Observation</p>
+<p>Historical State ≠ Current State</p>
+<p>State Assumption ≠ State Evidence</p>
+<p>State Uncertainty ≠ State Absence</p>
+<p>Resource State ≠ Scarcity State</p>
+<p>Resource State ≠ Operational State</p>
+<p>Resource State ≠ Value State</p>
+<p>Resource State ≠ Sustainability State</p>
+<p>Resource State ≠ Governance Authority</p>
+<h1 id="106-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">106. Cross-Architecture Boundary</h1>
+<p>RSDM may consume evidence or determinations from other competent domains.</p>
+<p>ORA™ governs general Operational Reality.</p>
+<p>PGA™ governs Prediction where future Resource States are predicted.</p>
+<p>SIMULOS® governs simulation where Resource States are produced through governed simulation.</p>
+<p>ADIT® governs Audit and Evidence Governance.</p>
+<p>VALIDOS™ governs general Validation Governance.</p>
+<p>GOA™ governs Governance Authority.</p>
+<p>VFM® governs Value Flow mechanisms within its domain.</p>
+<p>VEGA™ governs justified intelligence Resource consumption relative to validated Value.</p>
+<p>Specialized Resource architectures govern Resource-specific operational mechanisms.</p>
+<p>RSDM governs only the Resource State representation required for Resource Sustainability governance.</p>
+<h1 id="107-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">107. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain-specific relevance or consequences.</p>
+<p>A battery-management system may determine technical battery condition.</p>
+<p>A hydrological system may determine water condition.</p>
+<p>A biological model may determine stock condition.</p>
+<p>A materials process may establish recovered material condition.</p>
+<p>RSDM may consume those governed outputs to establish Resource State.</p>
+<p>It does not absorb the originating mechanism.</p>
+<h1 id="108-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">108. Canonical Boundary</h1>
+<p>RSDM governs how the materially relevant state of a Resource or Resource System is identified, represented, evidenced, transitioned, versioned, and reassessed. It does not determine downstream availability, access authorization, allocation, scarcity response, Value, general Operational State, or long-term sustainability.</p>
+<p>The Module ends when the Resource State Profile is sufficiently established for remaining Resource Characterization and downstream RSGA™ governance.</p>
+<h1 id="109-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">109. Canonical Closing Statement</h1>
+<p>A Resource does not disappear merely because its function changes, nor does its existence establish that it is available for use.</p>
+<p>RSDM preserves the state of the Resource across its lifecycle so that downstream governance acts on what the Resource is now — not what it used to be, is assumed to be, or may become.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

@@ -53,10 +53,10 @@
   "createdAt": "2016-03-01T00:00:00Z",
   "updatedAt": "2016-03-01T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-917492-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-917492-V7",
     "incidentId": "OOF-AII-917492",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -149,7 +149,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -173,6 +174,15 @@
         "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Is Pokémon Go racist? How the app may be redlining communities of color",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Through a crowdsourcing social media campaign in 2016, several journalists and researchers demonstrated that augmented reality locations in the popular smartphone game Pokemon Go were more likely to be in white neighborhoods. (2016-03-01, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/73",
+      "eventDate": "2016-03-01",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -242,7 +252,41 @@
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how communication, information, demonstrated moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Niantic Labs. The next governance test is: How should communication, information, demonstrated be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing communication, information, demonstrated were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for communication, information, demonstrated, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains communication, information, demonstrated under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "pga",
+      "mechanisms": [
+        "communication",
+        "information",
+        "demonstrated"
+      ],
+      "patternKey": "1dbc89a922cb2d1b"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:73"
@@ -260,7 +304,7 @@
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how communication, information, demonstrated moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Niantic Labs. The next governance test is: How should communication, information, demonstrated be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -310,8 +354,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-917492-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-917492-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

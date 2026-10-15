@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Consumption Compliance Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Consumption Compliance Module | OOF®. RCCM — Resource Consumption Compliance Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Consumption Compliance Module | OOF®" />
+<meta property="og:description" content="Resource Consumption Compliance Module | OOF®. RCCM — Resource Consumption Compliance Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Consumption Compliance Module | OOF®" />
+<meta name="twitter:description" content="Resource Consumption Compliance Module | OOF®. RCCM — Resource Consumption Compliance Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Consumption Compliance Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html","name":"Resource Consumption Compliance Module | OOF®","description":"Resource Consumption Compliance Module | OOF®. RCCM — Resource Consumption Compliance Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Consumption Compliance Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html"}]},"headline":"Resource Consumption Compliance Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rccm-5.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Consumption & Utilization Standard (RCUS)","Governance & Enforcement","Resource Governance","Resource Consumption Compliance Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Consumption Compliance Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Consumption Compliance Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RCCM — Resource Consumption Compliance Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Consumption &amp; Utilization Standard (RCUS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Consumption Compliance Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RCUS-RCCM-05</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RCUS-RCCM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 7 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RCCM — Resource Consumption Compliance Module governs how actual Resource Consumption and Resource Utilization are compared with the applicable governed Resource Allocation, Allocation limits, purpose, Resource Source, location, time, rate, capacity, participant, system, and other Resource-use conditions in order to determine whether actual Resource use remained within, diverged from, exceeded, underused, or could not be sufficiently evaluated against the conditions under which Resource use was allocated or otherwise governed.</p>
+<p>RCCM establishes the governed comparison between:</p>
+<p>what Resource use was allocated or conditioned</p>
+<p>and</p>
+<p>what Resource use actually occurred.</p>
+<p>Its foundational distinctions are:</p>
+<p>Resource Allocation ≠ Resource Consumption.</p>
+<p>Resource Allocation ≠ Resource Utilization.</p>
+<p>Resource-Use Variance ≠ Governance Violation by definition.</p>
+<p>Compliance Determination ≠ Authority to Modify Resource Allocation.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RCMM establishes what Resource was actually consumed.</p>
+<p>RUSM establishes how Resource capacity was actually utilized.</p>
+<p>RCBM establishes the applicable Resource Consumption Boundary.</p>
+<p>RUCM establishes who or what used the Resource, for what function and purpose, from which Source, where, when, and under which operational conditions.</p>
+<p>RCCM brings these evidence layers together and compares operational reality with the applicable Resource Allocation and Resource-use conditions.</p>
+<p>Its role is to determine whether actual Resource use was:</p>
+<p>within governed conditions; below an applicable Allocation; at an applicable limit; above an applicable Allocation or limit; used at a different rate; used from a different Source; used at a different location; used during a different time interval; used for a different purpose; used by a different participant or system; underutilized relative to Allocation; otherwise materially divergent; or impossible to determine because evidence is insufficient or conflicted.</p>
+<p>RCCM does not assume that every variance is improper.</p>
+<p>It establishes the variance first.</p>
+<p>Governance interpretation and intervention remain subject to the competent authority, exception, reallocation, emergency, Access, or other governance mechanism.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>Did actual Resource Consumption and Resource Utilization remain within the applicable governed Resource Allocation, limits, purpose, Source, location, time, rate, capacity, participant, system, and other Resource-use conditions, and where divergence occurred, what was the nature, magnitude, evidence, materiality, legitimacy status, and required governance response?</p>
+<h1 id="4-position-in-rcus-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RCUS Governance</h1>
+<p>Canonical progression:</p>
+<p>Governed Resource Allocation → Actual Resource Use → Resource Consumption Measurement → Resource Utilization State → Resource Consumption Boundary → Resource Use Context → Allocation-to-Use Comparison → Resource Consumption Compliance State → Governance Signal → Reassessment</p>
+<p>RCCM governs:</p>
+<p>Governed Resource-Use Conditions + Actual Resource-Use Evidence → Resource Consumption Compliance State</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RCCM governs:</p>
+<p>Resource Consumption Compliance Governance</p>
+<p>This governed space concerns the comparison of actual Resource Consumption and Resource Utilization with the applicable Resource Allocation, Allocation limits, and Resource-use conditions.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Consumption Compliance Determination comparing actual Resource Consumption and Resource Utilization with the applicable governed Resource Allocation, limits, conditions, and Resource-use context.</p>
+<p>Canonical relationship:</p>
+<p>**Governed Resource Allocation</p>
+<p>Allocation Limits Resource-Use Conditions Resource Consumption Measurement Resource Utilization State Resource Consumption Boundary Resource Use Context → Allocation-to-Use Comparison → Resource Consumption Compliance State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RCCM governs:</p>
+<p>Allocation-to-use comparison; Consumption-to-Allocation variance; Utilization-to-Allocation variance; quantity compliance; capacity compliance; rate compliance; Source compliance; location compliance; temporal compliance; purpose compliance; participant compliance; system compliance; functional compliance where applicable; minimum-use conditions where legitimately established; maximum-use conditions; conditional Resource-use requirements; unused Allocation; underutilized Allocation; Resource overrun; rate exceedance; capacity exceedance; purpose divergence; Source divergence; location divergence; temporal divergence; participant divergence; system divergence; multiple simultaneous variances; authorized exceptions; emergency context; reallocation context; compliance evidence; comparison compatibility; compliance uncertainty; compliance conflict; compliance state; variance materiality; escalation signals; reassessment; traceability; versioning.</p>
+<p>RCCM does not independently:</p>
+<p>create Resource Allocation; change Resource Priority; modify Allocation limits; authorize exceptions; grant Resource Access; revoke Resource Access; determine Scarcity; govern Resource Recovery; determine Resource Value; determine Harm; determine Liability; determine legal compliance; determine long-term Sustainability.</p>
+<h1 id="8-allocation-to-use-comparison" data-oof-section-id="true" role="heading" aria-level="2">8. Allocation-to-Use Comparison</h1>
+<p>RCCM compares governed Resource-use conditions with actual Resource-use evidence.</p>
+<p>The comparison may include:</p>
+<p>quantity; capacity; rate; Source; location; time; purpose; participant; system; function; other applicable conditions.</p>
+<h1 id="9-comparison-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Comparison Principle</h1>
+<p>Allocated Resource ≠ Consumed Resource ≠ Utilized Resource.</p>
+<p>Allocation is the governed reference.</p>
+<p>Consumption and Utilization represent operational reality.</p>
+<p>RCCM compares them without collapsing them into a single state.</p>
+<h1 id="10-applicable-allocation" data-oof-section-id="true" role="heading" aria-level="2">10. Applicable Allocation</h1>
+<p>Every compliance determination should identify the applicable Resource Allocation or other legitimate Resource-use reference.</p>
+<p>The applicable reference should preserve:</p>
+<p>Allocation ID; Allocation version; effective period; Resource; quantity or capacity; limits; conditions; purpose; Source; location; participant or system where applicable.</p>
+<h1 id="11-allocation-version-principle" data-oof-section-id="true" role="heading" aria-level="2">11. Allocation-Version Principle</h1>
+<p>Current Allocation ≠ Historical Allocation.</p>
+<p>The Allocation version applicable when Resource use occurred must be preserved where material.</p>
+<h1 id="12-allocation-validity" data-oof-section-id="true" role="heading" aria-level="2">12. Allocation Validity</h1>
+<p>RCCM should determine whether the applicable Allocation was valid during the Resource-use interval.</p>
+<h1 id="13-allocation-validity-boundary" data-oof-section-id="true" role="heading" aria-level="2">13. Allocation Validity Boundary</h1>
+<p>Expired Allocation ≠ Valid Resource-Use Basis.</p>
+<h1 id="14-quantity-comparison" data-oof-section-id="true" role="heading" aria-level="2">14. Quantity Comparison</h1>
+<p>Where Allocation establishes Resource quantity, RCCM should compare actual Consumption with the applicable quantity.</p>
+<p>Generic relationship:</p>
+<p>Quantity Variance = Actual Consumption − Allocated Quantity</p>
+<p>where such comparison is valid for the governed Resource.</p>
+<h1 id="15-quantity-compliance" data-oof-section-id="true" role="heading" aria-level="2">15. Quantity Compliance</h1>
+<p>Actual Resource Consumption may be:</p>
+<p>below Allocation; equal to Allocation; within permitted tolerance; above Allocation; unknown relative to Allocation.</p>
+<h1 id="16-quantity-boundary" data-oof-section-id="true" role="heading" aria-level="2">16. Quantity Boundary</h1>
+<p>Consumption Below Allocation ≠ Automatically Compliant Resource Use.</p>
+<p>Other governed conditions may still diverge.</p>
+<h1 id="17-resource-overrun" data-oof-section-id="true" role="heading" aria-level="2">17. Resource Overrun</h1>
+<p>Resource Overrun exists where actual Resource Consumption exceeds an applicable maximum quantity.</p>
+<h1 id="18-overrun-principle" data-oof-section-id="true" role="heading" aria-level="2">18. Overrun Principle</h1>
+<p>Resource Overrun ≠ Automatic Access Revocation.</p>
+<p>RCCM determines the variance.</p>
+<p>Competent governance determines the response.</p>
+<h1 id="19-cumulative-overrun" data-oof-section-id="true" role="heading" aria-level="2">19. Cumulative Overrun</h1>
+<p>Repeated individually small overruns may produce a material cumulative variance.</p>
+<p>Individually Immaterial Variances ≠ Collectively Immaterial Variance.</p>
+<h1 id="20-capacity-comparison" data-oof-section-id="true" role="heading" aria-level="2">20. Capacity Comparison</h1>
+<p>Where Allocation concerns capacity rather than physical quantity, RCCM should compare actual utilized capacity with applicable Allocation conditions.</p>
+<h1 id="21-capacity-compliance" data-oof-section-id="true" role="heading" aria-level="2">21. Capacity Compliance</h1>
+<p>Capacity use may be:</p>
+<p>below Allocation; within Allocation; at Allocation limit; above Allocation; unknown.</p>
+<h1 id="22-capacity-boundary" data-oof-section-id="true" role="heading" aria-level="2">22. Capacity Boundary</h1>
+<p>Capacity Occupancy Within Allocation ≠ Full Resource-Use Compliance by definition.</p>
+<h1 id="23-rate-comparison" data-oof-section-id="true" role="heading" aria-level="2">23. Rate Comparison</h1>
+<p>Resource-use conditions may establish maximum or minimum rates.</p>
+<p>Examples include:</p>
+<p>power draw; water flow; fuel flow; compute throughput; bandwidth; material throughput.</p>
+<h1 id="24-rate-exceedance" data-oof-section-id="true" role="heading" aria-level="2">24. Rate Exceedance</h1>
+<p>A Resource may remain within its total quantity Allocation while exceeding an applicable instantaneous or interval rate.</p>
+<h1 id="25-rate-principle" data-oof-section-id="true" role="heading" aria-level="2">25. Rate Principle</h1>
+<p>Consumption Within Total Quantity Limit ≠ Rate Compliance.</p>
+<h1 id="26-peak-rate-compliance" data-oof-section-id="true" role="heading" aria-level="2">26. Peak-Rate Compliance</h1>
+<p>Peak Resource use should be evaluated separately where peak limits apply.</p>
+<p>Average Resource Use Within Limit ≠ Peak Resource Use Within Limit.</p>
+<h1 id="27-temporal-compliance" data-oof-section-id="true" role="heading" aria-level="2">27. Temporal Compliance</h1>
+<p>Resource Allocation may apply only during a defined:</p>
+<p>start time; end time; time window; day; season; operational event; other temporal condition.</p>
+<h1 id="28-temporal-divergence" data-oof-section-id="true" role="heading" aria-level="2">28. Temporal Divergence</h1>
+<p>Temporal Divergence exists where Resource use occurs materially outside the applicable temporal condition.</p>
+<h1 id="29-temporal-principle" data-oof-section-id="true" role="heading" aria-level="2">29. Temporal Principle</h1>
+<p>Authorized Quantity ≠ Authorization at Every Time.</p>
+<h1 id="30-location-compliance" data-oof-section-id="true" role="heading" aria-level="2">30. Location Compliance</h1>
+<p>Resource Allocation may be location-specific.</p>
+<p>RCCM should compare actual Resource-use location with the governed location condition.</p>
+<h1 id="31-location-divergence" data-oof-section-id="true" role="heading" aria-level="2">31. Location Divergence</h1>
+<p>Location Divergence exists where Resource use occurs at a materially different location from the applicable Allocation condition.</p>
+<h1 id="32-location-principle" data-oof-section-id="true" role="heading" aria-level="2">32. Location Principle</h1>
+<p>Authorization to Use Resource at Location A ≠ Authorization to Use It at Location B.</p>
+<h1 id="33-source-compliance" data-oof-section-id="true" role="heading" aria-level="2">33. Source Compliance</h1>
+<p>Allocation may specify or constrain Resource Source.</p>
+<p>RCCM should compare actual Source with the applicable Source condition.</p>
+<h1 id="34-source-divergence" data-oof-section-id="true" role="heading" aria-level="2">34. Source Divergence</h1>
+<p>Source Divergence exists where actual Resource use comes from a different Source than the governed condition.</p>
+<h1 id="35-source-principle" data-oof-section-id="true" role="heading" aria-level="2">35. Source Principle</h1>
+<p>Authorization for Resource Type X ≠ Authorization for Every Source of Resource Type X.</p>
+<h1 id="36-source-mix-compliance" data-oof-section-id="true" role="heading" aria-level="2">36. Source Mix Compliance</h1>
+<p>Where multiple Sources are permitted under defined conditions, RCCM may evaluate the actual Source mix against those conditions.</p>
+<h1 id="37-purpose-compliance" data-oof-section-id="true" role="heading" aria-level="2">37. Purpose Compliance</h1>
+<p>Resource Allocation may be purpose-specific.</p>
+<p>RCCM should compare actual-purpose evidence with the governed purpose.</p>
+<h1 id="38-purpose-divergence" data-oof-section-id="true" role="heading" aria-level="2">38. Purpose Divergence</h1>
+<p>Purpose Divergence exists where actual Resource use materially differs from the governed purpose.</p>
+<h1 id="39-purpose-principle" data-oof-section-id="true" role="heading" aria-level="2">39. Purpose Principle</h1>
+<p>Authorized Resource Access ≠ Authorization for Every Purpose.</p>
+<h1 id="40-purpose-divergence-boundary" data-oof-section-id="true" role="heading" aria-level="2">40. Purpose-Divergence Boundary</h1>
+<p>Purpose Divergence ≠ Automatic Misuse Determination.</p>
+<p>Changed conditions, emergencies, authorized exceptions, or incomplete evidence may explain the divergence.</p>
+<h1 id="41-participant-compliance" data-oof-section-id="true" role="heading" aria-level="2">41. Participant Compliance</h1>
+<p>Allocation may apply to a defined participant.</p>
+<p>RCCM should compare actual participant attribution with the applicable Allocation condition.</p>
+<h1 id="42-participant-divergence" data-oof-section-id="true" role="heading" aria-level="2">42. Participant Divergence</h1>
+<p>Participant Divergence exists where actual Resource use is attributed to a materially different participant.</p>
+<h1 id="43-participant-principle" data-oof-section-id="true" role="heading" aria-level="2">43. Participant Principle</h1>
+<p>Allocation to Participant A ≠ Allocation to Every Participant Sharing the Same Infrastructure.</p>
+<h1 id="44-system-compliance" data-oof-section-id="true" role="heading" aria-level="2">44. System Compliance</h1>
+<p>Allocation may apply to a defined:</p>
+<p>system; machine; process; workload; facility; infrastructure component.</p>
+<h1 id="45-system-divergence" data-oof-section-id="true" role="heading" aria-level="2">45. System Divergence</h1>
+<p>System Divergence exists where actual Resource use is attributed to a materially different system.</p>
+<h1 id="46-system-principle" data-oof-section-id="true" role="heading" aria-level="2">46. System Principle</h1>
+<p>Resource Available Within Shared Infrastructure ≠ Allocation to Every System Within That Infrastructure.</p>
+<h1 id="47-functional-compliance" data-oof-section-id="true" role="heading" aria-level="2">47. Functional Compliance</h1>
+<p>Where Allocation is function-specific, actual Resource use may be compared with the governed function.</p>
+<h1 id="48-functional-divergence" data-oof-section-id="true" role="heading" aria-level="2">48. Functional Divergence</h1>
+<p>Resource use supporting a materially different function should remain identifiable.</p>
+<h1 id="49-multi-dimensional-compliance" data-oof-section-id="true" role="heading" aria-level="2">49. Multi-Dimensional Compliance</h1>
+<p>A Resource-use event may comply with some conditions while diverging from others.</p>
+<p>For example:</p>
+<p>quantity — compliant; rate — exceeded; Source — compliant; purpose — divergent; time — compliant.</p>
+<h1 id="50-multi-dimensional-principle" data-oof-section-id="true" role="heading" aria-level="2">50. Multi-Dimensional Principle</h1>
+<p>Compliance With One Allocation Dimension ≠ Compliance With All Allocation Dimensions.</p>
+<h1 id="51-full-compliance" data-oof-section-id="true" role="heading" aria-level="2">51. Full Compliance</h1>
+<p>Full Compliance exists where sufficient evidence indicates that all materially applicable Resource-use conditions were satisfied.</p>
+<h1 id="52-partial-compliance" data-oof-section-id="true" role="heading" aria-level="2">52. Partial Compliance</h1>
+<p>Partial Compliance exists where some materially applicable conditions were satisfied while others materially diverged.</p>
+<h1 id="53-compliance-evidence-boundary" data-oof-section-id="true" role="heading" aria-level="2">53. Compliance Evidence Boundary</h1>
+<p>Absence of Detected Variance ≠ Proof of Full Compliance when Evidence Is Incomplete.</p>
+<h1 id="54-unused-allocation" data-oof-section-id="true" role="heading" aria-level="2">54. Unused Allocation</h1>
+<p>Unused Allocation exists where Resource quantity or capacity was allocated but not consumed or utilized during the applicable interval.</p>
+<h1 id="55-unused-allocation-principle" data-oof-section-id="true" role="heading" aria-level="2">55. Unused Allocation Principle</h1>
+<p>Unused Allocation ≠ Resource Consumption.</p>
+<h1 id="56-unused-allocation-interpretation" data-oof-section-id="true" role="heading" aria-level="2">56. Unused Allocation Interpretation</h1>
+<p>Unused Allocation may result from:</p>
+<p>Demand reduction; reserve requirements; contingency planning; operational delay; system failure; changed conditions; forecast uncertainty; other legitimate conditions.</p>
+<p>Therefore:</p>
+<p>Unused Allocation ≠ Governance Failure by definition.</p>
+<h1 id="57-underutilized-allocation" data-oof-section-id="true" role="heading" aria-level="2">57. Underutilized Allocation</h1>
+<p>An Allocation may be materially underutilized relative to the capacity made available.</p>
+<h1 id="58-underutilization-principle" data-oof-section-id="true" role="heading" aria-level="2">58. Underutilization Principle</h1>
+<p>Low Allocation Utilization ≠ Automatic Resource Misallocation.</p>
+<p>Further governance context is required.</p>
+<h1 id="59-overutilized-allocation" data-oof-section-id="true" role="heading" aria-level="2">59. Overutilized Allocation</h1>
+<p>Actual Resource Utilization may exceed the capacity expected or permitted under the applicable Allocation.</p>
+<h1 id="60-overutilization-boundary" data-oof-section-id="true" role="heading" aria-level="2">60. Overutilization Boundary</h1>
+<p>High Utilization ≠ Allocation Violation by itself.</p>
+<p>A relevant Allocation condition must exist.</p>
+<h1 id="61-minimum-resource-use-condition" data-oof-section-id="true" role="heading" aria-level="2">61. Minimum Resource-Use Condition</h1>
+<p>Some governed Allocations may contain legitimate minimum-use conditions.</p>
+<p>RCCM may compare actual use with those conditions.</p>
+<h1 id="62-minimum-use-boundary" data-oof-section-id="true" role="heading" aria-level="2">62. Minimum-Use Boundary</h1>
+<p>Low Resource Use ≠ Non-Compliance unless a Legitimate Minimum Condition Exists.</p>
+<h1 id="63-conditional-allocation" data-oof-section-id="true" role="heading" aria-level="2">63. Conditional Allocation</h1>
+<p>An Allocation may be valid only when defined conditions are satisfied.</p>
+<h1 id="64-conditional-compliance" data-oof-section-id="true" role="heading" aria-level="2">64. Conditional Compliance</h1>
+<p>RCCM should preserve whether those conditions were active during actual Resource use.</p>
+<h1 id="65-conditional-principle" data-oof-section-id="true" role="heading" aria-level="2">65. Conditional Principle</h1>
+<p>Allocation Approval ≠ Unconditional Resource-Use Authority.</p>
+<h1 id="66-exception-context" data-oof-section-id="true" role="heading" aria-level="2">66. Exception Context</h1>
+<p>A Resource-use variance may be covered by an authorized exception.</p>
+<p>RCCM should preserve:</p>
+<p>exception identity; exception authority; scope; conditions; effective period.</p>
+<h1 id="67-exception-principle" data-oof-section-id="true" role="heading" aria-level="2">67. Exception Principle</h1>
+<p>Exception ≠ Governance Bypass.</p>
+<h1 id="68-claimed-exception" data-oof-section-id="true" role="heading" aria-level="2">68. Claimed Exception</h1>
+<p>A claimed exception without sufficient authority or evidence should not automatically convert variance into compliant Resource use.</p>
+<p>Claimed Exception ≠ Authorized Exception.</p>
+<h1 id="69-reallocation-context" data-oof-section-id="true" role="heading" aria-level="2">69. Reallocation Context</h1>
+<p>RPAS may modify Resource Allocation through governed reallocation.</p>
+<p>RCCM should use the Allocation state applicable at the time of actual Resource use.</p>
+<h1 id="70-reallocation-principle" data-oof-section-id="true" role="heading" aria-level="2">70. Reallocation Principle</h1>
+<p>Later Reallocation ≠ Automatic Retroactive Authorization of Earlier Resource Use.</p>
+<p>Unless competent governance explicitly establishes retroactive effect.</p>
+<h1 id="71-emergency-context" data-oof-section-id="true" role="heading" aria-level="2">71. Emergency Context</h1>
+<p>Actual Resource use may legitimately diverge from ordinary conditions during emergencies.</p>
+<p>RCCM should preserve:</p>
+<p>emergency condition; applicable emergency authority; Resource-use variance; effective period; evidence.</p>
+<h1 id="72-emergency-principle" data-oof-section-id="true" role="heading" aria-level="2">72. Emergency Principle</h1>
+<p>Emergency ≠ Absence of Governance.</p>
+<h1 id="73-operational-necessity" data-oof-section-id="true" role="heading" aria-level="2">73. Operational Necessity</h1>
+<p>Operational necessity may explain Resource-use variance.</p>
+<p>It does not automatically establish authority.</p>
+<p>Operational Necessity ≠ Resource-Use Authorization by itself.</p>
+<h1 id="74-compliance-variance" data-oof-section-id="true" role="heading" aria-level="2">74. Compliance Variance</h1>
+<p>A Compliance Variance represents a material difference between applicable governed Resource-use conditions and actual Resource use.</p>
+<h1 id="75-variance-types" data-oof-section-id="true" role="heading" aria-level="2">75. Variance Types</h1>
+<p>RCCM may identify:</p>
+<p>quantity variance; capacity variance; rate variance; Source variance; location variance; temporal variance; purpose variance; participant variance; system variance; functional variance; other applicable variance.</p>
+<h1 id="76-variance-magnitude" data-oof-section-id="true" role="heading" aria-level="2">76. Variance Magnitude</h1>
+<p>Where quantitatively meaningful, RCCM should preserve the magnitude of variance.</p>
+<h1 id="77-variance-direction" data-oof-section-id="true" role="heading" aria-level="2">77. Variance Direction</h1>
+<p>Variance may represent:</p>
+<p>underuse; overuse; different use; shifted use; unverified use.</p>
+<h1 id="78-variance-materiality" data-oof-section-id="true" role="heading" aria-level="2">78. Variance Materiality</h1>
+<p>RCCM should determine whether a variance is materially relevant to governance where such determination is required.</p>
+<p>Materiality may depend upon:</p>
+<p>Resource quantity; Resource Criticality; Scarcity context; rate; duration; purpose; location; Source; recurrence; operational consequence; applicable Allocation condition.</p>
+<h1 id="79-materiality-principle" data-oof-section-id="true" role="heading" aria-level="2">79. Materiality Principle</h1>
+<p>Numerically Small Variance ≠ Automatically Immaterial Variance.</p>
+<p>A small deviation may be critical for a highly constrained Resource, protected purpose, Source, location, or time period.</p>
+<h1 id="80-persistent-variance" data-oof-section-id="true" role="heading" aria-level="2">80. Persistent Variance</h1>
+<p>Repeated or persistent divergence may indicate structural mismatch among:</p>
+<p>Demand; Allocation; actual Resource use; operational conditions.</p>
+<h1 id="81-persistent-variance-boundary" data-oof-section-id="true" role="heading" aria-level="2">81. Persistent-Variance Boundary</h1>
+<p>Persistent Variance ≠ Automatic Proof of Misconduct.</p>
+<p>It may indicate that the Allocation or another governance mechanism requires reassessment.</p>
+<h1 id="82-resource-consumption-compliance-state" data-oof-section-id="true" role="heading" aria-level="2">82. Resource Consumption Compliance State</h1>
+<p>RCCM should establish an explicit governed Resource Consumption Compliance State.</p>
+<h1 id="83-minimum-compliance-states" data-oof-section-id="true" role="heading" aria-level="2">83. Minimum Compliance States</h1>
+<p>At minimum:</p>
+<p>Compliant</p>
+<p>Conditionally Compliant</p>
+<p>Partially Compliant</p>
+<p>Under Allocation</p>
+<p>At Allocation Limit</p>
+<p>Over Allocation</p>
+<p>Rate Exceeded</p>
+<p>Source Divergent</p>
+<p>Location Divergent</p>
+<p>Time Divergent</p>
+<p>Purpose Divergent</p>
+<p>Participant Divergent</p>
+<p>System Divergent</p>
+<p>Multiple Variances</p>
+<p>Authorized Exception</p>
+<p>Emergency Variance</p>
+<p>Compliance Evidence-Limited</p>
+<p>Compliance Conflicted</p>
+<p>Compliance Unknown</p>
+<p>Compliance Unresolved</p>
+<p>Compliance Reassessment Required</p>
+<h1 id="84-compliant" data-oof-section-id="true" role="heading" aria-level="2">84. Compliant</h1>
+<p>Sufficient evidence indicates that actual Resource use remained within all materially applicable governed Resource-use conditions.</p>
+<h1 id="85-conditionally-compliant" data-oof-section-id="true" role="heading" aria-level="2">85. Conditionally Compliant</h1>
+<p>Resource use satisfies applicable governance because a valid:</p>
+<p>conditional basis; authorized exception; emergency authority; or other governed condition</p>
+<p>applies.</p>
+<h1 id="86-compliance-unknown" data-oof-section-id="true" role="heading" aria-level="2">86. Compliance Unknown</h1>
+<p>Evidence is insufficient to determine compliance.</p>
+<p>Compliance Unknown ≠ Compliant.</p>
+<h1 id="87-compliance-conflicted" data-oof-section-id="true" role="heading" aria-level="2">87. Compliance Conflicted</h1>
+<p>Material evidence supports incompatible compliance determinations.</p>
+<p>Conflicting evidence should remain visible until sufficiently resolved.</p>
+<h1 id="88-compliance-unresolved" data-oof-section-id="true" role="heading" aria-level="2">88. Compliance Unresolved</h1>
+<p>Relevant evidence exists, but a sufficiently supported final determination cannot yet be established.</p>
+<h1 id="89-measurement-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">89. Measurement Uncertainty</h1>
+<p>RCMM measurement uncertainty should propagate into the compliance determination where material.</p>
+<p>Uncertain Consumption Measurement ≠ Certain Compliance Determination.</p>
+<h1 id="90-utilization-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">90. Utilization Uncertainty</h1>
+<p>RUSM uncertainty should propagate where Utilization conditions are relevant.</p>
+<h1 id="91-boundary-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">91. Boundary Uncertainty</h1>
+<p>RCBM boundary uncertainty should remain visible where it affects comparison.</p>
+<h1 id="92-context-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">92. Context Uncertainty</h1>
+<p>RUCM attribution or context uncertainty should remain visible where it affects compliance.</p>
+<h1 id="93-comparison-compatibility" data-oof-section-id="true" role="heading" aria-level="2">93. Comparison Compatibility</h1>
+<p>RCCM should determine whether Allocation evidence and actual-use evidence are sufficiently compatible for comparison.</p>
+<p class="podstand"><b>Compatibility:</b> may require alignment of:</p>
+<p>Resource identity; unit; Consumption Boundary; Source; location; time interval; capacity basis; purpose; participant; system.</p>
+<h1 id="94-comparison-principle" data-oof-section-id="true" role="heading" aria-level="2">94. Comparison Principle</h1>
+<p>Numerically Comparable Values ≠ Governance-Compatible Values by default.</p>
+<h1 id="95-unit-alignment" data-oof-section-id="true" role="heading" aria-level="2">95. Unit Alignment</h1>
+<p>Where Allocation and actual Consumption use different units, a governed conversion may be required.</p>
+<p>Converted Comparison ≠ Original Measurement Equality.</p>
+<h1 id="96-boundary-alignment" data-oof-section-id="true" role="heading" aria-level="2">96. Boundary Alignment</h1>
+<p>Allocation and actual Resource-use boundaries should be sufficiently aligned.</p>
+<p>Same Resource Quantity Under Different Boundaries ≠ Direct Compliance Comparison by default.</p>
+<h1 id="97-temporal-alignment" data-oof-section-id="true" role="heading" aria-level="2">97. Temporal Alignment</h1>
+<p>Allocation period and actual Resource-use interval should be sufficiently aligned.</p>
+<p>Monthly Allocation ≠ Hourly Resource-Use Limit unless explicitly defined.</p>
+<h1 id="98-source-alignment" data-oof-section-id="true" role="heading" aria-level="2">98. Source Alignment</h1>
+<p>Source-specific Allocation should be compared with Source-specific actual use where evidence permits.</p>
+<h1 id="99-purpose-alignment" data-oof-section-id="true" role="heading" aria-level="2">99. Purpose Alignment</h1>
+<p>Purpose-specific Allocation should be compared with actual-purpose evidence rather than assumed purpose.</p>
+<h1 id="100-compliance-evidence" data-oof-section-id="true" role="heading" aria-level="2">100. Compliance Evidence</h1>
+<p>RCCM should preserve evidence supporting both sides of the comparison.</p>
+<p>Reference evidence may include:</p>
+<p>Allocation decision; Allocation limit; Access condition; authorized exception; reallocation record; emergency authority; other competent governance record.</p>
+<p>Actual-use evidence may include:</p>
+<p>RCMM Resource Consumption Measurement Profile; RUSM Resource Utilization State Profile; RCBM Resource Consumption Boundary Profile; RUCM Resource Use Context Profile; supporting operational evidence.</p>
+<h1 id="101-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">101. Evidence Provenance</h1>
+<p>Material evidence should preserve sufficient provenance for auditability.</p>
+<h1 id="102-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">102. Evidence Sufficiency</h1>
+<p>RCCM should determine whether available evidence is sufficient for the required compliance determination.</p>
+<p>Missing Evidence ≠ Evidence of Compliance.</p>
+<h1 id="103-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">103. Evidence Freshness</h1>
+<p>Compliance evidence should correspond sufficiently to the relevant Resource-use interval and applicable Allocation version.</p>
+<h1 id="104-compliance-conflict" data-oof-section-id="true" role="heading" aria-level="2">104. Compliance Conflict</h1>
+<p>Conflict may arise from:</p>
+<p>different Allocation versions; conflicting Resource measurements; uncertain boundaries; conflicting attribution; exception ambiguity; temporal mismatch; Source mismatch; other evidence inconsistency.</p>
+<h1 id="105-conflict-resolution" data-oof-section-id="true" role="heading" aria-level="2">105. Conflict Resolution</h1>
+<p>Resolution may require:</p>
+<p>Allocation validation; measurement validation;</p>
+<p>boundary alignment; context validation; exception validation; additional evidence; competent governance review.</p>
+<h1 id="106-escalation-signal" data-oof-section-id="true" role="heading" aria-level="2">106. Escalation Signal</h1>
+<p>RCCM may produce an escalation signal when a material variance requires action by another competent governance mechanism.</p>
+<h1 id="107-escalation-boundary" data-oof-section-id="true" role="heading" aria-level="2">107. Escalation Boundary</h1>
+<p>Escalation Signal ≠ Final Governance Decision.</p>
+<h1 id="108-reallocation-review-signal" data-oof-section-id="true" role="heading" aria-level="2">108. Reallocation Review Signal</h1>
+<p>Material or persistent variance may indicate that Resource Allocation should be reviewed.</p>
+<p>Evidence Supporting Reallocation Review ≠ Authority to Reallocate.</p>
+<p>RPAS retains Resource Allocation and reallocation governance.</p>
+<h1 id="109-access-review-signal" data-oof-section-id="true" role="heading" aria-level="2">109. Access Review Signal</h1>
+<p>Certain Resource-use variances may justify Access review.</p>
+<p>Resource-Use Variance ≠ Automatic Access Revocation.</p>
+<p>RAGS retains Access governance.</p>
+<h1 id="110-demand-reassessment-signal" data-oof-section-id="true" role="heading" aria-level="2">110. Demand Reassessment Signal</h1>
+<p>Persistent unused Allocation or overrun may indicate that Demand should be reassessed.</p>
+<p>Actual Consumption ≠ Future Demand by definition.</p>
+<p>RDGS retains Demand governance.</p>
+<h1 id="111-scarcity-signal" data-oof-section-id="true" role="heading" aria-level="2">111. Scarcity Signal</h1>
+<p>Resource-use patterns may provide evidence relevant to Scarcity governance.</p>
+<p>Resource Overrun ≠ Resource Scarcity by definition.</p>
+<p>RSCS retains Scarcity and Constraint governance.</p>
+<h1 id="112-efficiency-boundary" data-oof-section-id="true" role="heading" aria-level="2">112. Efficiency Boundary</h1>
+<p>RCCM may provide evidence relevant to Resource efficiency.</p>
+<p>However:</p>
+<p>Resource-Use Compliance ≠ Resource Efficiency.</p>
+<p>A compliant system may be inefficient.</p>
+<p>An efficient system may still diverge from governed Allocation conditions.</p>
+<h1 id="113-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">113. Value Boundary</h1>
+<p>Resource-Use Compliance ≠ Validated Value.</p>
+<p>VEGA™ governs Value relationships where applicable.</p>
+<h1 id="114-sustainability-boundary" data-oof-section-id="true" role="heading" aria-level="2">114. Sustainability Boundary</h1>
+<p>Resource-Use Compliance ≠ Resource Sustainability.</p>
+<p>Compliance with current Resource-use conditions does not establish long-term Resource sustainability.</p>
+<h1 id="115-harm-boundary" data-oof-section-id="true" role="heading" aria-level="2">115. Harm Boundary</h1>
+<p>Resource-Use Non-Compliance ≠ Harm by definition.</p>
+<p>HAGA™ governs Harm.</p>
+<h1 id="116-liability-boundary" data-oof-section-id="true" role="heading" aria-level="2">116. Liability Boundary</h1>
+<p>Resource-Use Non-Compliance ≠ Liability by definition.</p>
+<p>LIGA™ governs Liability.</p>
+<h1 id="117-legal-compliance-boundary" data-oof-section-id="true" role="heading" aria-level="2">117. Legal Compliance Boundary</h1>
+<p>RCCM is a methodological Resource-governance mechanism.</p>
+<p>RCCM Compliance ≠ Legal Compliance.</p>
+<p>Legal or regulatory compliance remains subject to the competent legal or regulatory framework.</p>
+<h1 id="118-automated-compliance-evaluation" data-oof-section-id="true" role="heading" aria-level="2">118. Automated Compliance Evaluation</h1>
+<p>Software may automatically compare actual Resource use with governed Resource-use conditions.</p>
+<p>Automated Compliance Evaluation ≠ Enforcement Authority.</p>
+<h1 id="119-automated-intervention" data-oof-section-id="true" role="heading" aria-level="2">119. Automated Intervention</h1>
+<p>A technical system may be capable of:</p>
+<p>throttling; suspending; redirecting; stopping; limiting Resource use.</p>
+<p>The existence of technical capability does not establish governance authority.</p>
+<p>Technical Intervention Capability ≠ Governance Authority.</p>
+<h1 id="120-optimization-boundary" data-oof-section-id="true" role="heading" aria-level="2">120. Optimization Boundary</h1>
+<p>Optimization may recommend Resource-use changes.</p>
+<p>Optimization ≠ Permission.</p>
+<h1 id="121-predicted-compliance" data-oof-section-id="true" role="heading" aria-level="2">121. Predicted Compliance</h1>
+<p>Future Resource use may be predicted to exceed Allocation conditions.</p>
+<p>Predicted Non-Compliance ≠ Actual Non-Compliance.</p>
+<p>Prediction may support preventive governance but does not replace observed operational evidence.</p>
+<h1 id="122-simulated-compliance" data-oof-section-id="true" role="heading" aria-level="2">122. Simulated Compliance</h1>
+<p>Simulation may test whether proposed Resource use would remain within governed conditions.</p>
+<p>Simulated Compliance ≠ Operational Compliance.</p>
+<h1 id="123-historical-compliance" data-oof-section-id="true" role="heading" aria-level="2">123. Historical Compliance</h1>
+<p>Historical Resource-use compliance may support trend analysis.</p>
+<p>Historical Compliance ≠ Future Resource Entitlement.</p>
+<h1 id="124-compliance-trend" data-oof-section-id="true" role="heading" aria-level="2">124. Compliance Trend</h1>
+<p>RCCM may preserve recurring patterns of:</p>
+<p>underuse; overuse; rate exceedance; Source divergence; location divergence; purpose divergence; other material variance.</p>
+<h1 id="125-resource-consumption-compliance-profile" data-oof-section-id="true" role="heading" aria-level="2">125. Resource Consumption Compliance Profile</h1>
+<p>The principal RCCM output is the:</p>
+<p>Resource Consumption Compliance Profile</p>
+<h1 id="126-minimum-resource-consumption-compliance-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">126. Minimum Resource Consumption Compliance Profile Fields</h1>
+<p>At minimum:</p>
+<p>Compliance ID</p>
+<p>Resource ID</p>
+<p>Allocation Reference</p>
+<p>Allocation Version</p>
+<p>Allocation Validity Period</p>
+<p>Consumption Measurement Reference</p>
+<p>Utilization State Reference</p>
+<p>Consumption Boundary Reference</p>
+<p>Resource Use Context Reference</p>
+<p>Allocated Quantity where applicable</p>
+<p>Actual Consumption</p>
+<p>Quantity Variance</p>
+<p>Allocated Capacity where applicable</p>
+<p>Actual Utilized Capacity</p>
+<p>Capacity Variance</p>
+<p>Applicable Rate Limit</p>
+<p>Actual Resource-Use Rate</p>
+<p>Rate Variance</p>
+<p>Allocated Source</p>
+<p>Actual Source</p>
+<p>Source Compliance State</p>
+<p>Allocated Location</p>
+<p>Actual Location</p>
+<p>Location Compliance State</p>
+<p>Allocated Time Condition</p>
+<p>Actual Use Time</p>
+<p>Temporal Compliance State</p>
+<p>Allocated Purpose</p>
+<p>Actual Purpose</p>
+<p>Purpose Compliance State</p>
+<p>Allocated Participant / System where applicable</p>
+<p>Actual Participant / System</p>
+<p>Participant / System Compliance State</p>
+<p>Applicable Exception Reference</p>
+<p>Emergency Context where applicable</p>
+<p>Variance Set</p>
+<p>Variance Magnitude</p>
+<p>Variance Materiality</p>
+<p>Compliance State</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Measurement Uncertainty</p>
+<p>Context Uncertainty</p>
+<p>Boundary Uncertainty</p>
+<p>Conflict State</p>
+<p>Escalation Signal</p>
+<p>Reallocation Review Signal</p>
+<p>Access Review Signal</p>
+<p>Demand Reassessment Signal</p>
+<p>Reassessment Trigger</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="127-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">127. Minimum Implementation Framework</h1>
+<p>A minimum operational RCCM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Governed Reference</p>
+<p>Establish:</p>
+<p>Allocation; Allocation version; Allocation limits; applicable Resource-use conditions; validity period.</p>
+<p>Layer 2 — Actual Resource-Use Evidence</p>
+<p>Consume:</p>
+<p>RCMM Consumption Measurement; RUSM Utilization State; RCBM Consumption Boundary; RUCM Resource Use Context.</p>
+<p>Layer 3 — Comparison Alignment</p>
+<p>Validate:</p>
+<p>Resource; unit; boundary; time; Source; location; purpose; capacity basis; participant; system.</p>
+<p>Layer 4 — Variance Determination</p>
+<p>Determine:</p>
+<p>quantity variance; capacity variance; rate variance; Source divergence; location divergence; temporal divergence; purpose divergence; participant / system divergence.</p>
+<p>Layer 5 — Conditional Context</p>
+<p>Evaluate:</p>
+<p>exception; reallocation; emergency condition; other legitimate conditional basis.</p>
+<p>Layer 6 — Compliance State</p>
+<p>Determine:</p>
+<p>compliant; conditionally compliant; partially compliant; under Allocation; over Allocation; divergent; unknown; conflicted.</p>
+<p>Layer 7 — Governance Signals</p>
+<p>Produce where justified:</p>
+<p>escalation; reallocation review; Access review; Demand reassessment; other competent governance signal.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Consumption Compliance Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>**Governed Allocation / Conditions</p>
+<p>Actual Resource-Use Evidence → Comparison Alignment → Variance Determination → Exception / Emergency Context → Materiality → Compliance State → Governance Signals → Resource Consumption Compliance Profile**</p>
+<h1 id="128-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">128. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Resource Use Compliant</p>
+<p>Resource Use Conditionally Compliant</p>
+<p>Resource Use Partially Compliant</p>
+<p>Unused Allocation Identified</p>
+<p>Underutilized Allocation Identified</p>
+<p>Resource Overrun Identified</p>
+<p>Rate Exceedance Identified</p>
+<p>Source Divergence Identified</p>
+<p>Location Divergence Identified</p>
+<p>Temporal Divergence Identified</p>
+<p>Purpose Divergence Identified</p>
+<p>Participant / System Divergence Identified</p>
+<p>Multiple Variances Identified</p>
+<p>Authorized Exception Confirmed</p>
+<p>Emergency Variance Confirmed</p>
+<p>Compliance Evidence-Limited</p>
+<p>Compliance Conflicted</p>
+<p>Compliance Unknown</p>
+<p>Compliance Unresolved</p>
+<p>Compliance Reassessment Required</p>
+<h1 id="129-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">129. Minimum Evidence Path</h1>
+<p>Where compliance cannot be sufficiently determined:</p>
+<p>Compliance Unknown / Unresolved → Missing Allocation / Measurement / Boundary / Context / Exception Evidence → Minimum Evidence Requirement → Evidence Acquisition → Comparison Alignment → Variance Determination → Conditional Context Review → Compliance Determination → Resource Consumption Compliance Profile Update</p>
+<h1 id="130-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">130. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Consumption Compliance Profile → New Resource-Use Evidence / Allocation Change / Reallocation / Exception / Context Change</p>
+<p>→ Materiality Test → Applicable Allocation-Version Review → Comparison Revalidation → Variance Recalculation → Compliance-State Reassessment → Governance-Signal Review → Profile Update → Version Update</p>
+<h1 id="131-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">131. Governance Requirements</h1>
+<p>A conforming RCCM implementation must:</p>
+<h1 id="1-identify-the-applicable-resource-2-identify-the-applicable-allocation-referenc" data-oof-section-id="true" role="heading" aria-level="2">1. identify the applicable Resource; 2. identify the applicable Allocation reference; 3. preserve the applicable Allocation version; 4. validate Allocation temporal applicability; 5. preserve Allocation limits; 6. preserve applicable Resource-use conditions; 7. consume RCMM Resource Consumption evidence; 8. consume RUSM Resource Utilization evidence where relevant; 9. consume RCBM Resource Consumption Boundary evidence; 10. consume RUCM Resource Use Context evidence; 11. distinguish Allocation from Consumption; 12. distinguish Allocation from Utilization; 13. support quantity comparison; 14. preserve quantity variance; 15. identify Resource overrun; 16. identify cumulative variance where material; 17. support capacity comparison; 18. preserve capacity variance; 19. prevent capacity compliance from proving complete Resource-use compliance; 20. support rate comparison; 21. identify rate exceedance; 22. distinguish total quantity compliance from rate compliance; 23. preserve peak-rate evidence where applicable; 24. distinguish average from peak Resource use; 25. support temporal compliance; 26. identify Temporal Divergence; 27. prevent quantity authorization from becoming authorization at every time; 28. support location compliance; 29. identify Location Divergence; 30. prevent location-specific authorization from becoming universal authorization; 31. support Source compliance; 32. identify Source Divergence; 33. prevent Resource-type authorization from becoming authorization for every Source; 34. support Source-mix compliance where applicable; 35. support purpose compliance; 36. identify Purpose Divergence; 37. prevent Access authorization from becoming authorization for every purpose; 38. prevent Purpose Divergence from becoming automatic misuse determination; 39. support participant compliance; 40. identify Participant Divergence; 41. support system compliance; 42. identify System Divergence; 43. support functional compliance where applicable; 44. identify Functional Divergence; 45. support multi-dimensional compliance; 46. prevent compliance in one dimension from proving compliance in all dimensions; 47. support Partial Compliance; 48. establish Full Compliance only with sufficient evidence; 49. prevent absence of detected variance from proving compliance under incomplete evidence; 50. identify unused Allocation;</h1>
+<h1 id="51-prevent-unused-allocation-from-becoming-resource-consumption-52-prevent-unuse" data-oof-section-id="true" role="heading" aria-level="2">51. prevent unused Allocation from becoming Resource Consumption; 52. prevent unused Allocation from becoming automatic governance failure; 53. identify underutilized Allocation; 54. prevent low Allocation utilization from becoming automatic misallocation; 55. identify overutilized Allocation where relevant; 56. prevent high Utilization from becoming Allocation violation without an applicable condition; 57. consume applicable Allocation limits; 58. distinguish Allocation limits from actual Resource use; 59. support legitimate minimum-use conditions where applicable; 60. prevent low use from becoming non-compliance without a legitimate minimum condition; 61. preserve conditional Allocation; 62. distinguish Allocation approval from unconditional Resource-use authority; 63. preserve authorized exceptions; 64. preserve exception authority and validity; 65. prevent claimed exceptions from becoming authorized exceptions automatically; 66. preserve reallocation context; 67. use the Allocation state applicable at the time of Resource use; 68. prevent later reallocation from becoming retroactive authorization automatically; 69. preserve emergency context; 70. preserve applicable emergency authority; 71. prevent emergency conditions from becoming governance-free Resource use; 72. distinguish operational necessity from authorization; 73. identify Compliance Variance; 74. classify variance type; 75. preserve variance magnitude where applicable; 76. preserve variance direction; 77. determine variance materiality where required; 78. preserve the basis of materiality; 79. prevent numerically small variance from becoming automatically immaterial; 80. preserve variance frequency; 81. identify persistent variance; 82. prevent persistent variance from becoming automatic proof of misconduct; 83. establish a governed Compliance State; 84. support Compliant state; 85. support Conditionally Compliant state; 86. support Partially Compliant state; 87. support Under Allocation state; 88. support At Allocation Limit state; 89. support Over Allocation state; 90. support Resource-use divergence states; 91. support Compliance Unknown; 92. prevent Compliance Unknown from becoming Compliant; 93. support Compliance Conflicted; 94. preserve conflicting evidence; 95. support Compliance Unresolved; 96. propagate material Consumption measurement uncertainty; 97. propagate material Utilization uncertainty; 98. propagate material context uncertainty; 99. propagate material boundary uncertainty; 100. validate comparison compatibility; 101. align Resource identity; 102. align measurement units; 103. align Consumption boundaries; 104. align temporal intervals; 105. align Resource Sources where required; 106. align locations where required; 107. align capacity bases where required; 108. align purpose context where required; 109. align participant and system context where required; 110. prevent numerically comparable values from becoming governance-compatible automatically; 111. preserve unit conversions; 112. distinguish converted comparisons from original measurement equality; 113. prevent different boundaries from becoming directly comparable automatically; 114. preserve temporal comparison logic; 115. preserve Source-specific comparison;</h1>
+<h1 id="116-preserve-purpose-specific-comparison-117-preserve-reference-evidence-118-pre" data-oof-section-id="true" role="heading" aria-level="2">116. preserve purpose-specific comparison; 117. preserve reference evidence; 118. preserve actual-use evidence; 119. preserve evidence provenance; 120. determine evidence sufficiency; 121. prevent missing evidence from becoming evidence of compliance; 122. preserve evidence freshness; 123. identify compliance conflict; 124. support conflict resolution; 125. produce escalation signals where justified; 126. distinguish escalation signals from final governance decisions; 127. produce reallocation-review signals where justified; 128. prevent reallocation signals from becoming reallocation authority; 129. produce Access-review signals where justified; 130. prevent Resource-use variance from becoming automatic Access revocation; 131. produce Demand-reassessment signals where justified; 132. distinguish actual Consumption from future Demand; 133. preserve Scarcity-relevant signals without determining Scarcity; 134. distinguish Resource overrun from Resource Scarcity; 135. preserve efficiency-relevant evidence without determining efficiency; 136. distinguish Resource-use compliance from Resource efficiency; 137. distinguish Resource-use compliance from validated Value; 138. distinguish Resource-use compliance from Resource Sustainability; 139. distinguish Resource-use non-compliance from Harm; 140. distinguish Resource-use non-compliance from Liability; 141. distinguish RCCM compliance from legal compliance; 142. support automated compliance evaluation where governed; 143. prevent automated evaluation from becoming enforcement authority; 144. distinguish technical intervention capability from governance authority; 145. preserve Optimization ≠ Permission ; 146. distinguish predicted from actual non-compliance; 147. distinguish simulated from operational compliance; 148. distinguish historical compliance from future Resource entitlement; 149. preserve compliance trends where relevant; 150. support compliance reassessment; 151. preserve version history; 152. produce a Resource Consumption Compliance Profile.</h1>
+<h1 id="132-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">132. Governance Logic</h1>
+<p>Canonical RCCM logic:</p>
+<p>Applicable Resource Allocation → Allocation Version / Limits / Conditions → Actual Resource Consumption → Actual Resource Utilization → Consumption Boundary → Resource Use Context → Comparison Compatibility → Quantity / Capacity / Rate / Source / Location / Time / Purpose / Participant / System Comparison → Variance Determination → Exception / Reallocation / Emergency Context → Materiality → Resource Consumption Compliance State → Governance Signals → Resource Consumption Compliance Profile → Reassessment</p>
+<h1 id="133-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">133. Governance Outputs</h1>
+<p>RCCM may produce:</p>
+<p>Resource Consumption Compliance Profile</p>
+<p>Quantity Variance</p>
+<p>Capacity Variance</p>
+<p>Rate Variance</p>
+<p>Source Compliance State</p>
+<p>Location Compliance State</p>
+<p>Temporal Compliance State</p>
+<p>Purpose Compliance State</p>
+<p>Participant Compliance State</p>
+<p>System Compliance State</p>
+<p>Functional Compliance State</p>
+<p>Unused Allocation State</p>
+<p>Underutilized Allocation State</p>
+<p>Resource Overrun State</p>
+<p>Multiple-Variance State</p>
+<p>Authorized Exception State</p>
+<p>Emergency Variance State</p>
+<p>Variance Magnitude</p>
+<p>Variance Materiality</p>
+<p>Compliance State</p>
+<p>Evidence Sufficiency State</p>
+<p>Compliance Conflict State</p>
+<p>Escalation Signal</p>
+<p>Reallocation Review Signal</p>
+<p>Access Review Signal</p>
+<p>Demand Reassessment Signal</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="134-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">134. Critical Distinctions</h1>
+<p>Resource Allocation ≠ Resource Consumption</p>
+<p>Resource Allocation ≠ Resource Utilization</p>
+<p>Resource-Use Variance ≠ Governance Violation by definition</p>
+<p>Compliance Determination ≠ Authority to Modify Resource Allocation</p>
+<p>Current Allocation ≠ Historical Allocation</p>
+<p>Expired Allocation ≠ Valid Resource-Use Basis</p>
+<p>Consumption Below Allocation ≠ Automatically Compliant Resource Use</p>
+<p>Resource Overrun ≠ Automatic Access Revocation</p>
+<p>Individually Immaterial Variances ≠ Collectively Immaterial Variance</p>
+<p>Capacity Occupancy Within Allocation ≠ Full Resource-Use Compliance by definition</p>
+<p>Consumption Within Total Quantity Limit ≠ Rate Compliance</p>
+<p>Average Resource Use Within Limit ≠ Peak Resource Use Within Limit</p>
+<p>Authorized Quantity ≠ Authorization at Every Time</p>
+<p>Authorization to Use Resource at Location A ≠ Authorization to Use It at Location B</p>
+<p>Authorization for Resource Type X ≠ Authorization for Every Source of Resource Type X</p>
+<p>Authorized Resource Access ≠ Authorization for Every Purpose</p>
+<p>Purpose Divergence ≠ Automatic Misuse Determination</p>
+<p>Allocation to Participant A ≠ Allocation to Every Participant Sharing the Same Infrastructure</p>
+<p>Compliance With One Allocation Dimension ≠ Compliance With All Allocation Dimensions</p>
+<p>Absence of Detected Variance ≠ Proof of Full Compliance when Evidence Is Incomplete</p>
+<p>Unused Allocation ≠ Resource Consumption</p>
+<p>Unused Allocation ≠ Governance Failure by definition</p>
+<p>Low Allocation Utilization ≠ Automatic Resource Misallocation</p>
+<p>High Utilization ≠ Allocation Violation by itself</p>
+<p>Low Resource Use ≠ Non-Compliance unless a Legitimate Minimum Condition Exists</p>
+<p>Allocation Approval ≠ Unconditional Resource-Use Authority</p>
+<p>Exception ≠ Governance Bypass</p>
+<p>Claimed Exception ≠ Authorized Exception</p>
+<p>Later Reallocation ≠ Automatic Retroactive Authorization of Earlier Resource Use</p>
+<p>Emergency ≠ Absence of Governance</p>
+<p>Operational Necessity ≠ Resource-Use Authorization by itself</p>
+<p>Numerically Small Variance ≠ Automatically Immaterial Variance</p>
+<p>Persistent Variance ≠ Automatic Proof of Misconduct</p>
+<p>Compliance Unknown ≠ Compliant</p>
+<p>Uncertain Consumption Measurement ≠ Certain Compliance Determination</p>
+<p>Numerically Comparable Values ≠ Governance-Compatible Values by default</p>
+<p>Same Resource Quantity Under Different Boundaries ≠ Direct Compliance Comparison by default</p>
+<p>Monthly Allocation ≠ Hourly Resource-Use Limit unless explicitly defined</p>
+<p>Missing Evidence ≠ Evidence of Compliance</p>
+<p>Escalation Signal ≠ Final Governance Decision</p>
+<p>Evidence Supporting Reallocation Review ≠ Authority to Reallocate</p>
+<p>Actual Consumption ≠ Future Demand by definition</p>
+<p>Resource Overrun ≠ Resource Scarcity by definition</p>
+<p>Resource-Use Compliance ≠ Resource Efficiency</p>
+<p>Resource-Use Compliance ≠ Validated Value</p>
+<p>Resource-Use Compliance ≠ Resource Sustainability</p>
+<p>Resource-Use Non-Compliance ≠ Harm by definition</p>
+<p>Resource-Use Non-Compliance ≠ Liability by definition</p>
+<p>RCCM Compliance ≠ Legal Compliance</p>
+<p>Automated Compliance Evaluation ≠ Enforcement Authority</p>
+<p>Technical Intervention Capability ≠ Governance Authority</p>
+<p>Optimization ≠ Permission</p>
+<p>Predicted Non-Compliance ≠ Actual Non-Compliance</p>
+<p>Simulated Compliance ≠ Operational Compliance</p>
+<p>Historical Compliance ≠ Future Resource Entitlement</p>
+<h1 id="135-use-case-1-ai-compute-resource-allocation" data-oof-section-id="true" role="heading" aria-level="2">135. Use Case 1 — AI Compute Resource Allocation</h1>
+<p>An AI compute environment allocates a workload:</p>
+<p>1,000 GPU-hours; a defined GPU cluster; an approved training purpose; a specific operating period; a maximum power condition.</p>
+<p>RCMM establishes actual Resource Consumption.</p>
+<p>RUSM determines actual GPU capacity utilization.</p>
+<p>RCBM confirms the applicable compute and Resource Consumption Boundary.</p>
+<p>RUCM establishes that:</p>
+<p>850 GPU-hours supported the approved training workload; 70 GPU-hours were associated with a separate workload; the Resource Source and location remained unchanged.</p>
+<p>Total Resource Consumption remained below 1,000 GPU-hours.</p>
+<p>However, part of the Resource use diverged from the approved purpose.</p>
+<p>RCCM therefore does not classify the Resource use as fully compliant merely because total Consumption remained below the quantity limit.</p>
+<p>It records the Purpose Divergence , preserves the supporting evidence, and produces the appropriate governance signal without independently changing the Allocation or Access state.</p>
+<h1 id="136-use-case-2-regional-water-allocation" data-oof-section-id="true" role="heading" aria-level="2">136. Use Case 2 — Regional Water Allocation</h1>
+<p>A regional Resource-governance system allocates an industrial facility:</p>
+<p>10,000 m³ of water; from Source A; within a defined monthly period; subject to a maximum daily withdrawal rate.</p>
+<p>RCMM establishes actual water Consumption.</p>
+<p>RUSM establishes relevant infrastructure utilization.</p>
+<p>RCBM confirms the applicable facility, Source, and temporal boundary.</p>
+<p>RUCM establishes actual Source, location, time, and industrial purpose.</p>
+<p>The facility uses only 9,500 m³ during the month.</p>
+<p>However, on several days it exceeds the governed daily withdrawal rate.</p>
+<p>RCCM determines:</p>
+<p>monthly quantity — within Allocation; Source — compliant; location — compliant; purpose — compliant; daily rate — exceeded.</p>
+<p>The Resource use therefore cannot be represented as fully compliant merely because monthly Consumption remained below 10,000 m³.</p>
+<p>RCCM preserves the rate variance and its evidence for the competent governance mechanism.</p>
+<h1 id="137-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">137. Cross-Architecture Boundary</h1>
+<p>RCCM may consume:</p>
+<p>RCHS — Resource identity, type, Source, state, and context.</p>
+<p>RACS — Availability and capacity evidence.</p>
+<p>RDGS — Demand evidence without treating actual Consumption as future Demand.</p>
+<p>RDCS — Dependency and Criticality context relevant to variance materiality.</p>
+<p>RAGS — Access and rights conditions without RCCM modifying Access.</p>
+<p>RPAS — Resource Allocation, Allocation Basis, Allocation Limits, exception, and reallocation evidence.</p>
+<p>RCMM — Resource Consumption Measurement Profile.</p>
+<p>RUSM — Resource Utilization State Profile.</p>
+<p>RCBM — Resource Consumption Boundary Profile.</p>
+<p>RUCM — Resource Use Context Profile.</p>
+<p>RSCS — Scarcity and Constraint context without RCCM determining Scarcity.</p>
+<p>RRCS — downstream Recovery context.</p>
+<p>RIRS — Resource interdependency and resilience context.</p>
+<p>RCSS — continuity and sustainability context.</p>
+<p>GOA™ — authority and governance structure where compliance action requires competent authority.</p>
+<p>OBIDENITY® — identity, ownership, authority, permission, and provenance evidence where applicable.</p>
+<p>ORA™ — operational reality evidence.</p>
+<p>PGA™ — predicted Resource-use compliance without treating prediction as operational fact.</p>
+<p>SIMULOS® — simulated compliance without treating simulation as operational reality.</p>
+<p>VEGA™ — Value and efficiency governance.</p>
+<p>HAGA™ — Harm governance.</p>
+<p>LIGA™ — Liability governance.</p>
+<p>RCCM does not absorb these mechanisms.</p>
+<h1 id="138-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">138. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RCCM governs the comparison between actual Resource use and applicable governed Resource-use conditions.</p>
+<p>Its outputs may support:</p>
+<p>Resource reallocation; Access review; Demand reassessment; Scarcity analysis; efficiency evaluation; Value governance; Harm governance; Liability governance; Resilience governance; Sustainability governance.</p>
+<p>Those downstream mechanisms remain governed by their competent architectures.</p>
+<h1 id="139-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">139. Canonical Boundary</h1>
+<p>RCCM governs how actual Resource Consumption and Resource Utilization are compared with applicable Resource Allocation, Allocation limits, quantity, capacity, rate, Source, location, time, purpose, participant, system, function, exception, emergency, and other Resource-use conditions in order to determine Resource Consumption Compliance, variance, materiality, evidence sufficiency, conflict, and required governance signals.</p>
+<p>It does not create or modify Resource Allocation, grant or revoke Resource Access, authorize exceptions, determine Resource Scarcity, govern Recovery, determine Resource Value, determine Harm or Liability, establish legal compliance, or determine long-term Resource Sustainability.</p>
+<p>Its principal governed output is the Resource Consumption Compliance Profile .</p>
+<h1 id="140-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">140. Canonical Closing Statement</h1>
+<p>Resource governance cannot determine compliance by asking only whether total Resource use remained below an Allocation. A Resource may remain within its quantity limit while diverging from its rate, Source, location, time, purpose, participant, system, or other governed conditions.</p>
+<p>RCCM closes the Resource Consumption &amp; Utilization governance chain by comparing governed Resource-use conditions with operational reality — identifying where actual use aligned, where it diverged, what evidence supports that determination, and which competent governance mechanism must act next without converting measurement, variance, automation, or technical capability into authority.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

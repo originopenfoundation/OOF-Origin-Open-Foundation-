@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Scarcity Evaluation Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Scarcity Evaluation Module | OOF®. RSEM — Resource Scarcity Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Scarcity Evaluation Module | OOF®" />
+<meta property="og:description" content="Resource Scarcity Evaluation Module | OOF®. RSEM — Resource Scarcity Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Scarcity Evaluation Module | OOF®" />
+<meta name="twitter:description" content="Resource Scarcity Evaluation Module | OOF®. RSEM — Resource Scarcity Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta name="DC.title" content="Resource Scarcity Evaluation Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html","name":"Resource Scarcity Evaluation Module | OOF®","description":"Resource Scarcity Evaluation Module | OOF®. RSEM — Resource Scarcity Evaluation Module Architecture: RSGA™ — Resource Sustainability Governance Architecture.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Scarcity Evaluation Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html"}]},"headline":"Resource Scarcity Evaluation Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rsem-3.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Scarcity & Constraint Standard (RSCS)","Governance & Enforcement","Resource Governance","Resource Scarcity Evaluation Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Scarcity & Constraint Standard (RSCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Scarcity Evaluation Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Scarcity & Constraint Standard (RSCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Scarcity Evaluation Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RSEM — Resource Scarcity Evaluation Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Scarcity &amp; Constraint Standard (RSCS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Scarcity Evaluation Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RSCS-RSEM-03</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RSCS-RSEM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 7 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RSEM — Resource Scarcity Evaluation Module governs how the magnitude, severity, materiality, scope, duration, concentration, dependency exposure, operational consequence, and overall governance significance of an established or emerging Resource Scarcity or Resource Constraint state are evaluated, evidenced, classified, monitored, and reassessed.</p>
+<p>RSEM determines how significant the constrained Resource condition is .</p>
+<p>It evaluates Resource Scarcity and Constraint evidence against the operational context in which the Resource is required.</p>
+<p>Its foundational distinctions are:</p>
+<p>Scarcity State ≠ Scarcity Severity.</p>
+<p>Constraint Magnitude ≠ Constraint Severity.</p>
+<p>Large Resource Deficit ≠ High Governance Severity by definition.</p>
+<p>Small Resource Deficit ≠ Low Governance Severity by definition.</p>
+<p>Resource Criticality ≠ Scarcity Severity by itself.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RSSM establishes whether and in what state a Resource is scarce .</p>
+<p>RCTM establishes how the Resource is constrained .</p>
+<p>RSEM evaluates:</p>
+<p>how large the Resource limitation is; how severe it is; how materially it affects the governed Resource System; how long it persists; how broadly it applies; how concentrated it is; which dependencies are exposed; what operational consequences may result; whether the condition is escalating or becoming critical; and with what evidence the evaluation can be supported.</p>
+<p>RSEM transforms:</p>
+<p>**Resource Scarcity State</p>
+<p>Resource Constraint Type Resource Gap / Limitation Resource Criticality Dependency Exposure Duration Scope Operational Consequence Evidence**</p>
+<p>into:</p>
+<p>a governed Resource Scarcity Evaluation.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>How significant is the established or emerging Resource Scarcity or Constraint state when evaluated across magnitude, severity, materiality, duration, scope, concentration, affected dependencies, available buffers, operational consequences, and other materially relevant Resource conditions, and with what evidence and confidence can that evaluation be established?</p>
+<h1 id="4-position-in-rscs-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RSCS Governance</h1>
+<p>Canonical progression:</p>
+<p>Governed Resource State → Legitimate Resource Requirement → Resource Sufficiency Comparison → Resource Scarcity State → Constraint Type → Constraint Magnitude → Constraint Severity → Materiality → Scope / Duration / Concentration → Dependency Exposure → Operational Consequence → Resource Scarcity Evaluation → Response / Monitoring → Resolution Assessment → Reassessment</p>
+<p>RSEM governs:</p>
+<p>Scarcity / Constraint Evidence → Resource Scarcity Evaluation</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RSEM governs:</p>
+<p>Resource Scarcity Evaluation Governance</p>
+<p>This governed space concerns the evaluation of the governance significance of an established, emerging, localized, widespread, temporary, recurring, persistent, structural, or anticipated Resource Scarcity or Constraint condition.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Scarcity Evaluation associated with a defined Resource Scarcity State, Resource Constraint Type, Resource limitation, operational context, affected dependencies, and evidence basis.</p>
+<p>Canonical relationship:</p>
+<p>**Scarcity State</p>
+<p>Constraint Type Constraint Magnitude Duration Scope Concentration Dependency Exposure Operational Consequence Evidence → Scarcity Severity &amp; Materiality Evaluation → Resource Scarcity Evaluation**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RSEM governs:</p>
+<p>Constraint Magnitude evaluation; Scarcity magnitude evaluation; Constraint Severity; Scarcity Severity; Resource deficit evaluation; capacity deficit evaluation; rate deficit evaluation; temporal insufficiency evaluation; Resource materiality; duration significance; scope significance; concentration significance; dependency exposure; Criticality relevance; reserve relevance; buffer relevance; substitutability relevance; recoverability relevance; operational consequence relevance; interdependency relevance; severity classification; severity escalation;</p>
+<p>severity stabilization; severity reduction; severity uncertainty; severity conflict; evaluation confidence; evaluation evidence; evaluation monitoring; evaluation reassessment; traceability; versioning.</p>
+<p>RSEM does not independently:</p>
+<p>determine Resource identity; determine Resource Demand; determine Resource Scarcity State; classify the underlying Constraint Type; determine Resource Dependency or Criticality as originating mechanisms; grant Resource Access; determine Resource Priority; allocate Resources; measure Resource Consumption; authorize intervention; govern Resource Recovery; authorize substitution; determine resilience; determine long-term Sustainability; determine Value; determine Harm; determine Liability.</p>
+<h1 id="8-resource-scarcity-evaluation" data-oof-section-id="true" role="heading" aria-level="2">8. Resource Scarcity Evaluation</h1>
+<p>A Resource Scarcity Evaluation represents the governed assessment of the significance of a Resource Scarcity or Constraint condition.</p>
+<p>It answers:</p>
+<p>How serious is this Resource condition within its actual governance context?</p>
+<h1 id="9-evaluation-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Evaluation Principle</h1>
+<p>A Scarcity evaluation should not be reduced to a single physical quantity.</p>
+<p>The governance significance of Scarcity may depend on:</p>
+<p>magnitude; duration; scope; concentration; Resource Criticality; dependency exposure; available reserves; available buffers; substitutability; recoverability; operational consequences; interdependency effects; evidence quality.</p>
+<h1 id="10-quantity-principle" data-oof-section-id="true" role="heading" aria-level="2">10. Quantity Principle</h1>
+<p>Resource Quantity Alone ≠ Scarcity Severity.</p>
+<h1 id="11-constraint-magnitude" data-oof-section-id="true" role="heading" aria-level="2">11. Constraint Magnitude</h1>
+<p>Constraint Magnitude represents the measurable extent of the Resource limitation.</p>
+<p>Where methodologically appropriate:</p>
+<p>Constraint Gap = Legitimate Resource Requirement − Applicable Resource Capacity</p>
+<p>The Resource-specific method may differ according to the governed Resource.</p>
+<h1 id="12-magnitude-boundary" data-oof-section-id="true" role="heading" aria-level="2">12. Magnitude Boundary</h1>
+<p>Constraint Gap ≠ Constraint Severity.</p>
+<p>Magnitude describes the extent of the Resource limitation.</p>
+<p>Severity describes its governance significance.</p>
+<h1 id="13-absolute-magnitude" data-oof-section-id="true" role="heading" aria-level="2">13. Absolute Magnitude</h1>
+<p>Absolute Magnitude represents the Resource deficit in the applicable native or governed measurement unit.</p>
+<p>Examples:</p>
+<p>m³ of water; MW of electrical capacity; GPU-hours; tonnes of material; GB/s of bandwidth.</p>
+<h1 id="14-relative-magnitude" data-oof-section-id="true" role="heading" aria-level="2">14. Relative Magnitude</h1>
+<p>Relative Magnitude represents the Resource deficit relative to an applicable reference basis.</p>
+<p>Conceptually:</p>
+<p>Relative Constraint Magnitude = Constraint Gap / Legitimate Resource Requirement</p>
+<p>where methodologically valid.</p>
+<h1 id="15-relative-magnitude-boundary" data-oof-section-id="true" role="heading" aria-level="2">15. Relative-Magnitude Boundary</h1>
+<p>Equal Percentage Deficit ≠ Equal Scarcity Severity.</p>
+<p>The affected Resource context matters.</p>
+<h1 id="16-capacity-deficit" data-oof-section-id="true" role="heading" aria-level="2">16. Capacity Deficit</h1>
+<p>A Capacity Deficit exists where applicable usable capacity is below the capacity required by the legitimate Resource requirement.</p>
+<h1 id="17-rate-deficit" data-oof-section-id="true" role="heading" aria-level="2">17. Rate Deficit</h1>
+<p>A Rate Deficit exists where the Resource cannot be supplied, processed, delivered, or otherwise made available at the required rate.</p>
+<h1 id="18-temporal-deficit" data-oof-section-id="true" role="heading" aria-level="2">18. Temporal Deficit</h1>
+<p>A Temporal Deficit exists where Resource capacity is insufficient during the time interval in which the Resource is required.</p>
+<h1 id="19-spatial-deficit" data-oof-section-id="true" role="heading" aria-level="2">19. Spatial Deficit</h1>
+<p>A Spatial Deficit exists where Resource capacity is insufficient at the required location despite capacity elsewhere.</p>
+<h1 id="20-quality-deficit" data-oof-section-id="true" role="heading" aria-level="2">20. Quality Deficit</h1>
+<p>A Quality Deficit exists where Resource quantity exists but the usable quantity meeting required quality conditions is insufficient.</p>
+<h1 id="21-multi-dimensional-deficit" data-oof-section-id="true" role="heading" aria-level="2">21. Multi-Dimensional Deficit</h1>
+<p>A Resource may simultaneously experience:</p>
+<p>quantity deficit; capacity deficit; rate deficit; temporal deficit; spatial deficit; quality deficit.</p>
+<p>These should not automatically be collapsed into one number.</p>
+<h1 id="22-multi-dimensional-principle" data-oof-section-id="true" role="heading" aria-level="2">22. Multi-Dimensional Principle</h1>
+<p>One Numerical Deficit ≠ Complete Resource Scarcity Evaluation.</p>
+<h1 id="23-constraint-severity" data-oof-section-id="true" role="heading" aria-level="2">23. Constraint Severity</h1>
+<p>Constraint Severity represents the governance significance of the Resource Constraint.</p>
+<p>Severity should be determined from relevant evidence rather than directly inferred from Constraint Type or Magnitude.</p>
+<h1 id="24-scarcity-severity" data-oof-section-id="true" role="heading" aria-level="2">24. Scarcity Severity</h1>
+<p>Scarcity Severity represents the governance significance of the Resource Scarcity State relative to affected Resource requirements and dependencies.</p>
+<h1 id="25-scarcity-and-constraint-severity" data-oof-section-id="true" role="heading" aria-level="2">25. Scarcity and Constraint Severity</h1>
+<p>Constraint Severity and Scarcity Severity may overlap but need not be identical.</p>
+<p>A significant operational Constraint may exist before full Scarcity develops.</p>
+<p>Conversely, multiple moderate constraints may collectively produce severe Scarcity.</p>
+<h1 id="26-severity-principle" data-oof-section-id="true" role="heading" aria-level="2">26. Severity Principle</h1>
+<p>Constraint Magnitude ≠ Constraint Severity.</p>
+<h1 id="27-deficit-severity-principle" data-oof-section-id="true" role="heading" aria-level="2">27. Deficit-Severity Principle</h1>
+<p>Large Resource Deficit ≠ High Governance Severity by definition.</p>
+<p>A large deficit affecting a flexible or non-critical Resource use may remain manageable.</p>
+<h1 id="28-small-deficit-principle" data-oof-section-id="true" role="heading" aria-level="2">28. Small-Deficit Principle</h1>
+<p>Small Resource Deficit ≠ Low Governance Severity by definition.</p>
+<p>A small deficit affecting a critical Resource dependency may produce severe governance significance.</p>
+<h1 id="29-minimum-severity-states" data-oof-section-id="true" role="heading" aria-level="2">29. Minimum Severity States</h1>
+<p>At minimum:</p>
+<p>No Material Severity</p>
+<p>Low Severity</p>
+<p>Moderate Severity</p>
+<p>High Severity</p>
+<p>Critical Severity</p>
+<p>Severity Evidence-Limited</p>
+<p>Severity Conflicted</p>
+<p>Severity Unknown</p>
+<p>Severity Unresolved</p>
+<h1 id="30-severity-basis" data-oof-section-id="true" role="heading" aria-level="2">30. Severity Basis</h1>
+<p>Severity may consider:</p>
+<p>Constraint Magnitude; Resource Criticality; Dependency exposure; duration; scope; concentration; available reserve; available buffer; substitutability; recoverability; operational consequence; interdependency effects; trend.</p>
+<h1 id="31-materiality" data-oof-section-id="true" role="heading" aria-level="2">31. Materiality</h1>
+<p>Resource Scarcity Materiality represents whether the Scarcity or Constraint condition is significant enough to require governance attention within the applicable context.</p>
+<h1 id="32-materiality-principle" data-oof-section-id="true" role="heading" aria-level="2">32. Materiality Principle</h1>
+<p>Detected Constraint ≠ Material Constraint by definition.</p>
+<p>A technically measurable constraint may be operationally immaterial.</p>
+<h1 id="33-materiality-states" data-oof-section-id="true" role="heading" aria-level="2">33. Materiality States</h1>
+<p>At minimum:</p>
+<p>Immaterial</p>
+<p>Low Materiality</p>
+<p>Material</p>
+<p>High Materiality</p>
+<p>Critical Materiality</p>
+<p>Materiality Unknown</p>
+<h1 id="34-severity-and-materiality" data-oof-section-id="true" role="heading" aria-level="2">34. Severity and Materiality</h1>
+<p>Severity and Materiality should remain distinguishable.</p>
+<p>Severity ≠ Materiality.</p>
+<p>A severe but extremely narrow event may have different governance significance from a moderate condition affecting an entire Resource System.</p>
+<h1 id="35-duration" data-oof-section-id="true" role="heading" aria-level="2">35. Duration</h1>
+<p>Duration measures how long the Resource Scarcity or Constraint condition exists or is expected to exist.</p>
+<h1 id="36-duration-significance" data-oof-section-id="true" role="heading" aria-level="2">36. Duration Significance</h1>
+<p>The governance significance of duration depends on Resource context.</p>
+<p>A short electricity interruption may be critical for some functions.</p>
+<p>A longer reduction may be manageable for another Resource.</p>
+<h1 id="37-duration-principle" data-oof-section-id="true" role="heading" aria-level="2">37. Duration Principle</h1>
+<p>Short Duration ≠ Low Severity.</p>
+<h1 id="38-long-duration-principle" data-oof-section-id="true" role="heading" aria-level="2">38. Long-Duration Principle</h1>
+<p>Long Duration ≠ Critical Severity by definition.</p>
+<h1 id="39-scope" data-oof-section-id="true" role="heading" aria-level="2">39. Scope</h1>
+<p>Scope represents the breadth of the Resource System affected by the constrained condition.</p>
+<p>Possible scope includes:</p>
+<p>single participant; single function; single system; single facility; single Source; network segment; local area; region; multiple regions; system-wide.</p>
+<h1 id="40-scope-principle" data-oof-section-id="true" role="heading" aria-level="2">40. Scope Principle</h1>
+<p>Large Geographic Scope ≠ High Severity automatically.</p>
+<p>Affected dependencies and consequences matter.</p>
+<h1 id="41-concentration" data-oof-section-id="true" role="heading" aria-level="2">41. Concentration</h1>
+<p>Concentration represents whether Scarcity or Constraint effects are disproportionately focused on specific:</p>
+<p>participants; functions; systems; locations; Sources; dependencies.</p>
+<h1 id="42-concentration-principle" data-oof-section-id="true" role="heading" aria-level="2">42. Concentration Principle</h1>
+<p>Low Aggregate Deficit ≠ Low Local Severity.</p>
+<h1 id="43-distribution" data-oof-section-id="true" role="heading" aria-level="2">43. Distribution</h1>
+<p>RSEM should preserve materially unequal distribution of Resource Scarcity or Constraint where evidence supports it.</p>
+<h1 id="44-aggregate-evaluation-boundary" data-oof-section-id="true" role="heading" aria-level="2">44. Aggregate-Evaluation Boundary</h1>
+<p>Aggregate Resource Condition ≠ Condition Experienced by Every Affected Entity.</p>
+<h1 id="45-resource-criticality" data-oof-section-id="true" role="heading" aria-level="2">45. Resource Criticality</h1>
+<p>Resource Criticality may materially affect Scarcity Severity.</p>
+<p>However:</p>
+<p>Resource Criticality ≠ Scarcity Severity by itself.</p>
+<p>RDCS governs Resource Criticality.</p>
+<p>RSEM consumes the relevant Criticality evidence.</p>
+<h1 id="46-criticality-interaction" data-oof-section-id="true" role="heading" aria-level="2">46. Criticality Interaction</h1>
+<p>The same Constraint Magnitude may produce different severity depending on Resource Criticality.</p>
+<h1 id="47-dependency-exposure" data-oof-section-id="true" role="heading" aria-level="2">47. Dependency Exposure</h1>
+<p>Dependency Exposure represents the extent to which systems, participants, functions, infrastructure, or other Resources depend on the constrained Resource.</p>
+<h1 id="48-dependency-principle" data-oof-section-id="true" role="heading" aria-level="2">48. Dependency Principle</h1>
+<p>Resource Dependency ≠ Scarcity Severity by itself.</p>
+<p>The actual exposure and consequences must be evaluated.</p>
+<h1 id="49-dependency-breadth" data-oof-section-id="true" role="heading" aria-level="2">49. Dependency Breadth</h1>
+<p>RSEM may evaluate how many material dependencies are exposed to the Resource Constraint.</p>
+<h1 id="50-dependency-depth" data-oof-section-id="true" role="heading" aria-level="2">50. Dependency Depth</h1>
+<p>RSEM may evaluate whether the constrained Resource supports:</p>
+<p>direct dependencies; downstream dependencies; multi-level dependency chains; critical enabling dependencies.</p>
+<h1 id="51-dependency-depth-boundary" data-oof-section-id="true" role="heading" aria-level="2">51. Dependency-Depth Boundary</h1>
+<p>Long Dependency Chain ≠ High Severity automatically.</p>
+<p>The actual significance of affected dependencies matters.</p>
+<h1 id="52-reserve-context" data-oof-section-id="true" role="heading" aria-level="2">52. Reserve Context</h1>
+<p>Available reserves may reduce the immediate governance severity of a Resource Constraint.</p>
+<h1 id="53-reserve-principle" data-oof-section-id="true" role="heading" aria-level="2">53. Reserve Principle</h1>
+<p>Resource Reserve ≠ Absence of Scarcity.</p>
+<p>A Resource may remain scarce while reserve capacity temporarily protects critical functions.</p>
+<h1 id="54-reserve-adequacy" data-oof-section-id="true" role="heading" aria-level="2">54. Reserve Adequacy</h1>
+<p>RSEM may evaluate whether available reserve is:</p>
+<p>sufficient; partially sufficient; insufficient; unavailable; unknown.</p>
+<h1 id="55-reserve-duration-relationship" data-oof-section-id="true" role="heading" aria-level="2">55. Reserve-Duration Relationship</h1>
+<p>Reserve significance may depend on how long the reserve can support the applicable Resource requirement.</p>
+<h1 id="56-buffer-context" data-oof-section-id="true" role="heading" aria-level="2">56. Buffer Context</h1>
+<p>Operational buffers may reduce immediate exposure to Resource Scarcity.</p>
+<p>Examples include:</p>
+<p>stored Resource; battery capacity; water storage; inventory; redundant compute capacity; operational slack.</p>
+<h1 id="57-buffer-principle" data-oof-section-id="true" role="heading" aria-level="2">57. Buffer Principle</h1>
+<p>Available Buffer ≠ Constraint Resolution.</p>
+<h1 id="58-substitutability-relevance" data-oof-section-id="true" role="heading" aria-level="2">58. Substitutability Relevance</h1>
+<p>Availability of legitimate substitutes may reduce Scarcity Severity.</p>
+<p>RSEM may consume substitution evidence.</p>
+<p>It does not determine whether substitution is authorized or valid.</p>
+<h1 id="59-substitution-principle" data-oof-section-id="true" role="heading" aria-level="2">59. Substitution Principle</h1>
+<p>Potential Substitute ≠ Available Substitute.</p>
+<p>Available Substitute ≠ Authorized Substitute.</p>
+<h1 id="60-recoverability-relevance" data-oof-section-id="true" role="heading" aria-level="2">60. Recoverability Relevance</h1>
+<p>Recoverable Resource potential may reduce future Scarcity exposure.</p>
+<p>However:</p>
+<p>Recoverable Resource ≠ Currently Available Resource.</p>
+<h1 id="61-recovery-boundary" data-oof-section-id="true" role="heading" aria-level="2">61. Recovery Boundary</h1>
+<p>RRCS governs Resource Recovery &amp; Circularity.</p>
+<p>RSEM evaluates only the relevance of available Recovery evidence to Scarcity significance.</p>
+<h1 id="62-operational-consequence" data-oof-section-id="true" role="heading" aria-level="2">62. Operational Consequence</h1>
+<p>RSEM may evaluate the operational consequences associated with the Resource Scarcity or Constraint state.</p>
+<p>Consequences may include:</p>
+<p>reduced throughput; delayed operation; degraded performance; loss of redundancy; reduced safety margin; partial service interruption; complete service interruption; dependency failure; continuity risk.</p>
+<h1 id="63-consequence-principle" data-oof-section-id="true" role="heading" aria-level="2">63. Consequence Principle</h1>
+<p>Resource Constraint ≠ Operational Failure by definition.</p>
+<p>Systems may continue functioning under constrained conditions.</p>
+<h1 id="64-potential-consequence" data-oof-section-id="true" role="heading" aria-level="2">64. Potential Consequence</h1>
+<p>A Resource Constraint may create the possibility of operational consequence without that consequence having occurred.</p>
+<p>Potential Consequence ≠ Observed Consequence.</p>
+<h1 id="65-observed-consequence" data-oof-section-id="true" role="heading" aria-level="2">65. Observed Consequence</h1>
+<p>Observed operational consequences should remain distinguishable from predicted or simulated consequences.</p>
+<h1 id="66-consequence-boundary" data-oof-section-id="true" role="heading" aria-level="2">66. Consequence Boundary</h1>
+<p>Predicted Operational Consequence ≠ Observed Operational Consequence.</p>
+<h1 id="67-interdependency-relevance" data-oof-section-id="true" role="heading" aria-level="2">67. Interdependency Relevance</h1>
+<p>Resource Scarcity may propagate through interdependent Resource Systems.</p>
+<p>RSEM may consume evidence of such exposure when evaluating severity.</p>
+<p>RIRS governs Resource Interdependency &amp; Resilience.</p>
+<h1 id="68-interdependency-principle" data-oof-section-id="true" role="heading" aria-level="2">68. Interdependency Principle</h1>
+<p>Potential Constraint Propagation ≠ Actual Constraint Propagation.</p>
+<h1 id="69-constraint-accumulation" data-oof-section-id="true" role="heading" aria-level="2">69. Constraint Accumulation</h1>
+<p>Several moderate constraints may collectively create a severe Resource condition.</p>
+<h1 id="70-accumulation-principle" data-oof-section-id="true" role="heading" aria-level="2">70. Accumulation Principle</h1>
+<p>Individual Constraint Severity ≠ Combined Constraint Severity.</p>
+<p>Combined effects require evaluation.</p>
+<h1 id="71-constraint-interaction" data-oof-section-id="true" role="heading" aria-level="2">71. Constraint Interaction</h1>
+<p>RSEM should consider materially relevant interaction among Constraint Types identified by RCTM.</p>
+<p>Interactions may be:</p>
+<p>additive; amplifying; cascading; conditional; mutually reinforcing.</p>
+<h1 id="72-interaction-boundary" data-oof-section-id="true" role="heading" aria-level="2">72. Interaction Boundary</h1>
+<p>Multiple Constraint Types ≠ High Severity automatically.</p>
+<p>Their actual combined effect must be evaluated.</p>
+<h1 id="73-scarcity-concentration" data-oof-section-id="true" role="heading" aria-level="2">73. Scarcity Concentration</h1>
+<p>Scarcity may be severe for a narrow group while aggregate Resource conditions remain relatively stable.</p>
+<h1 id="74-concentration-boundary" data-oof-section-id="true" role="heading" aria-level="2">74. Concentration Boundary</h1>
+<p>System-Wide Stability ≠ Low Severity for Every Local Context.</p>
+<h1 id="75-temporal-concentration" data-oof-section-id="true" role="heading" aria-level="2">75. Temporal Concentration</h1>
+<p>Resource Scarcity may be concentrated within critical periods.</p>
+<p>Examples:</p>
+<p>peak electricity hours; drought periods; training windows; emergency operations; seasonal demand periods.</p>
+<h1 id="76-temporal-concentration-principle" data-oof-section-id="true" role="heading" aria-level="2">76. Temporal-Concentration Principle</h1>
+<p>Short Scarcity Window ≠ Low Governance Significance.</p>
+<h1 id="77-severity-escalation" data-oof-section-id="true" role="heading" aria-level="2">77. Severity Escalation</h1>
+<p>Severity Escalation exists where the governance significance of the Resource Scarcity or Constraint condition materially increases.</p>
+<h1 id="78-escalation-drivers" data-oof-section-id="true" role="heading" aria-level="2">78. Escalation Drivers</h1>
+<p>Severity may escalate because of:</p>
+<p>larger deficit; longer duration; broader scope; greater concentration; loss of reserve; loss of buffer; increased Criticality exposure; additional dependencies; worsening operational consequences; constraint interaction; reduced substitutability; reduced recoverability.</p>
+<h1 id="79-escalation-principle" data-oof-section-id="true" role="heading" aria-level="2">79. Escalation Principle</h1>
+<p>Worsening Scarcity State ≠ Severity Escalation automatically.</p>
+<p>Severity must be evaluated against the complete context.</p>
+<h1 id="80-severity-stabilization" data-oof-section-id="true" role="heading" aria-level="2">80. Severity Stabilization</h1>
+<p>Severity is Stabilized where the governance significance of the constrained condition remains materially bounded and is no longer worsening.</p>
+<h1 id="81-stabilization-principle" data-oof-section-id="true" role="heading" aria-level="2">81. Stabilization Principle</h1>
+<p>Severity Stabilization ≠ Scarcity Resolution.</p>
+<h1 id="82-severity-reduction" data-oof-section-id="true" role="heading" aria-level="2">82. Severity Reduction</h1>
+<p>Severity Reduction exists where the governance significance of the constrained Resource condition materially decreases.</p>
+<h1 id="83-reduction-principle" data-oof-section-id="true" role="heading" aria-level="2">83. Reduction Principle</h1>
+<p>Reduced Severity ≠ Resolved Scarcity.</p>
+<h1 id="84-critical-severity" data-oof-section-id="true" role="heading" aria-level="2">84. Critical Severity</h1>
+<p>Critical Severity should indicate a Resource condition with exceptional governance significance relative to the applicable Resource System.</p>
+<p>Critical Severity may arise from:</p>
+<p>extreme deficit; critical dependency exposure; loss of essential function; absence of reserve;</p>
+<p>absence of substitute; rapid escalation; systemic propagation; other Resource-specific conditions.</p>
+<h1 id="85-critical-severity-boundary" data-oof-section-id="true" role="heading" aria-level="2">85. Critical-Severity Boundary</h1>
+<p>Critical Severity ≠ Complete Resource Exhaustion.</p>
+<h1 id="86-severity-thresholds" data-oof-section-id="true" role="heading" aria-level="2">86. Severity Thresholds</h1>
+<p>Where thresholds are used, RSEM should preserve their methodological basis.</p>
+<p>Thresholds may be:</p>
+<p>Resource-specific; context-specific; dependency-specific; temporal; dynamic; fixed.</p>
+<h1 id="87-threshold-principle" data-oof-section-id="true" role="heading" aria-level="2">87. Threshold Principle</h1>
+<p>Severity Threshold ≠ Universal Resource Threshold by default.</p>
+<h1 id="88-threshold-provenance" data-oof-section-id="true" role="heading" aria-level="2">88. Threshold Provenance</h1>
+<p>Every material severity threshold should preserve:</p>
+<p>basis; applicable Resource; applicable context; methodology or authority source; effective period; version.</p>
+<h1 id="89-dynamic-severity" data-oof-section-id="true" role="heading" aria-level="2">89. Dynamic Severity</h1>
+<p>Scarcity Severity may change even where the physical Resource deficit remains unchanged.</p>
+<p>For example, severity may rise because:</p>
+<p>a reserve is exhausted; a critical dependency becomes active; a substitute becomes unavailable; the constraint persists longer than expected.</p>
+<h1 id="90-dynamic-severity-principle" data-oof-section-id="true" role="heading" aria-level="2">90. Dynamic-Severity Principle</h1>
+<p>Stable Physical Deficit ≠ Stable Governance Severity.</p>
+<h1 id="91-severity-comparison" data-oof-section-id="true" role="heading" aria-level="2">91. Severity Comparison</h1>
+<p>Severity comparisons across different Resources should be performed only where the comparison method is explicitly governed.</p>
+<h1 id="92-cross-resource-comparison-boundary" data-oof-section-id="true" role="heading" aria-level="2">92. Cross-Resource Comparison Boundary</h1>
+<p>Equal Physical Deficit Across Different Resources ≠ Equal Governance Severity.</p>
+<h1 id="93-native-measurement" data-oof-section-id="true" role="heading" aria-level="2">93. Native Measurement</h1>
+<p>RSEM should preserve Resource-native measurements wherever they remain relevant.</p>
+<p>Examples:</p>
+<p>litres; m³; MW; MWh; GPU-hours; tonnes; bandwidth; storage capacity.</p>
+<h1 id="94-normalization-boundary" data-oof-section-id="true" role="heading" aria-level="2">94. Normalization Boundary</h1>
+<p>Normalized severity may support comparison where a valid methodology exists.</p>
+<p>However:</p>
+<p>Normalized Resource Significance ≠ Physical Resource Equivalence.</p>
+<h1 id="95-cross-resource-normalization" data-oof-section-id="true" role="heading" aria-level="2">95. Cross-Resource Normalization</h1>
+<p>RSEM does not establish a universal physical conversion between unlike Resources.</p>
+<p>Cross-resource comparability does not require physical equivalence.</p>
+<h1 id="96-evidence-basis" data-oof-section-id="true" role="heading" aria-level="2">96. Evidence Basis</h1>
+<p>RSEM should preserve the evidence supporting Scarcity Magnitude, Severity, and Materiality determinations.</p>
+<p>Evidence may include:</p>
+<p>Scarcity State evidence; Constraint Type evidence; capacity evidence; Demand evidence; Dependency evidence; Criticality evidence; reserve evidence; Consumption evidence; Utilization evidence; operational consequence evidence; interdependency evidence; other relevant governed evidence.</p>
+<h1 id="97-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">97. Evidence Sufficiency</h1>
+<p>RSEM should determine whether evidence is sufficient for the asserted evaluation.</p>
+<h1 id="98-evidence-principle" data-oof-section-id="true" role="heading" aria-level="2">98. Evidence Principle</h1>
+<p>Scarcity Evidence ≠ Severity Evidence by default.</p>
+<p>Evidence sufficient to establish Scarcity may be insufficient to establish its severity.</p>
+<h1 id="99-severity-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">99. Severity Evidence-Limited</h1>
+<p>Severity Evidence-Limited applies where Scarcity or Constraint is established but available evidence is insufficient to reliably determine severity.</p>
+<h1 id="100-severity-unknown" data-oof-section-id="true" role="heading" aria-level="2">100. Severity Unknown</h1>
+<p>Severity Unknown applies where severity cannot be adequately established.</p>
+<p>Severity Unknown ≠ Low Severity.</p>
+<h1 id="101-severity-conflicted" data-oof-section-id="true" role="heading" aria-level="2">101. Severity Conflicted</h1>
+<p>Severity Conflicted applies where material evidence supports incompatible severity evaluations.</p>
+<h1 id="102-conflict-principle" data-oof-section-id="true" role="heading" aria-level="2">102. Conflict Principle</h1>
+<p>Conflicting Severity Evidence ≠ Permission to Select the Most Convenient Severity.</p>
+<h1 id="103-measurement-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">103. Measurement Uncertainty</h1>
+<p>Uncertainty in Constraint Magnitude should remain visible in the evaluation.</p>
+<h1 id="104-context-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">104. Context Uncertainty</h1>
+<p>Uncertainty regarding duration, scope, concentration, Criticality, Dependency, reserve, substitution, or operational consequence should remain visible where material.</p>
+<h1 id="105-evaluation-confidence" data-oof-section-id="true" role="heading" aria-level="2">105. Evaluation Confidence</h1>
+<p>RSEM may preserve evaluation confidence.</p>
+<p>Confidence concerns the strength of the evidence supporting the evaluation.</p>
+<h1 id="106-confidence-principle" data-oof-section-id="true" role="heading" aria-level="2">106. Confidence Principle</h1>
+<p>High Evaluation Confidence ≠ High Scarcity Severity.</p>
+<h1 id="107-predicted-severity" data-oof-section-id="true" role="heading" aria-level="2">107. Predicted Severity</h1>
+<p>Prediction may estimate future Scarcity Severity.</p>
+<p>However:</p>
+<p>Predicted Severity ≠ Current Severity.</p>
+<p>PGA™ governs Prediction methodology where applicable.</p>
+<h1 id="108-simulated-severity" data-oof-section-id="true" role="heading" aria-level="2">108. Simulated Severity</h1>
+<p>Simulation may evaluate Resource Scarcity under hypothetical conditions.</p>
+<p>Simulated Severity ≠ Observed Severity.</p>
+<p>SIMULOS® governs simulation.</p>
+<h1 id="109-historical-severity" data-oof-section-id="true" role="heading" aria-level="2">109. Historical Severity</h1>
+<p>Historical severity may support trend, recurrence, or comparative analysis.</p>
+<p>Historical Severity ≠ Current Severity.</p>
+<h1 id="110-severity-trend" data-oof-section-id="true" role="heading" aria-level="2">110. Severity Trend</h1>
+<p>RSEM should support at minimum:</p>
+<p>Improving</p>
+<p>Stable</p>
+<p>Worsening</p>
+<p>Volatile</p>
+<p>Unknown</p>
+<h1 id="111-trend-principle" data-oof-section-id="true" role="heading" aria-level="2">111. Trend Principle</h1>
+<p>Current Severity ≠ Severity Direction.</p>
+<p>A Resource condition may remain Critical while improving.</p>
+<h1 id="112-evaluation-monitoring" data-oof-section-id="true" role="heading" aria-level="2">112. Evaluation Monitoring</h1>
+<p>Material Scarcity evaluations should support monitoring appropriate to their significance.</p>
+<h1 id="113-monitoring-inputs" data-oof-section-id="true" role="heading" aria-level="2">113. Monitoring Inputs</h1>
+<p>Monitoring may include:</p>
+<p>Constraint Magnitude; Scarcity State; Constraint Type; duration; scope; concentration;</p>
+<p>Criticality; Dependency exposure; reserve; buffer; substitutability; recoverability; operational consequence; interdependency effects; severity trend.</p>
+<h1 id="114-reassessment-trigger" data-oof-section-id="true" role="heading" aria-level="2">114. Reassessment Trigger</h1>
+<p>RSEM should support reassessment where materially relevant conditions change.</p>
+<p>Triggers may include:</p>
+<p>Scarcity-State change; Constraint-Type change; magnitude change; duration threshold; scope change; reserve depletion; buffer depletion; Criticality change; Dependency change; substitute availability change; Recovery change; operational consequence; new evidence; evidence conflict.</p>
+<h1 id="115-scarcity-state-boundary" data-oof-section-id="true" role="heading" aria-level="2">115. Scarcity-State Boundary</h1>
+<p>RSSM determines Resource Scarcity State.</p>
+<p>RSEM evaluates its significance.</p>
+<p>Scarcity Evaluation ≠ Scarcity-State Creation.</p>
+<h1 id="116-constraint-type-boundary" data-oof-section-id="true" role="heading" aria-level="2">116. Constraint-Type Boundary</h1>
+<p>RCTM identifies Resource Constraint Type.</p>
+<p>RSEM evaluates the significance of the resulting Resource condition.</p>
+<p>Scarcity Evaluation ≠ Constraint-Type Classification.</p>
+<h1 id="117-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">117. Demand Boundary</h1>
+<p>RDGS governs Resource Demand.</p>
+<p>RSEM may consume legitimate Resource requirement evidence.</p>
+<p>It does not redefine Demand.</p>
+<h1 id="118-dependency-boundary" data-oof-section-id="true" role="heading" aria-level="2">118. Dependency Boundary</h1>
+<p>RDCS governs Resource Dependency and Criticality.</p>
+<p>RSEM consumes their relevance to Scarcity Severity.</p>
+<p>It does not redefine Dependency or Criticality.</p>
+<h1 id="119-access-boundary" data-oof-section-id="true" role="heading" aria-level="2">119. Access Boundary</h1>
+<p>RSEM may identify severe Resource pressure relevant to Access review.</p>
+<p>Scarcity Severity ≠ Access Authority.</p>
+<h1 id="120-priority-boundary" data-oof-section-id="true" role="heading" aria-level="2">120. Priority Boundary</h1>
+<p>Scarcity Severity may materially inform Resource Priority governance.</p>
+<p>However:</p>
+<p>Scarcity Severity ≠ Resource Priority.</p>
+<p>RPAS retains Priority governance.</p>
+<h1 id="121-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">121. Allocation Boundary</h1>
+<p>Scarcity Severity may justify Allocation reassessment.</p>
+<p>However:</p>
+<p>Scarcity Severity ≠ Allocation Authority.</p>
+<h1 id="122-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">122. Consumption Boundary</h1>
+<p>RCUS governs actual Resource Consumption &amp; Utilization.</p>
+<p>RSEM may consume that evidence without redefining Consumption.</p>
+<h1 id="123-recovery-boundary" data-oof-section-id="true" role="heading" aria-level="2">123. Recovery Boundary</h1>
+<p>Recovery may reduce future Scarcity Severity.</p>
+<p>RSEM does not authorize Recovery.</p>
+<h1 id="124-substitution-boundary" data-oof-section-id="true" role="heading" aria-level="2">124. Substitution Boundary</h1>
+<p>Substitutability may reduce Scarcity Severity.</p>
+<p>RSEM does not authorize substitution.</p>
+<h1 id="125-resilience-boundary" data-oof-section-id="true" role="heading" aria-level="2">125. Resilience Boundary</h1>
+<p>Scarcity Severity may expose resilience weakness.</p>
+<p>RIRS governs Resource Interdependency &amp; Resilience.</p>
+<h1 id="126-sustainability-boundary" data-oof-section-id="true" role="heading" aria-level="2">126. Sustainability Boundary</h1>
+<p>Persistent severe Scarcity may provide important Sustainability evidence.</p>
+<p>However:</p>
+<p>Scarcity Severity ≠ Sustainability Determination.</p>
+<h1 id="127-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">127. Value Boundary</h1>
+<p>Resource Value may be relevant to downstream decisions.</p>
+<p>However:</p>
+<p>High Value ≠ Low Scarcity Severity.</p>
+<p>High Value ≠ Automatic Resource Priority.</p>
+<p>VEGA™ governs Value relationships.</p>
+<h1 id="128-harm-boundary" data-oof-section-id="true" role="heading" aria-level="2">128. Harm Boundary</h1>
+<p>Severe Resource Scarcity may contribute to Harm.</p>
+<p>However:</p>
+<p>Scarcity Severity ≠ Harm Severity.</p>
+<p>HAGA™ governs Harm.</p>
+<h1 id="129-liability-boundary" data-oof-section-id="true" role="heading" aria-level="2">129. Liability Boundary</h1>
+<p>Resource Scarcity evidence may become relevant to Liability.</p>
+<p>However:</p>
+<p>Scarcity Severity ≠ Liability.</p>
+<p>LIGA™ governs Liability.</p>
+<h1 id="130-automated-evaluation-boundary" data-oof-section-id="true" role="heading" aria-level="2">130. Automated Evaluation Boundary</h1>
+<p>Software may calculate or classify Scarcity Severity.</p>
+<p>However:</p>
+<p>Automated Severity Evaluation ≠ Governance Authority.</p>
+<h1 id="131-intervention-boundary" data-oof-section-id="true" role="heading" aria-level="2">131. Intervention Boundary</h1>
+<p>A High or Critical Severity state may trigger governance review.</p>
+<p>It does not independently authorize intervention.</p>
+<p>Critical Scarcity Evaluation ≠ Intervention Authority.</p>
+<h1 id="132-resource-scarcity-evaluation-profile" data-oof-section-id="true" role="heading" aria-level="2">132. Resource Scarcity Evaluation Profile</h1>
+<p>The principal RSEM output is the:</p>
+<p>Resource Scarcity Evaluation Profile</p>
+<h1 id="133-minimum-resource-scarcity-evaluation-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">133. Minimum Resource Scarcity Evaluation Profile Fields</h1>
+<p>At minimum:</p>
+<p>Evaluation ID</p>
+<p>Resource ID</p>
+<p>Resource Type</p>
+<p>Resource Source</p>
+<p>Location</p>
+<p>Applicable Time Horizon</p>
+<p>Scarcity State Reference</p>
+<p>Constraint Type Reference</p>
+<p>Legitimate Resource Requirement Reference</p>
+<p>Applicable Resource Capacity Reference</p>
+<p>Absolute Constraint Magnitude</p>
+<p>Relative Constraint Magnitude where applicable</p>
+<p>Capacity Deficit</p>
+<p>Rate Deficit where applicable</p>
+<p>Temporal Deficit where applicable</p>
+<p>Spatial Deficit where applicable</p>
+<p>Quality Deficit where applicable</p>
+<p>Constraint Severity</p>
+<p>Scarcity Severity</p>
+<p>Materiality State</p>
+<p>Duration</p>
+<p>Scope</p>
+<p>Concentration</p>
+<p>Distribution State</p>
+<p>Resource Criticality Reference</p>
+<p>Dependency Exposure</p>
+<p>Reserve State</p>
+<p>Reserve Adequacy</p>
+<p>Buffer State</p>
+<p>Substitutability Reference</p>
+<p>Recoverability Reference</p>
+<p>Operational Consequence State</p>
+<p>Interdependency Exposure</p>
+<p>Constraint Interaction State</p>
+<p>Severity Trend</p>
+<p>Severity Escalation State</p>
+<p>Severity Stabilization State</p>
+<p>Severity Reduction State</p>
+<p>Evidence Basis</p>
+<p>Evidence Provenance</p>
+<p>Evidence Sufficiency</p>
+<p>Measurement Uncertainty</p>
+<p>Context Uncertainty</p>
+<p>Evaluation Confidence</p>
+<p>Conflict State</p>
+<p>Monitoring State</p>
+<p>Reassessment Trigger</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="134-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">134. Minimum Implementation Framework</h1>
+<p>A minimum operational RSEM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Scarcity &amp; Constraint Reference</p>
+<p>Establish:</p>
+<p>Resource; Scarcity State; Constraint Type; Source; location; time horizon.</p>
+<p>Layer 2 — Magnitude Evaluation</p>
+<p>Determine where applicable:</p>
+<p>absolute deficit; relative deficit; capacity deficit; rate deficit; temporal deficit; spatial deficit; quality deficit.</p>
+<p>Layer 3 — Contextual Significance</p>
+<p>Evaluate:</p>
+<p>duration; scope; concentration; distribution; Resource Criticality; Dependency exposure.</p>
+<p>Layer 4 — Mitigating Capacity</p>
+<p>Evaluate:</p>
+<p>reserve; buffer; substitutability; recoverability.</p>
+<p>Layer 5 — Operational Consequence</p>
+<p>Evaluate:</p>
+<p>current consequence; potential consequence; interdependency exposure.</p>
+<p>Layer 6 — Severity &amp; Materiality</p>
+<p>Determine:</p>
+<p>Constraint Severity; Scarcity Severity; Materiality; trend.</p>
+<p>Layer 7 — Evidence &amp; Reassessment</p>
+<p>Establish:</p>
+<p>evidence sufficiency; uncertainty; conflict; confidence; monitoring; reassessment.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Scarcity Evaluation Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>**Scarcity State</p>
+<p>Constraint Type Magnitude Duration / Scope / Concentration Criticality / Dependency Exposure Reserve / Buffer / Substitutability / Recoverability Operational Consequence → Severity &amp; Materiality Evaluation → Evidence / Uncertainty / Conflict → Resource Scarcity Evaluation Profile**</p>
+<h1 id="135-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">135. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>No Material Severity</p>
+<p>Low Severity</p>
+<p>Moderate Severity</p>
+<p>High Severity</p>
+<p>Critical Severity</p>
+<p>Immaterial</p>
+<p>Material</p>
+<p>High Materiality</p>
+<p>Critical Materiality</p>
+<p>Severity Escalating</p>
+<p>Severity Stable</p>
+<p>Severity Reducing</p>
+<p>Severity Evidence-Limited</p>
+<p>Severity Conflicted</p>
+<p>Severity Unknown</p>
+<p>Severity Unresolved</p>
+<p>Scarcity Evaluation Reassessment Required</p>
+<h1 id="136-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">136. Minimum Evidence Path</h1>
+<p>Where Scarcity Severity cannot be sufficiently evaluated:</p>
+<p>Established / Emerging Scarcity or Constraint → Severity Unknown / Evidence-Limited / Conflicted → Missing Magnitude / Duration / Scope / Criticality / Dependency / Reserve / Consequence Evidence → Minimum Evidence Requirement → Evidence Acquisition → Magnitude Evaluation → Contextual Significance Evaluation → Severity / Materiality Determination → Resource Scarcity Evaluation Profile Update</p>
+<h1 id="137-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">137. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Scarcity Evaluation Profile → New Scarcity / Constraint / Capacity / Criticality / Dependency / Reserve / Buffer / Consequence Evidence → Materiality Test → Magnitude Reassessment → Context Reassessment → Severity Reassessment</p>
+<p>→ Materiality Reassessment → Trend Review → Monitoring Review → Profile Update → Version Update</p>
+<h1 id="138-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">138. Governance Requirements</h1>
+<p>A conforming RSEM implementation must:</p>
+<h1 id="1-identify-the-governed-resource-2-preserve-resource-source-where-material-3-pre" data-oof-section-id="true" role="heading" aria-level="2">1. identify the governed Resource; 2. preserve Resource Source where material; 3. preserve location where material; 4. preserve the applicable time horizon; 5. preserve the applicable Scarcity State reference; 6. preserve the applicable Constraint Type reference; 7. identify Constraint Magnitude where methodologically valid; 8. preserve absolute Constraint Magnitude where relevant; 9. preserve relative Constraint Magnitude where valid; 10. distinguish Constraint Magnitude from Constraint Severity; 11. support capacity-deficit evaluation; 12. support rate-deficit evaluation where relevant; 13. support temporal-deficit evaluation where relevant; 14. support spatial-deficit evaluation where relevant; 15. support quality-deficit evaluation where relevant; 16. preserve multi-dimensional deficits; 17. prevent one numerical deficit from becoming complete Scarcity evaluation; 18. determine Constraint Severity; 19. determine Scarcity Severity where applicable; 20. distinguish Constraint Severity from Scarcity Severity where material; 21. prevent large Resource deficit from becoming High Severity automatically; 22. prevent small Resource deficit from becoming Low Severity automatically; 23. support No Material Severity; 24. support Low Severity; 25. support Moderate Severity; 26. support High Severity; 27. support Critical Severity; 28. support Severity Evidence-Limited; 29. support Severity Conflicted; 30. support Severity Unknown; 31. support Severity Unresolved; 32. determine Resource Scarcity Materiality; 33. distinguish detected Constraint from Material Constraint; 34. support Immaterial state; 35. support Low Materiality; 36. support Material state; 37. support High Materiality; 38. support Critical Materiality; 39. distinguish Severity from Materiality; 40. preserve Constraint Duration; 41. evaluate duration significance; 42. prevent short duration from becoming Low Severity automatically; 43. prevent long duration from becoming Critical Severity automatically; 44. preserve Constraint Scope; 45. evaluate scope significance; 46. prevent large geographic scope from becoming High Severity automatically; 47. preserve Constraint Concentration; 48. distinguish aggregate deficit from local severity; 49. preserve materially unequal Constraint distribution; 50. distinguish aggregate Resource condition from condition experienced by every entity; 51. consume Resource Criticality evidence where relevant; 52. prevent Resource Criticality from becoming Scarcity Severity by itself; 53. preserve Criticality interaction;</h1>
+<h1 id="54-preserve-dependency-exposure-55-prevent-resource-dependency-from-becoming-sca" data-oof-section-id="true" role="heading" aria-level="2">54. preserve Dependency exposure; 55. prevent Resource Dependency from becoming Scarcity Severity by itself; 56. evaluate Dependency breadth where relevant; 57. evaluate Dependency depth where relevant; 58. prevent long Dependency chain from becoming High Severity automatically; 59. preserve reserve context; 60. prevent Resource reserve from becoming absence of Scarcity; 61. evaluate reserve adequacy; 62. preserve reserve-duration relationship where material; 63. preserve buffer context; 64. prevent available buffer from becoming Constraint Resolution; 65. preserve substitutability relevance; 66. distinguish potential substitute from available substitute; 67. distinguish available substitute from authorized substitute; 68. preserve recoverability relevance; 69. distinguish recoverable Resource from currently available Resource; 70. preserve Recovery governance boundary; 71. evaluate operational consequences where relevant; 72. distinguish Resource Constraint from operational failure; 73. distinguish potential consequence from observed consequence; 74. distinguish predicted consequence from observed consequence; 75. preserve interdependency relevance; 76. distinguish potential Constraint propagation from actual propagation; 77. evaluate Constraint accumulation; 78. distinguish individual Constraint Severity from combined Constraint Severity; 79. evaluate material Constraint interactions; 80. prevent multiple Constraint Types from becoming High Severity automatically; 81. preserve Scarcity concentration; 82. distinguish system-wide stability from low local severity; 83. preserve temporal concentration where relevant; 84. prevent short Scarcity window from becoming Low Governance Significance automatically; 85. identify Severity Escalation; 86. preserve material escalation drivers; 87. prevent worsening Scarcity State from becoming Severity Escalation automatically; 88. support Severity Stabilization; 89. distinguish Severity Stabilization from Scarcity Resolution; 90. support Severity Reduction; 91. distinguish reduced Severity from resolved Scarcity; 92. support Critical Severity; 93. prevent Critical Severity from requiring complete Resource exhaustion; 94. preserve severity thresholds where used; 95. preserve threshold provenance; 96. distinguish severity threshold from universal Resource threshold; 97. support dynamic Severity; 98. recognize that Severity may change while physical deficit remains stable; 99. distinguish stable physical deficit from stable governance Severity; 100. govern severity comparison where performed; 101. prevent equal physical deficits across Resources from becoming equal governance Severity; 102. preserve Resource-native measurements; 103. preserve normalization methodology where used; 104. distinguish normalized Resource significance from physical equivalence; 105. preserve Cross-Resource comparability without requiring physical equivalence; 106. preserve evaluation evidence; 107. preserve evidence provenance; 108. determine evidence sufficiency; 109. distinguish Scarcity evidence from Severity evidence; 110. support Severity Evidence-Limited; 111. support Severity Unknown; 112. prevent Severity Unknown from becoming Low Severity; 113. support Severity Conflicted; 114. prevent convenient severity selection under evidence conflict; 115. preserve measurement uncertainty; 116. preserve context uncertainty; 117. preserve evaluation confidence where used; 118. distinguish evaluation confidence from Scarcity Severity;</h1>
+<h1 id="119-distinguish-predicted-severity-from-current-severity-120-distinguish-simulat" data-oof-section-id="true" role="heading" aria-level="2">119. distinguish predicted Severity from current Severity; 120. distinguish simulated Severity from observed Severity; 121. distinguish historical Severity from current Severity; 122. preserve Severity Trend; 123. support Improving trend; 124. support Stable trend; 125. support Worsening trend; 126. support Volatile trend; 127. support Unknown trend; 128. distinguish current Severity from Severity Direction; 129. support evaluation monitoring; 130. preserve relevant monitoring inputs; 131. preserve reassessment triggers; 132. preserve RSSM Scarcity-State boundary; 133. preserve RCTM Constraint-Type boundary; 134. preserve RDGS Demand boundary; 135. preserve RDCS Dependency and Criticality boundary; 136. preserve RAGS Access boundary; 137. preserve RPAS Priority and Allocation boundary; 138. preserve RCUS Consumption &amp; Utilization boundary; 139. preserve RRCS Recovery boundary; 140. preserve RSFS substitution boundary; 141. preserve RIRS resilience boundary; 142. preserve RCSS Sustainability boundary; 143. distinguish Scarcity Severity from Value; 144. distinguish Scarcity Severity from Harm Severity; 145. distinguish Scarcity Severity from Liability; 146. distinguish automated Severity evaluation from governance authority; 147. distinguish Critical Scarcity Evaluation from intervention authority; 148. preserve effective time; 149. preserve version history; 150. produce a Resource Scarcity Evaluation Profile.</h1>
+<h1 id="139-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">139. Governance Logic</h1>
+<p>Canonical RSEM logic:</p>
+<p>Resource Scarcity State → Resource Constraint Type → Constraint Magnitude → Duration / Scope / Concentration → Resource Criticality / Dependency Exposure → Reserve / Buffer / Substitutability / Recoverability → Operational Consequence / Interdependency Exposure → Constraint Severity → Scarcity Severity → Materiality → Severity Trend → Evidence / Uncertainty / Conflict → Resource Scarcity Evaluation Profile → Monitoring → Reassessment</p>
+<h1 id="140-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">140. Governance Outputs</h1>
+<p>RSEM may produce:</p>
+<p>Resource Scarcity Evaluation Profile</p>
+<p>Absolute Constraint Magnitude</p>
+<p>Relative Constraint Magnitude</p>
+<p>Capacity Deficit</p>
+<p>Rate Deficit</p>
+<p>Temporal Deficit</p>
+<p>Spatial Deficit</p>
+<p>Quality Deficit</p>
+<p>Constraint Severity</p>
+<p>Scarcity Severity</p>
+<p>Resource Scarcity Materiality</p>
+<p>Duration Significance</p>
+<p>Scope Significance</p>
+<p>Constraint Concentration</p>
+<p>Dependency Exposure</p>
+<p>Reserve Adequacy</p>
+<p>Buffer State</p>
+<p>Operational Consequence State</p>
+<p>Interdependency Exposure</p>
+<p>Combined Constraint Severity</p>
+<p>Severity Trend</p>
+<p>Severity Escalation State</p>
+<p>Severity Stabilization State</p>
+<p>Severity Reduction State</p>
+<p>Evidence Sufficiency State</p>
+<p>Evaluation Confidence</p>
+<p>Uncertainty State</p>
+<p>Conflict State</p>
+<p>Monitoring State</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="141-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">141. Critical Distinctions</h1>
+<p>Scarcity State ≠ Scarcity Severity</p>
+<p>Constraint Magnitude ≠ Constraint Severity</p>
+<p>Large Resource Deficit ≠ High Governance Severity by definition</p>
+<p>Small Resource Deficit ≠ Low Governance Severity by definition</p>
+<p>Resource Criticality ≠ Scarcity Severity by itself</p>
+<p>Resource Quantity Alone ≠ Scarcity Severity</p>
+<p>Constraint Gap ≠ Constraint Severity</p>
+<p>Equal Percentage Deficit ≠ Equal Scarcity Severity</p>
+<p>One Numerical Deficit ≠ Complete Resource Scarcity Evaluation</p>
+<p>Detected Constraint ≠ Material Constraint by definition</p>
+<p>Severity ≠ Materiality</p>
+<p>Short Duration ≠ Low Severity</p>
+<p>Long Duration ≠ Critical Severity by definition</p>
+<p>Large Geographic Scope ≠ High Severity automatically</p>
+<p>Low Aggregate Deficit ≠ Low Local Severity</p>
+<p>Aggregate Resource Condition ≠ Condition Experienced by Every Affected Entity</p>
+<p>Resource Dependency ≠ Scarcity Severity by itself</p>
+<p>Long Dependency Chain ≠ High Severity automatically</p>
+<p>Resource Reserve ≠ Absence of Scarcity</p>
+<p>Available Buffer ≠ Constraint Resolution</p>
+<p>Potential Substitute ≠ Available Substitute</p>
+<p>Available Substitute ≠ Authorized Substitute</p>
+<p>Recoverable Resource ≠ Currently Available Resource</p>
+<p>Resource Constraint ≠ Operational Failure by definition</p>
+<p>Potential Consequence ≠ Observed Consequence</p>
+<p>Predicted Operational Consequence ≠ Observed Operational Consequence</p>
+<p>Potential Constraint Propagation ≠ Actual Constraint Propagation</p>
+<p>Individual Constraint Severity ≠ Combined Constraint Severity</p>
+<p>Multiple Constraint Types ≠ High Severity automatically</p>
+<p>System-Wide Stability ≠ Low Severity for Every Local Context</p>
+<p>Short Scarcity Window ≠ Low Governance Significance</p>
+<p>Worsening Scarcity State ≠ Severity Escalation automatically</p>
+<p>Severity Stabilization ≠ Scarcity Resolution</p>
+<p>Reduced Severity ≠ Resolved Scarcity</p>
+<p>Critical Severity ≠ Complete Resource Exhaustion</p>
+<p>Severity Threshold ≠ Universal Resource Threshold by default</p>
+<p>Stable Physical Deficit ≠ Stable Governance Severity</p>
+<p>Equal Physical Deficit Across Different Resources ≠ Equal Governance Severity</p>
+<p>Normalized Resource Significance ≠ Physical Resource Equivalence</p>
+<p>Scarcity Evidence ≠ Severity Evidence by default</p>
+<p>Severity Unknown ≠ Low Severity</p>
+<p>Conflicting Severity Evidence ≠ Permission to Select the Most Convenient Severity</p>
+<p>High Evaluation Confidence ≠ High Scarcity Severity</p>
+<p>Predicted Severity ≠ Current Severity</p>
+<p>Simulated Severity ≠ Observed Severity</p>
+<p>Historical Severity ≠ Current Severity</p>
+<p>Current Severity ≠ Severity Direction</p>
+<p>Scarcity Evaluation ≠ Scarcity-State Creation</p>
+<p>Scarcity Evaluation ≠ Constraint-Type Classification</p>
+<p>Scarcity Severity ≠ Access Authority</p>
+<p>Scarcity Severity ≠ Resource Priority</p>
+<p>Scarcity Severity ≠ Allocation Authority</p>
+<p>Scarcity Severity ≠ Sustainability Determination</p>
+<p>High Value ≠ Low Scarcity Severity</p>
+<p>High Value ≠ Automatic Resource Priority</p>
+<p>Scarcity Severity ≠ Harm Severity</p>
+<p>Scarcity Severity ≠ Liability</p>
+<p>Automated Severity Evaluation ≠ Governance Authority</p>
+<p>Critical Scarcity Evaluation ≠ Intervention Authority</p>
+<h1 id="142-use-case-1-ai-data-center-power-constraint" data-oof-section-id="true" role="heading" aria-level="2">142. Use Case 1 — AI Data Center Power Constraint</h1>
+<p>An AI data center requires 100 MW of electrical capacity during a critical workload period.</p>
+<p>Operationally usable electrical capacity falls to 94 MW .</p>
+<p>The absolute Constraint Magnitude is therefore:</p>
+<p>6 MW</p>
+<p>and the relative deficit is:</p>
+<p>6% of the legitimate Resource requirement.</p>
+<p>A percentage-only evaluation could classify the deficit as moderate.</p>
+<p>RSEM evaluates the wider context.</p>
+<p>Evidence shows:</p>
+<p>the affected workloads include safety-critical infrastructure services; reserve generation can provide only 2 MW; battery buffer supports the remaining gap for 20 minutes; no immediate grid-capacity substitute is available; cooling capacity also depends on the same electrical supply; the Constraint is worsening.</p>
+<p>RSEM therefore determines that the apparently limited 6% physical deficit has High to Critical governance significance because of Criticality, Dependency exposure, limited reserve duration, interdependency, and escalation.</p>
+<p>RSEM does not reallocate power or terminate workloads.</p>
+<p>It produces the governed Scarcity Evaluation required by the competent downstream mechanisms.</p>
+<h1 id="143-use-case-2-regional-water-scarcity" data-oof-section-id="true" role="heading" aria-level="2">143. Use Case 2 — Regional Water Scarcity</h1>
+<p>A region requires 100,000 m³/day of treated water during a dry period.</p>
+<p>Available deliverable capacity falls to 82,000 m³/day .</p>
+<p>The physical deficit is:</p>
+<p>18,000 m³/day</p>
+<p>or:</p>
+<p>18% of the legitimate requirement.</p>
+<p>RSEM evaluates more than the percentage.</p>
+<p>Evidence shows:</p>
+<p>municipal drinking-water requirements are exposed; industrial users retain partial substitution capability; agricultural demand can be temporally adjusted; stored reserves can support essential functions for a limited period; one municipality experiences substantially greater shortage than the regional average; groundwater regeneration continues to decline.</p>
+<p>RSEM therefore distinguishes:</p>
+<p>regional Constraint Magnitude; localized Scarcity concentration; critical drinking-water Dependency exposure; available reserve protection; different substitution conditions across users; worsening regenerative conditions.</p>
+<p>The result may classify overall regional Scarcity as High Severity while identifying a Critical localized evaluation for the most exposed municipality.</p>
+<p>This prevents a single regional percentage from hiding materially different Resource realities.</p>
+<h1 id="144-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">144. Cross-Architecture Boundary</h1>
+<p>RSEM may consume:</p>
+<p>RCHS — Resource identity, Source, state, and context.</p>
+<p>RACS — Availability and capacity evidence.</p>
+<p>RDGS — legitimate Resource requirement and Demand evidence.</p>
+<p>RDCS — Dependency, Criticality, consequence, and dependency-chain evidence.</p>
+<p>RAGS — Access evidence relevant to Resource exposure.</p>
+<p>RPAS — Priority, Allocation, reserve, and reallocation context.</p>
+<p>RCUS — Consumption and Utilization evidence.</p>
+<p>RSSM — Resource Scarcity State.</p>
+<p>RCTM — Resource Constraint Type and mechanism.</p>
+<p>RSEM may provide evaluation evidence to:</p>
+<p>RRCS — Resource Recovery &amp; Circularity.</p>
+<p>RSFS — Resource Substitution &amp; Flexibility.</p>
+<p>RIRS — Resource Interdependency &amp; Resilience.</p>
+<p>RCSS — Resource Continuity &amp; Sustainability.</p>
+<p>ORA™ — operational reality relationships.</p>
+<p>PGA™ — predicted Scarcity relationships.</p>
+<p>SIMULOS® — simulated Scarcity relationships.</p>
+<p>VEGA™ — Value and efficiency governance.</p>
+<p>HAGA™ — Harm governance.</p>
+<p>LIGA™ — Liability governance.</p>
+<p>RSEM does not absorb those mechanisms.</p>
+<h1 id="145-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">145. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RSEM governs the evaluation of the significance of Resource Scarcity and Constraint .</p>
+<p>It does not govern the downstream authority to reallocate, restrict, recover, substitute, interrupt, or otherwise intervene in Resource use.</p>
+<h1 id="146-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">146. Canonical Boundary</h1>
+<p>RSEM governs how the magnitude, severity, materiality, scope, duration, concentration, Dependency exposure, reserve and buffer context, substitutability and recoverability relevance, operational consequence, interdependency exposure, trend, evidence sufficiency, uncertainty, conflict, and overall governance significance of an established or emerging Resource Scarcity or Constraint state are evaluated, classified, monitored, and reassessed.</p>
+<p>It does not independently establish the Resource Scarcity State, classify the underlying Constraint Type, determine Resource Demand, Dependency or Criticality, grant Access, determine Priority or Allocation, measure Resource Consumption, authorize Recovery or substitution, determine resilience or long-term Sustainability, determine Value, Harm, Liability, or authorize intervention.</p>
+<p>Its principal governed output is the Resource Scarcity Evaluation Profile .</p>
+<h1 id="147-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">147. Canonical Closing Statement</h1>
+<p>The size of a Resource shortage does not determine its importance. A small deficit can threaten a critical system, while a larger deficit may remain manageable where reserves, buffers, substitutes, flexibility, and low-criticality dependencies exist.</p>
+<p>RSEM makes Resource Scarcity evaluable in context — separating physical magnitude from governance severity and determining how duration, concentration, dependency, Criticality, reserves, operational consequences, and interdependencies transform a Resource limitation into a materially governed condition.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

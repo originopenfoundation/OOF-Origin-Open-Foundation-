@@ -27,7 +27,7 @@ ANALYSIS_PATH = DATA_ROOT / "analysis-store.json"
 KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
 REVIEW_QUEUE_PATH = DATA_ROOT / "human-review-queue.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
-ENGINE_VERSION = "3.2.2"
+ENGINE_VERSION = "3.4.1"
 
 PLACEHOLDER_VALUES = {"", "no", "none", "null", "unknown", "n a", "not specified", "unspecified"}
 NORMALIZED_FIELDS = (
@@ -397,6 +397,18 @@ def evidence_snapshot(record: dict) -> dict:
             "verificationState": source.get("verificationStatus"),
         })
     incident_source_hash = content_hash(immutable_source_view(record))
+    authorities = {item["authority"] for item in sources}
+    verification_values = normalized_text(" ".join(str(item.get("verificationState") or "") for item in sources))
+    if "disputed" in verification_values or "contradicted" in verification_values:
+        public_status = "Contradicted / Disputed"
+    elif not sources or not record.get("summary"):
+        public_status = "Evidence Insufficient"
+    elif "Official" in authorities:
+        public_status = "Officially Documented"
+    elif len(independence_keys) >= 2:
+        public_status = "Independently Corroborated"
+    else:
+        public_status = "Source-Reported"
     return {
         "snapshotId": f"{record['id']}-EVID-{incident_source_hash[:12]}",
         "incidentSourceHash": incident_source_hash,
@@ -407,7 +419,71 @@ def evidence_snapshot(record: dict) -> dict:
             "status": "Single-source" if len(independence_keys) < 2 else "Corroborated",
             "contradictionState": "Not evaluated" if len(independence_keys) < 2 else "No contradiction identified",
         },
+        "publicEvidenceStatus": public_status,
     }
+
+
+def original_oof_report(record: dict, evidence: dict) -> dict:
+    source = (evidence.get("sources") or [{}])[0]
+    publisher = source.get("publisher") or "the identified public source"
+    event_date = str(record.get("occurredAt") or record.get("reportedAt") or "")[:10]
+    location = record.get("country") if record.get("country") not in (None, "Location not specified") else None
+    context = ", ".join(value for value in (event_date, location) if value)
+    opening = f"{publisher} reports that {record.get('summary') or record.get('title')}"
+    if context:
+        opening += f" ({context})."
+    elif not opening.endswith("."):
+        opening += "."
+    limitation = (
+        "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
+        if evidence.get("publicEvidenceStatus") == "Source-Reported"
+        else "This OOF® incident report is evidence-bounded and does not constitute a finding of fault or liability."
+    )
+    return {
+        "headline": record.get("title"),
+        "report": opening,
+        "sourceAttribution": publisher,
+        "sourceUrl": source.get("url"),
+        "eventDate": event_date or None,
+        "evidenceStatus": evidence.get("publicEvidenceStatus"),
+        "uncertaintyStatement": limitation,
+    }
+
+
+def prevention_guidance(record: dict, architecture: dict, gaps: list[str]) -> dict:
+    primary = architecture.get("primaryArchitecture")
+    if not primary:
+        return {
+            "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+            "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+            "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+            "relevantMethodology": [],
+            "evidenceLimitation": (gaps or ["Available evidence does not justify architecture-level prevention guidance."])[0],
+        }
+    references = primary.get("relevantStandardsModules") or []
+    mechanism = primary.get("governedMechanism") or "the reported governed mechanism"
+    methodology = [{
+        "name": item.get("name"), "artifactType": item.get("artifactType"),
+        "canonicalUrl": item.get("canonicalUrl"), "objectId": item.get("objectId"),
+    } for item in references[:2]]
+    return {
+        "governanceGapToExamine": f"Examine whether controls governing {mechanism} were defined, active, and accountable at the time of the reported event.",
+        "recommendedPreventiveControl": f"Require an evidence-producing control for {mechanism}, with a named authority, intervention condition, and review owner.",
+        "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+        "relevantMethodology": methodology,
+        "evidenceLimitation": (gaps or ["The recommendation is preliminary and should be adapted after incident-specific evidence review."])[0],
+    }
+
+
+def practical_checklist(record: dict, architecture: dict) -> list[dict]:
+    primary = architecture.get("primaryArchitecture")
+    mechanism = (primary or {}).get("governedMechanism") or "the reported AI activity"
+    return [
+        {"item": "Identify accountable authority", "verification": "Record who authorized, operated, and could stop the activity."},
+        {"item": "Reconstruct the evidence chain", "verification": "Link source, system action, observation, consequence, and time."},
+        {"item": "Test the preventive control", "verification": f"Demonstrate that the control detects or constrains {mechanism} under comparable conditions."},
+        {"item": "Record residual uncertainty", "verification": "List unresolved facts and the evidence required to resolve them."},
+    ]
 
 
 def severity_assessment(record: dict, evidence: dict) -> dict:
@@ -624,19 +700,20 @@ def governance_questions(record: dict, architecture: dict, gaps: list[str]) -> l
     return unique[:5]
 
 
-def governance_insight(architecture: dict, confidence_state: str) -> str | None:
+def governance_insight(record: dict, architecture: dict, confidence_state: str) -> str | None:
     primary = architecture.get("primaryArchitecture")
     if not primary or confidence_state == "Evidence Insufficient":
         return None
-    mechanism = primary.get("governedMechanism") or "the reported activity"
+    subject = record.get("system") or record.get("organization") or "the reported AI activity"
+    focus = primary.get("governanceFocus") or "Which governance controls applied, and were they effective?"
     if confidence_state == "Limited":
         return (
-            f"Available reporting suggests that the central governance issue concerns {mechanism}, but the current evidence "
-            "does not support a stronger conclusion about the governing controls or their effectiveness."
+            f"Available reporting indicates that {subject} raises a preliminary question for {primary['label']}: {focus} "
+            "The current evidence does not yet establish whether the relevant control existed or was effective."
         )
     return (
-        f"The governance significance lies in how {mechanism} moved from system activity into a reported real-world consequence, "
-        f"and which controls within {primary['label']} should be examined next."
+        f"This case matters to {primary['label']} because the reported activity reached a real-world consequence involving "
+        f"{subject}. The next governance test is: {focus}"
     )
 
 
@@ -686,7 +763,9 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
     evidence_view = incident_evidence(record, evidence)
     gaps = uncertainty_notes(record, evidence, architecture)
     questions = governance_questions(record, architecture, gaps)
-    insight = governance_insight(architecture, confidence_state)
+    insight = governance_insight(record, architecture, confidence_state)
+    report = original_oof_report(record, evidence)
+    prevention = prevention_guidance(record, architecture, gaps)
     findings = []
     for item in [primary, *architecture.get("contributingArchitectures", [])]:
         if not item:
@@ -719,12 +798,23 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
         "sourceNormalization": normalization,
         "evidenceSnapshot": evidence,
         "incidentEvidence": evidence_view,
+        "oofIncidentReport": report,
         "severityAssessment": severity,
         "architectureAnalysis": architecture,
         "primaryGovernanceProblem": primary_governance_problem(architecture),
         "governanceRelationship": governance_relationship(architecture),
         "governanceQuestions": questions,
         "incidentGovernanceInsight": insight,
+        "preventionGuidance": prevention,
+        "practicalChecklist": practical_checklist(record, architecture),
+        "governanceFailurePattern": {
+            "primaryArchitectureId": primary.get("architectureId") if primary else None,
+            "mechanisms": primary.get("matchedTerms", [])[:5] if primary else [],
+            "patternKey": content_hash({
+                "architecture": primary.get("architectureId") if primary else None,
+                "mechanisms": sorted((primary.get("matchedTerms") or [])[:3]) if primary else [],
+            })[:16],
+        },
         "methodologicalReasoningChain": methodological_reasoning_chain(record, architecture, questions, insight),
         "layerAnalysis": {
             "status": "AUTOMATED_ANALYSIS" if primary else "INSUFFICIENT_EVIDENCE",

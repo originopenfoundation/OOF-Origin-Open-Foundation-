@@ -55,10 +55,10 @@
   "createdAt": "2026-08-30T22:04:34Z",
   "updatedAt": "2026-08-30T22:04:34Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-979799-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-979799-V8",
     "incidentId": "OOF-AII-979799",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -133,7 +133,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -156,6 +157,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Minnesota Attorney Reportedly Used AI-Generated Fabricated Citations in Hennepin County Civil Case and Agreed to 30-Day Suspension",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Minnesota attorney Faisal S. Ahmed reportedly filed a 2025 legal memorandum containing AI-generated legal authorities that included invented cases and an inaccurate quotation from an actual decision. The errors reportedly burdened opposing counsel and the Hennepin County District Court, which later fined Ahmed $5,000. He subsequently agreed to a 30-day suspension of his law license and $900 in costs. (2025-08-21, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1667",
+      "eventDate": "2025-08-21",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -391,7 +401,42 @@
       "How should validation, evidence, integrity be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Lawyers, Faisal S. Ahmed at the relevant time?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how evidence, integrity, validation, decision moved from system activity into a reported real-world consequence, and which controls within AGA™ — Accountability Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to AGA™ — Accountability Governance Architecture because the reported activity reached a real-world consequence involving Large Language Models, Ai Research Tools, Ai Assisted Legal Drafting Systems. The next governance test is: How should evidence, integrity, validation be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing evidence, integrity, validation, decision were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for evidence, integrity, validation, decision, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains evidence, integrity, validation, decision under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "aga",
+      "mechanisms": [
+        "evidence",
+        "integrity",
+        "validation",
+        "decision"
+      ],
+      "patternKey": "73f6f90ddb82c9f3"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1667"
@@ -418,7 +463,7 @@
         "How should validation, evidence, integrity be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Lawyers, Faisal S. Ahmed at the relevant time?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how evidence, integrity, validation, decision moved from system activity into a reported real-world consequence, and which controls within AGA™ — Accountability Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to AGA™ — Accountability Governance Architecture because the reported activity reached a real-world consequence involving Large Language Models, Ai Research Tools, Ai Assisted Legal Drafting Systems. The next governance test is: How should evidence, integrity, validation be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -594,8 +639,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-979799-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-979799-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Access Eligibility Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Access Eligibility Module | OOF®. RAEM — Resource Access Eligibility Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Access Eligibility Module | OOF®" />
+<meta property="og:description" content="Resource Access Eligibility Module | OOF®. RAEM — Resource Access Eligibility Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Access Eligibility Module | OOF®" />
+<meta name="twitter:description" content="Resource Access Eligibility Module | OOF®. RAEM — Resource Access Eligibility Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta name="DC.title" content="Resource Access Eligibility Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html","name":"Resource Access Eligibility Module | OOF®","description":"Resource Access Eligibility Module | OOF®. RAEM — Resource Access Eligibility Module Architecture: RSGA™ — Resource Sustainability Governance Architecture.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Access Eligibility Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html"}]},"headline":"Resource Access Eligibility Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rags-raem-1.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Access Governance Standard (RAGS)","Governance & Enforcement","Resource Governance","Resource Access Eligibility Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Access Governance Standard (RAGS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Access Eligibility Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Access Governance Standard (RAGS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Access Eligibility Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RAEM — Resource Access Eligibility Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Access Governance Standard (RAGS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Access Eligibility Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RAGS-RAEM-01</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RAGS-RAEM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 6 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RAEM — Resource Access Eligibility Module governs how a participant, system, function, organization, infrastructure component, autonomous system, or other governed actor is evaluated against the conditions required to become an eligible candidate for access to a defined Resource or Resource capacity, including how identity, role, purpose, qualification, location, operational conditions, technical conditions, and other materially relevant eligibility requirements are established, evidenced, assessed, and reassessed.</p>
+<p>RAEM determines whether the governed actor qualifies to proceed within Resource Access Governance.</p>
+<p>It does not itself grant Resource Access authorization.</p>
+<p>Resource Access Eligibility ≠ Resource Access Authorization.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RAGS must determine who or what may legitimately access a Resource.</p>
+<p>Before authority can authorize that Access, the relevant actor must be sufficiently identified and evaluated against applicable eligibility conditions.</p>
+<p>RAEM establishes:</p>
+<p>who or what is seeking Resource Access; which Resource is involved;</p>
+<p>for what purpose Access is sought; which eligibility requirements apply; whether those requirements are satisfied; which conditions remain unresolved; what evidence supports the result; and when eligibility must be reassessed.</p>
+<p>RAEM therefore establishes the qualification layer of Resource Access Governance.</p>
+<h1 id="3-core-question" data-oof-section-id="true" role="heading" aria-level="2">3. Core Question</h1>
+<p>Does the sufficiently identified actor satisfy the conditions required to become an eligible candidate for access to the defined Resource or Resource capacity, for the stated purpose and under the relevant operational, temporal, spatial, technical, and governance conditions?</p>
+<h1 id="4-position-in-rags-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RAGS Governance</h1>
+<p>Canonical RAGS progression:</p>
+<p>Access Subject → Eligibility → Authority → Authorization → Scope &amp; Limits → Conditions &amp; Restrictions → Resource Access State</p>
+<p>RAEM governs the:</p>
+<p>Access Subject → Eligibility</p>
+<p>transition.</p>
+<p>It does not convert eligibility into permission.</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RAEM governs:</p>
+<p>Resource Access Eligibility Governance</p>
+<p>This space concerns the identification, qualification, evidence, determination, maintenance, and reassessment of eligibility for Resource Access.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Access Eligibility Relationship between a sufficiently identified actor and a defined Resource or Resource capacity for a defined purpose and context.</p>
+<p>Canonical relationship:</p>
+<p>**Actor</p>
+<p>Resource Access Purpose Applicable Eligibility Requirements Evidence</p>
+<p>Context → Resource Access Eligibility State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RAEM governs:</p>
+<p>Access Subject identification; Resource reference; Access purpose; eligibility criteria; role eligibility; functional eligibility; technical eligibility; operational eligibility; spatial eligibility; temporal eligibility; qualification requirements; condition-dependent eligibility; Resource-specific eligibility; evidence requirements; eligibility evidence; evidence sufficiency; eligibility conflict; eligibility uncertainty; Eligibility State; eligibility expiration; eligibility reassessment.</p>
+<p>RAEM does not independently:</p>
+<p>grant Resource Access authorization; establish Access Authority; determine final Access scope; allocate Resource capacity; determine Resource Priority; govern Resource Consumption; determine Scarcity response; establish long-term Sustainability.</p>
+<h1 id="8-eligibility-principle" data-oof-section-id="true" role="heading" aria-level="2">8. Eligibility Principle</h1>
+<p>Eligibility answers:</p>
+<p>May this actor legitimately be considered for this Resource Access?</p>
+<p>It does not answer:</p>
+<p>Has this actor been authorized to access the Resource?</p>
+<p>Therefore:</p>
+<p>Eligible Candidate ≠ Authorized Resource User.</p>
+<h1 id="9-eligibility-is-relational" data-oof-section-id="true" role="heading" aria-level="2">9. Eligibility Is Relational</h1>
+<p>Eligibility is not necessarily a permanent property of an actor.</p>
+<p>An actor may be eligible:</p>
+<p>for Resource A but not Resource B; for Purpose A but not Purpose B; at Location A but not Location B; during Period A but not Period B; under Operating State A but not Operating State B.</p>
+<p>Eligibility must therefore remain attached to its Resource and context.</p>
+<h1 id="10-access-subject" data-oof-section-id="true" role="heading" aria-level="2">10. Access Subject</h1>
+<p>RAEM begins with the Access Subject.</p>
+<p>The Access Subject may be:</p>
+<p>person; organization; public institution; facility; system; machine; autonomous system; AI system; operational function; infrastructure component; other governable actor.</p>
+<h1 id="11-subject-identification" data-oof-section-id="true" role="heading" aria-level="2">11. Subject Identification</h1>
+<p>The Access Subject must be identified with sufficient precision for the relevant eligibility decision.</p>
+<p>Required identity strength should reflect the Resource and governance context.</p>
+<h1 id="12-identity-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">12. Identity Sufficiency</h1>
+<p>Identity is sufficient when the actor can be distinguished adequately for the intended eligibility determination.</p>
+<p>Not every Resource context requires the same identity assurance.</p>
+<h1 id="13-identity-ambiguity" data-oof-section-id="true" role="heading" aria-level="2">13. Identity Ambiguity</h1>
+<p>Where materially different actors could be represented by the same identifier or identity record, eligibility should not be treated as established until the ambiguity is resolved or appropriately bounded.</p>
+<h1 id="14-identity-boundary" data-oof-section-id="true" role="heading" aria-level="2">14. Identity Boundary</h1>
+<p>RAEM uses identity evidence where required.</p>
+<p>It does not absorb broader Identity Governance.</p>
+<p>Where specialized Identity Governance is required, appropriate external mechanisms may supply the identity evidence.</p>
+<h1 id="15-resource-identification" data-oof-section-id="true" role="heading" aria-level="2">15. Resource Identification</h1>
+<p>Eligibility must refer to a sufficiently characterized Resource.</p>
+<p>The Resource should remain traceable to upstream RCHS characterization.</p>
+<h1 id="16-resource-specific-eligibility" data-oof-section-id="true" role="heading" aria-level="2">16. Resource-Specific Eligibility</h1>
+<p>Eligibility for one Resource does not automatically establish eligibility for another.</p>
+<p>Eligible for Resource A ≠ Eligible for Resource B.</p>
+<h1 id="17-resource-capacity-eligibility" data-oof-section-id="true" role="heading" aria-level="2">17. Resource Capacity Eligibility</h1>
+<p>Eligibility may apply to a defined class or amount of Resource capacity rather than the entire Resource.</p>
+<p>Example:</p>
+<p>an actor may be eligible for:</p>
+<p>up to 5 MW of electricity access</p>
+<p>without being eligible for unrestricted electrical capacity.</p>
+<h1 id="18-resource-source-eligibility" data-oof-section-id="true" role="heading" aria-level="2">18. Resource Source Eligibility</h1>
+<p>Where governance requirements differ between Resource Sources, eligibility may be Source-specific.</p>
+<p>Eligibility for Resource Source A ≠ Eligibility for Resource Source B.</p>
+<h1 id="19-access-purpose" data-oof-section-id="true" role="heading" aria-level="2">19. Access Purpose</h1>
+<p>RAEM should establish the purpose for which Resource Access is sought where purpose materially affects eligibility.</p>
+<p>Examples may include:</p>
+<p>normal operations; essential service; production; maintenance; testing; research; emergency response; recovery; standby operation.</p>
+<h1 id="20-purpose-bound-eligibility" data-oof-section-id="true" role="heading" aria-level="2">20. Purpose-Bound Eligibility</h1>
+<p>An actor may be eligible for Resource Access for one purpose but not another.</p>
+<p>Eligibility for Purpose A ≠ Eligibility for Purpose B.</p>
+<h1 id="21-declared-purpose" data-oof-section-id="true" role="heading" aria-level="2">21. Declared Purpose</h1>
+<p>A declared purpose should not automatically be treated as validated eligibility evidence.</p>
+<p>Where material, the purpose must be sufficiently evidenced.</p>
+<h1 id="22-eligibility-requirements" data-oof-section-id="true" role="heading" aria-level="2">22. Eligibility Requirements</h1>
+<p>Eligibility requirements are the conditions an actor must satisfy to qualify for consideration for Resource Access.</p>
+<p>They may originate from:</p>
+<p>law; regulation; policy; contract; Resource governance rules; infrastructure rules; safety requirements; technical requirements; organizational requirements; operational requirements; other competent governance sources.</p>
+<h1 id="23-requirement-traceability" data-oof-section-id="true" role="heading" aria-level="2">23. Requirement Traceability</h1>
+<p>A material eligibility requirement should remain traceable to its governing basis where required.</p>
+<p>This prevents arbitrary eligibility criteria from being introduced without legitimate origin.</p>
+<h1 id="24-requirement-applicability" data-oof-section-id="true" role="heading" aria-level="2">24. Requirement Applicability</h1>
+<p>Not every eligibility requirement applies to every Access Subject.</p>
+<p>RAEM should determine which requirements are applicable to the specific:</p>
+<p>actor; Resource; purpose; location; time; operating condition.</p>
+<h1 id="25-role-eligibility" data-oof-section-id="true" role="heading" aria-level="2">25. Role Eligibility</h1>
+<p>Access may require the actor to hold a particular role.</p>
+<p>Examples may include:</p>
+<p>authorized operator; registered customer; public-service provider; maintenance provider; emergency responder; system controller.</p>
+<p>Role must be sufficiently evidenced where material.</p>
+<h1 id="26-functional-eligibility" data-oof-section-id="true" role="heading" aria-level="2">26. Functional Eligibility</h1>
+<p>Eligibility may depend upon the function for which the Resource is required.</p>
+<p>A function should not be considered eligible merely because the actor operating it has broader Resource Access elsewhere.</p>
+<h1 id="27-technical-eligibility" data-oof-section-id="true" role="heading" aria-level="2">27. Technical Eligibility</h1>
+<p>Some Resources may require technical conditions before an actor qualifies for Access.</p>
+<p>Examples may include:</p>
+<p>compatible interface; connection capability; required equipment; technical certification; safe operating configuration; metering capability.</p>
+<h1 id="28-technical-eligibility-boundary" data-oof-section-id="true" role="heading" aria-level="2">28. Technical Eligibility Boundary</h1>
+<p>Technical capability may be necessary for eligibility.</p>
+<p>It does not establish Access authorization.</p>
+<p>Technical Eligibility ≠ Resource Access Authority.</p>
+<h1 id="29-operational-eligibility" data-oof-section-id="true" role="heading" aria-level="2">29. Operational Eligibility</h1>
+<p>Eligibility may depend upon current operational conditions.</p>
+<p>An actor may qualify only during:</p>
+<p>normal operation; maintenance; emergency; recovery; specific production state; other defined operating conditions.</p>
+<h1 id="30-spatial-eligibility" data-oof-section-id="true" role="heading" aria-level="2">30. Spatial Eligibility</h1>
+<p>Resource Access eligibility may depend upon location.</p>
+<p>Examples include:</p>
+<p>service territory; facility; network node; infrastructure zone; jurisdiction; delivery region.</p>
+<h1 id="31-temporal-eligibility" data-oof-section-id="true" role="heading" aria-level="2">31. Temporal Eligibility</h1>
+<p>Eligibility may apply only within a defined period.</p>
+<p>Examples include:</p>
+<p>contract period; season; scheduled window; emergency period; temporary operating period.</p>
+<h1 id="32-conditional-eligibility" data-oof-section-id="true" role="heading" aria-level="2">32. Conditional Eligibility</h1>
+<p>Eligibility may exist only while defined conditions remain satisfied.</p>
+<p>Examples:</p>
+<p>valid certification; active role; technical compliance; location requirement; operational condition; contract status.</p>
+<h1 id="33-persistent-eligibility" data-oof-section-id="true" role="heading" aria-level="2">33. Persistent Eligibility</h1>
+<p>Some eligibility relationships may remain valid until a material change occurs.</p>
+<p>Persistent eligibility still requires reassessment when relevant conditions change.</p>
+<h1 id="34-temporary-eligibility" data-oof-section-id="true" role="heading" aria-level="2">34. Temporary Eligibility</h1>
+<p>Temporary eligibility should preserve:</p>
+<p>start condition; end condition; purpose; Resource; actor; evidence.</p>
+<h1 id="35-emergency-eligibility" data-oof-section-id="true" role="heading" aria-level="2">35. Emergency Eligibility</h1>
+<p>Emergency conditions may create a special eligibility pathway.</p>
+<p>Emergency status does not itself create authorization.</p>
+<p>Emergency Eligibility ≠ Emergency Access Authorization.</p>
+<h1 id="36-qualification" data-oof-section-id="true" role="heading" aria-level="2">36. Qualification</h1>
+<p>Qualification is evidence that an actor possesses a required capability, status, role, certification, or other condition relevant to eligibility.</p>
+<p>Qualification is one possible component of eligibility.</p>
+<p>It is not synonymous with eligibility itself.</p>
+<h1 id="37-qualification-boundary" data-oof-section-id="true" role="heading" aria-level="2">37. Qualification Boundary</h1>
+<p>Qualification ≠ Eligibility by definition.</p>
+<p>An actor may hold a required qualification while failing another applicable eligibility requirement.</p>
+<h1 id="38-multiple-eligibility-requirements" data-oof-section-id="true" role="heading" aria-level="2">38. Multiple Eligibility Requirements</h1>
+<p>Eligibility may depend upon several requirements simultaneously.</p>
+<p>Canonical logic:</p>
+<p>**Requirement A</p>
+<p>Requirement B Requirement C → Eligibility only where the applicable combination is satisfied.**</p>
+<h1 id="39-mandatory-requirement" data-oof-section-id="true" role="heading" aria-level="2">39. Mandatory Requirement</h1>
+<p>A mandatory requirement must be satisfied before eligibility can be established unless competent governance explicitly provides an alternative pathway.</p>
+<h1 id="40-conditional-requirement" data-oof-section-id="true" role="heading" aria-level="2">40. Conditional Requirement</h1>
+<p>A conditional requirement applies only when its triggering condition is present.</p>
+<h1 id="41-alternative-eligibility-path" data-oof-section-id="true" role="heading" aria-level="2">41. Alternative Eligibility Path</h1>
+<p>Some Resource Access systems may permit multiple legitimate pathways to eligibility.</p>
+<p>Example:</p>
+<p>Eligibility Path A</p>
+<p>or:</p>
+<p>Eligibility Path B</p>
+<p>may each independently establish candidate eligibility.</p>
+<p>The applicable pathway must remain explicit.</p>
+<h1 id="42-eligibility-exception" data-oof-section-id="true" role="heading" aria-level="2">42. Eligibility Exception</h1>
+<p>Where legitimate governance permits an exception to a normal eligibility requirement, the exception should preserve:</p>
+<p>authority; reason; scope; Resource; actor; duration; conditions; evidence.</p>
+<h1 id="43-exception-boundary" data-oof-section-id="true" role="heading" aria-level="2">43. Exception Boundary</h1>
+<p>Eligibility Exception ≠ Removal of Governance.</p>
+<p>An exception is itself a governed state.</p>
+<h1 id="44-eligibility-and-resource-demand" data-oof-section-id="true" role="heading" aria-level="2">44. Eligibility and Resource Demand</h1>
+<p>A valid Resource Demand Profile may support the eligibility purpose.</p>
+<p>It does not establish eligibility automatically.</p>
+<p>Validated Resource Demand ≠ Resource Access Eligibility.</p>
+<h1 id="45-eligibility-and-dependency" data-oof-section-id="true" role="heading" aria-level="2">45. Eligibility and Dependency</h1>
+<p>A Resource Dependency may explain why an actor seeks Access.</p>
+<p>It does not establish eligibility automatically.</p>
+<p>Resource Dependency ≠ Resource Access Eligibility.</p>
+<h1 id="46-eligibility-and-criticality" data-oof-section-id="true" role="heading" aria-level="2">46. Eligibility and Criticality</h1>
+<p>Criticality may increase the operational importance of obtaining Resource Access.</p>
+<p>It does not establish eligibility.</p>
+<p>Resource Criticality ≠ Resource Access Eligibility.</p>
+<h1 id="47-eligibility-and-availability" data-oof-section-id="true" role="heading" aria-level="2">47. Eligibility and Availability</h1>
+<p>Resource capacity may be available even when no actor is currently eligible to access it.</p>
+<p>Conversely, an actor may remain eligible while Resource capacity is unavailable.</p>
+<p>Resource Availability ≠ Resource Access Eligibility.</p>
+<h1 id="48-eligibility-and-practical-accessibility" data-oof-section-id="true" role="heading" aria-level="2">48. Eligibility and Practical Accessibility</h1>
+<p>Physical or technical Resource accessibility may be relevant to the practical usefulness of eligibility.</p>
+<p>It does not itself establish eligibility.</p>
+<p>Practical Accessibility ≠ Resource Access Eligibility.</p>
+<h1 id="49-eligibility-and-ownership" data-oof-section-id="true" role="heading" aria-level="2">49. Eligibility and Ownership</h1>
+<p>Ownership may form part of an eligibility basis in some contexts.</p>
+<p>It does not automatically establish eligibility for every Resource use.</p>
+<p>Ownership ≠ Universal Resource Access Eligibility.</p>
+<h1 id="50-eligibility-and-historical-use" data-oof-section-id="true" role="heading" aria-level="2">50. Eligibility and Historical Use</h1>
+<p>Historical Resource use may provide evidence.</p>
+<p>It does not automatically establish current eligibility.</p>
+<p>Historical Access ≠ Current Eligibility.</p>
+<h1 id="51-eligibility-and-existing-consumption" data-oof-section-id="true" role="heading" aria-level="2">51. Eligibility and Existing Consumption</h1>
+<p>An actor already consuming the Resource may still lack valid eligibility under current governance requirements.</p>
+<p>Existing Consumption ≠ Eligibility Evidence by itself.</p>
+<h1 id="52-eligibility-and-value" data-oof-section-id="true" role="heading" aria-level="2">52. Eligibility and Value</h1>
+<p>Economic or operational Value does not create Resource Access eligibility.</p>
+<p>High Value ≠ Eligibility.</p>
+<h1 id="53-eligibility-and-priority" data-oof-section-id="true" role="heading" aria-level="2">53. Eligibility and Priority</h1>
+<p>Eligibility establishes whether an actor may proceed within Resource Access Governance.</p>
+<p>It does not determine comparative Resource Priority.</p>
+<p>Eligibility ≠ Priority.</p>
+<h1 id="54-eligibility-and-allocation" data-oof-section-id="true" role="heading" aria-level="2">54. Eligibility and Allocation</h1>
+<p>An eligible actor has not necessarily received any Resource.</p>
+<p>Eligibility ≠ Allocation.</p>
+<h1 id="55-eligibility-and-authorization" data-oof-section-id="true" role="heading" aria-level="2">55. Eligibility and Authorization</h1>
+<p>Authorization requires competent Access Authority.</p>
+<p>RAEM does not issue that authorization merely because eligibility is established.</p>
+<p>Eligibility ≠ Authorization.</p>
+<h1 id="56-eligibility-evidence" data-oof-section-id="true" role="heading" aria-level="2">56. Eligibility Evidence</h1>
+<p>RAEM should preserve evidence supporting each material eligibility requirement.</p>
+<p>Evidence may include:</p>
+<p>identity records; role records; qualification records; technical certification; operational status; contractual evidence; location evidence; purpose evidence; institutional evidence; other relevant records.</p>
+<h1 id="57-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">57. Evidence Provenance</h1>
+<p>Material eligibility evidence should preserve where relevant:</p>
+<p>source; issuer; subject; Resource relevance; time; version;</p>
+<p>validity; scope.</p>
+<h1 id="58-evidence-validity" data-oof-section-id="true" role="heading" aria-level="2">58. Evidence Validity</h1>
+<p>Evidence may exist while no longer being valid.</p>
+<p>Examples include:</p>
+<p>expired certification; terminated contract; changed role; obsolete technical approval.</p>
+<p>Evidence Existence ≠ Evidence Validity.</p>
+<h1 id="59-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">59. Evidence Freshness</h1>
+<p>Eligibility should not rely upon stale evidence where a material condition may have changed.</p>
+<h1 id="60-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">60. Evidence Sufficiency</h1>
+<p>Evidence is sufficient where it adequately supports the eligibility determination required for the intended Access context.</p>
+<p>Maximum possible evidence is not required.</p>
+<p>Materially sufficient evidence is required.</p>
+<h1 id="61-evidence-gap" data-oof-section-id="true" role="heading" aria-level="2">61. Evidence Gap</h1>
+<p>An Evidence Gap is material where missing evidence could change the Eligibility State.</p>
+<h1 id="62-non-material-evidence-gap" data-oof-section-id="true" role="heading" aria-level="2">62. Non-Material Evidence Gap</h1>
+<p>Missing information that cannot materially affect eligibility should not automatically prevent determination.</p>
+<h1 id="63-evidence-conflict" data-oof-section-id="true" role="heading" aria-level="2">63. Evidence Conflict</h1>
+<p>Credible evidence may disagree regarding an eligibility condition.</p>
+<p>Material conflict must remain visible until resolved or legitimately bounded.</p>
+<h1 id="64-eligibility-conflict" data-oof-section-id="true" role="heading" aria-level="2">64. Eligibility Conflict</h1>
+<p>Eligibility Conflict may arise from:</p>
+<p>identity disagreement; role disagreement; qualification disagreement; purpose disagreement; location disagreement; technical-status disagreement; contract-status disagreement; requirement interpretation conflict.</p>
+<h1 id="65-conflict-resolution" data-oof-section-id="true" role="heading" aria-level="2">65. Conflict Resolution</h1>
+<p>Canonical logic:</p>
+<p>Conflicting Eligibility Evidence → Subject Check → Resource Check → Requirement Check → Scope Check → Time Check → Evidence Validity Check → Competent Resolution → Eligibility Redetermination</p>
+<h1 id="66-eligibility-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">66. Eligibility Uncertainty</h1>
+<p>Uncertainty may concern:</p>
+<p>identity; requirement applicability; qualification; purpose; location; technical condition; operational state; evidence validity.</p>
+<h1 id="67-uncertainty-propagation" data-oof-section-id="true" role="heading" aria-level="2">67. Uncertainty Propagation</h1>
+<p>Material uncertainty must remain visible in the Eligibility State.</p>
+<p>RAEM must not convert unresolved eligibility into confirmed eligibility merely because downstream Resource Access is operationally desirable.</p>
+<h1 id="68-eligibility-state" data-oof-section-id="true" role="heading" aria-level="2">68. Eligibility State</h1>
+<p>RAEM expresses its determination through a governed Resource Access Eligibility State.</p>
+<h1 id="69-minimum-eligibility-states" data-oof-section-id="true" role="heading" aria-level="2">69. Minimum Eligibility States</h1>
+<p>At minimum:</p>
+<p>Eligible</p>
+<p>Conditionally Eligible</p>
+<p>Partially Eligible</p>
+<p>Not Eligible</p>
+<p>Eligibility Evidence-Limited</p>
+<p>Eligibility Conflicted</p>
+<p>Eligibility Unknown</p>
+<p>Eligibility Unresolved</p>
+<h1 id="70-eligible" data-oof-section-id="true" role="heading" aria-level="2">70. Eligible</h1>
+<p>The actor satisfies the applicable eligibility requirements for the defined Resource Access context.</p>
+<h1 id="71-conditionally-eligible" data-oof-section-id="true" role="heading" aria-level="2">71. Conditionally Eligible</h1>
+<p>Eligibility is established only while explicit conditions remain satisfied.</p>
+<h1 id="72-partially-eligible" data-oof-section-id="true" role="heading" aria-level="2">72. Partially Eligible</h1>
+<p>Some applicable eligibility requirements are satisfied while other material requirements remain incomplete.</p>
+<p>Partial eligibility does not establish full eligibility.</p>
+<h1 id="73-not-eligible" data-oof-section-id="true" role="heading" aria-level="2">73. Not Eligible</h1>
+<p>The actor fails one or more requirements necessary for the relevant eligibility pathway.</p>
+<h1 id="74-eligibility-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">74. Eligibility Evidence-Limited</h1>
+<p>Available evidence does not support a stronger determination.</p>
+<h1 id="75-eligibility-conflicted" data-oof-section-id="true" role="heading" aria-level="2">75. Eligibility Conflicted</h1>
+<p>Credible evidence supports materially incompatible Eligibility States.</p>
+<h1 id="76-eligibility-unknown" data-oof-section-id="true" role="heading" aria-level="2">76. Eligibility Unknown</h1>
+<p>Available evidence does not permit the relevant eligibility conditions to be established.</p>
+<h1 id="77-eligibility-unresolved" data-oof-section-id="true" role="heading" aria-level="2">77. Eligibility Unresolved</h1>
+<p>Relevant evidence exists but final eligibility cannot yet be determined.</p>
+<h1 id="78-eligibility-state-context" data-oof-section-id="true" role="heading" aria-level="2">78. Eligibility State Context</h1>
+<p>An Eligibility State should remain attached to:</p>
+<p>actor; Resource; purpose; location where relevant; time where relevant; operating conditions where relevant.</p>
+<p>Removing this context may materially change its meaning.</p>
+<h1 id="79-eligibility-duration" data-oof-section-id="true" role="heading" aria-level="2">79. Eligibility Duration</h1>
+<p>Eligibility may have:</p>
+<p>defined duration; conditional duration; open duration subject to reassessment; event-bound duration.</p>
+<h1 id="80-eligibility-expiration" data-oof-section-id="true" role="heading" aria-level="2">80. Eligibility Expiration</h1>
+<p>Eligibility may expire when:</p>
+<p>qualification expires; contract ends; role ends; time window closes; emergency ends; technical condition changes; another governing condition ceases.</p>
+<h1 id="81-eligibility-continuation" data-oof-section-id="true" role="heading" aria-level="2">81. Eligibility Continuation</h1>
+<p>Eligibility should continue only while material requirements remain satisfied.</p>
+<h1 id="82-eligibility-reassessment" data-oof-section-id="true" role="heading" aria-level="2">82. Eligibility Reassessment</h1>
+<p>Eligibility must be reassessed where material conditions change.</p>
+<h1 id="83-reassessment-triggers" data-oof-section-id="true" role="heading" aria-level="2">83. Reassessment Triggers</h1>
+<p>Triggers may include:</p>
+<p>identity change; role change; purpose change; Resource change; Resource Source change; location change; qualification expiration; technical change; operational-state change; contract change; policy change; new evidence; evidence conflict; emergency activation or termination.</p>
+<h1 id="84-reassessment-proportionality" data-oof-section-id="true" role="heading" aria-level="2">84. Reassessment Proportionality</h1>
+<p>Not every contextual change requires complete eligibility reconstruction.</p>
+<p>Only changes capable of materially affecting the Eligibility State require relevant reassessment.</p>
+<h1 id="85-targeted-reassessment" data-oof-section-id="true" role="heading" aria-level="2">85. Targeted Reassessment</h1>
+<p>Where one eligibility condition changes, RAEM should reassess the affected condition and its impact rather than mechanically rebuilding every unrelated element.</p>
+<h1 id="86-eligibility-versioning" data-oof-section-id="true" role="heading" aria-level="2">86. Eligibility Versioning</h1>
+<p>A material change to the Eligibility State should create a new governed version where traceability requires it.</p>
+<h1 id="87-historical-eligibility" data-oof-section-id="true" role="heading" aria-level="2">87. Historical Eligibility</h1>
+<p>Previous Eligibility States should remain distinguishable from current eligibility.</p>
+<p>Previously Eligible ≠ Currently Eligible.</p>
+<h1 id="88-eligibility-traceability" data-oof-section-id="true" role="heading" aria-level="2">88. Eligibility Traceability</h1>
+<p>A Resource Access Eligibility determination should remain traceable through:</p>
+<p>Eligibility State → Applicable Requirements → Eligibility Evidence → Access Purpose → Resource → Access Subject.</p>
+<h1 id="89-eligibility-explainability" data-oof-section-id="true" role="heading" aria-level="2">89. Eligibility Explainability</h1>
+<p>A governed eligibility determination should be able to explain materially:</p>
+<p>who or what was evaluated; for which Resource; for what purpose; against which requirements; which requirements were satisfied; which were not; which evidence was used; what uncertainty remains.</p>
+<h1 id="90-eligibility-auditability" data-oof-section-id="true" role="heading" aria-level="2">90. Eligibility Auditability</h1>
+<p>Where required, historical eligibility decisions should remain reconstructable.</p>
+<p>This includes changes in:</p>
+<p>requirements; evidence; conditions; Eligibility State; reassessment outcome.</p>
+<h1 id="91-eligibility-minimality" data-oof-section-id="true" role="heading" aria-level="2">91. Eligibility Minimality</h1>
+<p>RAEM should request only evidence necessary to establish materially relevant eligibility conditions.</p>
+<p>Eligibility Governance should not become unrestricted information collection.</p>
+<h1 id="92-requirement-minimality" data-oof-section-id="true" role="heading" aria-level="2">92. Requirement Minimality</h1>
+<p>Only requirements legitimately relevant to the Resource Access context should influence eligibility.</p>
+<p>Arbitrary requirements should not be introduced merely to include or exclude a preferred actor.</p>
+<h1 id="93-outcome-independence" data-oof-section-id="true" role="heading" aria-level="2">93. Outcome Independence</h1>
+<p>Eligibility must follow applicable requirements and evidence rather than the preferred downstream Resource decision.</p>
+<p>Desired Access Outcome ≠ Eligibility Evidence.</p>
+<h1 id="94-non-discretionary-integrity" data-oof-section-id="true" role="heading" aria-level="2">94. Non-Discretionary Integrity</h1>
+<p>Where eligibility requirements are objective, equivalent evidence should produce equivalent eligibility treatment under equivalent conditions.</p>
+<h1 id="95-contextual-difference" data-oof-section-id="true" role="heading" aria-level="2">95. Contextual Difference</h1>
+<p>Equivalent treatment does not require identical eligibility outcomes where material context differs.</p>
+<p>Different:</p>
+<p>Resources; purposes; locations; technical conditions; time periods</p>
+<p>may legitimately produce different Eligibility States.</p>
+<h1 id="96-automated-eligibility-evaluation" data-oof-section-id="true" role="heading" aria-level="2">96. Automated Eligibility Evaluation</h1>
+<p>Eligibility may be evaluated partially or fully by automated systems.</p>
+<p>Automation does not create eligibility requirements or Access authority.</p>
+<p>It executes the governed methodology.</p>
+<h1 id="97-automated-evaluation-boundary" data-oof-section-id="true" role="heading" aria-level="2">97. Automated Evaluation Boundary</h1>
+<p>Automated Eligibility Determination ≠ Resource Access Authorization.</p>
+<p>The downstream authorization mechanism remains separate.</p>
+<h1 id="98-machine-readable-eligibility" data-oof-section-id="true" role="heading" aria-level="2">98. Machine-Readable Eligibility</h1>
+<p>Where machine implementation is used, RAEM should permit structured representation of:</p>
+<p>actor; Resource; purpose; requirements; evidence; conditions;</p>
+<p>Eligibility State; uncertainty; validity; version.</p>
+<h1 id="99-eligibility-rule-change" data-oof-section-id="true" role="heading" aria-level="2">99. Eligibility Rule Change</h1>
+<p>When an eligibility rule changes, affected existing Eligibility States should be identified for reassessment where the change is material.</p>
+<h1 id="100-retroactivity-boundary" data-oof-section-id="true" role="heading" aria-level="2">100. Retroactivity Boundary</h1>
+<p>A new eligibility requirement should not automatically be assumed to invalidate historical Eligibility States unless the governing authority establishes that effect.</p>
+<h1 id="101-access-eligibility-profile" data-oof-section-id="true" role="heading" aria-level="2">101. Access Eligibility Profile</h1>
+<p>The principal RAEM output is the:</p>
+<p>Resource Access Eligibility Profile</p>
+<p>It represents the governed eligibility relationship between the actor and Resource.</p>
+<h1 id="102-minimum-resource-access-eligibility-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">102. Minimum Resource Access Eligibility Profile Fields</h1>
+<p>At minimum:</p>
+<p>Eligibility ID</p>
+<p>Access Subject ID</p>
+<p>Resource ID</p>
+<p>Resource Source where relevant</p>
+<p>Access Purpose</p>
+<p>Eligibility Requirement Set</p>
+<p>Applicable Requirements</p>
+<p>Satisfied Requirements</p>
+<p>Unsatisfied Requirements</p>
+<p>Conditional Requirements</p>
+<p>Qualification State where relevant</p>
+<p>Technical Eligibility State where relevant</p>
+<p>Operational Eligibility State where relevant</p>
+<p>Spatial Eligibility State where relevant</p>
+<p>Temporal Eligibility State where relevant</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Eligibility Uncertainty</p>
+<p>Eligibility State</p>
+<p>Effective Time</p>
+<p>Expiration where relevant</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="103-eligibility-requirement-record" data-oof-section-id="true" role="heading" aria-level="2">103. Eligibility Requirement Record</h1>
+<p>Where implementation requires detailed traceability, each material requirement may preserve:</p>
+<p>Requirement ID; Requirement Source; Requirement Description; Applicability; Evidence Reference; Requirement State; Validity Period; Uncertainty.</p>
+<h1 id="104-requirement-states" data-oof-section-id="true" role="heading" aria-level="2">104. Requirement States</h1>
+<p>A minimum implementation may distinguish:</p>
+<p>Satisfied</p>
+<p>Conditionally Satisfied</p>
+<p>Unsatisfied</p>
+<p>Evidence-Limited</p>
+<p>Conflicted</p>
+<p>Unknown</p>
+<p>Not Applicable</p>
+<h1 id="105-aggregate-eligibility" data-oof-section-id="true" role="heading" aria-level="2">105. Aggregate Eligibility</h1>
+<p>The final Eligibility State should reflect the combination of applicable requirement states according to the governed eligibility logic.</p>
+<h1 id="106-aggregate-boundary" data-oof-section-id="true" role="heading" aria-level="2">106. Aggregate Boundary</h1>
+<p>A numerical average of eligibility requirements should not automatically establish eligibility.</p>
+<p>A single mandatory unsatisfied requirement may be decisive.</p>
+<h1 id="107-eligibility-scoring" data-oof-section-id="true" role="heading" aria-level="2">107. Eligibility Scoring</h1>
+<p>Implementations may use scores where useful.</p>
+<p>A score must not override mandatory eligibility conditions.</p>
+<p>Eligibility Score ≠ Eligibility Authority.</p>
+<h1 id="108-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">108. Minimum Implementation Framework</h1>
+<p>A minimum operational RAEM implementation should contain seven governed layers.</p>
+<p>Layer 1 — Subject &amp; Resource Identification</p>
+<p>Establish:</p>
+<p>Access Subject Resource Resource Source where relevant</p>
+<p>Layer 2 — Purpose</p>
+<p>Establish:</p>
+<p>Access Purpose Function Relevant operating context</p>
+<p>Layer 3 — Requirement Identification</p>
+<p>Determine:</p>
+<p>Applicable eligibility requirements Requirement source Mandatory / conditional status</p>
+<p>Layer 4 — Evidence</p>
+<p>Collect and validate:</p>
+<p>Identity evidence Role evidence Qualification evidence Technical evidence Operational evidence Other required evidence</p>
+<p>Layer 5 — Requirement Evaluation</p>
+<p>Determine:</p>
+<p>Satisfied Conditionally Satisfied Unsatisfied Evidence-Limited Conflicted Unknown Not Applicable</p>
+<p>Layer 6 — Eligibility Determination</p>
+<p>Determine:</p>
+<p>Eligibility State Conditions Uncertainty Validity period</p>
+<p>Layer 7 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Access Eligibility Profile Evidence Sufficiency State Reassessment Triggers Version</p>
+<p>Canonical machine-readable logic:</p>
+<p>**Actor</p>
+<p>Resource Purpose → Applicable Eligibility Requirements → Evidence → Requirement States → Conflict / Uncertainty → Eligibility State → Resource Access Eligibility Profile**</p>
+<h1 id="109-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">109. Minimum Decision States</h1>
+<p>RAEM must support at least:</p>
+<p>Eligible</p>
+<p>Conditionally Eligible</p>
+<p>Partially Eligible</p>
+<p>Not Eligible</p>
+<p>Eligibility Evidence-Limited</p>
+<p>Eligibility Conflicted</p>
+<p>Eligibility Unknown</p>
+<p>Eligibility Unresolved</p>
+<p>These states should remain distinguishable in downstream Resource Access Governance.</p>
+<h1 id="110-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">110. Minimum Evidence Path</h1>
+<p>Where eligibility cannot be determined:</p>
+<p>Eligibility Unresolved → Material Eligibility Gap → Applicable Requirement → Minimum Evidence Requirement → Evidence Acquisition / Verification → Requirement Reassessment → Eligibility Redetermination → Updated Resource Access Eligibility Profile</p>
+<p>RAEM should request only evidence capable of materially resolving eligibility.</p>
+<h1 id="111-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">111. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Eligibility Profile → Material Change / New Evidence → Materiality Test → Affected Requirement Identification → Targeted Reassessment → Eligibility Redetermination → Profile Retained or Revised → Version Update</p>
+<h1 id="112-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">112. Governance Requirements</h1>
+<p>A conforming RAEM implementation must:</p>
+<h1 id="1-identify-the-access-subject-2-identify-the-resource-3-preserve-resource-identi" data-oof-section-id="true" role="heading" aria-level="2">1. identify the Access Subject; 2. identify the Resource; 3. preserve Resource identity from upstream characterization; 4. identify Resource Source where eligibility is Source-specific; 5. establish Access purpose where material; 6. identify applicable eligibility requirements; 7. preserve requirement origin where material; 8. distinguish mandatory from conditional requirements; 9. identify applicable alternative eligibility pathways; 10. evaluate role eligibility where relevant; 11. evaluate functional eligibility where relevant; 12. evaluate technical eligibility where relevant; 13. evaluate operational eligibility where relevant; 14. evaluate spatial eligibility where relevant; 15. evaluate temporal eligibility where relevant; 16. preserve qualification evidence; 17. preserve evidence provenance; 18. evaluate evidence validity; 19. evaluate evidence freshness; 20. determine evidence sufficiency; 21. preserve material Evidence Gaps; 22. preserve material evidence conflicts; 23. preserve material uncertainty; 24. determine requirement states; 25. determine an Eligibility State; 26. preserve conditional eligibility; 27. preserve eligibility duration; 28. support expiration; 29. support reassessment; 30. support versioning; 31. preserve historical Eligibility States; 32. distinguish eligibility from authorization; 33. distinguish eligibility from Resource Demand; 34. distinguish eligibility from Resource Dependency; 35. distinguish eligibility from Criticality; 36. distinguish eligibility from Resource Priority; 37. distinguish eligibility from Resource Allocation; 38. prevent technical capability from becoming Access Authority; 39. prevent historical use from becoming automatic eligibility; 40. produce a Resource Access Eligibility Profile.</h1>
+<h1 id="113-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">113. Governance Logic</h1>
+<p>Canonical RAEM logic:</p>
+<p>**Access Subject</p>
+<p>Resource</p>
+<p>Access Purpose → Applicable Eligibility Requirements → Requirement Evidence → Evidence Validity → Requirement Evaluation → Conflict &amp; Uncertainty → Eligibility Determination → Resource Access Eligibility Profile**</p>
+<p>Where evidence is insufficient:</p>
+<p>Eligibility Gap → Minimum Evidence Requirement → Evidence Acquisition → Requirement Reassessment → Eligibility Redetermination</p>
+<h1 id="114-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">114. Governance Outputs</h1>
+<p>RAEM may produce:</p>
+<p>Resource Access Eligibility Profile</p>
+<p>Eligibility State</p>
+<p>Eligibility Requirement Set</p>
+<p>Requirement States</p>
+<p>Qualification State</p>
+<p>Technical Eligibility State</p>
+<p>Operational Eligibility State</p>
+<p>Spatial Eligibility State</p>
+<p>Temporal Eligibility State</p>
+<p>Eligibility Condition</p>
+<p>Evidence Sufficiency State</p>
+<p>Evidence Conflict State</p>
+<p>Eligibility Uncertainty</p>
+<p>Effective Time</p>
+<p>Expiration</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<p>These outputs become governed inputs to subsequent Resource Access mechanisms.</p>
+<h1 id="115-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">115. Failure Conditions</h1>
+<p>RAEM should not be considered sufficiently completed where:</p>
+<p>Access Subject identity is materially ambiguous; Resource identity is unclear; Access purpose is missing where purpose affects eligibility;</p>
+<p>eligibility requirements lack legitimate basis; inapplicable requirements are used to exclude an actor; mandatory requirements are ignored; technical capability is treated as authorization; Resource Demand is treated as eligibility; Resource Dependency is treated as eligibility; Criticality is treated as eligibility; Value is treated as eligibility; historical Access is treated as current eligibility; existing consumption is treated as sufficient eligibility evidence; expired evidence is treated as valid; material evidence conflict is hidden; material uncertainty is suppressed; conditional eligibility is represented as unconditional; partial eligibility is represented as full eligibility; an eligibility score overrides a mandatory requirement; eligibility is manipulated to produce a preferred downstream Allocation; eligibility is treated as Resource Access authorization.</p>
+<h1 id="116-use-case-1-ai-data-center-compute-access-eligibility" data-oof-section-id="true" role="heading" aria-level="2">116. Use Case 1 — AI Data Center Compute Access Eligibility</h1>
+<p>An AI data center provides multiple compute environments.</p>
+<p>A research workload requests access to a high-capacity GPU cluster.</p>
+<p>RAEM identifies:</p>
+<p>Access Subject — Research Workload / Responsible Operator</p>
+<p>Resource — Defined GPU Compute Capacity</p>
+<p>Purpose — Model Training</p>
+<p>Applicable eligibility requirements may include:</p>
+<p>recognized workload identity; approved workload category; technical compatibility; facility eligibility; security requirements; permitted operating environment; valid project status.</p>
+<p>The workload satisfies all mandatory requirements.</p>
+<p>RAEM determines:</p>
+<p>Eligibility State — Eligible</p>
+<p>and produces a:</p>
+<p>Resource Access Eligibility Profile.</p>
+<p>This does not grant GPU capacity.</p>
+<p>The relevant Access Authority must still authorize Access, and downstream governance may still determine Resource Priority and Allocation.</p>
+<h1 id="117-use-case-2-regional-water-access-eligibility" data-oof-section-id="true" role="heading" aria-level="2">117. Use Case 2 — Regional Water Access Eligibility</h1>
+<p>An industrial facility seeks access to a regional water system.</p>
+<p>RAEM evaluates:</p>
+<p>facility identity; Resource requested; location; intended use; technical connection requirements; applicable eligibility conditions; required qualifications or permits where relevant; evidence validity.</p>
+<p>The facility satisfies the general location and technical requirements, but one required condition remains pending.</p>
+<p>RAEM determines:</p>
+<p>Eligibility State — Partially Eligible</p>
+<p>rather than representing the facility as fully eligible.</p>
+<p>Once the missing requirement is sufficiently established, RAEM may reassess the profile.</p>
+<p>Even after:</p>
+<p>Eligibility State — Eligible</p>
+<p>is reached, Resource Access authorization remains a separate RAGS mechanism.</p>
+<h1 id="118-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">118. Critical Distinctions</h1>
+<p>Resource Access Eligibility ≠ Resource Access Authorization</p>
+<p>Eligible Candidate ≠ Authorized Resource User</p>
+<p>Eligibility for Resource A ≠ Eligibility for Resource B</p>
+<p>Eligibility for Purpose A ≠ Eligibility for Purpose B</p>
+<p>Technical Eligibility ≠ Resource Access Authority</p>
+<p>Emergency Eligibility ≠ Emergency Access Authorization</p>
+<p>Qualification ≠ Eligibility by definition</p>
+<p>Eligibility Exception ≠ Removal of Governance</p>
+<p>Validated Resource Demand ≠ Resource Access Eligibility</p>
+<p>Resource Dependency ≠ Resource Access Eligibility</p>
+<p>Resource Criticality ≠ Resource Access Eligibility</p>
+<p>Resource Availability ≠ Resource Access Eligibility</p>
+<p>Practical Accessibility ≠ Resource Access Eligibility</p>
+<p>Ownership ≠ Universal Resource Access Eligibility</p>
+<p>Historical Access ≠ Current Eligibility</p>
+<p>Existing Consumption ≠ Eligibility Evidence by itself</p>
+<p>High Value ≠ Eligibility</p>
+<p>Eligibility ≠ Priority</p>
+<p>Eligibility ≠ Allocation</p>
+<p>Eligibility ≠ Authorization</p>
+<p>Evidence Existence ≠ Evidence Validity</p>
+<p>Previously Eligible ≠ Currently Eligible</p>
+<p>Desired Access Outcome ≠ Eligibility Evidence</p>
+<p>Automated Eligibility Determination ≠ Resource Access Authorization</p>
+<p>Eligibility Score ≠ Eligibility Authority</p>
+<h1 id="119-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">119. Cross-Architecture Boundary</h1>
+<p>RAEM may consume:</p>
+<p>RCHS — Resource identity and characterization.</p>
+<p>RACS — Resource Availability and practical accessibility context.</p>
+<p>RDGS — Resource Demand context.</p>
+<p>RDCS — Resource Dependency and Criticality context.</p>
+<p>GOA™ — Authority and governance-boundary evidence where relevant.</p>
+<p>OBIDENITY® — Identity, Origin, Ownership, Authority, Permission, and Provenance evidence where relevant.</p>
+<p>AGI™ / ASGA™ — autonomous agent or autonomous-system identity and authority context where relevant.</p>
+<p>ORA™ — Operational Reality evidence.</p>
+<p>PGA™ — predicted future conditions where eligibility is future-dependent.</p>
+<p>RAEM does not absorb those mechanisms.</p>
+<h1 id="120-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">120. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>Identity evidence may support eligibility.</p>
+<p>Technical evidence may support eligibility.</p>
+<p>Resource Demand may explain the purpose of Access.</p>
+<p>Criticality may explain the operational significance of Access.</p>
+<p>None of these mechanisms independently establish Resource Access Eligibility unless the applicable eligibility requirements are satisfied.</p>
+<h1 id="121-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">121. Canonical Boundary</h1>
+<p>RAEM governs whether a sufficiently identified actor satisfies the applicable conditions required to become an eligible candidate for access to a defined Resource or Resource capacity for a defined purpose and context, including the identification of applicable requirements, evidence, qualification, conditions, uncertainty, conflict, validity, and reassessment.</p>
+<p>RAEM does not grant Resource Access authorization, create Access Authority, determine final Resource Access scope, establish Resource Priority, allocate Resource capacity, govern Resource Consumption, determine Scarcity response, or establish long-term Resource Sustainability.</p>
+<p>Its principal governed output is the Resource Access Eligibility Profile .</p>
+<h1 id="122-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">122. Canonical Closing Statement</h1>
+<p>A Resource need does not make an actor eligible, and eligibility does not make the actor authorized.</p>
+<p>RAEM establishes the qualification boundary first — determining who or what legitimately qualifies to proceed toward Resource Access, for which Resource, for what purpose, under which requirements, and on what evidence — before permission to access that Resource can be granted.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

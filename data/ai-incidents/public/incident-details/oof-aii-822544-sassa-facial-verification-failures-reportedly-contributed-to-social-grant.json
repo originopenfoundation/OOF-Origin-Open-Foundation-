@@ -60,10 +60,10 @@
   "createdAt": "2026-07-24T00:00:00Z",
   "updatedAt": "2026-07-24T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-822544-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-822544-V8",
     "incidentId": "OOF-AII-822544",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -141,7 +141,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -164,6 +165,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "SASSA Facial-Verification Failures Reportedly Contributed to Social Grant Access Disruptions in South Africa",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that South African social grant beneficiaries reportedly encountered repeated failures in SASSA's eLife facial-verification portal. Later parliamentary reporting said unsuccessful facial recognition was among the causes of non-verification and confirmed 67,868 grant suspensions in one quarter, but did not specify how many suspensions resulted from facial-verification failures. Affected users were redirected to in-person fingerprint checks. (2026-03-30, South Africa).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1606",
+      "eventDate": "2026-03-30",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -257,7 +267,42 @@
       "What evidence would establish how Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how verification, identity, access, classification moved from system activity into a reported real-world consequence, and which controls within OBIDENITY® — Origin-Bound Identity Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems. The next governance test is: How should verification, identity, access be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing verification, identity, access, classification were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for verification, identity, access, classification, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains verification, identity, access, classification under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "obidenity",
+      "mechanisms": [
+        "verification",
+        "identity",
+        "access",
+        "classification"
+      ],
+      "patternKey": "828d25ac6cf20479"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1606"
@@ -278,7 +323,7 @@
         "What evidence would establish how Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how verification, identity, access, classification moved from system activity into a reported real-world consequence, and which controls within OBIDENITY® — Origin-Bound Identity Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems. The next governance test is: How should verification, identity, access be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -351,8 +396,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-822544-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-822544-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

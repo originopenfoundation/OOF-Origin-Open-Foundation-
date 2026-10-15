@@ -52,10 +52,10 @@
   "createdAt": "2017-12-06T00:00:00Z",
   "updatedAt": "2017-12-06T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-529026-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-529026-V7",
     "incidentId": "OOF-AII-529026",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -141,7 +141,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -164,6 +165,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Waze Navigates Motorists into Wildfires",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Waze, a Google-owned directions app, led California drivers into the 2017 Skirball wildfires as they tried to evacuate the area. (2017-12-06, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/22",
+      "eventDate": "2017-12-06",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -243,7 +253,48 @@
       "What evidence would establish how yes produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how into, communication, information moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How must a prediction and its complete history remain identifiable, reconstructable, versioned, and historically continuous across formation, revision, supersession, outcome, performance assessment, retirement, and lifecycle re-entry?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing into, communication, information were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for into, communication, information, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Prediction Record & Continuity Standard (PRCS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-prcs.html",
+          "objectId": "OOF-KO-STD-PGA-12"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains into, communication, information under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "pga",
+      "mechanisms": [
+        "into",
+        "communication",
+        "information"
+      ],
+      "patternKey": "5d5c903ff3b5e228"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:22"
@@ -261,7 +312,7 @@
         "What evidence would establish how yes produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how into, communication, information moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How must a prediction and its complete history remain identifiable, reconstructable, versioned, and historically continuous across formation, revision, supersession, outcome, performance assessment, retirement, and lifecycle re-entry?",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -311,8 +362,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-529026-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-529026-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

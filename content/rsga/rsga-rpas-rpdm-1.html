@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Priority Determination Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Priority Determination Module | OOF®. RPDM — Resource Priority Determination Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Priority Determination Module | OOF®" />
+<meta property="og:description" content="Resource Priority Determination Module | OOF®. RPDM — Resource Priority Determination Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Priority Determination Module | OOF®" />
+<meta name="twitter:description" content="Resource Priority Determination Module | OOF®. RPDM — Resource Priority Determination Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Priority Determination Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html","name":"Resource Priority Determination Module | OOF®","description":"Resource Priority Determination Module | OOF®. RPDM — Resource Priority Determination Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Priority Determination Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html"}]},"headline":"Resource Priority Determination Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-rpdm-1.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Prioritization & Allocation Standard (RPAS)","Governance & Enforcement","Resource Governance","Resource Priority Determination Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Prioritization & Allocation Standard (RPAS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Priority Determination Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Prioritization & Allocation Standard (RPAS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Priority Determination Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RPDM — Resource Priority Determination Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Prioritization &amp; Allocation Standard (RPAS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Priority Determination Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RPAS-RPDM-01</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RPAS-RPDM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 6 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RPDM — Resource Priority Determination Module governs how competing legitimate Resource claims are evaluated against applicable governance criteria and evidence to determine their relative Resource Priority before Resource capacity is allocated.</p>
+<p>RPDM transforms heterogeneous Resource claims into explicit, comparable, evidence-based Priority determinations without treating Demand, Dependency, Criticality, Access, rights, Value, historical use, technical capability, or willingness to pay as automatic Priority.</p>
+<p>Its foundational distinction is:</p>
+<p>Criticality ≠ Priority.</p>
+<p>And its operational boundary is:</p>
+<p>Priority Determination ≠ Resource Allocation.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RPDM operates after upstream RSGA™ mechanisms have established sufficient context concerning:</p>
+<p>the Resource; available and relevant capacity; Resource Demand; Dependency; Criticality; Resource Access; Resource rights where relevant.</p>
+<p>Its role is to answer the question that must precede Allocation:</p>
+<p>When legitimate claims compete for the same constrained Resource, what relative governance Priority should each claim receive?</p>
+<p>RPDM establishes Priority.</p>
+<p>Downstream RPAS mechanisms determine how that Priority affects actual Resource Allocation.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>What relative Resource Priority should each competing legitimate Resource claim receive, based on the applicable governance criteria, evidence, dependencies, consequences, rights, Access conditions, alternatives, temporal context, and other materially relevant factors?</p>
+<h1 id="4-position-in-rpas-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RPAS Governance</h1>
+<p>Canonical progression:</p>
+<p>Allocable Resource Context → Legitimate Competing Claims → Priority Criteria → Evidence Evaluation → Comparative Assessment → Resource Priority Determination → Resource Priority Profile → Allocation Decision</p>
+<p>RPDM governs:</p>
+<p>Competing Claims → Resource Priority Determination</p>
+<p>It does not determine the final Resource Allocation.</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RPDM governs:</p>
+<p>Resource Priority Determination Governance</p>
+<p>This space concerns the explicit evaluation and relative ordering or classification of legitimate competing Resource claims before Resource capacity is distributed.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Priority relationship between a legitimate Resource claim and other competing legitimate claims upon the same relevant Resource capacity.</p>
+<p>Canonical relationship:</p>
+<p>**Legitimate Resource Claim</p>
+<p>Applicable Priority Criteria Governance Evidence Competing Claims Current Context → Resource Priority State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RPDM governs:</p>
+<p>Priority candidate identification; claim legitimacy input; Priority criteria identification; criteria applicability; Dependency relevance; Criticality relevance; consequence relevance; minimum functional requirement relevance; continuity relevance; substitutability relevance; time sensitivity; rights relevance; Access relevance; safety relevance; operational necessity; validated Value relevance where competent; Priority comparison; Priority classification; Priority ordering; equal Priority; Priority ties; Priority conflict; Priority uncertainty; Priority evidence; Priority traceability; Priority reassessment; Priority versioning.</p>
+<p>RPDM does not independently:</p>
+<p>establish Resource Demand; determine Resource Dependency; determine Resource Criticality; create Resource rights; authorize Resource Access; determine allocable capacity; assign Resource quantity or capacity; implement Allocation;</p>
+<p>control Resource Access; govern Resource Consumption; govern Scarcity response; determine long-term Resource Sustainability.</p>
+<h1 id="8-priority-candidate" data-oof-section-id="true" role="heading" aria-level="2">8. Priority Candidate</h1>
+<p>A Priority Candidate is a legitimate Resource claim that qualifies for comparative Priority determination within the relevant Allocation context.</p>
+<p>A Resource request does not become a Priority Candidate merely because it has been expressed.</p>
+<h1 id="9-candidate-legitimacy" data-oof-section-id="true" role="heading" aria-level="2">9. Candidate Legitimacy</h1>
+<p>RPDM should receive sufficient upstream evidence that the claim has a legitimate basis for consideration.</p>
+<p>Relevant evidence may include:</p>
+<p>validated Demand; Dependency; Criticality; Access authorization; Resource rights; purpose; authority; other competent governance basis.</p>
+<h1 id="10-candidate-boundary" data-oof-section-id="true" role="heading" aria-level="2">10. Candidate Boundary</h1>
+<p>Resource Request ≠ Priority Candidate.</p>
+<p>A desired Resource quantity without sufficient governance basis should not automatically compete with legitimate claims.</p>
+<h1 id="11-competing-claims" data-oof-section-id="true" role="heading" aria-level="2">11. Competing Claims</h1>
+<p>Priority becomes materially relevant where two or more legitimate claims compete directly or indirectly for constrained Resource capacity.</p>
+<p>Claims may compete across:</p>
+<p>participants; functions; systems; infrastructures; locations; purposes; time periods.</p>
+<h1 id="12-competition-boundary" data-oof-section-id="true" role="heading" aria-level="2">12. Competition Boundary</h1>
+<p>Two claims are not necessarily competing merely because they concern the same Resource type.</p>
+<p>They must materially interact with the same relevant constrained Resource capacity or Allocation context.</p>
+<h1 id="13-priority-criteria" data-oof-section-id="true" role="heading" aria-level="2">13. Priority Criteria</h1>
+<p>Priority Criteria are the governed factors used to determine relative Resource Priority.</p>
+<p>Criteria must be relevant to the Resource and governance context.</p>
+<h1 id="14-criteria-applicability" data-oof-section-id="true" role="heading" aria-level="2">14. Criteria Applicability</h1>
+<p>Not every possible criterion applies to every Resource decision.</p>
+<p>RPDM should determine which criteria are materially relevant before using them.</p>
+<h1 id="15-criticality-criterion" data-oof-section-id="true" role="heading" aria-level="2">15. Criticality Criterion</h1>
+<p>Resource Criticality established through RDCS may be a major Priority input.</p>
+<p>It does not independently determine Priority.</p>
+<p>High Criticality ≠ Automatic Highest Priority.</p>
+<h1 id="16-consequence-criterion" data-oof-section-id="true" role="heading" aria-level="2">16. Consequence Criterion</h1>
+<p>The consequence of insufficient or absent Resource Allocation may affect Priority.</p>
+<p>Relevant consequences may concern:</p>
+<p>safety; continuity; operational failure; service loss; system degradation; other governed outcomes.</p>
+<h1 id="17-consequence-boundary" data-oof-section-id="true" role="heading" aria-level="2">17. Consequence Boundary</h1>
+<p>Severe claimed consequences should be sufficiently evidenced.</p>
+<p>Claimed Consequence ≠ Established Consequence.</p>
+<h1 id="18-minimum-functional-requirement" data-oof-section-id="true" role="heading" aria-level="2">18. Minimum Functional Requirement</h1>
+<p>Some dependent functions require a minimum Resource level below which they cannot perform their required function.</p>
+<p>This threshold may materially affect Priority.</p>
+<h1 id="19-minimum-requirement-boundary" data-oof-section-id="true" role="heading" aria-level="2">19. Minimum Requirement Boundary</h1>
+<p>A minimum functional requirement identifies a functional threshold.</p>
+<p>It does not itself determine how much Resource will ultimately be allocated.</p>
+<h1 id="20-continuity-criterion" data-oof-section-id="true" role="heading" aria-level="2">20. Continuity Criterion</h1>
+<p>Priority may reflect the importance of preserving continuity of a legitimate function or system.</p>
+<p>Continuity relevance should remain explicit rather than assumed.</p>
+<h1 id="21-substitutability-criterion" data-oof-section-id="true" role="heading" aria-level="2">21. Substitutability Criterion</h1>
+<p>A claim may have lower immediate Priority where a sufficiently viable alternative Resource or operating mode exists.</p>
+<p>Conversely, low substitutability may strengthen Priority where other governance conditions support it.</p>
+<h1 id="22-substitutability-boundary" data-oof-section-id="true" role="heading" aria-level="2">22. Substitutability Boundary</h1>
+<p>Low Substitutability ≠ Automatic Highest Priority.</p>
+<p>It remains one input within the applicable governance context.</p>
+<h1 id="23-time-sensitivity-criterion" data-oof-section-id="true" role="heading" aria-level="2">23. Time-Sensitivity Criterion</h1>
+<p>Some Resource requirements lose operational relevance if the Resource is delivered too late.</p>
+<p>Time sensitivity may therefore materially affect Priority.</p>
+<h1 id="24-temporal-priority" data-oof-section-id="true" role="heading" aria-level="2">24. Temporal Priority</h1>
+<p>Resource Priority may change across time.</p>
+<p>A claim may be high priority during one operational window and lower priority later.</p>
+<p>Priority at Time A ≠ Priority at Time B.</p>
+<h1 id="25-safety-criterion" data-oof-section-id="true" role="heading" aria-level="2">25. Safety Criterion</h1>
+<p>Where Resource insufficiency creates established safety consequences, safety relevance may materially influence Priority.</p>
+<h1 id="26-safety-boundary" data-oof-section-id="true" role="heading" aria-level="2">26. Safety Boundary</h1>
+<p>Safety terminology should not be used merely to elevate a claim.</p>
+<p>Material safety relevance should be evidenced.</p>
+<h1 id="27-rights-relevance" data-oof-section-id="true" role="heading" aria-level="2">27. Rights Relevance</h1>
+<p>Resource rights may constrain or influence Priority determination.</p>
+<p>RPDM should preserve the distinction between:</p>
+<p>holding a Resource right</p>
+<p>and:</p>
+<p>receiving highest Resource Priority.</p>
+<h1 id="28-rights-boundary" data-oof-section-id="true" role="heading" aria-level="2">28. Rights Boundary</h1>
+<p>Valid Resource Right ≠ Automatic Highest Priority.</p>
+<p>The legal or governance effect of the right depends upon the applicable governing framework.</p>
+<h1 id="29-access-relevance" data-oof-section-id="true" role="heading" aria-level="2">29. Access Relevance</h1>
+<p>Only legitimate Access positions should ordinarily participate in Allocation where Access authorization is required.</p>
+<p>Access legitimacy does not determine relative Priority.</p>
+<p>Authorized Access ≠ Priority.</p>
+<h1 id="30-operational-necessity" data-oof-section-id="true" role="heading" aria-level="2">30. Operational Necessity</h1>
+<p>A Resource may be operationally necessary for a defined function.</p>
+<p>Operational necessity may affect Priority when sufficiently evidenced.</p>
+<h1 id="31-dependency-depth" data-oof-section-id="true" role="heading" aria-level="2">31. Dependency Depth</h1>
+<p>Priority analysis may consider whether Resource loss propagates through multiple dependent systems.</p>
+<p>Dependency-chain evidence from RDCS may therefore be relevant.</p>
+<h1 id="32-cascading-consequence" data-oof-section-id="true" role="heading" aria-level="2">32. Cascading Consequence</h1>
+<p>A Resource claim supporting multiple downstream dependencies may carry broader consequences than an isolated claim.</p>
+<p>The cascade should be evidenced rather than inferred solely from network position.</p>
+<h1 id="33-interdependency-relevance" data-oof-section-id="true" role="heading" aria-level="2">33. Interdependency Relevance</h1>
+<p>Where Resource systems depend upon one another, Priority determination may require evidence from RIRS concerning interdependency and resilience.</p>
+<h1 id="34-value-relevance" data-oof-section-id="true" role="heading" aria-level="2">34. Value Relevance</h1>
+<p>Validated Value may be relevant where the competent Allocation framework recognizes it as a Priority criterion.</p>
+<p>VEGA™ may provide such evidence for intelligent systems.</p>
+<h1 id="35-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">35. Value Boundary</h1>
+<p>High Value ≠ Highest Resource Priority.</p>
+<p>Economic Value, operational Value, strategic Value, or modeled ROI does not independently establish Resource entitlement.</p>
+<h1 id="36-economic-capacity-boundary" data-oof-section-id="true" role="heading" aria-level="2">36. Economic Capacity Boundary</h1>
+<p>Ability to Pay ≠ Resource Priority by definition.</p>
+<p>Market mechanisms may legitimately influence Resource distribution where the governing framework establishes them, but purchasing power is not a universal Priority rule.</p>
+<h1 id="37-historical-use" data-oof-section-id="true" role="heading" aria-level="2">37. Historical Use</h1>
+<p>Historical Resource use may provide context concerning operations, dependencies, or continuity.</p>
+<p>It does not automatically establish current Priority.</p>
+<p>Historical Use ≠ Current Priority.</p>
+<h1 id="38-existing-consumption" data-oof-section-id="true" role="heading" aria-level="2">38. Existing Consumption</h1>
+<p>Current Resource Consumption may reflect earlier decisions, legacy infrastructure, or uncontrolled technical conditions.</p>
+<p>It should not automatically become a Priority criterion.</p>
+<h1 id="39-technical-capability" data-oof-section-id="true" role="heading" aria-level="2">39. Technical Capability</h1>
+<p>An actor capable of acquiring or consuming Resource rapidly does not thereby acquire higher governance Priority.</p>
+<p>Technical Capability ≠ Resource Priority.</p>
+<h1 id="40-scale-boundary" data-oof-section-id="true" role="heading" aria-level="2">40. Scale Boundary</h1>
+<p>A larger actor, workload, facility, or system does not automatically receive higher Priority merely because its Resource Demand is larger.</p>
+<p>Scale ≠ Priority.</p>
+<h1 id="41-demand-magnitude" data-oof-section-id="true" role="heading" aria-level="2">41. Demand Magnitude</h1>
+<p>Demand magnitude is relevant to understanding the claim.</p>
+<p>It does not establish its relative Priority.</p>
+<p>Highest Demand ≠ Highest Priority.</p>
+<h1 id="42-priority-comparison" data-oof-section-id="true" role="heading" aria-level="2">42. Priority Comparison</h1>
+<p>RPDM compares legitimate claims using the applicable criteria and evidence.</p>
+<p>The comparison should preserve both:</p>
+<p>shared criteria</p>
+<p>and:</p>
+<p>material claim-specific context.</p>
+<h1 id="43-comparable-representation" data-oof-section-id="true" role="heading" aria-level="2">43. Comparable Representation</h1>
+<p>Claims should be represented sufficiently consistently to permit meaningful comparison.</p>
+<p>This does not require their dependencies, purposes, or consequences to be identical.</p>
+<h1 id="44-multi-criteria-priority" data-oof-section-id="true" role="heading" aria-level="2">44. Multi-Criteria Priority</h1>
+<p>Priority may depend upon multiple criteria simultaneously.</p>
+<p>RPDM should preserve the contribution of materially relevant criteria rather than collapsing them prematurely into a single unexplained score.</p>
+<h1 id="45-criteria-interaction" data-oof-section-id="true" role="heading" aria-level="2">45. Criteria Interaction</h1>
+<p>Criteria may reinforce or counterbalance one another.</p>
+<p>For example:</p>
+<p>high Criticality + low substitutability</p>
+<p>may strengthen a Priority case.</p>
+<p>But:</p>
+<p>high Criticality + readily available alternative Resource</p>
+<p>may produce a different Priority outcome.</p>
+<h1 id="46-criteria-weighting" data-oof-section-id="true" role="heading" aria-level="2">46. Criteria Weighting</h1>
+<p>Where numerical or categorical weights are used, they should remain:</p>
+<p>explicit; governed; traceable; reassessable.</p>
+<h1 id="47-weighting-boundary" data-oof-section-id="true" role="heading" aria-level="2">47. Weighting Boundary</h1>
+<p>Numerical Weight ≠ Objective Truth.</p>
+<p>Weights encode governance choices or evidence relationships.</p>
+<p>They do not eliminate those choices.</p>
+<h1 id="48-priority-score" data-oof-section-id="true" role="heading" aria-level="2">48. Priority Score</h1>
+<p>An implementation may calculate a Priority Score.</p>
+<p>The score should remain subordinate to the underlying governance criteria and evidence.</p>
+<h1 id="49-score-boundary" data-oof-section-id="true" role="heading" aria-level="2">49. Score Boundary</h1>
+<p>Priority Score ≠ Resource Allocation.</p>
+<p>A score represents comparative Priority evidence or state.</p>
+<p>It does not assign Resource capacity.</p>
+<h1 id="50-non-numerical-priority" data-oof-section-id="true" role="heading" aria-level="2">50. Non-Numerical Priority</h1>
+<p>RPDM does not require numerical scoring.</p>
+<p>Priority may be determined through:</p>
+<p>classes; tiers; ordered states; decision rules; structured qualitative evaluation; hybrid mechanisms.</p>
+<h1 id="51-priority-class" data-oof-section-id="true" role="heading" aria-level="2">51. Priority Class</h1>
+<p>A Priority Class groups claims with similar governance precedence.</p>
+<p>Possible implementation-specific examples include:</p>
+<p>Critical</p>
+<p>High</p>
+<p>Standard</p>
+<p>Deferrable</p>
+<p>Conditional</p>
+<p>The specific classification system must fit the governed Resource context.</p>
+<h1 id="52-priority-ordering" data-oof-section-id="true" role="heading" aria-level="2">52. Priority Ordering</h1>
+<p>Priority Ordering establishes the relative position of competing claims.</p>
+<p>Example:</p>
+<p>Claim A &gt; Claim B &gt; Claim C</p>
+<p>where the applicable evidence supports that ordering.</p>
+<h1 id="53-equal-priority" data-oof-section-id="true" role="heading" aria-level="2">53. Equal Priority</h1>
+<p>Claims may legitimately receive equal Priority.</p>
+<p>Equal Priority ≠ Identical Claim.</p>
+<p>Different claims may reach the same relative governance precedence through different evidence.</p>
+<h1 id="54-priority-tie" data-oof-section-id="true" role="heading" aria-level="2">54. Priority Tie</h1>
+<p>A Priority Tie exists where the applicable governance logic does not establish a material precedence between competing claims.</p>
+<h1 id="55-tie-preservation" data-oof-section-id="true" role="heading" aria-level="2">55. Tie Preservation</h1>
+<p>RPDM should not manufacture artificial differences merely to force an ordering.</p>
+<p>Unresolved Equality ≠ Governance Failure.</p>
+<p>A downstream governed tie-resolution mechanism may be required.</p>
+<h1 id="56-tie-resolution-boundary" data-oof-section-id="true" role="heading" aria-level="2">56. Tie Resolution Boundary</h1>
+<p>RPDM identifies the tie and relevant evidence.</p>
+<p>Where RPAS defines a separate Allocation-balancing mechanism, that mechanism may determine how Resource capacity is distributed among tied claims.</p>
+<h1 id="57-absolute-priority" data-oof-section-id="true" role="heading" aria-level="2">57. Absolute Priority</h1>
+<p>Some governance contexts may establish an overriding Priority rule for a defined class of Resource claim.</p>
+<p>Such Priority must arise from competent governance authority rather than assumption.</p>
+<h1 id="58-conditional-priority" data-oof-section-id="true" role="heading" aria-level="2">58. Conditional Priority</h1>
+<p>A claim may hold higher Priority only while a defined condition exists.</p>
+<p>Examples include:</p>
+<p>emergency state; specific operational window; Resource Source failure; critical infrastructure condition.</p>
+<h1 id="59-priority-escalation" data-oof-section-id="true" role="heading" aria-level="2">59. Priority Escalation</h1>
+<p>A claim may move to a higher Priority when material conditions worsen.</p>
+<h1 id="60-priority-de-escalation" data-oof-section-id="true" role="heading" aria-level="2">60. Priority De-Escalation</h1>
+<p>A claim may move to a lower Priority when:</p>
+<p>critical conditions resolve; alternatives become available; Dependency decreases; consequences decrease; time sensitivity ends.</p>
+<h1 id="61-priority-stability" data-oof-section-id="true" role="heading" aria-level="2">61. Priority Stability</h1>
+<p>Priority should remain stable while materially relevant conditions remain unchanged.</p>
+<p>Continuous arbitrary reprioritization can undermine Resource continuity.</p>
+<h1 id="62-priority-adaptability" data-oof-section-id="true" role="heading" aria-level="2">62. Priority Adaptability</h1>
+<p>Priority must also remain capable of changing when governed reality changes materially.</p>
+<p>Priority Stability ≠ Priority Permanence.</p>
+<h1 id="63-priority-conflict" data-oof-section-id="true" role="heading" aria-level="2">63. Priority Conflict</h1>
+<p>Priority Conflict exists where credible governance criteria or authorities support materially incompatible Priority determinations.</p>
+<h1 id="64-criteria-conflict" data-oof-section-id="true" role="heading" aria-level="2">64. Criteria Conflict</h1>
+<p>Examples include:</p>
+<p>safety vs continuity; rights vs emergency requirements; local necessity vs system-wide resilience; short-term consequence vs long-term sustainability.</p>
+<p>Such conflicts should remain visible.</p>
+<h1 id="65-conflict-resolution" data-oof-section-id="true" role="heading" aria-level="2">65. Conflict Resolution</h1>
+<p>Where RPDM cannot resolve a conflict using established criteria and authority, the conflict should be escalated through the competent governance mechanism.</p>
+<h1 id="66-priority-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">66. Priority Uncertainty</h1>
+<p>Priority Uncertainty exists where evidence is insufficient, unstable, disputed, predictive, or materially incomplete.</p>
+<h1 id="67-uncertainty-sources" data-oof-section-id="true" role="heading" aria-level="2">67. Uncertainty Sources</h1>
+<p>Uncertainty may arise from:</p>
+<p>Demand uncertainty; Dependency uncertainty; Criticality uncertainty; consequence uncertainty; Resource Availability uncertainty; rights uncertainty; Access uncertainty; future-condition uncertainty.</p>
+<h1 id="68-uncertainty-preservation" data-oof-section-id="true" role="heading" aria-level="2">68. Uncertainty Preservation</h1>
+<p>Uncertain Evidence ≠ Certain Priority.</p>
+<p>Material uncertainty should propagate into the Priority determination.</p>
+<h1 id="69-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">69. Evidence Sufficiency</h1>
+<p>RPDM should determine whether available evidence is sufficient for the required Priority decision.</p>
+<h1 id="70-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">70. Evidence Freshness</h1>
+<p>Priority evidence should remain sufficiently current for the relevant Resource decision horizon.</p>
+<h1 id="71-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">71. Evidence Provenance</h1>
+<p>Material Priority evidence should preserve where relevant:</p>
+<p>source; time; claim; Resource; criterion; originating governance mechanism; version.</p>
+<h1 id="72-prediction-evidence" data-oof-section-id="true" role="heading" aria-level="2">72. Prediction Evidence</h1>
+<p>PGA™ may provide governed predictions concerning:</p>
+<p>future Demand; future Resource Availability; future consequence; future operational conditions.</p>
+<p>Predictions may inform Priority where relevant.</p>
+<h1 id="73-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">73. Prediction Boundary</h1>
+<p>Predicted Criticality ≠ Current Criticality.</p>
+<p>Predicted Priority Need ≠ Current Priority State.</p>
+<p>Future-state evidence should remain temporally explicit.</p>
+<h1 id="74-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">74. Simulation Evidence</h1>
+<p>SIMULOS® may simulate consequences of alternative Priority or Allocation scenarios.</p>
+<p>Simulation may support Priority determination.</p>
+<p>It does not determine Priority authority.</p>
+<h1 id="75-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">75. Simulation Boundary</h1>
+<p>Simulated Best Outcome ≠ Governed Priority Decision.</p>
+<h1 id="76-priority-authority" data-oof-section-id="true" role="heading" aria-level="2">76. Priority Authority</h1>
+<p>Priority criteria and decision logic should originate from competent governance authority.</p>
+<p>A computational mechanism may apply those rules.</p>
+<p>It does not create them.</p>
+<h1 id="77-algorithmic-priority" data-oof-section-id="true" role="heading" aria-level="2">77. Algorithmic Priority</h1>
+<p>An algorithm may classify, score, rank, or compare claims.</p>
+<p>Its output remains governed by:</p>
+<p>criteria; authority; evidence; methodology; boundary conditions.</p>
+<h1 id="78-automation-boundary" data-oof-section-id="true" role="heading" aria-level="2">78. Automation Boundary</h1>
+<p>Automated Ranking ≠ Governance Authority.</p>
+<h1 id="79-human-override" data-oof-section-id="true" role="heading" aria-level="2">79. Human Override</h1>
+<p>Where competent governance permits human override of a calculated Priority, the override should preserve:</p>
+<p>authority; reason; affected claims; evidence; time; resulting Priority.</p>
+<h1 id="80-override-boundary" data-oof-section-id="true" role="heading" aria-level="2">80. Override Boundary</h1>
+<p>Human involvement does not eliminate the need for traceability.</p>
+<h1 id="81-priority-state" data-oof-section-id="true" role="heading" aria-level="2">81. Priority State</h1>
+<p>RPDM should represent the current governed Priority condition of each claim.</p>
+<h1 id="82-minimum-priority-states" data-oof-section-id="true" role="heading" aria-level="2">82. Minimum Priority States</h1>
+<p>At minimum:</p>
+<p>Priority Established</p>
+<p>Priority Conditionally Established</p>
+<p>Equal Priority</p>
+<p>Priority Escalated</p>
+<p>Priority De-Escalated</p>
+<p>Priority Under Review</p>
+<p>Priority Evidence-Limited</p>
+<p>Priority Conflicted</p>
+<p>Priority Unknown</p>
+<p>Priority Unresolved</p>
+<p>Priority Expired</p>
+<h1 id="83-priority-established" data-oof-section-id="true" role="heading" aria-level="2">83. Priority Established</h1>
+<p>Available evidence sufficiently supports the current Priority determination.</p>
+<h1 id="84-priority-conditionally-established" data-oof-section-id="true" role="heading" aria-level="2">84. Priority Conditionally Established</h1>
+<p>Priority remains valid only while specified conditions remain satisfied.</p>
+<h1 id="85-equal-priority" data-oof-section-id="true" role="heading" aria-level="2">85. Equal Priority</h1>
+<p>No material precedence exists between the relevant claims under the applicable criteria.</p>
+<h1 id="86-priority-escalated" data-oof-section-id="true" role="heading" aria-level="2">86. Priority Escalated</h1>
+<p>Material changes justify increased relative Priority.</p>
+<h1 id="87-priority-de-escalated" data-oof-section-id="true" role="heading" aria-level="2">87. Priority De-Escalated</h1>
+<p>Material changes justify reduced relative Priority.</p>
+<h1 id="88-priority-under-review" data-oof-section-id="true" role="heading" aria-level="2">88. Priority Under Review</h1>
+<p>A material change or evidence update requires reassessment.</p>
+<h1 id="89-priority-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">89. Priority Evidence-Limited</h1>
+<p>Available evidence supports only a limited-confidence Priority determination.</p>
+<h1 id="90-priority-conflicted" data-oof-section-id="true" role="heading" aria-level="2">90. Priority Conflicted</h1>
+<p>Credible evidence or governance criteria support materially incompatible Priority outcomes.</p>
+<h1 id="91-priority-unknown" data-oof-section-id="true" role="heading" aria-level="2">91. Priority Unknown</h1>
+<p>Available evidence cannot establish the relevant Priority.</p>
+<h1 id="92-priority-unresolved" data-oof-section-id="true" role="heading" aria-level="2">92. Priority Unresolved</h1>
+<p>Relevant evidence exists, but a final Priority determination cannot yet be completed.</p>
+<h1 id="93-priority-expired" data-oof-section-id="true" role="heading" aria-level="2">93. Priority Expired</h1>
+<p>A time-bounded Priority determination is no longer current.</p>
+<h1 id="94-resource-priority-profile" data-oof-section-id="true" role="heading" aria-level="2">94. Resource Priority Profile</h1>
+<p>The principal RPDM output is the:</p>
+<p>Resource Priority Profile</p>
+<p>It represents the governed relative Priority of a legitimate Resource claim within the relevant competing-claim context.</p>
+<h1 id="95-minimum-resource-priority-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">95. Minimum Resource Priority Profile Fields</h1>
+<p>At minimum:</p>
+<p>Priority ID</p>
+<p>Claim ID</p>
+<p>Access Subject ID</p>
+<p>Resource ID</p>
+<p>Resource Source where relevant</p>
+<p>Demand Reference</p>
+<p>Dependency Reference</p>
+<p>Criticality Reference</p>
+<p>Access Reference</p>
+<p>Rights Reference where relevant</p>
+<p>Purpose</p>
+<p>Applicable Priority Criteria</p>
+<p>Criteria Evidence</p>
+<p>Minimum Functional Requirement where relevant</p>
+<p>Substitutability Context</p>
+<p>Time-Sensitivity Context</p>
+<p>Consequence Context</p>
+<p>Priority Class / Position</p>
+<p>Priority State</p>
+<p>Priority Conflict State</p>
+<p>Priority Uncertainty</p>
+<p>Evidence Sufficiency</p>
+<p>Effective Time</p>
+<p>Expiration where relevant</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="96-comparative-priority-set" data-oof-section-id="true" role="heading" aria-level="2">96. Comparative Priority Set</h1>
+<p>Where multiple claims compete, RPDM may also produce a:</p>
+<p>Comparative Priority Set</p>
+<p>representing the relative Priority relationship among the claims.</p>
+<p>Example:</p>
+<p>Claim A — Critical</p>
+<p>Claim B — High</p>
+<p>Claim C — High</p>
+<p>Claim D — Deferrable</p>
+<p>The set remains a Priority output, not an Allocation.</p>
+<h1 id="97-priority-traceability" data-oof-section-id="true" role="heading" aria-level="2">97. Priority Traceability</h1>
+<p>A Priority determination should remain traceable through:</p>
+<p>Priority State → Priority Criteria → Criteria Evidence → Claim → Demand / Dependency / Criticality / Access / Rights Context → Resource Context → Governing Priority Logic</p>
+<h1 id="98-priority-explainability" data-oof-section-id="true" role="heading" aria-level="2">98. Priority Explainability</h1>
+<p>A governed system should be able to explain materially:</p>
+<p>which claim received which Priority; which claims it was compared against; which criteria applied; which evidence supported those criteria; which material uncertainty remained; why the resulting Priority was established.</p>
+<h1 id="99-priority-versioning" data-oof-section-id="true" role="heading" aria-level="2">99. Priority Versioning</h1>
+<p>Material changes to a Priority determination should create an updated version where required for traceability.</p>
+<h1 id="100-priority-reassessment" data-oof-section-id="true" role="heading" aria-level="2">100. Priority Reassessment</h1>
+<p>Priority should be reassessed where material changes can affect relative governance precedence.</p>
+<h1 id="101-reassessment-triggers" data-oof-section-id="true" role="heading" aria-level="2">101. Reassessment Triggers</h1>
+<p>Triggers may include:</p>
+<p>Demand change; Dependency change; Criticality change; consequence change; Access change; rights change; Resource Availability change; substitution change; time-criticality change;</p>
+<p>emergency state; new competing claim; new evidence.</p>
+<h1 id="102-reassessment-boundary" data-oof-section-id="true" role="heading" aria-level="2">102. Reassessment Boundary</h1>
+<p>Changed Input ≠ Automatic Priority Change.</p>
+<p>The material effect must be evaluated.</p>
+<h1 id="103-targeted-reassessment" data-oof-section-id="true" role="heading" aria-level="2">103. Targeted Reassessment</h1>
+<p>Where only one Priority dimension changes, RPDM should reassess the affected criteria and comparative relationships without unnecessarily rebuilding unrelated evidence.</p>
+<h1 id="104-comparative-reassessment" data-oof-section-id="true" role="heading" aria-level="2">104. Comparative Reassessment</h1>
+<p>A change to one claim may alter the relative Priority of other competing claims even when their own underlying conditions remain unchanged.</p>
+<p>RPDM should therefore evaluate material comparative effects.</p>
+<h1 id="105-priority-lifecycle" data-oof-section-id="true" role="heading" aria-level="2">105. Priority Lifecycle</h1>
+<p>Canonical lifecycle:</p>
+<p>Candidate Claim → Criteria Applicability → Evidence Evaluation → Comparative Assessment → Priority Determination → Priority Active → Reassessment → Confirm / Escalate / De-Escalate / Conflict / Expire</p>
+<h1 id="106-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">106. Minimum Implementation Framework</h1>
+<p>A minimum operational RPDM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Candidate Claims</p>
+<p>Establish:</p>
+<p>Resource Competing Claims Claim Legitimacy Relevant Allocation Context</p>
+<p>Layer 2 — Priority Criteria</p>
+<p>Identify:</p>
+<p>applicable criteria; governance basis; criteria boundaries.</p>
+<p>Layer 3 — Evidence Assembly</p>
+<p>Collect relevant:</p>
+<p>Demand; Dependency; Criticality; consequence; Access; rights; substitutability; time; other competent evidence.</p>
+<p>Layer 4 — Criteria Evaluation</p>
+<p>Evaluate each claim against the applicable Priority criteria.</p>
+<p>Layer 5 — Comparative Assessment</p>
+<p>Compare legitimate claims while preserving:</p>
+<p>differences; ties; conflicts; uncertainty.</p>
+<p>Layer 6 — Priority Determination</p>
+<p>Establish:</p>
+<p>Priority Class; Priority Position; Priority State.</p>
+<p>Layer 7 — Evidence &amp; Reassessment</p>
+<p>Preserve:</p>
+<p>evidence sufficiency; uncertainty; conflict; reassessment triggers; version.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Priority Profile Comparative Priority Set where relevant</p>
+<p>Canonical machine-readable logic:</p>
+<p>Legitimate Claims → Applicable Priority Criteria → Governance Evidence → Criteria Evaluation → Comparative Assessment → Resource Priority Determination → Resource Priority Profile</p>
+<h1 id="107-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">107. Minimum Decision States</h1>
+<p>RPDM must support at least:</p>
+<p>Priority Established</p>
+<p>Priority Conditionally Established</p>
+<p>Equal Priority</p>
+<p>Priority Escalated</p>
+<p>Priority De-Escalated</p>
+<p>Priority Under Review</p>
+<p>Priority Evidence-Limited</p>
+<p>Priority Conflicted</p>
+<p>Priority Unknown</p>
+<p>Priority Unresolved</p>
+<p>Priority Expired</p>
+<h1 id="108-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">108. Minimum Evidence Path</h1>
+<p>Where Priority cannot be sufficiently determined:</p>
+<p>Priority Unresolved → Material Priority Evidence Gap → Affected Criterion → Minimum Evidence Requirement → Evidence Acquisition / Verification → Comparative Reassessment → Priority Redetermination → Updated Resource Priority Profile</p>
+<h1 id="109-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">109. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Priority Profile → Material Change / New Competing Claim → Materiality Test → Affected Priority Criteria → Evidence Refresh → Comparative Reassessment → Priority Confirmation / Escalation / De-Escalation / Conflict → Profile Update → Version Update</p>
+<h1 id="110-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">110. Governance Requirements</h1>
+<p>A conforming RPDM implementation must:</p>
+<h1 id="1-identify-the-relevant-resource-2-identify-legitimate-priority-candidates-3-ide" data-oof-section-id="true" role="heading" aria-level="2">1. identify the relevant Resource; 2. identify legitimate Priority Candidates; 3. identify materially competing claims; 4. preserve claim identity; 5. preserve relevant Demand evidence; 6. preserve relevant Dependency evidence; 7. preserve relevant Criticality evidence; 8. preserve Access evidence; 9. preserve rights evidence where relevant;</h1>
+<h1 id="10-identify-applicable-priority-criteria-11-establish-criteria-applicability-12-" data-oof-section-id="true" role="heading" aria-level="2">10. identify applicable Priority criteria; 11. establish criteria applicability; 12. preserve criteria authority or governance basis; 13. evaluate Criticality relevance; 14. evaluate consequence relevance; 15. evaluate minimum functional requirements where relevant; 16. evaluate continuity relevance where applicable; 17. evaluate substitutability where relevant; 18. evaluate time sensitivity where relevant; 19. evaluate safety relevance where relevant; 20. evaluate rights relevance where applicable; 21. evaluate operational necessity where relevant; 22. evaluate validated Value only where legitimately applicable; 23. distinguish Criticality from Priority; 24. distinguish Demand magnitude from Priority; 25. distinguish Access from Priority; 26. distinguish rights from automatic Priority; 27. distinguish Value from automatic Priority; 28. distinguish historical use from current Priority; 29. distinguish technical capability from Priority; 30. support multi-criteria evaluation; 31. preserve criteria interactions; 32. govern weighting where used; 33. support numerical and non-numerical Priority methods; 34. support Priority classification; 35. support Priority ordering; 36. support equal Priority; 37. identify Priority ties; 38. preserve Priority conflict; 39. preserve Priority uncertainty; 40. determine evidence sufficiency; 41. preserve evidence provenance; 42. preserve temporal context; 43. support conditional Priority; 44. support Priority escalation; 45. support Priority de-escalation; 46. preserve Priority stability where conditions remain unchanged; 47. support material Priority reassessment; 48. evaluate comparative effects of changed claims; 49. preserve Priority traceability; 50. support Priority versioning; 51. produce Resource Priority Profiles; 52. produce Comparative Priority Sets where relevant.</h1>
+<h1 id="111-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">111. Governance Logic</h1>
+<p>Canonical RPDM logic:</p>
+<p>Legitimate Resource Claim → Competing Claim Context → Applicable Priority Criteria → Demand Evidence → Dependency Evidence → Criticality Evidence → Consequence Evidence → Access / Rights Context → Substitutability / Time / Other Relevant Evidence → Comparative Evaluation → Resource Priority Determination → Resource Priority Profile</p>
+<p>Across multiple claims:</p>
+<p>Claim A + Claim B + Claim C → Common Governance Context → Criteria Evaluation → Comparative Assessment → Priority Relationship → Comparative Priority Set</p>
+<h1 id="112-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">112. Governance Outputs</h1>
+<p>RPDM may produce:</p>
+<p>Resource Priority Profile</p>
+<p>Comparative Priority Set</p>
+<p>Priority Candidate State</p>
+<p>Priority Criteria Set</p>
+<p>Criteria Applicability State</p>
+<p>Priority Class</p>
+<p>Priority Position</p>
+<p>Equal-Priority State</p>
+<p>Priority Tie State</p>
+<p>Priority Escalation State</p>
+<p>Priority De-Escalation State</p>
+<p>Priority Conflict State</p>
+<p>Priority Uncertainty</p>
+<p>Evidence Sufficiency State</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="113-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">113. Failure Conditions</h1>
+<p>RPDM should not be considered sufficiently completed where:</p>
+<p>Resource requests are treated automatically as legitimate Priority Candidates; claims that do not compete are falsely compared; Criticality is treated as Priority; highest Demand automatically receives highest Priority; Resource rights automatically create highest Priority; Access authorization automatically creates Priority; historical use automatically creates current Priority; current Consumption is treated as Priority; technical capability determines Priority; actor size determines Priority; ability to pay is treated as a universal Priority rule; Value automatically determines Priority; Priority criteria are hidden; irrelevant criteria are applied; criteria weighting is opaque; a numerical score is treated as governance truth; ties are artificially broken without governance basis;</p>
+<p>material criteria conflict is hidden; material uncertainty is suppressed; predicted future states are represented as current states; simulation output is treated as governance authority; algorithmic ranking is treated as authority; Priority is confused with Allocation; Priority cannot be traced to evidence; material changes occur without reassessment.</p>
+<h1 id="114-use-case-1-ai-data-center-gpu-priority-determination" data-oof-section-id="true" role="heading" aria-level="2">114. Use Case 1 — AI Data Center GPU Priority Determination</h1>
+<p>A data center has constrained GPU capacity and four workloads with legitimate Access:</p>
+<p>Workload A — real-time safety monitoring</p>
+<p>Workload B — customer production inference</p>
+<p>Workload C — model training</p>
+<p>Workload D — experimental research</p>
+<p>RDGS establishes validated Demand for each workload.</p>
+<p>RDCS establishes their respective Dependency and Criticality.</p>
+<p>RAGS confirms legitimate Access.</p>
+<p>RPDM then evaluates the claims using applicable criteria including:</p>
+<p>Criticality; consequence of non-allocation; minimum functional requirement; time sensitivity; substitutability; operational necessity.</p>
+<p>The result may establish:</p>
+<p>Workload A — Critical Priority</p>
+<p>Workload B — High Priority</p>
+<p>Workload C — Standard Priority</p>
+<p>Workload D — Deferrable Priority</p>
+<p>RPDM does not determine how many GPUs each workload receives.</p>
+<p>It establishes the governed Priority evidence required for the downstream Allocation decision.</p>
+<h1 id="115-use-case-2-regional-water-priority-determination" data-oof-section-id="true" role="heading" aria-level="2">115. Use Case 2 — Regional Water Priority Determination</h1>
+<p>A region faces constrained water capacity.</p>
+<p>Legitimate claims include:</p>
+<p>essential household supply; healthcare facilities; agricultural irrigation; industrial production.</p>
+<p>Each claim may possess valid Demand and legitimate Access.</p>
+<p>RPDM evaluates the applicable Priority criteria.</p>
+<p>Healthcare may show:</p>
+<p>high Dependency; high consequence of interruption; low short-term substitutability; high time sensitivity.</p>
+<p>Agriculture may show:</p>
+<p>seasonal time sensitivity; significant economic and food-production consequences; variable substitution possibilities.</p>
+<p>Industrial production may show different:</p>
+<p>continuity requirements; economic consequences; alternative Source possibilities.</p>
+<p>RPDM produces explicit Resource Priority Profiles and a Comparative Priority Set.</p>
+<p>It does not assume that:</p>
+<p>the largest Demand; the highest economic Value; the largest historical user; or the actor capable of extracting water fastest</p>
+<p>must receive the highest Priority.</p>
+<h1 id="116-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">116. Critical Distinctions</h1>
+<p>Criticality ≠ Priority</p>
+<p>Priority Determination ≠ Resource Allocation</p>
+<p>Resource Request ≠ Priority Candidate</p>
+<p>High Criticality ≠ Automatic Highest Priority</p>
+<p>Claimed Consequence ≠ Established Consequence</p>
+<p>Low Substitutability ≠ Automatic Highest Priority</p>
+<p>Valid Resource Right ≠ Automatic Highest Priority</p>
+<p>Authorized Access ≠ Priority</p>
+<p>High Value ≠ Highest Resource Priority</p>
+<p>Ability to Pay ≠ Resource Priority by definition</p>
+<p>Historical Use ≠ Current Priority</p>
+<p>Technical Capability ≠ Resource Priority</p>
+<p>Scale ≠ Priority</p>
+<p>Highest Demand ≠ Highest Priority</p>
+<p>Numerical Weight ≠ Objective Truth</p>
+<p>Priority Score ≠ Resource Allocation</p>
+<p>Equal Priority ≠ Identical Claim</p>
+<p>Priority Stability ≠ Priority Permanence</p>
+<p>Uncertain Evidence ≠ Certain Priority</p>
+<p>Predicted Priority Need ≠ Current Priority State</p>
+<p>Simulated Best Outcome ≠ Governed Priority Decision</p>
+<p>Automated Ranking ≠ Governance Authority</p>
+<p>Changed Input ≠ Automatic Priority Change</p>
+<h1 id="117-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">117. Cross-Architecture Boundary</h1>
+<p>RPDM may consume:</p>
+<p>RCHS — Resource identity, Source, type, state, and context.</p>
+<p>RACS — Resource Availability and capacity context.</p>
+<p>RDGS — validated Resource Demand.</p>
+<p>RDCS — Resource Dependency, Criticality, consequence, and dependency-chain evidence.</p>
+<p>RAGS — Resource Access, rights, eligibility, and authorization evidence.</p>
+<p>RSFS — Resource substitution and flexibility evidence where relevant.</p>
+<p>RIRS — interdependency and resilience evidence.</p>
+<p>RCSS — continuity and sustainability evidence where relevant.</p>
+<p>GOA™ — governance authority and decision-boundary evidence.</p>
+<p>OBIDENITY® — identity, rights, ownership, authority, and provenance evidence.</p>
+<p>ORA™ — current Operational Reality evidence.</p>
+<p>PGA™ — governed prediction evidence.</p>
+<p>SIMULOS® — simulated consequence evidence.</p>
+<p>VEGA™ — validated Value evidence where legitimately applicable.</p>
+<p>RPDM does not absorb these mechanisms.</p>
+<h1 id="118-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">118. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RDGS establishes Resource Demand.</p>
+<p>RDCS establishes Dependency and Criticality.</p>
+<p>RAGS establishes legitimate Access and relevant Resource rights.</p>
+<p>VEGA™ may establish validated Value.</p>
+<p>PGA™ may establish governed prediction evidence.</p>
+<p>SIMULOS® may evaluate possible consequences.</p>
+<p>RPDM uses those inputs only to determine the relative Resource Priority of competing legitimate claims.</p>
+<h1 id="119-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">119. Canonical Boundary</h1>
+<p>RPDM governs the determination of relative Resource Priority among legitimate competing Resource claims through explicit, applicable, evidenced, traceable, and reassessable Priority criteria.</p>
+<p>It does not establish Resource Demand, Dependency, Criticality, rights, Access authorization, allocable capacity, Resource Allocation, technical enforcement, Consumption, Scarcity response, or long-term Sustainability.</p>
+<p>Its principal governed output is the Resource Priority Profile , with a Comparative Priority Set where multiple claims are evaluated together.</p>
+<h1 id="120-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">120. Canonical Closing Statement</h1>
+<p>Resource Priority should not belong automatically to the actor that asks first, demands most, pays most, consumes most, or possesses the greatest technical ability to capture the Resource.</p>
+<p>RPDM establishes Priority as an explicit governance determination — comparing legitimate Resource claims through their dependencies, consequences, rights, alternatives, timing, and other competent evidence before any constrained Resource capacity is allocated.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

@@ -51,10 +51,10 @@
   "createdAt": "2026-08-29T15:03:17.890000Z",
   "updatedAt": "2026-08-29T15:03:17.890000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-998473-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-998473-V7",
     "incidentId": "OOF-AII-998473",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -125,7 +125,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -148,6 +149,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Granola AI Notetaker Allegedly Captured and Transcribed Florida Meeting Participant Without Notice or Consent",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Tarra Chamberlain, a Florida resident, alleged that Granola captured and transcribed her speech during a virtual meeting without her knowledge or consent after another participant used the AI notetaker. Her July 2026 lawsuit further alleged that Granola uses meeting data to improve its AI models by default, while non-user participants have no comparable opt-out. (2026-07-30, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1652",
+      "eventDate": "2026-07-30",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -256,7 +266,40 @@
       "What evidence would establish how Granola, Ai Transcription Tools, Enterprise Ai Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how knowledge, user moved from system activity into a reported real-world consequence, and which controls within MGIA™ — Memory Governance Intelligence Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to MGIA™ — Memory Governance Intelligence Architecture because the reported activity reached a real-world consequence involving Granola, Ai Transcription Tools, Enterprise Ai Systems. The next governance test is: How should knowledge, user be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing knowledge, user were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for knowledge, user, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains knowledge, user under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "mgia",
+      "mechanisms": [
+        "knowledge",
+        "user"
+      ],
+      "patternKey": "76f27936e3844815"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1652"
@@ -277,7 +320,7 @@
         "What evidence would establish how Granola, Ai Transcription Tools, Enterprise Ai Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how knowledge, user moved from system activity into a reported real-world consequence, and which controls within MGIA™ — Memory Governance Intelligence Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to MGIA™ — Memory Governance Intelligence Architecture because the reported activity reached a real-world consequence involving Granola, Ai Transcription Tools, Enterprise Ai Systems. The next governance test is: How should knowledge, user be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -346,8 +389,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-998473-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-998473-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

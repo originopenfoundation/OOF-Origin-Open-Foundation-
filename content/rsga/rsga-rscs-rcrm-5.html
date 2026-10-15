@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Constraint Resolution Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Constraint Resolution Module | OOF®. RCRM — Resource Constraint Resolution Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Constraint Resolution Module | OOF®" />
+<meta property="og:description" content="Resource Constraint Resolution Module | OOF®. RCRM — Resource Constraint Resolution Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Constraint Resolution Module | OOF®" />
+<meta name="twitter:description" content="Resource Constraint Resolution Module | OOF®. RCRM — Resource Constraint Resolution Module Architecture: RSGA™ — Resource Sustainability Governance." />
+<meta name="DC.title" content="Resource Constraint Resolution Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html","name":"Resource Constraint Resolution Module | OOF®","description":"Resource Constraint Resolution Module | OOF®. RCRM — Resource Constraint Resolution Module Architecture: RSGA™ — Resource Sustainability Governance.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Constraint Resolution Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html"}]},"headline":"Resource Constraint Resolution Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rscs-rcrm-5.html#webpage"}}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RCRM — Resource Constraint Resolution Module</p>
+<p class="podstand"><b>Architecture:</b></p>
+<p>RSGA™ — Resource Sustainability Governance</p>
+<p class="podstand"><b>Architecture:</b></p>
+<p class="podstand"><b>Parent Standard:</b></p>
+<p>Resource Scarcity &amp; Constraint Standard (RSCS)</p>
+<p class="podstand"><b>Category:</b></p>
+<p>Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b></p>
+<p>Resource Governance</p>
+<p class="podstand"><b>Type:</b></p>
+<p>Core Module</p>
+<p class="podstand"><b>Governed Space:</b></p>
+<p>Resource Constraint Resolution Governance</p>
+<p class="podstand"><b>Module ID:</b></p>
+<p>RSGA-RSCS-RCRM-05</p>
+<p class="podstand"><b>Origin ID:</b></p>
+<p>OOF-RSGA-RSCS-RCRM</p>
+<p class="podstand"><b>Version:</b></p>
+<p>1.0</p>
+<p class="podstand"><b>Status:</b></p>
+<p>Draft Module</p>
+<p class="podstand"><b>Effective Date:</b></p>
+<p>7 October 2026</p>
+<p class="podstand"><b>Compatibility:</b></p>
+<p>Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>AI-Readable:</b></p>
+<p>Yes</p>
+<p class="podstand"><b>Authority:</b></p>
+<p>OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b></p>
+<p>Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b></p>
+<p>English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RCRM — Resource Constraint Resolution Module</p>
+<p>governs how Resource Constraints and Resource</p>
+<p>Scarcity conditions are determined to be</p>
+<p>stabilizing, relaxing, partially resolved, resolved,</p>
+<p>recurring, persistent, unresolved, or reopened</p>
+<p>based on evidenced changes in Resource</p>
+<p>sufficiency, Constraint mechanisms, applicable</p>
+<p>capacity, legitimate Resource requirements,</p>
+<p>Source, location, time, quality, rate,</p>
+<p>accessibility, delivery, regeneration,</p>
+<p>dependencies, and other materially relevant</p>
+<p>Resource conditions.</p>
+<p>RCRM determines whether the Resource</p>
+<p>Constraint has actually changed or ended .</p>
+<p>It prevents temporary improvement, additional supply,</p>
+<p>reduced Demand, successful intervention, or</p>
+<p>disappearance of an observed symptom from being</p>
+<p>automatically treated as genuine Constraint Resolution.</p>
+<p>Its foundational distinctions are:</p>
+<p>Constraint Stabilization ≠ Constraint Resolution.</p>
+<p>Constraint Relaxation ≠ Constraint Resolution.</p>
+<p>Temporary Improvement ≠ Constraint Resolution.</p>
+<p>Additional Resource Supply ≠ Constraint</p>
+<p>Resolution by itself.</p>
+<p>Response Completion ≠ Constraint Resolution.</p>
+<p>Constraint Resolution ≠ Permanent Resource</p>
+<p>Sufficiency.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RSSM establishes the Resource Scarcity State .</p>
+<p>RCTM establishes how the Resource is</p>
+<p>constrained .</p>
+<p>RSEM establishes the significance of the</p>
+<p>constrained condition .</p>
+<p>RSRM establishes the required governance</p>
+<p>response .</p>
+<p>RCRM determines:</p>
+<p>whether the Constraint remains active;</p>
+<p>whether it has stabilized;</p>
+<p>whether it is relaxing;</p>
+<p>whether individual Constraint mechanisms have</p>
+<p>resolved;</p>
+<p>whether Resource sufficiency has actually been</p>
+<p>restored;</p>
+<p>whether Scarcity can be closed;</p>
+<p>whether the condition remains recurring or</p>
+<p>persistent;</p>
+<p>whether the Constraint has re-emerged;</p>
+<p>and when continued reassessment is required.</p>
+<p>RCRM transforms:</p>
+<p>**Prior Constraint State</p>
+<p>Current Resource Evidence</p>
+<p>Current Resource Requirement</p>
+<p>Current Applicable Capacity</p>
+<p>Constraint Mechanism Evidence</p>
+<p>Response Outcome</p>
+<p>Temporal Evidence**</p>
+<p>into:</p>
+<p>a governed Resource Constraint Resolution</p>
+<p>State.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>Has the Resource Constraint or Scarcity</p>
+<p>condition materially stabilized, relaxed, partially</p>
+<p>resolved, fully resolved, persisted, recurred, or</p>
+<p>reopened, relative to the applicable legitimate</p>
+<p>Resource requirement and Resource conditions,</p>
+<p>and what evidence is required before the</p>
+<p>constrained state can legitimately be closed?</p>
+<h1 id="4-position-in-rscs-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RSCS Governance</h1>
+<p>Canonical progression:</p>
+<p>Resource Scarcity State</p>
+<p>→ Constraint Type</p>
+<p>→ Scarcity Evaluation</p>
+<p>→ Scarcity Response</p>
+<p>→ Updated Resource Evidence</p>
+<p>→ Constraint-State Comparison</p>
+<p>→ Stabilization / Relaxation / Persistence /</p>
+<p>Resolution Evaluation</p>
+<p>→ Resource Sufficiency Revalidation</p>
+<p>→ Resolution State</p>
+<p>→ Post-Resolution Monitoring</p>
+<p>→ Recurrence Detection</p>
+<p>→ Reassessment / Closure / Reopening</p>
+<p>RCRM governs:</p>
+<p>Changed Resource Conditions → Constraint</p>
+<p>Resolution Determination</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RCRM governs:</p>
+<p>Resource Constraint Resolution Governance</p>
+<p>This governed space concerns the determination of</p>
+<p>whether a previously identified Resource Constraint or</p>
+<p>Scarcity condition remains active, has materially</p>
+<p>improved, has stabilized, has partially resolved, has</p>
+<p>fully resolved, has recurred, or requires reopening.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Constraint Resolution State</p>
+<p>associated with a previously governed Resource</p>
+<p>Constraint or Scarcity condition and its current</p>
+<p>Resource evidence.</p>
+<p>Canonical relationship:</p>
+<p>**Prior Resource Constraint State</p>
+<p>Updated Resource State</p>
+<p>Updated Resource Requirement</p>
+<p>Updated Applicable Capacity</p>
+<p>Constraint Mechanism State</p>
+<p>Response Outcome</p>
+<p>Evidence</p>
+<p>→ Resolution Evaluation</p>
+<p>→ Resource Constraint Resolution State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RCRM governs:</p>
+<p>Constraint stabilization;</p>
+<p>Constraint relaxation;</p>
+<p>partial Constraint Resolution;</p>
+<p>complete Constraint Resolution;</p>
+<p>Scarcity stabilization;</p>
+<p>Scarcity relaxation;</p>
+<p>Scarcity Resolution;</p>
+<p>Constraint persistence;</p>
+<p>Scarcity persistence;</p>
+<p>Constraint recurrence;</p>
+<p>Scarcity recurrence;</p>
+<p>Constraint reopening;</p>
+<p>resolution thresholds;</p>
+<p>resolution criteria;</p>
+<p>resolution evidence;</p>
+<p>Resource sufficiency restoration;</p>
+<p>capacity restoration;</p>
+<p>Source restoration;</p>
+<p>location restoration;</p>
+<p>rate restoration;</p>
+<p>quality restoration;</p>
+<p>accessibility restoration;</p>
+<p>delivery restoration;</p>
+<p>infrastructure restoration relevance;</p>
+<p>regenerative recovery relevance;</p>
+<p>dependency restoration relevance;</p>
+<p>multi-Constraint Resolution;</p>
+<p>residual Constraint identification;</p>
+<p>post-resolution monitoring;</p>
+<p>resolution confidence;</p>
+<p>resolution uncertainty;</p>
+<p>resolution conflict;</p>
+<p>resolution reassessment;</p>
+<p>closure;</p>
+<p>reopening;</p>
+<p>traceability;</p>
+<p>versioning.</p>
+<p>RCRM does not independently:</p>
+<p>determine Resource Demand;</p>
+<p>create Resource Access rights;</p>
+<p>determine Resource Priority;</p>
+<p>allocate Resources;</p>
+<p>measure Resource Consumption as an</p>
+<p>originating mechanism;</p>
+<p>perform Resource Recovery;</p>
+<p>authorize Resource substitution;</p>
+<p>determine Resource resilience;</p>
+<p>determine long-term Sustainability;</p>
+<p>determine Value;</p>
+<p>determine Harm;</p>
+<p>determine Liability;</p>
+<p>execute operational intervention.</p>
+<h1 id="8-resource-constraint-resolution" data-oof-section-id="true" role="heading" aria-level="2">8. Resource Constraint Resolution</h1>
+<p>Resource Constraint Resolution exists where sufficient</p>
+<p>evidence establishes that the Resource conditions</p>
+<p>responsible for the governed Constraint no longer</p>
+<p>materially constrain the applicable Resource</p>
+<p>requirement within the relevant context.</p>
+<h1 id="9-resolution-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Resolution Principle</h1>
+<p>Improvement ≠ Resolution.</p>
+<p>Resolution requires evidence that the materially relevant</p>
+<p>Constraint condition has ceased or no longer produces</p>
+<p>the governed insufficiency.</p>
+<h1 id="10-constraint-state-comparison" data-oof-section-id="true" role="heading" aria-level="2">10. Constraint-State Comparison</h1>
+<p>RCRM compares:</p>
+<p>prior governed Constraint condition</p>
+<p>with:</p>
+<p>current governed Resource condition.</p>
+<p>The comparison should preserve materially relevant</p>
+<p>changes in:</p>
+<p>capacity;</p>
+<p>requirement;</p>
+<p>Source;</p>
+<p>location;</p>
+<p>time;</p>
+<p>rate;</p>
+<p>quality;</p>
+<p>accessibility;</p>
+<p>delivery;</p>
+<p>infrastructure;</p>
+<p>regeneration;</p>
+<p>dependencies;</p>
+<p>Constraint mechanisms.</p>
+<h1 id="11-comparison-principle" data-oof-section-id="true" role="heading" aria-level="2">11. Comparison Principle</h1>
+<p>Current Resource State Without Prior Constraint</p>
+<p>Context ≠ Resolution Evidence by itself.</p>
+<p>Resolution is a transition determination.</p>
+<h1 id="12-resolution-baseline" data-oof-section-id="true" role="heading" aria-level="2">12. Resolution Baseline</h1>
+<p>Every material Resolution determination should identify</p>
+<p>the prior Constraint state against which improvement or</p>
+<p>Resolution is evaluated.</p>
+<h1 id="13-baseline-principle" data-oof-section-id="true" role="heading" aria-level="2">13. Baseline Principle</h1>
+<p>Unknown Prior Constraint State ≠ Reliable</p>
+<p>Resolution Baseline.</p>
+<h1 id="14-stabilization" data-oof-section-id="true" role="heading" aria-level="2">14. Stabilization</h1>
+<p>Constraint Stabilization exists where the constrained</p>
+<p>Resource condition is no longer materially worsening</p>
+<p>but remains active.</p>
+<h1 id="15-stabilization-principle" data-oof-section-id="true" role="heading" aria-level="2">15. Stabilization Principle</h1>
+<p>Constraint Stabilization ≠ Constraint Resolution.</p>
+<h1 id="16-scarcity-stabilization" data-oof-section-id="true" role="heading" aria-level="2">16. Scarcity Stabilization</h1>
+<p>Scarcity Stabilization exists where the Scarcity</p>
+<p>condition remains active but its state or severity has</p>
+<p>ceased materially worsening.</p>
+<h1 id="17-stabilization-boundary" data-oof-section-id="true" role="heading" aria-level="2">17. Stabilization Boundary</h1>
+<p>A stable shortage remains a shortage.</p>
+<p>Stable Scarcity ≠ Resource Sufficiency.</p>
+<h1 id="18-constraint-relaxation" data-oof-section-id="true" role="heading" aria-level="2">18. Constraint Relaxation</h1>
+<p>Constraint Relaxation exists where the Resource</p>
+<p>limitation materially decreases while the Constraint</p>
+<p>remains active.</p>
+<h1 id="19-relaxation-principle" data-oof-section-id="true" role="heading" aria-level="2">19. Relaxation Principle</h1>
+<p>Constraint Relaxation ≠ Constraint Resolution.</p>
+<h1 id="20-scarcity-relaxation" data-oof-section-id="true" role="heading" aria-level="2">20. Scarcity Relaxation</h1>
+<p>Scarcity Relaxation exists where Resource sufficiency</p>
+<p>improves but remains below the level required to</p>
+<p>establish Resolution.</p>
+<h1 id="21-relaxation-boundary" data-oof-section-id="true" role="heading" aria-level="2">21. Relaxation Boundary</h1>
+<p>Improved Resource Sufficiency ≠ Sufficient</p>
+<p>Resource.</p>
+<h1 id="22-partial-resolution" data-oof-section-id="true" role="heading" aria-level="2">22. Partial Resolution</h1>
+<p>Partial Resolution exists where one or more material</p>
+<p>Constraint mechanisms resolve while other relevant</p>
+<p>Constraint mechanisms remain active.</p>
+<h1 id="23-partial-resolution-principle" data-oof-section-id="true" role="heading" aria-level="2">23. Partial-Resolution Principle</h1>
+<p>Resolution of One Constraint ≠ Resolution of All</p>
+<p>Constraints.</p>
+<h1 id="24-multi-constraint-resolution" data-oof-section-id="true" role="heading" aria-level="2">24. Multi-Constraint Resolution</h1>
+<p>Where multiple Constraint Types contribute to Scarcity,</p>
+<p>RCRM should evaluate the resolution state of each</p>
+<p>material Constraint mechanism.</p>
+<h1 id="25-multi-constraint-principle" data-oof-section-id="true" role="heading" aria-level="2">25. Multi-Constraint Principle</h1>
+<p>One Resolved Constraint Type ≠ Resolved</p>
+<p>Scarcity by default.</p>
+<h1 id="26-binding-constraint-transition" data-oof-section-id="true" role="heading" aria-level="2">26. Binding-Constraint Transition</h1>
+<p>Resolving one Binding Constraint may expose another</p>
+<p>Constraint that was previously non-binding.</p>
+<p>Example:</p>
+<p>Grid Capacity Constraint resolved</p>
+<p>→ Cooling Capacity becomes Binding Constraint</p>
+<h1 id="27-binding-constraint-principle" data-oof-section-id="true" role="heading" aria-level="2">27. Binding-Constraint Principle</h1>
+<p>Removal of the Current Binding Constraint ≠</p>
+<p>Guaranteed Resource Sufficiency.</p>
+<h1 id="28-complete-constraint-resolution" data-oof-section-id="true" role="heading" aria-level="2">28. Complete Constraint Resolution</h1>
+<p>Complete Constraint Resolution exists where all</p>
+<p>materially relevant Constraint mechanisms within the</p>
+<p>governed Resolution boundary have ceased to</p>
+<p>constrain the applicable Resource requirement.</p>
+<h1 id="29-resolution-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">29. Resolution Boundary Principle</h1>
+<p>Resolution should always be evaluated within a defined:</p>
+<p>Resource;</p>
+<p>Source;</p>
+<p>location;</p>
+<p>time horizon;</p>
+<p>requirement;</p>
+<p>capacity basis;</p>
+<p>operational context.</p>
+<h1 id="30-context-principle" data-oof-section-id="true" role="heading" aria-level="2">30. Context Principle</h1>
+<p>Constraint Resolved in One Context ≠ Constraint</p>
+<p>Resolved Everywhere.</p>
+<h1 id="31-resource-sufficiency-restoration" data-oof-section-id="true" role="heading" aria-level="2">31. Resource Sufficiency Restoration</h1>
+<p>Where Scarcity existed, Scarcity Resolution requires</p>
+<p>revalidation that applicable Resource conditions have</p>
+<p>become sufficient relative to the legitimate Resource</p>
+<p>requirement.</p>
+<h1 id="32-sufficiency-principle" data-oof-section-id="true" role="heading" aria-level="2">32. Sufficiency Principle</h1>
+<p>Constraint Improvement ≠ Restored Resource</p>
+<p>Sufficiency.</p>
+<h1 id="33-scarcity-resolution" data-oof-section-id="true" role="heading" aria-level="2">33. Scarcity Resolution</h1>
+<p>Scarcity Resolution exists where sufficient evidence</p>
+<p>establishes that the applicable Resource conditions</p>
+<p>again satisfy the legitimate Resource requirement within</p>
+<p>the governed context.</p>
+<h1 id="34-scarcity-resolution-principle" data-oof-section-id="true" role="heading" aria-level="2">34. Scarcity-Resolution Principle</h1>
+<p>Scarcity Resolution ≠ Resource Abundance.</p>
+<p>A Resource need only become sufficiently available for</p>
+<p>the applicable requirement.</p>
+<h1 id="35-requirement-revalidation" data-oof-section-id="true" role="heading" aria-level="2">35. Requirement Revalidation</h1>
+<p>RCRM should confirm that the Resource requirement</p>
+<p>used to establish Resolution remains valid.</p>
+<h1 id="36-requirement-change-boundary" data-oof-section-id="true" role="heading" aria-level="2">36. Requirement-Change Boundary</h1>
+<p>Scarcity may appear to resolve because the Resource</p>
+<p>requirement changed.</p>
+<p>That change must remain explicit.</p>
+<p>Reduced Requirement ≠ Increased Resource</p>
+<p>Availability.</p>
+<h1 id="37-requirement-reduction-resolution" data-oof-section-id="true" role="heading" aria-level="2">37. Requirement-Reduction Resolution</h1>
+<p>Where legitimate Resource requirements are reduced,</p>
+<p>the constrained condition may genuinely resolve</p>
+<p>relative to the new requirement.</p>
+<p>The cause of Resolution should remain identifiable.</p>
+<h1 id="38-resolution-cause-principle" data-oof-section-id="true" role="heading" aria-level="2">38. Resolution-Cause Principle</h1>
+<p>Resolution Through Reduced Requirement ≠</p>
+<p>Resolution Through Increased Capacity.</p>
+<h1 id="39-capacity-restoration" data-oof-section-id="true" role="heading" aria-level="2">39. Capacity Restoration</h1>
+<p>Constraint Resolution may result from restored</p>
+<p>Resource capacity.</p>
+<p>Examples include:</p>
+<p>additional usable capacity;</p>
+<p>restored infrastructure;</p>
+<p>increased delivery rate;</p>
+<p>recovered Source;</p>
+<p>restored quality;</p>
+<p>restored accessibility.</p>
+<h1 id="40-capacity-principle" data-oof-section-id="true" role="heading" aria-level="2">40. Capacity Principle</h1>
+<p>Additional Capacity ≠ Constraint Resolution by</p>
+<p>itself.</p>
+<p>The resulting Resource sufficiency must be evaluated.</p>
+<h1 id="41-additional-supply" data-oof-section-id="true" role="heading" aria-level="2">41. Additional Supply</h1>
+<p>Additional Resource supply may contribute to</p>
+<p>Resolution.</p>
+<p>However:</p>
+<p>Additional Resource Supply ≠ Scarcity</p>
+<p>Resolution by itself.</p>
+<h1 id="42-supply-boundary" data-oof-section-id="true" role="heading" aria-level="2">42. Supply Boundary</h1>
+<p>New supply may remain:</p>
+<p>inaccessible;</p>
+<p>unusable;</p>
+<p>wrongly located;</p>
+<p>temporally unavailable;</p>
+<p>insufficient in rate;</p>
+<p>inadequate in quality.</p>
+<h1 id="43-source-restoration" data-oof-section-id="true" role="heading" aria-level="2">43. Source Restoration</h1>
+<p>A Source Constraint may resolve when the relevant</p>
+<p>Resource Source becomes sufficiently available again.</p>
+<h1 id="44-source-boundary" data-oof-section-id="true" role="heading" aria-level="2">44. Source Boundary</h1>
+<p>Source Restoration ≠ Resource-System</p>
+<p>Resolution automatically.</p>
+<p>Other constraints may remain active.</p>
+<h1 id="45-location-restoration" data-oof-section-id="true" role="heading" aria-level="2">45. Location Restoration</h1>
+<p>A Location Constraint may resolve where Resource</p>
+<p>sufficiency is restored at the location where it is</p>
+<p>required.</p>
+<h1 id="46-location-principle" data-oof-section-id="true" role="heading" aria-level="2">46. Location Principle</h1>
+<p>Resource Availability Elsewhere ≠ Local</p>
+<p>Constraint Resolution.</p>
+<h1 id="47-rate-restoration" data-oof-section-id="true" role="heading" aria-level="2">47. Rate Restoration</h1>
+<p>A Rate Constraint may resolve where Resource delivery,</p>
+<p>processing, transmission, or withdrawal rate becomes</p>
+<p>sufficient for the applicable requirement.</p>
+<h1 id="48-rate-principle" data-oof-section-id="true" role="heading" aria-level="2">48. Rate Principle</h1>
+<p>Sufficient Total Quantity ≠ Rate-Constraint</p>
+<p>Resolution.</p>
+<h1 id="49-temporal-resolution" data-oof-section-id="true" role="heading" aria-level="2">49. Temporal Resolution</h1>
+<p>A Temporal Constraint may resolve when the Resource</p>
+<p>becomes sufficiently available within the required time</p>
+<p>window.</p>
+<h1 id="50-temporal-principle" data-oof-section-id="true" role="heading" aria-level="2">50. Temporal Principle</h1>
+<p>Resource Available After the Required Window ≠</p>
+<p>Temporal Constraint Resolution for That</p>
+<p>Requirement.</p>
+<h1 id="51-quality-restoration" data-oof-section-id="true" role="heading" aria-level="2">51. Quality Restoration</h1>
+<p>A Quality Constraint may resolve when sufficient</p>
+<p>Resource again meets the required quality conditions.</p>
+<h1 id="52-quality-principle" data-oof-section-id="true" role="heading" aria-level="2">52. Quality Principle</h1>
+<p>Quantity Restoration ≠ Quality-Constraint</p>
+<p>Resolution.</p>
+<h1 id="53-accessibility-restoration" data-oof-section-id="true" role="heading" aria-level="2">53. Accessibility Restoration</h1>
+<p>An Accessibility Constraint may resolve when</p>
+<p>applicable Resource capacity becomes accessible to the</p>
+<p>relevant participant, function, system, or location.</p>
+<h1 id="54-accessibility-boundary" data-oof-section-id="true" role="heading" aria-level="2">54. Accessibility Boundary</h1>
+<p>Available Resource ≠ Accessibility-Constraint</p>
+<p>Resolution.</p>
+<h1 id="55-delivery-restoration" data-oof-section-id="true" role="heading" aria-level="2">55. Delivery Restoration</h1>
+<p>A Delivery Constraint may resolve where the Resource</p>
+<p>can again be delivered with the required quantity, rate,</p>
+<p>timing, reliability, and applicable conditions.</p>
+<h1 id="56-delivery-principle" data-oof-section-id="true" role="heading" aria-level="2">56. Delivery Principle</h1>
+<p>Upstream Resource Availability ≠ Delivery-</p>
+<p>Constraint Resolution.</p>
+<h1 id="57-infrastructure-restoration" data-oof-section-id="true" role="heading" aria-level="2">57. Infrastructure Restoration</h1>
+<p>Infrastructure repair or expansion may contribute to</p>
+<p>Constraint Resolution.</p>
+<p>However:</p>
+<p>Infrastructure Restoration ≠ Resource</p>
+<p>Sufficiency by definition.</p>
+<h1 id="58-regenerative-recovery" data-oof-section-id="true" role="heading" aria-level="2">58. Regenerative Recovery</h1>
+<p>A Regenerative Constraint may relax or resolve where</p>
+<p>effective regeneration again supports the applicable</p>
+<p>Resource condition.</p>
+<h1 id="59-regeneration-principle" data-oof-section-id="true" role="heading" aria-level="2">59. Regeneration Principle</h1>
+<p>Improved Regeneration ≠ Regenerative-</p>
+<p>Constraint Resolution by itself.</p>
+<p>The relationship between regeneration, withdrawal,</p>
+<p>Resource stock, and legitimate requirement remains</p>
+<p>relevant.</p>
+<h1 id="60-dependency-restoration" data-oof-section-id="true" role="heading" aria-level="2">60. Dependency Restoration</h1>
+<p>A Dependency-Induced Constraint may resolve where</p>
+<p>the dependent Resource-enabling mechanism becomes</p>
+<p>sufficiently restored.</p>
+<h1 id="61-dependency-principle" data-oof-section-id="true" role="heading" aria-level="2">61. Dependency Principle</h1>
+<p>Upstream Dependency Restoration ≠</p>
+<p>Downstream Resource Resolution automatically.</p>
+<p>Downstream Resource conditions must be revalidated.</p>
+<h1 id="62-cross-resource-resolution" data-oof-section-id="true" role="heading" aria-level="2">62. Cross-Resource Resolution</h1>
+<p>Where Constraint propagation occurred across</p>
+<p>Resource systems, Resolution should preserve whether</p>
+<p>each affected Resource has actually recovered.</p>
+<h1 id="63-cross-resource-principle" data-oof-section-id="true" role="heading" aria-level="2">63. Cross-Resource Principle</h1>
+<p>Resolution in Resource A ≠ Resolution in</p>
+<p>Resource B automatically.</p>
+<h1 id="64-response-outcome" data-oof-section-id="true" role="heading" aria-level="2">64. Response Outcome</h1>
+<p>RCRM may consume the outcome of RSRM-governed</p>
+<p>Resource Scarcity Responses.</p>
+<p>Examples include:</p>
+<p>Allocation reviewed;</p>
+<p>reserve released;</p>
+<p>Recovery initiated;</p>
+<p>substitution implemented;</p>
+<p>infrastructure restored;</p>
+<p>Demand adjusted;</p>
+<p>Access conditions changed.</p>
+<h1 id="65-response-outcome-principle" data-oof-section-id="true" role="heading" aria-level="2">65. Response-Outcome Principle</h1>
+<p>Response Completion ≠ Constraint Resolution.</p>
+<p>The Resource condition must be re-evaluated.</p>
+<h1 id="66-successful-intervention" data-oof-section-id="true" role="heading" aria-level="2">66. Successful Intervention</h1>
+<p>An intervention may operate exactly as intended without</p>
+<p>fully resolving Scarcity.</p>
+<p>Successful Intervention ≠ Complete Resolution.</p>
+<h1 id="67-failed-intervention" data-oof-section-id="true" role="heading" aria-level="2">67. Failed Intervention</h1>
+<p>Where intervention does not materially improve the</p>
+<p>Resource condition, the Constraint remains governed as</p>
+<p>active or unresolved.</p>
+<h1 id="68-intervention-boundary" data-oof-section-id="true" role="heading" aria-level="2">68. Intervention Boundary</h1>
+<p>RCRM evaluates Resource-state consequences.</p>
+<p>It does not determine whether the original intervention</p>
+<p>was authorized or appropriate.</p>
+<h1 id="69-constraint-persistence" data-oof-section-id="true" role="heading" aria-level="2">69. Constraint Persistence</h1>
+<p>Constraint Persistence exists where the materially</p>
+<p>relevant Constraint remains active across the applicable</p>
+<p>governance horizon.</p>
+<h1 id="70-persistence-principle" data-oof-section-id="true" role="heading" aria-level="2">70. Persistence Principle</h1>
+<p>Persistent Constraint ≠ Permanent Constraint.</p>
+<h1 id="71-persistent-scarcity" data-oof-section-id="true" role="heading" aria-level="2">71. Persistent Scarcity</h1>
+<p>Scarcity remains Persistent where Resource conditions</p>
+<p>continue to be insufficient relative to the applicable</p>
+<p>legitimate Resource requirement.</p>
+<h1 id="72-structural-constraint" data-oof-section-id="true" role="heading" aria-level="2">72. Structural Constraint</h1>
+<p>A Constraint may be structural where it results from</p>
+<p>enduring characteristics of the Resource System.</p>
+<p>RCRM may preserve an established structural</p>
+<p>classification.</p>
+<p>It does not infer structural status merely from duration.</p>
+<h1 id="73-structural-principle" data-oof-section-id="true" role="heading" aria-level="2">73. Structural Principle</h1>
+<p>Long Duration ≠ Structural Constraint by itself.</p>
+<h1 id="74-recurring-constraint" data-oof-section-id="true" role="heading" aria-level="2">74. Recurring Constraint</h1>
+<p>A Recurring Constraint re-emerges after a period in</p>
+<p>which the Constraint was inactive or materially resolved.</p>
+<h1 id="75-recurrence-principle" data-oof-section-id="true" role="heading" aria-level="2">75. Recurrence Principle</h1>
+<p>Temporary Resolution ≠ Elimination of</p>
+<p>Recurrence Risk.</p>
+<h1 id="76-recurring-scarcity" data-oof-section-id="true" role="heading" aria-level="2">76. Recurring Scarcity</h1>
+<p>Recurring Scarcity exists where Resource insufficiency</p>
+<p>repeatedly returns under materially related conditions.</p>
+<h1 id="77-recurrence-pattern" data-oof-section-id="true" role="heading" aria-level="2">77. Recurrence Pattern</h1>
+<p>RCRM should preserve where applicable:</p>
+<p>recurrence frequency;</p>
+<p>recurrence interval;</p>
+<p>recurrence duration;</p>
+<p>recurrence trigger;</p>
+<p>Constraint Type;</p>
+<p>Source;</p>
+<p>location;</p>
+<p>affected requirement;</p>
+<p>severity pattern.</p>
+<h1 id="78-recurrence-boundary" data-oof-section-id="true" role="heading" aria-level="2">78. Recurrence Boundary</h1>
+<p>Repeated Scarcity Events ≠ Same Scarcity Event</p>
+<p>by default.</p>
+<p>Event identity and continuity should remain traceable.</p>
+<h1 id="79-reopened-constraint" data-oof-section-id="true" role="heading" aria-level="2">79. Reopened Constraint</h1>
+<p>A previously resolved Constraint may be reopened</p>
+<p>where new evidence establishes that the limiting</p>
+<p>condition has returned or was not genuinely resolved.</p>
+<h1 id="80-reopening-principle" data-oof-section-id="true" role="heading" aria-level="2">80. Reopening Principle</h1>
+<p>Prior Resolution Determination ≠ Permanent</p>
+<p>Immunity From Reassessment.</p>
+<h1 id="81-false-resolution" data-oof-section-id="true" role="heading" aria-level="2">81. False Resolution</h1>
+<p>False Resolution exists where a Constraint was</p>
+<p>classified as resolved but subsequent evidence shows</p>
+<p>that the materially relevant Resource insufficiency had</p>
+<p>not actually ended.</p>
+<h1 id="82-false-resolution-principle" data-oof-section-id="true" role="heading" aria-level="2">82. False-Resolution Principle</h1>
+<p>Absence of Observed Symptoms ≠ Evidence of</p>
+<p>Constraint Resolution.</p>
+<h1 id="83-apparent-resolution" data-oof-section-id="true" role="heading" aria-level="2">83. Apparent Resolution</h1>
+<p>A Resource Constraint may appear resolved because:</p>
+<p>monitoring stopped;</p>
+<p>Demand temporarily declined;</p>
+<p>affected activity stopped;</p>
+<p>measurement changed;</p>
+<p>Resource requirements were omitted;</p>
+<p>the Constraint shifted location;</p>
+<p>the Constraint shifted to another Resource.</p>
+<p>These conditions require governance scrutiny.</p>
+<h1 id="84-displacement-principle" data-oof-section-id="true" role="heading" aria-level="2">84. Displacement Principle</h1>
+<p>Constraint Displacement ≠ Constraint</p>
+<p>Resolution.</p>
+<h1 id="85-geographic-displacement" data-oof-section-id="true" role="heading" aria-level="2">85. Geographic Displacement</h1>
+<p>A Resource Constraint may be reduced in one location</p>
+<p>by transferring Resource pressure elsewhere.</p>
+<h1 id="86-geographic-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Geographic Boundary</h1>
+<p>Local Resolution ≠ System-Wide Resolution.</p>
+<h1 id="87-temporal-displacement" data-oof-section-id="true" role="heading" aria-level="2">87. Temporal Displacement</h1>
+<p>A Resource Constraint may be deferred rather than</p>
+<p>resolved.</p>
+<h1 id="88-temporal-displacement-principle" data-oof-section-id="true" role="heading" aria-level="2">88. Temporal-Displacement Principle</h1>
+<p>Constraint Delayed ≠ Constraint Resolved.</p>
+<h1 id="89-cross-resource-displacement" data-oof-section-id="true" role="heading" aria-level="2">89. Cross-Resource Displacement</h1>
+<p>A Resource Constraint may be reduced by increasing</p>
+<p>dependence on another constrained Resource.</p>
+<p>Example:</p>
+<p>Water-saving cooling strategy</p>
+<p>→ higher electricity requirement</p>
+<p>This may resolve one Resource Constraint while</p>
+<p>creating or intensifying another.</p>
+<h1 id="90-cross-resource-boundary" data-oof-section-id="true" role="heading" aria-level="2">90. Cross-Resource Boundary</h1>
+<p>Resolution of One Resource Constraint ≠ Net</p>
+<p>Resource-System Improvement by definition.</p>
+<p>RIRS and RCSS govern broader resilience and</p>
+<p>Sustainability implications.</p>
+<h1 id="91-recovery-driven-resolution" data-oof-section-id="true" role="heading" aria-level="2">91. Recovery-Driven Resolution</h1>
+<p>Recovered Resource may contribute to Constraint</p>
+<p>Resolution.</p>
+<p>RRCS governs the Recovery mechanism.</p>
+<p>RCRM evaluates whether the resulting Resource state</p>
+<p>actually resolves the Constraint.</p>
+<h1 id="92-recovery-principle" data-oof-section-id="true" role="heading" aria-level="2">92. Recovery Principle</h1>
+<p>Recovered Resource ≠ Constraint Resolution by</p>
+<p>itself.</p>
+<h1 id="93-substitution-driven-resolution" data-oof-section-id="true" role="heading" aria-level="2">93. Substitution-Driven Resolution</h1>
+<p>Resource substitution may reduce or eliminate a</p>
+<p>Constraint affecting the original Resource requirement.</p>
+<p>RSFS governs substitution.</p>
+<p>RCRM evaluates the resulting Constraint state.</p>
+<h1 id="94-substitution-principle" data-oof-section-id="true" role="heading" aria-level="2">94. Substitution Principle</h1>
+<p>Substitution Implemented ≠ Constraint Resolved</p>
+<p>by definition.</p>
+<h1 id="95-allocation-driven-resolution" data-oof-section-id="true" role="heading" aria-level="2">95. Allocation-Driven Resolution</h1>
+<p>Reallocation may restore Resource sufficiency for one</p>
+<p>requirement.</p>
+<p>RCRM should preserve whether this creates or transfers</p>
+<p>Scarcity elsewhere.</p>
+<h1 id="96-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">96. Allocation Boundary</h1>
+<p>Constraint Resolution for Participant A ≠</p>
+<p>Constraint Resolution for the Resource System.</p>
+<h1 id="97-demand-driven-resolution" data-oof-section-id="true" role="heading" aria-level="2">97. Demand-Driven Resolution</h1>
+<p>A Constraint may resolve because legitimate Resource</p>
+<p>Demand decreases.</p>
+<p>RCRM should preserve that causal pathway.</p>
+<h1 id="98-demand-principle" data-oof-section-id="true" role="heading" aria-level="2">98. Demand Principle</h1>
+<p>Reduced Demand ≠ Increased Resource</p>
+<p>Capacity.</p>
+<h1 id="99-consumption-driven-resolution" data-oof-section-id="true" role="heading" aria-level="2">99. Consumption-Driven Resolution</h1>
+<p>Reduced Consumption may contribute to restored</p>
+<p>Resource sufficiency.</p>
+<p>RCUS governs Consumption &amp; Utilization evidence.</p>
+<p>RCRM evaluates the resulting Constraint state.</p>
+<h1 id="100-consumption-principle" data-oof-section-id="true" role="heading" aria-level="2">100. Consumption Principle</h1>
+<p>Reduced Consumption ≠ Constraint Resolution</p>
+<p>by itself.</p>
+<h1 id="101-resolution-threshold" data-oof-section-id="true" role="heading" aria-level="2">101. Resolution Threshold</h1>
+<p>A Resolution Threshold represents the governed</p>
+<p>condition required before a Constraint or Scarcity state</p>
+<p>may transition to Resolved.</p>
+<h1 id="102-resolution-criteria" data-oof-section-id="true" role="heading" aria-level="2">102. Resolution Criteria</h1>
+<p>Resolution criteria may include:</p>
+<p>restored Resource sufficiency;</p>
+<p>resolved binding Constraint;</p>
+<p>sufficient applicable capacity;</p>
+<p>required Source availability;</p>
+<p>required location availability;</p>
+<p>required rate;</p>
+<p>required quality;</p>
+<p>required accessibility;</p>
+<p>required delivery capability;</p>
+<p>sufficient regeneration;</p>
+<p>resolved Dependency limitation;</p>
+<p>sufficient evidence persistence.</p>
+<h1 id="103-threshold-principle" data-oof-section-id="true" role="heading" aria-level="2">103. Threshold Principle</h1>
+<p>Crossing One Resolution Threshold ≠ Complete</p>
+<p>Resolution by default.</p>
+<p>All materially applicable criteria must be evaluated.</p>
+<h1 id="104-resolution-persistence-requirement" data-oof-section-id="true" role="heading" aria-level="2">104. Resolution Persistence Requirement</h1>
+<p>Some Resource contexts may require the improved</p>
+<p>state to persist for a defined period before Resolution is</p>
+<p>established.</p>
+<h1 id="105-persistence-evidence-principle" data-oof-section-id="true" role="heading" aria-level="2">105. Persistence-Evidence Principle</h1>
+<p>Single Sufficient Observation ≠ Durable</p>
+<p>Resolution by default.</p>
+<h1 id="106-resource-specific-resolution" data-oof-section-id="true" role="heading" aria-level="2">106. Resource-Specific Resolution</h1>
+<p>Resolution criteria should reflect the characteristics of</p>
+<p>the Resource.</p>
+<p>A suitable persistence window for electrical capacity</p>
+<p>may differ materially from one for groundwater</p>
+<p>regeneration.</p>
+<h1 id="107-resolution-evidence-basis" data-oof-section-id="true" role="heading" aria-level="2">107. Resolution-Evidence Basis</h1>
+<p>RCRM should preserve evidence supporting:</p>
+<p>stabilization;</p>
+<p>relaxation;</p>
+<p>partial Resolution;</p>
+<p>complete Resolution;</p>
+<p>persistence;</p>
+<p>recurrence;</p>
+<p>reopening.</p>
+<h1 id="108-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">108. Evidence Provenance</h1>
+<p>Resolution evidence should preserve sufficient</p>
+<p>provenance to identify:</p>
+<p>source;</p>
+<p>measurement;</p>
+<p>time;</p>
+<p>location;</p>
+<p>Resource;</p>
+<p>applicable requirement;</p>
+<p>capacity basis;</p>
+<p>version.</p>
+<h1 id="109-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">109. Evidence Sufficiency</h1>
+<p>Resolution should not be declared without sufficient</p>
+<p>evidence.</p>
+<p>Insufficient Resolution Evidence ≠ Resolved</p>
+<p>Constraint.</p>
+<h1 id="110-resolution-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">110. Resolution Evidence-Limited</h1>
+<p>Resolution Evidence-Limited applies where</p>
+<p>improvement is observed but evidence remains</p>
+<p>insufficient to determine whether Resolution has</p>
+<p>occurred.</p>
+<h1 id="111-resolution-unknown" data-oof-section-id="true" role="heading" aria-level="2">111. Resolution Unknown</h1>
+<p>Resolution Unknown applies where the current</p>
+<p>Resolution state cannot be adequately determined.</p>
+<h1 id="112-unknown-state-principle" data-oof-section-id="true" role="heading" aria-level="2">112. Unknown-State Principle</h1>
+<p>Resolution Unknown ≠ Constraint Resolved.</p>
+<h1 id="113-resolution-conflicted" data-oof-section-id="true" role="heading" aria-level="2">113. Resolution Conflicted</h1>
+<p>Resolution Conflicted applies where material evidence</p>
+<p>supports incompatible Resolution determinations.</p>
+<h1 id="114-conflict-principle" data-oof-section-id="true" role="heading" aria-level="2">114. Conflict Principle</h1>
+<p>Conflicting Resolution Evidence ≠ Permission to</p>
+<p>Declare Resolution.</p>
+<h1 id="115-resolution-confidence" data-oof-section-id="true" role="heading" aria-level="2">115. Resolution Confidence</h1>
+<p>RCRM may preserve confidence in the Resolution</p>
+<p>determination.</p>
+<h1 id="116-confidence-principle" data-oof-section-id="true" role="heading" aria-level="2">116. Confidence Principle</h1>
+<p>High Resolution Confidence ≠ Permanent</p>
+<p>Resource Sufficiency.</p>
+<h1 id="117-minimum-resolution-states" data-oof-section-id="true" role="heading" aria-level="2">117. Minimum Resolution States</h1>
+<p>At minimum:</p>
+<p>Constraint Active</p>
+<p>Constraint Stabilized</p>
+<p>Constraint Relaxing</p>
+<p>Constraint Partially Resolved</p>
+<p>Constraint Resolved</p>
+<p>Constraint Persistent</p>
+<p>Constraint Recurring</p>
+<p>Constraint Reopened</p>
+<p>Scarcity Active</p>
+<p>Scarcity Stabilized</p>
+<p>Scarcity Relaxing</p>
+<p>Scarcity Resolved</p>
+<p>Scarcity Recurring</p>
+<p>Resolution Evidence-Limited</p>
+<p>Resolution Conflicted</p>
+<p>Resolution Unknown</p>
+<p>Resolution Unresolved</p>
+<p>Post-Resolution Monitoring</p>
+<p>Resolution Reassessment Required</p>
+<h1 id="118-post-resolution-monitoring" data-oof-section-id="true" role="heading" aria-level="2">118. Post-Resolution Monitoring</h1>
+<p>A resolved Constraint may require continued monitoring</p>
+<p>where recurrence, delayed effects, Resource</p>
+<p>regeneration, dependency recovery, or residual</p>
+<p>uncertainty remains material.</p>
+<h1 id="119-monitoring-principle" data-oof-section-id="true" role="heading" aria-level="2">119. Monitoring Principle</h1>
+<p>Constraint Resolved ≠ Monitoring No Longer</p>
+<p>Required by definition.</p>
+<h1 id="120-monitoring-horizon" data-oof-section-id="true" role="heading" aria-level="2">120. Monitoring Horizon</h1>
+<p>Post-resolution monitoring should reflect:</p>
+<p>Resource dynamics;</p>
+<p>recurrence risk;</p>
+<p>Constraint mechanism;</p>
+<p>previous severity;</p>
+<p>regeneration period;</p>
+<p>Dependency recovery;</p>
+<p>evidence confidence.</p>
+<h1 id="121-residual-constraint" data-oof-section-id="true" role="heading" aria-level="2">121. Residual Constraint</h1>
+<p>A Residual Constraint remains where the original</p>
+<p>Resource limitation has materially improved but some</p>
+<p>constrained condition persists.</p>
+<h1 id="122-residual-constraint-principle" data-oof-section-id="true" role="heading" aria-level="2">122. Residual-Constraint Principle</h1>
+<p>Material Improvement ≠ Absence of Residual</p>
+<p>Constraint.</p>
+<h1 id="123-residual-scarcity" data-oof-section-id="true" role="heading" aria-level="2">123. Residual Scarcity</h1>
+<p>A Resource may remain scarce even after substantial</p>
+<p>Constraint reduction.</p>
+<h1 id="124-residual-scarcity-principle" data-oof-section-id="true" role="heading" aria-level="2">124. Residual-Scarcity Principle</h1>
+<p>Reduced Constraint Magnitude ≠ Scarcity</p>
+<p>Resolution.</p>
+<h1 id="125-closure" data-oof-section-id="true" role="heading" aria-level="2">125. Closure</h1>
+<p>A Constraint case may close when:</p>
+<p>Resolution is sufficiently evidenced;</p>
+<p>required post-resolution conditions are satisfied;</p>
+<p>remaining uncertainty is acceptable under the</p>
+<p>applicable governance method;</p>
+<p>required records are preserved;</p>
+<p>no active reassessment trigger remains.</p>
+<h1 id="126-closure-principle" data-oof-section-id="true" role="heading" aria-level="2">126. Closure Principle</h1>
+<p>Administrative Closure ≠ Resource Constraint</p>
+<p>Resolution.</p>
+<p>The Resource state must support closure.</p>
+<h1 id="127-resolution-record" data-oof-section-id="true" role="heading" aria-level="2">127. Resolution Record</h1>
+<p>Resolution should preserve the transition from the</p>
+<p>previous constrained state to the resolved or modified</p>
+<p>state.</p>
+<h1 id="128-historical-traceability" data-oof-section-id="true" role="heading" aria-level="2">128. Historical Traceability</h1>
+<p>Historical Scarcity and Constraint states should remain</p>
+<p>traceable after Resolution.</p>
+<p>Resolved ≠ Erased.</p>
+<h1 id="129-resolution-versioning" data-oof-section-id="true" role="heading" aria-level="2">129. Resolution Versioning</h1>
+<p>Material changes in Resolution determination should</p>
+<p>create a traceable version update.</p>
+<h1 id="130-reassessment" data-oof-section-id="true" role="heading" aria-level="2">130. Reassessment</h1>
+<p>Resolution should be reassessed where materially</p>
+<p>relevant evidence changes.</p>
+<h1 id="131-reassessment-triggers" data-oof-section-id="true" role="heading" aria-level="2">131. Reassessment Triggers</h1>
+<p>Triggers may include:</p>
+<p>Resource capacity decline;</p>
+<p>Demand increase;</p>
+<p>Source degradation;</p>
+<p>location limitation;</p>
+<p>rate reduction;</p>
+<p>quality deterioration;</p>
+<p>Access change;</p>
+<p>delivery degradation;</p>
+<p>infrastructure degradation;</p>
+<p>regeneration decline;</p>
+<p>Dependency failure;</p>
+<p>recurrence signal;</p>
+<p>new evidence;</p>
+<p>evidence conflict.</p>
+<h1 id="132-reassessment-principle" data-oof-section-id="true" role="heading" aria-level="2">132. Reassessment Principle</h1>
+<p>Resolved Once ≠ Resolved Forever.</p>
+<h1 id="133-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">133. Prediction Boundary</h1>
+<p>Predicted Resolution may support planning.</p>
+<p>However:</p>
+<p>Predicted Resolution ≠ Actual Resolution.</p>
+<p>PGA™ governs Prediction methodology where</p>
+<p>applicable.</p>
+<h1 id="134-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">134. Simulation Boundary</h1>
+<p>Simulation may test whether an intervention could</p>
+<p>resolve a Resource Constraint.</p>
+<p>However:</p>
+<p>Simulated Resolution ≠ Observed Resolution.</p>
+<p>SIMULOS® governs simulation.</p>
+<h1 id="135-operational-reality-boundary" data-oof-section-id="true" role="heading" aria-level="2">135. Operational Reality Boundary</h1>
+<p>Resolution should ultimately be grounded in applicable</p>
+<p>operational Resource evidence where the governed</p>
+<p>condition concerns operational reality.</p>
+<p>ORA™ may provide relevant evidence relationships.</p>
+<h1 id="136-scarcity-state-boundary" data-oof-section-id="true" role="heading" aria-level="2">136. Scarcity-State Boundary</h1>
+<p>RSSM governs the Resource Scarcity State.</p>
+<p>RCRM determines whether a previously constrained or</p>
+<p>scarce state has materially transitioned toward or into</p>
+<p>Resolution.</p>
+<h1 id="137-constraint-type-boundary" data-oof-section-id="true" role="heading" aria-level="2">137. Constraint-Type Boundary</h1>
+<p>RCTM governs Constraint Type and mechanism</p>
+<p>classification.</p>
+<p>RCRM consumes that classification to determine</p>
+<p>whether the relevant mechanism remains active.</p>
+<h1 id="138-evaluation-boundary" data-oof-section-id="true" role="heading" aria-level="2">138. Evaluation Boundary</h1>
+<p>RSEM governs Magnitude, Severity, Materiality, and</p>
+<p>overall Scarcity Evaluation.</p>
+<p>RCRM may consume changes in those evaluations as</p>
+<p>Resolution evidence.</p>
+<h1 id="139-response-boundary" data-oof-section-id="true" role="heading" aria-level="2">139. Response Boundary</h1>
+<p>RSRM governs the Resource Scarcity Response</p>
+<p>Requirement.</p>
+<p>RCRM evaluates whether resulting changes actually</p>
+<p>altered the Resource Constraint.</p>
+<p>Response Completed ≠ Resolution Proven.</p>
+<h1 id="140-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">140. Demand Boundary</h1>
+<p>RDGS governs Resource Demand.</p>
+<p>RCRM may consume changed legitimate Resource</p>
+<p>requirements without redefining Demand.</p>
+<h1 id="141-access-boundary" data-oof-section-id="true" role="heading" aria-level="2">141. Access Boundary</h1>
+<p>RAGS governs Resource Access.</p>
+<p>Access restoration may contribute to Constraint</p>
+<p>Resolution.</p>
+<p>RCRM does not create Access rights.</p>
+<h1 id="142-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">142. Allocation Boundary</h1>
+<p>RPAS governs Resource Priority and Allocation.</p>
+<p>Allocation changes may contribute to Resolution.</p>
+<p>RCRM does not determine Allocation.</p>
+<h1 id="143-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">143. Consumption Boundary</h1>
+<p>RCUS governs Resource Consumption &amp; Utilization.</p>
+<p>Changes in Consumption may contribute to Resolution.</p>
+<p>RCRM does not redefine Consumption.</p>
+<h1 id="144-recovery-boundary" data-oof-section-id="true" role="heading" aria-level="2">144. Recovery Boundary</h1>
+<p>RRCS governs Resource Recovery &amp; Circularity.</p>
+<p>Recovered Resource may contribute to Resolution.</p>
+<p>RCRM determines only whether the Constraint state</p>
+<p>changed.</p>
+<h1 id="145-substitution-boundary" data-oof-section-id="true" role="heading" aria-level="2">145. Substitution Boundary</h1>
+<p>RSFS governs Resource Substitution &amp; Flexibility.</p>
+<p>Substitution may contribute to Resolution.</p>
+<p>RCRM does not authorize substitution.</p>
+<h1 id="146-resilience-boundary" data-oof-section-id="true" role="heading" aria-level="2">146. Resilience Boundary</h1>
+<p>RIRS governs Resource Interdependency &amp; Resilience.</p>
+<p>Constraint Resolution may provide resilience evidence</p>
+<p>but does not determine resilience.</p>
+<h1 id="147-sustainability-boundary" data-oof-section-id="true" role="heading" aria-level="2">147. Sustainability Boundary</h1>
+<p>RCSS governs Resource Continuity &amp; Sustainability.</p>
+<p>Constraint Resolution ≠ Sustainability</p>
+<p>Determination.</p>
+<p>A currently resolved Constraint may remain structurally</p>
+<p>likely to recur.</p>
+<h1 id="148-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">148. Value Boundary</h1>
+<p>Economic or operational Value does not determine</p>
+<p>whether a Resource Constraint has resolved.</p>
+<p>High Value ≠ Resolution Evidence.</p>
+<p>VEGA™ governs Value relationships.</p>
+<h1 id="149-harm-boundary" data-oof-section-id="true" role="heading" aria-level="2">149. Harm Boundary</h1>
+<p>Reduced Harm does not by itself establish Resource</p>
+<p>Constraint Resolution.</p>
+<p>HAGA™ governs Harm.</p>
+<h1 id="150-liability-boundary" data-oof-section-id="true" role="heading" aria-level="2">150. Liability Boundary</h1>
+<p>Resolution of a Resource Constraint does not determine</p>
+<p>Liability for the preceding constrained condition.</p>
+<p>Constraint Resolution ≠ Liability Resolution.</p>
+<p>LIGA™ governs Liability.</p>
+<h1 id="151-automation-boundary" data-oof-section-id="true" role="heading" aria-level="2">151. Automation Boundary</h1>
+<p>Software may evaluate Resolution criteria and produce</p>
+<p>Resolution recommendations.</p>
+<p>However:</p>
+<p>Automated Resolution Classification ≠</p>
+<p>Governance Authority.</p>
+<h1 id="152-authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">152. Authority Boundary</h1>
+<p>Where a Resolution determination affects Access,</p>
+<p>Allocation, reserves, operational restrictions, or other</p>
+<p>governed decisions, the competent mechanism retains</p>
+<p>authority.</p>
+<p>Resolution Evidence ≠ Authority Transfer.</p>
+<h1 id="153-resource-constraint-resolution-profile" data-oof-section-id="true" role="heading" aria-level="2">153. Resource Constraint Resolution Profile</h1>
+<p>The principal RCRM output is the:</p>
+<p>Resource Constraint Resolution Profile</p>
+<h1 id="154-minimum-resource-constraint-resolution-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">154. Minimum Resource Constraint Resolution Profile Fields</h1>
+<p>At minimum:</p>
+<p>Resolution ID</p>
+<p>Resource ID</p>
+<p>Resource Type</p>
+<p>Resource Source</p>
+<p>Location</p>
+<p>Applicable Time Horizon</p>
+<p>Prior Scarcity State</p>
+<p>Prior Constraint State</p>
+<p>Prior Constraint Type</p>
+<p>Prior Severity</p>
+<p>Prior Resource Requirement</p>
+<p>Prior Applicable Capacity</p>
+<p>Current Resource Requirement</p>
+<p>Current Applicable Capacity</p>
+<p>Constraint Mechanism State</p>
+<p>Binding Constraint State</p>
+<p>Residual Constraint State</p>
+<p>Resource Sufficiency State</p>
+<p>Constraint Stabilization State</p>
+<p>Constraint Relaxation State</p>
+<p>Partial Resolution State</p>
+<p>Constraint Resolution State</p>
+<p>Scarcity Resolution State</p>
+<p>Persistence State</p>
+<p>Recurrence State</p>
+<p>Reopening State</p>
+<p>Resolution Cause</p>
+<p>Resolution Threshold</p>
+<p>Resolution Criteria</p>
+<p>Response Outcome Reference</p>
+<p>Source Restoration State</p>
+<p>Location Restoration State</p>
+<p>Rate Restoration State</p>
+<p>Quality Restoration State</p>
+<p>Accessibility Restoration State</p>
+<p>Delivery Restoration State</p>
+<p>Infrastructure Restoration Reference</p>
+<p>Regeneration State</p>
+<p>Dependency Restoration State</p>
+<p>Cross-Resource Resolution State</p>
+<p>Resolution Evidence</p>
+<p>Evidence Provenance</p>
+<p>Evidence Sufficiency</p>
+<p>Resolution Uncertainty</p>
+<p>Resolution Conflict</p>
+<p>Resolution Confidence</p>
+<p>Post-Resolution Monitoring Requirement</p>
+<p>Monitoring Horizon</p>
+<p>Reassessment Trigger</p>
+<p>Closure State</p>
+<p>Effective Time</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="155-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">155. Minimum Implementation Framework</h1>
+<p>A minimum operational RCRM implementation should</p>
+<p>contain eight governed layers.</p>
+<p>Layer 1 — Prior Constraint Baseline</p>
+<p>Establish:</p>
+<p>Resource;</p>
+<p>prior Scarcity State;</p>
+<p>prior Constraint State;</p>
+<p>Constraint Type;</p>
+<p>severity;</p>
+<p>requirement;</p>
+<p>capacity;</p>
+<p>context.</p>
+<p>Layer 2 — Current Resource State</p>
+<p>Establish:</p>
+<p>current requirement;</p>
+<p>current applicable capacity;</p>
+<p>Source;</p>
+<p>location;</p>
+<p>time;</p>
+<p>rate;</p>
+<p>quality;</p>
+<p>accessibility;</p>
+<p>delivery;</p>
+<p>regeneration;</p>
+<p>Dependency state.</p>
+<p>Layer 3 — Constraint Mechanism Review</p>
+<p>Determine whether each material Constraint mechanism</p>
+<p>is:</p>
+<p>active;</p>
+<p>stable;</p>
+<p>relaxing;</p>
+<p>resolved;</p>
+<p>replaced by another Binding Constraint;</p>
+<p>unknown.</p>
+<p>Layer 4 — Resource Sufficiency Revalidation</p>
+<p>Determine whether applicable Resource conditions</p>
+<p>again satisfy the legitimate Resource requirement.</p>
+<p>Layer 5 — Resolution Classification</p>
+<p>Determine:</p>
+<p>stabilization;</p>
+<p>relaxation;</p>
+<p>partial Resolution;</p>
+<p>complete Resolution;</p>
+<p>persistence;</p>
+<p>recurrence;</p>
+<p>reopening.</p>
+<p>Layer 6 — Resolution Evidence</p>
+<p>Validate:</p>
+<p>evidence sufficiency;</p>
+<p>persistence;</p>
+<p>uncertainty;</p>
+<p>conflict;</p>
+<p>confidence.</p>
+<p>Layer 7 — Post-Resolution Governance</p>
+<p>Establish:</p>
+<p>monitoring;</p>
+<p>recurrence detection;</p>
+<p>reassessment;</p>
+<p>closure;</p>
+<p>reopening conditions.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Constraint Resolution Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>**Prior Constraint State</p>
+<p>Current Resource State</p>
+<p>Constraint Mechanism State</p>
+<p>Current Resource Sufficiency</p>
+<p>Response Outcome</p>
+<p>→ Stabilization / Relaxation / Persistence /</p>
+<p>Resolution Evaluation</p>
+<p>→ Evidence / Uncertainty / Conflict</p>
+<p>→ Post-Resolution Monitoring / Reassessment</p>
+<p>→ Resource Constraint Resolution Profile**</p>
+<h1 id="156-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">156. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Constraint Active</p>
+<p>Constraint Stabilized</p>
+<p>Constraint Relaxing</p>
+<p>Constraint Partially Resolved</p>
+<p>Constraint Resolved</p>
+<p>Constraint Persistent</p>
+<p>Constraint Recurring</p>
+<p>Constraint Reopened</p>
+<p>Binding Constraint Changed</p>
+<p>Residual Constraint Active</p>
+<p>Scarcity Active</p>
+<p>Scarcity Stabilized</p>
+<p>Scarcity Relaxing</p>
+<p>Scarcity Resolved</p>
+<p>Scarcity Recurring</p>
+<p>Resolution Evidence-Limited</p>
+<p>Resolution Conflicted</p>
+<p>Resolution Unknown</p>
+<p>Resolution Unresolved</p>
+<p>Post-Resolution Monitoring Required</p>
+<p>Resolution Reassessment Required</p>
+<p>Resolution Closed</p>
+<h1 id="157-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">157. Minimum Evidence Path</h1>
+<p>Where Resolution cannot be sufficiently established:</p>
+<p>Prior Governed Constraint</p>
+<p>→ Observed Improvement / Changed Resource</p>
+<p>Condition</p>
+<p>→ Resolution Unknown / Evidence-Limited /</p>
+<p>Conflicted</p>
+<p>→ Missing Capacity / Requirement / Constraint-</p>
+<p>Mechanism / Persistence / Source / Location /</p>
+<p>Quality / Rate Evidence</p>
+<p>→ Minimum Evidence Requirement</p>
+<p>→ Evidence Acquisition</p>
+<p>→ Constraint-State Comparison</p>
+<p>→ Resource Sufficiency Revalidation</p>
+<p>→ Resolution Evaluation</p>
+<p>→ Resource Constraint Resolution Profile Update</p>
+<h1 id="158-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">158. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Constraint Resolution Profile</p>
+<p>→ New Resource / Requirement / Capacity /</p>
+<p>Source / Location / Rate / Quality / Access /</p>
+<p>Delivery / Regeneration / Dependency Evidence</p>
+<p>→ Materiality Test</p>
+<p>→ Constraint-Mechanism Reassessment</p>
+<p>→ Resource Sufficiency Revalidation</p>
+<p>→ Resolution-State Reassessment</p>
+<p>→ Recurrence / Reopening Review</p>
+<p>→ Monitoring Review</p>
+<p>→ Closure Review</p>
+<p>→ Profile Update</p>
+<p>→ Version Update</p>
+<h1 id="159-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">159. Governance Requirements</h1>
+<p>A conforming RCRM implementation must:</p>
+<h1 id="1-identify-the-governed-resource" data-oof-section-id="true" role="heading" aria-level="2">1. identify the governed Resource;</h1>
+<h1 id="2-identify-the-prior-governed-constraint-state" data-oof-section-id="true" role="heading" aria-level="2">2. identify the prior governed Constraint state;</h1>
+<h1 id="3-preserve-the-prior-scarcity-state-where-applicable" data-oof-section-id="true" role="heading" aria-level="2">3. preserve the prior Scarcity State where applicable;</h1>
+<h1 id="4-preserve-the-prior-constraint-type" data-oof-section-id="true" role="heading" aria-level="2">4. preserve the prior Constraint Type;</h1>
+<h1 id="5-preserve-prior-severity-where-available" data-oof-section-id="true" role="heading" aria-level="2">5. preserve prior Severity where available;</h1>
+<h1 id="6-preserve-the-prior-legitimate-resource-requirement" data-oof-section-id="true" role="heading" aria-level="2">6. preserve the prior legitimate Resource requirement;</h1>
+<h1 id="7-preserve-the-prior-applicable-resource-capacity" data-oof-section-id="true" role="heading" aria-level="2">7. preserve the prior applicable Resource capacity;</h1>
+<h1 id="8-establish-the-current-resource-requirement" data-oof-section-id="true" role="heading" aria-level="2">8. establish the current Resource requirement;</h1>
+<h1 id="9-establish-current-applicable-resource-capacity" data-oof-section-id="true" role="heading" aria-level="2">9. establish current applicable Resource capacity;</h1>
+<h1 id="10-preserve-materially-relevant-source-context" data-oof-section-id="true" role="heading" aria-level="2">10. preserve materially relevant Source context;</h1>
+<h1 id="11-preserve-materially-relevant-location-context" data-oof-section-id="true" role="heading" aria-level="2">11. preserve materially relevant location context;</h1>
+<h1 id="12-preserve-materially-relevant-temporal-context" data-oof-section-id="true" role="heading" aria-level="2">12. preserve materially relevant temporal context;</h1>
+<h1 id="13-preserve-materially-relevant-rate-conditions" data-oof-section-id="true" role="heading" aria-level="2">13. preserve materially relevant rate conditions;</h1>
+<h1 id="14-preserve-materially-relevant-quality-conditions" data-oof-section-id="true" role="heading" aria-level="2">14. preserve materially relevant quality conditions;</h1>
+<h1 id="15-preserve-materially-relevant-accessibility-conditions" data-oof-section-id="true" role="heading" aria-level="2">15. preserve materially relevant accessibility conditions;</h1>
+<h1 id="16-preserve-materially-relevant-delivery-conditions" data-oof-section-id="true" role="heading" aria-level="2">16. preserve materially relevant delivery conditions;</h1>
+<h1 id="17-preserve-materially-relevant-regeneration-conditions" data-oof-section-id="true" role="heading" aria-level="2">17. preserve materially relevant regeneration conditions;</h1>
+<h1 id="18-preserve-materially-relevant-dependency-conditions" data-oof-section-id="true" role="heading" aria-level="2">18. preserve materially relevant Dependency conditions;</h1>
+<h1 id="19-compare-prior-and-current-resource-states" data-oof-section-id="true" role="heading" aria-level="2">19. compare prior and current Resource states;</h1>
+<h1 id="20-distinguish-improvement-from-resolution" data-oof-section-id="true" role="heading" aria-level="2">20. distinguish improvement from Resolution;</h1>
+<h1 id="21-establish-a-resolution-baseline" data-oof-section-id="true" role="heading" aria-level="2">21. establish a Resolution baseline;</h1>
+<h1 id="22-prevent-unknown-prior-state-from-becoming-reliable" data-oof-section-id="true" role="heading" aria-level="2">22. prevent unknown prior state from becoming reliable</h1>
+<p>Resolution baseline;</p>
+<h1 id="23-support-constraint-stabilization" data-oof-section-id="true" role="heading" aria-level="2">23. support Constraint Stabilization;</h1>
+<h1 id="24-distinguish-constraint-stabilization-from-constraint" data-oof-section-id="true" role="heading" aria-level="2">24. distinguish Constraint Stabilization from Constraint</h1>
+<p>Resolution;</p>
+<h1 id="25-support-scarcity-stabilization" data-oof-section-id="true" role="heading" aria-level="2">25. support Scarcity Stabilization;</h1>
+<h1 id="26-distinguish-stable-scarcity-from-resource" data-oof-section-id="true" role="heading" aria-level="2">26. distinguish stable Scarcity from Resource</h1>
+<p>sufficiency;</p>
+<h1 id="27-support-constraint-relaxation" data-oof-section-id="true" role="heading" aria-level="2">27. support Constraint Relaxation;</h1>
+<h1 id="28-distinguish-constraint-relaxation-from-constraint" data-oof-section-id="true" role="heading" aria-level="2">28. distinguish Constraint Relaxation from Constraint</h1>
+<p>Resolution;</p>
+<h1 id="29-support-scarcity-relaxation" data-oof-section-id="true" role="heading" aria-level="2">29. support Scarcity Relaxation;</h1>
+<h1 id="30-distinguish-improved-sufficiency-from-sufficient" data-oof-section-id="true" role="heading" aria-level="2">30. distinguish improved sufficiency from sufficient</h1>
+<p>Resource;</p>
+<h1 id="31-support-partial-resolution" data-oof-section-id="true" role="heading" aria-level="2">31. support Partial Resolution;</h1>
+<h1 id="32-distinguish-resolution-of-one-constraint-from" data-oof-section-id="true" role="heading" aria-level="2">32. distinguish Resolution of one Constraint from</h1>
+<p>Resolution of all constraints;</p>
+<h1 id="33-evaluate-multiple-constraint-mechanisms" data-oof-section-id="true" role="heading" aria-level="2">33. evaluate multiple Constraint mechanisms</h1>
+<p>independently where required;</p>
+<h1 id="34-prevent-one-resolved-constraint-type-from-becoming" data-oof-section-id="true" role="heading" aria-level="2">34. prevent one resolved Constraint Type from becoming</h1>
+<p>resolved Scarcity automatically;</p>
+<h1 id="35-detect-binding-constraint-transition" data-oof-section-id="true" role="heading" aria-level="2">35. detect Binding Constraint transition;</h1>
+<h1 id="36-prevent-removal-of-current-binding-constraint-from" data-oof-section-id="true" role="heading" aria-level="2">36. prevent removal of current Binding Constraint from</h1>
+<p>proving Resource sufficiency;</p>
+<h1 id="37-support-complete-constraint-resolution" data-oof-section-id="true" role="heading" aria-level="2">37. support Complete Constraint Resolution;</h1>
+<h1 id="38-define-the-applicable-resolution-boundary" data-oof-section-id="true" role="heading" aria-level="2">38. define the applicable Resolution boundary;</h1>
+<h1 id="39-distinguish-resolution-in-one-context-from" data-oof-section-id="true" role="heading" aria-level="2">39. distinguish Resolution in one context from</h1>
+<p>Resolution everywhere;</p>
+<h1 id="40-revalidate-resource-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">40. revalidate Resource sufficiency;</h1>
+<h1 id="41-distinguish-constraint-improvement-from-restored" data-oof-section-id="true" role="heading" aria-level="2">41. distinguish Constraint improvement from restored</h1>
+<p>Resource sufficiency;</p>
+<h1 id="42-support-scarcity-resolution" data-oof-section-id="true" role="heading" aria-level="2">42. support Scarcity Resolution;</h1>
+<h1 id="43-distinguish-scarcity-resolution-from-resource" data-oof-section-id="true" role="heading" aria-level="2">43. distinguish Scarcity Resolution from Resource</h1>
+<p>abundance;</p>
+<h1 id="44-revalidate-the-applicable-resource-requirement" data-oof-section-id="true" role="heading" aria-level="2">44. revalidate the applicable Resource requirement;</h1>
+<h1 id="45-preserve-material-requirement-changes" data-oof-section-id="true" role="heading" aria-level="2">45. preserve material requirement changes;</h1>
+<h1 id="46-distinguish-reduced-requirement-from-increased" data-oof-section-id="true" role="heading" aria-level="2">46. distinguish reduced requirement from increased</h1>
+<p>Resource availability;</p>
+<h1 id="47-preserve-requirement-reduction-resolution-where" data-oof-section-id="true" role="heading" aria-level="2">47. preserve Requirement-Reduction Resolution where</h1>
+<p>applicable;</p>
+<h1 id="48-distinguish-resolution-through-reduced-requirement" data-oof-section-id="true" role="heading" aria-level="2">48. distinguish Resolution through reduced requirement</h1>
+<p>from Resolution through increased capacity;</p>
+<h1 id="49-preserve-capacity-restoration" data-oof-section-id="true" role="heading" aria-level="2">49. preserve capacity restoration;</h1>
+<h1 id="50-prevent-additional-capacity-from-becoming" data-oof-section-id="true" role="heading" aria-level="2">50. prevent additional capacity from becoming</h1>
+<p>Resolution automatically;</p>
+<h1 id="51-preserve-additional-resource-supply" data-oof-section-id="true" role="heading" aria-level="2">51. preserve additional Resource supply;</h1>
+<h1 id="52-prevent-additional-supply-from-becoming-scarcity" data-oof-section-id="true" role="heading" aria-level="2">52. prevent additional supply from becoming Scarcity</h1>
+<p>Resolution automatically;</p>
+<h1 id="53-evaluate-usability-of-additional-supply" data-oof-section-id="true" role="heading" aria-level="2">53. evaluate usability of additional supply;</h1>
+<h1 id="54-evaluate-accessibility-of-additional-supply" data-oof-section-id="true" role="heading" aria-level="2">54. evaluate accessibility of additional supply;</h1>
+<h1 id="55-evaluate-location-of-additional-supply" data-oof-section-id="true" role="heading" aria-level="2">55. evaluate location of additional supply;</h1>
+<h1 id="56-evaluate-timing-of-additional-supply" data-oof-section-id="true" role="heading" aria-level="2">56. evaluate timing of additional supply;</h1>
+<h1 id="57-evaluate-rate-of-additional-supply" data-oof-section-id="true" role="heading" aria-level="2">57. evaluate rate of additional supply;</h1>
+<h1 id="58-evaluate-quality-of-additional-supply" data-oof-section-id="true" role="heading" aria-level="2">58. evaluate quality of additional supply;</h1>
+<h1 id="59-support-source-restoration" data-oof-section-id="true" role="heading" aria-level="2">59. support Source restoration;</h1>
+<h1 id="60-prevent-source-restoration-from-becoming" data-oof-section-id="true" role="heading" aria-level="2">60. prevent Source restoration from becoming</h1>
+<p>Resource-system Resolution automatically;</p>
+<h1 id="61-support-location-restoration" data-oof-section-id="true" role="heading" aria-level="2">61. support Location restoration;</h1>
+<h1 id="62-distinguish-resource-availability-elsewhere-from" data-oof-section-id="true" role="heading" aria-level="2">62. distinguish Resource availability elsewhere from</h1>
+<p>local Resolution;</p>
+<h1 id="63-support-rate-restoration" data-oof-section-id="true" role="heading" aria-level="2">63. support Rate restoration;</h1>
+<h1 id="64-distinguish-total-quantity-sufficiency-from-rate" data-oof-section-id="true" role="heading" aria-level="2">64. distinguish total quantity sufficiency from Rate-</h1>
+<p>Constraint Resolution;</p>
+<h1 id="65-support-temporal-resolution" data-oof-section-id="true" role="heading" aria-level="2">65. support Temporal Resolution;</h1>
+<h1 id="66-distinguish-later-resource-availability-from-temporal" data-oof-section-id="true" role="heading" aria-level="2">66. distinguish later Resource availability from Temporal</h1>
+<p>Resolution;</p>
+<h1 id="67-support-quality-restoration" data-oof-section-id="true" role="heading" aria-level="2">67. support Quality restoration;</h1>
+<h1 id="68-distinguish-quantity-restoration-from-quality" data-oof-section-id="true" role="heading" aria-level="2">68. distinguish quantity restoration from Quality-</h1>
+<p>Constraint Resolution;</p>
+<h1 id="69-support-accessibility-restoration" data-oof-section-id="true" role="heading" aria-level="2">69. support Accessibility restoration;</h1>
+<h1 id="70-distinguish-available-resource-from-accessibility" data-oof-section-id="true" role="heading" aria-level="2">70. distinguish available Resource from Accessibility-</h1>
+<p>Constraint Resolution;</p>
+<h1 id="71-support-delivery-restoration" data-oof-section-id="true" role="heading" aria-level="2">71. support Delivery restoration;</h1>
+<h1 id="72-distinguish-upstream-availability-from-delivery" data-oof-section-id="true" role="heading" aria-level="2">72. distinguish upstream availability from Delivery-</h1>
+<p>Constraint Resolution;</p>
+<h1 id="73-preserve-infrastructure-restoration-evidence" data-oof-section-id="true" role="heading" aria-level="2">73. preserve infrastructure restoration evidence;</h1>
+<h1 id="74-prevent-infrastructure-restoration-from-proving" data-oof-section-id="true" role="heading" aria-level="2">74. prevent infrastructure restoration from proving</h1>
+<p>Resource sufficiency automatically;</p>
+<h1 id="75-preserve-regenerative-recovery-evidence" data-oof-section-id="true" role="heading" aria-level="2">75. preserve regenerative recovery evidence;</h1>
+<h1 id="76-prevent-improved-regeneration-from-proving" data-oof-section-id="true" role="heading" aria-level="2">76. prevent improved regeneration from proving</h1>
+<p>Resolution automatically;</p>
+<h1 id="77-preserve-dependency-restoration-evidence" data-oof-section-id="true" role="heading" aria-level="2">77. preserve Dependency restoration evidence;</h1>
+<h1 id="78-prevent-upstream-dependency-restoration-from" data-oof-section-id="true" role="heading" aria-level="2">78. prevent upstream Dependency restoration from</h1>
+<p>proving downstream Resolution automatically;</p>
+<h1 id="79-support-cross-resource-resolution-tracking" data-oof-section-id="true" role="heading" aria-level="2">79. support Cross-Resource Resolution tracking;</h1>
+<h1 id="80-prevent-resolution-in-one-resource-from-becoming" data-oof-section-id="true" role="heading" aria-level="2">80. prevent Resolution in one Resource from becoming</h1>
+<p>Resolution in another automatically;</p>
+<h1 id="81-consume-relevant-response-outcomes" data-oof-section-id="true" role="heading" aria-level="2">81. consume relevant response outcomes;</h1>
+<h1 id="82-distinguish-response-completion-from-constraint" data-oof-section-id="true" role="heading" aria-level="2">82. distinguish response completion from Constraint</h1>
+<p>Resolution;</p>
+<h1 id="83-distinguish-successful-intervention-from-complete" data-oof-section-id="true" role="heading" aria-level="2">83. distinguish successful intervention from complete</h1>
+<p>Resolution;</p>
+<h1 id="84-preserve-failed-intervention-outcomes-where" data-oof-section-id="true" role="heading" aria-level="2">84. preserve failed-intervention outcomes where</h1>
+<p>relevant;</p>
+<h1 id="85-preserve-intervention-authority-boundary" data-oof-section-id="true" role="heading" aria-level="2">85. preserve intervention-authority boundary;</h1>
+<h1 id="86-support-constraint-persistence" data-oof-section-id="true" role="heading" aria-level="2">86. support Constraint Persistence;</h1>
+<h1 id="87-distinguish-persistent-constraint-from-permanent" data-oof-section-id="true" role="heading" aria-level="2">87. distinguish Persistent Constraint from Permanent</h1>
+<p>Constraint;</p>
+<h1 id="88-support-persistent-scarcity" data-oof-section-id="true" role="heading" aria-level="2">88. support Persistent Scarcity;</h1>
+<h1 id="89-preserve-structural-constraint-classification-where" data-oof-section-id="true" role="heading" aria-level="2">89. preserve structural Constraint classification where</h1>
+<p>established;</p>
+<h1 id="90-prevent-long-duration-from-establishing-structural" data-oof-section-id="true" role="heading" aria-level="2">90. prevent long duration from establishing Structural</h1>
+<p>Constraint by itself;</p>
+<h1 id="91-support-recurring-constraint" data-oof-section-id="true" role="heading" aria-level="2">91. support Recurring Constraint;</h1>
+<h1 id="92-distinguish-temporary-resolution-from-elimination-of" data-oof-section-id="true" role="heading" aria-level="2">92. distinguish temporary Resolution from elimination of</h1>
+<p>recurrence risk;</p>
+<h1 id="93-support-recurring-scarcity" data-oof-section-id="true" role="heading" aria-level="2">93. support Recurring Scarcity;</h1>
+<h1 id="94-preserve-recurrence-frequency-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">94. preserve recurrence frequency where relevant;</h1>
+<h1 id="95-preserve-recurrence-interval-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">95. preserve recurrence interval where relevant;</h1>
+<h1 id="96-preserve-recurrence-duration-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">96. preserve recurrence duration where relevant;</h1>
+<h1 id="97-preserve-recurrence-trigger-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">97. preserve recurrence trigger where relevant;</h1>
+<h1 id="98-distinguish-repeated-scarcity-events-from-one" data-oof-section-id="true" role="heading" aria-level="2">98. distinguish repeated Scarcity events from one</h1>
+<p>continuous event where appropriate;</p>
+<h1 id="99-support-reopened-constraint" data-oof-section-id="true" role="heading" aria-level="2">99. support Reopened Constraint;</h1>
+<h1 id="00-prevent-prior-resolution-from-blocking" data-oof-section-id="true" role="heading" aria-level="2">00. prevent prior Resolution from blocking</h1>
+<p>reassessment;</p>
+<h1 id="01-detect-potential-false-resolution" data-oof-section-id="true" role="heading" aria-level="2">01. detect potential False Resolution;</h1>
+<h1 id="02-distinguish-absence-of-observed-symptoms-from" data-oof-section-id="true" role="heading" aria-level="2">02. distinguish absence of observed symptoms from</h1>
+<p>Resolution evidence;</p>
+<h1 id="03-identify-apparent-resolution-conditions" data-oof-section-id="true" role="heading" aria-level="2">03. identify apparent Resolution conditions;</h1>
+<h1 id="04-distinguish-constraint-displacement-from-constraint" data-oof-section-id="true" role="heading" aria-level="2">04. distinguish Constraint displacement from Constraint</h1>
+<p>Resolution;</p>
+<h1 id="05-identify-geographic-displacement-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">05. identify geographic displacement where relevant;</h1>
+<h1 id="06-distinguish-local-resolution-from-system-wide" data-oof-section-id="true" role="heading" aria-level="2">06. distinguish local Resolution from system-wide</h1>
+<p>Resolution;</p>
+<h1 id="07-identify-temporal-displacement-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">07. identify temporal displacement where relevant;</h1>
+<h1 id="08-distinguish-delayed-constraint-from-resolved" data-oof-section-id="true" role="heading" aria-level="2">08. distinguish delayed Constraint from resolved</h1>
+<p>Constraint;</p>
+<h1 id="09-identify-cross-resource-displacement-where" data-oof-section-id="true" role="heading" aria-level="2">09. identify Cross-Resource displacement where</h1>
+<p>relevant;</p>
+<h1 id="10-distinguish-resolution-of-one-resource-constraint" data-oof-section-id="true" role="heading" aria-level="2">10. distinguish Resolution of one Resource Constraint</h1>
+<p>from net Resource-system improvement;</p>
+<h1 id="11-preserve-recovery-driven-resolution-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">11. preserve Recovery-driven Resolution where relevant;</h1>
+<h1 id="12-prevent-recovered-resource-from-proving-resolution" data-oof-section-id="true" role="heading" aria-level="2">12. prevent recovered Resource from proving Resolution</h1>
+<p>automatically;</p>
+<h1 id="13-preserve-substitution-driven-resolution-where" data-oof-section-id="true" role="heading" aria-level="2">13. preserve substitution-driven Resolution where</h1>
+<p>relevant;</p>
+<h1 id="14-prevent-implemented-substitution-from-proving" data-oof-section-id="true" role="heading" aria-level="2">14. prevent implemented substitution from proving</h1>
+<p>Resolution automatically;</p>
+<h1 id="15-preserve-allocation-driven-resolution-where" data-oof-section-id="true" role="heading" aria-level="2">15. preserve Allocation-driven Resolution where</h1>
+<p>relevant;</p>
+<h1 id="16-distinguish-resolution-for-one-participant-from" data-oof-section-id="true" role="heading" aria-level="2">16. distinguish Resolution for one participant from</h1>
+<p>Resolution for the Resource System;</p>
+<h1 id="17-preserve-demand-driven-resolution-where-relevant" data-oof-section-id="true" role="heading" aria-level="2">17. preserve Demand-driven Resolution where relevant;</h1>
+<h1 id="18-distinguish-reduced-demand-from-increased" data-oof-section-id="true" role="heading" aria-level="2">18. distinguish reduced Demand from increased</h1>
+<p>Resource capacity;</p>
+<h1 id="19-preserve-consumption-driven-resolution-where" data-oof-section-id="true" role="heading" aria-level="2">19. preserve Consumption-driven Resolution where</h1>
+<p>relevant;</p>
+<h1 id="20-prevent-reduced-consumption-from-proving" data-oof-section-id="true" role="heading" aria-level="2">20. prevent reduced Consumption from proving</h1>
+<p>Resolution automatically;</p>
+<h1 id="21-define-resolution-thresholds-where-used" data-oof-section-id="true" role="heading" aria-level="2">21. define Resolution thresholds where used;</h1>
+<h1 id="22-define-resolution-criteria" data-oof-section-id="true" role="heading" aria-level="2">22. define Resolution criteria;</h1>
+<h1 id="23-prevent-crossing-one-resolution-threshold-from" data-oof-section-id="true" role="heading" aria-level="2">23. prevent crossing one Resolution threshold from</h1>
+<p>proving complete Resolution;</p>
+<h1 id="24-support-resolution-persistence-requirements" data-oof-section-id="true" role="heading" aria-level="2">24. support Resolution persistence requirements;</h1>
+<h1 id="25-prevent-single-sufficient-observation-from-proving" data-oof-section-id="true" role="heading" aria-level="2">25. prevent single sufficient observation from proving</h1>
+<p>durable Resolution automatically;</p>
+<h1 id="26-use-resource-specific-resolution-criteria" data-oof-section-id="true" role="heading" aria-level="2">26. use Resource-specific Resolution criteria;</h1>
+<h1 id="27-preserve-resolution-evidence" data-oof-section-id="true" role="heading" aria-level="2">27. preserve Resolution evidence;</h1>
+<h1 id="28-preserve-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">28. preserve evidence provenance;</h1>
+<h1 id="29-determine-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">29. determine evidence sufficiency;</h1>
+<h1 id="30-prevent-insufficient-evidence-from-producing" data-oof-section-id="true" role="heading" aria-level="2">30. prevent insufficient evidence from producing</h1>
+<p>Resolved state;</p>
+<h1 id="31-support-resolution-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">31. support Resolution Evidence-Limited;</h1>
+<h1 id="32-support-resolution-unknown" data-oof-section-id="true" role="heading" aria-level="2">32. support Resolution Unknown;</h1>
+<h1 id="33-prevent-resolution-unknown-from-becoming" data-oof-section-id="true" role="heading" aria-level="2">33. prevent Resolution Unknown from becoming</h1>
+<p>Constraint Resolved;</p>
+<h1 id="34-support-resolution-conflicted" data-oof-section-id="true" role="heading" aria-level="2">34. support Resolution Conflicted;</h1>
+<h1 id="35-prevent-conflicting-evidence-from-producing" data-oof-section-id="true" role="heading" aria-level="2">35. prevent conflicting evidence from producing</h1>
+<p>Resolution declaration;</p>
+<h1 id="36-preserve-resolution-confidence-where-used" data-oof-section-id="true" role="heading" aria-level="2">36. preserve Resolution confidence where used;</h1>
+<h1 id="37-distinguish-high-resolution-confidence-from" data-oof-section-id="true" role="heading" aria-level="2">37. distinguish high Resolution confidence from</h1>
+<p>permanent Resource sufficiency;</p>
+<h1 id="38-support-post-resolution-monitoring" data-oof-section-id="true" role="heading" aria-level="2">38. support Post-Resolution Monitoring;</h1>
+<h1 id="39-prevent-constraint-resolution-from-automatically" data-oof-section-id="true" role="heading" aria-level="2">39. prevent Constraint Resolution from automatically</h1>
+<p>terminating monitoring;</p>
+<h1 id="40-define-appropriate-monitoring-horizon" data-oof-section-id="true" role="heading" aria-level="2">40. define appropriate monitoring horizon;</h1>
+<h1 id="41-identify-residual-constraint" data-oof-section-id="true" role="heading" aria-level="2">41. identify Residual Constraint;</h1>
+<h1 id="42-distinguish-material-improvement-from-absence-of" data-oof-section-id="true" role="heading" aria-level="2">42. distinguish material improvement from absence of</h1>
+<p>Residual Constraint;</p>
+<h1 id="43-identify-residual-scarcity" data-oof-section-id="true" role="heading" aria-level="2">43. identify Residual Scarcity;</h1>
+<h1 id="44-distinguish-reduced-constraint-magnitude-from" data-oof-section-id="true" role="heading" aria-level="2">44. distinguish reduced Constraint Magnitude from</h1>
+<p>Scarcity Resolution;</p>
+<h1 id="45-support-governed-closure" data-oof-section-id="true" role="heading" aria-level="2">45. support governed closure;</h1>
+<h1 id="46-distinguish-administrative-closure-from-resource" data-oof-section-id="true" role="heading" aria-level="2">46. distinguish administrative closure from Resource</h1>
+<p>Constraint Resolution;</p>
+<h1 id="47-preserve-resolution-records" data-oof-section-id="true" role="heading" aria-level="2">47. preserve Resolution records;</h1>
+<h1 id="48-preserve-historical-traceability" data-oof-section-id="true" role="heading" aria-level="2">48. preserve historical traceability;</h1>
+<h1 id="49-preserve-resolution-versioning" data-oof-section-id="true" role="heading" aria-level="2">49. preserve Resolution versioning;</h1>
+<h1 id="50-support-resolution-reassessment" data-oof-section-id="true" role="heading" aria-level="2">50. support Resolution reassessment;</h1>
+<h1 id="51-preserve-reassessment-triggers" data-oof-section-id="true" role="heading" aria-level="2">51. preserve reassessment triggers;</h1>
+<h1 id="52-preserve-resolved-once-resolved-forever" data-oof-section-id="true" role="heading" aria-level="2">52. preserve Resolved Once ≠ Resolved Forever;</h1>
+<h1 id="53-distinguish-predicted-resolution-from-actual" data-oof-section-id="true" role="heading" aria-level="2">53. distinguish predicted Resolution from actual</h1>
+<p>Resolution;</p>
+<h1 id="54-distinguish-simulated-resolution-from-observed" data-oof-section-id="true" role="heading" aria-level="2">54. distinguish simulated Resolution from observed</h1>
+<p>Resolution;</p>
+<h1 id="55-preserve-rssm-scarcity-state-boundary" data-oof-section-id="true" role="heading" aria-level="2">55. preserve RSSM Scarcity-State boundary;</h1>
+<h1 id="56-preserve-rctm-constraint-type-boundary" data-oof-section-id="true" role="heading" aria-level="2">56. preserve RCTM Constraint-Type boundary;</h1>
+<h1 id="57-preserve-rsem-evaluation-boundary" data-oof-section-id="true" role="heading" aria-level="2">57. preserve RSEM Evaluation boundary;</h1>
+<h1 id="58-preserve-rsrm-response-boundary" data-oof-section-id="true" role="heading" aria-level="2">58. preserve RSRM Response boundary;</h1>
+<h1 id="59-preserve-rdgs-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">59. preserve RDGS Demand boundary;</h1>
+<h1 id="60-preserve-rags-access-boundary" data-oof-section-id="true" role="heading" aria-level="2">60. preserve RAGS Access boundary;</h1>
+<h1 id="61-preserve-rpas-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">61. preserve RPAS Allocation boundary;</h1>
+<h1 id="62-preserve-rcus-consumption-and-utilization-boundary" data-oof-section-id="true" role="heading" aria-level="2">62. preserve RCUS Consumption &amp; Utilization boundary;</h1>
+<h1 id="63-preserve-rrcs-recovery-boundary" data-oof-section-id="true" role="heading" aria-level="2">63. preserve RRCS Recovery boundary;</h1>
+<h1 id="64-preserve-rsfs-substitution-boundary" data-oof-section-id="true" role="heading" aria-level="2">64. preserve RSFS substitution boundary;</h1>
+<h1 id="65-preserve-rirs-resilience-boundary" data-oof-section-id="true" role="heading" aria-level="2">65. preserve RIRS resilience boundary;</h1>
+<h1 id="66-preserve-rcss-sustainability-boundary" data-oof-section-id="true" role="heading" aria-level="2">66. preserve RCSS Sustainability boundary;</h1>
+<h1 id="67-distinguish-constraint-resolution-from-sustainability" data-oof-section-id="true" role="heading" aria-level="2">67. distinguish Constraint Resolution from Sustainability</h1>
+<p>determination;</p>
+<h1 id="68-distinguish-high-value-from-resolution-evidence" data-oof-section-id="true" role="heading" aria-level="2">68. distinguish High Value from Resolution evidence;</h1>
+<h1 id="69-preserve-haga-harm-boundary" data-oof-section-id="true" role="heading" aria-level="2">69. preserve HAGA™ Harm boundary;</h1>
+<h1 id="70-distinguish-constraint-resolution-from-liability" data-oof-section-id="true" role="heading" aria-level="2">70. distinguish Constraint Resolution from Liability</h1>
+<p>Resolution;</p>
+<h1 id="71-preserve-liga-liability-boundary" data-oof-section-id="true" role="heading" aria-level="2">71. preserve LIGA™ Liability boundary;</h1>
+<h1 id="72-distinguish-automated-resolution-classification-from" data-oof-section-id="true" role="heading" aria-level="2">72. distinguish automated Resolution classification from</h1>
+<p>governance authority;</p>
+<h1 id="73-distinguish-resolution-evidence-from-authority" data-oof-section-id="true" role="heading" aria-level="2">73. distinguish Resolution evidence from authority</h1>
+<p>transfer;</p>
+<h1 id="74-preserve-effective-time" data-oof-section-id="true" role="heading" aria-level="2">74. preserve effective time;</h1>
+<h1 id="75-preserve-version-history" data-oof-section-id="true" role="heading" aria-level="2">75. preserve version history;</h1>
+<h1 id="76-maintain-traceability-to-the-original-constraint" data-oof-section-id="true" role="heading" aria-level="2">76. maintain traceability to the original Constraint;</h1>
+<h1 id="77-maintain-traceability-to-material-response-outcomes" data-oof-section-id="true" role="heading" aria-level="2">77. maintain traceability to material response outcomes;</h1>
+<h1 id="78-maintain-traceability-across-reopening-and" data-oof-section-id="true" role="heading" aria-level="2">78. maintain traceability across reopening and</h1>
+<p>recurrence;</p>
+<h1 id="79-preserve-closure-rationale" data-oof-section-id="true" role="heading" aria-level="2">79. preserve closure rationale;</h1>
+<h1 id="80-produce-a-resource-constraint-resolution-profile" data-oof-section-id="true" role="heading" aria-level="2">80. produce a Resource Constraint Resolution Profile.</h1>
+<h1 id="160-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">160. Governance Logic</h1>
+<p>Canonical RCRM logic:</p>
+<p>Prior Resource Scarcity / Constraint State</p>
+<p>→ Updated Resource Evidence</p>
+<p>→ Current Legitimate Resource Requirement</p>
+<p>→ Current Applicable Resource Capacity</p>
+<p>→ Constraint Mechanism Review</p>
+<p>→ Binding / Residual Constraint Review</p>
+<p>→ Resource Sufficiency Revalidation</p>
+<p>→ Stabilization / Relaxation / Persistence /</p>
+<p>Resolution Evaluation</p>
+<p>→ Recurrence / Reopening Evaluation</p>
+<p>→ Resolution Evidence / Uncertainty / Conflict</p>
+<p>→ Post-Resolution Monitoring</p>
+<p>→ Closure / Reassessment</p>
+<p>→ Resource Constraint Resolution Profile</p>
+<h1 id="161-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">161. Governance Outputs</h1>
+<p>RCRM may produce:</p>
+<p>Resource Constraint Resolution Profile</p>
+<p>Constraint Stabilization State</p>
+<p>Scarcity Stabilization State</p>
+<p>Constraint Relaxation State</p>
+<p>Scarcity Relaxation State</p>
+<p>Partial Resolution State</p>
+<p>Constraint Resolution State</p>
+<p>Scarcity Resolution State</p>
+<p>Persistent Constraint State</p>
+<p>Persistent Scarcity State</p>
+<p>Recurring Constraint State</p>
+<p>Recurring Scarcity State</p>
+<p>Reopened Constraint State</p>
+<p>Binding Constraint Transition</p>
+<p>Residual Constraint State</p>
+<p>Residual Scarcity State</p>
+<p>Resource Sufficiency Revalidation</p>
+<p>Resolution Cause</p>
+<p>Resolution Threshold State</p>
+<p>Resolution Evidence State</p>
+<p>Resolution Confidence</p>
+<p>Resolution Uncertainty</p>
+<p>Resolution Conflict</p>
+<p>Post-Resolution Monitoring Requirement</p>
+<p>Recurrence Signal</p>
+<p>Reassessment Trigger</p>
+<p>Closure State</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="162-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">162. Critical Distinctions</h1>
+<p>Constraint Stabilization ≠ Constraint Resolution</p>
+<p>Constraint Relaxation ≠ Constraint Resolution</p>
+<p>Temporary Improvement ≠ Constraint Resolution</p>
+<p>Additional Resource Supply ≠ Constraint</p>
+<p>Resolution by itself</p>
+<p>Response Completion ≠ Constraint Resolution</p>
+<p>Constraint Resolution ≠ Permanent Resource</p>
+<p>Sufficiency</p>
+<p>Improvement ≠ Resolution</p>
+<p>Current Resource State Without Prior Constraint</p>
+<p>Context ≠ Resolution Evidence by itself</p>
+<p>Unknown Prior Constraint State ≠ Reliable</p>
+<p>Resolution Baseline</p>
+<p>Stable Scarcity ≠ Resource Sufficiency</p>
+<p>Improved Resource Sufficiency ≠ Sufficient</p>
+<p>Resource</p>
+<p>Resolution of One Constraint ≠ Resolution of All</p>
+<p>Constraints</p>
+<p>One Resolved Constraint Type ≠ Resolved</p>
+<p>Scarcity by default</p>
+<p>Removal of the Current Binding Constraint ≠</p>
+<p>Guaranteed Resource Sufficiency</p>
+<p>Constraint Resolved in One Context ≠ Constraint</p>
+<p>Resolved Everywhere</p>
+<p>Constraint Improvement ≠ Restored Resource</p>
+<p>Sufficiency</p>
+<p>Scarcity Resolution ≠ Resource Abundance</p>
+<p>Reduced Requirement ≠ Increased Resource</p>
+<p>Availability</p>
+<p>Resolution Through Reduced Requirement ≠</p>
+<p>Resolution Through Increased Capacity</p>
+<p>Additional Capacity ≠ Constraint Resolution by</p>
+<p>itself</p>
+<p>Additional Resource Supply ≠ Scarcity</p>
+<p>Resolution by itself</p>
+<p>Source Restoration ≠ Resource-System</p>
+<p>Resolution automatically</p>
+<p>Resource Availability Elsewhere ≠ Local</p>
+<p>Constraint Resolution</p>
+<p>Sufficient Total Quantity ≠ Rate-Constraint</p>
+<p>Resolution</p>
+<p>Resource Available After the Required Window ≠</p>
+<p>Temporal Constraint Resolution for That</p>
+<p>Requirement</p>
+<p>Quantity Restoration ≠ Quality-Constraint</p>
+<p>Resolution</p>
+<p>Available Resource ≠ Accessibility-Constraint</p>
+<p>Resolution</p>
+<p>Upstream Resource Availability ≠ Delivery-</p>
+<p>Constraint Resolution</p>
+<p>Infrastructure Restoration ≠ Resource</p>
+<p>Sufficiency by definition</p>
+<p>Improved Regeneration ≠ Regenerative-</p>
+<p>Constraint Resolution by itself</p>
+<p>Upstream Dependency Restoration ≠</p>
+<p>Downstream Resource Resolution automatically</p>
+<p>Resolution in Resource A ≠ Resolution in</p>
+<p>Resource B automatically</p>
+<p>Successful Intervention ≠ Complete Resolution</p>
+<p>Persistent Constraint ≠ Permanent Constraint</p>
+<p>Long Duration ≠ Structural Constraint by itself</p>
+<p>Temporary Resolution ≠ Elimination of</p>
+<p>Recurrence Risk</p>
+<p>Repeated Scarcity Events ≠ Same Scarcity Event</p>
+<p>by default</p>
+<p>Prior Resolution Determination ≠ Permanent</p>
+<p>Immunity From Reassessment</p>
+<p>Absence of Observed Symptoms ≠ Evidence of</p>
+<p>Constraint Resolution</p>
+<p>Constraint Displacement ≠ Constraint Resolution</p>
+<p>Local Resolution ≠ System-Wide Resolution</p>
+<p>Constraint Delayed ≠ Constraint Resolved</p>
+<p>Resolution of One Resource Constraint ≠ Net</p>
+<p>Resource-System Improvement by definition</p>
+<p>Recovered Resource ≠ Constraint Resolution by</p>
+<p>itself</p>
+<p>Substitution Implemented ≠ Constraint Resolved</p>
+<p>by definition</p>
+<p>Constraint Resolution for Participant A ≠</p>
+<p>Constraint Resolution for the Resource System</p>
+<p>Reduced Demand ≠ Increased Resource</p>
+<p>Capacity</p>
+<p>Reduced Consumption ≠ Constraint Resolution</p>
+<p>by itself</p>
+<p>Crossing One Resolution Threshold ≠ Complete</p>
+<p>Resolution by default</p>
+<p>Single Sufficient Observation ≠ Durable</p>
+<p>Resolution by default</p>
+<p>Insufficient Resolution Evidence ≠ Resolved</p>
+<p>Constraint</p>
+<p>Resolution Unknown ≠ Constraint Resolved</p>
+<p>Conflicting Resolution Evidence ≠ Permission to</p>
+<p>Declare Resolution</p>
+<p>High Resolution Confidence ≠ Permanent</p>
+<p>Resource Sufficiency</p>
+<p>Constraint Resolved ≠ Monitoring No Longer</p>
+<p>Required by definition</p>
+<p>Material Improvement ≠ Absence of Residual</p>
+<p>Constraint</p>
+<p>Reduced Constraint Magnitude ≠ Scarcity</p>
+<p>Resolution</p>
+<p>Administrative Closure ≠ Resource Constraint</p>
+<p>Resolution</p>
+<p>Resolved ≠ Erased</p>
+<p>Resolved Once ≠ Resolved Forever</p>
+<p>Predicted Resolution ≠ Actual Resolution</p>
+<p>Simulated Resolution ≠ Observed Resolution</p>
+<p>Response Completed ≠ Resolution Proven</p>
+<p>Constraint Resolution ≠ Sustainability</p>
+<p>Determination</p>
+<p>High Value ≠ Resolution Evidence</p>
+<p>Constraint Resolution ≠ Liability Resolution</p>
+<p>Automated Resolution Classification ≠</p>
+<p>Governance Authority</p>
+<p>Resolution Evidence ≠ Authority Transfer</p>
+<h1 id="163-use-case-1-ai-data-center-constraint-resolution" data-oof-section-id="true" role="heading" aria-level="2">163. Use Case 1 — AI Data Center Constraint Resolution</h1>
+<p>An AI data center previously experienced:</p>
+<p>Electrical Capacity Constraint</p>
+<p>Cooling Capacity Constraint</p>
+<p>Active Localized Compute Scarcity</p>
+<p>A grid upgrade adds 8 MW of electrical capacity.</p>
+<p>A superficial assessment could declare the problem</p>
+<p>resolved.</p>
+<p>RCRM reassesses the complete Resource condition.</p>
+<p>Evidence shows:</p>
+<p>electrical capacity is now sufficient;</p>
+<p>the previous electrical Constraint is resolved;</p>
+<p>cooling capacity remains below the level</p>
+<p>required for full workload activation;</p>
+<p>water-delivery rate remains constrained during</p>
+<p>peak temperature;</p>
+<p>usable compute capacity therefore remains</p>
+<p>below the legitimate workload requirement.</p>
+<p>RCRM determines:</p>
+<p>Electrical Constraint — Resolved</p>
+<p>Cooling Constraint — Active</p>
+<p>Water Rate Constraint — Active</p>
+<p>Compute Scarcity — Relaxing but Not Resolved</p>
+<p>The grid intervention succeeded.</p>
+<p>The Resource Scarcity did not fully resolve.</p>
+<p>This prevents:</p>
+<p>Resolution of One Constraint ≠ Resolution of All</p>
+<p>Constraints.</p>
+<h1 id="164-use-case-2-regional-water-scarcity-resolution" data-oof-section-id="true" role="heading" aria-level="2">164. Use Case 2 — Regional Water Scarcity Resolution</h1>
+<p>A region experiencing drought receives substantial</p>
+<p>rainfall.</p>
+<p>Reservoir levels increase and regional water quantity</p>
+<p>improves.</p>
+<p>A simple Resource-volume assessment could declare</p>
+<p>the drought-related Scarcity resolved.</p>
+<p>RCRM reassesses:</p>
+<p>reservoir quantity;</p>
+<p>groundwater regeneration;</p>
+<p>treatment capacity;</p>
+<p>delivery capacity;</p>
+<p>municipal Resource sufficiency;</p>
+<p>Source condition;</p>
+<p>legitimate Resource requirements.</p>
+<p>Evidence shows:</p>
+<p>reservoir availability has materially improved;</p>
+<p>groundwater remains below sustainable</p>
+<p>recovery conditions;</p>
+<p>one municipality continues to face delivery</p>
+<p>limitations;</p>
+<p>regional drinking-water requirements are</p>
+<p>currently satisfied;</p>
+<p>agricultural requirements remain partially</p>
+<p>constrained.</p>
+<p>RCRM therefore establishes:</p>
+<p>Regional Quantity Constraint — Relaxing</p>
+<p>Drinking-Water Scarcity — Resolved for the</p>
+<p>current horizon</p>
+<p>Groundwater Regenerative Constraint —</p>
+<p>Persistent</p>
+<p>Municipal Delivery Constraint — Active</p>
+<p>Agricultural Scarcity — Partially Resolved</p>
+<p>The Resource system is not forced into a false binary</p>
+<p>classification of:</p>
+<p>“drought” or “no drought.”</p>
+<p>RCRM preserves which Resource constraints actually</p>
+<p>ended, which remain active, and which require</p>
+<p>continued monitoring.</p>
+<h1 id="165-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">165. Cross-Architecture Boundary</h1>
+<p>RCRM may consume:</p>
+<p>RSSM — Resource Scarcity State.</p>
+<p>RCTM — Resource Constraint Type and mechanism.</p>
+<p>RSEM — Constraint Magnitude, Severity, Materiality,</p>
+<p>and trend.</p>
+<p>RSRM — Resource Scarcity Response and response</p>
+<p>outcomes.</p>
+<p>RCHS — Resource identity, Source, state, and context.</p>
+<p>RACS — Availability and capacity evidence.</p>
+<p>RDGS — Resource Demand and legitimate requirement</p>
+<p>evidence.</p>
+<p>RDCS — Dependency and Criticality evidence.</p>
+<p>RAGS — Access conditions.</p>
+<p>RPAS — Allocation and reserve conditions.</p>
+<p>RCUS — Consumption &amp; Utilization evidence.</p>
+<p>RCRM may provide Resolution evidence to:</p>
+<p>RRCS — Resource Recovery &amp; Circularity.</p>
+<p>RSFS — Resource Substitution &amp; Flexibility.</p>
+<p>RIRS — Resource Interdependency &amp; Resilience.</p>
+<p>RCSS — Resource Continuity &amp; Sustainability.</p>
+<p>It may interact with:</p>
+<p>ORA™ — operational reality evidence.</p>
+<p>PGA™ — predicted Resolution.</p>
+<p>SIMULOS® — simulated Resolution.</p>
+<p>VEGA™ — Value and efficiency relationships.</p>
+<p>HAGA™ — Harm governance.</p>
+<p>LIGA™ — Liability governance.</p>
+<p>RCRM does not absorb these mechanisms.</p>
+<h1 id="166-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">166. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs</p>
+<p>for multiple governance architectures, but it</p>
+<p>belongs only to the architecture whose governed</p>
+<p>domain includes that mechanism itself. Other</p>
+<p>architectures govern only its domain-specific</p>
+<p>relevance or consequences.</p>
+<p>RCRM governs whether the Resource Constraint or</p>
+<p>Scarcity condition has actually stabilized,</p>
+<p>relaxed, persisted, recurred, reopened, or</p>
+<p>resolved .</p>
+<p>It does not govern the independent mechanisms that</p>
+<p>may have produced that change.</p>
+<h1 id="167-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">167. Canonical Boundary</h1>
+<p>RCRM governs how Resource Constraints and</p>
+<p>Resource Scarcity conditions are determined to</p>
+<p>be stabilizing, relaxing, partially resolved,</p>
+<p>resolved, recurring, persistent, unresolved, or</p>
+<p>reopened based on evidenced changes in</p>
+<p>Resource sufficiency, Constraint mechanisms,</p>
+<p>applicable capacity, legitimate Resource</p>
+<p>requirements, Source, location, time, quality,</p>
+<p>rate, accessibility, delivery, regeneration,</p>
+<p>dependencies, response outcomes, and other</p>
+<p>materially relevant Resource conditions.</p>
+<p>It does not independently determine Resource Demand,</p>
+<p>grant Access, determine Priority or Allocation, measure</p>
+<p>Consumption as an originating mechanism, perform</p>
+<p>Recovery, authorize substitution, determine resilience or</p>
+<p>long-term Sustainability, determine Value, Harm, or</p>
+<p>Liability, or execute operational intervention.</p>
+<p>Its principal governed output is the Resource</p>
+<p>Constraint Resolution Profile .</p>
+<h1 id="168-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">168. Canonical Closing Statement</h1>
+<p>A Resource Constraint is not resolved because</p>
+<p>conditions improved, because additional supply</p>
+<p>arrived, because an intervention was completed,</p>
+<p>or because the visible symptom disappeared.</p>
+<p>Resolution exists only when the Resource</p>
+<p>conditions that created the governed Constraint</p>
+<p>no longer materially prevent the applicable</p>
+<p>legitimate Resource requirement from being</p>
+<p>satisfied.</p>
+<p>RCRM closes the Scarcity governance lifecycle</p>
+<p>by proving what actually ended, what merely</p>
+<p>improved, what remains constrained, what</p>
+<p>shifted elsewhere, and what may return —</p>
+<p>ensuring that Resource Resolution is an</p>
+<p>evidenced state transition rather than an</p>
+<p>optimistic declaration.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

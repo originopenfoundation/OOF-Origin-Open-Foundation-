@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Allocation Limits Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Allocation Limits Module | OOF®. RALM — Resource Allocation Limits Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Allocation Limits Module | OOF®" />
+<meta property="og:description" content="Resource Allocation Limits Module | OOF®. RALM — Resource Allocation Limits Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Allocation Limits Module | OOF®" />
+<meta name="twitter:description" content="Resource Allocation Limits Module | OOF®. RALM — Resource Allocation Limits Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta name="DC.title" content="Resource Allocation Limits Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html","name":"Resource Allocation Limits Module | OOF®","description":"Resource Allocation Limits Module | OOF®. RALM — Resource Allocation Limits Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Allocation Limits Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html"}]},"headline":"Resource Allocation Limits Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rpas-ralm-3.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Prioritization & Allocation Standard (RPAS)","Governance & Enforcement","Resource Governance","Resource Allocation Limits Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Prioritization & Allocation Standard (RPAS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Allocation Limits Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Prioritization & Allocation Standard (RPAS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Allocation Limits Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RALM — Resource Allocation Limits Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Prioritization &amp; Allocation Standard (RPAS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Allocation Limits Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RPAS-RALM-03</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RPAS-RALM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 6 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RALM — Resource Allocation Limits Module governs how the minimum, maximum, quantitative, capacity, rate, temporal, spatial, Source-specific, purpose-specific, conditional, and other materially relevant boundaries within which a Resource Allocation may legitimately occur are identified, evidenced, established, validated, maintained, and reassessed.</p>
+<p>RALM determines the permissible Allocation envelope within which downstream Resource Allocation may operate.</p>
+<p>Its foundational distinction is:</p>
+<p>Resource Priority ≠ Allocation Limit.</p>
+<p>And its operational boundary is:</p>
+<p>Allocation Limit ≠ Resource Allocation.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RPDM determines relative Resource Priority.</p>
+<p>RABM establishes the legitimate basis upon which Allocation may proceed.</p>
+<p>RALM establishes the boundaries within which that Allocation may occur.</p>
+<p>It answers questions such as:</p>
+<p>What is the minimum meaningful Allocation?</p>
+<p>What is the maximum permissible Allocation?</p>
+<p>What quantity or capacity may be assigned?</p>
+<p>At what rate may the Resource be delivered or consumed?</p>
+<p>From which Resource Source?</p>
+<p>At which location?</p>
+<p>For what period?</p>
+<p>For which purpose?</p>
+<p>Under what conditions?</p>
+<p>RALM therefore creates the governed Allocation envelope before the final Resource assignment is made.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>Within what minimum, maximum, quantitative, capacity, rate, temporal, spatial, Source-specific, purpose- specific, and conditional boundaries may the relevant Resource legitimately be allocated to the governed claim?</p>
+<h1 id="4-position-in-rpas-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RPAS Governance</h1>
+<p>Canonical progression:</p>
+<p>Legitimate Competing Claims → Resource Priority Determination → Allocation Basis → Allocation Limits → Resource Allocation → Reallocation / Balancing → Reassessment</p>
+<p>RALM governs:</p>
+<p>Allocation Basis → Permissible Allocation Envelope</p>
+<p>It constrains the downstream Allocation decision without determining the final Allocation itself.</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RALM governs:</p>
+<p>Resource Allocation Limits Governance</p>
+<p>This space concerns the establishment and maintenance of explicit boundaries governing the permissible extent and conditions of Resource Allocation.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Allocation Limit Set governing the permissible Allocation envelope for a defined Resource claim or Allocation context.</p>
+<p>Canonical relationship:</p>
+<p>**Resource Allocation Basis</p>
+<p>Resource Priority Context Demand Access / Rights Boundaries Resource Capacity Technical Constraints Temporal / Spatial / Source Conditions Other Applicable Constraints → Resource Allocation Limit Set**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RALM governs:</p>
+<p>minimum Allocation limits; maximum Allocation limits; quantity limits; capacity limits; rate limits; flow limits; throughput limits; temporal limits; duration limits; frequency limits; spatial limits; Resource Source limits; purpose limits; Access-derived limits; rights-derived limits; Demand-derived limits; technical limits; infrastructure limits; reservation-related limits; continuity-related limits; Scarcity-responsive limits; emergency limits; conditional limits; dynamic limits; hard limits; soft limits; limit hierarchy; limit interaction; limit conflict; limit uncertainty; limit evidence; limit validity; limit reassessment; limit versioning.</p>
+<p>RALM does not independently:</p>
+<p>determine Resource Demand; determine Dependency or Criticality; determine Resource Priority; establish Allocation Authority; create Resource rights; authorize Resource Access; determine physical Resource Availability; make the final Resource Allocation; implement Resource controls; measure actual Consumption; govern Scarcity as a system state; determine long-term Resource Sustainability.</p>
+<h1 id="8-allocation-envelope" data-oof-section-id="true" role="heading" aria-level="2">8. Allocation Envelope</h1>
+<p>The Allocation Envelope defines the space within which a legitimate Resource Allocation may occur.</p>
+<p>It may combine:</p>
+<p>minimum quantity; maximum quantity; minimum capacity;</p>
+<p>maximum capacity; rate range; time window; location; Resource Source; purpose; conditions.</p>
+<h1 id="9-allocation-envelope-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Allocation Envelope Principle</h1>
+<p>A Resource Allocation may be legitimate only if it remains within the applicable Allocation Envelope.</p>
+<p>Allocation Authority ≠ Authority to Ignore Allocation Limits.</p>
+<h1 id="10-minimum-allocation-limit" data-oof-section-id="true" role="heading" aria-level="2">10. Minimum Allocation Limit</h1>
+<p>A Minimum Allocation Limit establishes the lowest Resource quantity, capacity, rate, or other relevant Resource level associated with a governed Allocation condition.</p>
+<h1 id="11-functional-minimum" data-oof-section-id="true" role="heading" aria-level="2">11. Functional Minimum</h1>
+<p>Some systems cannot meaningfully operate below a defined Resource threshold.</p>
+<p>Examples include:</p>
+<p>minimum water flow; minimum electrical power; minimum compute capacity; minimum cooling capacity; minimum material quantity.</p>
+<h1 id="12-minimum-functional-requirement-boundary" data-oof-section-id="true" role="heading" aria-level="2">12. Minimum Functional Requirement Boundary</h1>
+<p>Minimum Functional Requirement ≠ Guaranteed Allocation.</p>
+<p>RALM may establish that a workload requires at least 20 GPUs to operate meaningfully.</p>
+<p>That does not establish that 20 GPUs must be allocated.</p>
+<h1 id="13-minimum-allocation-vs-minimum-requirement" data-oof-section-id="true" role="heading" aria-level="2">13. Minimum Allocation vs Minimum Requirement</h1>
+<p>A Minimum Functional Requirement describes the operational threshold.</p>
+<p>A Minimum Allocation Limit describes the governed Allocation boundary derived from the relevant decision context.</p>
+<p>The two may coincide, but they are not methodologically identical.</p>
+<h1 id="14-zero-allocation" data-oof-section-id="true" role="heading" aria-level="2">14. Zero Allocation</h1>
+<p>A valid Allocation Envelope may permit zero current Allocation.</p>
+<p>This may occur where:</p>
+<p>capacity is unavailable; higher-priority claims consume allocable capacity; the claim is deferrable;</p>
+<p>conditions are not satisfied; the Allocation period has not begun.</p>
+<h1 id="15-zero-allocation-boundary" data-oof-section-id="true" role="heading" aria-level="2">15. Zero Allocation Boundary</h1>
+<p>Zero Allocation ≠ Invalid Claim.</p>
+<p>Zero Allocation ≠ Access Revocation.</p>
+<h1 id="16-maximum-allocation-limit" data-oof-section-id="true" role="heading" aria-level="2">16. Maximum Allocation Limit</h1>
+<p>A Maximum Allocation Limit establishes the greatest Resource quantity, capacity, rate, or other Resource level that may legitimately be allocated within the relevant context.</p>
+<h1 id="17-maximum-limit-sources" data-oof-section-id="true" role="heading" aria-level="2">17. Maximum Limit Sources</h1>
+<p>A maximum may derive from:</p>
+<p>validated Demand; Access authorization; Resource rights; technical capacity; Resource Source capacity; infrastructure limits; Resource policy; Scarcity constraints; sustainability constraints; other competent governance requirements.</p>
+<h1 id="18-maximum-allocation-principle" data-oof-section-id="true" role="heading" aria-level="2">18. Maximum Allocation Principle</h1>
+<p>High Priority ≠ Unlimited Allocation.</p>
+<p>A highest-priority claim may remain subject to strict maximum limits.</p>
+<h1 id="19-demand-derived-maximum" data-oof-section-id="true" role="heading" aria-level="2">19. Demand-Derived Maximum</h1>
+<p>Validated Demand may establish a natural upper boundary for Allocation where no legitimate basis exists to allocate Resource beyond the established requirement.</p>
+<h1 id="20-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">20. Demand Boundary</h1>
+<p>Demand = 100 does not automatically mean Allocation = 100.</p>
+<p>Demand may establish an upper requirement while actual Allocation remains lower.</p>
+<h1 id="21-access-derived-limit" data-oof-section-id="true" role="heading" aria-level="2">21. Access-Derived Limit</h1>
+<p>RAGS may establish Resource Access limits.</p>
+<p>RALM should preserve those limits within the Allocation Envelope.</p>
+<h1 id="22-access-boundary" data-oof-section-id="true" role="heading" aria-level="2">22. Access Boundary</h1>
+<p>Allocation Limit Cannot Legitimately Expand Access Scope.</p>
+<p>If Access authorization permits a maximum of 50 units, RPAS cannot legitimately allocate 70 units without a competent change to the Access state.</p>
+<h1 id="23-rights-derived-limit" data-oof-section-id="true" role="heading" aria-level="2">23. Rights-Derived Limit</h1>
+<p>Resource rights may establish:</p>
+<p>minimum entitlement; maximum entitlement; share; Source restriction; time restriction; purpose restriction; other Allocation-relevant boundary.</p>
+<p>RALM preserves the relevant effect without creating the underlying right.</p>
+<h1 id="24-rights-boundary" data-oof-section-id="true" role="heading" aria-level="2">24. Rights Boundary</h1>
+<p>Allocation Limit ≠ Creation of Resource Right.</p>
+<h1 id="25-quantity-limit" data-oof-section-id="true" role="heading" aria-level="2">25. Quantity Limit</h1>
+<p>A Quantity Limit governs the amount of Resource that may be allocated.</p>
+<p>Examples include:</p>
+<p>m³ of water; MWh of energy; tonnes of material; units of recoverable Resource.</p>
+<h1 id="26-capacity-limit" data-oof-section-id="true" role="heading" aria-level="2">26. Capacity Limit</h1>
+<p>A Capacity Limit governs the Resource capacity that may be assigned.</p>
+<p>Examples include:</p>
+<p>MW; GPU capacity; storage capacity; network bandwidth; cooling capacity.</p>
+<h1 id="27-rate-limit" data-oof-section-id="true" role="heading" aria-level="2">27. Rate Limit</h1>
+<p>A Rate Limit governs the speed at which Resource capacity may be delivered, accessed, processed, transferred, or consumed.</p>
+<p>Examples include:</p>
+<p>litres per second; MW draw;</p>
+<p>GB/s; requests per second; compute throughput.</p>
+<h1 id="28-quantity-vs-rate" data-oof-section-id="true" role="heading" aria-level="2">28. Quantity vs Rate</h1>
+<p>Total Quantity Limit ≠ Rate Limit.</p>
+<p>A participant may be permitted to receive a large total quantity while remaining subject to a strict delivery rate.</p>
+<h1 id="29-flow-limit" data-oof-section-id="true" role="heading" aria-level="2">29. Flow Limit</h1>
+<p>Flow-constrained Resources may require limits governing instantaneous or interval-based Resource flow.</p>
+<h1 id="30-throughput-limit" data-oof-section-id="true" role="heading" aria-level="2">30. Throughput Limit</h1>
+<p>Infrastructure-mediated Resources may require limits governing maximum throughput through a constrained delivery path.</p>
+<h1 id="31-temporal-limit" data-oof-section-id="true" role="heading" aria-level="2">31. Temporal Limit</h1>
+<p>A Temporal Limit defines when Allocation may occur.</p>
+<p>It may include:</p>
+<p>start time; end time; duration; schedule; frequency; rotation; renewal point.</p>
+<h1 id="32-duration-limit" data-oof-section-id="true" role="heading" aria-level="2">32. Duration Limit</h1>
+<p>An Allocation may remain valid only for a defined duration.</p>
+<h1 id="33-frequency-limit" data-oof-section-id="true" role="heading" aria-level="2">33. Frequency Limit</h1>
+<p>Resource Access or Allocation may be limited to a defined frequency or recurring interval.</p>
+<h1 id="34-temporal-boundary" data-oof-section-id="true" role="heading" aria-level="2">34. Temporal Boundary</h1>
+<p>Allocation Valid Now ≠ Allocation Valid Indefinitely.</p>
+<h1 id="35-time-dependent-limit" data-oof-section-id="true" role="heading" aria-level="2">35. Time-Dependent Limit</h1>
+<p>Allocation Limits may change according to:</p>
+<p>hour; day; season;</p>
+<p>operational cycle; Resource Availability; system state.</p>
+<h1 id="36-spatial-limit" data-oof-section-id="true" role="heading" aria-level="2">36. Spatial Limit</h1>
+<p>A Spatial Limit defines where the Allocation applies.</p>
+<p>Examples include:</p>
+<p>facility; region; network node; delivery point; infrastructure segment.</p>
+<h1 id="37-spatial-boundary" data-oof-section-id="true" role="heading" aria-level="2">37. Spatial Boundary</h1>
+<p>Allocation at Location A ≠ Allocation at Location B.</p>
+<h1 id="38-resource-source-limit" data-oof-section-id="true" role="heading" aria-level="2">38. Resource Source Limit</h1>
+<p>Where Source matters, RALM may restrict Allocation to a defined Resource Source or Source set.</p>
+<h1 id="39-source-boundary" data-oof-section-id="true" role="heading" aria-level="2">39. Source Boundary</h1>
+<p>Access to Resource Type ≠ Access to Every Resource Source.</p>
+<h1 id="40-source-specific-capacity" data-oof-section-id="true" role="heading" aria-level="2">40. Source-Specific Capacity</h1>
+<p>Two Sources of the same Resource may have different:</p>
+<p>capacity; quality; reliability; rights; cost; Scarcity; sustainability constraints.</p>
+<p>Allocation Limits should preserve these differences where material.</p>
+<h1 id="41-purpose-limit" data-oof-section-id="true" role="heading" aria-level="2">41. Purpose Limit</h1>
+<p>Allocation may be limited to a defined legitimate purpose.</p>
+<h1 id="42-purpose-boundary" data-oof-section-id="true" role="heading" aria-level="2">42. Purpose Boundary</h1>
+<p>Resource allocated for one purpose should not silently become available for an unrelated purpose where purpose restrictions apply.</p>
+<h1 id="43-technical-limit" data-oof-section-id="true" role="heading" aria-level="2">43. Technical Limit</h1>
+<p>Technical systems may impose hard physical or engineering limits on Resource Allocation.</p>
+<h1 id="44-technical-limit-principle" data-oof-section-id="true" role="heading" aria-level="2">44. Technical Limit Principle</h1>
+<p>Governance Cannot Allocate Physically Impossible Capacity.</p>
+<h1 id="45-infrastructure-limit" data-oof-section-id="true" role="heading" aria-level="2">45. Infrastructure Limit</h1>
+<p>Resource delivery may be constrained by infrastructure even where sufficient Resource exists upstream.</p>
+<p>Examples include:</p>
+<p>electrical grid capacity; water-pipe capacity; network bandwidth; cooling distribution; compute interconnect; storage I/O.</p>
+<h1 id="46-aggregate-vs-local-limit" data-oof-section-id="true" role="heading" aria-level="2">46. Aggregate vs Local Limit</h1>
+<p>Aggregate Resource Sufficiency ≠ Local Allocation Capacity.</p>
+<p>A system may have sufficient total Resource while a specific delivery point remains constrained.</p>
+<h1 id="47-concurrent-limit" data-oof-section-id="true" role="heading" aria-level="2">47. Concurrent Limit</h1>
+<p>Concurrent Resource use may impose a lower effective limit than sequential use.</p>
+<h1 id="48-concurrency-boundary" data-oof-section-id="true" role="heading" aria-level="2">48. Concurrency Boundary</h1>
+<p>A Resource system capable of serving ten claims sequentially may not be capable of serving all ten simultaneously.</p>
+<h1 id="49-reservation-derived-limit" data-oof-section-id="true" role="heading" aria-level="2">49. Reservation-Derived Limit</h1>
+<p>Reserved Resource capacity may reduce the maximum capacity available to ordinary allocations.</p>
+<h1 id="50-reservation-boundary" data-oof-section-id="true" role="heading" aria-level="2">50. Reservation Boundary</h1>
+<p>Unused Reserved Capacity ≠ Automatically Allocable Capacity.</p>
+<h1 id="51-continuity-limit" data-oof-section-id="true" role="heading" aria-level="2">51. Continuity Limit</h1>
+<p>Resource Allocation may be limited to preserve:</p>
+<p>operational reserve; minimum system capacity; critical continuity margin; recovery capability.</p>
+<h1 id="52-resilience-limit" data-oof-section-id="true" role="heading" aria-level="2">52. Resilience Limit</h1>
+<p>RIRS evidence may justify preserving capacity rather than allocating the maximum technically available Resource.</p>
+<h1 id="53-sustainability-limit" data-oof-section-id="true" role="heading" aria-level="2">53. Sustainability Limit</h1>
+<p>A Resource may have a sustainable Allocation boundary below its immediate physical extraction or delivery capacity.</p>
+<h1 id="54-sustainability-boundary" data-oof-section-id="true" role="heading" aria-level="2">54. Sustainability Boundary</h1>
+<p>Maximum Extractable Resource ≠ Maximum Sustainable Allocation.</p>
+<h1 id="55-regenerative-resource-limit" data-oof-section-id="true" role="heading" aria-level="2">55. Regenerative Resource Limit</h1>
+<p>For regenerative Resources, Allocation Limits may reflect regeneration capacity.</p>
+<h1 id="56-regeneration-boundary" data-oof-section-id="true" role="heading" aria-level="2">56. Regeneration Boundary</h1>
+<p>Renewable Resource ≠ Unlimited Allocation.</p>
+<p>If Allocation exceeds regeneration over relevant time horizons, Resource continuity may degrade.</p>
+<h1 id="57-scarcity-responsive-limit" data-oof-section-id="true" role="heading" aria-level="2">57. Scarcity-Responsive Limit</h1>
+<p>Scarcity conditions may trigger tighter Allocation Limits.</p>
+<h1 id="58-scarcity-boundary" data-oof-section-id="true" role="heading" aria-level="2">58. Scarcity Boundary</h1>
+<p>Scarcity State ≠ Automatic Allocation Limit.</p>
+<p>RSCS determines the relevant Scarcity condition.</p>
+<p>RALM determines how applicable constraints affect the Allocation Envelope.</p>
+<h1 id="59-emergency-limit" data-oof-section-id="true" role="heading" aria-level="2">59. Emergency Limit</h1>
+<p>Emergency conditions may justify temporary Allocation Limits that differ from normal operation.</p>
+<h1 id="60-emergency-boundary" data-oof-section-id="true" role="heading" aria-level="2">60. Emergency Boundary</h1>
+<p>Emergency ≠ Unlimited Authority to Remove All Allocation Limits.</p>
+<h1 id="61-conditional-limit" data-oof-section-id="true" role="heading" aria-level="2">61. Conditional Limit</h1>
+<p>A limit may apply only while specified conditions remain true.</p>
+<p>Examples include:</p>
+<p>Resource Availability below threshold; emergency active;</p>
+<p>alternative Source unavailable; specific system state; defined time window.</p>
+<h1 id="62-dynamic-limit" data-oof-section-id="true" role="heading" aria-level="2">62. Dynamic Limit</h1>
+<p>A Dynamic Allocation Limit changes in response to governed Resource or system conditions.</p>
+<h1 id="63-dynamic-limit-boundary" data-oof-section-id="true" role="heading" aria-level="2">63. Dynamic Limit Boundary</h1>
+<p>Dynamic ≠ Uncontrolled.</p>
+<p>The rule governing limit changes should remain explicit.</p>
+<h1 id="64-hard-limit" data-oof-section-id="true" role="heading" aria-level="2">64. Hard Limit</h1>
+<p>A Hard Limit may not be exceeded within the relevant governance context without a competent state or authority change.</p>
+<h1 id="65-soft-limit" data-oof-section-id="true" role="heading" aria-level="2">65. Soft Limit</h1>
+<p>A Soft Limit may be exceeded under defined conditions, authority, and evidence.</p>
+<h1 id="66-hard-vs-soft-boundary" data-oof-section-id="true" role="heading" aria-level="2">66. Hard vs Soft Boundary</h1>
+<p>Soft Limit ≠ Optional Limit.</p>
+<p>It remains governed even where exceptions are permitted.</p>
+<h1 id="67-limit-hierarchy" data-oof-section-id="true" role="heading" aria-level="2">67. Limit Hierarchy</h1>
+<p>Multiple Allocation Limits may apply simultaneously.</p>
+<p>Example:</p>
+<p>Access Maximum → Resource Source Maximum → Infrastructure Maximum → Sustainability Maximum → Claim-Specific Maximum</p>
+<p>The effective limit must respect the applicable combination.</p>
+<h1 id="68-effective-maximum-limit" data-oof-section-id="true" role="heading" aria-level="2">68. Effective Maximum Limit</h1>
+<p>Where several maximum limits apply, the effective maximum cannot exceed the most restrictive applicable hard boundary.</p>
+<p>Canonical relation:</p>
+<p>Effective Maximum ≤ Every Applicable Hard Maximum</p>
+<h1 id="69-effective-minimum-limit" data-oof-section-id="true" role="heading" aria-level="2">69. Effective Minimum Limit</h1>
+<p>Multiple minimum conditions may also apply.</p>
+<p>Their interaction must remain feasible within the Resource context.</p>
+<h1 id="70-minimum-maximum-consistency" data-oof-section-id="true" role="heading" aria-level="2">70. Minimum-Maximum Consistency</h1>
+<p>A valid Allocation Envelope requires:</p>
+<p>Effective Minimum ≤ Effective Maximum</p>
+<p>where both limits apply to the same Allocation dimension.</p>
+<h1 id="71-invalid-allocation-envelope" data-oof-section-id="true" role="heading" aria-level="2">71. Invalid Allocation Envelope</h1>
+<p>If:</p>
+<p>Effective Minimum &gt; Effective Maximum</p>
+<p>the Allocation Envelope is internally infeasible.</p>
+<p>This should produce a conflict state rather than an arbitrary Allocation.</p>
+<h1 id="72-cross-dimensional-limits" data-oof-section-id="true" role="heading" aria-level="2">72. Cross-Dimensional Limits</h1>
+<p>Limits may interact across dimensions.</p>
+<p>Example:</p>
+<p>100 MWh total</p>
+<p>but:</p>
+<p>maximum 10 MW instantaneous draw</p>
+<p>within:</p>
+<p>a defined 12-hour period.</p>
+<p>All dimensions must be preserved.</p>
+<h1 id="73-limit-interaction" data-oof-section-id="true" role="heading" aria-level="2">73. Limit Interaction</h1>
+<p>RALM should evaluate whether one limit materially changes the meaning or feasibility of another.</p>
+<h1 id="74-limit-conflict" data-oof-section-id="true" role="heading" aria-level="2">74. Limit Conflict</h1>
+<p>Limit Conflict exists where applicable boundaries cannot be simultaneously satisfied.</p>
+<h1 id="75-conflict-examples" data-oof-section-id="true" role="heading" aria-level="2">75. Conflict Examples</h1>
+<p>Examples include:</p>
+<p>minimum functional capacity exceeds Access maximum; rights minimum exceeds available allocable capacity; required rate exceeds infrastructure capacity; time window is too short for required quantity; Source restriction conflicts with Source Availability.</p>
+<h1 id="76-conflict-preservation" data-oof-section-id="true" role="heading" aria-level="2">76. Conflict Preservation</h1>
+<p>Conflicting Limits ≠ Permission to Ignore One Limit.</p>
+<p>The conflict should remain explicit until competently resolved.</p>
+<h1 id="77-limit-precedence" data-oof-section-id="true" role="heading" aria-level="2">77. Limit Precedence</h1>
+<p>Where governance establishes precedence among limits, that precedence should remain explicit.</p>
+<h1 id="78-authority-and-limit-modification" data-oof-section-id="true" role="heading" aria-level="2">78. Authority and Limit Modification</h1>
+<p>A limit should only be modified by an actor or mechanism possessing the relevant authority.</p>
+<h1 id="79-technical-override-boundary" data-oof-section-id="true" role="heading" aria-level="2">79. Technical Override Boundary</h1>
+<p>Technical Ability to Override a Limit ≠ Authority to Modify the Limit.</p>
+<h1 id="80-algorithmic-limit-adjustment" data-oof-section-id="true" role="heading" aria-level="2">80. Algorithmic Limit Adjustment</h1>
+<p>Automated systems may adjust Dynamic Limits according to governed rules.</p>
+<h1 id="81-automation-boundary" data-oof-section-id="true" role="heading" aria-level="2">81. Automation Boundary</h1>
+<p>Automated Limit Adjustment ≠ Autonomous Limit Authority.</p>
+<h1 id="82-optimization-boundary" data-oof-section-id="true" role="heading" aria-level="2">82. Optimization Boundary</h1>
+<p>Optimization may operate within the Allocation Envelope.</p>
+<p>It should not silently redefine the envelope.</p>
+<p>Optimization ≠ Authority to Expand Allocation Limits.</p>
+<h1 id="83-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">83. Value Boundary</h1>
+<p>High validated Value does not automatically permit Allocation beyond legitimate limits.</p>
+<p>High Value ≠ Limit Override.</p>
+<h1 id="84-priority-boundary" data-oof-section-id="true" role="heading" aria-level="2">84. Priority Boundary</h1>
+<p>Priority affects comparative Resource precedence.</p>
+<p>It does not erase applicable Allocation Limits.</p>
+<p>Highest Priority ≠ Boundary-Free Allocation.</p>
+<h1 id="85-fairness-boundary" data-oof-section-id="true" role="heading" aria-level="2">85. Fairness Boundary</h1>
+<p>A fairness objective cannot legitimately require Allocation outside mandatory Resource boundaries.</p>
+<h1 id="86-prediction-evidence" data-oof-section-id="true" role="heading" aria-level="2">86. Prediction Evidence</h1>
+<p>PGA™ may provide evidence concerning future:</p>
+<p>Availability; Demand; Scarcity; system load; Resource conditions.</p>
+<p>Such evidence may support dynamic or precautionary limits.</p>
+<h1 id="87-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">87. Prediction Boundary</h1>
+<p>Predicted Constraint ≠ Current Constraint.</p>
+<p>Predictive limits should remain identifiable as anticipatory governance where applicable.</p>
+<h1 id="88-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">88. Simulation Evidence</h1>
+<p>SIMULOS® may test candidate Allocation Limits against simulated operational outcomes.</p>
+<h1 id="89-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">89. Simulation Boundary</h1>
+<p>Simulated Safe Limit ≠ Automatically Authorized Limit.</p>
+<p>Simulation provides evidence, not authority.</p>
+<h1 id="90-limit-evidence" data-oof-section-id="true" role="heading" aria-level="2">90. Limit Evidence</h1>
+<p>Every material Allocation Limit should be supported by sufficient evidence or legitimate governance rule.</p>
+<h1 id="91-evidence-sources" data-oof-section-id="true" role="heading" aria-level="2">91. Evidence Sources</h1>
+<p>Evidence may include:</p>
+<p>Demand evidence; Access authorization; rights; Resource capacity; technical specifications; infrastructure constraints; Scarcity evidence; continuity requirements; sustainability evidence; governance rules.</p>
+<h1 id="92-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">92. Evidence Provenance</h1>
+<p>Material limit evidence should preserve where relevant:</p>
+<p>source; time; Resource; claim; limit type; governing mechanism; authority; version.</p>
+<h1 id="93-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">93. Evidence Sufficiency</h1>
+<p>RALM should determine whether available evidence sufficiently supports the applicable Allocation Limit.</p>
+<h1 id="94-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">94. Evidence Freshness</h1>
+<p>Allocation Limits should rely upon evidence sufficiently current for the relevant Allocation horizon.</p>
+<h1 id="95-limit-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">95. Limit Uncertainty</h1>
+<p>Limit Uncertainty exists where the applicable boundary cannot be established with sufficient confidence.</p>
+<h1 id="96-uncertainty-principle" data-oof-section-id="true" role="heading" aria-level="2">96. Uncertainty Principle</h1>
+<p>Uncertain Limit ≠ Unlimited Allocation.</p>
+<p>Uncertainty should remain visible rather than silently removing the boundary.</p>
+<h1 id="97-conservative-limit" data-oof-section-id="true" role="heading" aria-level="2">97. Conservative Limit</h1>
+<p>Where competent governance permits, uncertainty may justify a temporary conservative limit pending stronger evidence.</p>
+<p>Such a limit should remain identifiable as provisional.</p>
+<h1 id="98-conservative-boundary" data-oof-section-id="true" role="heading" aria-level="2">98. Conservative Boundary</h1>
+<p>Precautionary Limit ≠ Permanent Limit.</p>
+<h1 id="99-allocation-limit-state" data-oof-section-id="true" role="heading" aria-level="2">99. Allocation Limit State</h1>
+<p>RALM should represent the current governance state of the Allocation Limit Set.</p>
+<h1 id="100-minimum-allocation-limit-states" data-oof-section-id="true" role="heading" aria-level="2">100. Minimum Allocation Limit States</h1>
+<p>At minimum:</p>
+<p>Allocation Limits Established</p>
+<p>Allocation Limits Conditionally Established</p>
+<p>Allocation Limits Dynamic</p>
+<p>Allocation Limits Under Review</p>
+<p>Allocation Limits Evidence-Limited</p>
+<p>Allocation Limits Conflicted</p>
+<p>Allocation Limits Unknown</p>
+<p>Allocation Limits Unresolved</p>
+<p>Allocation Limits Expired</p>
+<p>Allocation Limits Reassessment Required</p>
+<h1 id="101-allocation-limits-established" data-oof-section-id="true" role="heading" aria-level="2">101. Allocation Limits Established</h1>
+<p>The relevant Allocation Envelope is sufficiently established for downstream Allocation.</p>
+<h1 id="102-allocation-limits-conditionally-established" data-oof-section-id="true" role="heading" aria-level="2">102. Allocation Limits Conditionally Established</h1>
+<p>The limits remain valid only while specified conditions hold.</p>
+<h1 id="103-allocation-limits-dynamic" data-oof-section-id="true" role="heading" aria-level="2">103. Allocation Limits Dynamic</h1>
+<p>One or more limits may change according to an established governance rule.</p>
+<h1 id="104-allocation-limits-under-review" data-oof-section-id="true" role="heading" aria-level="2">104. Allocation Limits Under Review</h1>
+<p>Material evidence or conditions require active reassessment.</p>
+<h1 id="105-allocation-limits-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">105. Allocation Limits Evidence-Limited</h1>
+<p>The current evidence supports only a limited-confidence boundary.</p>
+<h1 id="106-allocation-limits-conflicted" data-oof-section-id="true" role="heading" aria-level="2">106. Allocation Limits Conflicted</h1>
+<p>Applicable limits cannot be reconciled within the current governance state.</p>
+<h1 id="107-allocation-limits-unknown" data-oof-section-id="true" role="heading" aria-level="2">107. Allocation Limits Unknown</h1>
+<p>The relevant Allocation Envelope cannot currently be established.</p>
+<h1 id="108-allocation-limits-unresolved" data-oof-section-id="true" role="heading" aria-level="2">108. Allocation Limits Unresolved</h1>
+<p>Relevant evidence exists, but the applicable limits cannot yet be finalized.</p>
+<h1 id="109-allocation-limits-expired" data-oof-section-id="true" role="heading" aria-level="2">109. Allocation Limits Expired</h1>
+<p>The limit set is no longer valid for the current Allocation context.</p>
+<h1 id="110-allocation-limits-reassessment-required" data-oof-section-id="true" role="heading" aria-level="2">110. Allocation Limits Reassessment Required</h1>
+<p>Material change requires the Allocation Envelope to be reevaluated.</p>
+<h1 id="111-limit-validity" data-oof-section-id="true" role="heading" aria-level="2">111. Limit Validity</h1>
+<p>Allocation Limits should remain valid only within their governed context.</p>
+<h1 id="112-validity-dimensions" data-oof-section-id="true" role="heading" aria-level="2">112. Validity Dimensions</h1>
+<p>Validity may depend upon:</p>
+<p>Resource; Resource Source; claim; Access state; rights state; location; time; Resource Availability; Scarcity state; operational state; emergency state.</p>
+<h1 id="113-limit-reassessment" data-oof-section-id="true" role="heading" aria-level="2">113. Limit Reassessment</h1>
+<p>RALM should reassess Allocation Limits when material changes could alter the permissible Allocation Envelope.</p>
+<h1 id="114-reassessment-triggers" data-oof-section-id="true" role="heading" aria-level="2">114. Reassessment Triggers</h1>
+<p>Triggers may include:</p>
+<p>Demand change; Access change; rights change; Resource Availability change; Resource Source change; infrastructure change; Scarcity change; continuity requirement change; sustainability constraint change; technical capability change; emergency state; new evidence.</p>
+<h1 id="115-reassessment-boundary" data-oof-section-id="true" role="heading" aria-level="2">115. Reassessment Boundary</h1>
+<p>Changed Condition ≠ Automatic Limit Change.</p>
+<p>The material effect should be evaluated.</p>
+<h1 id="116-targeted-reassessment" data-oof-section-id="true" role="heading" aria-level="2">116. Targeted Reassessment</h1>
+<p>Where one limit dimension changes, RALM should reassess that dimension and materially dependent limits without unnecessarily rebuilding unrelated boundaries.</p>
+<h1 id="117-allocation-limit-versioning" data-oof-section-id="true" role="heading" aria-level="2">117. Allocation Limit Versioning</h1>
+<p>Material changes should create an updated Allocation Limit Set version where required for traceability.</p>
+<h1 id="118-resource-allocation-limit-profile" data-oof-section-id="true" role="heading" aria-level="2">118. Resource Allocation Limit Profile</h1>
+<p>The principal RALM output is the:</p>
+<p>Resource Allocation Limit Profile</p>
+<p>It represents the governed Allocation Envelope applicable to a Resource claim or Allocation context.</p>
+<h1 id="119-minimum-resource-allocation-limit-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">119. Minimum Resource Allocation Limit Profile Fields</h1>
+<p>At minimum:</p>
+<p>Allocation Limit ID</p>
+<p>Allocation Basis ID</p>
+<p>Claim ID</p>
+<p>Resource ID</p>
+<p>Resource Source where relevant</p>
+<p>Priority Reference</p>
+<p>Demand Reference</p>
+<p>Access Reference</p>
+<p>Rights Reference where relevant</p>
+<p>Minimum Quantity where relevant</p>
+<p>Maximum Quantity where relevant</p>
+<p>Minimum Capacity where relevant</p>
+<p>Maximum Capacity where relevant</p>
+<p>Rate Limit where relevant</p>
+<p>Flow / Throughput Limit where relevant</p>
+<p>Temporal Boundary</p>
+<p>Duration / Frequency Limit where relevant</p>
+<p>Spatial Boundary where relevant</p>
+<p>Purpose Boundary where relevant</p>
+<p>Technical Constraint Reference</p>
+<p>Infrastructure Constraint Reference</p>
+<p>Reservation Constraint Reference</p>
+<p>Continuity / Resilience Constraint Reference where relevant</p>
+<p>Sustainability Constraint Reference where relevant</p>
+<p>Scarcity / Emergency Context where relevant</p>
+<p>Hard / Soft Classification</p>
+<p>Conditional / Dynamic Rule where relevant</p>
+<p>Allocation Limit State</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Conflict State</p>
+<p>Uncertainty</p>
+<p>Effective Time</p>
+<p>Expiration / Reassessment Point</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="120-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">120. Minimum Implementation Framework</h1>
+<p>A minimum operational RALM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Allocation Context</p>
+<p>Establish:</p>
+<p>Resource Claim Allocation Basis Priority Context</p>
+<p>Layer 2 — Limit Sources</p>
+<p>Identify relevant:</p>
+<p>Demand Access Rights Capacity Technical Infrastructure Reservation Continuity Sustainability Scarcity constraints</p>
+<p>Layer 3 — Quantitative Limits</p>
+<p>Establish:</p>
+<p>minimum; maximum; quantity; capacity; rate; flow / throughput limits.</p>
+<p>Layer 4 — Contextual Limits</p>
+<p>Establish:</p>
+<p>time; duration; frequency; location; Resource Source; purpose.</p>
+<p>Layer 5 — Limit Interaction</p>
+<p>Evaluate:</p>
+<p>hierarchy; hard / soft status; conditionality; dynamic rules; minimum-maximum consistency; cross-dimensional feasibility.</p>
+<p>Layer 6 — Conflict &amp; Evidence</p>
+<p>Determine:</p>
+<p>conflict; uncertainty; evidence sufficiency; provenance.</p>
+<p>Layer 7 — Validity &amp; Reassessment</p>
+<p>Establish:</p>
+<p>effective time; expiration; reassessment triggers; version.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Allocation Limit Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>Allocation Basis → Applicable Limit Sources → Quantitative Limits → Contextual Limits → Limit Interaction → Feasibility / Conflict → Allocation Envelope → Resource Allocation Limit Profile</p>
+<h1 id="121-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">121. Minimum Decision States</h1>
+<p>RALM must support at least:</p>
+<p>Allocation Limits Established</p>
+<p>Allocation Limits Conditionally Established</p>
+<p>Allocation Limits Dynamic</p>
+<p>Allocation Limits Under Review</p>
+<p>Allocation Limits Evidence-Limited</p>
+<p>Allocation Limits Conflicted</p>
+<p>Allocation Limits Unknown</p>
+<p>Allocation Limits Unresolved</p>
+<p>Allocation Limits Expired</p>
+<p>Allocation Limits Reassessment Required</p>
+<h1 id="122-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">122. Minimum Evidence Path</h1>
+<p>Where Allocation Limits cannot be sufficiently established:</p>
+<p>Allocation Limits Unresolved → Material Limit Gap → Affected Limit Dimension → Minimum Evidence Requirement → Evidence Acquisition / Verification → Limit Reassessment → Allocation Envelope Redetermination → Updated Resource Allocation Limit Profile</p>
+<h1 id="123-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">123. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Allocation Limit Profile → Material Change → Materiality Test → Affected Limit Dimension → Evidence Refresh → Limit Interaction Review → Limit Confirmation / Modification / Conflict → Profile Update → Version Update</p>
+<h1 id="124-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">124. Governance Requirements</h1>
+<p>A conforming RALM implementation must:</p>
+<h1 id="1-identify-the-relevant-allocation-basis-2-identify-the-resource-3-identify-the-" data-oof-section-id="true" role="heading" aria-level="2">1. identify the relevant Allocation Basis; 2. identify the Resource; 3. identify the governed claim; 4. preserve Priority context; 5. identify applicable limit sources; 6. establish minimum limits where relevant; 7. establish maximum limits where relevant; 8. distinguish minimum functional requirements from guaranteed Allocation; 9. preserve zero-Allocation possibility where legitimate; 10. preserve Demand-derived limits; 11. preserve Access-derived limits; 12. preserve rights-derived limits where applicable; 13. preserve quantity limits; 14. preserve capacity limits; 15. preserve rate limits; 16. preserve flow or throughput limits where relevant; 17. preserve temporal limits; 18. preserve duration limits where relevant;</h1>
+<h1 id="19-preserve-frequency-limits-where-relevant-20-preserve-spatial-limits-where-rel" data-oof-section-id="true" role="heading" aria-level="2">19. preserve frequency limits where relevant; 20. preserve spatial limits where relevant; 21. preserve Resource Source limits where relevant; 22. preserve purpose limits where relevant; 23. preserve technical limits; 24. preserve infrastructure limits; 25. preserve local capacity constraints; 26. preserve concurrency constraints where relevant; 27. preserve reservation-derived limits; 28. preserve continuity constraints where relevant; 29. preserve resilience constraints where relevant; 30. preserve sustainability constraints where applicable; 31. preserve regenerative constraints where applicable; 32. preserve Scarcity-responsive limits where relevant; 33. preserve emergency limits where relevant; 34. support conditional limits; 35. support dynamic limits; 36. distinguish hard and soft limits; 37. preserve limit hierarchy; 38. evaluate limit interaction; 39. establish effective maximum boundaries; 40. establish effective minimum boundaries where relevant; 41. test minimum-maximum consistency; 42. preserve cross-dimensional constraints; 43. identify limit conflict; 44. preserve limit precedence where established; 45. preserve limit-modification authority; 46. prevent unauthorized technical override; 47. preserve evidence provenance; 48. determine evidence sufficiency; 49. preserve limit uncertainty; 50. support provisional conservative limits where legitimately permitted; 51. establish limit validity; 52. support limit reassessment; 53. support limit versioning; 54. preserve Allocation Limit traceability; 55. produce a Resource Allocation Limit Profile.</h1>
+<h1 id="125-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">125. Governance Logic</h1>
+<p>Canonical RALM logic:</p>
+<p>Resource Allocation Basis → Resource Claim → Priority Context → Demand / Access / Rights Boundaries → Capacity / Technical / Infrastructure Constraints → Reservation / Continuity / Sustainability Constraints → Minimum Limits → Maximum Limits → Rate / Time / Location / Source / Purpose Limits → Limit Interaction → Feasibility / Conflict / Uncertainty → Allocation Envelope → Resource Allocation Limit Profile</p>
+<p>The resulting Allocation Envelope constrains downstream Resource Allocation.</p>
+<h1 id="126-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">126. Governance Outputs</h1>
+<p>RALM may produce:</p>
+<p>Resource Allocation Limit Profile</p>
+<p>Allocation Envelope</p>
+<p>Minimum Allocation Limit</p>
+<p>Maximum Allocation Limit</p>
+<p>Quantity Limit</p>
+<p>Capacity Limit</p>
+<p>Rate Limit</p>
+<p>Flow / Throughput Limit</p>
+<p>Temporal Limit</p>
+<p>Duration Limit</p>
+<p>Frequency Limit</p>
+<p>Spatial Limit</p>
+<p>Resource Source Limit</p>
+<p>Purpose Limit</p>
+<p>Technical Limit</p>
+<p>Infrastructure Limit</p>
+<p>Reservation-Derived Limit</p>
+<p>Continuity / Resilience Limit</p>
+<p>Sustainability Limit</p>
+<p>Scarcity-Responsive Limit</p>
+<p>Emergency Limit</p>
+<p>Conditional Limit</p>
+<p>Dynamic Limit</p>
+<p>Hard / Soft Limit State</p>
+<p>Limit Conflict State</p>
+<p>Limit Uncertainty</p>
+<p>Evidence Sufficiency State</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="127-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">127. Failure Conditions</h1>
+<p>RALM should not be considered sufficiently completed where:</p>
+<p>Priority is treated as an Allocation Limit; highest Priority is treated as unlimited Allocation; minimum functional requirement is treated automatically as guaranteed Allocation; zero Allocation is treated as invalid claim or revoked Access; Demand is treated automatically as Allocation;</p>
+<p>Allocation limits expand Access scope; Allocation limits create Resource rights; quantity and rate limits are conflated; temporal boundaries are omitted; location boundaries are ignored; Resource Source boundaries are ignored; technical constraints are ignored; aggregate Resource capacity is treated as local Allocation capacity; concurrency constraints are ignored; reserved capacity is treated as freely allocable; maximum extractable capacity is treated as sustainable Allocation capacity; renewability is treated as unlimited capacity; Scarcity automatically determines an Allocation Limit without governance logic; emergency conditions remove all boundaries; Dynamic Limits change without governed rules; soft limits are treated as optional; conflicting limits are silently ignored; minimum limits exceed maximum limits without conflict recognition; technical override is treated as authority; optimization expands limits without authority; Value is treated as limit-override authority; predicted constraints are represented as current constraints; simulation output is treated as authority; uncertain limits are treated as unlimited Allocation; material changes occur without reassessment.</p>
+<h1 id="128-use-case-1-ai-data-center-gpu-allocation-limits" data-oof-section-id="true" role="heading" aria-level="2">128. Use Case 1 — AI Data Center GPU Allocation Limits</h1>
+<p>A production AI workload has:</p>
+<p>High Resource Priority</p>
+<p>and legitimate Access to a GPU cluster.</p>
+<p>Its validated Demand is:</p>
+<p>120 GPUs.</p>
+<p>However:</p>
+<p>its Access authorization permits a maximum of 100 GPUs; its current network topology can efficiently support only 80 GPUs; 20 GPUs must remain reserved within the relevant cluster segment for resilience; the workload is authorized only during a defined operating window.</p>
+<p>RALM evaluates the applicable boundaries.</p>
+<p>The resulting Resource Allocation Limit Profile may establish:</p>
+<p>Maximum Allocation — 80 GPUs</p>
+<p>Temporal Boundary — defined operating window</p>
+<p>Resource Source — designated cluster</p>
+<p>Purpose — production inference</p>
+<p>The workload's high Priority does not permit the Allocation decision to exceed those boundaries.</p>
+<p>RALM establishes the permissible Allocation Envelope.</p>
+<p>It does not decide whether the workload ultimately receives 80, 60, 40, or zero GPUs.</p>
+<h1 id="129-use-case-2-regional-water-allocation-limits" data-oof-section-id="true" role="heading" aria-level="2">129. Use Case 2 — Regional Water Allocation Limits</h1>
+<p>A regional agricultural operator has:</p>
+<p>legitimate water Access; validated seasonal Demand; an established Resource Priority; a recognized water right.</p>
+<p>The right permits withdrawal from a defined Source.</p>
+<p>However:</p>
+<p>the Source has a seasonal flow constraint; the delivery network has a maximum flow rate; a minimum ecological flow must remain protected; Scarcity conditions activate a temporary maximum daily withdrawal; the Allocation is valid only within the irrigation season.</p>
+<p>RALM combines these boundaries into a Resource Allocation Limit Profile.</p>
+<p>The result may establish:</p>
+<p>Maximum Daily Quantity</p>
+<p>Maximum Flow Rate</p>
+<p>Authorized Water Source</p>
+<p>Seasonal Time Window</p>
+<p>Scarcity-Responsive Limit</p>
+<p>Protected Minimum System Reserve</p>
+<p>The final water Allocation must remain inside that governed envelope.</p>
+<h1 id="130-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">130. Critical Distinctions</h1>
+<p>Resource Priority ≠ Allocation Limit</p>
+<p>Allocation Limit ≠ Resource Allocation</p>
+<p>Allocation Authority ≠ Authority to Ignore Allocation Limits</p>
+<p>Minimum Functional Requirement ≠ Guaranteed Allocation</p>
+<p>Zero Allocation ≠ Invalid Claim</p>
+<p>Zero Allocation ≠ Access Revocation</p>
+<p>High Priority ≠ Unlimited Allocation</p>
+<p>Allocation Limit ≠ Creation of Resource Right</p>
+<p>Total Quantity Limit ≠ Rate Limit</p>
+<p>Allocation Valid Now ≠ Allocation Valid Indefinitely</p>
+<p>Allocation at Location A ≠ Allocation at Location B</p>
+<p>Access to Resource Type ≠ Access to Every Resource Source</p>
+<p>Governance Cannot Allocate Physically Impossible Capacity</p>
+<p>Aggregate Resource Sufficiency ≠ Local Allocation Capacity</p>
+<p>Unused Reserved Capacity ≠ Automatically Allocable Capacity</p>
+<p>Maximum Extractable Resource ≠ Maximum Sustainable Allocation</p>
+<p>Renewable Resource ≠ Unlimited Allocation</p>
+<p>Scarcity State ≠ Automatic Allocation Limit</p>
+<p>Emergency ≠ Unlimited Authority to Remove All Allocation Limits</p>
+<p>Dynamic ≠ Uncontrolled</p>
+<p>Soft Limit ≠ Optional Limit</p>
+<p>Conflicting Limits ≠ Permission to Ignore One Limit</p>
+<p>Technical Ability to Override a Limit ≠ Authority to Modify the Limit</p>
+<p>Automated Limit Adjustment ≠ Autonomous Limit Authority</p>
+<p>Optimization ≠ Authority to Expand Allocation Limits</p>
+<p>High Value ≠ Limit Override</p>
+<p>Highest Priority ≠ Boundary-Free Allocation</p>
+<p>Predicted Constraint ≠ Current Constraint</p>
+<p>Simulated Safe Limit ≠ Automatically Authorized Limit</p>
+<p>Uncertain Limit ≠ Unlimited Allocation</p>
+<p>Precautionary Limit ≠ Permanent Limit</p>
+<p>Changed Condition ≠ Automatic Limit Change</p>
+<h1 id="131-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">131. Cross-Architecture Boundary</h1>
+<p>RALM may consume:</p>
+<p>RCHS — Resource identity, Source, state, and context.</p>
+<p>RACS — Availability, capacity, reservation, temporal, and accessibility evidence.</p>
+<p>RDGS — Demand magnitude, timing, and concurrency evidence.</p>
+<p>RDCS — Dependency and Criticality evidence where relevant to limits.</p>
+<p>RAGS — Access scope, rights, authorization limits, conditions, and continuity evidence.</p>
+<p>RPDM — Resource Priority Profile.</p>
+<p>RABM — Resource Allocation Basis Profile.</p>
+<p>RSCS — Scarcity and Constraint evidence.</p>
+<p>RSFS — substitution and flexibility evidence.</p>
+<p>RIRS — interdependency and resilience constraints.</p>
+<p>RCSS — continuity and sustainability constraints.</p>
+<p>GOA™ — authority to establish or modify Allocation Limits.</p>
+<p>OBIDENITY® — identity, ownership, authority, permission, and provenance evidence.</p>
+<p>ORA™ — operational infrastructure and Resource conditions.</p>
+<p>PGA™ — prediction evidence where future constraints are relevant.</p>
+<p>SIMULOS® — simulated effects of candidate Allocation Limits.</p>
+<p>VEGA™ — Value and efficiency evidence where legitimately relevant.</p>
+<p>RALM does not absorb these mechanisms.</p>
+<h1 id="132-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">132. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RAGS establishes Resource Access and rights boundaries.</p>
+<p>RACS establishes relevant Resource capacity.</p>
+<p>RDGS establishes Demand.</p>
+<p>RSCS establishes Scarcity conditions.</p>
+<p>RIRS and RCSS may establish resilience, continuity, and sustainability evidence.</p>
+<p>RALM determines how those governed inputs constrain the permissible Resource Allocation Envelope.</p>
+<h1 id="133-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">133. Canonical Boundary</h1>
+<p>RALM governs the identification, establishment, validation, interaction, maintenance, and reassessment of the minimum, maximum, quantitative, capacity, rate, temporal, spatial, Source-specific, purpose-specific, technical, conditional, and other materially relevant limits within which a Resource Allocation may legitimately occur.</p>
+<p>It does not determine Resource Demand, Dependency, Criticality, Priority, Allocation Authority, Resource rights, Access authorization, physical Availability, final Resource Allocation, technical enforcement, Consumption, Scarcity Governance as a whole, or long-term Sustainability.</p>
+<p>Its principal governed output is the Resource Allocation Limit Profile , defining the applicable Allocation Envelope .</p>
+<h1 id="134-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">134. Canonical Closing Statement</h1>
+<p>Resource Priority determines precedence, but precedence cannot erase physical, legal, operational, temporal, spatial, or sustainability boundaries.</p>
+<p>RALM establishes the governed envelope within which Resource Allocation remains legitimate — defining not merely whether Resource may be assigned, but how much, how fast, from where, where, when, for what purpose, and under which limits before the final Allocation decision is made.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

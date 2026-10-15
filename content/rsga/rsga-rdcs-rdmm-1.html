@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Dependency Mapping Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Dependency Mapping Module | OOF®. RDMM — Resource Dependency Mapping Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Dependency Mapping Module | OOF®" />
+<meta property="og:description" content="Resource Dependency Mapping Module | OOF®. RDMM — Resource Dependency Mapping Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Dependency Mapping Module | OOF®" />
+<meta name="twitter:description" content="Resource Dependency Mapping Module | OOF®. RDMM — Resource Dependency Mapping Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta name="DC.title" content="Resource Dependency Mapping Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html","name":"Resource Dependency Mapping Module | OOF®","description":"Resource Dependency Mapping Module | OOF®. RDMM — Resource Dependency Mapping Module Architecture: RSGA™ — Resource Sustainability Governance Architecture.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Dependency Mapping Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html"}]},"headline":"Resource Dependency Mapping Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rdcs-rdmm-1.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Dependency & Criticality Standard (RDCS)","Governance & Enforcement","Resource Governance","Resource Dependency Mapping Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Dependency & Criticality Standard (RDCS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Dependency Mapping Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Dependency & Criticality Standard (RDCS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Dependency Mapping Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RDMM — Resource Dependency Mapping Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Dependency &amp; Criticality Standard (RDCS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Dependency Mapping Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RDCS-RDMM-01</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RDCS-RDMM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 5 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RDMM — Resource Dependency Mapping Module governs how relationships between governed Resource Demand, Resource-dependent functions, systems, processes, services, infrastructure, participants, and the Resources upon which they rely are identified, bounded, structured, evidenced, classified, and represented as explicit Resource Dependency relationships before Dependency strength, consequence, and Resource Criticality are determined.</p>
+<p>RDMM establishes the governed Resource Dependency structure.</p>
+<p>Resource Requirement ≠ Established Resource Dependency Relationship until the dependent object, Resource, function, and dependency pathway are sufficiently identified.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RDGS establishes what Resource is required.</p>
+<p>RDMM begins the Dependency stage by determining:</p>
+<p>what depends upon the Resource; which Resource it depends upon; for which function; whether the Dependency is direct or indirect; which operational pathway creates the Dependency; whether supporting or hidden dependencies exist; whether dependencies form chains; and whether multiple functions or Resources are connected through a broader Dependency structure.</p>
+<p>RDMM maps the Dependency reality before downstream modules evaluate its Criticality significance.</p>
+<h1 id="3-core-question" data-oof-section-id="true" role="heading" aria-level="2">3. Core Question</h1>
+<p>Which function, system, process, service, infrastructure, participant, or other governed object depends upon which Resource, for what operational purpose, through which Dependency pathway, and with what evidence?</p>
+<h1 id="4-position-in-rdcs-module-flow" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RDCS Module Flow</h1>
+<p>RDMM — Resource Dependency Mapping Module → RCAM → RCEM → RDCM → RCDM</p>
+<p>RDMM establishes the Dependency structure upon which the remaining RDCS modules operate.</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RDMM governs:</p>
+<p>Resource Dependency Mapping Governance</p>
+<p>This space concerns identification and representation of Resource Dependency relationships and pathways.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Dependency Relationship.</p>
+<p>A Resource Dependency Relationship connects:</p>
+<p>a Dependency Source</p>
+<p>to:</p>
+<p>a Resource</p>
+<p>through:</p>
+<p>a defined function, requirement, or operational pathway.</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RDMM governs:</p>
+<p>Dependency Source identification; Resource identification; functional Dependency identification; Dependency boundary; Dependency direction; direct Dependency; indirect Dependency; supporting Dependency; hidden Dependency; conditional Dependency; standby Dependency; emergency Dependency; recovery Dependency; Dependency chains; Dependency pathways; multi-Resource Dependency; multi-function Dependency; shared Resource Dependency; Resource Source relationships where relevant; Dependency evidence; Dependency provenance; Dependency uncertainty; Dependency conflict; Dependency mapping sufficiency; Dependency reassessment; Dependency versioning.</p>
+<p>RDMM does not independently determine:</p>
+<p>Dependency Criticality; final consequence severity; Resource Priority; Resource Access; Resource Allocation; Scarcity response; Resource Consumption; Resilience; long-term Sustainability.</p>
+<h1 id="8-dependency-mapping-input" data-oof-section-id="true" role="heading" aria-level="2">8. Dependency Mapping Input</h1>
+<p>RDMM principally receives:</p>
+<p>Resource Demand Profiles</p>
+<p>from RDGS.</p>
+<p>It may also consume relevant Resource characterization, capacity, operational, technical, and system evidence.</p>
+<h1 id="9-dependency-mapping-principle" data-oof-section-id="true" role="heading" aria-level="2">9. Dependency Mapping Principle</h1>
+<p>A Resource Demand indicates that Resource is required.</p>
+<p>RDMM determines the operational relationship creating that requirement.</p>
+<h1 id="10-dependency-source" data-oof-section-id="true" role="heading" aria-level="2">10. Dependency Source</h1>
+<p>The Dependency Source is the governed object whose state, function, capability, output, or continuity depends upon the Resource.</p>
+<p>It may be:</p>
+<p>a function; a process; a system; a service; an infrastructure component; a facility; a participant; an operational capability; another governed object.</p>
+<h1 id="11-dependency-resource" data-oof-section-id="true" role="heading" aria-level="2">11. Dependency Resource</h1>
+<p>The Dependency Resource is the Resource upon which the Dependency Source relies.</p>
+<h1 id="12-dependency-function" data-oof-section-id="true" role="heading" aria-level="2">12. Dependency Function</h1>
+<p>Every material Dependency should, where possible, identify the function for which the Resource is required.</p>
+<h1 id="13-dependency-relationship" data-oof-section-id="true" role="heading" aria-level="2">13. Dependency Relationship</h1>
+<p>Canonical representation:</p>
+<p>Dependency Source → Function → Requires Resource</p>
+<h1 id="14-resource-to-function-relationship" data-oof-section-id="true" role="heading" aria-level="2">14. Resource-to-Function Relationship</h1>
+<p>A Resource should not be mapped to an object merely because the Resource exists within the same system.</p>
+<p>There must be a materially relevant Resource relationship.</p>
+<h1 id="15-dependency-boundary" data-oof-section-id="true" role="heading" aria-level="2">15. Dependency Boundary</h1>
+<p>The Dependency Boundary determines exactly what relationship is being governed.</p>
+<p>It should identify:</p>
+<p>dependent object; Resource; function;</p>
+<p>operational context; relevant system boundary.</p>
+<h1 id="16-boundary-integrity" data-oof-section-id="true" role="heading" aria-level="2">16. Boundary Integrity</h1>
+<p>The Dependency boundary must follow the governed operational reality, not the preferred organizational or analytical structure.</p>
+<h1 id="17-dependency-identity" data-oof-section-id="true" role="heading" aria-level="2">17. Dependency Identity</h1>
+<p>Each materially distinct Resource Dependency should have an identifiable Dependency identity.</p>
+<h1 id="18-dependency-id" data-oof-section-id="true" role="heading" aria-level="2">18. Dependency ID</h1>
+<p>A Dependency ID should remain stable enough to support:</p>
+<p>evidence linkage; versioning; reassessment; Criticality analysis; downstream traceability.</p>
+<h1 id="19-dependency-direction" data-oof-section-id="true" role="heading" aria-level="2">19. Dependency Direction</h1>
+<p>Resource Dependency is directional.</p>
+<p>Canonical direction:</p>
+<p>Dependent Object → Resource</p>
+<p>The Resource does not become dependent upon the object merely because the object depends upon it.</p>
+<h1 id="20-direction-integrity" data-oof-section-id="true" role="heading" aria-level="2">20. Direction Integrity</h1>
+<p>Resource Dependency A → B ≠ Resource Dependency B → A.</p>
+<p>Where both directions exist, they should be represented as distinct relationships.</p>
+<h1 id="21-direct-dependency" data-oof-section-id="true" role="heading" aria-level="2">21. Direct Dependency</h1>
+<p>Direct Dependency exists where the governed object directly requires the Resource to perform the relevant function.</p>
+<p>Example:</p>
+<p>Compute system → Electricity</p>
+<h1 id="22-direct-dependency-evidence" data-oof-section-id="true" role="heading" aria-level="2">22. Direct Dependency Evidence</h1>
+<p>Direct Dependency may be evidenced through:</p>
+<p>technical architecture; Resource Demand; operational telemetry; engineering specification;</p>
+<p>process requirement; observed operation.</p>
+<h1 id="23-indirect-dependency" data-oof-section-id="true" role="heading" aria-level="2">23. Indirect Dependency</h1>
+<p>Indirect Dependency exists where the governed object depends upon another function, system, infrastructure, or process that itself depends upon the Resource.</p>
+<h1 id="24-indirect-dependency-example" data-oof-section-id="true" role="heading" aria-level="2">24. Indirect Dependency Example</h1>
+<p>AI workload → Cooling system → Electricity</p>
+<p>The AI workload therefore carries an indirect Dependency upon electricity through cooling.</p>
+<h1 id="25-direct-vs-indirect-dependency" data-oof-section-id="true" role="heading" aria-level="2">25. Direct vs Indirect Dependency</h1>
+<p>Direct Dependency ≠ Indirect Dependency.</p>
+<p>Both may exist simultaneously.</p>
+<h1 id="26-supporting-dependency" data-oof-section-id="true" role="heading" aria-level="2">26. Supporting Dependency</h1>
+<p>A Supporting Dependency enables a supporting function required for the primary function.</p>
+<h1 id="27-supporting-resource" data-oof-section-id="true" role="heading" aria-level="2">27. Supporting Resource</h1>
+<p>A supporting Resource may not appear in the primary functional output while remaining necessary for operation.</p>
+<h1 id="28-hidden-dependency" data-oof-section-id="true" role="heading" aria-level="2">28. Hidden Dependency</h1>
+<p>A Hidden Dependency is a materially relevant Resource relationship not immediately visible in the primary Demand or functional representation.</p>
+<h1 id="29-hidden-dependency-sources" data-oof-section-id="true" role="heading" aria-level="2">29. Hidden Dependency Sources</h1>
+<p>Hidden dependencies may arise through:</p>
+<p>cooling; control systems; networking; lubrication; specialized materials; water treatment; backup systems; storage; transport; support infrastructure.</p>
+<h1 id="30-hidden-dependency-principle" data-oof-section-id="true" role="heading" aria-level="2">30. Hidden Dependency Principle</h1>
+<p>A Resource not visible in the primary output may still be necessary for the primary function.</p>
+<h1 id="31-conditional-dependency" data-oof-section-id="true" role="heading" aria-level="2">31. Conditional Dependency</h1>
+<p>A Resource Dependency may exist only when defined conditions are present.</p>
+<h1 id="32-conditional-dependency-context" data-oof-section-id="true" role="heading" aria-level="2">32. Conditional Dependency Context</h1>
+<p>Conditions may include:</p>
+<p>operating mode; season; temperature; load level; emergency state; production configuration; Resource Source failure.</p>
+<h1 id="33-standby-dependency" data-oof-section-id="true" role="heading" aria-level="2">33. Standby Dependency</h1>
+<p>A Resource may be required only when a standby function is activated.</p>
+<h1 id="34-emergency-dependency" data-oof-section-id="true" role="heading" aria-level="2">34. Emergency Dependency</h1>
+<p>A Resource may become necessary only during emergency operation.</p>
+<h1 id="35-recovery-dependency" data-oof-section-id="true" role="heading" aria-level="2">35. Recovery Dependency</h1>
+<p>A Resource may be required to restore operation after disruption.</p>
+<h1 id="36-startup-dependency" data-oof-section-id="true" role="heading" aria-level="2">36. Startup Dependency</h1>
+<p>Some Resources may be required during startup but not during steady-state operation.</p>
+<h1 id="37-shutdown-dependency" data-oof-section-id="true" role="heading" aria-level="2">37. Shutdown Dependency</h1>
+<p>Some Resources may be required for controlled shutdown.</p>
+<h1 id="38-persistent-dependency" data-oof-section-id="true" role="heading" aria-level="2">38. Persistent Dependency</h1>
+<p>Persistent Dependency exists throughout the relevant operating state.</p>
+<h1 id="39-temporary-dependency" data-oof-section-id="true" role="heading" aria-level="2">39. Temporary Dependency</h1>
+<p>Temporary Dependency exists only during a defined interval or operational state.</p>
+<h1 id="40-dependency-state-context" data-oof-section-id="true" role="heading" aria-level="2">40. Dependency State Context</h1>
+<p>Dependency mapping should preserve the conditions under which each relationship becomes active.</p>
+<h1 id="41-functional-dependency-mapping" data-oof-section-id="true" role="heading" aria-level="2">41. Functional Dependency Mapping</h1>
+<p>RDMM maps Resources to the functions they support.</p>
+<h1 id="42-one-function-one-resource" data-oof-section-id="true" role="heading" aria-level="2">42. One Function — One Resource</h1>
+<p>A function may depend upon one primary Resource.</p>
+<h1 id="43-one-function-multiple-resources" data-oof-section-id="true" role="heading" aria-level="2">43. One Function — Multiple Resources</h1>
+<p>A function may depend simultaneously upon multiple Resources.</p>
+<p>Example:</p>
+<p>AI inference → Compute → Electricity → Cooling → Network capacity</p>
+<h1 id="44-multiple-functions-one-resource" data-oof-section-id="true" role="heading" aria-level="2">44. Multiple Functions — One Resource</h1>
+<p>One Resource may support many functions.</p>
+<p>Example:</p>
+<p>Electricity → Compute → Cooling → Networking → Control systems</p>
+<h1 id="45-many-to-many-dependency" data-oof-section-id="true" role="heading" aria-level="2">45. Many-to-Many Dependency</h1>
+<p>Complex systems commonly contain many-to-many Resource Dependency structures.</p>
+<h1 id="46-multi-resource-dependency" data-oof-section-id="true" role="heading" aria-level="2">46. Multi-Resource Dependency</h1>
+<p>Where several Resources are jointly required, each Resource relationship should remain independently identifiable.</p>
+<h1 id="47-joint-resource-requirement" data-oof-section-id="true" role="heading" aria-level="2">47. Joint Resource Requirement</h1>
+<p>A function may fail if any one of several required Resources becomes unavailable.</p>
+<h1 id="48-joint-requirement-boundary" data-oof-section-id="true" role="heading" aria-level="2">48. Joint Requirement Boundary</h1>
+<p>Joint Resource Requirement ≠ Resource Equivalence.</p>
+<p>Electricity, water, compute, materials, and network capacity remain distinct Resources.</p>
+<h1 id="49-dependency-bundle" data-oof-section-id="true" role="heading" aria-level="2">49. Dependency Bundle</h1>
+<p>RDMM may represent multiple Resource dependencies associated with one function as a Dependency Bundle.</p>
+<h1 id="50-dependency-bundle-integrity" data-oof-section-id="true" role="heading" aria-level="2">50. Dependency Bundle Integrity</h1>
+<p>A Dependency Bundle preserves relationships.</p>
+<p>It does not physically aggregate different Resources.</p>
+<h1 id="51-dependency-chain" data-oof-section-id="true" role="heading" aria-level="2">51. Dependency Chain</h1>
+<p>Dependencies may form chains.</p>
+<p>Example:</p>
+<p>Digital Service → Compute → Cooling → Electricity</p>
+<h1 id="52-dependency-chain-node" data-oof-section-id="true" role="heading" aria-level="2">52. Dependency Chain Node</h1>
+<p>Each function, system, Resource, or infrastructure component within a Dependency chain may form a distinct node.</p>
+<h1 id="53-dependency-chain-link" data-oof-section-id="true" role="heading" aria-level="2">53. Dependency Chain Link</h1>
+<p>Each materially relevant relationship between nodes should remain identifiable.</p>
+<h1 id="54-chain-direction" data-oof-section-id="true" role="heading" aria-level="2">54. Chain Direction</h1>
+<p>Dependency chains should preserve causal or operational direction.</p>
+<h1 id="55-dependency-path" data-oof-section-id="true" role="heading" aria-level="2">55. Dependency Path</h1>
+<p>A Dependency Path represents the route through which a Resource condition can affect the governed object.</p>
+<h1 id="56-multiple-dependency-paths" data-oof-section-id="true" role="heading" aria-level="2">56. Multiple Dependency Paths</h1>
+<p>A function may depend upon the same Resource through multiple paths.</p>
+<p>Example:</p>
+<p>Electricity may support:</p>
+<p>compute directly</p>
+<p>and:</p>
+<p>cooling indirectly.</p>
+<h1 id="57-parallel-dependency-paths" data-oof-section-id="true" role="heading" aria-level="2">57. Parallel Dependency Paths</h1>
+<p>Parallel paths should remain separately visible where they affect later Criticality analysis.</p>
+<h1 id="58-alternative-dependency-paths" data-oof-section-id="true" role="heading" aria-level="2">58. Alternative Dependency Paths</h1>
+<p>A function may have alternative operational paths requiring different Resources.</p>
+<h1 id="59-path-activation" data-oof-section-id="true" role="heading" aria-level="2">59. Path Activation</h1>
+<p>Alternative Dependency paths may activate under different operating conditions.</p>
+<h1 id="60-path-availability-boundary" data-oof-section-id="true" role="heading" aria-level="2">60. Path Availability Boundary</h1>
+<p>RDMM identifies the path.</p>
+<p>It does not determine Resource Availability.</p>
+<p>RACS retains Availability &amp; Capacity governance.</p>
+<h1 id="61-dependency-graph" data-oof-section-id="true" role="heading" aria-level="2">61. Dependency Graph</h1>
+<p>Complex Resource systems may be represented through a Dependency Graph.</p>
+<p>Nodes may represent:</p>
+<p>Resources; functions; systems; services; infrastructure; facilities.</p>
+<p>Edges represent:</p>
+<p>Resource Dependency Relationships.</p>
+<h1 id="62-dependency-graph-directionality" data-oof-section-id="true" role="heading" aria-level="2">62. Dependency Graph Directionality</h1>
+<p>Dependency graph edges should preserve direction.</p>
+<h1 id="63-dependency-graph-evidence" data-oof-section-id="true" role="heading" aria-level="2">63. Dependency Graph Evidence</h1>
+<p>Material graph relationships should remain traceable to evidence.</p>
+<h1 id="64-graph-complexity-boundary" data-oof-section-id="true" role="heading" aria-level="2">64. Graph Complexity Boundary</h1>
+<p>The purpose of the Dependency Graph is governance clarity.</p>
+<p>It should not map every possible system relationship where those relationships are immaterial to Resource governance.</p>
+<h1 id="65-relevant-dependency-principle" data-oof-section-id="true" role="heading" aria-level="2">65. Relevant Dependency Principle</h1>
+<p>Map every materially relevant Resource Dependency, not every possible technical relationship.</p>
+<h1 id="66-resource-source-dependency" data-oof-section-id="true" role="heading" aria-level="2">66. Resource Source Dependency</h1>
+<p>A function may depend upon a particular Resource Source.</p>
+<h1 id="67-resource-vs-source-dependency" data-oof-section-id="true" role="heading" aria-level="2">67. Resource vs Source Dependency</h1>
+<p>Dependency upon a Resource Source should remain distinguishable from Dependency upon the Resource itself.</p>
+<h1 id="68-source-dependency-example" data-oof-section-id="true" role="heading" aria-level="2">68. Source Dependency Example</h1>
+<p>A facility may depend operationally upon:</p>
+<p>Grid Connection A</p>
+<p>while functionally depending upon:</p>
+<p>Electricity.</p>
+<p>The Source relationship and Resource relationship are not identical.</p>
+<h1 id="69-source-substitution-context" data-oof-section-id="true" role="heading" aria-level="2">69. Source Substitution Context</h1>
+<p>Alternative Sources may affect later Criticality analysis.</p>
+<p>RDMM maps them where relevant.</p>
+<h1 id="70-infrastructure-dependency" data-oof-section-id="true" role="heading" aria-level="2">70. Infrastructure Dependency</h1>
+<p>Resource delivery may depend upon infrastructure.</p>
+<p>Examples:</p>
+<p>electricity transmission; water pipeline; network link; material transport; cooling infrastructure.</p>
+<h1 id="71-delivery-dependency" data-oof-section-id="true" role="heading" aria-level="2">71. Delivery Dependency</h1>
+<p>A function may depend upon both:</p>
+<p>the Resource</p>
+<p>and:</p>
+<p>the mechanism that delivers the Resource.</p>
+<p>These relationships should remain distinguishable.</p>
+<h1 id="72-resource-dependency-vs-infrastructure-dependency" data-oof-section-id="true" role="heading" aria-level="2">72. Resource Dependency vs Infrastructure Dependency</h1>
+<p>Resource Dependency ≠ Infrastructure Dependency.</p>
+<p>Infrastructure may be the pathway through which Resource Dependency is realized.</p>
+<h1 id="73-shared-resource-dependency" data-oof-section-id="true" role="heading" aria-level="2">73. Shared Resource Dependency</h1>
+<p>Multiple functions may depend upon the same Resource.</p>
+<h1 id="74-shared-dependency-node" data-oof-section-id="true" role="heading" aria-level="2">74. Shared Dependency Node</h1>
+<p>A common Resource may form a shared node across several Dependency paths.</p>
+<h1 id="75-dependency-concentration" data-oof-section-id="true" role="heading" aria-level="2">75. Dependency Concentration</h1>
+<p>Where many functions depend upon the same Resource or Resource pathway, RDMM should make that concentration visible.</p>
+<h1 id="76-concentration-boundary" data-oof-section-id="true" role="heading" aria-level="2">76. Concentration Boundary</h1>
+<p>RDMM identifies Dependency concentration.</p>
+<p>Later RDCS mechanisms determine its Criticality significance.</p>
+<h1 id="77-common-dependency" data-oof-section-id="true" role="heading" aria-level="2">77. Common Dependency</h1>
+<p>Multiple apparently independent functions may share a hidden common Resource Dependency.</p>
+<h1 id="78-common-dependency-example" data-oof-section-id="true" role="heading" aria-level="2">78. Common Dependency Example</h1>
+<p>Two separate digital services may use separate compute clusters while both rely upon:</p>
+<p>the same electricity substation</p>
+<p>or:</p>
+<p>the same cooling-water Source.</p>
+<h1 id="79-common-mode-context" data-oof-section-id="true" role="heading" aria-level="2">79. Common-Mode Context</h1>
+<p>Common Dependency relationships should remain visible for later Criticality and Resilience analysis.</p>
+<h1 id="80-dependency-layering" data-oof-section-id="true" role="heading" aria-level="2">80. Dependency Layering</h1>
+<p>A Resource system may contain:</p>
+<p>primary dependencies; supporting dependencies; infrastructure dependencies; Source dependencies; recovery dependencies.</p>
+<h1 id="81-dependency-layer-integrity" data-oof-section-id="true" role="heading" aria-level="2">81. Dependency Layer Integrity</h1>
+<p>Different Dependency layers should not be collapsed where they carry different governance meaning.</p>
+<h1 id="82-resource-demand-relationship" data-oof-section-id="true" role="heading" aria-level="2">82. Resource Demand Relationship</h1>
+<p>Every RDMM mapping should, where relevant, retain linkage to the originating Resource Demand Profile.</p>
+<h1 id="83-demand-to-dependency-traceability" data-oof-section-id="true" role="heading" aria-level="2">83. Demand-to-Dependency Traceability</h1>
+<p>Canonical trace:</p>
+<p>Resource Demand Profile → Demand Function → Dependency Source → Resource Dependency Relationship</p>
+<h1 id="84-demand-does-not-prove-full-dependency" data-oof-section-id="true" role="heading" aria-level="2">84. Demand Does Not Prove Full Dependency</h1>
+<p>The existence of Demand establishes Resource requirement.</p>
+<p>It does not by itself establish Dependency strength or Criticality.</p>
+<h1 id="85-demand-quantity-boundary" data-oof-section-id="true" role="heading" aria-level="2">85. Demand Quantity Boundary</h1>
+<p>RDMM may preserve Demand quantity as context.</p>
+<p>It does not infer Dependency significance from quantity alone.</p>
+<h1 id="86-high-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. High Demand Boundary</h1>
+<p>High Resource Demand ≠ Strong Resource Dependency by definition.</p>
+<h1 id="87-low-demand-boundary" data-oof-section-id="true" role="heading" aria-level="2">87. Low Demand Boundary</h1>
+<p>Low Resource Demand ≠ Weak Resource Dependency by definition.</p>
+<h1 id="88-dependency-evidence" data-oof-section-id="true" role="heading" aria-level="2">88. Dependency Evidence</h1>
+<p>Every material Dependency relationship should have an identifiable evidence basis.</p>
+<h1 id="89-technical-evidence" data-oof-section-id="true" role="heading" aria-level="2">89. Technical Evidence</h1>
+<p>Technical evidence may include:</p>
+<p>system architecture; engineering diagrams; technical specifications; process requirements; Resource interfaces.</p>
+<h1 id="90-operational-evidence" data-oof-section-id="true" role="heading" aria-level="2">90. Operational Evidence</h1>
+<p>Operational evidence may include:</p>
+<p>telemetry; logs; observed operation; Resource measurements; operating procedures.</p>
+<h1 id="91-functional-evidence" data-oof-section-id="true" role="heading" aria-level="2">91. Functional Evidence</h1>
+<p>Functional evidence may include:</p>
+<p>FDIM outputs; process definitions; service requirements; functional tests.</p>
+<h1 id="92-historical-evidence" data-oof-section-id="true" role="heading" aria-level="2">92. Historical Evidence</h1>
+<p>Historical incidents may reveal dependencies not visible during normal operation.</p>
+<h1 id="93-failure-evidence" data-oof-section-id="true" role="heading" aria-level="2">93. Failure Evidence</h1>
+<p>Observed failures may demonstrate Dependency pathways.</p>
+<h1 id="94-simulation-evidence" data-oof-section-id="true" role="heading" aria-level="2">94. Simulation Evidence</h1>
+<p>Simulation may identify possible Dependency relationships.</p>
+<p>Simulated Dependency ≠ Observed Dependency.</p>
+<p>SIMULOS® retains Simulation Governance.</p>
+<h1 id="95-predicted-dependency" data-oof-section-id="true" role="heading" aria-level="2">95. Predicted Dependency</h1>
+<p>Future system configurations may create predicted Dependency relationships.</p>
+<p>Predicted Dependency ≠ Current Dependency.</p>
+<p>PGA™ retains Prediction Governance.</p>
+<h1 id="96-assumed-dependency" data-oof-section-id="true" role="heading" aria-level="2">96. Assumed Dependency</h1>
+<p>An assumed Dependency should remain explicitly classified until sufficiently evidenced.</p>
+<h1 id="97-dependency-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">97. Dependency Evidence Provenance</h1>
+<p>At minimum, evidence should preserve where relevant:</p>
+<p>Dependency ID; Resource ID; Dependency Source; Function; evidence source; evidence time; operating state;</p>
+<p>method; version.</p>
+<h1 id="98-dependency-evidence-freshness" data-oof-section-id="true" role="heading" aria-level="2">98. Dependency Evidence Freshness</h1>
+<p>Dependency evidence may become outdated after system change.</p>
+<h1 id="99-dependency-conflict" data-oof-section-id="true" role="heading" aria-level="2">99. Dependency Conflict</h1>
+<p>Dependency Conflict exists where credible evidence supports materially different Dependency mappings.</p>
+<h1 id="100-conflict-example" data-oof-section-id="true" role="heading" aria-level="2">100. Conflict Example</h1>
+<p>Technical documentation may indicate:</p>
+<p>Function A → Resource X</p>
+<p>while operational evidence indicates:</p>
+<p>Function A → Resource X + Resource Y.</p>
+<p>The discrepancy should remain visible until resolved.</p>
+<h1 id="101-dependency-conflict-resolution" data-oof-section-id="true" role="heading" aria-level="2">101. Dependency Conflict Resolution</h1>
+<p>Canonical logic:</p>
+<p>**Dependency Evidence A</p>
+<p>Dependency Evidence B → Object Identity Check → Resource Identity Check → Function Check → Boundary Check → Operating-State Check → Evidence Quality Check → Resolution or Preserved Conflict**</p>
+<h1 id="102-dependency-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">102. Dependency Uncertainty</h1>
+<p>Uncertainty may concern:</p>
+<p>whether Dependency exists; Dependency direction; Resource identity; function; pathway; operating condition; Source relationship; hidden Dependency.</p>
+<h1 id="103-uncertainty-preservation" data-oof-section-id="true" role="heading" aria-level="2">103. Uncertainty Preservation</h1>
+<p>RDMM should not transform uncertain Dependency into certain Dependency merely to complete the map.</p>
+<h1 id="104-dependency-unknown" data-oof-section-id="true" role="heading" aria-level="2">104. Dependency Unknown</h1>
+<p>Where the relationship cannot be established, the state should remain Unknown.</p>
+<h1 id="105-dependency-unresolved" data-oof-section-id="true" role="heading" aria-level="2">105. Dependency Unresolved</h1>
+<p>Where evidence exists but cannot yet support a sufficient determination, the state should remain Unresolved.</p>
+<h1 id="106-dependency-evidence-limited" data-oof-section-id="true" role="heading" aria-level="2">106. Dependency Evidence-Limited</h1>
+<p>Evidence-Limited Dependency indicates that a relationship may exist but available evidence is insufficient for reliable governance.</p>
+<h1 id="107-dependency-mapping-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">107. Dependency Mapping Sufficiency</h1>
+<p>A Dependency Map is sufficient when materially relevant Resource relationships are adequately represented for downstream Dependency and Criticality analysis.</p>
+<h1 id="108-completeness-boundary" data-oof-section-id="true" role="heading" aria-level="2">108. Completeness Boundary</h1>
+<p>Sufficiency does not require mapping every technical component.</p>
+<p>It requires mapping every materially relevant Resource Dependency within the governed boundary.</p>
+<h1 id="109-dependency-mapping-decision-states" data-oof-section-id="true" role="heading" aria-level="2">109. Dependency Mapping Decision States</h1>
+<p>At minimum:</p>
+<p>Dependency Mapped</p>
+<p>Conditionally Mapped</p>
+<p>Partially Mapped</p>
+<p>Dependency Evidence-Limited</p>
+<p>Dependency Conflicted</p>
+<p>Dependency Unknown</p>
+<p>Dependency Unresolved</p>
+<h1 id="110-resource-dependency-map" data-oof-section-id="true" role="heading" aria-level="2">110. Resource Dependency Map</h1>
+<p>The principal RDMM output is the:</p>
+<p>Resource Dependency Map</p>
+<h1 id="111-dependency-map-structure" data-oof-section-id="true" role="heading" aria-level="2">111. Dependency Map Structure</h1>
+<p>The Resource Dependency Map should represent:</p>
+<p>Dependency Sources; Resources;</p>
+<p>Functions; Dependency relationships; Dependency direction; Dependency paths; Dependency types; operating conditions; evidence; uncertainty.</p>
+<h1 id="112-resource-dependency-relationship-profile" data-oof-section-id="true" role="heading" aria-level="2">112. Resource Dependency Relationship Profile</h1>
+<p>Each material Dependency relationship may also produce a structured:</p>
+<p>Resource Dependency Relationship Profile</p>
+<h1 id="113-minimum-relationship-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">113. Minimum Relationship Profile Fields</h1>
+<p>At minimum:</p>
+<p>Dependency ID</p>
+<p>Resource ID</p>
+<p>Resource Demand Profile Reference</p>
+<p>Dependency Source ID</p>
+<p>Dependency Source Type</p>
+<p>Function ID / Function</p>
+<p>Dependency Type</p>
+<p>Dependency Direction</p>
+<p>Dependency Boundary</p>
+<p>Dependency Path</p>
+<p>Operating Condition</p>
+<p>Resource Source where relevant</p>
+<p>Evidence Basis</p>
+<p>Evidence Time</p>
+<p>Dependency Uncertainty</p>
+<p>Mapping State</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="114-dependency-type-field" data-oof-section-id="true" role="heading" aria-level="2">114. Dependency Type Field</h1>
+<p>The Dependency Type may include:</p>
+<p>Direct</p>
+<p>Indirect</p>
+<p>Supporting</p>
+<p>Conditional</p>
+<p>Standby</p>
+<p>Emergency</p>
+<p>Recovery</p>
+<p>Startup</p>
+<p>Shutdown</p>
+<p>Persistent</p>
+<p>Temporary</p>
+<p>where relevant.</p>
+<h1 id="115-multiple-type-assignment" data-oof-section-id="true" role="heading" aria-level="2">115. Multiple Type Assignment</h1>
+<p>A Dependency may legitimately carry more than one type.</p>
+<p>Example:</p>
+<p>Indirect + Conditional + Emergency</p>
+<p>where each describes a distinct characteristic.</p>
+<h1 id="116-dependency-map-version" data-oof-section-id="true" role="heading" aria-level="2">116. Dependency Map Version</h1>
+<p>Material changes to Dependency structure should create a new map version.</p>
+<h1 id="117-dependency-addition" data-oof-section-id="true" role="heading" aria-level="2">117. Dependency Addition</h1>
+<p>A newly discovered Resource relationship should be added without rewriting unrelated dependencies.</p>
+<h1 id="118-dependency-removal" data-oof-section-id="true" role="heading" aria-level="2">118. Dependency Removal</h1>
+<p>A Dependency should be removed from the active map where evidence establishes that the relationship no longer exists.</p>
+<p>Historical versions should remain traceable.</p>
+<h1 id="119-dependency-modification" data-oof-section-id="true" role="heading" aria-level="2">119. Dependency Modification</h1>
+<p>Changes to:</p>
+<p>function; Resource; pathway; operating condition; Source</p>
+<p>may require Dependency revision.</p>
+<h1 id="120-system-reconfiguration" data-oof-section-id="true" role="heading" aria-level="2">120. System Reconfiguration</h1>
+<p>System reconfiguration should trigger Dependency mapping reassessment where Resource relationships may change.</p>
+<h1 id="121-resource-substitution-change" data-oof-section-id="true" role="heading" aria-level="2">121. Resource Substitution Change</h1>
+<p>Introduction of an alternative Resource may alter Dependency pathways.</p>
+<p>Formal substitution governance remains with RSFS.</p>
+<h1 id="122-infrastructure-change" data-oof-section-id="true" role="heading" aria-level="2">122. Infrastructure Change</h1>
+<p>Changes in delivery infrastructure may create, remove, or reroute Dependency paths.</p>
+<h1 id="123-functional-change" data-oof-section-id="true" role="heading" aria-level="2">123. Functional Change</h1>
+<p>Changes to the governed function may create new Resource dependencies or eliminate existing ones.</p>
+<h1 id="124-demand-change" data-oof-section-id="true" role="heading" aria-level="2">124. Demand Change</h1>
+<p>A material RDGS Demand change should trigger RDMM reassessment where the Resource Dependency structure may be affected.</p>
+<h1 id="125-operating-state-change" data-oof-section-id="true" role="heading" aria-level="2">125. Operating-State Change</h1>
+<p>Dependencies may differ between:</p>
+<p>normal operation; Peak operation; standby; maintenance; emergency; recovery.</p>
+<h1 id="126-state-specific-dependency-map" data-oof-section-id="true" role="heading" aria-level="2">126. State-Specific Dependency Map</h1>
+<p>Where necessary, RDMM may maintain different Dependency relationships for different operating states.</p>
+<h1 id="127-dynamic-dependency-mapping" data-oof-section-id="true" role="heading" aria-level="2">127. Dynamic Dependency Mapping</h1>
+<p>Resource Dependency structure is not necessarily static.</p>
+<h1 id="128-dependency-reassessment-trigger" data-oof-section-id="true" role="heading" aria-level="2">128. Dependency Reassessment Trigger</h1>
+<p>Reassessment should occur following material:</p>
+<p>Demand change; function change; Resource change; system reconfiguration; infrastructure change; Source change; operating-state change; new evidence; incident; discovered hidden Dependency.</p>
+<h1 id="129-reassessment-logic" data-oof-section-id="true" role="heading" aria-level="2">129. Reassessment Logic</h1>
+<p>Canonical logic:</p>
+<p>Existing Resource Dependency Map → New Evidence / Material Change → Dependency Impact Test → Affected Relationship Identification → Relationship Retained / Revised / Added / Removed → Evidence Update → Version Update → Downstream RDCS Reassessment</p>
+<h1 id="130-dependency-mapping-vs-criticality" data-oof-section-id="true" role="heading" aria-level="2">130. Dependency Mapping vs Criticality</h1>
+<p>RDMM establishes Dependency structure.</p>
+<p>It does not determine how critical the mapped Dependency is.</p>
+<h1 id="131-mapping-before-criticality" data-oof-section-id="true" role="heading" aria-level="2">131. Mapping Before Criticality</h1>
+<p>A Resource Dependency should be sufficiently identified before its Criticality is evaluated.</p>
+<h1 id="132-dependency-mapping-vs-priority" data-oof-section-id="true" role="heading" aria-level="2">132. Dependency Mapping vs Priority</h1>
+<p>RDMM does not determine Resource Priority.</p>
+<h1 id="133-dependency-mapping-vs-access" data-oof-section-id="true" role="heading" aria-level="2">133. Dependency Mapping vs Access</h1>
+<p>RDMM does not establish Resource Access authorization.</p>
+<h1 id="134-dependency-mapping-vs-allocation" data-oof-section-id="true" role="heading" aria-level="2">134. Dependency Mapping vs Allocation</h1>
+<p>RDMM does not allocate Resource.</p>
+<h1 id="135-dependency-mapping-vs-scarcity" data-oof-section-id="true" role="heading" aria-level="2">135. Dependency Mapping vs Scarcity</h1>
+<p>RDMM does not establish Resource Scarcity.</p>
+<h1 id="136-dependency-mapping-vs-resilience" data-oof-section-id="true" role="heading" aria-level="2">136. Dependency Mapping vs Resilience</h1>
+<p>RDMM may identify Dependency structures relevant to Resilience.</p>
+<p>RIRS retains Resource Interdependency &amp; Resilience Governance.</p>
+<h1 id="137-dependency-mapping-vs-sustainability" data-oof-section-id="true" role="heading" aria-level="2">137. Dependency Mapping vs Sustainability</h1>
+<p>The existence of a mapped Resource Dependency does not establish whether satisfying it is sustainable.</p>
+<h1 id="138-dependency-mapping-integrity-principle" data-oof-section-id="true" role="heading" aria-level="2">138. Dependency Mapping Integrity Principle</h1>
+<p>A Resource Dependency must connect a defined dependent object to a defined Resource through a materially relevant operational relationship.</p>
+<h1 id="139-direction-integrity-principle" data-oof-section-id="true" role="heading" aria-level="2">139. Direction Integrity Principle</h1>
+<p>Dependency direction must remain explicit wherever reversing the relationship would change governance meaning.</p>
+<h1 id="140-hidden-dependency-principle" data-oof-section-id="true" role="heading" aria-level="2">140. Hidden Dependency Principle</h1>
+<p>Resource governance must not assume that the most visible Resource requirement represents the complete Dependency structure.</p>
+<h1 id="141-path-integrity-principle" data-oof-section-id="true" role="heading" aria-level="2">141. Path Integrity Principle</h1>
+<p>Material Resource Dependency pathways must remain traceable through intermediate functions, systems, infrastructure, and Resources where those pathways affect downstream governance.</p>
+<h1 id="142-evidence-integrity-principle" data-oof-section-id="true" role="heading" aria-level="2">142. Evidence Integrity Principle</h1>
+<p>Dependency relationships should follow evidence rather than the preferred Criticality, Priority, or Allocation outcome.</p>
+<h1 id="143-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">143. Minimum Implementation Framework</h1>
+<p>A minimum operational RDMM implementation should contain seven governed layers.</p>
+<p>Layer 1 — Demand Input</p>
+<p>Receive:</p>
+<p>Resource Demand Profile</p>
+<p>Layer 2 — Dependency Source Identification</p>
+<p>Identify:</p>
+<p>Dependent object Function System / process context</p>
+<p>Layer 3 — Resource Relationship Identification</p>
+<p>Identify:</p>
+<p>Resource Resource Source where relevant Direct / indirect relationship</p>
+<p>Layer 4 — Dependency Path Mapping</p>
+<p>Map:</p>
+<p>Supporting dependencies Hidden dependencies Infrastructure dependencies Dependency chains Alternative paths</p>
+<p>Layer 5 — Evidence &amp; Integrity</p>
+<p>Assess:</p>
+<p>Evidence provenance Direction Boundary Duplication Conflict</p>
+<p>Layer 6 — Uncertainty &amp; Sufficiency</p>
+<p>Determine:</p>
+<p>Mapping uncertainty Mapping state Sufficiency</p>
+<p>Layer 7 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Dependency Map Resource Dependency Relationship Profiles Version Reassessment triggers Downstream RDCS handoff state</p>
+<p>Minimum machine-readable logic:</p>
+<p>Resource Demand Profile → Dependency Source[] → Function[] → Resource[] → Dependency Relationship[] → Dependency Path[] → Dependency Type[] → Evidence[] → Conflict[] → Uncertainty[] → Mapping State → Resource Dependency Map</p>
+<h1 id="144-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">144. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Dependency Mapped</p>
+<p>Conditionally Mapped</p>
+<p>Partially Mapped</p>
+<p>Dependency Evidence-Limited</p>
+<p>Dependency Conflicted</p>
+<p>Dependency Unknown</p>
+<p>Dependency Unresolved</p>
+<h1 id="145-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">145. Minimum Evidence Path</h1>
+<p>Where a material Dependency cannot be sufficiently mapped:</p>
+<p>Dependency Unresolved → Material Relationship Evidence Gap → Minimum Evidence Requirement → Evidence Acquisition → Dependency Mapping Reassessment → Updated Resource Dependency Map</p>
+<p>The objective is sufficient evidence of the Resource relationship, not arbitrary map completeness.</p>
+<h1 id="146-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">146. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Dependency Map → New Evidence / Material Change → Dependency Impact Test → Affected Relationship Identification → Mapping Update → Version Update → Downstream RDCS Reassessment</p>
+<h1 id="147-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">147. Governance Requirements</h1>
+<p>A conforming RDMM implementation must:</p>
+<h1 id="1-receive-governed-resource-demand-2-identify-the-dependency-source-3-identify-t" data-oof-section-id="true" role="heading" aria-level="2">1. receive governed Resource Demand; 2. identify the Dependency Source; 3. identify the relevant Resource; 4. identify the relevant function; 5. establish the Dependency boundary; 6. preserve Dependency direction; 7. distinguish Resource from Resource Source; 8. identify direct Dependency; 9. identify material indirect Dependency; 10. identify supporting Dependency; 11. identify hidden Dependency where materially relevant; 12. identify conditional Dependency; 13. identify standby, emergency, or recovery Dependency where relevant; 14. identify multi-Resource Dependency; 15. preserve joint Resource requirements without false Resource equivalence; 16. identify material Dependency chains; 17. identify material Dependency paths; 18. identify shared Resource dependencies; 19. identify common Dependency relationships; 20. preserve operating-state context; 21. preserve Demand-to-Dependency traceability; 22. preserve evidence provenance; 23. distinguish observed from simulated Dependency; 24. distinguish current from predicted Dependency; 25. preserve material uncertainty; 26. preserve evidence conflict; 27. determine mapping sufficiency; 28. support reassessment; 29. support versioning;</h1>
+<h1 id="30-produce-a-resource-dependency-map-31-produce-structured-dependency-relationsh" data-oof-section-id="true" role="heading" aria-level="2">30. produce a Resource Dependency Map; 31. produce structured Dependency Relationship Profiles where required; 32. preserve downstream governance boundaries.</h1>
+<h1 id="148-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">148. Governance Logic</h1>
+<p>Canonical RDMM logic:</p>
+<p>Resource Demand Profile → Dependency Source Identification → Function Identification → Resource Identification → Dependency Boundary → Direct Dependency Mapping → Indirect / Supporting Dependency Mapping → Hidden Dependency Discovery → Dependency Path Construction → Shared / Common Dependency Identification → Operating-State Context → Evidence → Conflict → Uncertainty → Mapping Sufficiency → Resource Dependency Map</p>
+<p>Where mapping is unresolved:</p>
+<p>Candidate Dependency → Material Evidence Gap → Minimum Evidence Requirement → Evidence Acquisition → Mapping Reassessment</p>
+<p>Where Dependency structure changes:</p>
+<p>Existing Resource Dependency Map → Material Change → Dependency Impact Test → Relationship Added / Revised / Removed → Version Update → Downstream RDCS Reassessment</p>
+<h1 id="149-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">149. Governance Outputs</h1>
+<p>RDMM may produce:</p>
+<p>Resource Dependency Map</p>
+<p>Resource Dependency Relationship Profile</p>
+<p>Dependency ID</p>
+<p>Dependency Source</p>
+<p>Dependency Resource</p>
+<p>Dependency Function</p>
+<p>Dependency Boundary</p>
+<p>Dependency Direction</p>
+<p>Dependency Type</p>
+<p>Dependency Path</p>
+<p>Dependency Chain</p>
+<p>Supporting Dependency State</p>
+<p>Hidden Dependency State</p>
+<p>Conditional Dependency State</p>
+<p>Shared Dependency State</p>
+<p>Common Dependency State</p>
+<p>Resource Source Relationship</p>
+<p>Operating-State Context</p>
+<p>Evidence State</p>
+<p>Conflict State</p>
+<p>Uncertainty State</p>
+<p>Mapping Sufficiency State</p>
+<p class="podstand"><b>Version:</b></p>
+<p>Reassessment Trigger</p>
+<h1 id="150-downstream-release-condition" data-oof-section-id="true" role="heading" aria-level="2">150. Downstream Release Condition</h1>
+<p>RDMM output may proceed deeper into RDCS where materially relevant Dependency relationships are sufficiently mapped or where remaining uncertainty is explicitly preserved.</p>
+<p>Progression does not erase Dependency uncertainty.</p>
+<h1 id="151-failure-conditions" data-oof-section-id="true" role="heading" aria-level="2">151. Failure Conditions</h1>
+<p>RDMM should not be considered sufficiently completed where:</p>
+<p>Resource Demand is treated automatically as a complete Dependency Map; the dependent object is unidentified; the relevant function is unidentified where material; Resource identity is ambiguous; Resource and Resource Source are conflated; Dependency direction is lost; indirect Dependency is ignored; supporting Resource dependencies are ignored; hidden dependencies are systematically excluded; multi-Resource dependencies are collapsed into one Resource; Dependency chains are truncated where intermediate relationships materially affect governance; shared dependencies are represented as independent relationships without context; common dependencies remain hidden; operating-state dependencies are treated as permanent dependencies; simulated Dependency is represented as observed Dependency; predicted Dependency is represented as current Dependency; uncertainty is hidden; evidence conflict is suppressed; mapping is manipulated to produce a preferred Criticality result; Dependency mapping is treated as Priority or Allocation governance.</p>
+<h1 id="152-use-case-1-ai-data-center-resource-dependency-mapping" data-oof-section-id="true" role="heading" aria-level="2">152. Use Case 1 — AI Data Center Resource Dependency Mapping</h1>
+<p>RDGS establishes Resource Demand for an AI data center.</p>
+<p>The primary visible Resource relationships may include:</p>
+<p>AI Compute → Compute Capacity</p>
+<p>AI Compute → Electricity</p>
+<p>RDMM expands the operational Dependency Map.</p>
+<p>For example:</p>
+<p>AI Workload → Compute Infrastructure → Electricity</p>
+<p>AI Workload → Compute Infrastructure → Cooling → Electricity</p>
+<p>AI Workload → Compute Infrastructure → Cooling → Water</p>
+<p>AI Workload → Storage Infrastructure → Electricity</p>
+<p>AI Workload → Network Infrastructure → Electricity</p>
+<p>The same facility may also contain:</p>
+<p>backup electricity; stored water; alternative network paths.</p>
+<p>RDMM maps these relationships without yet deciding which Dependency is most critical.</p>
+<p>The result may reveal that a Resource appearing secondary in the primary Demand profile is embedded in several operational Dependency paths.</p>
+<p>The Resource Dependency Map exposes what the workload actually relies upon, not merely what appears in its most visible Resource Demand.</p>
+<h1 id="153-use-case-2-regional-water-resource-dependency-mapping" data-oof-section-id="true" role="heading" aria-level="2">153. Use Case 2 — Regional Water Resource Dependency Mapping</h1>
+<p>A regional water system serves:</p>
+<p>households; industrial production; agriculture; cooling; public infrastructure.</p>
+<p>RDGS establishes their water Demand.</p>
+<p>RDMM maps the underlying Dependency relationships.</p>
+<p>For example:</p>
+<p>Residential Service → Treated Water</p>
+<p>Treated Water → Water Treatment Infrastructure → Electricity</p>
+<p>Industrial Process → Process Water</p>
+<p>Agricultural Production → Irrigation Water</p>
+<p>Cooling System → Cooling Water</p>
+<p>Emergency Public Service → Potable Water</p>
+<p>The mapping may reveal that the regional water system itself depends upon additional Resources:</p>
+<p>electricity for pumping; chemicals for treatment; network infrastructure; storage capacity.</p>
+<p>RDMM preserves these relationships without collapsing them into one Resource or assigning Criticality prematurely.</p>
+<p>Water Dependency governance begins not with ranking users, but with understanding the Resource relationships that allow each function to exist.</p>
+<h1 id="154-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">154. Critical Distinctions</h1>
+<p>Resource Requirement ≠ Established Resource Dependency Relationship</p>
+<p>Resource Dependency A → B ≠ Resource Dependency B → A</p>
+<p>Direct Dependency ≠ Indirect Dependency</p>
+<p>Joint Resource Requirement ≠ Resource Equivalence</p>
+<p>Resource Dependency ≠ Infrastructure Dependency</p>
+<p>High Resource Demand ≠ Strong Resource Dependency by definition</p>
+<p>Low Resource Demand ≠ Weak Resource Dependency by definition</p>
+<p>Simulated Dependency ≠ Observed Dependency</p>
+<p>Predicted Dependency ≠ Current Dependency</p>
+<p>Dependency Mapping ≠ Resource Criticality</p>
+<p>Dependency Mapping ≠ Resource Priority</p>
+<p>Dependency Mapping ≠ Resource Allocation</p>
+<h1 id="155-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">155. Cross-Architecture Boundary</h1>
+<p>RDMM governs Resource Dependency Mapping within RDCS.</p>
+<p>It may consume inputs from:</p>
+<p>RCHS for Resource identity and characterization; RACS for Resource Availability &amp; Capacity context; RDGS for governed Resource Demand and functional Demand; ORA™ for operational relationships and evidence; SIMULOS® for simulated Dependency pathways; PGA™ for predicted future Dependency relationships; specialized Resource architectures for Resource-specific technical relationships.</p>
+<p>It does not absorb their governed mechanisms.</p>
+<h1 id="156-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">156. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>A cooling system may create a Resource Dependency.</p>
+<p>A network architecture may create a Resource Dependency.</p>
+<p>A production process may create a Resource Dependency.</p>
+<p>A Simulation may reveal a possible Dependency pathway.</p>
+<p>RDMM maps the Resource Dependency relevance of those mechanisms.</p>
+<p>It does not absorb the mechanisms themselves.</p>
+<h1 id="157-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">157. Canonical Boundary</h1>
+<p>RDMM governs how Resource-dependent objects, functions, Resources, Resource Sources, supporting systems, infrastructure, and operational pathways are identified and connected into explicit, evidenced Resource Dependency relationships and Dependency Maps.</p>
+<p>It does not determine final Dependency strength, consequence severity, Resource Criticality, Resource Access, Resource Priority, Resource Allocation, Scarcity response, Resilience, or Sustainability.</p>
+<p>Its principal governed outputs are the Resource Dependency Map and associated Resource Dependency Relationship Profiles .</p>
+<h1 id="158-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">158. Canonical Closing Statement</h1>
+<p>A Resource system cannot govern Criticality correctly if it does not first know what depends upon what.</p>
+<p>RDMM makes Resource Dependency explicit — connecting functions, systems, infrastructure, and Resources through traceable operational relationships so that hidden, indirect, shared, and conditional dependencies are visible before their significance is judged.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

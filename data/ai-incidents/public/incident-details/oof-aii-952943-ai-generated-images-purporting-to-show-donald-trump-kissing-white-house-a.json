@@ -55,10 +55,10 @@
   "createdAt": "2026-09-19T00:00:00Z",
   "updatedAt": "2026-09-19T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-952943-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-952943-V8",
     "incidentId": "OOF-AII-952943",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -133,7 +133,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -156,6 +157,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "AI-Generated Images Purporting to Show Donald Trump Kissing White House Aide Natalie Harp Went Viral on Social Media",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that AI-generated images purporting to show U.S. President Donald Trump kissing White House aide Natalie Harp on a golf course spread across social media; one X post received over 10 million views. Forensic analysis and provenance checks indicated the circulating images were synthetic, and the White House called them fake. The original creator remained unidentified. (2026-09-14, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1699",
+      "eventDate": "2026-09-14",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -310,7 +320,49 @@
       "What evidence would establish how Chatgpt Image Generation Tools, Chatgpt, Chatbots, Large Language Models, Openai Large Language Models, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Deepfake Technology produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how models, evidence, information, over moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Chatgpt Image Generation Tools, Chatgpt, Chatbots, Large Language Models, Openai Large Language Models, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Deepfake Technology. The next governance test is: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing models, evidence, information, over were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for models, evidence, information, over, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Prediction Basis Standard (PBAS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pbas.html",
+          "objectId": "OOF-KO-STD-PGA-03"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains models, evidence, information, over under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "pga",
+      "mechanisms": [
+        "models",
+        "evidence",
+        "information",
+        "over"
+      ],
+      "patternKey": "06ffd2ae6790b97d"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1699"
@@ -331,7 +383,7 @@
         "What evidence would establish how Chatgpt Image Generation Tools, Chatgpt, Chatbots, Large Language Models, Openai Large Language Models, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Deepfake Technology produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how models, evidence, information, over moved from system activity into a reported real-world consequence, and which controls within PGA™ — Prediction Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Chatgpt Image Generation Tools, Chatgpt, Chatbots, Large Language Models, Openai Large Language Models, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Deepfake Technology. The next governance test is: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -405,8 +457,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-952943-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-952943-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

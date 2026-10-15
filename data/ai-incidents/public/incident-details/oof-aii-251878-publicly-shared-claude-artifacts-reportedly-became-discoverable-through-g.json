@@ -52,10 +52,10 @@
   "createdAt": "2026-08-06T16:45:37Z",
   "updatedAt": "2026-08-06T16:45:37Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-251878-V5",
+    "assessmentIdentity": "OOF-AII-ASMT-251878-V7",
     "incidentId": "OOF-AII-251878",
-    "analysisVersion": 5,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 7,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -130,7 +130,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -152,6 +153,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Publicly Shared Claude Artifacts Reportedly Became Discoverable Through Google Search",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Users reported that publicly shared Claude Artifacts (apps, documents, spreadsheets, and other files) could be found through Google Search. Reportedly, indexed artifacts containing business plans, infrastructure diagrams, clinical-trial planning materials, and other potentially sensitive content were also located. Anthropic said links became searchable only after being posted somewhere crawlable. (2026-07-26).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1621",
+      "eventDate": "2026-07-26",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Low",
@@ -238,7 +248,50 @@
       "What evidence would establish how Search Engines, Public Sharing Features, Large Language Models, Google Search, Claude Public Sharing Links, Claude Artifacts, Claude, Chatbots produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns shared, other, sharing, being, potentially, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+    "incidentGovernanceInsight": "Available reporting indicates that Search Engines, Public Sharing Features, Large Language Models, Google Search, Claude Public Sharing Links, Claude Artifacts, Claude, Chatbots raises a preliminary question for LIGA™ — Liability Governance Architecture: How may Liability or its consequences move, be shared, redistributed, recovered, succeeded, or create secondary Liability Relationships? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing shared, other, sharing, being, potentially were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for shared, other, sharing, being, potentially, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Liability Transfer & Recourse Standard (LTRS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-ltrs.html",
+          "objectId": "OOF-KO-STD-LIGA-10"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains shared, other, sharing, being, potentially under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "liga",
+      "mechanisms": [
+        "shared",
+        "other",
+        "sharing",
+        "being",
+        "potentially"
+      ],
+      "patternKey": "5cba8a9fc9492d4d"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1621"
@@ -256,7 +309,7 @@
         "What evidence would establish how Search Engines, Public Sharing Features, Large Language Models, Google Search, Claude Public Sharing Links, Claude Artifacts, Claude, Chatbots produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting suggests that the central governance issue concerns shared, other, sharing, being, potentially, but the current evidence does not support a stronger conclusion about the governing controls or their effectiveness.",
+      "incidentGovernanceInsight": "Available reporting indicates that Search Engines, Public Sharing Features, Large Language Models, Google Search, Claude Public Sharing Links, Claude Artifacts, Claude, Chatbots raises a preliminary question for LIGA™ — Liability Governance Architecture: How may Liability or its consequences move, be shared, redistributed, recovered, succeeded, or create secondary Liability Relationships? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -316,8 +369,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-251878-V4",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-251878-V6",
     "reassessmentReason": "Material analysis engine change"
   }
 }

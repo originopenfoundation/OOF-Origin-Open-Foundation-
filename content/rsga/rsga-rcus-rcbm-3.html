@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Consumption Boundary Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Consumption Boundary Module | OOF®. RCBM — Resource Consumption Boundary Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Consumption Boundary Module | OOF®" />
+<meta property="og:description" content="Resource Consumption Boundary Module | OOF®. RCBM — Resource Consumption Boundary Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Consumption Boundary Module | OOF®" />
+<meta name="twitter:description" content="Resource Consumption Boundary Module | OOF®. RCBM — Resource Consumption Boundary Module Architecture: RSGA™ — Resource Sustainability Governance Architecture." />
+<meta name="DC.title" content="Resource Consumption Boundary Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html","name":"Resource Consumption Boundary Module | OOF®","description":"Resource Consumption Boundary Module | OOF®. RCBM — Resource Consumption Boundary Module Architecture: RSGA™ — Resource Sustainability Governance Architecture.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Consumption Boundary Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html"}]},"headline":"Resource Consumption Boundary Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rcbm-3.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Consumption & Utilization Standard (RCUS)","Governance & Enforcement","Resource Governance","Resource Consumption Boundary Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Consumption Boundary Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Consumption Boundary Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RCBM — Resource Consumption Boundary Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Consumption &amp; Utilization Standard (RCUS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Consumption Boundary Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RCUS-RCBM-03</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RCUS-RCBM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 7 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RCBM — Resource Consumption Boundary Module governs how the system, process, activity, infrastructure, Resource flow, Source, location, temporal interval, organizational scope, functional scope, and other materially relevant inclusion and exclusion boundaries used to determine Resource Consumption are established, evidenced, maintained, compared, and reassessed.</p>
+<p>RCBM determines what belongs inside a Resource Consumption determination and what remains outside it .</p>
+<p>It prevents Resource Consumption evidence from becoming misleading through:</p>
+<p>undefined boundaries; selective exclusions; boundary shifting; duplicate inclusion; uncontrolled aggregation; inconsistent temporal scopes; inconsistent spatial scopes; Source substitution; direct–indirect Consumption confusion; or comparison between materially different Consumption boundaries.</p>
+<p>Its foundational principle is:</p>
+<p>Resource Quantity Without a Defined Consumption Boundary ≠ Governed Resource Consumption.</p>
+<p>Its comparability principle is:</p>
+<p>Equal Resource Quantity Across Different Boundaries ≠ Equivalent Resource Consumption Evidence.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RCMM determines actual Resource Consumption.</p>
+<p>RUSM determines actual Resource Utilization State.</p>
+<p>RCBM establishes the boundary within which Resource Consumption evidence is interpreted.</p>
+<p>A Consumption value may be numerically correct while still being governance-incomplete if its boundary is unclear.</p>
+<p>For example, electricity Consumption attributed to an AI workload may include only direct compute electricity or may also include:</p>
+<p>cooling; storage; networking; power conversion; facility overhead; other supporting infrastructure.</p>
+<p>Both measurements may be legitimate.</p>
+<p>They do not represent the same Consumption boundary.</p>
+<p>RCBM makes that difference explicit.</p>
+<p>Its operational role is to establish:</p>
+<p>which Resource flows are included; which Resource flows are excluded; which system or process is governed; which infrastructure is included; which Resource Sources are included; which locations are included; which time interval applies; which organizational and functional scope applies; whether direct and indirect Consumption are included; how shared Resource Consumption is bounded; whether boundary changes have occurred; whether two Consumption measurements are sufficiently comparable.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>What system, process, activity, infrastructure, Resource flow, Source, location, time interval, organizational scope, functional scope, and direct or indirect Resource-use components must be included or excluded so that the relevant Resource Consumption determination is bounded, traceable, non-duplicative, and sufficiently comparable for its intended governance purpose?</p>
+<h1 id="4-position-in-rcus-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RCUS Governance</h1>
+<p>Canonical progression:</p>
+<p>Governed Resource Allocation → Actual Resource Use → Resource Consumption Measurement → Resource Utilization State → Resource Consumption Boundary → Resource-Use Attribution → Allocation-to-Use Comparison → Resource-Use Condition → Residual / Released Resource State → Reassessment</p>
+<p>RCBM governs:</p>
+<p>Resource Consumption Context → Inclusion / Exclusion Logic → Governed Resource Consumption Boundary</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RCBM governs:</p>
+<p>Resource Consumption Boundary Governance</p>
+<p>This governed space concerns the definition, maintenance, comparison, and reassessment of the boundaries within which Resource Consumption is measured, attributed, aggregated, compared, and interpreted.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Consumption Boundary defining the included and excluded Resource flows, systems, processes, activities, infrastructure, Sources, locations, time intervals, organizational entities, functions, and other materially relevant elements associated with a Resource Consumption determination.</p>
+<p>Canonical relationship:</p>
+<p>**Governance Purpose</p>
+<p>Resource Governed System / Process Resource Flows Infrastructure Source Context Spatial Context Temporal Context Organizational / Functional Context → Inclusion / Exclusion Determination → Resource Consumption Boundary**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RCBM governs:</p>
+<p>Consumption-boundary definition; boundary purpose; system boundaries; process boundaries; activity boundaries; infrastructure boundaries; Resource-flow boundaries; Resource Source boundaries; spatial boundaries; temporal boundaries; organizational boundaries; functional boundaries; purpose boundaries; direct Consumption boundaries; indirect Consumption boundaries; upstream and downstream inclusion where applicable; shared-infrastructure boundaries; shared-Resource boundaries; measurement-point alignment; boundary inclusion; boundary exclusion; material exclusions; boundary completeness; boundary consistency; boundary hierarchy; nested boundaries; boundary aggregation; boundary decomposition; double-counting prevention; boundary overlap; boundary gaps; boundary conflict; boundary equivalence; comparability; boundary normalization where legitimate; boundary change; boundary drift; boundary versioning; boundary evidence; boundary uncertainty; reassessment; traceability.</p>
+<p>RCBM does not independently:</p>
+<p>measure Resource Consumption; determine Resource Utilization State; determine final Resource-use attribution; determine Resource Demand; authorize Resource Access; determine Resource Priority or Allocation; determine Scarcity; govern Recovery; determine Value; determine Harm; determine Liability; determine long-term Sustainability.</p>
+<h1 id="8-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">8. Consumption Boundary</h1>
+<p>A Resource Consumption Boundary defines the scope within which Resource Consumption is determined.</p>
+<p>It establishes:</p>
+<p>what is counted; what is not counted; where counting begins; where counting ends; when the boundary applies; which Resource flows belong to it; which systems and activities belong to it.</p>
+<h1 id="9-boundary-purpose" data-oof-section-id="true" role="heading" aria-level="2">9. Boundary Purpose</h1>
+<p>Every material Consumption Boundary should have an identifiable governance purpose.</p>
+<p>Possible purposes include:</p>
+<p>operational monitoring; Allocation review; Demand reassessment; capacity planning; Scarcity analysis; efficiency evaluation; Value evaluation; Sustainability analysis; comparative benchmarking.</p>
+<h1 id="10-purpose-boundary" data-oof-section-id="true" role="heading" aria-level="2">10. Purpose Boundary</h1>
+<p>Same Resource System + Different Governance Purpose ≠ Automatically Same Appropriate Consumption Boundary.</p>
+<p>The appropriate boundary may depend upon the governance question.</p>
+<h1 id="11-boundary-definition-principle" data-oof-section-id="true" role="heading" aria-level="2">11. Boundary Definition Principle</h1>
+<p>Resource Quantity Without a Defined Consumption Boundary ≠ Governed Resource Consumption.</p>
+<p>A numerical Consumption value should not be interpreted independently of the boundary that produced it.</p>
+<h1 id="12-system-boundary" data-oof-section-id="true" role="heading" aria-level="2">12. System Boundary</h1>
+<p>A System Boundary defines which technical or operational systems are included in the Consumption determination.</p>
+<p>Examples may include:</p>
+<p>single machine; server; AI cluster; data center; factory; water-treatment plant; transport network; regional Resource system.</p>
+<h1 id="13-system-boundary-distinction" data-oof-section-id="true" role="heading" aria-level="2">13. System Boundary Distinction</h1>
+<p>Component Consumption ≠ System Consumption.</p>
+<p>A component may represent only part of the Resource use required by the larger system.</p>
+<h1 id="14-process-boundary" data-oof-section-id="true" role="heading" aria-level="2">14. Process Boundary</h1>
+<p>A Process Boundary defines which operational processes belong to the Consumption determination.</p>
+<h1 id="15-process-boundary-distinction" data-oof-section-id="true" role="heading" aria-level="2">15. Process Boundary Distinction</h1>
+<p>Primary Process Consumption ≠ Total Operational Consumption by definition.</p>
+<p>Supporting processes may materially consume Resources.</p>
+<h1 id="16-activity-boundary" data-oof-section-id="true" role="heading" aria-level="2">16. Activity Boundary</h1>
+<p>An Activity Boundary identifies which activities are included in Resource Consumption.</p>
+<p>Examples may include:</p>
+<p>production; training; inference; cooling; storage; transport; maintenance; monitoring; standby operation.</p>
+<h1 id="17-activity-boundary-distinction" data-oof-section-id="true" role="heading" aria-level="2">17. Activity Boundary Distinction</h1>
+<p>Primary Activity ≠ Entire Resource-Use System.</p>
+<h1 id="18-infrastructure-boundary" data-oof-section-id="true" role="heading" aria-level="2">18. Infrastructure Boundary</h1>
+<p>Resource Consumption may depend upon infrastructure supporting the governed activity.</p>
+<p>Relevant infrastructure may include:</p>
+<p>cooling systems; power conversion; networking; storage; pumps; ventilation; transport; control systems; other support infrastructure.</p>
+<h1 id="19-infrastructure-inclusion" data-oof-section-id="true" role="heading" aria-level="2">19. Infrastructure Inclusion</h1>
+<p>Infrastructure Consumption should be included where the selected Consumption Boundary requires it and sufficient attribution is possible.</p>
+<h1 id="20-infrastructure-exclusion" data-oof-section-id="true" role="heading" aria-level="2">20. Infrastructure Exclusion</h1>
+<p>Infrastructure may legitimately remain outside a boundary where the governance purpose requires a narrower measurement.</p>
+<p>The exclusion should remain explicit where material.</p>
+<h1 id="21-infrastructure-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">21. Infrastructure Boundary Principle</h1>
+<p>Excluded Infrastructure Consumption ≠ Nonexistent Infrastructure Consumption.</p>
+<h1 id="22-resource-flow-boundary" data-oof-section-id="true" role="heading" aria-level="2">22. Resource-Flow Boundary</h1>
+<p>RCBM should identify the Resource flows entering, leaving, circulating within, or returning from the governed boundary where materially relevant.</p>
+<h1 id="23-inflow" data-oof-section-id="true" role="heading" aria-level="2">23. Inflow</h1>
+<p>Resource entering the governed boundary should be identifiable where relevant.</p>
+<h1 id="24-outflow" data-oof-section-id="true" role="heading" aria-level="2">24. Outflow</h1>
+<p>Resource leaving the governed boundary should be identifiable where relevant.</p>
+<h1 id="25-return-flow" data-oof-section-id="true" role="heading" aria-level="2">25. Return Flow</h1>
+<p>Resource returned after use may cross the Consumption Boundary again.</p>
+<p>RCBM should prevent return flows from being confused with new Consumption.</p>
+<h1 id="26-internal-resource-flow" data-oof-section-id="true" role="heading" aria-level="2">26. Internal Resource Flow</h1>
+<p>Resource movement entirely within the defined boundary should not automatically be counted as new Resource Consumption.</p>
+<h1 id="27-internal-flow-principle" data-oof-section-id="true" role="heading" aria-level="2">27. Internal-Flow Principle</h1>
+<p>Internal Resource Transfer ≠ New Resource Consumption.</p>
+<h1 id="28-boundary-crossing" data-oof-section-id="true" role="heading" aria-level="2">28. Boundary Crossing</h1>
+<p>A Resource crossing a boundary does not automatically mean it was consumed.</p>
+<h1 id="29-boundary-crossing-principle" data-oof-section-id="true" role="heading" aria-level="2">29. Boundary-Crossing Principle</h1>
+<p>Resource Entry ≠ Resource Consumption.</p>
+<p>Resource Exit ≠ Resource Recovery.</p>
+<h1 id="30-resource-source-boundary" data-oof-section-id="true" role="heading" aria-level="2">30. Resource Source Boundary</h1>
+<p>A Consumption Boundary may include:</p>
+<p>one Source; multiple Sources; Source classes; all Sources supplying the governed system.</p>
+<h1 id="31-source-specific-boundary" data-oof-section-id="true" role="heading" aria-level="2">31. Source-Specific Boundary</h1>
+<p>Where Source materially affects governance, Consumption should remain distinguishable by Source.</p>
+<h1 id="32-source-aggregation" data-oof-section-id="true" role="heading" aria-level="2">32. Source Aggregation</h1>
+<p>Multiple Sources may be aggregated only where aggregation is appropriate for the governance purpose.</p>
+<h1 id="33-source-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">33. Source Boundary Principle</h1>
+<p>Same Resource Type ≠ Same Resource Source.</p>
+<h1 id="34-source-substitution" data-oof-section-id="true" role="heading" aria-level="2">34. Source Substitution</h1>
+<p>Where one Source replaces another during the measurement period, the boundary should preserve the change where material.</p>
+<h1 id="35-source-shifting-boundary" data-oof-section-id="true" role="heading" aria-level="2">35. Source-Shifting Boundary</h1>
+<p>Stable Total Consumption ≠ Stable Source Composition.</p>
+<h1 id="36-spatial-boundary" data-oof-section-id="true" role="heading" aria-level="2">36. Spatial Boundary</h1>
+<p>RCBM should define the physical or geographic area within which Consumption is governed.</p>
+<p>Possible boundaries include:</p>
+<p>device; room; building; facility; campus; district; city; region; country; network; other defined area.</p>
+<h1 id="37-spatial-aggregation" data-oof-section-id="true" role="heading" aria-level="2">37. Spatial Aggregation</h1>
+<p>Consumption may be aggregated across multiple locations where legitimate.</p>
+<h1 id="38-spatial-aggregation-principle" data-oof-section-id="true" role="heading" aria-level="2">38. Spatial Aggregation Principle</h1>
+<p>Aggregate Consumption ≠ Local Consumption Condition.</p>
+<h1 id="39-spatial-boundary-shift" data-oof-section-id="true" role="heading" aria-level="2">39. Spatial Boundary Shift</h1>
+<p>Moving Resource-intensive activity from one location to another may reduce Consumption inside one boundary while leaving total Consumption unchanged or increased.</p>
+<h1 id="40-spatial-shifting-principle" data-oof-section-id="true" role="heading" aria-level="2">40. Spatial-Shifting Principle</h1>
+<p>Reduced Consumption Within Boundary A ≠ Reduced Total Resource Consumption.</p>
+<h1 id="41-temporal-boundary" data-oof-section-id="true" role="heading" aria-level="2">41. Temporal Boundary</h1>
+<p>Every Consumption Boundary should define the applicable time interval.</p>
+<p>Examples include:</p>
+<p>event; second; minute; hour; day; month; season; year; operational lifecycle.</p>
+<h1 id="42-temporal-alignment" data-oof-section-id="true" role="heading" aria-level="2">42. Temporal Alignment</h1>
+<p>Consumption comparisons should use sufficiently aligned temporal boundaries.</p>
+<h1 id="43-temporal-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">43. Temporal Boundary Principle</h1>
+<p>Equal Resource Quantity Across Different Time Windows ≠ Equivalent Resource-Use Pattern.</p>
+<h1 id="44-partial-period-boundary" data-oof-section-id="true" role="heading" aria-level="2">44. Partial-Period Boundary</h1>
+<p>A partial measurement period should not be represented as a complete period without an explicit basis.</p>
+<h1 id="45-temporal-boundary-shift" data-oof-section-id="true" role="heading" aria-level="2">45. Temporal Boundary Shift</h1>
+<p>Changing the start or end of a measurement interval may materially alter the reported Consumption.</p>
+<h1 id="46-temporal-shifting-principle" data-oof-section-id="true" role="heading" aria-level="2">46. Temporal-Shifting Principle</h1>
+<p>Reduced Consumption in One Reporting Period ≠ Reduced Consumption Across the Full Operational Period.</p>
+<h1 id="47-organizational-boundary" data-oof-section-id="true" role="heading" aria-level="2">47. Organizational Boundary</h1>
+<p>A Consumption Boundary may correspond to:</p>
+<p>organization; business unit; department; operator; facility owner; service provider; other responsible organizational scope.</p>
+<h1 id="48-organizational-transfer" data-oof-section-id="true" role="heading" aria-level="2">48. Organizational Transfer</h1>
+<p>Moving Resource-consuming activity to another organization may alter organizational Consumption without changing total Resource Consumption.</p>
+<h1 id="49-organizational-shifting-principle" data-oof-section-id="true" role="heading" aria-level="2">49. Organizational-Shifting Principle</h1>
+<p>Transferred Consumption ≠ Eliminated Consumption.</p>
+<h1 id="50-functional-boundary" data-oof-section-id="true" role="heading" aria-level="2">50. Functional Boundary</h1>
+<p>Consumption may be bounded by operational function.</p>
+<p>Examples include:</p>
+<p>production; safety; cooling; compute; transport; storage; maintenance.</p>
+<h1 id="51-functional-separation" data-oof-section-id="true" role="heading" aria-level="2">51. Functional Separation</h1>
+<p>Where materially possible, different functions should remain distinguishable.</p>
+<h1 id="52-functional-aggregation" data-oof-section-id="true" role="heading" aria-level="2">52. Functional Aggregation</h1>
+<p>Functions may be aggregated where the governance purpose permits.</p>
+<h1 id="53-functional-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">53. Functional Boundary Principle</h1>
+<p>Total Facility Consumption ≠ Consumption of Every Individual Function.</p>
+<h1 id="54-purpose-boundary" data-oof-section-id="true" role="heading" aria-level="2">54. Purpose Boundary</h1>
+<p>A Consumption Boundary may be defined around a governed purpose.</p>
+<h1 id="55-purpose-specific-consumption" data-oof-section-id="true" role="heading" aria-level="2">55. Purpose-Specific Consumption</h1>
+<p>Where Resource use is purpose-specific, the boundary should preserve the relevant purpose where evidence permits.</p>
+<h1 id="56-purpose-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">56. Purpose Boundary Principle</h1>
+<p>Same Resource + Same System ≠ Same Consumption Purpose.</p>
+<h1 id="57-direct-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">57. Direct Consumption Boundary</h1>
+<p>Direct Consumption represents Resource use occurring directly within the governed system, process, activity, or participant boundary.</p>
+<h1 id="58-indirect-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">58. Indirect Consumption Boundary</h1>
+<p>Indirect Consumption may arise through supporting systems or upstream/downstream processes materially associated with the governed activity.</p>
+<h1 id="59-direct-indirect-distinction" data-oof-section-id="true" role="heading" aria-level="2">59. Direct–Indirect Distinction</h1>
+<p>Direct Consumption ≠ Total Resource Dependency Footprint by definition.</p>
+<h1 id="60-indirect-inclusion" data-oof-section-id="true" role="heading" aria-level="2">60. Indirect Inclusion</h1>
+<p>Indirect Consumption should be included only where:</p>
+<p>the governance purpose requires it; the causal or allocation basis is sufficiently established; double counting can be controlled; evidence is sufficiently reliable.</p>
+<h1 id="61-indirect-attribution-boundary" data-oof-section-id="true" role="heading" aria-level="2">61. Indirect Attribution Boundary</h1>
+<p>Association ≠ Sufficient Basis for Indirect Consumption Attribution.</p>
+<h1 id="62-upstream-consumption" data-oof-section-id="true" role="heading" aria-level="2">62. Upstream Consumption</h1>
+<p>A Resource-use boundary may include upstream Resource Consumption where the governance purpose explicitly requires it.</p>
+<h1 id="63-downstream-consumption" data-oof-section-id="true" role="heading" aria-level="2">63. Downstream Consumption</h1>
+<p>Downstream Resource Consumption may similarly be included where justified.</p>
+<h1 id="64-lifecycle-boundary" data-oof-section-id="true" role="heading" aria-level="2">64. Lifecycle Boundary</h1>
+<p>A broader Consumption Boundary may span multiple lifecycle stages.</p>
+<h1 id="65-lifecycle-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">65. Lifecycle Boundary Principle</h1>
+<p>Operational Consumption ≠ Lifecycle Consumption.</p>
+<h1 id="66-embedded-resource-use" data-oof-section-id="true" role="heading" aria-level="2">66. Embedded Resource Use</h1>
+<p>Products, services, infrastructure, or materials may contain embedded Resource Consumption from prior processes.</p>
+<p>RCBM may define whether such Resource use belongs within the relevant boundary.</p>
+<h1 id="67-embedded-use-principle" data-oof-section-id="true" role="heading" aria-level="2">67. Embedded-Use Principle</h1>
+<p>Embedded Resource Consumption ≠ Current Operational Consumption.</p>
+<h1 id="68-shared-infrastructure" data-oof-section-id="true" role="heading" aria-level="2">68. Shared Infrastructure</h1>
+<p>Multiple governed activities may depend upon the same Resource-consuming infrastructure.</p>
+<h1 id="69-shared-infrastructure-boundary" data-oof-section-id="true" role="heading" aria-level="2">69. Shared-Infrastructure Boundary</h1>
+<p>RCBM should determine whether and how shared infrastructure falls within each relevant Consumption Boundary.</p>
+<h1 id="70-shared-infrastructure-principle" data-oof-section-id="true" role="heading" aria-level="2">70. Shared-Infrastructure Principle</h1>
+<p>Shared Infrastructure Consumption ≠ Automatically Full Consumption of Every Participant.</p>
+<h1 id="71-shared-resource-pool" data-oof-section-id="true" role="heading" aria-level="2">71. Shared Resource Pool</h1>
+<p>Multiple participants may draw Resource from a common Resource pool.</p>
+<p>The Consumption Boundary should prevent shared pool Consumption from being duplicated across participants.</p>
+<h1 id="72-double-counting" data-oof-section-id="true" role="heading" aria-level="2">72. Double Counting</h1>
+<p>Double Counting occurs when the same Resource Consumption is represented more than once within an aggregate governance result.</p>
+<h1 id="73-double-counting-principle" data-oof-section-id="true" role="heading" aria-level="2">73. Double-Counting Principle</h1>
+<p>Multiple Attribution Records ≠ Multiple Physical Consumption Events.</p>
+<h1 id="74-double-counting-prevention" data-oof-section-id="true" role="heading" aria-level="2">74. Double-Counting Prevention</h1>
+<p>RCBM should identify:</p>
+<p>Resource flow identity; measurement point; time interval; Source; participant; system; aggregation relationship</p>
+<p>where necessary to prevent duplicate inclusion.</p>
+<h1 id="75-boundary-overlap" data-oof-section-id="true" role="heading" aria-level="2">75. Boundary Overlap</h1>
+<p>Two Consumption Boundaries may overlap.</p>
+<p>Overlap should be identified where combined results could double count Resource use.</p>
+<h1 id="76-boundary-overlap-principle" data-oof-section-id="true" role="heading" aria-level="2">76. Boundary Overlap Principle</h1>
+<p>Overlapping Consumption Boundaries ≠ Additive Consumption by default.</p>
+<h1 id="77-boundary-gap" data-oof-section-id="true" role="heading" aria-level="2">77. Boundary Gap</h1>
+<p>A Boundary Gap exists where materially relevant Resource Consumption falls outside all intended measurement boundaries.</p>
+<h1 id="78-boundary-gap-principle" data-oof-section-id="true" role="heading" aria-level="2">78. Boundary-Gap Principle</h1>
+<p>Unassigned Consumption ≠ Zero Consumption.</p>
+<h1 id="79-boundary-completeness" data-oof-section-id="true" role="heading" aria-level="2">79. Boundary Completeness</h1>
+<p>RCBM should determine whether the defined boundary sufficiently covers the Resource Consumption relevant to the governance purpose.</p>
+<h1 id="80-completeness-boundary" data-oof-section-id="true" role="heading" aria-level="2">80. Completeness Boundary</h1>
+<p>Complete Measurement Inside an Incomplete Boundary ≠ Complete Resource Consumption Evidence.</p>
+<h1 id="81-boundary-materiality" data-oof-section-id="true" role="heading" aria-level="2">81. Boundary Materiality</h1>
+<p>Not every excluded Resource flow is materially relevant.</p>
+<p>RCBM should distinguish material from immaterial exclusions where appropriate.</p>
+<h1 id="82-material-exclusion" data-oof-section-id="true" role="heading" aria-level="2">82. Material Exclusion</h1>
+<p>A Material Exclusion is an excluded Resource-use component capable of materially affecting the intended governance interpretation.</p>
+<h1 id="83-materiality-principle" data-oof-section-id="true" role="heading" aria-level="2">83. Materiality Principle</h1>
+<p>Small Number of Exclusions ≠ Immaterial Boundary Effect.</p>
+<p>One excluded component may dominate Resource Consumption.</p>
+<h1 id="84-boundary-hierarchy" data-oof-section-id="true" role="heading" aria-level="2">84. Boundary Hierarchy</h1>
+<p>Consumption Boundaries may form a hierarchy.</p>
+<p>Example:</p>
+<p>Device → Rack → Data Hall → Data Center → Campus → Regional Infrastructure</p>
+<p>or:</p>
+<p>Process → Production Line → Facility → Company → Supply Network</p>
+<h1 id="85-parent-boundary" data-oof-section-id="true" role="heading" aria-level="2">85. Parent Boundary</h1>
+<p>A Parent Boundary may contain multiple subordinate Consumption Boundaries.</p>
+<h1 id="86-child-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Child Boundary</h1>
+<p>A Child Boundary represents a narrower governed Consumption scope within a Parent Boundary.</p>
+<h1 id="87-hierarchy-principle" data-oof-section-id="true" role="heading" aria-level="2">87. Hierarchy Principle</h1>
+<p>Sum of Child Boundaries ≠ Parent Boundary Automatically.</p>
+<p>Shared Resource use, losses, infrastructure, and unassigned Consumption may prevent direct equivalence.</p>
+<h1 id="88-nested-boundaries" data-oof-section-id="true" role="heading" aria-level="2">88. Nested Boundaries</h1>
+<p>Nested Consumption Boundaries should preserve their inclusion relationships where relevant.</p>
+<h1 id="89-boundary-decomposition" data-oof-section-id="true" role="heading" aria-level="2">89. Boundary Decomposition</h1>
+<p>A broader boundary may be decomposed into smaller Resource-use components.</p>
+<h1 id="90-decomposition-principle" data-oof-section-id="true" role="heading" aria-level="2">90. Decomposition Principle</h1>
+<p>Boundary Decomposition ≠ Automatic Attribution Accuracy.</p>
+<h1 id="91-boundary-aggregation" data-oof-section-id="true" role="heading" aria-level="2">91. Boundary Aggregation</h1>
+<p>Multiple Consumption Boundaries may be aggregated into a broader Resource Consumption view.</p>
+<h1 id="92-aggregation-requirements" data-oof-section-id="true" role="heading" aria-level="2">92. Aggregation Requirements</h1>
+<p>Aggregation should consider:</p>
+<p>unit compatibility; temporal alignment; spatial relationship;</p>
+<p>Source relationship; overlap; shared Resource flows; double-counting risk; boundary completeness.</p>
+<h1 id="93-aggregation-principle" data-oof-section-id="true" role="heading" aria-level="2">93. Aggregation Principle</h1>
+<p>Mathematically Addable Consumption Values ≠ Governance-Compatible Consumption Values.</p>
+<h1 id="94-boundary-equivalence" data-oof-section-id="true" role="heading" aria-level="2">94. Boundary Equivalence</h1>
+<p>Two Consumption Boundaries are equivalent only when their materially relevant inclusion and exclusion logic is sufficiently aligned for the intended governance purpose.</p>
+<h1 id="95-boundary-comparability" data-oof-section-id="true" role="heading" aria-level="2">95. Boundary Comparability</h1>
+<p>Boundaries may be:</p>
+<p>Equivalent</p>
+<p>Comparable with Adjustment</p>
+<p>Partially Comparable</p>
+<p>Not Comparable</p>
+<p>Comparability Unknown</p>
+<h1 id="96-comparability-principle" data-oof-section-id="true" role="heading" aria-level="2">96. Comparability Principle</h1>
+<p>Same Unit ≠ Same Boundary.</p>
+<h1 id="97-boundary-adjustment" data-oof-section-id="true" role="heading" aria-level="2">97. Boundary Adjustment</h1>
+<p>Where legitimate, Consumption evidence may be adjusted to create a sufficiently comparable boundary.</p>
+<p>The adjustment method should remain explicit.</p>
+<h1 id="98-adjustment-boundary" data-oof-section-id="true" role="heading" aria-level="2">98. Adjustment Boundary</h1>
+<p>Adjusted Consumption ≠ Original Consumption Measurement.</p>
+<h1 id="99-boundary-normalization" data-oof-section-id="true" role="heading" aria-level="2">99. Boundary Normalization</h1>
+<p>Normalization may support comparison across different Consumption Boundaries where a valid methodology exists.</p>
+<h1 id="100-normalization-principle" data-oof-section-id="true" role="heading" aria-level="2">100. Normalization Principle</h1>
+<p>Normalized Consumption ≠ Physical Boundary Equivalence.</p>
+<h1 id="101-boundary-consistency" data-oof-section-id="true" role="heading" aria-level="2">101. Boundary Consistency</h1>
+<p>Repeated measurements intended for trend analysis should preserve sufficiently consistent boundaries.</p>
+<h1 id="102-boundary-drift" data-oof-section-id="true" role="heading" aria-level="2">102. Boundary Drift</h1>
+<p>Boundary Drift occurs when the practical inclusion or exclusion scope changes over time without an explicit governance decision.</p>
+<h1 id="103-boundary-drift-principle" data-oof-section-id="true" role="heading" aria-level="2">103. Boundary-Drift Principle</h1>
+<p>Stable Boundary Label ≠ Stable Boundary Definition.</p>
+<h1 id="104-boundary-change" data-oof-section-id="true" role="heading" aria-level="2">104. Boundary Change</h1>
+<p>A Consumption Boundary may legitimately change because of:</p>
+<p>system expansion; infrastructure change; Source change; organizational change; process redesign; measurement improvement; governance-purpose change; Resource-flow change.</p>
+<h1 id="105-boundary-change-control" data-oof-section-id="true" role="heading" aria-level="2">105. Boundary Change Control</h1>
+<p>Material boundary changes should be:</p>
+<p>identified; justified; dated; versioned; traceable.</p>
+<h1 id="106-historical-comparability" data-oof-section-id="true" role="heading" aria-level="2">106. Historical Comparability</h1>
+<p>When boundaries change, historical comparisons should indicate whether prior Consumption remains directly comparable.</p>
+<h1 id="107-historical-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">107. Historical Boundary Principle</h1>
+<p>Historical Consumption Under Boundary A ≠ Current Consumption Under Boundary B by default.</p>
+<h1 id="108-boundary-version" data-oof-section-id="true" role="heading" aria-level="2">108. Boundary Version</h1>
+<p>Each materially distinct Consumption Boundary should have a version or equivalent traceable state.</p>
+<h1 id="109-boundary-validity-period" data-oof-section-id="true" role="heading" aria-level="2">109. Boundary Validity Period</h1>
+<p>A boundary should preserve the period during which it applies where temporal validity matters.</p>
+<h1 id="110-boundary-evidence" data-oof-section-id="true" role="heading" aria-level="2">110. Boundary Evidence</h1>
+<p>Boundary decisions should be supported by evidence appropriate to the Resource and governance purpose.</p>
+<h1 id="111-boundary-evidence-types" data-oof-section-id="true" role="heading" aria-level="2">111. Boundary Evidence Types</h1>
+<p>Evidence may include:</p>
+<p>system architecture; Resource-flow diagrams; meter topology; facility plans; process maps; Source records; organizational records; operational telemetry; measurement documentation; allocation records; other relevant evidence.</p>
+<h1 id="112-boundary-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">112. Boundary Evidence Sufficiency</h1>
+<p>RCBM should determine whether available evidence sufficiently supports the boundary definition.</p>
+<h1 id="113-boundary-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">113. Boundary Uncertainty</h1>
+<p>Where inclusion or exclusion cannot be established with sufficient confidence, uncertainty should remain visible.</p>
+<h1 id="114-boundary-conflict" data-oof-section-id="true" role="heading" aria-level="2">114. Boundary Conflict</h1>
+<p>Boundary Conflict exists where legitimate evidence or governance requirements support incompatible boundary definitions.</p>
+<h1 id="115-conflict-principle" data-oof-section-id="true" role="heading" aria-level="2">115. Conflict Principle</h1>
+<p>Boundary Conflict ≠ Permission to Select the Most Favorable Boundary.</p>
+<h1 id="116-boundary-unknown" data-oof-section-id="true" role="heading" aria-level="2">116. Boundary Unknown</h1>
+<p>Where the Consumption Boundary cannot be sufficiently established, RCBM should support an Unknown state.</p>
+<h1 id="117-unknown-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">117. Unknown Boundary Principle</h1>
+<p>Undefined Boundary ≠ Zero Consumption.</p>
+<h1 id="118-boundary-manipulation" data-oof-section-id="true" role="heading" aria-level="2">118. Boundary Manipulation</h1>
+<p>A Consumption Boundary should not be narrowed, widened, shifted, or otherwise modified solely to produce a preferred Resource Consumption result.</p>
+<h1 id="119-boundary-shifting-risk" data-oof-section-id="true" role="heading" aria-level="2">119. Boundary-Shifting Risk</h1>
+<p>Boundary shifting may make Resource performance appear improved without reducing total Resource Consumption.</p>
+<h1 id="120-boundary-shifting-principle" data-oof-section-id="true" role="heading" aria-level="2">120. Boundary-Shifting Principle</h1>
+<p>Consumption Moved Outside the Reporting Boundary ≠ Consumption Eliminated.</p>
+<h1 id="121-outsourcing-boundary" data-oof-section-id="true" role="heading" aria-level="2">121. Outsourcing Boundary</h1>
+<p>Outsourcing a Resource-intensive activity may reduce direct organizational Consumption while leaving broader system Consumption unchanged.</p>
+<h1 id="122-outsourcing-principle" data-oof-section-id="true" role="heading" aria-level="2">122. Outsourcing Principle</h1>
+<p>Outsourced Consumption ≠ Eliminated Consumption.</p>
+<h1 id="123-cloud-external-infrastructure-boundary" data-oof-section-id="true" role="heading" aria-level="2">123. Cloud / External Infrastructure Boundary</h1>
+<p>Use of external infrastructure may move Resource Consumption outside the user's physical facility.</p>
+<p>RCBM should preserve whether such Consumption is inside or outside the selected boundary.</p>
+<h1 id="124-externalization-principle" data-oof-section-id="true" role="heading" aria-level="2">124. Externalization Principle</h1>
+<p>Externally Consumed Resource ≠ Zero Resource Consumption.</p>
+<h1 id="125-efficiency-boundary-integrity" data-oof-section-id="true" role="heading" aria-level="2">125. Efficiency Boundary Integrity</h1>
+<p>Resource efficiency comparisons require sufficiently aligned Consumption Boundaries.</p>
+<h1 id="126-efficiency-comparison-principle" data-oof-section-id="true" role="heading" aria-level="2">126. Efficiency Comparison Principle</h1>
+<p>Lower Consumption Under a Narrower Boundary ≠ Demonstrated Resource Efficiency Improvement.</p>
+<h1 id="127-value-comparison-boundary" data-oof-section-id="true" role="heading" aria-level="2">127. Value Comparison Boundary</h1>
+<p>Where Consumption is compared with Value, both the Resource Consumption Boundary and Value context should be sufficiently explicit.</p>
+<h1 id="128-value-boundary-principle" data-oof-section-id="true" role="heading" aria-level="2">128. Value Boundary Principle</h1>
+<p>Same Value Output + Different Consumption Boundaries ≠ Directly Comparable Resource Productivity by default.</p>
+<h1 id="129-scarcity-boundary-context" data-oof-section-id="true" role="heading" aria-level="2">129. Scarcity Boundary Context</h1>
+<p>Resource Consumption boundaries may affect Scarcity analysis.</p>
+<p>Local Consumption can matter even when aggregate Resource Consumption appears manageable.</p>
+<p>RCBM supplies boundary evidence but does not determine Scarcity.</p>
+<h1 id="130-recovery-boundary-context" data-oof-section-id="true" role="heading" aria-level="2">130. Recovery Boundary Context</h1>
+<p>Residual Resource may cross the Consumption Boundary after primary use.</p>
+<p>RCBM identifies the boundary relationship without governing Recovery.</p>
+<h1 id="131-interdependency-boundary-context" data-oof-section-id="true" role="heading" aria-level="2">131. Interdependency Boundary Context</h1>
+<p>Resource Consumption may depend upon other Resource systems.</p>
+<p>RCBM may preserve those boundary relationships without absorbing interdependency governance.</p>
+<h1 id="132-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">132. Prediction Boundary</h1>
+<p>Predicted Consumption may use a defined future boundary.</p>
+<h1 id="133-prediction-distinction" data-oof-section-id="true" role="heading" aria-level="2">133. Prediction Distinction</h1>
+<p>Predicted Consumption Boundary ≠ Observed Consumption Boundary unless explicitly aligned.</p>
+<h1 id="134-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">134. Simulation Boundary</h1>
+<p>Simulation may model alternative Resource Consumption boundaries.</p>
+<h1 id="135-simulation-distinction" data-oof-section-id="true" role="heading" aria-level="2">135. Simulation Distinction</h1>
+<p>Simulated Boundary ≠ Operational Boundary by default.</p>
+<h1 id="136-automated-boundary-assignment" data-oof-section-id="true" role="heading" aria-level="2">136. Automated Boundary Assignment</h1>
+<p>Software may automatically classify Resource flows into boundaries.</p>
+<h1 id="137-automation-boundary" data-oof-section-id="true" role="heading" aria-level="2">137. Automation Boundary</h1>
+<p>Automated Classification ≠ Boundary Authority.</p>
+<h1 id="138-boundary-authority" data-oof-section-id="true" role="heading" aria-level="2">138. Boundary Authority</h1>
+<p>Where boundary definition materially affects governance decisions, the authority or methodology under which the boundary is established should remain identifiable.</p>
+<h1 id="139-technical-configuration-boundary" data-oof-section-id="true" role="heading" aria-level="2">139. Technical Configuration Boundary</h1>
+<p>A technical system may enforce or implement a boundary.</p>
+<p>That does not itself establish governance legitimacy.</p>
+<p>Technical Boundary Configuration ≠ Governance Boundary Authority.</p>
+<h1 id="140-resource-consumption-boundary-profile" data-oof-section-id="true" role="heading" aria-level="2">140. Resource Consumption Boundary Profile</h1>
+<p>The principal RCBM output is the:</p>
+<p>Resource Consumption Boundary Profile</p>
+<h1 id="141-minimum-resource-consumption-boundary-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">141. Minimum Resource Consumption Boundary Profile Fields</h1>
+<p>At minimum:</p>
+<p>Boundary ID</p>
+<p>Resource ID</p>
+<p>Governance Purpose</p>
+<p>Boundary Name</p>
+<p>Boundary Type</p>
+<p>Governed System / Process / Activity</p>
+<p>Included Resource Flows</p>
+<p>Excluded Resource Flows</p>
+<p>Material Exclusions</p>
+<p>Included Infrastructure</p>
+<p>Excluded Infrastructure</p>
+<p>Resource Source Scope</p>
+<p>Spatial Scope</p>
+<p>Temporal Scope</p>
+<p>Organizational Scope</p>
+<p>Functional Scope</p>
+<p>Purpose Scope</p>
+<p>Direct Consumption Inclusion</p>
+<p>Indirect Consumption Inclusion</p>
+<p>Upstream Scope where applicable</p>
+<p>Downstream Scope where applicable</p>
+<p>Measurement Points</p>
+<p>Parent Boundary where applicable</p>
+<p>Child Boundaries where applicable</p>
+<p>Overlap References</p>
+<p>Boundary Gap State</p>
+<p>Double-Counting Risk</p>
+<p>Completeness State</p>
+<p>Comparability State</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Uncertainty State</p>
+<p>Conflict State</p>
+<p>Effective Time</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="142-minimum-boundary-states" data-oof-section-id="true" role="heading" aria-level="2">142. Minimum Boundary States</h1>
+<p>At minimum:</p>
+<p>Boundary Established</p>
+<p>Boundary Conditionally Established</p>
+<p>Boundary Incomplete</p>
+<p>Boundary Overlapping</p>
+<p>Boundary Gap Identified</p>
+<p>Boundary Under Review</p>
+<p>Boundary Changed</p>
+<p>Boundary Evidence-Limited</p>
+<p>Boundary Conflicted</p>
+<p>Boundary Unknown</p>
+<p>Boundary Unresolved</p>
+<p>Boundary Reassessment Required</p>
+<p>Boundary Expired</p>
+<h1 id="143-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">143. Minimum Implementation Framework</h1>
+<p>A minimum operational RCBM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Governance Purpose</p>
+<p>Establish:</p>
+<p>why Resource Consumption is being bounded; which governance question the boundary must support.</p>
+<p>Layer 2 — Governed Resource Context</p>
+<p>Establish:</p>
+<p>Resource; Resource Source; system; process; activity; infrastructure.</p>
+<p>Layer 3 — Inclusion / Exclusion</p>
+<p>Determine:</p>
+<p>included Resource flows; excluded Resource flows; direct Consumption; indirect Consumption; material exclusions.</p>
+<p>Layer 4 — Spatial / Temporal / Organizational Scope</p>
+<p>Establish:</p>
+<p>location; time interval; organizational scope; functional scope; purpose scope.</p>
+<p>Layer 5 — Boundary Relationships</p>
+<p>Determine:</p>
+<p>parent boundaries; child boundaries; overlaps; gaps; shared infrastructure; shared Resource flows.</p>
+<p>Layer 6 — Integrity &amp; Comparability</p>
+<p>Evaluate:</p>
+<p>double counting; boundary completeness; boundary equivalence; comparability; boundary shifting; externalization.</p>
+<p>Layer 7 — Evidence &amp; Validity</p>
+<p>Evaluate:</p>
+<p>evidence basis; uncertainty; conflict; effective period; change; reassessment.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Consumption Boundary Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>Governance Purpose → Resource Context → System / Process / Activity Scope → Resource Flows → Inclusion / Exclusion → Spatial / Temporal / Source / Organizational Scope → Overlap / Gap / Double-Counting Review → Comparability / Integrity → Resource Consumption Boundary Profile</p>
+<h1 id="144-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">144. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Boundary Accepted</p>
+<p>Boundary Conditionally Accepted</p>
+<p>Boundary Adjustment Required</p>
+<p>Boundary Expansion Required</p>
+<p>Boundary Narrowing Required</p>
+<p>Boundary Overlap Resolution Required</p>
+<p>Boundary Gap Resolution Required</p>
+<p>Boundary Comparability Adjustment Required</p>
+<p>Boundary Evidence-Limited</p>
+<p>Boundary Conflicted</p>
+<p>Boundary Unknown</p>
+<p>Boundary Unresolved</p>
+<p>Boundary Reassessment Required</p>
+<h1 id="145-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">145. Minimum Evidence Path</h1>
+<p>Where a Consumption Boundary cannot be sufficiently established:</p>
+<p>Boundary Unknown / Unresolved → Missing System / Flow / Source / Spatial / Temporal / Organizational Evidence → Minimum Evidence Requirement → Evidence Acquisition → Inclusion / Exclusion Review → Overlap / Gap Review → Boundary Validation → Resource Consumption Boundary Profile Update</p>
+<h1 id="146-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">146. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Consumption Boundary Profile → System / Process / Source / Infrastructure / Purpose / Time Change → Materiality Test → Inclusion / Exclusion Review → Overlap / Gap / Double-Counting Review → Comparability Review → Boundary Confirmation or Modification → Profile Update → Version Update</p>
+<h1 id="147-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">147. Governance Requirements</h1>
+<p>A conforming RCBM implementation must:</p>
+<h1 id="1-identify-the-governance-purpose-of-the-consumption-boundary-2-identify-the-gov" data-oof-section-id="true" role="heading" aria-level="2">1. identify the governance purpose of the Consumption Boundary; 2. identify the governed Resource; 3. identify the governed system where applicable; 4. identify the governed process where applicable; 5. identify the governed activity where applicable; 6. identify materially relevant infrastructure; 7. identify Resource flows entering the boundary; 8. identify Resource flows leaving the boundary; 9. identify relevant internal Resource flows; 10. prevent internal transfers from becoming new Consumption automatically; 11. distinguish Resource entry from Resource Consumption; 12. distinguish Resource exit from Resource Recovery; 13. identify included Resource flows; 14. identify excluded Resource flows; 15. identify material exclusions; 16. preserve Resource Source scope; 17. distinguish Resource type from Resource Source; 18. preserve Source changes where material; 19. preserve spatial scope; 20. prevent aggregate Consumption from replacing local Consumption context where local context matters; 21. identify spatial boundary shifts; 22. preserve temporal scope; 23. preserve temporal alignment; 24. identify partial-period boundaries; 25. identify temporal boundary shifts; 26. preserve organizational scope where relevant; 27. identify organizational transfer of Resource-consuming activity; 28. preserve functional scope; 29. preserve purpose scope where relevant; 30. distinguish direct from indirect Consumption boundaries; 31. require a sufficient basis for indirect Consumption inclusion; 32. preserve upstream scope where applicable; 33. preserve downstream scope where applicable; 34. distinguish operational from lifecycle Consumption boundaries; 35. distinguish embedded from current operational Consumption; 36. preserve shared-infrastructure context; 37. prevent shared infrastructure from being fully attributed to every participant automatically; 38. preserve shared Resource-pool context; 39. detect double counting; 40. prevent multiple attribution records from becoming multiple physical Consumption events; 41. identify overlapping boundaries; 42. prevent overlapping boundaries from being treated automatically as additive; 43. identify boundary gaps; 44. prevent unassigned Consumption from becoming zero Consumption; 45. determine boundary completeness; 46. distinguish complete measurement from complete boundary coverage; 47. determine materiality of exclusions where applicable; 48. preserve boundary hierarchy; 49. preserve parent and child relationships;</h1>
+<h1 id="50-prevent-child-boundary-sums-from-becoming-parent-consumption-automatically-51" data-oof-section-id="true" role="heading" aria-level="2">50. prevent child-boundary sums from becoming parent Consumption automatically; 51. support boundary decomposition; 52. prevent decomposition from implying attribution accuracy; 53. support boundary aggregation; 54. validate unit compatibility before aggregation; 55. validate temporal alignment before aggregation; 56. evaluate overlap before aggregation; 57. evaluate double-counting risk before aggregation; 58. determine boundary equivalence where required; 59. determine boundary comparability; 60. distinguish same units from same boundaries; 61. preserve boundary adjustments; 62. distinguish adjusted from original Consumption evidence; 63. preserve normalization methods where used; 64. distinguish normalized Consumption from physical boundary equivalence; 65. preserve boundary consistency for trend analysis; 66. identify boundary drift; 67. prevent stable labels from concealing changed definitions; 68. identify material boundary changes; 69. justify material boundary changes; 70. date and version material boundary changes; 71. preserve historical comparability; 72. prevent historical Boundary A results from being treated automatically as current Boundary B results; 73. preserve boundary validity periods; 74. preserve boundary evidence; 75. determine evidence sufficiency; 76. preserve boundary uncertainty; 77. identify boundary conflict; 78. prevent conflict from enabling selection of the most favorable boundary; 79. support Unknown boundary states; 80. prevent undefined boundaries from being interpreted as zero Consumption; 81. identify boundary-manipulation risk; 82. identify boundary-shifting risk; 83. prevent moved Consumption from being represented automatically as eliminated Consumption; 84. preserve outsourcing effects where material; 85. preserve external infrastructure Consumption boundary context; 86. prevent external Consumption from becoming zero Resource Consumption; 87. require sufficiently aligned boundaries for efficiency comparison; 88. prevent narrower boundaries from creating unsupported efficiency claims; 89. preserve Consumption Boundary context in Value comparisons; 90. preserve local boundary context for Scarcity analysis; 91. preserve residual Resource boundary context for Recovery; 92. preserve interdependency boundary context where relevant; 93. distinguish predicted from observed Consumption boundaries; 94. distinguish simulated from operational boundaries; 95. prevent automated classification from becoming boundary authority; 96. preserve applicable boundary authority or methodology; 97. distinguish technical configuration from governance authority; 98. support boundary reassessment; 99. preserve version history; 100. produce a Resource Consumption Boundary Profile.</h1>
+<h1 id="148-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">148. Governance Logic</h1>
+<p>Canonical RCBM logic:</p>
+<p>Governance Purpose → Resource Identification → System / Process / Activity Definition → Infrastructure Context → Resource-Flow Mapping → Source Boundary → Spatial Boundary</p>
+<p>→ Temporal Boundary → Organizational / Functional / Purpose Boundary → Direct / Indirect Inclusion → Inclusion / Exclusion Determination → Overlap / Gap / Double-Counting Review → Boundary Completeness → Comparability / Integrity Review → Resource Consumption Boundary Profile → Reassessment</p>
+<h1 id="149-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">149. Governance Outputs</h1>
+<p>RCBM may produce:</p>
+<p>Resource Consumption Boundary Profile</p>
+<p>System Boundary</p>
+<p>Process Boundary</p>
+<p>Activity Boundary</p>
+<p>Infrastructure Boundary</p>
+<p>Resource-Flow Boundary</p>
+<p>Resource Source Boundary</p>
+<p>Spatial Boundary</p>
+<p>Temporal Boundary</p>
+<p>Organizational Boundary</p>
+<p>Functional Boundary</p>
+<p>Purpose Boundary</p>
+<p>Direct Consumption Boundary</p>
+<p>Indirect Consumption Boundary</p>
+<p>Lifecycle Boundary where applicable</p>
+<p>Included Resource Flow Set</p>
+<p>Excluded Resource Flow Set</p>
+<p>Material Exclusion Set</p>
+<p>Boundary Hierarchy</p>
+<p>Boundary Overlap State</p>
+<p>Boundary Gap State</p>
+<p>Double-Counting Risk State</p>
+<p>Boundary Completeness State</p>
+<p>Boundary Equivalence State</p>
+<p>Boundary Comparability State</p>
+<p>Boundary Drift State</p>
+<p>Boundary Change Record</p>
+<p>Evidence Sufficiency State</p>
+<p>Boundary Uncertainty State</p>
+<p>Boundary Conflict State</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="150-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">150. Critical Distinctions</h1>
+<p>Resource Quantity Without a Defined Consumption Boundary ≠ Governed Resource Consumption</p>
+<p>Equal Resource Quantity Across Different Boundaries ≠ Equivalent Resource Consumption Evidence</p>
+<p>Same Resource System + Different Governance Purpose ≠ Automatically Same Appropriate Consumption Boundary</p>
+<p>Component Consumption ≠ System Consumption</p>
+<p>Primary Process Consumption ≠ Total Operational Consumption by definition</p>
+<p>Primary Activity ≠ Entire Resource-Use System</p>
+<p>Excluded Infrastructure Consumption ≠ Nonexistent Infrastructure Consumption</p>
+<p>Internal Resource Transfer ≠ New Resource Consumption</p>
+<p>Resource Entry ≠ Resource Consumption</p>
+<p>Resource Exit ≠ Resource Recovery</p>
+<p>Same Resource Type ≠ Same Resource Source</p>
+<p>Stable Total Consumption ≠ Stable Source Composition</p>
+<p>Aggregate Consumption ≠ Local Consumption Condition</p>
+<p>Reduced Consumption Within Boundary A ≠ Reduced Total Resource Consumption</p>
+<p>Equal Resource Quantity Across Different Time Windows ≠ Equivalent Resource-Use Pattern</p>
+<p>Reduced Consumption in One Reporting Period ≠ Reduced Consumption Across the Full Operational Period</p>
+<p>Transferred Consumption ≠ Eliminated Consumption</p>
+<p>Total Facility Consumption ≠ Consumption of Every Individual Function</p>
+<p>Same Resource + Same System ≠ Same Consumption Purpose</p>
+<p>Direct Consumption ≠ Total Resource Dependency Footprint by definition</p>
+<p>Association ≠ Sufficient Basis for Indirect Consumption Attribution</p>
+<p>Operational Consumption ≠ Lifecycle Consumption</p>
+<p>Embedded Resource Consumption ≠ Current Operational Consumption</p>
+<p>Shared Infrastructure Consumption ≠ Automatically Full Consumption of Every Participant</p>
+<p>Multiple Attribution Records ≠ Multiple Physical Consumption Events</p>
+<p>Overlapping Consumption Boundaries ≠ Additive Consumption by default</p>
+<p>Unassigned Consumption ≠ Zero Consumption</p>
+<p>Complete Measurement Inside an Incomplete Boundary ≠ Complete Resource Consumption Evidence</p>
+<p>Sum of Child Boundaries ≠ Parent Boundary Automatically</p>
+<p>Boundary Decomposition ≠ Automatic Attribution Accuracy</p>
+<p>Mathematically Addable Consumption Values ≠ Governance-Compatible Consumption Values</p>
+<p>Same Unit ≠ Same Boundary</p>
+<p>Adjusted Consumption ≠ Original Consumption Measurement</p>
+<p>Normalized Consumption ≠ Physical Boundary Equivalence</p>
+<p>Stable Boundary Label ≠ Stable Boundary Definition</p>
+<p>Historical Consumption Under Boundary A ≠ Current Consumption Under Boundary B by default</p>
+<p>Boundary Conflict ≠ Permission to Select the Most Favorable Boundary</p>
+<p>Undefined Boundary ≠ Zero Consumption</p>
+<p>Consumption Moved Outside the Reporting Boundary ≠ Consumption Eliminated</p>
+<p>Outsourced Consumption ≠ Eliminated Consumption</p>
+<p>Externally Consumed Resource ≠ Zero Resource Consumption</p>
+<p>Lower Consumption Under a Narrower Boundary ≠ Demonstrated Resource Efficiency Improvement</p>
+<p>Same Value Output + Different Consumption Boundaries ≠ Directly Comparable Resource Productivity by default</p>
+<p>Predicted Consumption Boundary ≠ Observed Consumption Boundary unless explicitly aligned</p>
+<p>Simulated Boundary ≠ Operational Boundary by default</p>
+<p>Automated Classification ≠ Boundary Authority</p>
+<p>Technical Boundary Configuration ≠ Governance Boundary Authority</p>
+<h1 id="151-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">151. Cross-Architecture Boundary</h1>
+<p>RCBM may consume:</p>
+<p>RCHS — Resource identity, type, Source, state, and context.</p>
+<p>RACS — Resource Availability and capacity boundaries.</p>
+<p>RDGS — Demand boundaries where Demand and Consumption require comparison.</p>
+<p>RDCS — Dependency and Criticality context.</p>
+<p>RAGS — Access and rights boundaries.</p>
+<p>RPAS — Allocation scope, Allocation limits, and Resource distribution context.</p>
+<p>RCMM — Resource Consumption Measurements requiring explicit Consumption boundaries.</p>
+<p>RUSM — Utilization evidence requiring sufficiently aligned capacity and Resource-use boundaries.</p>
+<p>RSCS — Scarcity and Constraint context where spatial, temporal, or Source boundaries materially affect Scarcity.</p>
+<p>RRCS — Recovery context where residual Resource crosses the Consumption boundary.</p>
+<p>RIRS — Resource interdependency evidence where Consumption boundaries interact across Resource systems.</p>
+<p>RCSS — continuity and sustainability context.</p>
+<p>ORA™ — operational reality evidence.</p>
+<p>PGA™ — predicted Resource-use boundaries without treating prediction as observed Consumption.</p>
+<p>SIMULOS® — simulated Resource boundaries without treating simulation as operational reality.</p>
+<p>VEGA™ — Value and efficiency analysis requiring sufficiently aligned Resource Consumption boundaries.</p>
+<p>RCBM does not absorb these mechanisms.</p>
+<h1 id="152-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">152. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RCBM governs the boundaries within which Resource Consumption is represented and compared.</p>
+<p>Its outputs may support:</p>
+<p>Consumption Measurement; Utilization analysis; Allocation reassessment; Scarcity analysis; Recovery analysis; efficiency evaluation; Value evaluation; Resilience governance; Sustainability governance.</p>
+<p>Those mechanisms remain governed by their competent architectures.</p>
+<h1 id="153-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">153. Canonical Boundary</h1>
+<p>RCBM governs how the system, process, activity, infrastructure, Resource flow, Source, spatial, temporal, organizational, functional, purpose, direct, indirect, and other materially relevant boundaries of Resource Consumption are established, evidenced, maintained, compared, versioned, and reassessed, including inclusion, exclusion, overlap, gaps, double counting, boundary hierarchy, boundary shifting, completeness, and comparability.</p>
+<p>It does not measure Resource Consumption itself, determine Resource Utilization State, establish Resource Allocation, authorize Access, determine Scarcity, govern Recovery, or determine Value, Harm, Liability, or long-term Sustainability.</p>
+<p>Its principal governed output is the Resource Consumption Boundary Profile .</p>
+<h1 id="154-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">154. Canonical Closing Statement</h1>
+<p>Resource Consumption cannot be meaningfully governed by quantity alone. Every quantity exists inside a boundary, and changing that boundary can change the apparent Resource reality without changing the underlying Resource use.</p>
+<p>RCBM governs that boundary — ensuring that Resource Consumption remains explicit about what is counted, what is excluded, where and when the measurement applies, how boundaries relate, and whether apparent reductions represent genuine Resource change or merely movement beyond the edge of measurement.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

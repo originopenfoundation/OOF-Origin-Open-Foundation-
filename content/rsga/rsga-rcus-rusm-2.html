@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Utilization State Module | OOF®</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- OOF AI DISCOVERY START -->
+<meta name="description" content="Resource Utilization State Module | OOF®. RUSM — Resource Utilization State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html" />
+<link rel="alternate" hreflang="en" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html" />
+<link rel="alternate" hreflang="x-default" href="https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html" />
+<link rel="alternate" type="application/ld+json" href="https://originopenfoundation.org/data/oof-site-knowledge-graph.json" title="OOF Site Knowledge Graph" />
+<link rel="alternate" type="text/plain" href="https://originopenfoundation.org/llms.txt" title="OOF LLM Index" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="content-language" content="en" />
+<meta property="og:title" content="Resource Utilization State Module | OOF®" />
+<meta property="og:description" content="Resource Utilization State Module | OOF®. RUSM — Resource Utilization State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta property="og:url" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Resource Utilization State Module | OOF®" />
+<meta name="twitter:description" content="Resource Utilization State Module | OOF®. RUSM — Resource Utilization State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent." />
+<meta name="DC.title" content="Resource Utilization State Module | OOF®" />
+<meta name="DC.language" content="en" />
+<meta name="DC.identifier" content="https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html#webpage","url":"https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html","name":"Resource Utilization State Module | OOF®","description":"Resource Utilization State Module | OOF®. RUSM — Resource Utilization State Module Architecture: RSGA™ — Resource Sustainability Governance Architecture Parent.","inLanguage":"en","isPartOf":{"@id":"https://originopenfoundation.org/#website"},"publisher":{"@id":"https://originopenfoundation.org/#organization"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"OOF® — OriginOpen® Foundation","item":"https://originopenfoundation.org/"},{"@type":"ListItem","position":2,"name":"Resource Utilization State Module | OOF®","item":"https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html"}]},"headline":"Resource Utilization State Module | OOF®","author":{"@id":"https://originopenfoundation.org/#organization"},"mainEntityOfPage":{"@id":"https://originopenfoundation.org/content/rsga/rsga-rcus-rusm-2.html#webpage"},"keywords":["RSGA™ — Resource Sustainability Governance Architecture","Resource Consumption & Utilization Standard (RCUS)","Governance & Enforcement","Resource Governance","Resource Utilization State Governance"],"about":[{"@type":"Thing","name":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"Thing","name":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"Thing","name":"Governance & Enforcement"},{"@type":"Thing","name":"Resource Governance"},{"@type":"Thing","name":"Resource Utilization State Governance"}],"version":"1.0","creativeWorkStatus":"Draft Module","additionalProperty":[{"@type":"PropertyValue","name":"Architecture","value":"RSGA™ — Resource Sustainability Governance Architecture"},{"@type":"PropertyValue","name":"Parent Standard","value":"Resource Consumption & Utilization Standard (RCUS)"},{"@type":"PropertyValue","name":"Category","value":"Governance & Enforcement"},{"@type":"PropertyValue","name":"Subcategory","value":"Resource Governance"},{"@type":"PropertyValue","name":"Type","value":"Core Module"},{"@type":"PropertyValue","name":"Governed Space","value":"Resource Utilization State Governance"},{"@type":"PropertyValue","name":"Version","value":"1.0"},{"@type":"PropertyValue","name":"Status","value":"Draft Module"},{"@type":"PropertyValue","name":"Canonical Language","value":"English"}]}</script>
+<!-- OOF AI DISCOVERY END -->
+</head>
+<body>
+<div id="header"></div>
+<main>
+<!-- OOF SEMANTIC CONTENT START -->
+<article class="oof-semantic-article">
+<article class="container">
+<!-- OOF SEMANTIC CONTENT START -->
+<section class="container"><div class="oof-warning3">
+<p>RUSM — Resource Utilization State Module</p>
+<p class="podstand"><b>Architecture:</b> RSGA™ — Resource Sustainability Governance Architecture</p>
+<p class="podstand"><b>Parent Standard:</b> Resource Consumption &amp; Utilization Standard (RCUS)</p>
+<p class="podstand"><b>Category:</b> Governance &amp; Enforcement</p>
+<p class="podstand"><b>Subcategory:</b> Resource Governance</p>
+<p class="podstand"><b>Type:</b> Core Module</p>
+<p class="podstand"><b>Governed Space:</b> Resource Utilization State Governance</p>
+<p class="podstand"><b>Module ID:</b> RSGA-RCUS-RUSM-02</p>
+<p class="podstand"><b>Origin ID:</b> OOF-RSGA-RCUS-RUSM</p>
+<p class="podstand"><b>Version:</b> 1.0</p>
+<p class="podstand"><b>Status:</b> Draft Module</p>
+<p class="podstand"><b>Effective Date:</b> 7 October 2026</p>
+<p class="podstand"><b>Compatibility:</b> Methodology OS — Modular Compatibility</p>
+<p class="podstand"><b>GIE-Compatible:</b> Yes</p>
+<p class="podstand"><b>AI-Readable:</b> Yes</p>
+<p class="podstand"><b>Authority:</b> OOF® — OriginOpen® Foundation</p>
+<p class="podstand"><b>Protection:</b> Protected Methodological Work</p>
+<p class="podstand"><b>Canonical Language:</b> English</p>
+<h1 id="1-canonical-definition" data-oof-section-id="true" role="heading" aria-level="1">1. Canonical Definition</h1>
+<p>RUSM — Resource Utilization State Module governs how the actual utilization of a defined Resource or Resource capacity is identified, measured, contextualized, classified, evidenced, and represented as a governed Resource Utilization State relative to the applicable available, usable, allocated, reserved, operational, or other explicitly defined Resource-capacity basis.</p>
+<p>RUSM determines whether Resource capacity is:</p>
+<p>not utilized; partially utilized; actively utilized; fully utilized; underutilized; idle while allocated; temporarily saturated; persistently saturated; or otherwise in a materially relevant utilization condition.</p>
+<p>Its foundational distinction is:</p>
+<p>Resource Consumption ≠ Resource Utilization.</p>
+<p>Its utilization principle is:</p>
+<p>Utilization Percentage Without an Explicit Denominator ≠ Governed Utilization Evidence.</p>
+<h1 id="2-operational-role" data-oof-section-id="true" role="heading" aria-level="2">2. Operational Role</h1>
+<p>RCMM establishes what Resource was actually consumed.</p>
+<p>RUSM establishes how Resource or Resource capacity was actually utilized.</p>
+<p>This distinction is necessary because different Resource classes behave differently.</p>
+<p>A consumable Resource may be physically depleted.</p>
+<p>A capacity Resource may instead be occupied temporarily and later released.</p>
+<p>A Resource may be consumed while its productive capacity remains poorly utilized.</p>
+<p>A system may operate at high utilization without producing proportionally high Value.</p>
+<p>RUSM therefore determines:</p>
+<p>what Resource or Resource capacity is being evaluated; what constitutes Utilization; which capacity basis applies; how much capacity was utilized; when utilization occurred; for how long it occurred; whether capacity remained idle; whether utilization was partial, full, intermittent, or saturated; whether the state represents legitimate reserve or underutilization; what evidence supports the determination; what uncertainty remains.</p>
+<h1 id="3-operational-question" data-oof-section-id="true" role="heading" aria-level="2">3. Operational Question</h1>
+<p>To what extent was the relevant Resource or Resource capacity actually utilized within the defined operational, capacity, temporal, spatial, Source, system, function, and purpose context, relative to which explicit capacity basis, with what evidence, utilization pattern, uncertainty, and resulting Resource Utilization State?</p>
+<h1 id="4-position-in-rcus-governance" data-oof-section-id="true" role="heading" aria-level="2">4. Position in RCUS Governance</h1>
+<p>Canonical progression:</p>
+<p>Governed Resource Allocation → Actual Resource Use → Resource Consumption Measurement → Resource Utilization State → Resource-Use Attribution → Allocation-to-Use Comparison → Resource-Use Compliance &amp; Condition → Residual / Released Resource State → Reassessment</p>
+<p>RUSM governs:</p>
+<p>Measured / Observed Resource Use + Capacity Context → Governed Resource Utilization State</p>
+<h1 id="5-governed-space" data-oof-section-id="true" role="heading" aria-level="2">5. Governed Space</h1>
+<p>RUSM governs:</p>
+<p>Resource Utilization State Governance</p>
+<p>This governed space concerns the actual degree, pattern, duration, intensity, and state of Resource or Resource-capacity use relative to an explicit capacity basis and operational context.</p>
+<h1 id="6-governed-object" data-oof-section-id="true" role="heading" aria-level="2">6. Governed Object</h1>
+<p>The primary Governed Object is:</p>
+<p>A Resource Utilization State associated with a defined Resource or Resource capacity, capacity basis, participant, system, function, purpose, Source, location, and time interval.</p>
+<p>Canonical relationship:</p>
+<p>**Resource / Resource Capacity</p>
+<p>Capacity Basis Actual Resource Use Utilized Capacity Temporal Context Operational Context Evidence → Resource Utilization State**</p>
+<h1 id="7-scope" data-oof-section-id="true" role="heading" aria-level="2">7. Scope</h1>
+<p>RUSM governs:</p>
+<p>Resource Utilization; capacity utilization; capacity occupancy; active utilization; idle capacity; idle allocated capacity; partial utilization; full utilization; underutilization; high utilization; saturation; temporary saturation; persistent saturation; utilization ratios; utilization denominators; available-capacity utilization; usable-capacity utilization; allocated-capacity utilization; reserved-capacity utilization; operational-capacity utilization; time-weighted utilization; peak utilization; average utilization; utilization distribution; utilization duration; utilization frequency; utilization patterns; temporal utilization; spatial utilization; Source-specific utilization where applicable; shared-capacity utilization; concurrent utilization; utilization baselines; utilization variance; utilization uncertainty; evidence sufficiency; utilization conflict; utilization reassessment; versioning; traceability.</p>
+<p>RUSM does not independently:</p>
+<p>measure the complete physical Consumption mechanism governed by RCMM; determine Resource Demand; determine Resource Dependency or Criticality; authorize Resource Access; determine Resource Priority;</p>
+<p>establish Resource Allocation; determine Resource Value; determine whether utilization is economically optimal; determine Scarcity as a system state; govern Recovery; determine Harm; determine Liability; determine long-term Sustainability.</p>
+<h1 id="8-resource-utilization" data-oof-section-id="true" role="heading" aria-level="2">8. Resource Utilization</h1>
+<p>Resource Utilization represents the actual use of a Resource or Resource capacity relative to an explicitly defined operational capacity basis.</p>
+<p>Utilization may concern:</p>
+<p>capacity occupancy; functional activation; throughput use; time use; productive operating time; Resource engagement; other Resource-specific utilization relationships.</p>
+<h1 id="9-utilization-definition" data-oof-section-id="true" role="heading" aria-level="2">9. Utilization Definition</h1>
+<p>Before Utilization can be determined, the implementation should establish what constitutes Utilization for the relevant Resource.</p>
+<h1 id="10-utilization-definition-boundary" data-oof-section-id="true" role="heading" aria-level="2">10. Utilization Definition Boundary</h1>
+<p>Resource Presence ≠ Resource Utilization.</p>
+<p>A Resource may exist within a system without being actively utilized.</p>
+<h1 id="11-consumption-utilization-separation" data-oof-section-id="true" role="heading" aria-level="2">11. Consumption–Utilization Separation</h1>
+<p>Consumption and Utilization describe different Resource facts.</p>
+<p>Examples:</p>
+<p>Electricity may be consumed while compute capacity remains underutilized.</p>
+<p>A GPU may be highly utilized while the underlying hardware is not physically consumed.</p>
+<p>Water may be consumed while infrastructure capacity remains partially utilized.</p>
+<p>Storage may be highly occupied while consuming comparatively little additional physical material.</p>
+<p>Therefore:</p>
+<p>Resource Consumption ≠ Resource Utilization.</p>
+<h1 id="12-utilization-does-not-require-physical-depletion" data-oof-section-id="true" role="heading" aria-level="2">12. Utilization Does Not Require Physical Depletion</h1>
+<p>A Resource can be utilized without being physically depleted.</p>
+<p>This is especially relevant to capacity Resources.</p>
+<h1 id="13-capacity-resource" data-oof-section-id="true" role="heading" aria-level="2">13. Capacity Resource</h1>
+<p>Capacity Resources may include:</p>
+<p>compute capacity; GPU capacity; CPU capacity; storage capacity; network capacity; transport capacity; facility capacity; production capacity; other operational capacities.</p>
+<h1 id="14-capacity-occupancy" data-oof-section-id="true" role="heading" aria-level="2">14. Capacity Occupancy</h1>
+<p>Capacity Occupancy represents the portion of defined capacity currently committed or occupied.</p>
+<h1 id="15-occupancy-utilization-boundary" data-oof-section-id="true" role="heading" aria-level="2">15. Occupancy–Utilization Boundary</h1>
+<p>Capacity Occupancy ≠ Effective Utilization by definition.</p>
+<p>Capacity may be occupied but idle, blocked, waiting, or otherwise not performing the intended function.</p>
+<h1 id="16-capacity-basis" data-oof-section-id="true" role="heading" aria-level="2">16. Capacity Basis</h1>
+<p>Every governed Utilization determination should identify the denominator or capacity basis against which Utilization is assessed.</p>
+<p>Possible bases include:</p>
+<p>Available Capacity; Usable Capacity; Accessible Capacity; Allocable Capacity; Allocated Capacity; Reserved Capacity; Installed Capacity; Operational Capacity; Rated Capacity; Sustainable Capacity; other explicitly defined capacity.</p>
+<h1 id="17-denominator-principle" data-oof-section-id="true" role="heading" aria-level="2">17. Denominator Principle</h1>
+<p>Utilization Percentage Without an Explicit Denominator ≠ Governed Utilization Evidence.</p>
+<p>A statement that a system is “80% utilized” is incomplete unless the 80% is relative to a defined capacity basis.</p>
+<h1 id="18-available-capacity-utilization" data-oof-section-id="true" role="heading" aria-level="2">18. Available-Capacity Utilization</h1>
+<p>Available-Capacity Utilization compares actual utilized capacity with Resource capacity classified as available.</p>
+<h1 id="19-usable-capacity-utilization" data-oof-section-id="true" role="heading" aria-level="2">19. Usable-Capacity Utilization</h1>
+<p>Usable-Capacity Utilization compares actual utilized capacity with capacity that can practically be used under current conditions.</p>
+<h1 id="20-allocated-capacity-utilization" data-oof-section-id="true" role="heading" aria-level="2">20. Allocated-Capacity Utilization</h1>
+<p>Allocated-Capacity Utilization compares actual utilized capacity with capacity assigned through Resource Allocation.</p>
+<h1 id="21-reserved-capacity-utilization" data-oof-section-id="true" role="heading" aria-level="2">21. Reserved-Capacity Utilization</h1>
+<p>Reserved-Capacity Utilization evaluates use of Resource capacity preserved for a defined function, condition, or contingency.</p>
+<h1 id="22-operational-capacity-utilization" data-oof-section-id="true" role="heading" aria-level="2">22. Operational-Capacity Utilization</h1>
+<p>Operational-Capacity Utilization compares utilized capacity with capacity that is operationally capable of performing the relevant function.</p>
+<h1 id="23-capacity-basis-boundary" data-oof-section-id="true" role="heading" aria-level="2">23. Capacity-Basis Boundary</h1>
+<p>Available Capacity ≠ Usable Capacity ≠ Allocated Capacity ≠ Operational Capacity.</p>
+<p>The applicable denominator must remain explicit.</p>
+<h1 id="24-resource-utilization-ratio" data-oof-section-id="true" role="heading" aria-level="2">24. Resource Utilization Ratio</h1>
+<p>Where quantitatively appropriate:</p>
+<p>Resource Utilization Ratio = Utilized Resource Capacity / Defined Capacity Basis</p>
+<p>The ratio should identify both numerator and denominator.</p>
+<h1 id="25-ratio-boundary" data-oof-section-id="true" role="heading" aria-level="2">25. Ratio Boundary</h1>
+<p>Same Utilization Percentage Against Different Capacity Bases ≠ Same Utilization State.</p>
+<h1 id="26-utilized-capacity" data-oof-section-id="true" role="heading" aria-level="2">26. Utilized Capacity</h1>
+<p>Utilized Capacity represents the Resource capacity actually engaged within the defined utilization context.</p>
+<h1 id="27-utilized-capacity-boundary" data-oof-section-id="true" role="heading" aria-level="2">27. Utilized-Capacity Boundary</h1>
+<p>Allocated Capacity ≠ Utilized Capacity.</p>
+<h1 id="28-idle-capacity" data-oof-section-id="true" role="heading" aria-level="2">28. Idle Capacity</h1>
+<p>Idle Capacity represents Resource capacity that is operationally available within the relevant context but not currently utilized.</p>
+<h1 id="29-idle-allocated-capacity" data-oof-section-id="true" role="heading" aria-level="2">29. Idle Allocated Capacity</h1>
+<p>Idle Allocated Capacity represents allocated Resource capacity that remains unused within the applicable interval.</p>
+<h1 id="30-idle-boundary" data-oof-section-id="true" role="heading" aria-level="2">30. Idle Boundary</h1>
+<p>Idle Allocated Capacity ≠ Unavailable Capacity.</p>
+<p>The capacity may remain technically usable while operationally inactive.</p>
+<h1 id="31-idle-does-not-automatically-mean-waste" data-oof-section-id="true" role="heading" aria-level="2">31. Idle Does Not Automatically Mean Waste</h1>
+<p>Capacity may intentionally remain idle for:</p>
+<p>resilience; redundancy; emergency reserve; maintenance margin; Demand variability; continuity; safety; response readiness.</p>
+<p>Therefore:</p>
+<p>Idle Capacity ≠ Waste by definition.</p>
+<h1 id="32-active-utilization" data-oof-section-id="true" role="heading" aria-level="2">32. Active Utilization</h1>
+<p>Active Utilization exists when Resource capacity is operationally engaged in the relevant function.</p>
+<h1 id="33-partial-utilization" data-oof-section-id="true" role="heading" aria-level="2">33. Partial Utilization</h1>
+<p>Partial Utilization exists when only part of the defined capacity basis is actively utilized.</p>
+<h1 id="34-full-utilization" data-oof-section-id="true" role="heading" aria-level="2">34. Full Utilization</h1>
+<p>Full Utilization exists when the defined capacity basis is fully utilized within the applicable measurement resolution.</p>
+<h1 id="35-full-utilization-boundary" data-oof-section-id="true" role="heading" aria-level="2">35. Full-Utilization Boundary</h1>
+<p>Full Utilization ≠ Optimal Utilization.</p>
+<p>Operating at maximum capacity may reduce resilience or increase operational risk.</p>
+<h1 id="36-underutilization" data-oof-section-id="true" role="heading" aria-level="2">36. Underutilization</h1>
+<p>Underutilization exists when actual utilization remains materially below an applicable utilization expectation, requirement, benchmark, or governed operational range.</p>
+<h1 id="37-underutilization-basis" data-oof-section-id="true" role="heading" aria-level="2">37. Underutilization Basis</h1>
+<p>A finding of underutilization should identify the basis against which the condition is established.</p>
+<h1 id="38-underutilization-boundary" data-oof-section-id="true" role="heading" aria-level="2">38. Underutilization Boundary</h1>
+<p>Low Utilization ≠ Underutilization by definition.</p>
+<p>Low use may be legitimate.</p>
+<h1 id="39-underutilization-does-not-automatically-mean-inefficiency" data-oof-section-id="true" role="heading" aria-level="2">39. Underutilization Does Not Automatically Mean Inefficiency</h1>
+<p>A system may intentionally maintain spare capacity.</p>
+<p>Therefore:</p>
+<p>Underutilization ≠ Inefficiency by definition.</p>
+<h1 id="40-high-utilization" data-oof-section-id="true" role="heading" aria-level="2">40. High Utilization</h1>
+<p>High Utilization exists where Resource capacity is used near the upper portion of its relevant capacity range.</p>
+<h1 id="41-high-utilization-boundary" data-oof-section-id="true" role="heading" aria-level="2">41. High-Utilization Boundary</h1>
+<p>High Utilization ≠ High Efficiency.</p>
+<h1 id="42-high-utilization-does-not-establish-value" data-oof-section-id="true" role="heading" aria-level="2">42. High Utilization Does Not Establish Value</h1>
+<p>High Utilization ≠ High Value.</p>
+<p>A Resource can be fully occupied by activity that creates little validated operational Value.</p>
+<h1 id="43-high-utilization-does-not-establish-sustainability" data-oof-section-id="true" role="heading" aria-level="2">43. High Utilization Does Not Establish Sustainability</h1>
+<p>High Utilization ≠ Sustainable Utilization.</p>
+<p>Sustainability depends upon broader Resource conditions.</p>
+<h1 id="44-saturation" data-oof-section-id="true" role="heading" aria-level="2">44. Saturation</h1>
+<p>Saturation occurs where the relevant Resource capacity reaches or approaches a point at which additional Resource Demand cannot be served without:</p>
+<p>delay; degradation; queueing; reallocation; additional capacity; substitution; other operational intervention.</p>
+<h1 id="45-saturation-boundary" data-oof-section-id="true" role="heading" aria-level="2">45. Saturation Boundary</h1>
+<p>High Utilization ≠ Saturation by definition.</p>
+<p>A system may operate at high utilization while retaining sufficient functional headroom.</p>
+<h1 id="46-temporary-saturation" data-oof-section-id="true" role="heading" aria-level="2">46. Temporary Saturation</h1>
+<p>Temporary Saturation occurs during a bounded interval.</p>
+<h1 id="47-persistent-saturation" data-oof-section-id="true" role="heading" aria-level="2">47. Persistent Saturation</h1>
+<p>Persistent Saturation occurs where the condition continues or recurs materially over time.</p>
+<h1 id="48-saturation-does-not-automatically-establish-scarcity" data-oof-section-id="true" role="heading" aria-level="2">48. Saturation Does Not Automatically Establish Scarcity</h1>
+<p>Resource Saturation ≠ Resource Scarcity by definition.</p>
+<p>Saturation may be an input into RSCS.</p>
+<h1 id="49-utilization-headroom" data-oof-section-id="true" role="heading" aria-level="2">49. Utilization Headroom</h1>
+<p>Where appropriate:</p>
+<p>Utilization Headroom = Defined Capacity Basis − Utilized Capacity</p>
+<p>This represents unused capacity relative to the selected basis.</p>
+<h1 id="50-headroom-boundary" data-oof-section-id="true" role="heading" aria-level="2">50. Headroom Boundary</h1>
+<p>Utilization Headroom ≠ Allocable Capacity by definition.</p>
+<p>Unused capacity may be:</p>
+<p>reserved; inaccessible; technically constrained; required for resilience; otherwise unavailable for Allocation.</p>
+<h1 id="51-utilization-duration" data-oof-section-id="true" role="heading" aria-level="2">51. Utilization Duration</h1>
+<p>RUSM should preserve how long the relevant utilization state persists where duration matters.</p>
+<h1 id="52-utilization-frequency" data-oof-section-id="true" role="heading" aria-level="2">52. Utilization Frequency</h1>
+<p>Repeated utilization events may be represented by frequency where materially relevant.</p>
+<h1 id="53-time-weighted-utilization" data-oof-section-id="true" role="heading" aria-level="2">53. Time-Weighted Utilization</h1>
+<p>Where useful, utilization may be weighted across a defined time interval.</p>
+<h1 id="54-temporal-utilization" data-oof-section-id="true" role="heading" aria-level="2">54. Temporal Utilization</h1>
+<p>Resource Utilization should preserve temporal context where the same utilization level may have different significance at different times.</p>
+<h1 id="55-peak-utilization" data-oof-section-id="true" role="heading" aria-level="2">55. Peak Utilization</h1>
+<p>Peak Utilization represents the highest relevant utilization level observed during a defined interval.</p>
+<h1 id="56-average-utilization" data-oof-section-id="true" role="heading" aria-level="2">56. Average Utilization</h1>
+<p>Average Utilization represents utilization aggregated across a defined interval.</p>
+<h1 id="57-peak-average-boundary" data-oof-section-id="true" role="heading" aria-level="2">57. Peak–Average Boundary</h1>
+<p>Average Utilization ≠ Peak Utilization.</p>
+<h1 id="58-utilization-distribution" data-oof-section-id="true" role="heading" aria-level="2">58. Utilization Distribution</h1>
+<p>Where relevant, RUSM should preserve the distribution of utilization across time rather than relying solely upon averages.</p>
+<h1 id="59-distribution-boundary" data-oof-section-id="true" role="heading" aria-level="2">59. Distribution Boundary</h1>
+<p>Average Utilization ≠ Utilization Distribution.</p>
+<p>A 50% average may represent stable 50% use or repeated movement between 0% and 100%.</p>
+<p>These are not operationally equivalent.</p>
+<h1 id="60-utilization-variability" data-oof-section-id="true" role="heading" aria-level="2">60. Utilization Variability</h1>
+<p>RUSM may represent the degree to which utilization changes over time.</p>
+<h1 id="61-stable-utilization" data-oof-section-id="true" role="heading" aria-level="2">61. Stable Utilization</h1>
+<p>Stable Utilization describes a Resource whose use remains within a sufficiently narrow operating range during the relevant interval.</p>
+<h1 id="62-volatile-utilization" data-oof-section-id="true" role="heading" aria-level="2">62. Volatile Utilization</h1>
+<p>Volatile Utilization describes material variation in Resource use across the relevant interval.</p>
+<h1 id="63-volatility-boundary" data-oof-section-id="true" role="heading" aria-level="2">63. Volatility Boundary</h1>
+<p>Volatile Utilization ≠ Invalid Utilization.</p>
+<p>Some Resource systems are naturally variable.</p>
+<h1 id="64-bursty-utilization" data-oof-section-id="true" role="heading" aria-level="2">64. Bursty Utilization</h1>
+<p>Bursty Utilization represents short periods of intensive Resource use separated by materially lower-use periods.</p>
+<h1 id="65-cyclical-utilization" data-oof-section-id="true" role="heading" aria-level="2">65. Cyclical Utilization</h1>
+<p>Utilization may follow recurring operational cycles.</p>
+<h1 id="66-seasonal-utilization" data-oof-section-id="true" role="heading" aria-level="2">66. Seasonal Utilization</h1>
+<p>Some Resources exhibit seasonal utilization patterns.</p>
+<h1 id="67-persistent-utilization" data-oof-section-id="true" role="heading" aria-level="2">67. Persistent Utilization</h1>
+<p>Persistent Utilization represents sustained Resource use over a materially extended interval.</p>
+<h1 id="68-utilization-pattern" data-oof-section-id="true" role="heading" aria-level="2">68. Utilization Pattern</h1>
+<p>RUSM should support governed Utilization Patterns where time-series behavior is materially relevant.</p>
+<p>Possible patterns include:</p>
+<p>idle; steady; variable; bursty; cyclical; seasonal; peak-concentrated; persistently high; persistently low; saturated.</p>
+<h1 id="69-pattern-boundary" data-oof-section-id="true" role="heading" aria-level="2">69. Pattern Boundary</h1>
+<p>Single Utilization Observation ≠ Utilization Pattern.</p>
+<h1 id="70-temporal-granularity" data-oof-section-id="true" role="heading" aria-level="2">70. Temporal Granularity</h1>
+<p>The measurement granularity should be appropriate to the utilization behavior being governed.</p>
+<h1 id="71-granularity-boundary" data-oof-section-id="true" role="heading" aria-level="2">71. Granularity Boundary</h1>
+<p>Annual Average Utilization ≠ Evidence of Hourly Utilization State.</p>
+<h1 id="72-spatial-utilization" data-oof-section-id="true" role="heading" aria-level="2">72. Spatial Utilization</h1>
+<p>Resource capacity may be utilized differently across locations.</p>
+<h1 id="73-spatial-aggregation-boundary" data-oof-section-id="true" role="heading" aria-level="2">73. Spatial Aggregation Boundary</h1>
+<p>Aggregate Utilization ≠ Local Utilization State.</p>
+<p>A network may appear underutilized overall while one location is saturated.</p>
+<h1 id="74-source-specific-utilization" data-oof-section-id="true" role="heading" aria-level="2">74. Source-Specific Utilization</h1>
+<p>Where Resource Sources provide distinct capacities, RUSM may preserve Source-specific utilization.</p>
+<h1 id="75-source-boundary" data-oof-section-id="true" role="heading" aria-level="2">75. Source Boundary</h1>
+<p>Aggregate Resource Utilization ≠ Equal Source Utilization.</p>
+<h1 id="76-shared-capacity" data-oof-section-id="true" role="heading" aria-level="2">76. Shared Capacity</h1>
+<p>Multiple participants, systems, or functions may utilize a shared Resource capacity.</p>
+<h1 id="77-shared-capacity-utilization" data-oof-section-id="true" role="heading" aria-level="2">77. Shared-Capacity Utilization</h1>
+<p>RUSM should preserve shared-capacity context where multiple users contribute to aggregate utilization.</p>
+<h1 id="78-shared-capacity-boundary" data-oof-section-id="true" role="heading" aria-level="2">78. Shared-Capacity Boundary</h1>
+<p>Shared Capacity ≠ Equal Utilization by Each Participant.</p>
+<h1 id="79-concurrent-utilization" data-oof-section-id="true" role="heading" aria-level="2">79. Concurrent Utilization</h1>
+<p>Multiple participants or functions may utilize Resource capacity simultaneously.</p>
+<p>Concurrency should remain visible where it materially affects Resource state.</p>
+<h1 id="80-concurrent-boundary" data-oof-section-id="true" role="heading" aria-level="2">80. Concurrent Boundary</h1>
+<p>Individual Utilization Feasibility ≠ Collective Utilization Feasibility.</p>
+<h1 id="81-utilization-attribution" data-oof-section-id="true" role="heading" aria-level="2">81. Utilization Attribution</h1>
+<p>Where possible, utilized capacity should be attributable to the relevant:</p>
+<p>participant; system; function; purpose; Source; location; time interval.</p>
+<p>Detailed attribution may be governed by the applicable RCUS attribution mechanism.</p>
+<h1 id="82-functional-utilization" data-oof-section-id="true" role="heading" aria-level="2">82. Functional Utilization</h1>
+<p>A Resource may be utilized by different operational functions.</p>
+<p>RUSM should preserve functional differentiation where materially relevant.</p>
+<h1 id="83-purpose-context" data-oof-section-id="true" role="heading" aria-level="2">83. Purpose Context</h1>
+<p>Where Resource capacity was allocated for a defined purpose, utilization should retain the applicable purpose context.</p>
+<h1 id="84-purpose-boundary" data-oof-section-id="true" role="heading" aria-level="2">84. Purpose Boundary</h1>
+<p>Capacity Utilization ≠ Proof of Authorized Purpose.</p>
+<p>Utilization establishes use, not legitimacy of purpose.</p>
+<h1 id="85-consumption-evidence" data-oof-section-id="true" role="heading" aria-level="2">85. Consumption Evidence</h1>
+<p>RCMM Consumption evidence may support RUSM where Resource Consumption is relevant to determining Utilization.</p>
+<h1 id="86-consumption-boundary" data-oof-section-id="true" role="heading" aria-level="2">86. Consumption Boundary</h1>
+<p>Measured Consumption ≠ Utilization State by itself.</p>
+<p>A system may consume Resource while operating at low utilization.</p>
+<h1 id="87-utilization-measurement" data-oof-section-id="true" role="heading" aria-level="2">87. Utilization Measurement</h1>
+<p>RUSM may use:</p>
+<p>direct telemetry; capacity counters; system activity; scheduler data; occupancy records; throughput records; metering; operational logs; validated calculations; validated estimates.</p>
+<h1 id="88-direct-utilization-measurement" data-oof-section-id="true" role="heading" aria-level="2">88. Direct Utilization Measurement</h1>
+<p>Where instrumentation directly represents the relevant capacity use, RUSM should preserve that measurement basis.</p>
+<h1 id="89-estimated-utilization" data-oof-section-id="true" role="heading" aria-level="2">89. Estimated Utilization</h1>
+<p>Where direct utilization measurement is unavailable, utilization may be estimated using a defined method.</p>
+<h1 id="90-estimation-boundary" data-oof-section-id="true" role="heading" aria-level="2">90. Estimation Boundary</h1>
+<p>Estimated Utilization ≠ Directly Observed Utilization.</p>
+<h1 id="91-proxy-utilization" data-oof-section-id="true" role="heading" aria-level="2">91. Proxy Utilization</h1>
+<p>A proxy may support Utilization determination where its relationship to actual Resource use is sufficiently established.</p>
+<h1 id="92-proxy-boundary" data-oof-section-id="true" role="heading" aria-level="2">92. Proxy Boundary</h1>
+<p>Activity Signal ≠ Utilization Evidence by itself.</p>
+<h1 id="93-utilization-baseline" data-oof-section-id="true" role="heading" aria-level="2">93. Utilization Baseline</h1>
+<p>RUSM may establish a historical or operational baseline for comparative utilization analysis.</p>
+<h1 id="94-baseline-context" data-oof-section-id="true" role="heading" aria-level="2">94. Baseline Context</h1>
+<p>A baseline should preserve materially relevant:</p>
+<p>capacity basis; time period; Resource configuration; system configuration; operating conditions; measurement method.</p>
+<h1 id="95-baseline-boundary" data-oof-section-id="true" role="heading" aria-level="2">95. Baseline Boundary</h1>
+<p>Historical Utilization ≠ Required Future Utilization.</p>
+<h1 id="96-baseline-drift" data-oof-section-id="true" role="heading" aria-level="2">96. Baseline Drift</h1>
+<p>Changes in capacity, workload, infrastructure, technology, Source, location, or measurement method may invalidate direct baseline comparison.</p>
+<h1 id="97-expected-utilization" data-oof-section-id="true" role="heading" aria-level="2">97. Expected Utilization</h1>
+<p>Where a legitimate expected utilization level exists, it may be preserved as a comparison reference.</p>
+<h1 id="98-expectation-boundary" data-oof-section-id="true" role="heading" aria-level="2">98. Expectation Boundary</h1>
+<p>Expected Utilization ≠ Actual Utilization.</p>
+<h1 id="99-utilization-variance" data-oof-section-id="true" role="heading" aria-level="2">99. Utilization Variance</h1>
+<p>Where a defined reference exists:</p>
+<p>Utilization Variance = Actual Utilization − Reference Utilization</p>
+<p>The reference basis must remain explicit.</p>
+<h1 id="100-variance-boundary" data-oof-section-id="true" role="heading" aria-level="2">100. Variance Boundary</h1>
+<p>Utilization Variance ≠ Governance Failure by definition.</p>
+<h1 id="101-persistent-underutilization" data-oof-section-id="true" role="heading" aria-level="2">101. Persistent Underutilization</h1>
+<p>Repeated or sustained underutilization may provide evidence relevant to:</p>
+<p>future Demand validation; future Allocation; capacity planning; Resource substitution; operational redesign.</p>
+<p>RUSM provides evidence.</p>
+<p>It does not independently alter Allocation.</p>
+<h1 id="102-persistent-high-utilization" data-oof-section-id="true" role="heading" aria-level="2">102. Persistent High Utilization</h1>
+<p>Repeated high utilization may provide evidence relevant to:</p>
+<p>capacity pressure; future Demand; Scarcity risk; resilience; continuity; future Allocation.</p>
+<h1 id="103-persistent-saturation" data-oof-section-id="true" role="heading" aria-level="2">103. Persistent Saturation</h1>
+<p>Persistent Saturation may indicate a material Resource constraint.</p>
+<p>RUSM records the utilization condition.</p>
+<p>RSCS determines the governed Scarcity or Constraint state.</p>
+<h1 id="104-reserve-capacity" data-oof-section-id="true" role="heading" aria-level="2">104. Reserve Capacity</h1>
+<p>Some unused Resource capacity may exist intentionally as reserve.</p>
+<h1 id="105-reserve-boundary" data-oof-section-id="true" role="heading" aria-level="2">105. Reserve Boundary</h1>
+<p>Unused Capacity ≠ Available Capacity for Reallocation by definition.</p>
+<h1 id="106-resilience-capacity" data-oof-section-id="true" role="heading" aria-level="2">106. Resilience Capacity</h1>
+<p>Resource capacity may remain unused specifically to preserve resilience.</p>
+<h1 id="107-resilience-boundary" data-oof-section-id="true" role="heading" aria-level="2">107. Resilience Boundary</h1>
+<p>Low Utilization Caused by Resilience Reserve ≠ Resource Waste by definition.</p>
+<h1 id="108-standby-capacity" data-oof-section-id="true" role="heading" aria-level="2">108. Standby Capacity</h1>
+<p>Standby capacity may remain operationally ready without active use.</p>
+<h1 id="109-standby-boundary" data-oof-section-id="true" role="heading" aria-level="2">109. Standby Boundary</h1>
+<p>Standby ≠ Inactive Governance Value by definition.</p>
+<p>Standby capacity may support legitimate continuity requirements.</p>
+<h1 id="110-maintenance-capacity" data-oof-section-id="true" role="heading" aria-level="2">110. Maintenance Capacity</h1>
+<p>Part of installed capacity may be unavailable or intentionally unused because of maintenance.</p>
+<h1 id="111-maintenance-boundary" data-oof-section-id="true" role="heading" aria-level="2">111. Maintenance Boundary</h1>
+<p>Installed Capacity ≠ Operational Capacity.</p>
+<h1 id="112-rated-capacity" data-oof-section-id="true" role="heading" aria-level="2">112. Rated Capacity</h1>
+<p>Rated capacity may represent a technical maximum under defined conditions.</p>
+<h1 id="113-rated-capacity-boundary" data-oof-section-id="true" role="heading" aria-level="2">113. Rated-Capacity Boundary</h1>
+<p>Rated Capacity ≠ Sustainable Operating Capacity by definition.</p>
+<h1 id="114-sustainable-capacity-context" data-oof-section-id="true" role="heading" aria-level="2">114. Sustainable Capacity Context</h1>
+<p>Where another competent governance mechanism establishes a sustainable capacity boundary, RUSM may evaluate utilization relative to it.</p>
+<p>RUSM does not independently establish the sustainability boundary.</p>
+<h1 id="115-utilization-efficiency-evidence" data-oof-section-id="true" role="heading" aria-level="2">115. Utilization Efficiency Evidence</h1>
+<p>RUSM may provide evidence relevant to Resource efficiency.</p>
+<p>Examples include:</p>
+<p>idle capacity; utilization ratio; peak utilization; time-weighted utilization; utilization variance.</p>
+<h1 id="116-efficiency-boundary" data-oof-section-id="true" role="heading" aria-level="2">116. Efficiency Boundary</h1>
+<p>Utilization Evidence ≠ Efficiency Determination by itself.</p>
+<p>Efficiency may require output, Value, quality, or other contextual evidence.</p>
+<h1 id="117-value-boundary" data-oof-section-id="true" role="heading" aria-level="2">117. Value Boundary</h1>
+<p>A system may maintain 100% Resource Utilization while producing poor outcomes.</p>
+<p>Therefore:</p>
+<p>Maximum Utilization ≠ Maximum Value.</p>
+<p>VEGA™ governs Value relationships where applicable.</p>
+<h1 id="118-optimization-boundary" data-oof-section-id="true" role="heading" aria-level="2">118. Optimization Boundary</h1>
+<p>An optimization system may recommend higher or lower Resource utilization.</p>
+<p>Optimization Recommendation ≠ Authority to Change Resource Allocation.</p>
+<h1 id="119-automated-utilization-management" data-oof-section-id="true" role="heading" aria-level="2">119. Automated Utilization Management</h1>
+<p>Technical systems may automatically scale workloads or Resource use.</p>
+<h1 id="120-automation-boundary" data-oof-section-id="true" role="heading" aria-level="2">120. Automation Boundary</h1>
+<p>Automated Scaling Capability ≠ Allocation Authority.</p>
+<h1 id="121-predicted-utilization" data-oof-section-id="true" role="heading" aria-level="2">121. Predicted Utilization</h1>
+<p>Future Resource Utilization may be predicted.</p>
+<h1 id="122-prediction-boundary" data-oof-section-id="true" role="heading" aria-level="2">122. Prediction Boundary</h1>
+<p>Predicted Utilization ≠ Current Utilization State.</p>
+<p>PGA™ may govern prediction methodology where applicable.</p>
+<h1 id="123-simulated-utilization" data-oof-section-id="true" role="heading" aria-level="2">123. Simulated Utilization</h1>
+<p>Simulation may estimate Resource Utilization under alternative conditions.</p>
+<h1 id="124-simulation-boundary" data-oof-section-id="true" role="heading" aria-level="2">124. Simulation Boundary</h1>
+<p>Simulated Utilization ≠ Observed Utilization.</p>
+<p>SIMULOS® may govern simulation where applicable.</p>
+<h1 id="125-utilization-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">125. Utilization Uncertainty</h1>
+<p>Material uncertainty in the utilization determination should remain visible.</p>
+<h1 id="126-sources-of-utilization-uncertainty" data-oof-section-id="true" role="heading" aria-level="2">126. Sources of Utilization Uncertainty</h1>
+<p>Uncertainty may arise from:</p>
+<p>incomplete telemetry; capacity-definition uncertainty; shared Resource attribution; temporal aggregation;</p>
+<p>measurement gaps; dynamic capacity; Source uncertainty; estimated utilization.</p>
+<h1 id="127-dynamic-capacity" data-oof-section-id="true" role="heading" aria-level="2">127. Dynamic Capacity</h1>
+<p>The denominator used for utilization may change over time.</p>
+<p>Examples include:</p>
+<p>hardware failure; maintenance; temperature constraints; water-flow variation; network capacity changes; Resource Availability changes.</p>
+<h1 id="128-dynamic-denominator-principle" data-oof-section-id="true" role="heading" aria-level="2">128. Dynamic-Denominator Principle</h1>
+<p>Changing Capacity Basis + Constant Resource Use ≠ Constant Utilization Ratio.</p>
+<h1 id="129-denominator-versioning" data-oof-section-id="true" role="heading" aria-level="2">129. Denominator Versioning</h1>
+<p>Where capacity changes materially, the applicable denominator should be versioned or time-bounded.</p>
+<h1 id="130-utilization-conflict" data-oof-section-id="true" role="heading" aria-level="2">130. Utilization Conflict</h1>
+<p>A Utilization Conflict exists where material evidence supports incompatible utilization determinations.</p>
+<h1 id="131-conflict-preservation" data-oof-section-id="true" role="heading" aria-level="2">131. Conflict Preservation</h1>
+<p>Conflicting evidence should remain visible until sufficiently resolved.</p>
+<h1 id="132-utilization-unknown" data-oof-section-id="true" role="heading" aria-level="2">132. Utilization Unknown</h1>
+<p>Where evidence is insufficient, RUSM should establish an Unknown state rather than assuming zero utilization.</p>
+<h1 id="133-unknown-boundary" data-oof-section-id="true" role="heading" aria-level="2">133. Unknown Boundary</h1>
+<p>No Utilization Evidence ≠ No Utilization.</p>
+<h1 id="134-evidence-sufficiency" data-oof-section-id="true" role="heading" aria-level="2">134. Evidence Sufficiency</h1>
+<p>RUSM should determine whether available evidence is sufficient to establish the applicable Utilization State.</p>
+<h1 id="135-evidence-provenance" data-oof-section-id="true" role="heading" aria-level="2">135. Evidence Provenance</h1>
+<p>Material evidence should preserve where relevant:</p>
+<p>evidence source; Resource; capacity basis; system; participant; location; Source; time; measurement method; version.</p>
+<h1 id="136-minimum-utilization-states" data-oof-section-id="true" role="heading" aria-level="2">136. Minimum Utilization States</h1>
+<p>At minimum:</p>
+<p>Not Utilized</p>
+<p>Utilization Started</p>
+<p>Utilization Active</p>
+<p>Partially Utilized</p>
+<p>Fully Utilized</p>
+<p>Underutilized</p>
+<p>Highly Utilized</p>
+<p>Temporarily Saturated</p>
+<p>Persistently Saturated</p>
+<p>Idle Allocated Capacity</p>
+<p>Utilization Suspended</p>
+<p>Utilization Completed</p>
+<p>Utilization Evidence-Limited</p>
+<p>Utilization Conflicted</p>
+<p>Utilization Unknown</p>
+<p>Utilization Unresolved</p>
+<p>Utilization Reassessment Required</p>
+<h1 id="137-state-independence" data-oof-section-id="true" role="heading" aria-level="2">137. State Independence</h1>
+<p>A Utilization State should remain distinguishable from:</p>
+<p>Consumption State; Availability State; Allocation State; Scarcity State; Recovery State.</p>
+<h1 id="138-resource-utilization-state-profile" data-oof-section-id="true" role="heading" aria-level="2">138. Resource Utilization State Profile</h1>
+<p>The principal RUSM output is the:</p>
+<p>Resource Utilization State Profile</p>
+<h1 id="139-minimum-resource-utilization-state-profile-fields" data-oof-section-id="true" role="heading" aria-level="2">139. Minimum Resource Utilization State Profile Fields</h1>
+<p>At minimum:</p>
+<p>Utilization ID</p>
+<p>Resource ID</p>
+<p>Resource Type</p>
+<p>Resource Source where relevant</p>
+<p>Allocation Reference where applicable</p>
+<p>Participant / System / Function</p>
+<p>Purpose</p>
+<p>Location</p>
+<p>Utilization Start Time</p>
+<p>Utilization End Time</p>
+<p>Utilization Interval</p>
+<p>Capacity Basis Type</p>
+<p>Capacity Basis Value</p>
+<p>Utilized Capacity</p>
+<p>Utilization Ratio where applicable</p>
+<p>Utilization Headroom where applicable</p>
+<p>Idle Capacity where applicable</p>
+<p>Idle Allocated Capacity where applicable</p>
+<p>Peak Utilization</p>
+<p>Average Utilization</p>
+<p>Utilization Pattern</p>
+<p>Utilization Duration</p>
+<p>Utilization State</p>
+<p>Measurement Method</p>
+<p>Direct / Estimated State</p>
+<p>Measurement Uncertainty</p>
+<p>Evidence Basis</p>
+<p>Evidence Sufficiency</p>
+<p>Conflict State</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="140-minimum-implementation-framework" data-oof-section-id="true" role="heading" aria-level="2">140. Minimum Implementation Framework</h1>
+<p>A minimum operational RUSM implementation should contain eight governed layers.</p>
+<p>Layer 1 — Resource &amp; Utilization Context</p>
+<p>Establish:</p>
+<p>Resource; Resource capacity; system; function; purpose; time; location.</p>
+<p>Layer 2 — Capacity Basis</p>
+<p>Establish:</p>
+<p>capacity type; denominator; capacity value; capacity validity period.</p>
+<p>Layer 3 — Actual Utilization Evidence</p>
+<p>Determine:</p>
+<p>utilized capacity; occupancy; activity; duration; throughput where relevant.</p>
+<p>Layer 4 — Utilization Measurement</p>
+<p>Determine:</p>
+<p>utilization ratio; peak utilization; average utilization; idle capacity; headroom.</p>
+<p>Layer 5 — Utilization Pattern</p>
+<p>Determine:</p>
+<p>steady; variable; bursty; cyclical; seasonal; persistent; saturated; other relevant pattern.</p>
+<p>Layer 6 — State Determination</p>
+<p>Establish:</p>
+<p>active; partial; full; underutilized; highly utilized; saturated; idle; other applicable state.</p>
+<p>Layer 7 — Evidence &amp; Uncertainty</p>
+<p>Evaluate:</p>
+<p>measurement method; evidence sufficiency; uncertainty; conflict; dynamic denominator.</p>
+<p>Layer 8 — Governed Output</p>
+<p>Produce:</p>
+<p>Resource Utilization State Profile</p>
+<p>Canonical machine-readable logic:</p>
+<p>Resource / Capacity → Capacity Basis → Actual Utilization Evidence → Utilized Capacity → Utilization Ratio / Pattern → State Determination → Evidence / Uncertainty → Resource Utilization State Profile</p>
+<h1 id="141-minimum-decision-states" data-oof-section-id="true" role="heading" aria-level="2">141. Minimum Decision States</h1>
+<p>At minimum:</p>
+<p>Utilization Determined</p>
+<p>Utilization Partially Determined</p>
+<p>Utilization Estimated</p>
+<p>Underutilization Identified</p>
+<p>High Utilization Identified</p>
+<p>Temporary Saturation Identified</p>
+<p>Persistent Saturation Identified</p>
+<p>Idle Allocated Capacity Identified</p>
+<p>Utilization Evidence-Limited</p>
+<p>Utilization Conflicted</p>
+<p>Utilization Unknown</p>
+<p>Utilization Unresolved</p>
+<p>Utilization Reassessment Required</p>
+<h1 id="142-minimum-evidence-path" data-oof-section-id="true" role="heading" aria-level="2">142. Minimum Evidence Path</h1>
+<p>Where Utilization cannot be sufficiently determined:</p>
+<p>Utilization Unknown / Unresolved → Missing Resource / Capacity / Denominator / Interval Evidence → Minimum Evidence Requirement → Evidence Acquisition → Capacity-Basis Validation → Utilization Determination → State Determination → Resource Utilization State Profile Update</p>
+<h1 id="143-minimum-reassessment-framework" data-oof-section-id="true" role="heading" aria-level="2">143. Minimum Reassessment Framework</h1>
+<p>At minimum:</p>
+<p>Current Resource Utilization State Profile → New Evidence / Capacity Change / Operational Change → Materiality Test → Capacity-Basis Review → Utilization Evidence Review → Utilization Recalculation → Pattern / State Reassessment → Profile Update → Version Update</p>
+<h1 id="144-governance-requirements" data-oof-section-id="true" role="heading" aria-level="2">144. Governance Requirements</h1>
+<p>A conforming RUSM implementation must:</p>
+<h1 id="1-identify-the-resource-or-resource-capacity-2-define-what-constitutes-utilizati" data-oof-section-id="true" role="heading" aria-level="2">1. identify the Resource or Resource capacity; 2. define what constitutes Utilization; 3. distinguish Resource presence from Resource Utilization; 4. distinguish Consumption from Utilization; 5. support non-depleting capacity Resources; 6. identify capacity occupancy where relevant; 7. distinguish occupancy from effective Utilization; 8. establish an explicit capacity basis; 9. identify the denominator used for Utilization; 10. distinguish Available, Usable, Allocated, and Operational Capacity; 11. preserve Resource Utilization Ratio where applicable; 12. preserve numerator and denominator; 13. identify utilized capacity; 14. distinguish allocated from utilized capacity; 15. identify idle capacity where relevant; 16. identify idle allocated capacity; 17. prevent idle capacity from being classified automatically as waste; 18. identify Active Utilization; 19. identify Partial Utilization; 20. identify Full Utilization; 21. prevent Full Utilization from being treated automatically as optimal; 22. identify Underutilization where applicable; 23. preserve the basis for an Underutilization determination; 24. distinguish low Utilization from governed Underutilization; 25. prevent Underutilization from being treated automatically as inefficiency; 26. identify High Utilization where applicable; 27. prevent High Utilization from being treated automatically as high efficiency; 28. prevent High Utilization from being treated as Value evidence by itself; 29. prevent High Utilization from being treated as Sustainability evidence by itself;</h1>
+<h1 id="30-identify-saturation-where-applicable-31-distinguish-high-utilization-from-sat" data-oof-section-id="true" role="heading" aria-level="2">30. identify Saturation where applicable; 31. distinguish High Utilization from Saturation; 32. distinguish Temporary from Persistent Saturation; 33. prevent Saturation from being treated automatically as Scarcity; 34. preserve Utilization Headroom where applicable; 35. distinguish Headroom from allocable capacity; 36. preserve Utilization duration; 37. preserve Utilization frequency where relevant; 38. support time-weighted Utilization where appropriate; 39. preserve temporal context; 40. preserve Peak Utilization; 41. preserve Average Utilization; 42. distinguish Average from Peak Utilization; 43. preserve Utilization Distribution where relevant; 44. distinguish averages from utilization distributions; 45. support Utilization variability; 46. support stable, volatile, bursty, cyclical, seasonal, and persistent patterns where relevant; 47. prevent single observations from being represented as patterns; 48. preserve sufficient temporal granularity; 49. preserve spatial utilization where relevant; 50. distinguish aggregate from local Utilization; 51. preserve Source-specific Utilization where relevant; 52. preserve shared-capacity context; 53. prevent shared capacity from implying equal participant Utilization; 54. preserve concurrent Utilization where relevant; 55. distinguish individual from collective utilization feasibility; 56. preserve participant, system, function, and purpose context where relevant; 57. distinguish capacity use from proof of authorized purpose; 58. consume RCMM evidence where relevant without equating Consumption with Utilization; 59. support direct Utilization measurement; 60. support estimated Utilization where necessary; 61. distinguish estimated from observed Utilization; 62. require a supported basis for proxy Utilization; 63. support Utilization baselines where appropriate; 64. preserve baseline context; 65. prevent historical Utilization from becoming a future requirement automatically; 66. identify baseline drift; 67. preserve expected Utilization where legitimate; 68. distinguish expected from actual Utilization; 69. support Utilization Variance; 70. prevent variance from being treated automatically as governance failure; 71. preserve persistent Underutilization evidence; 72. preserve persistent High Utilization evidence; 73. preserve Persistent Saturation evidence; 74. identify reserve capacity where relevant; 75. prevent unused reserve from being treated automatically as reallocable capacity; 76. identify resilience capacity where relevant; 77. prevent resilience reserve from being treated automatically as waste; 78. identify standby capacity where relevant; 79. preserve maintenance context; 80. distinguish Installed Capacity from Operational Capacity; 81. distinguish Rated Capacity from sustainable operating capacity; 82. consume sustainability boundaries without independently creating them; 83. produce Utilization efficiency evidence where relevant; 84. prevent Utilization evidence from becoming an efficiency determination by itself; 85. prevent maximum Utilization from being treated automatically as maximum Value; 86. prevent optimization recommendations from becoming Allocation authority; 87. prevent automated scaling capability from becoming Allocation authority; 88. distinguish predicted from current Utilization; 89. distinguish simulated from observed Utilization; 90. preserve Utilization uncertainty; 91. identify material uncertainty sources; 92. support dynamic capacity denominators; 93. preserve denominator changes; 94. identify Utilization conflicts;</h1>
+<h1 id="95-preserve-unresolved-conflicts-96-support-unknown-utilization-states-97-preven" data-oof-section-id="true" role="heading" aria-level="2">95. preserve unresolved conflicts; 96. support Unknown Utilization states; 97. prevent missing evidence from being interpreted as zero Utilization; 98. determine evidence sufficiency; 99. preserve evidence provenance; 100. support Utilization reassessment; 101. preserve version history; 102. produce a Resource Utilization State Profile.</h1>
+<h1 id="145-governance-logic" data-oof-section-id="true" role="heading" aria-level="2">145. Governance Logic</h1>
+<p>Canonical RUSM logic:</p>
+<p>Resource / Resource Capacity → Utilization Definition → Capacity Basis → Actual Capacity Use → Utilized Capacity → Utilization Ratio → Temporal / Spatial / Source Context → Utilization Pattern → Underutilization / High Utilization / Saturation Assessment → Evidence / Uncertainty / Conflict → Resource Utilization State → Resource Utilization State Profile → Reassessment</p>
+<h1 id="146-governance-outputs" data-oof-section-id="true" role="heading" aria-level="2">146. Governance Outputs</h1>
+<p>RUSM may produce:</p>
+<p>Resource Utilization State Profile</p>
+<p>Utilized Capacity</p>
+<p>Resource Utilization Ratio</p>
+<p>Capacity Basis</p>
+<p>Utilization Headroom</p>
+<p>Idle Capacity</p>
+<p>Idle Allocated Capacity</p>
+<p>Active Utilization State</p>
+<p>Partial Utilization State</p>
+<p>Full Utilization State</p>
+<p>Underutilization State</p>
+<p>High Utilization State</p>
+<p>Temporary Saturation State</p>
+<p>Persistent Saturation State</p>
+<p>Peak Utilization</p>
+<p>Average Utilization</p>
+<p>Utilization Distribution</p>
+<p>Utilization Duration</p>
+<p>Utilization Frequency</p>
+<p>Utilization Pattern</p>
+<p>Utilization Variance</p>
+<p>Reserve Capacity Context</p>
+<p>Standby Capacity Context</p>
+<p>Measurement Method State</p>
+<p>Utilization Uncertainty</p>
+<p>Evidence Sufficiency State</p>
+<p>Conflict State</p>
+<p>Reassessment Trigger</p>
+<p class="podstand"><b>Version:</b></p>
+<h1 id="147-critical-distinctions" data-oof-section-id="true" role="heading" aria-level="2">147. Critical Distinctions</h1>
+<p>Resource Consumption ≠ Resource Utilization</p>
+<p>Utilization Percentage Without an Explicit Denominator ≠ Governed Utilization Evidence</p>
+<p>Resource Presence ≠ Resource Utilization</p>
+<p>Capacity Occupancy ≠ Effective Utilization by definition</p>
+<p>Available Capacity ≠ Usable Capacity ≠ Allocated Capacity ≠ Operational Capacity</p>
+<p>Same Utilization Percentage Against Different Capacity Bases ≠ Same Utilization State</p>
+<p>Allocated Capacity ≠ Utilized Capacity</p>
+<p>Idle Allocated Capacity ≠ Unavailable Capacity</p>
+<p>Idle Capacity ≠ Waste by definition</p>
+<p>Full Utilization ≠ Optimal Utilization</p>
+<p>Low Utilization ≠ Underutilization by definition</p>
+<p>Underutilization ≠ Inefficiency by definition</p>
+<p>High Utilization ≠ High Efficiency</p>
+<p>High Utilization ≠ High Value</p>
+<p>High Utilization ≠ Sustainable Utilization</p>
+<p>High Utilization ≠ Saturation by definition</p>
+<p>Resource Saturation ≠ Resource Scarcity by definition</p>
+<p>Utilization Headroom ≠ Allocable Capacity by definition</p>
+<p>Average Utilization ≠ Peak Utilization</p>
+<p>Average Utilization ≠ Utilization Distribution</p>
+<p>Single Utilization Observation ≠ Utilization Pattern</p>
+<p>Annual Average Utilization ≠ Evidence of Hourly Utilization State</p>
+<p>Aggregate Utilization ≠ Local Utilization State</p>
+<p>Aggregate Resource Utilization ≠ Equal Source Utilization</p>
+<p>Shared Capacity ≠ Equal Utilization by Each Participant</p>
+<p>Individual Utilization Feasibility ≠ Collective Utilization Feasibility</p>
+<p>Capacity Utilization ≠ Proof of Authorized Purpose</p>
+<p>Measured Consumption ≠ Utilization State by itself</p>
+<p>Estimated Utilization ≠ Directly Observed Utilization</p>
+<p>Activity Signal ≠ Utilization Evidence by itself</p>
+<p>Historical Utilization ≠ Required Future Utilization</p>
+<p>Expected Utilization ≠ Actual Utilization</p>
+<p>Utilization Variance ≠ Governance Failure by definition</p>
+<p>Unused Capacity ≠ Available Capacity for Reallocation by definition</p>
+<p>Low Utilization Caused by Resilience Reserve ≠ Resource Waste by definition</p>
+<p>Installed Capacity ≠ Operational Capacity</p>
+<p>Rated Capacity ≠ Sustainable Operating Capacity by definition</p>
+<p>Utilization Evidence ≠ Efficiency Determination by itself</p>
+<p>Maximum Utilization ≠ Maximum Value</p>
+<p>Optimization Recommendation ≠ Authority to Change Resource Allocation</p>
+<p>Automated Scaling Capability ≠ Allocation Authority</p>
+<p>Predicted Utilization ≠ Current Utilization State</p>
+<p>Simulated Utilization ≠ Observed Utilization</p>
+<p>Changing Capacity Basis + Constant Resource Use ≠ Constant Utilization Ratio</p>
+<p>No Utilization Evidence ≠ No Utilization</p>
+<h1 id="148-cross-architecture-boundary" data-oof-section-id="true" role="heading" aria-level="2">148. Cross-Architecture Boundary</h1>
+<p>RUSM may consume:</p>
+<p>RCHS — Resource identity, Resource type, Resource state, Source, and context.</p>
+<p>RACS — Available, Usable, Reserved, temporal, and location-specific capacity evidence.</p>
+<p>RDGS — Demand evidence without treating Demand as Utilization.</p>
+<p>RDCS — Dependency and Criticality context.</p>
+<p>RAGS — Access context.</p>
+<p>RPAS — Allocation and Allocation-limit evidence.</p>
+<p>RCMM — Resource Consumption Measurement evidence where Consumption is relevant to Utilization.</p>
+<p>RSCS — Scarcity and Constraint context without RUSM independently determining Scarcity.</p>
+<p>RRCS — Recovery context after Resource use.</p>
+<p>RIRS — interdependency and resilience context.</p>
+<p>RCSS — continuity and sustainability boundaries.</p>
+<p>ORA™ — operational reality evidence concerning actual Resource use.</p>
+<p>PGA™ — predicted utilization evidence without treating prediction as current Utilization.</p>
+<p>SIMULOS® — simulated utilization evidence without treating simulation as observed Utilization.</p>
+<p>VEGA™ — Value and efficiency governance where Utilization evidence contributes to evaluation.</p>
+<p>RUSM does not absorb these mechanisms.</p>
+<h1 id="149-cross-architecture-mechanism-principle" data-oof-section-id="true" role="heading" aria-level="2">149. Cross-Architecture Mechanism Principle</h1>
+<p>An operational mechanism may produce inputs for multiple governance architectures, but it belongs only to the architecture whose governed domain includes that mechanism itself. Other architectures govern only its domain- specific relevance or consequences.</p>
+<p>RUSM governs the determination and representation of Resource Utilization State.</p>
+<p>Its evidence may support:</p>
+<p>future Allocation; Demand reassessment; Scarcity governance; capacity planning; efficiency evaluation; resilience governance; continuity governance; Value governance; Sustainability governance.</p>
+<p>Those downstream mechanisms remain governed by their competent architectures.</p>
+<h1 id="150-canonical-boundary" data-oof-section-id="true" role="heading" aria-level="2">150. Canonical Boundary</h1>
+<p>RUSM governs how the actual utilization of a Resource or Resource capacity is defined, measured, contextualized, classified, evidenced, and represented relative to an explicit capacity basis, including utilized capacity, idle capacity, underutilization, high utilization, saturation, utilization headroom, temporal and spatial patterns, shared and concurrent utilization, uncertainty, conflict, and reassessment.</p>
+<p>It does not determine Resource Consumption measurement as a whole, Demand, Dependency, Criticality, Access authorization, Priority, Allocation, Scarcity, Recovery, Value, Harm, Liability, or long-term Sustainability.</p>
+<p>Its principal governed output is the Resource Utilization State Profile .</p>
+<h1 id="151-canonical-closing-statement" data-oof-section-id="true" role="heading" aria-level="2">151. Canonical Closing Statement</h1>
+<p>A Resource cannot be governed merely by knowing how much capacity exists or how much Resource was consumed. Governance must also know how that capacity was actually used, relative to which capacity basis, for how long, under what operational conditions, and with what remaining headroom.</p>
+<p>RUSM establishes that utilization state — distinguishing active use from Allocation, occupancy from effective utilization, low use from legitimate reserve, and high use from the unsupported assumption that maximum utilization is automatically efficient, valuable, or sustainable.</p>
+
+</div><section class="viewbor"></section></section>
+<!-- OOF SEMANTIC CONTENT END -->
+<a class="back-btn" href="javascript:history.back()" aria-label="Go back">←</a>
+</article></article>
+<!-- OOF SEMANTIC CONTENT END -->
+</main>
+<div id="footer"></div>
+<script src="../../header.js"></script>
+<script>
+fetch("../../header.html").then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; initHeaderMenu(); });
+fetch("../../footer.html").then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+</script>
+</body>
+</html>

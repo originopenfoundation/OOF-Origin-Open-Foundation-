@@ -54,10 +54,10 @@
   "createdAt": "2026-09-17T20:37:33Z",
   "updatedAt": "2026-09-17T20:37:33Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-452027-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-452027-V8",
     "incidentId": "OOF-AII-452027",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -129,7 +129,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -152,6 +153,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Jackson Township Police in Stark County, Ohio Briefly Detained Driver After Flock Safety Alert Matched Vehicle to Stale Missing-Juvenile Hot-List Entry",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that In March 2023, Jackson Township police in Ohio briefly detained driver Michael Smith after a Flock Safety license-plate reader matched his vehicle to an NCIC hot-list entry from a missing-juvenile investigation that Cleveland police had closed two weeks earlier. Officers released Smith after confirming the juvenile had already been found. A federal court later held that Flock matched the plate to law-enforcement data but did not create the stale entry. (2023-03-01, United States of America).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1694",
+      "eventDate": "2023-03-01",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "Moderate",
@@ -330,7 +340,53 @@
       "What evidence would establish how Surveillance Technology, Law Enforcement Databases, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr) produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how safety, enforcement moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Surveillance Technology, Law Enforcement Databases, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr). The next governance test is: How should safety, enforcement be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing safety, enforcement were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for safety, enforcement, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Behavioral Safety Standard - (BSS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/aig/Behavioral%20Safety%20Standard%20-%20(BSS).html",
+          "objectId": "OOF-OID-AIG-BSS-2026-06-26-0010"
+        },
+        {
+          "name": "Behavioral Safety Assurance Module - (BSAM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/aig/BSAM.html",
+          "objectId": "OOF-OID-AIG-BSS-BSAM-2026-06-26-0005"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains safety, enforcement under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "aig",
+      "mechanisms": [
+        "safety",
+        "enforcement"
+      ],
+      "patternKey": "1606438005ae6225"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1694"
@@ -352,7 +408,7 @@
         "What evidence would establish how Surveillance Technology, Law Enforcement Databases, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr) produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how safety, enforcement moved from system activity into a reported real-world consequence, and which controls within AIG® - Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Surveillance Technology, Law Enforcement Databases, Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr). The next governance test is: How should safety, enforcement be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -439,8 +495,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-452027-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-452027-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }

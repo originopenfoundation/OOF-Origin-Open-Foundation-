@@ -59,10 +59,10 @@
   "createdAt": "2026-07-31T02:56:15.927000Z",
   "updatedAt": "2026-07-31T02:56:15.927000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-800138-V6",
+    "assessmentIdentity": "OOF-AII-ASMT-800138-V8",
     "incidentId": "OOF-AII-800138",
-    "analysisVersion": 6,
-    "engineVersion": "3.2.2",
+    "analysisVersion": 8,
+    "engineVersion": "3.4.1",
     "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
     "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -143,7 +143,8 @@
         "independentSourceCount": 1,
         "status": "Single-source",
         "contradictionState": "Not evaluated"
-      }
+      },
+      "publicEvidenceStatus": "Source-Reported"
     },
     "incidentEvidence": {
       "sourcesUsed": [
@@ -166,6 +167,15 @@
         "Independent corroboration is not established in the available incident record."
       ],
       "evidenceState": "Single-source"
+    },
+    "oofIncidentReport": {
+      "headline": "Purportedly AI-Generated Memorial Posters Reportedly Presented Fabricated Child Portraits as Victims of South African School Transport Crash",
+      "report": "AI Incident Database (Responsible AI Collaborative) reports that Purportedly AI-generated memorial posters reportedly presented fabricated child portraits as pupils killed in a school-transport crash near Vanderbijlpark, South Africa. The posters circulated on Facebook, X and TikTok before authorities released the victims' identities or photographs. AFP reported that the depicted faces did not match official victim images, and the Gauteng education department condemned the posts while families were grieving. (2026-01-19, South Africa).",
+      "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+      "sourceUrl": "https://incidentdatabase.ai/cite/1608",
+      "eventDate": "2026-01-19",
+      "evidenceStatus": "Source-Reported",
+      "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
     "severityAssessment": {
       "level": "High",
@@ -383,7 +393,42 @@
       "What operational authority and controls applied to Synthetic Media Creators, Social Media Users, Information Manipulation Actors In South Africa, Information Manipulation Actors at the relevant time?",
       "What evidence would establish how X (Twitter), Tiktok, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms, Facebook produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "The governance significance lies in how integrity, validation, evidence, manipulation moved from system activity into a reported real-world consequence, and which controls within GOA™ - Governance Architecture should be examined next.",
+    "incidentGovernanceInsight": "This case matters to GOA™ - Governance Architecture because the reported activity reached a real-world consequence involving X (Twitter), Tiktok, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms, Facebook. The next governance test is: How should integrity, validation, evidence be governed in the conditions described by the available incident evidence?",
+    "preventionGuidance": {
+      "governanceGapToExamine": "Examine whether controls governing integrity, validation, evidence, manipulation were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for integrity, validation, evidence, manipulation, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
+    "practicalChecklist": [
+      {
+        "item": "Identify accountable authority",
+        "verification": "Record who authorized, operated, and could stop the activity."
+      },
+      {
+        "item": "Reconstruct the evidence chain",
+        "verification": "Link source, system action, observation, consequence, and time."
+      },
+      {
+        "item": "Test the preventive control",
+        "verification": "Demonstrate that the control detects or constrains integrity, validation, evidence, manipulation under comparable conditions."
+      },
+      {
+        "item": "Record residual uncertainty",
+        "verification": "List unresolved facts and the evidence required to resolve them."
+      }
+    ],
+    "governanceFailurePattern": {
+      "primaryArchitectureId": "goa",
+      "mechanisms": [
+        "integrity",
+        "validation",
+        "evidence",
+        "manipulation"
+      ],
+      "patternKey": "5d8c99493959de68"
+    },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1608"
@@ -408,7 +453,7 @@
         "What operational authority and controls applied to Synthetic Media Creators, Social Media Users, Information Manipulation Actors In South Africa, Information Manipulation Actors at the relevant time?",
         "What evidence would establish how X (Twitter), Tiktok, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms, Facebook produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "The governance significance lies in how integrity, validation, evidence, manipulation moved from system activity into a reported real-world consequence, and which controls within GOA™ - Governance Architecture should be examined next.",
+      "incidentGovernanceInsight": "This case matters to GOA™ - Governance Architecture because the reported activity reached a real-world consequence involving X (Twitter), Tiktok, Synthetic Media Generation Technology, Synthetic Image Generation Technology, Social Media Platforms, Facebook. The next governance test is: How should integrity, validation, evidence be governed in the conditions described by the available incident evidence?",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -548,8 +593,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-11T19:21:32Z",
-    "supersedes": "OOF-AII-ASMT-800138-V5",
+    "createdAt": "2026-10-15T16:01:15Z",
+    "supersedes": "OOF-AII-ASMT-800138-V7",
     "reassessmentReason": "Material analysis engine change"
   }
 }
