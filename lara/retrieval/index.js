@@ -4,14 +4,16 @@ const normalized=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u03
 const tokens=value=>new Set(normalized(value).match(/[\p{L}\p{N}-]+/gu)||[]);
 const tokenCache=new WeakMap();
 function rank(index, query, lang, disabled=new Set(), limit=5) {
-  const terms=queryTerms(query,lang).map(normalized); const q=normalized(query);
+  const terms=queryTerms(query,lang).map(normalized);
   if(!terms.length) return [];
+  const boundaries=terms.map(term=>new RegExp('(?:^|[^\\p{L}\\p{N}-])'+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?=$|[^\\p{L}\\p{N}-])','u'));
   if(terms.every(t=>['oof','originopen','foundation'].includes(t)))return (index.resources||[]).filter(r=>!disabled.has(r.resource_id)&&r.provenance?.sourcePath==='index.html').map(resource=>({resource,score:1}));
   const scored=(index.resources||[]).filter(r=>!disabled.has(r.resource_id)).map(r=>{
     const title=(r.title||'').toLocaleLowerCase(), meta=[...(r.keywords||[]),...(r.topics||[]),r.architecture||'',r.parent_standard||'',r.module||''].join(' ').toLocaleLowerCase();
-    if(!tokenCache.has(r))tokenCache.set(r,{title:tokens(title),meta:tokens(meta),body:tokens((r.chunks||[]).map(c=>c.text).join(' '))});
+    // Cache one flat normalized body, not a Set of separately allocated words.
+    if(!tokenCache.has(r))tokenCache.set(r,{title:tokens(title),meta:tokens(meta),body:normalized((r.chunks||[]).map(c=>c.text).join(' '))});
     let score=0,matched=0,anchors=0;const {title:titleWords,meta:metaWords,body:bodyWords}=tokenCache.get(r);
-    for(const term of terms){const direct=titleWords.has(term)||metaWords.has(term),body=bodyWords.has(term);if(direct||body)matched++;if(direct){score+=10;anchors++;}else if(body)score+=1;}
+    for(const [i,term] of terms.entries()){const direct=titleWords.has(term)||metaWords.has(term),body=boundaries[i].test(bodyWords);if(direct||body)matched++;if(direct){score+=10;anchors++;}else if(body)score+=1;}
     if(!anchors||matched<Math.max(1,Math.ceil(terms.length*0.6)))return {resource:r,score:0};
     const cleanTitle=normalized(r.title).replace(/^oof[®™]?\s*/,'');
     if(cleanTitle.startsWith(terms.join(' ')))score+=40;
