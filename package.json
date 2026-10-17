@@ -1,0 +1,13 @@
+{
+  "name": "oof-lara",
+  "version": "1.1.0",
+  "private": true,
+  "engines": {"node": ">=22 <25"},
+  "scripts": {
+    "build": "node tools/check_lara.cjs",
+    "start": "node lara/server.js",
+    "test": "node --test tests/lara/*.test.js",
+    "test:memory": "node tests/lara/memory-smoke.cjs",
+    "audit:knowledge": "node tools/lara_knowledge_inventory.cjs"
+  }
+}
