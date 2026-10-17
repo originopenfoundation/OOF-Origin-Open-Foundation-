@@ -1,5 +1,19 @@
 # LaRA integration on the current OOF website
 
+## Current implementation: 17 October 2026
+
+See [the implementation and verification audit](../docs/lara-intelligent-foundation.md) for current evidence, deployment instructions and limitations. The notes below this section describe earlier snapshots and must not be treated as current test totals or readiness counts.
+
+Run `node tools/check_lara.cjs`, `node --test tests/lara/*.test.js`, and `node tests/lara/memory-smoke.cjs`. Start with `node lara/server.js`. No npm dependencies are required. Render uses the repository root, Node 24, `HOST=0.0.0.0`, `NODE_ENV=production`, and the platform PORT; `/_lara/ready` is the health endpoint. `render.yaml` documents the existing service and does not need importing as a new Blueprint.
+
+Keep `LLM_PROVIDER`, `LLM_MODEL`, `LLM_API_KEY` and (when needed) `LLM_BASE_URL` in Render Environment. Explicit environment settings override saved admin settings at startup. A configured key is not proof of model operation. Public generation remains blocked by report-only until actual governance readiness is established. Local review additionally requires explicit `NODE_ENV=development` and loopback; no new production override exists.
+
+The same gateway now handles evidence-grounded explanation, preliminary assessment and ordinary conversation where permitted. All four existing modes and bounded redacted history share one pipeline. `generation.kind` separates model, retrieval and preview; failure reasons never expose provider responses or credentials. Alternative provider fallback requires its own explicit configuration. Request/response/context/concurrency limits protect the lightweight backend; inference weights stay on a separate host.
+
+Current recorded engineering: 53 Node tests, 18 Python knowledge tests, schema/manifest/deterministic rebuild validation and full-server 256 MiB memory smoke pass. Current inventory: 2,294 accessible resources; readiness remains false with 7 duplicate groups and 220 candidate groups. Actual model quality and the 42/50 target remain unverified. These figures are a dated snapshot, not hardcoded acceptance conditions.
+
+## Historical integration notes
+
 Memory regression: `node tests/lara/memory-smoke.cjs private-results.json` starts the actual server with a 256 MiB V8 heap, loads the full read-only registry and performs 30 HTTP/SSE queries. It checks readiness, final heap and worker RSS against the free instance budget. Run from a disposable checkout with no saved provider override. Text chunks are joined once into flat strings and retrieval caches flat normalized bodies instead of per-resource word Sets. No heap-size increase or reduced source/authority coverage is required.
 
 Communication fixes (14 October 2026): explanatory questions no longer become assessments merely because they mention governance/authority. Preview greetings, capability boundaries and uncertainty are explicit. Retrieval matches words, requires a subject anchor, prioritizes the OOF homepage for foundation questions, and preserves approved exact-identity ambiguity. Short follow-ups reuse a temporary topic; language/style controls stay within the session. Provider requests carry at most six redacted history messages as untrusted data.

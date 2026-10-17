@@ -17,7 +17,7 @@ function query(question,session){const q=normalized(question).replace(/[?.!]+$/,
  if(/^(?:what is|explain|co je|was ist)\s+oof[®™]?\s*[?.!]?\s*(?:odpovedz|bitte|briefly|again|without|$)/i.test(q))return 'OOF';
  if(/^(?:explain |vysvetli |erklare )?(?:governance|riadenie|governance architektura)(?: in simple language| to a child| professionally)?$/i.test(q))return 'governance architecture';
  return question.replace(/^(?:what (?:is|are)|explain|define|describe|find|co je|čo je|was ist|vysvetli|erkläre|erklaere)\s+/iu,'').replace(/[?.!]+$/,'').trim();}
-function control(question){return /^(?:stop joking|be (?:completely )?professional|now in|say that in|odpovedaj|prestan zartovat)/i.test(normalized(question));}
+function control(question){return /^(?:stop joking|be (?:completely )?professional|now (?:answer.*seriously|in)|say that in|odpovedaj|prestan zartovat)/i.test(normalized(question));}
 function reply(question,lang,session){const q=normalized(question),c=strings(lang);
  const capabilities=capabilityReplies[lang]||capabilityReplies.en;
  if(/^(?:hello|hi\b|hey\b|ahoj|dobry den|hallo|who are you|kto si|wer bist du)/i.test(q))return c.hello;
