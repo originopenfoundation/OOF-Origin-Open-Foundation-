@@ -144,7 +144,6 @@
 
 .oof-map-copy {
   min-width: 0;
-  overflow: hidden;
 }
 
 .oof-map-acronym,
@@ -162,7 +161,7 @@
 }
 
 .oof-map-acronym--long {
-  font-size: clamp(14px, 1.4vw, 16px);
+  font-size: clamp(12px, 1.35vw, 16px);
 }
 
 .oof-map-name {
@@ -298,7 +297,7 @@
   font-weight: 700;
 }
 
-@container (max-width: 760px) {
+@container (max-width: 900px) {
   .oof-map-territories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .oof-map-board-header { grid-template-columns: 1fr; gap: 12px; }
   .oof-map-brand,
@@ -307,7 +306,7 @@
   .oof-map-board-title span { letter-spacing: 0.12em; }
 }
 
-@container (max-width: 620px) {
+@container (max-width: 640px) {
   .oof-map-territories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .oof-map-legend { grid-template-columns: 1fr; }
   .oof-map-legend > span + span { border-top: 1px solid #b7d9f2; border-left: 0; }
@@ -325,6 +324,19 @@
   .oof-map-selection-header { align-items: flex-start; flex-direction: column; }
   .oof-map-selection-links { justify-content: flex-start; }
   .oof-map-frame { min-height: 620px; }
+}
+
+@media (max-width: 920px) {
+  .oof-map-territory {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .oof-map-icon {
+    width: 38px;
+    height: 42px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

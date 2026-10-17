@@ -1,5 +1,10 @@
-let siteSearchIndex = null;
-let siteSearchLoading = false;
+let siteSearchWorker = null;
+let siteSearchWorkerReady = false;
+let siteSearchWorkerLoading = false;
+let siteSearchRequestId = 0;
+const siteSearchDebounceTimers = new Map();
+const siteSearchPendingQueries = new Map();
+const siteSearchLatestRequests = new Map();
 const navigationStateKey = "oof-navigation-expanded";
 const navigationScrollKey = "oof-navigation-scroll";
 
@@ -593,22 +598,61 @@ function closeSiteSearch() {
   setDisplay(getById("siteSearchPanel"), "none");
 }
 
-async function loadSiteSearchIndex(resultsId = "siteSearchResults") {
-  if (siteSearchIndex || siteSearchLoading) return;
+function loadSiteSearchIndex(resultsId = "siteSearchResults") {
+  if (siteSearchWorkerReady) return Promise.resolve();
 
-  siteSearchLoading = true;
   renderSearchStatus("Loading search...", resultsId);
+  if (siteSearchWorkerLoading) return Promise.resolve();
 
-  try {
-    const response = await fetch(withSiteRoot("search-index.json"), { cache: "no-store" });
-    if (!response.ok) throw new Error("Search index not found");
-    siteSearchIndex = await response.json();
-    renderSearchStatus("Type to search.", resultsId);
-  } catch (error) {
-    renderSearchStatus("Search index is not available.", resultsId);
-  } finally {
-    siteSearchLoading = false;
+  if (!("Worker" in window)) {
+    renderSearchStatus("Search is not supported by this browser.", resultsId);
+    return Promise.resolve();
   }
+
+  siteSearchWorkerLoading = true;
+  const workerUrl = new URL(withSiteRoot("assets/js/site-search-worker.js"), window.location.href);
+  const indexUrl = new URL(withSiteRoot("search-index.json"), window.location.href);
+  siteSearchWorker = new Worker(workerUrl);
+
+  siteSearchWorker.addEventListener("message", event => {
+    const message = event.data || {};
+
+    if (message.type === "ready") {
+      siteSearchWorkerReady = true;
+      siteSearchWorkerLoading = false;
+
+      if (siteSearchPendingQueries.size === 0) {
+        renderSearchStatus("Type to search.", resultsId);
+      }
+
+      siteSearchPendingQueries.forEach((query, pendingResultsId) => {
+        executeSiteSearch(query, pendingResultsId);
+      });
+      siteSearchPendingQueries.clear();
+      return;
+    }
+
+    if (message.type === "results") {
+      if (siteSearchLatestRequests.get(message.resultsId) !== message.requestId) return;
+      renderSiteSearchResults(message.matches || [], message.words || [], message.resultsId);
+      return;
+    }
+
+    if (message.type === "error") {
+      siteSearchWorkerLoading = false;
+      siteSearchPendingQueries.clear();
+      renderSearchStatus("Search index is not available.", message.resultsId || resultsId);
+    }
+  });
+
+  siteSearchWorker.addEventListener("error", () => {
+    siteSearchWorkerLoading = false;
+    siteSearchPendingQueries.clear();
+    renderSearchStatus("Search index is not available.", resultsId);
+  });
+
+  siteSearchWorker.postMessage({ type: "init", indexUrl: indexUrl.href });
+  return Promise.resolve();
 }
 
 function runSiteSearch(query, resultsId = "siteSearchResults") {
@@ -617,42 +661,43 @@ function runSiteSearch(query, resultsId = "siteSearchResults") {
 
   const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   if (words.join("").length < 2) {
+    clearTimeout(siteSearchDebounceTimers.get(resultsId));
+    siteSearchPendingQueries.delete(resultsId);
     renderSearchStatus("Type at least 2 characters.", resultsId);
     return;
   }
 
-  if (!siteSearchIndex) {
-    loadSiteSearchIndex(resultsId).then(() => runSiteSearch(query, resultsId));
+  clearTimeout(siteSearchDebounceTimers.get(resultsId));
+  siteSearchDebounceTimers.set(resultsId, setTimeout(() => {
+    executeSiteSearch(query, resultsId);
+  }, 180));
+}
+
+function executeSiteSearch(query, resultsId) {
+  if (!siteSearchWorkerReady || !siteSearchWorker) {
+    siteSearchPendingQueries.set(resultsId, query);
+    loadSiteSearchIndex(resultsId);
     return;
   }
 
-  const matches = siteSearchIndex
-    .map(page => ({ page, score: getSearchScore(page, words) }))
-    .filter(item => item.score > 0)
-    .sort((a, b) => b.score - a.score || a.page.title.localeCompare(b.page.title))
-    .slice(0, 12);
+  const requestId = ++siteSearchRequestId;
+  siteSearchLatestRequests.set(resultsId, requestId);
+  siteSearchWorker.postMessage({ type: "search", requestId, resultsId, query });
+}
 
+function renderSiteSearchResults(matches, words, resultsId) {
   if (matches.length === 0) {
     renderSearchStatus("No results found.", resultsId);
     return;
   }
 
-  results.innerHTML = matches.map(({ page }) => {
-    const title = highlightSearchTerms(page.title || page.url, words);
-    const excerpt = highlightSearchTerms(makeSearchExcerpt(page.text || "", words), words);
-    return `<a class="site-search-result" href="${withSiteRoot(page.url)}"><b>${title}</b><span>${excerpt}</span></a>`;
+  const results = getById(resultsId);
+  if (!results) return;
+  results.innerHTML = matches.map(match => {
+    const title = highlightSearchTerms(match.title || match.url, words);
+    const excerpt = highlightSearchTerms(match.excerpt || "", words);
+    return `<a class="site-search-result" href="${withSiteRoot(match.url)}"><b>${title}</b><span>${excerpt}</span></a>`;
   }).join("");
-}
-
-function getSearchScore(page, words) {
-  const title = (page.title || "").toLowerCase();
-  const text = (page.text || "").toLowerCase();
-
-  return words.reduce((score, word) => {
-    if (title.includes(word)) score += 10;
-    if (text.includes(word)) score += 1;
-    return score;
-  }, 0);
 }
 
 function renderSearchStatus(message, resultsId = "siteSearchResults") {
@@ -660,17 +705,6 @@ function renderSearchStatus(message, resultsId = "siteSearchResults") {
   if (results) results.innerHTML = `<p class="site-search-status">${escapeHtml(message)}</p>`;
 }
 
-function makeSearchExcerpt(text, words) {
-  const normalized = text.replace(/\s+/g, " ").trim();
-  const lower = normalized.toLowerCase();
-  const foundAt = words
-    .map(word => lower.indexOf(word))
-    .filter(index => index >= 0)
-    .sort((a, b) => a - b)[0];
-  const start = Math.max(0, (foundAt || 0) - 55);
-  const excerpt = normalized.slice(start, start + 150);
-  return (start > 0 ? "..." : "") + excerpt + (start + 150 < normalized.length ? "..." : "");
-}
 
 function highlightSearchTerms(value, words) {
   let highlighted = escapeHtml(value);
