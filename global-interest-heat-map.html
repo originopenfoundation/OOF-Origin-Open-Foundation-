@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>OOF® Global Interest Heat Map™</title>
 <link rel="stylesheet" href="assets/vendor/leaflet-1.9.4/leaflet.css" />
-<link rel="stylesheet" href="style.css?v=20260930.1" />
+<link rel="stylesheet" href="style.css?v=20261017.1" />
 <!-- OOF AI DISCOVERY START -->
 <meta name="description" content="The OOF® Global Interest Heat Map™ provides privacy-conscious country-level signals of global interest in OOF governance methodology using a rolling 14-day." />
 <link rel="canonical" href="https://originopenfoundation.org/global-interest-heat-map.html" />
@@ -43,21 +43,31 @@
   </header>
 
   <div class="oof-global-interest-globe-shell">
-    <div id="global-interest-globe" class="oof-global-interest-globe" role="application" aria-label="Interactive two-dimensional Global Interest Heat Map showing privacy-reduced country-level interest classifications. Drag to move, zoom to reveal English country names, or choose a country below.">
-      <div class="oof-global-interest-loading" role="status">Loading Global Interest Heat Map...</div>
+    <div class="oof-global-interest-map-panel">
+      <div id="global-interest-globe" class="oof-global-interest-globe" role="application" aria-label="Interactive two-dimensional Global Interest Heat Map showing privacy-reduced country-level interest classifications. Drag to move, zoom to reveal English country names, or choose a country from the map or list.">
+        <div class="oof-global-interest-loading" role="status">Loading Global Interest Heat Map...</div>
+      </div>
+
+      <div class="oof-global-interest-view-controls" aria-label="Map view controls">
+        <button type="button" data-map-action="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
+        <button type="button" data-map-action="zoom-out" aria-label="Zoom out" title="Zoom out">−</button>
+        <button type="button" data-map-action="reset" aria-label="Reset map view" title="Reset map view">↺</button>
+      </div>
+
+      <aside id="global-interest-country-card" class="oof-global-interest-country-card" aria-live="polite" aria-atomic="true">
+        <span class="oof-global-interest-card-label">Country interest</span>
+        <strong id="global-interest-country-name">Select a country</strong>
+        <span id="global-interest-country-status">Interest classification will appear here.</span>
+        <span id="global-interest-country-momentum" hidden></span>
+      </aside>
     </div>
 
-    <div class="oof-global-interest-view-controls" aria-label="Map view controls">
-      <button type="button" data-map-action="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
-      <button type="button" data-map-action="zoom-out" aria-label="Zoom out" title="Zoom out">−</button>
-      <button type="button" data-map-action="reset" aria-label="Reset map view" title="Reset map view">↺</button>
-    </div>
-
-    <aside id="global-interest-country-card" class="oof-global-interest-country-card" aria-live="polite" aria-atomic="true">
-      <span class="oof-global-interest-card-label">Country interest</span>
-      <strong id="global-interest-country-name">Select a country</strong>
-      <span id="global-interest-country-status">Interest classification will appear here.</span>
-      <span id="global-interest-country-momentum" hidden></span>
+    <aside class="oof-global-interest-country-list" aria-labelledby="global-interest-country-list-title">
+      <h2 id="global-interest-country-list-title">Countries</h2>
+      <p>Select a country to view its interest classification.</p>
+      <ul id="global-interest-country-list" aria-live="polite" aria-busy="true">
+        <li class="oof-global-interest-country-list-empty">Loading countries...</li>
+      </ul>
     </aside>
   </div>
 
@@ -106,6 +116,6 @@ fetch("header.html").then(res => res.text()).then(data => { document.getElementB
 fetch("footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
 </script>
 <script defer src="assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script defer src="assets/js/oof-global-interest-heat-map.js?v=20261006.2"></script>
+<script defer src="assets/js/oof-global-interest-heat-map.js?v=20261017.1"></script>
 </body>
 </html>

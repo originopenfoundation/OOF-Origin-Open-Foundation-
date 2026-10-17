@@ -28,6 +28,7 @@
   const container = document.getElementById("global-interest-globe");
   const fallback = document.getElementById("global-interest-fallback");
   const select = document.getElementById("global-interest-country-select");
+  const countryList = document.getElementById("global-interest-country-list");
   const card = document.getElementById("global-interest-country-card");
   const countryName = document.getElementById("global-interest-country-name");
   const countryStatus = document.getElementById("global-interest-country-status");
@@ -166,6 +167,11 @@
     selectedFeature = feature;
     showCountry(feature);
     select.value = countryCode(feature);
+    if (countryList) {
+      countryList.querySelectorAll(".oof-global-interest-country-option").forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.countryIso === countryCode(feature)));
+      });
+    }
     refreshHighlights();
     const center = featureCenter(feature);
     if (focus && center) {
@@ -245,11 +251,57 @@
     });
   }
 
+  function populateCountryList(features) {
+    if (!countryList) return;
+    const countries = features
+      .filter(feature => publicState(feature).status !== "insufficient")
+      .sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), "en"));
+    const fragment = document.createDocumentFragment();
+
+    countries.forEach(feature => {
+      const state = publicState(feature);
+      const item = document.createElement("li");
+      const button = document.createElement("button");
+      const swatch = document.createElement("span");
+      const name = document.createElement("span");
+
+      button.type = "button";
+      button.className = "oof-global-interest-country-option";
+      button.dataset.countryIso = countryCode(feature);
+      button.setAttribute("aria-pressed", "false");
+      button.setAttribute("aria-label", `${countryLabel(feature)}: ${STATUS_LABELS[state.status] || STATUS_LABELS.insufficient}. Select country.`);
+      swatch.className = `oof-global-interest-country-swatch is-${state.status}`;
+      swatch.setAttribute("aria-hidden", "true");
+      name.className = "oof-global-interest-country-option-name";
+      name.textContent = countryLabel(feature);
+      button.append(swatch, name);
+      button.addEventListener("click", () => selectFeature(feature, true));
+      item.appendChild(button);
+      fragment.appendChild(item);
+    });
+
+    countryList.replaceChildren(fragment);
+    countryList.setAttribute("aria-busy", "false");
+    if (countries.length === 0) {
+      const empty = document.createElement("li");
+      empty.className = "oof-global-interest-country-list-empty";
+      empty.textContent = "No countries have a sufficient public signal in this data window.";
+      countryList.appendChild(empty);
+    }
+  }
+
   function showFallback(message) {
     container.classList.add("is-fallback");
     container.innerHTML = `<p>${message}</p>`;
     if (viewControls) viewControls.hidden = true;
     if (fallback) fallback.hidden = false;
+    if (countryList) {
+      const unavailable = document.createElement("li");
+      unavailable.className = "oof-global-interest-country-list-empty";
+      unavailable.textContent = "Country classifications are unavailable.";
+      countryList.replaceChildren(unavailable);
+      countryList.setAttribute("aria-busy", "false");
+    }
   }
 
   Promise.all([
@@ -325,6 +377,7 @@
     }).addTo(map);
 
     populateCountrySelector(features);
+    populateCountryList(features);
     updateLabels();
     map.on("zoomend", () => {
       updateLabels();
@@ -341,6 +394,9 @@
           selectedFeature = null;
           hoveredFeature = null;
           select.value = "";
+          if (countryList) {
+            countryList.querySelectorAll(".oof-global-interest-country-option").forEach(option => option.setAttribute("aria-pressed", "false"));
+          }
           showCountry(null);
           refreshHighlights();
           map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: !reducedMotion });
