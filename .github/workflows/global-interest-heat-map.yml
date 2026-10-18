@@ -53,7 +53,15 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_ANALYTICS_API_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_API_TOKEN }}
           CLOUDFLARE_WEB_ANALYTICS_SITE_TAG: ${{ secrets.CLOUDFLARE_WEB_ANALYTICS_SITE_TAG }}
-        run: python tools/update_global_interest_heat_map.py --internal-output "$RUNNER_TEMP/oof-global-interest-internal.json"
+        run: python tools/update_global_interest_heat_map.py --internal-output "$RUNNER_TEMP/oof-global-interest-internal.json" --diagnostic-output "$RUNNER_TEMP/oof-global-interest-refresh-diagnostic.json"
+
+      - name: Record preserved dataset when analytics is unavailable
+        if: steps.analytics.outputs.configured != 'true'
+        run: python tools/update_global_interest_heat_map.py --write-skipped-diagnostic --skip-reason missing-cloudflare-credentials --diagnostic-output "$RUNNER_TEMP/oof-global-interest-refresh-diagnostic.json"
+
+      - name: Record failed refresh without changing public freshness
+        if: failure() && steps.analytics.outputs.configured == 'true'
+        run: python tools/update_global_interest_heat_map.py --write-skipped-diagnostic --skip-reason retrieval-or-validation-failed --diagnostic-output "$RUNNER_TEMP/oof-global-interest-refresh-diagnostic.json"
 
       - name: Validate active public dataset
         run: python tools/validate_global_interest_heat_map.py
@@ -69,14 +77,16 @@ jobs:
       - name: Run desktop and mobile smoke tests
         run: npx playwright test --config=playwright.config.mjs
 
-      - name: Preserve internal aggregate snapshot
-        if: steps.analytics.outputs.configured == 'true'
+      - name: Preserve restricted diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: global-interest-internal-${{ github.run_id }}
-          path: ${{ runner.temp }}/oof-global-interest-internal.json
-          retention-days: 90
-          if-no-files-found: error
+          name: global-interest-diagnostics-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/oof-global-interest-internal.json
+            ${{ runner.temp }}/oof-global-interest-refresh-diagnostic.json
+          retention-days: 14
+          if-no-files-found: warn
 
       - name: Publish changed public dataset atomically
         if: steps.analytics.outputs.configured == 'true'

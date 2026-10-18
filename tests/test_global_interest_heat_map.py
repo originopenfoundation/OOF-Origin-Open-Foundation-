@@ -20,6 +20,7 @@ from update_global_interest_heat_map import (  # noqa: E402
     classify,
     public_payload,
     resolve_iso,
+    write_refresh_diagnostic,
 )
 from validate_global_interest_heat_map import FORBIDDEN_KEYS, freshness_state, validate  # noqa: E402
 
@@ -52,6 +53,7 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
         public, internal = self.classify_one(distributed("AA", [1, 1], spacing=3))
         self.assertEqual(public, [])
         self.assertEqual(internal["classification"], "insufficient")
+        self.assertIn("below-minimum-visits", internal["exclusionReasons"])
 
     def test_three_visits_on_one_day_is_insufficient(self) -> None:
         public, internal = self.classify_one(distributed("AA", [3]))
@@ -91,7 +93,7 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
         self.assertIn("OR: [{ bot: 0 }, { bot: 1 }]", query)
 
     def test_stale_dataset_detection_uses_36_hour_boundary(self) -> None:
-        payload = {"lastCheckedAt": "2026-09-29T12:00:00Z"}
+        payload = {"lastCheckedAt": "2026-09-29T12:00:00Z", "lastSuccessfulCloudflareRetrievalAt": "2026-09-29T12:00:00Z"}
         self.assertEqual(freshness_state(payload, NOW), "current")
         self.assertEqual(freshness_state(payload, NOW + timedelta(hours=13)), "stale")
 
@@ -104,6 +106,22 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 atomic_write(target, {"countries": []})
             self.assertEqual(target.read_bytes(), before)
+
+    def test_cloudflare_api_error_cannot_create_a_public_refresh(self) -> None:
+        with patch("update_global_interest_heat_map.request_json", return_value={"errors": [{"message": "unavailable"}]}):
+            with self.assertRaises(RuntimeError):
+                cloudflare_rows("a" * 32, "b" * 32, "token", NOW - timedelta(days=14), NOW)
+
+    def test_skipped_refresh_diagnostic_preserves_public_freshness(self) -> None:
+        source = ROOT / "data" / "oof-global-interest-heat-map.json"
+        dataset = json.loads(source.read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as directory:
+            diagnostic = Path(directory) / "refresh.json"
+            write_refresh_diagnostic(diagnostic, status="preserved", reason="missing-cloudflare-credentials", now=NOW, dataset=dataset)
+            payload = json.loads(diagnostic.read_text(encoding="utf-8"))
+            self.assertEqual(payload["refreshStatus"], "preserved")
+            self.assertEqual(payload["lastSuccessfulCloudflareRetrievalAt"], dataset["lastSuccessfulCloudflareRetrievalAt"])
+            self.assertNotIn("CLOUDFLARE", json.dumps(payload))
 
     def test_public_payload_contains_no_private_fields(self) -> None:
         payload = json.loads((ROOT / "data" / "oof-global-interest-heat-map.json").read_text(encoding="utf-8"))
@@ -136,6 +154,11 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
             self.assertEqual(refreshed["lastCheckedAt"], later["lastCheckedAt"])
             self.assertEqual(refreshed["windowStart"], later["windowStart"])
             self.assertFalse(atomic_write(target, later))
+
+    def test_momentum_uses_saturated_daily_activity(self) -> None:
+        public, internal = self.classify_one(distributed("AA", [16, 16, 16, 16], spacing=2))
+        self.assertTrue(public)
+        self.assertEqual(internal["momentumBasis"], "saturated-daily-activity")
 
 
 if __name__ == "__main__":

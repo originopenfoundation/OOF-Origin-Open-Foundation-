@@ -21,7 +21,7 @@ from validate_global_interest_heat_map import validate
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
 ARCHITECTURE_INDEX = ROOT / "data" / "oof-architecture-registry.json"
-SCHEMA_VERSION = "1.1"
+SCHEMA_VERSION = "1.2"
 INTEREST_ALGORITHM_VERSION = "3.1"
 GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql"
 POPULATION_METADATA_URL = "https://api.worldbank.org/v2/country?format=json&per_page=400"
@@ -41,6 +41,12 @@ TECHNICAL_TRAFFIC_POLICY = {
     "cloudflareBotFilter": False,
     "additionalExclusions": [],
     "limitation": "Automated and human traffic are included. The available aggregate Web Analytics rows do not reliably identify individual people, devices, collaborators, programmers, or synthetic traffic.",
+}
+CONTINUITY_SIGNAL_REVIEW = {
+    "windowDays": 30,
+    "enabled": False,
+    "status": "evaluated-not-enabled",
+    "limitation": "The public classification continues to use the governed rolling 14-day observation window.",
 }
 
 
@@ -170,11 +176,17 @@ def canonical_governance_spaces(path: Path = ARCHITECTURE_INDEX) -> list[dict]:
 def classify(
     rows: list[dict], populations: dict[str, int], names_to_iso2: dict[str, str], now: datetime
 ) -> tuple[list[dict], dict]:
-    countries: dict[str, dict] = defaultdict(lambda: {"visits": 0.0, "days": set(), "daily": defaultdict(float)})
+    countries: dict[str, dict] = defaultdict(lambda: {"visits": 0.0, "days": set(), "daily": defaultdict(float), "exclusionReasons": []})
+    unresolved_sources: set[str] = set()
+    missing_population: set[str] = set()
     for row in rows:
         dimensions = row.get("dimensions") or {}
         iso = resolve_iso(str(dimensions.get("countryName") or ""), names_to_iso2)
-        if not iso or iso not in populations:
+        if not iso:
+            unresolved_sources.add(str(dimensions.get("countryName") or "Unknown"))
+            continue
+        if iso not in populations:
+            missing_population.add(iso)
             continue
         visits = float((row.get("sum") or {}).get("visits") or 0)
         if visits <= 0:
@@ -189,7 +201,11 @@ def classify(
     for iso, metrics in countries.items():
         visits = metrics["visits"]
         active_days = len(metrics["days"])
-        if visits < CLASSIFICATION_CONFIG["minimumVisits"] or active_days < CLASSIFICATION_CONFIG["minimumActiveDays"]:
+        if visits < CLASSIFICATION_CONFIG["minimumVisits"]:
+            metrics["exclusionReasons"].append("below-minimum-visits")
+        if active_days < CLASSIFICATION_CONFIG["minimumActiveDays"]:
+            metrics["exclusionReasons"].append("below-minimum-active-days")
+        if metrics["exclusionReasons"]:
             continue
         dated_days = sorted(datetime.fromisoformat(day).date() for day in metrics["days"])
         span_days = (dated_days[-1] - dated_days[0]).days + 1
@@ -208,6 +224,8 @@ def classify(
             "maximumDailyShare": daily_share,
             "normalizedScore": math.log1p(visits_per_million) * reliability * (0.5 + 0.5 * continuity) * repetition_factor,
         })
+        if reliability < CLASSIFICATION_CONFIG["moderate"]["reliability"]:
+            metrics["exclusionReasons"].append("below-moderate-reliability")
         eligible[iso] = metrics
 
     public: list[dict] = []
@@ -216,14 +234,11 @@ def classify(
     prior_start = (now - timedelta(days=14)).date().isoformat()
     for iso, metrics in sorted(countries.items()):
         record = {
-            "visits": round(metrics["visits"], 4),
-            "activeDays": len(metrics["days"]),
-            "population": populations.get(iso),
             "classification": "insufficient",
+            "exclusionReasons": sorted(set(metrics["exclusionReasons"])),
         }
         if iso in eligible:
             evidence = eligible[iso]
-            score = evidence["normalizedScore"]
             very_high = CLASSIFICATION_CONFIG["veryHigh"]
             if meets(evidence, very_high) and evidence["maximumDailyShare"] <= very_high["maximumDailyShare"]:
                 status = "very-high"
@@ -234,8 +249,9 @@ def classify(
             else:
                 status = "emerging"
             item = {"iso": iso, "status": status}
-            recent = sum(value for day, value in metrics["daily"].items() if day >= recent_start)
-            prior = sum(value for day, value in metrics["daily"].items() if prior_start <= day < recent_start)
+            # Momentum uses the same saturated daily activity as classification.
+            recent = sum(saturated_daily_visits(value) for day, value in metrics["daily"].items() if day >= recent_start)
+            prior = sum(saturated_daily_visits(value) for day, value in metrics["daily"].items() if prior_start <= day < recent_start)
             recent_days = sum(1 for day in metrics["daily"] if day >= recent_start)
             prior_days = sum(1 for day in metrics["daily"] if prior_start <= day < recent_start)
             if recent >= 8 and prior >= 8 and recent_days >= 3 and prior_days >= 3:
@@ -243,15 +259,25 @@ def classify(
                 item["momentum"] = "rapidly-rising" if ratio >= 1.8 else "rising" if ratio >= 1.2 else "declining" if ratio <= 0.75 else "stable"
             public.append(item)
             record["classification"] = status
-            record["normalizedScore"] = round(score, 8)
+            record["exclusionReasons"] = sorted(set(evidence["exclusionReasons"]))
+            record["momentumBasis"] = "saturated-daily-activity"
             record["effectiveVisits"] = round(evidence["effectiveVisits"], 4)
             record["spanDays"] = evidence["spanDays"]
             record["reliability"] = round(evidence["reliability"], 8)
-            record["continuity"] = round(evidence["continuity"], 8)
             record["maximumDailyShare"] = round(evidence["maximumDailyShare"], 8)
-            record["recentVisits"] = round(recent, 4)
-            record["priorVisits"] = round(prior, 4)
         internal[iso] = record
+    internal["_coverage"] = {
+        "sourceRows": len(rows),
+        "sourceCountries": len({str((row.get("dimensions") or {}).get("countryName") or "Unknown") for row in rows}),
+        "countriesWithPositiveActivity": len(countries),
+        "countriesWithTwoActiveDays": sum(1 for metrics in countries.values() if len(metrics["days"]) >= 2),
+        "countriesMeetingMinimumEvidence": len(eligible),
+        "classifiedCountries": len(public),
+        "unresolvableCountrySources": len(unresolved_sources),
+        "countriesMissingPopulationMetadata": len(missing_population),
+        "countriesExcludedForReliability": sum(1 for metrics in eligible.values() if "below-moderate-reliability" in metrics["exclusionReasons"]),
+        "countriesConstrainedByConcentration": sum(1 for metrics in eligible.values() if metrics.get("maximumDailyShare", 0) > CLASSIFICATION_CONFIG["veryHigh"]["maximumDailyShare"]),
+    }
     return public, internal
 
 
@@ -274,10 +300,14 @@ def public_payload(countries: list[dict], governance_spaces: list[dict], start: 
         "windowEnd": timestamp,
         "generatedAt": timestamp,
         "lastCheckedAt": timestamp,
+        "lastSuccessfulCloudflareRetrievalAt": timestamp,
+        "lastSuccessfulDatasetGenerationAt": timestamp,
+        "lastSuccessfulDatasetPublicationAt": timestamp,
         "dataRevision": revision_for(countries, governance_spaces),
         "source": "Cloudflare Web Analytics",
         "observationUnit": "Aggregated visits; visits are not unique people or unique users.",
         "technicalTraffic": TECHNICAL_TRAFFIC_POLICY,
+        "continuitySignalReview": CONTINUITY_SIGNAL_REVIEW,
         "canonicalArchitectureSource": "data/oof-architecture-registry.json",
         "countries": countries,
         "governanceSpaces": governance_spaces,
@@ -297,14 +327,40 @@ def atomic_write(path: Path, payload: dict) -> bool:
     return True
 
 
+def write_refresh_diagnostic(path: Path, *, status: str, reason: str, now: datetime, dataset: dict | None = None, coverage: dict | None = None) -> None:
+    """Write a restricted, aggregate-only workflow diagnostic; never write credentials or identifiers."""
+    previous = dataset or json.loads(PUBLIC_DATASET.read_text(encoding="utf-8"))
+    payload = {
+        "workflowExecutedAt": now.isoformat().replace("+00:00", "Z"),
+        "refreshStatus": status,
+        "reason": reason,
+        "lastSuccessfulCloudflareRetrievalAt": previous.get("lastSuccessfulCloudflareRetrievalAt", previous.get("lastCheckedAt")),
+        "lastSuccessfulDatasetGenerationAt": previous.get("lastSuccessfulDatasetGenerationAt", previous.get("generatedAt")),
+        "lastSuccessfulDatasetPublicationAt": previous.get("lastSuccessfulDatasetPublicationAt", previous.get("generatedAt")),
+        "countryCoverage": coverage or {},
+        "artifactPolicy": {"visibility": "repository-actions-artifact", "retentionDays": 14, "contains": "aggregate diagnostics and country exclusion reasons only"},
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--internal-output", type=Path)
+    parser.add_argument("--diagnostic-output", type=Path)
+    parser.add_argument("--write-skipped-diagnostic", action="store_true")
+    parser.add_argument("--skip-reason", default="not-specified")
     args = parser.parse_args()
+    now = datetime.now(timezone.utc).replace(microsecond=0)
+    if args.write_skipped_diagnostic:
+        if not args.diagnostic_output:
+            raise ValueError("--diagnostic-output is required with --write-skipped-diagnostic")
+        write_refresh_diagnostic(args.diagnostic_output, status="preserved", reason=args.skip_reason, now=now)
+        print("Preserved the last valid public dataset and wrote a restricted refresh diagnostic")
+        return
     account_id = os.environ["CLOUDFLARE_ACCOUNT_ID"]
     site_tag = os.environ["CLOUDFLARE_WEB_ANALYTICS_SITE_TAG"]
     token = os.environ["CLOUDFLARE_ANALYTICS_API_TOKEN"]
-    now = datetime.now(timezone.utc).replace(microsecond=0)
     start = now - timedelta(days=WINDOW_DAYS)
     rows = cloudflare_rows(account_id, site_tag, token, start, now)
     populations, names_to_iso2, population_year = population_data()
@@ -312,6 +368,7 @@ def main() -> None:
     governance_spaces = canonical_governance_spaces()
     payload = public_payload(public_countries, governance_spaces, start, now)
     changed = atomic_write(PUBLIC_DATASET, payload)
+    coverage = internal_countries.pop("_coverage")
     if args.internal_output:
         args.internal_output.parent.mkdir(parents=True, exist_ok=True)
         args.internal_output.write_text(json.dumps({
@@ -321,8 +378,18 @@ def main() -> None:
             "dataWindowEnd": payload["generatedAt"],
             "algorithmVersion": INTEREST_ALGORITHM_VERSION,
             "populationVersion": f"World Bank SP.POP.TOTL {population_year}",
+            "countryCoverage": coverage,
             "countries": internal_countries,
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    if args.diagnostic_output:
+        write_refresh_diagnostic(
+            args.diagnostic_output,
+            status="refreshed",
+            reason="cloudflare-retrieval-succeeded",
+            now=now,
+            dataset=payload,
+            coverage=coverage,
+        )
     action = "Published" if changed else "Checked without public classification changes"
     print(f"{action}: {len(public_countries)} reliable country classifications from {len(rows)} aggregate rows")
 

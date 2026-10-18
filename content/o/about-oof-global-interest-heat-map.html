@@ -38,10 +38,9 @@
 <section class="container">
 <div class="oof-warning3">
 <h1 id="about-oof-global-interest-heat-map" data-oof-section-id="true" role="heading" aria-level="1">About OOF® Global Interest Heat Map™</h1>
-<p>The <b>OOF® Global Interest Heat Map™</b> shows country-level signals of engagement with OOF® governance methodologies, architectures, standards, maps, and related methodological resources.</p>
-<p>The map is updated automatically every 24 hours and presents interest at the <b>country level.</b></p>
-<p>It is designed to answer one simple question:</p>
-<p><b>Where in the world is interest in governance methodology developing?</b></p>
+<p>The <b>OOF® Global Interest Heat Map™</b> visualizes the geographic distribution of observed website activity associated with OOF® methodology across countries.</p>
+<p>Country classifications reflect aggregated activity patterns over a rolling observation period. They do not identify individual visitors or establish public endorsement, institutional adoption, or verified human interest.</p>
+<p>The public view is designed to show where governed methodology activity has met the classification requirements at the <b>country level.</b></p>
 </div>
 <section class="viewbor"></section>
 </section>
@@ -49,8 +48,8 @@
 <section class="container">
 <div class="oof-warning3">
 <h1 id="how-it-works" data-oof-section-id="true" role="heading" aria-level="2">How It Works</h1>
-<p>OOF® uses aggregated country-level visit observations from Cloudflare Web Analytics.</p>
-<p>A Cloudflare visit is a traffic observation used by the analytics source. A visit is <b>not</b> a verified unique person, unique user, device, or identity, and the map never equates visits with people.</p>
+<p>OOF® uses aggregated country-level website activity observations from Cloudflare Web Analytics.</p>
+<p>An observed visit is an analytics signal. It is <b>not</b> a verified unique person, unique user, device, identity, collaborator, programmer or institution, and the map never equates activity with people.</p>
 <p>The map does not require cookies, visitor profiles, or individual tracking.</p>
 <p>It measures geographic patterns rather than people.</p>
 <p><b>No cookies. No visitor profiles. No individual tracking.</b></p>
@@ -64,12 +63,11 @@
 <div class="oof-warning3">
 <h1 id="reading-the-map" data-oof-section-id="true" role="heading" aria-level="2">Reading the Map</h1>
 <p>Countries are represented by simple interest states:</p>
-<p><b>Very High Interest</b> — independently sufficient intensity, recurrence, continuity and reliability with resistance to concentrated repetition.</p>
 <p><b>🟢 High Interest</b> — strong relative interest in OOF® governance methodology.</p>
 <p><b>🔵 Moderate Interest</b> — meaningful and established interest.</p>
 <p><b>🟡 Emerging Interest</b> — interest is beginning to develop.</p>
-<p><b>⚪ Insufficient Signal</b> — there is not yet enough information for a reliable classification.</p>
-<p><b>Insufficient Signal does not mean Low Interest.</b></p>
+<p><b>⚪ Insufficient Signal</b> — the governed classification requirements were not met in the current observation period.</p>
+<p><b>Insufficient Signal does not mean zero interest or Low Interest.</b></p>
 <p>Where sufficient information exists, the map may also indicate whether interest is <b>rising, stable, or declining.</b></p>
 </div>
 <section class="viewbor"></section>
@@ -83,8 +81,9 @@
 <p>The saturated activity is normalized by country population and combined with reliability, active-day continuity, observation span and a concentration penalty. Population normalization does not remove the independent minimum evidence requirements.</p>
 <p><b>Moderate Interest</b> requires at least 12 visits, 4 active days, a 4-day span, reliability of 0.25 and score of 0.20.</p>
 <p><b>High Interest</b> requires at least 30 visits, 6 active days, a 7-day span, reliability of 0.55 and score of 0.70.</p>
-<p><b>Very High Interest</b> requires at least 60 visits, 8 active days, a 10-day span, reliability of 0.75, score of 1.20 and no single day contributing more than 45% of the country's visits. It is not awarded merely because a country ranks first.</p>
-<p>Algorithm version 3.0 keeps these constants in one auditable configuration section in the classification engine.</p>
+<p>An internal high-confidence condition requires at least 60 visits, 8 active days, a 10-day span, reliability of 0.75, score of 1.20 and no single day contributing more than 45% of the country's visits. It is not awarded merely because a country ranks first; the public legend presents qualifying green classifications as High Interest.</p>
+<p>Algorithm version 3.1 keeps these constants in one auditable configuration section in the classification engine. Momentum uses the same saturated daily activity measure as classification, rather than a separate raw-traffic measure.</p>
+<p>A 30-day continuity signal has been evaluated as a possible future diagnostic, but it is not enabled and does not alter the governed rolling 14-day classification window.</p>
 </div>
 <section class="viewbor"></section>
 </section>
@@ -93,9 +92,10 @@
 <div class="oof-warning3">
 <h1 id="privacy-technical-traffic-and-freshness" data-oof-section-id="true" role="heading" aria-level="2">Privacy, Technical Traffic and Freshness</h1>
 <p>The public dataset contains classifications and momentum only. It does not publish raw visit counts, IP addresses, device identifiers, visitor profiles, unique-person estimates or internal scoring inputs.</p>
-<p>The source query excludes traffic identified by Cloudflare's bot signal. The available aggregate rows do not reliably identify every synthetic request or distinguish programmers, collaborators, returning visitors or professions. No additional identity-based exclusions are invented.</p>
-<p>The source is checked daily. A valid dataset is replaced only after atomic validation, while a failed or malformed refresh preserves the last valid dataset. The map displays a visible warning when the latest verified check is more than 36 hours old.</p>
-<p>A daily check does not force a new public revision when classifications, momentum and synchronized governance spaces are unchanged.</p>
+<p>The available aggregate query includes both traffic values exposed by Cloudflare's bot signal. Because the aggregate source does not provide a reliable human-only classification, the map is described as website activity signals and does not claim to show verified human interest. No additional identity-based exclusions are invented.</p>
+<p>The operational record keeps separate timestamps for workflow execution, successful Cloudflare retrieval, successful dataset generation and public dataset publication. Only a successful Cloudflare retrieval may update the public data-freshness timestamp.</p>
+<p>The source is checked daily. A valid dataset is replaced only after atomic validation, while a failed, skipped or malformed refresh preserves the last valid dataset and its freshness timestamp. The map displays a visible warning when the last successful retrieval is more than 36 hours old.</p>
+<p>The restricted workflow artifact contains aggregate diagnostics and per-country exclusion reasons only. It contains no secrets, IP addresses, devices, visitor profiles or public raw-country traffic counts and is retained for 14 days.</p>
 </div>
 <section class="viewbor"></section>
 </section>
@@ -114,7 +114,7 @@
 <div class="oof-warning3">
 <h1 id="why-the-map-exists" data-oof-section-id="true" role="heading" aria-level="2">Why the Map Exists</h1>
 <p>Governance challenges are global.</p>
-<p>The OOF® Global Interest Heat Map™ makes the geographic development of interest in governance methodology visible.</p>
+<p>The OOF® Global Interest Heat Map™ makes the geographic distribution of qualifying methodology activity visible.</p>
 <p>It allows researchers, organizations, institutions, developers, policymakers, students, and other observers to see where methodological attention is forming and how that pattern changes over time.</p>
 <p>A country seeing strong interest elsewhere may begin exploring the same governance questions, architectures, and standards.</p>
 <p>The map therefore serves not only as an observation tool, but also as an invitation to explore.</p>
@@ -129,7 +129,7 @@
 <div class="oof-warning3">
 <h1 id="global-methodological-interest" data-oof-section-id="true" role="heading" aria-level="2">Global Methodological Interest</h1>
 <p>The map does not claim that a country, government, institution, or population endorses OOF®.</p>
-<p>It shows a geographic signal of engagement with OOF® methodological infrastructure.</p>
+<p>It shows a geographic signal of observed website activity associated with OOF® methodological infrastructure.</p>
 <p>As OOF® reaches new countries, the map evolves with that interest.</p>
 <p><b>The OOF® Global Interest Heat Map™ makes global methodological attention visible — one country at a time.</b></p>
 </div>

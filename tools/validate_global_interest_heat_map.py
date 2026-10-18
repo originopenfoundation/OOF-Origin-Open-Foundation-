@@ -14,8 +14,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
 REQUIRED_TOP_LEVEL = {
     "schemaVersion", "algorithmVersion", "windowStart", "windowEnd", "generatedAt", "lastCheckedAt",
+    "lastSuccessfulCloudflareRetrievalAt", "lastSuccessfulDatasetGenerationAt", "lastSuccessfulDatasetPublicationAt",
     "dataRevision", "source", "observationUnit", "technicalTraffic", "canonicalArchitectureSource",
-    "countries", "governanceSpaces",
+    "continuitySignalReview", "countries", "governanceSpaces",
 }
 STATUSES = {"very-high", "high", "moderate", "emerging"}
 MOMENTUM = {"rapidly-rising", "rising", "stable", "declining"}
@@ -36,7 +37,7 @@ def parse_timestamp(value: object, field: str) -> datetime:
 
 
 def freshness_state(payload: dict, now: datetime | None = None) -> str:
-    checked = parse_timestamp(payload["lastCheckedAt"], "lastCheckedAt")
+    checked = parse_timestamp(payload.get("lastSuccessfulCloudflareRetrievalAt", payload["lastCheckedAt"]), "lastSuccessfulCloudflareRetrievalAt")
     reference = now or datetime.now(timezone.utc)
     return "stale" if reference - checked > timedelta(hours=36) else "current"
 
@@ -45,9 +46,12 @@ def validate(path: Path) -> dict:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if set(payload) != REQUIRED_TOP_LEVEL:
         raise ValueError(f"Public payload fields differ from the governed schema: {sorted(set(payload) ^ REQUIRED_TOP_LEVEL)}")
-    for field in ("windowStart", "windowEnd", "generatedAt", "lastCheckedAt"):
+    for field in (
+        "windowStart", "windowEnd", "generatedAt", "lastCheckedAt",
+        "lastSuccessfulCloudflareRetrievalAt", "lastSuccessfulDatasetGenerationAt", "lastSuccessfulDatasetPublicationAt",
+    ):
         parse_timestamp(payload[field], field)
-    if payload["schemaVersion"] != "1.1" or payload["algorithmVersion"] not in {"3.0", "3.1"}:
+    if payload["schemaVersion"] != "1.2" or payload["algorithmVersion"] != "3.1":
         raise ValueError("Unsupported Global Interest Heat Map schema or algorithm version")
     if not re.fullmatch(r"[a-f0-9]{64}", str(payload["dataRevision"])):
         raise ValueError("dataRevision must be a SHA-256 value")
@@ -58,6 +62,9 @@ def validate(path: Path) -> dict:
     technical = payload["technicalTraffic"]
     if not isinstance(technical, dict) or not isinstance(technical.get("cloudflareBotFilter"), bool):
         raise ValueError("Technical traffic policy must declare whether the Cloudflare bot filter is enabled")
+    continuity = payload["continuitySignalReview"]
+    if not isinstance(continuity, dict) or continuity.get("windowDays") != 30 or continuity.get("enabled") is not False:
+        raise ValueError("The 30-day continuity signal must remain explicitly evaluated but disabled")
     if payload["canonicalArchitectureSource"] != "data/oof-architecture-registry.json":
         raise ValueError("Unexpected Canonical Architecture Index source")
     countries = payload["countries"]

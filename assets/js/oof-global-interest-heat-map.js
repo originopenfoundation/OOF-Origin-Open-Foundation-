@@ -1,29 +1,13 @@
 (function () {
   "use strict";
 
-  const COLORS = {
-    "very-high": "#0b4f32",
-    high: "#167a45",
-    moderate: "#2468b4",
-    emerging: "#d6a51f",
-    insufficient: "#a3a3a3"
-  };
-  const STATUS_LABELS = {
-    "very-high": "Very High Interest",
-    high: "High Interest",
-    moderate: "Moderate Interest",
-    emerging: "Emerging Interest",
-    insufficient: "Insufficient Signal"
-  };
-  const MOMENTUM_LABELS = {
-    "rapidly-rising": "↑ Rapidly Rising",
-    rising: "↗ Rising",
-    stable: "→ Stable",
-    declining: "↘ Declining"
-  };
+  const COLORS = { "very-high": "#167a45", high: "#167a45", moderate: "#2468b4", emerging: "#d6a51f", insufficient: "#a3a3a3" };
+  const STATUS_LABELS = { "very-high": "High Interest", high: "High Interest", moderate: "Moderate Interest", emerging: "Emerging Interest", insufficient: "Insufficient Signal" };
+  const MOMENTUM_LABELS = { "rapidly-rising": "Rapidly rising", rising: "Rising", stable: "Stable", declining: "Declining" };
   const WORLD_BOUNDS = [[-58, -180], [84, 180]];
   const STALE_AFTER_MS = 36 * 60 * 60 * 1000;
-  const WORKFLOW_RUNS_URL = "https://api.github.com/repos/originopenfoundation/OOF-Origin-Open-Foundation-/actions/workflows/global-interest-heat-map.yml/runs?branch=main1&status=success&per_page=1";
+  const SHORT_COUNTRY_NAMES = { US: "USA" };
+  const regionNames = typeof Intl.DisplayNames === "function" ? new Intl.DisplayNames(["en"], { type: "region" }) : null;
 
   const container = document.getElementById("global-interest-globe");
   const fallback = document.getElementById("global-interest-fallback");
@@ -41,10 +25,12 @@
   if (!container || !select || !card) return;
 
   let map;
+  let selectedEntry = null;
   let selectedFeature = null;
   let hoveredFeature = null;
   let countryLayers = [];
   let labelLayers = [];
+  let catalog = new Map();
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
@@ -59,6 +45,13 @@
     return properties.NAME_EN || properties.ADMIN || properties.NAME_LONG || properties.NAME || "Unknown country";
   }
 
+  function shortCountryLabel(name, iso) { return SHORT_COUNTRY_NAMES[iso] || name; }
+
+  function labelForIso(iso) {
+    try { return SHORT_COUNTRY_NAMES[iso] || (regionNames && regionNames.of(iso)) || iso; }
+    catch (_) { return SHORT_COUNTRY_NAMES[iso] || iso; }
+  }
+
   function featureCenter(feature) {
     const properties = feature && feature.properties ? feature.properties : {};
     const lat = Number(properties.LABEL_Y);
@@ -66,19 +59,14 @@
     return Number.isFinite(lat) && Number.isFinite(lng) ? [lat, lng] : null;
   }
 
-  function isTinyFeature(feature) {
-    const properties = feature && feature.properties ? feature.properties : {};
-    return Number(properties.TINY) > 0;
-  }
+  function isTinyFeature(feature) { return Number((feature && feature.properties ? feature.properties : {}).TINY) > 0; }
 
   function flagFor(iso) {
     if (!/^[A-Z]{2}$/.test(iso)) return "";
     return String.fromCodePoint(...iso.split("").map(letter => 127397 + letter.charCodeAt(0)));
   }
 
-  function publicState(feature) {
-    return feature.__oofInterest || { status: "insufficient" };
-  }
+  function stateForFeature(feature) { return feature.__oofInterest || { status: "insufficient" }; }
 
   function escapeHtml(value) {
     const span = document.createElement("span");
@@ -86,20 +74,18 @@
     return span.innerHTML;
   }
 
-  function showCountry(feature) {
-    if (!feature) {
+  function showCountry(entry) {
+    if (!entry) {
       countryName.textContent = "Select a country";
       countryStatus.textContent = "Interest classification will appear here.";
       countryMomentum.hidden = true;
       return;
     }
-    const iso = countryCode(feature);
-    const state = publicState(feature);
-    const flag = flagFor(iso);
-    countryName.textContent = `${flag ? flag + " " : ""}${countryLabel(feature)}`;
-    countryStatus.textContent = `Interest: ${STATUS_LABELS[state.status] || STATUS_LABELS.insufficient}`;
-    if (state.momentum && MOMENTUM_LABELS[state.momentum]) {
-      countryMomentum.textContent = `Momentum: ${MOMENTUM_LABELS[state.momentum]}`;
+    const flag = flagFor(entry.iso);
+    countryName.textContent = `${flag ? `${flag} ` : ""}${entry.name}`;
+    countryStatus.textContent = `Interest: ${STATUS_LABELS[entry.state.status] || STATUS_LABELS.insufficient}`;
+    if (entry.state.momentum && MOMENTUM_LABELS[entry.state.momentum]) {
+      countryMomentum.textContent = `Momentum: ${MOMENTUM_LABELS[entry.state.momentum]}`;
       countryMomentum.hidden = false;
     } else {
       countryMomentum.hidden = true;
@@ -107,16 +93,10 @@
   }
 
   function countryStyle(feature) {
-    const state = publicState(feature);
+    const state = stateForFeature(feature);
     const highlighted = feature === selectedFeature || feature === hoveredFeature;
     const activeTiny = isTinyFeature(feature) && state.status !== "insufficient";
-    return {
-      color: highlighted ? "#ffffff" : "rgba(255,255,255,0.68)",
-      weight: feature === selectedFeature ? 3.4 : highlighted ? 2.4 : activeTiny ? 3 : 0.7,
-      opacity: 1,
-      fillColor: COLORS[state.status] || COLORS.insufficient,
-      fillOpacity: state.status === "insufficient" ? 0.7 : 0.92
-    };
+    return { color: highlighted ? "#ffffff" : "rgba(255,255,255,0.68)", weight: feature === selectedFeature ? 3.4 : highlighted ? 2.4 : activeTiny ? 3 : 0.7, opacity: 1, fillColor: COLORS[state.status] || COLORS.insufficient, fillOpacity: state.status === "insufficient" ? 0.7 : 0.92 };
   }
 
   function validDate(value) {
@@ -129,61 +109,35 @@
     return parsed ? new Intl.DateTimeFormat("en", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" }).format(parsed) + " UTC" : "Unavailable";
   }
 
-  function applyFreshness(dataset, verifiedCheck) {
-    const generated = validDate(dataset.generatedAt);
-    const declaredCheck = validDate(dataset.lastCheckedAt);
-    const effectiveCheck = [declaredCheck, verifiedCheck].filter(Boolean).sort((a, b) => b - a)[0] || generated;
-    if (updated) {
-      updated.dateTime = generated ? generated.toISOString() : "";
-      updated.textContent = readableDate(dataset.generatedAt);
-    }
+  function applyFreshness(dataset) {
+    const retrieved = validDate(dataset.lastSuccessfulCloudflareRetrievalAt || dataset.lastCheckedAt);
+    if (updated) { updated.dateTime = retrieved ? retrieved.toISOString() : ""; updated.textContent = readableDate(retrieved); }
     const start = validDate(dataset.windowStart);
     const end = validDate(dataset.windowEnd);
     if (dataWindow) {
-      dataWindow.textContent = start && end
-        ? `${new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" }).format(start)} to ${new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" }).format(end)} (rolling 14 days)`
-        : "Previous 14 days";
+      const formatter = new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" });
+      dataWindow.textContent = start && end ? `Rolling 14 days: ${formatter.format(start)} to ${formatter.format(end)}` : "Rolling 14 days";
     }
     if (dataSource) dataSource.textContent = dataset.source || "Cloudflare Web Analytics";
-    if (staleWarning) staleWarning.hidden = !effectiveCheck || Date.now() - effectiveCheck.getTime() <= STALE_AFTER_MS;
+    if (staleWarning) staleWarning.hidden = !retrieved || Date.now() - retrieved.getTime() <= STALE_AFTER_MS;
   }
 
-  function updateFreshness(dataset) {
-    applyFreshness(dataset, null);
-    fetch(WORKFLOW_RUNS_URL, { cache: "no-store", headers: { Accept: "application/vnd.github+json" } })
-      .then(response => response.ok ? response.json() : null)
-      .then(payload => {
-        const run = payload && Array.isArray(payload.workflow_runs) ? payload.workflow_runs[0] : null;
-        applyFreshness(dataset, run ? validDate(run.updated_at || run.run_started_at) : null);
-      })
-      .catch(() => { /* Dataset metadata remains the privacy-safe fallback. */ });
-  }
+  function refreshHighlights() { countryLayers.forEach(({ feature, layer }) => layer.setStyle(countryStyle(feature))); }
 
-  function refreshHighlights() {
-    countryLayers.forEach(({ feature, layer }) => layer.setStyle(countryStyle(feature)));
-  }
-
-  function selectFeature(feature, focus) {
-    selectedFeature = feature;
-    showCountry(feature);
-    select.value = countryCode(feature);
-    if (countryList) {
-      countryList.querySelectorAll(".oof-global-interest-country-option").forEach(button => {
-        button.setAttribute("aria-pressed", String(button.dataset.countryIso === countryCode(feature)));
-      });
-    }
+  function selectCountry(entry, focus) {
+    selectedEntry = entry;
+    selectedFeature = entry && entry.feature ? entry.feature : null;
+    showCountry(entry);
+    select.value = entry ? entry.iso : "";
+    if (countryList) countryList.querySelectorAll(".oof-global-interest-country-option").forEach(button => button.setAttribute("aria-pressed", String(Boolean(entry) && button.dataset.countryIso === entry.iso)));
     refreshHighlights();
-    const center = featureCenter(feature);
-    if (focus && center) {
-      map.flyTo(center, Math.max(map.getZoom(), isTinyFeature(feature) ? 8 : 4), {
-        animate: !reducedMotion,
-        duration: reducedMotion ? 0 : 0.55
-      });
-    }
+    if (!map || !entry || !entry.feature || !focus) return;
+    const center = featureCenter(entry.feature);
+    if (center) map.flyTo(center, Math.max(map.getZoom(), isTinyFeature(entry.feature) ? 8 : 4), { animate: !reducedMotion, duration: reducedMotion ? 0 : 0.55 });
   }
 
   function minimumLabelZoom(feature) {
-    if (isTinyFeature(feature) && publicState(feature).status !== "insufficient") return 1;
+    if (isTinyFeature(feature) && stateForFeature(feature).status !== "insufficient") return 1;
     const properties = feature.properties || {};
     const sourceZoom = Number(properties.MIN_LABEL);
     const rank = Number(properties.LABELRANK);
@@ -194,28 +148,21 @@
   function createLabel(feature, minimumZoom, maximumZoom, callout) {
     const center = featureCenter(feature);
     if (!center) return;
-    const state = publicState(feature);
+    const iso = countryCode(feature);
+    const state = stateForFeature(feature);
     const icon = L.divIcon({
       className: `oof-country-label-marker${callout ? ` is-tiny-callout is-${state.status}` : ""}`,
-      html: `<span>${escapeHtml(countryLabel(feature))}</span>`,
+      html: `<span>${escapeHtml(shortCountryLabel(countryLabel(feature), iso))}</span>`,
       iconSize: callout ? [140, 32] : null,
       iconAnchor: callout ? [0, 16] : undefined
     });
-    const marker = L.marker(center, {
-      icon,
-      interactive: Boolean(callout),
-      keyboard: Boolean(callout),
-      title: callout ? `Show ${countryLabel(feature)}` : undefined
-    });
-    if (callout) marker.on("click", () => selectFeature(feature, true));
-    labelLayers.push({
-      minimumZoom,
-      maximumZoom,
-      layer: marker
-    });
+    const marker = L.marker(center, { icon, interactive: Boolean(callout), keyboard: Boolean(callout), title: callout ? `Show ${countryLabel(feature)}` : undefined });
+    if (callout) marker.on("click", () => selectCountry(catalog.get(iso), true));
+    labelLayers.push({ minimumZoom, maximumZoom, layer: marker });
   }
 
   function updateLabels() {
+    if (!map) return;
     const zoom = map.getZoom();
     labelLayers.forEach(item => {
       const shouldShow = zoom >= item.minimumZoom && (!item.maximumZoom || zoom < item.maximumZoom);
@@ -224,65 +171,60 @@
     });
   }
 
-  function populateCountrySelector(features) {
-    const unique = new Map();
-    features.forEach(feature => {
+  function buildCatalog(dataset, features) {
+    const publicCountries = new Map((dataset.countries || []).map(item => [String(item.iso || "").toUpperCase(), item]));
+    const entries = new Map();
+    (features || []).forEach(feature => {
       const iso = countryCode(feature);
-      if (iso && !unique.has(iso)) unique.set(iso, feature);
+      if (!iso || iso === "AQ") return;
+      const state = publicCountries.get(iso) || { status: "insufficient" };
+      feature.__oofInterest = state;
+      entries.set(iso, { iso, name: countryLabel(feature), state, feature });
     });
-    const sorted = [...unique.values()].sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), "en"));
-    const fragment = document.createDocumentFragment();
-    sorted.forEach(feature => {
-      const option = document.createElement("option");
-      option.value = countryCode(feature);
-      option.textContent = countryLabel(feature);
-      option.__feature = feature;
-      fragment.appendChild(option);
+    publicCountries.forEach((state, iso) => {
+      if (!entries.has(iso)) entries.set(iso, { iso, name: labelForIso(iso), state, feature: null });
     });
-    select.appendChild(fragment);
-    select.addEventListener("change", () => {
-      const option = select.options[select.selectedIndex];
-      if (option && option.__feature) selectFeature(option.__feature, true);
-      else {
-        selectedFeature = null;
-        showCountry(null);
-        refreshHighlights();
-      }
-    });
+    catalog = entries;
   }
 
-  function populateCountryList(features) {
-    if (!countryList) return;
-    const countries = features
-      .filter(feature => publicState(feature).status !== "insufficient")
-      .sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), "en"));
-    const fragment = document.createDocumentFragment();
+  function sortedCatalog(includeInsufficient) {
+    return [...catalog.values()].filter(entry => includeInsufficient || entry.state.status !== "insufficient").sort((a, b) => a.name.localeCompare(b.name, "en"));
+  }
 
-    countries.forEach(feature => {
-      const state = publicState(feature);
+  function populateCountrySelector() {
+    select.replaceChildren(new Option("Select a country", ""));
+    const fragment = document.createDocumentFragment();
+    sortedCatalog(true).forEach(entry => fragment.appendChild(new Option(entry.name, entry.iso)));
+    select.appendChild(fragment);
+    select.onchange = () => selectCountry(catalog.get(select.value) || null, true);
+  }
+
+  function populateCountryList() {
+    if (!countryList) return;
+    const countries = sortedCatalog(false);
+    const fragment = document.createDocumentFragment();
+    countries.forEach(entry => {
       const item = document.createElement("li");
       const button = document.createElement("button");
       const swatch = document.createElement("span");
       const name = document.createElement("span");
-
       button.type = "button";
       button.className = "oof-global-interest-country-option";
-      button.dataset.countryIso = countryCode(feature);
+      button.dataset.countryIso = entry.iso;
       button.setAttribute("aria-pressed", "false");
-      button.setAttribute("aria-label", `${countryLabel(feature)}: ${STATUS_LABELS[state.status] || STATUS_LABELS.insufficient}. Select country.`);
-      swatch.className = `oof-global-interest-country-swatch is-${state.status}`;
+      button.setAttribute("aria-label", `${entry.name}: ${STATUS_LABELS[entry.state.status] || STATUS_LABELS.insufficient}. Select country.`);
+      swatch.className = `oof-global-interest-country-swatch is-${entry.state.status}`;
       swatch.setAttribute("aria-hidden", "true");
       name.className = "oof-global-interest-country-option-name";
-      name.textContent = countryLabel(feature);
+      name.textContent = entry.name;
       button.append(swatch, name);
-      button.addEventListener("click", () => selectFeature(feature, true));
+      button.addEventListener("click", () => selectCountry(entry, true));
       item.appendChild(button);
       fragment.appendChild(item);
     });
-
     countryList.replaceChildren(fragment);
     countryList.setAttribute("aria-busy", "false");
-    if (countries.length === 0) {
+    if (!countries.length) {
       const empty = document.createElement("li");
       empty.className = "oof-global-interest-country-list-empty";
       empty.textContent = "No countries have a sufficient public signal in this data window.";
@@ -290,128 +232,63 @@
     }
   }
 
+  function prepareDataset(dataset) { buildCatalog(dataset, []); populateCountrySelector(); populateCountryList(); applyFreshness(dataset); }
+
   function showFallback(message) {
     container.classList.add("is-fallback");
-    container.innerHTML = `<p>${message}</p>`;
+    container.innerHTML = `<p>${escapeHtml(message)}</p>`;
     if (viewControls) viewControls.hidden = true;
     if (fallback) fallback.hidden = false;
-    if (countryList) {
-      const unavailable = document.createElement("li");
-      unavailable.className = "oof-global-interest-country-list-empty";
-      unavailable.textContent = "Country classifications are unavailable.";
-      countryList.replaceChildren(unavailable);
-      countryList.setAttribute("aria-busy", "false");
-    }
   }
 
-  Promise.all([
-    fetch("assets/data/ne_50m_admin_0_countries.geojson", { cache: "force-cache" }).then(response => {
-      if (!response.ok) throw new Error("Country geometry unavailable");
-      return response.json();
-    }),
-    fetch("data/oof-global-interest-heat-map.json", { cache: "no-store" }).then(response => {
-      if (!response.ok) throw new Error("Public interest dataset unavailable");
-      return response.json();
-    })
-  ]).then(([world, dataset]) => {
+  function initializeMap(world, dataset) {
     if (typeof window.L !== "object") throw new Error("2D map library unavailable");
-    if (!dataset || dataset.schemaVersion !== "1.1" || !["3.0", "3.1"].includes(dataset.algorithmVersion) || !Array.isArray(dataset.countries)) {
-      throw new Error("Public Global Interest Heat Map dataset is invalid");
-    }
-    updateFreshness(dataset);
-
-    const publicCountries = new Map((dataset.countries || []).map(item => [String(item.iso || "").toUpperCase(), item]));
-    const features = (world.features || []).filter(feature => {
-      const iso = countryCode(feature);
-      return iso && iso !== "AQ";
-    });
-    features.forEach(feature => {
-      const state = publicCountries.get(countryCode(feature));
-      feature.__oofInterest = state && STATUS_LABELS[state.status] ? state : { status: "insufficient" };
-    });
+    const features = (world.features || []).filter(feature => { const iso = countryCode(feature); return iso && iso !== "AQ"; });
+    buildCatalog(dataset, features);
+    populateCountrySelector();
+    populateCountryList();
+    container.classList.remove("is-fallback");
     container.innerHTML = "";
-    map = L.map(container, {
-      attributionControl: true,
-      zoomControl: false,
-      minZoom: 1,
-      maxZoom: 9,
-      zoomSnap: 0.25,
-      zoomDelta: 0.5,
-      wheelPxPerZoomLevel: 90,
-      maxBounds: [[-85, -190], [85, 190]],
-      maxBoundsViscosity: 1,
-      worldCopyJump: false,
-      preferCanvas: true
-    });
+    map = L.map(container, { attributionControl: true, zoomControl: false, minZoom: 1, maxZoom: 9, zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 90, maxBounds: [[-85, -190], [85, 190]], maxBoundsViscosity: 1, worldCopyJump: false, preferCanvas: true });
     map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
     map.attributionControl.addAttribution('<a href="https://www.naturalearthdata.com" target="_blank" rel="noopener">Natural Earth</a>');
     map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: false });
-
     L.geoJSON(features, {
       style: countryStyle,
       onEachFeature(feature, layer) {
         countryLayers.push({ feature, layer });
         layer.on({
-          click: () => selectFeature(feature, false),
-          mouseover: () => {
-            if (!precisePointer) return;
-            hoveredFeature = feature;
-            showCountry(feature);
-            refreshHighlights();
-            layer.bringToFront();
-          },
-          mouseout: () => {
-            if (!precisePointer) return;
-            hoveredFeature = null;
-            showCountry(selectedFeature);
-            refreshHighlights();
-          }
+          click: () => selectCountry(catalog.get(countryCode(feature)), false),
+          mouseover: () => { if (!precisePointer) return; hoveredFeature = feature; showCountry(catalog.get(countryCode(feature))); refreshHighlights(); layer.bringToFront(); },
+          mouseout: () => { if (!precisePointer) return; hoveredFeature = null; showCountry(selectedEntry); refreshHighlights(); }
         });
-        if (isTinyFeature(feature) && publicState(feature).status !== "insufficient") {
-          createLabel(feature, 1, 4, true);
-          createLabel(feature, 4);
-        } else {
-          createLabel(feature, minimumLabelZoom(feature));
-        }
+        if (isTinyFeature(feature) && stateForFeature(feature).status !== "insufficient") { createLabel(feature, 1, 4, true); createLabel(feature, 4); }
+        else createLabel(feature, minimumLabelZoom(feature));
       }
     }).addTo(map);
-
-    populateCountrySelector(features);
-    populateCountryList(features);
     updateLabels();
-    map.on("zoomend", () => {
-      updateLabels();
-      refreshHighlights();
-    });
+    map.on("zoomend", () => { updateLabels(); refreshHighlights(); });
+    if ("ResizeObserver" in window) new ResizeObserver(() => map.invalidateSize({ pan: false })).observe(container);
+    else window.addEventListener("resize", () => map.invalidateSize({ pan: false }));
+  }
 
-    if (viewControls) {
-      viewControls.addEventListener("click", event => {
-        const button = event.target.closest("button[data-map-action]");
-        if (!button) return;
-        if (button.dataset.mapAction === "zoom-in") map.zoomIn(0.5);
-        if (button.dataset.mapAction === "zoom-out") map.zoomOut(0.5);
-        if (button.dataset.mapAction === "reset") {
-          selectedFeature = null;
-          hoveredFeature = null;
-          select.value = "";
-          if (countryList) {
-            countryList.querySelectorAll(".oof-global-interest-country-option").forEach(option => option.setAttribute("aria-pressed", "false"));
-          }
-          showCountry(null);
-          refreshHighlights();
-          map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: !reducedMotion });
-        }
-      });
-    }
-
-    if ("ResizeObserver" in window) {
-      const observer = new ResizeObserver(() => map.invalidateSize({ pan: false }));
-      observer.observe(container);
-    } else {
-      window.addEventListener("resize", () => map.invalidateSize({ pan: false }));
-    }
-  }).catch(error => {
-    showFallback("The public map could not be loaded. The last valid dataset remains unavailable in this preview.");
-    console.error("OOF Global Interest Heat Map:", error);
+  if (viewControls) viewControls.addEventListener("click", event => {
+    const button = event.target.closest("button[data-map-action]");
+    if (!button || !map) return;
+    if (button.dataset.mapAction === "zoom-in") map.zoomIn(0.5);
+    if (button.dataset.mapAction === "zoom-out") map.zoomOut(0.5);
+    if (button.dataset.mapAction === "reset") { selectedEntry = null; selectedFeature = null; hoveredFeature = null; selectCountry(null, false); map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: !reducedMotion }); }
   });
+
+  fetch("data/oof-global-interest-heat-map.json", { cache: "no-store" })
+    .then(response => { if (!response.ok) throw new Error("Public interest dataset unavailable"); return response.json(); })
+    .then(dataset => {
+      if (!dataset || dataset.schemaVersion !== "1.2" || dataset.algorithmVersion !== "3.1" || !Array.isArray(dataset.countries)) throw new Error("Public Global Interest Heat Map dataset is invalid");
+      prepareDataset(dataset);
+      return fetch("assets/data/ne_50m_admin_0_countries.geojson", { cache: "force-cache" })
+        .then(response => { if (!response.ok) throw new Error("Country geometry unavailable"); return response.json(); })
+        .then(world => initializeMap(world, dataset))
+        .catch(error => { showFallback("The interactive map is temporarily unavailable. Available country classifications remain accessible below."); console.warn("OOF Global Interest Heat Map fallback:", error); });
+    })
+    .catch(error => { showFallback("The public map and its classification dataset could not be loaded."); console.error("OOF Global Interest Heat Map:", error); });
 })();

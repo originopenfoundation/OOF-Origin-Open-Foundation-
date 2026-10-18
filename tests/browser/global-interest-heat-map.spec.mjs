@@ -1,12 +1,15 @@
 import { expect, test } from "@playwright/test";
 
 const dataset = {
-  schemaVersion: "1.1",
-  algorithmVersion: "3.0",
+  schemaVersion: "1.2",
+  algorithmVersion: "3.1",
   windowStart: "2026-09-16T09:40:24Z",
   windowEnd: "2026-09-30T09:40:24Z",
   generatedAt: "2026-09-30T09:40:24Z",
   lastCheckedAt: "2026-09-30T09:40:24Z",
+  lastSuccessfulCloudflareRetrievalAt: "2026-09-30T09:40:24Z",
+  lastSuccessfulDatasetGenerationAt: "2026-09-30T09:40:24Z",
+  lastSuccessfulDatasetPublicationAt: "2026-09-30T09:40:24Z",
   source: "Cloudflare Web Analytics",
   countries: [
     { iso: "SG", status: "very-high" },
@@ -35,9 +38,9 @@ test("desktop map supports all states, selection, zoom, reset and small countrie
   await mockDataset(page);
   await page.goto("/global-interest-heat-map.html");
   await expect(page.locator("#global-interest-globe.leaflet-container")).toBeVisible();
-  await expect(page.getByText("Very High Interest", { exact: true })).toBeVisible();
+  await expect(page.getByText("High Interest", { exact: true })).toBeVisible();
 
-  for (const [iso, status] of [["SG", "Very High Interest"], ["SK", "High Interest"], ["US", "Moderate Interest"], ["BR", "Emerging Interest"], ["CA", "Insufficient Signal"]]) {
+  for (const [iso, status] of [["SG", "High Interest"], ["SK", "High Interest"], ["US", "Moderate Interest"], ["BR", "Emerging Interest"], ["CA", "Insufficient Signal"]]) {
     await page.locator("#global-interest-country-select").selectOption(iso);
     await expect(page.locator("#global-interest-country-status")).toContainText(status);
   }
@@ -58,7 +61,7 @@ test("mobile map has no horizontal overflow", async ({ page }) => {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
   expect(overflow).toBe(false);
   await page.locator("#global-interest-country-select").selectOption("SG");
-  await expect(page.locator("#global-interest-country-status")).toContainText("Very High Interest");
+  await expect(page.locator("#global-interest-country-status")).toContainText("High Interest");
 });
 
 test("stale warning and geometry fallback remain non-destructive", async ({ page }) => {
@@ -72,4 +75,6 @@ test("stale warning and geometry fallback remain non-destructive", async ({ page
   await fallbackPage.goto("/global-interest-heat-map.html");
   await expect(fallbackPage.locator("#global-interest-fallback")).toBeVisible();
   await expect(fallbackPage.locator("#global-interest-country-select")).toBeVisible();
+  await fallbackPage.locator("#global-interest-country-select").selectOption("SG");
+  await expect(fallbackPage.locator("#global-interest-country-status")).toContainText("High Interest");
 });
