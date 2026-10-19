@@ -105,19 +105,19 @@ function getSiteRootPrefix() {
 }
 
 const oofLanguages = [
-  { code: "en", prefix: "", label: "English" },
-  { code: "de-DE", prefix: "de", label: "Deutsch" },
-  { code: "zh-CN", prefix: "zh-cn", label: "简体中文（中国大陆）" },
-  { code: "zh-HK", prefix: "zh-hk", label: "繁體中文（香港）" },
-  { code: "ja-JP", prefix: "ja", label: "日本語" },
-  { code: "es-ES", prefix: "es", label: "Español" },
-  { code: "pt-PT", prefix: "pt", label: "Português" },
-  { code: "fr-FR", prefix: "fr", label: "Français" },
-  { code: "hi-IN", prefix: "hi", label: "हिन्दी" },
-  { code: "ko-KR", prefix: "ko", label: "한국어" },
-  { code: "ru-RU", prefix: "ru", label: "Русский" },
-  { code: "it-IT", prefix: "it", label: "Italiano" },
-  { code: "ar", prefix: "ar", label: "العربية" }
+  { code: "en", prefix: "", short: "EN", label: "English" },
+  { code: "de-DE", prefix: "de", short: "DE", label: "Deutsch" },
+  { code: "zh-CN", prefix: "zh-cn", short: "ZH-CN", label: "简体中文（中国大陆）" },
+  { code: "zh-HK", prefix: "zh-hk", short: "ZH-HK", label: "繁體中文（香港）" },
+  { code: "ja-JP", prefix: "ja", short: "JA", label: "日本語" },
+  { code: "es-ES", prefix: "es", short: "ES", label: "Español" },
+  { code: "pt-PT", prefix: "pt", short: "PT", label: "Português" },
+  { code: "fr-FR", prefix: "fr", short: "FR", label: "Français" },
+  { code: "hi-IN", prefix: "hi", short: "HI", label: "हिन्दी" },
+  { code: "ko-KR", prefix: "ko", short: "KO", label: "한국어" },
+  { code: "ru-RU", prefix: "ru", short: "RU", label: "Русский" },
+  { code: "it-IT", prefix: "it", short: "IT", label: "Italiano" },
+  { code: "ar", prefix: "ar", short: "AR", label: "العربية" }
 ];
 
 const oofLocalizedUi = {
@@ -184,21 +184,88 @@ function applyLocalizedHeaderUi(language) {
 
 function setupLanguageSwitcher() {
   const wrapper = document.querySelector("[data-oof-language-switcher]");
-  const select = getById("oofLanguageSelect");
-  if (!wrapper || !select || select.dataset.ready === "true") return;
+  const trigger = wrapper?.querySelector("[data-oof-language-trigger]");
+  const panel = wrapper?.querySelector("[data-oof-language-panel]");
+  const backdrop = wrapper?.querySelector("[data-oof-language-backdrop]");
+  const closeButton = wrapper?.querySelector("[data-oof-language-close]");
+  const search = wrapper?.querySelector("[data-oof-language-search]");
+  const options = wrapper?.querySelector("[data-oof-language-options]");
+  if (!wrapper || !trigger || !panel || !backdrop || !closeButton || !search || !options || wrapper.dataset.ready === "true") return;
+
   const current = getCurrentOofLanguage();
   const labels = oofLocalizedUi[current.code];
-  const label = wrapper.querySelector("label");
-  if (label) label.textContent = labels ? labels.language : "Language";
-  select.setAttribute("aria-label", labels ? labels.language : "Change language");
-  select.innerHTML = oofLanguages.map(language =>
-    `<option value="${language.code}"${language.code === current.code ? " selected" : ""}>${language.label}</option>`
-  ).join("");
-  select.addEventListener("change", () => {
-    const target = oofLanguages.find(language => language.code === select.value) || oofLanguages[0];
-    window.location.assign(getLocalizedHomeUrl(target));
+  const languageLabel = labels?.language || "Language";
+  const code = wrapper.querySelector("[data-oof-language-code]");
+  const triggerLabel = wrapper.querySelector("[data-oof-language-label]");
+  const panelTitle = wrapper.querySelector("[data-oof-language-panel-title]");
+
+  if (code) code.textContent = current.short;
+  if (triggerLabel) triggerLabel.textContent = languageLabel;
+  if (panelTitle) panelTitle.textContent = languageLabel;
+  trigger.setAttribute("aria-label", languageLabel);
+  closeButton.setAttribute("aria-label", `Close ${languageLabel}`);
+  closeButton.title = `Close ${languageLabel}`;
+  search.setAttribute("aria-label", "Search languages");
+  options.setAttribute("aria-label", languageLabel);
+
+  const renderOptions = query => {
+    const normalized = query.trim().toLocaleLowerCase();
+    const matches = oofLanguages.filter(language => {
+      const searchable = `${language.label} ${language.code} ${language.prefix}`.toLocaleLowerCase();
+      return !normalized || searchable.includes(normalized);
+    });
+
+    options.replaceChildren();
+    matches.forEach(language => {
+      const option = document.createElement("button");
+      option.type = "button";
+      option.className = "oof-language-option";
+      option.dataset.languageCode = language.code;
+      option.setAttribute("role", "option");
+      option.setAttribute("aria-selected", String(language.code === current.code));
+      option.textContent = language.label;
+      if (language.code === current.code) option.classList.add("is-current");
+
+      const check = document.createElement("span");
+      check.className = "oof-language-option-check";
+      check.setAttribute("aria-hidden", "true");
+      option.appendChild(check);
+      option.addEventListener("click", () => {
+        window.location.assign(getLocalizedHomeUrl(language));
+      });
+      options.appendChild(option);
+    });
+  };
+
+  const moveOverlayForViewport = () => {
+    const useMobileSheet = window.matchMedia("(max-width: 959px)").matches;
+    const target = useMobileSheet ? document.body : wrapper;
+    if (panel.parentElement !== target) target.append(backdrop, panel);
+  };
+
+  const setOpen = open => {
+    moveOverlayForViewport();
+    panel.hidden = !open;
+    backdrop.hidden = !open;
+    trigger.setAttribute("aria-expanded", String(open));
+    wrapper.classList.toggle("is-open", open);
+    if (open) {
+      search.value = "";
+      renderOptions("");
+      requestAnimationFrame(() => search.focus());
+    }
+  };
+
+  trigger.addEventListener("click", () => setOpen(panel.hidden));
+  closeButton.addEventListener("click", () => setOpen(false));
+  backdrop.addEventListener("click", () => setOpen(false));
+  search.addEventListener("input", () => renderOptions(search.value));
+  window.addEventListener("resize", () => {
+    if (!panel.hidden) moveOverlayForViewport();
   });
-  select.dataset.ready = "true";
+  wrapper.oofLanguageSetOpen = setOpen;
+  renderOptions("");
+  wrapper.dataset.ready = "true";
   applyLocalizedHeaderUi(current);
 }
 
@@ -734,6 +801,9 @@ document.addEventListener("click", event => {
   const megaNav = document.querySelector(".desktop-mega-nav");
   const megaMenu = getById("megaMenu");
   const searchPanel = getById("siteSearchPanel");
+  const languageSwitcher = document.querySelector("[data-oof-language-switcher]");
+  const languagePanel = getById("oofLanguagePanel");
+  const languageBackdrop = document.querySelector("[data-oof-language-backdrop]");
 
   if (burgerMenu && burger && !burgerMenu.contains(event.target) && !burger.contains(event.target)) {
     setDisplay(burgerMenu, "none");
@@ -746,6 +816,18 @@ document.addEventListener("click", event => {
   if (searchPanel && megaNav && !searchPanel.contains(event.target) && !event.target.closest(".site-search-toggle")) {
     setDisplay(searchPanel, "none");
   }
+
+  if (languageSwitcher && !languageSwitcher.contains(event.target) && !languagePanel?.contains(event.target) && !languageBackdrop?.contains(event.target) && typeof languageSwitcher.oofLanguageSetOpen === "function") {
+    languageSwitcher.oofLanguageSetOpen(false);
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  const languageSwitcher = document.querySelector("[data-oof-language-switcher]");
+  if (!languageSwitcher?.classList.contains("is-open") || typeof languageSwitcher.oofLanguageSetOpen !== "function") return;
+  languageSwitcher.oofLanguageSetOpen(false);
+  languageSwitcher.querySelector("[data-oof-language-trigger]")?.focus();
 });
 
 function initializeHeaderNavigation() {
