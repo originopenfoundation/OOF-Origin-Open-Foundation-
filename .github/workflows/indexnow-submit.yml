@@ -1,0 +1,31 @@
+name: Submit IndexNow after Pages deployment
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    branches: [main1]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the deployed revision
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Submit published sitemap URLs to IndexNow
+        env:
+          INDEXNOW_KEY: 6ff7528f813141d19583be3c43890829
+        run: python tools/submit_indexnow.py

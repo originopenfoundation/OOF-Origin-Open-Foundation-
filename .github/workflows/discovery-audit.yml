@@ -27,13 +27,6 @@ jobs:
       - name: Audit links and discovery structure
         run: python tools/audit_discovery_infrastructure.py --strict
 
-      - name: Prepare or submit IndexNow update
-        if: github.event_name == 'push'
-        env:
-          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          INDEXNOW_KEY_LOCATION: ${{ vars.INDEXNOW_KEY_LOCATION }}
-        run: python tools/submit_indexnow.py
-
       - name: Upload discovery report
         if: always()
         uses: actions/upload-artifact@v4

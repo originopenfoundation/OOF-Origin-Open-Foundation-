@@ -9,10 +9,34 @@ import os
 import sys
 from pathlib import Path
 from urllib.request import Request, urlopen
+from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ENDPOINT = "https://api.indexnow.org/indexnow"
+HOST = "originopenfoundation.org"
+SITEMAP_NAMESPACE = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+
+def read_sitemap_urls() -> list[str]:
+    """Return canonical URLs from the generated XML sitemap."""
+    sitemap = ElementTree.parse(ROOT / "sitemap.xml")
+    return [
+        location.text.strip()
+        for location in sitemap.findall("sm:url/sm:loc", SITEMAP_NAMESPACE)
+        if location.text and location.text.strip()
+    ]
+
+
+def key_location_for(key: str) -> str:
+    """Return the canonical public validation URL for an IndexNow key."""
+    return f"https://{HOST}/{key}.txt"
+
+
+def key_file_is_valid(key: str) -> bool:
+    """Confirm that the deployed static key file is present in this release."""
+    key_file = ROOT / f"{key}.txt"
+    return key_file.is_file() and key_file.read_text(encoding="utf-8").strip() == key
 
 
 def main() -> int:
@@ -20,20 +44,24 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     key = os.environ.get("INDEXNOW_KEY", "").strip()
-    key_location = os.environ.get("INDEXNOW_KEY_LOCATION", "").strip()
-    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-    urls = [part.split("</loc>", 1)[0] for part in sitemap.split("<loc>")[1:]]
-    if not key or not key_location:
-        print("IndexNow skipped: INDEXNOW_KEY and INDEXNOW_KEY_LOCATION are not configured.")
+    if not key:
+        print("IndexNow skipped: INDEXNOW_KEY is not configured.")
         return 0
+    if not key_file_is_valid(key):
+        print(f"IndexNow configuration error: {key}.txt is missing or does not contain the configured key.")
+        return 1
+    urls = read_sitemap_urls()
     payload = {
-        "host": "originopenfoundation.org",
+        "host": HOST,
         "key": key,
-        "keyLocation": key_location,
+        "keyLocation": key_location_for(key),
         "urlList": urls[:10000],
     }
     if args.dry_run:
-        print(f"IndexNow payload ready for {len(payload['urlList'])} URLs.")
+        print(
+            f"IndexNow payload ready for {len(payload['urlList'])} URLs "
+            f"with verification at {payload['keyLocation']}."
+        )
         return 0
     request = Request(
         ENDPOINT,
