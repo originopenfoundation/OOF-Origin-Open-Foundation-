@@ -27,7 +27,7 @@ The deployed IndexNow verification file is:
 
 `https://originopenfoundation.org/6ff7528f813141d19583be3c43890829.txt`
 
-The `Submit IndexNow after Pages deployment` GitHub Actions workflow sends the current sitemap URL list to `https://api.indexnow.org/indexnow` after a successful production Pages deployment from `main1`. It verifies locally that the public key file is present and contains the matching key before making the request. A missing or altered key file makes the workflow fail instead of silently reporting a successful submission.
+The `Submit IndexNow after Pages deployment` GitHub Actions workflow sends the current sitemap URL list to `https://api.indexnow.org/indexnow` after a successful production Pages deployment from `main1`. It verifies locally that the public key file is present and contains the matching key before making the request. A missing or altered key file makes the workflow fail instead of silently reporting a successful submission. Transient verification and service responses are retried before the workflow is marked as failed.
 
 The submission uses the canonical URLs from `sitemap.xml` and therefore covers the same complete, crawlable public URL set as the sitemap.
 
