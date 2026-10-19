@@ -29,6 +29,8 @@ The deployed IndexNow verification file is:
 
 The `Submit IndexNow after Pages deployment` GitHub Actions workflow sends the current sitemap URL list to `https://api.indexnow.org/indexnow` after a successful production Pages deployment from `main1`. It verifies locally that the public key file is present and contains the matching key before making the request. A missing or altered key file makes the workflow fail instead of silently reporting a successful submission.
 
+The submission uses the canonical URLs from `sitemap.xml` and therefore covers the same complete, crawlable public URL set as the sitemap.
+
 After this change is deployed, confirm the `Submit published sitemap URLs to IndexNow` step reports `HTTP 200` or `HTTP 202`. It may also be started manually from **Actions -> Submit IndexNow after Pages deployment -> Run workflow**.
 
 ## Ownership boundary
