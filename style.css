@@ -77,7 +77,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 42px;
+  min-height: 54px;
   padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 6px;
@@ -260,6 +260,29 @@ body {
   text-align: left;
 }
 
+.oof-language-option-names {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.oof-language-option-native,
+.oof-language-option-english {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oof-language-option-native {
+  font-weight: 700;
+}
+
+.oof-language-option-english {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 11px;
+  font-weight: 500;
+}
+
 .oof-language-option:hover {
   border-color: rgba(255, 255, 255, 0.82);
   background: #686868;
@@ -307,10 +330,17 @@ body {
 }
 
 @media (max-width: 959px) {
+  .page-title {
+    margin: 10px 48px 5px 80px;
+    font-size: 13px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
   .oof-language-switcher {
     position: absolute;
     top: 5px;
-    right: 48px;
+    left: 4px;
     z-index: 14500;
     margin: 0;
   }

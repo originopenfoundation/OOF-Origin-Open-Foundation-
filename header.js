@@ -105,19 +105,19 @@ function getSiteRootPrefix() {
 }
 
 const oofLanguages = [
-  { code: "en", prefix: "", short: "EN", label: "English" },
-  { code: "de-DE", prefix: "de", short: "DE", label: "Deutsch" },
-  { code: "zh-CN", prefix: "zh-cn", short: "ZH-CN", label: "简体中文（中国大陆）" },
-  { code: "zh-HK", prefix: "zh-hk", short: "ZH-HK", label: "繁體中文（香港）" },
-  { code: "ja-JP", prefix: "ja", short: "JA", label: "日本語" },
-  { code: "es-ES", prefix: "es", short: "ES", label: "Español" },
-  { code: "pt-PT", prefix: "pt", short: "PT", label: "Português" },
-  { code: "fr-FR", prefix: "fr", short: "FR", label: "Français" },
-  { code: "hi-IN", prefix: "hi", short: "HI", label: "हिन्दी" },
-  { code: "ko-KR", prefix: "ko", short: "KO", label: "한국어" },
-  { code: "ru-RU", prefix: "ru", short: "RU", label: "Русский" },
-  { code: "it-IT", prefix: "it", short: "IT", label: "Italiano" },
-  { code: "ar", prefix: "ar", short: "AR", label: "العربية" }
+  { code: "en", prefix: "", short: "EN", label: "English", englishName: "English" },
+  { code: "de-DE", prefix: "de", short: "DE", label: "Deutsch", englishName: "German" },
+  { code: "zh-CN", prefix: "zh-cn", short: "ZH-CN", label: "简体中文（中国大陆）", englishName: "Simplified Chinese (Mainland China)" },
+  { code: "zh-HK", prefix: "zh-hk", short: "ZH-HK", label: "繁體中文（香港）", englishName: "Traditional Chinese (Hong Kong)" },
+  { code: "ja-JP", prefix: "ja", short: "JA", label: "日本語", englishName: "Japanese" },
+  { code: "es-ES", prefix: "es", short: "ES", label: "Español", englishName: "Spanish" },
+  { code: "pt-PT", prefix: "pt", short: "PT", label: "Português", englishName: "Portuguese" },
+  { code: "fr-FR", prefix: "fr", short: "FR", label: "Français", englishName: "French" },
+  { code: "hi-IN", prefix: "hi", short: "HI", label: "हिन्दी", englishName: "Hindi" },
+  { code: "ko-KR", prefix: "ko", short: "KO", label: "한국어", englishName: "Korean" },
+  { code: "ru-RU", prefix: "ru", short: "RU", label: "Русский", englishName: "Russian" },
+  { code: "it-IT", prefix: "it", short: "IT", label: "Italiano", englishName: "Italian" },
+  { code: "ar", prefix: "ar", short: "AR", label: "العربية", englishName: "Arabic" }
 ];
 
 const oofLocalizedUi = {
@@ -211,7 +211,7 @@ function setupLanguageSwitcher() {
   const renderOptions = query => {
     const normalized = query.trim().toLocaleLowerCase();
     const matches = oofLanguages.filter(language => {
-      const searchable = `${language.label} ${language.code} ${language.prefix}`.toLocaleLowerCase();
+      const searchable = `${language.label} ${language.englishName} ${language.code} ${language.prefix}`.toLocaleLowerCase();
       return !normalized || searchable.includes(normalized);
     });
 
@@ -223,8 +223,19 @@ function setupLanguageSwitcher() {
       option.dataset.languageCode = language.code;
       option.setAttribute("role", "option");
       option.setAttribute("aria-selected", String(language.code === current.code));
-      option.textContent = language.label;
+      option.setAttribute("aria-label", `${language.label} - ${language.englishName}`);
       if (language.code === current.code) option.classList.add("is-current");
+
+      const names = document.createElement("span");
+      names.className = "oof-language-option-names";
+      const nativeName = document.createElement("span");
+      nativeName.className = "oof-language-option-native";
+      nativeName.textContent = language.label;
+      const englishName = document.createElement("span");
+      englishName.className = "oof-language-option-english";
+      englishName.textContent = language.englishName;
+      names.append(nativeName, englishName);
+      option.appendChild(names);
 
       const check = document.createElement("span");
       check.className = "oof-language-option-check";
