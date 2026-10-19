@@ -1,14 +1,18 @@
 'use strict';
-function validate(answer, question, sources) {
+function validate(answer, question, sources, {scope='grounded'}={}) {
   if(typeof answer!=='string'||!answer.trim()||answer.length>20000)return {ok:false,reason:'empty_or_oversized'};
-  if(!sources.length)return {ok:false,reason:'missing_evidence'};
+  if(!sources.length&&scope!=='conversation')return {ok:false,reason:'missing_evidence'};
+  if(scope==='conversation'&&/\b(?:canonical|standard|architecture|module|kanonick|štandard|modul|architekt|genehmigt)\w*/iu.test(answer))return {ok:false,reason:'ungrounded_methodology'};
   // User input is not evidence for a generated canonical claim.
-  const trusted=sources.map(s=>`${s.title} ${s.text}`).join(' ');
+  const trusted=sources.map(s=>`${s.title} ${s.text}`).join(' ')+(scope==='conversation'?' LaRA OOF AI':'');
   if(/(?:[\w.+-]+@[\w.-]+\.[a-z]{2,}|\b(?:sk-|gh[pousr]_)[A-Za-z0-9_-]{16,})/i.test(answer))return {ok:false,reason:'private_contact_or_credential'};
+  if(/<\/?think>|(?:system prompt|system instructions)\s*:/iu.test(answer))return {ok:false,reason:'internal_content'};
+  if(/(?:schválil[ao]? som|odoslal[ao]? som|zmenil[ao]? som.*register|ich habe.*(?:genehmigt|gesendet|register.*geändert))/iu.test(answer))return {ok:false,reason:'unsupported_authority_or_action'};
   for(const sentence of answer.split(/[.!?\n]/)){
    if(/\b(?:legally binding|approved by OOF|I (?:have )?(?:approved|submitted|changed|sent)|permanent memory)\b/i.test(sentence)&&!/\b(?:not|cannot|can't|never|no|without)\b/i.test(sentence))return {ok:false,reason:'unsupported_authority_or_action'};
   }
   const normalized=value=>value.toLowerCase().replace(/[®™]/g,'').replace(/\s+/g,' ').trim();
+  if(scope==='conversation')return {ok:true}; // General reasoning is not a canonical methodological claim.
   const evidence=normalized(trusted);
   for(const name of answer.matchAll(/\b(?:[A-Z][A-Za-z0-9®™-]*\s+){1,5}(?:Standard|Architecture|Module)\b/g)){
    const title=normalized(name[0].replace(/^(?:The|A|An)\s+/,''));

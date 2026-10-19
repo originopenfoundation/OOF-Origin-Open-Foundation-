@@ -38,7 +38,9 @@ function readShared(root){
   const source=canonicalByObject.get(edge.sourceId),target=canonicalByObject.get(edge.targetId);
   if(source&&target)source.related_resources.push({resource_id:target.resource_id,relationship:edge.relationshipType,authority:edge.authorityState});
  }
- return {resources,resource_count:resources.length,objects,byId,byUrl:read('indexes/object-by-canonical-url.json').index,
+ const inventory_digest=crypto.createHash('sha256').update(resources.map(r=>`${r.resource_id}:${r.provenance.contentHash}`).sort().join('\n')).digest('hex');
+ let registry_fingerprint=null;try{registry_fingerprint=read('manifest.json').buildFingerprint;}catch{}
+ return {resources,resource_count:resources.length,inventory_digest,registry_fingerprint,objects,byId,byUrl:read('indexes/object-by-canonical-url.json').index,
   byName:read('indexes/object-by-name.json').index,aliases:read('indexes/object-aliases.json').index,
   readiness,report_only:readiness.reportOnly!==false||readiness.LARA_INTEGRATION_READY!==true,diagnostics};
 }
