@@ -29,8 +29,8 @@ jobs:
       - name: Rebuild AI discovery files
         run: |
           python tools/build_localization.py
-          python tools/build_ai_incident_pages.py
           python tools/build_ai_compatibility.py
+          python tools/build_ai_incident_pages.py
 
       - name: Rebuild URL and version governance files
         run: python tools/build_url_governance.py
