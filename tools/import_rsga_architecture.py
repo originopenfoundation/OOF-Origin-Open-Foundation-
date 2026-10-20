@@ -78,7 +78,7 @@ STANDARDS = (
         Module("rrvm", "Resource Vulnerability & Resilience Capacity Module"), Module("rrrm", "Resource Response & Recovery Module"),
         Module("rrmm", "Resource Resilience Validation & Monitoring Module"))),
     Standard("rcss", "Resource Continuity & Sustainability Standard (RCSS)", "Gmail - Fwd_ 12 RCSS — Resource Continuity & Sustainability Standard.pdf", (
-        Module("rcam", "Resource Continuity Assessment Module"), Module("rcrsm", "Resource Consumption & Replenishment Sustainability Module"),
+        Module("rcasm", "Resource Continuity Assessment Module"), Module("rcrsm", "Resource Consumption & Replenishment Sustainability Module"),
         Module("rsitm", "Resource Sustainability Impact & Tradeoff Module"), Module("rsvm", "Resource Sustainability Validation Module"),
         Module("rcsmm", "Resource Continuity & Sustainability Monitoring Module"))),
 )
@@ -209,6 +209,13 @@ def render_blocks(blocks: list[dict[str, str]]) -> str:
     return "\n".join(rendered)
 
 
+def normalize_module_code(content: list[dict[str, str]], standard: Standard, module: Module) -> list[dict[str, str]]:
+    """Apply approved identifier corrections without altering the canonical module title."""
+    if standard.code != "rcss" or module.code != "rcasm":
+        return content
+    return [{**block, "text": re.sub(r"\bRCAM\b", "RCASM", block["text"])} for block in content]
+
+
 def related_links(standard: Standard) -> str:
     links = [f'<a href="rsga-{standard.code}-about.html">About {html.escape(standard.title)}</a>']
     links.extend(
@@ -333,6 +340,32 @@ def update_header() -> None:
     target.write_text(source, encoding="utf-8", newline="\n")
 
 
+def write_legacy_rcam_alias() -> Path:
+    """Keep the former duplicate identifier reachable while excluding it from discovery."""
+    target = OUT / "rsga-rcss-rcam-1.html"
+    destination = "/content/rsga/rsga-rcss-rcasm-1.html"
+    target.write_text(
+        """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rcss-rcasm-1.html" />
+<meta http-equiv="refresh" content="0; url=/content/rsga/rsga-rcss-rcasm-1.html" />
+<title>Resource Continuity Assessment Module | OOF®</title>
+</head>
+<body>
+<p>This reference has moved to <a href="/content/rsga/rsga-rcss-rcasm-1.html">RCASM — Resource Continuity Assessment Module</a>.</p>
+<script>location.replace("/content/rsga/rsga-rcss-rcasm-1.html");</script>
+</body>
+</html>
+""",
+        encoding="utf-8",
+    )
+    return target
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     written: list[Path] = []
@@ -344,7 +377,12 @@ def main() -> None:
             (OUT / f"rsga-{standard.code}-about.html", f"About {standard.title}", about, related_links(standard)),
         ]
         outputs.extend(
-            (OUT / f"rsga-{standard.code}-{module.code}-{number}.html", module.title, content, "")
+            (
+                OUT / f"rsga-{standard.code}-{module.code}-{number}.html",
+                module.title,
+                normalize_module_code(content, standard, module),
+                "",
+            )
             for number, (module, content) in enumerate(zip(standard.modules, modules), 1)
         )
         for target, title, content, related in outputs:
@@ -357,6 +395,7 @@ def main() -> None:
     update_header()
     update_site_index()
     update_architecture_index()
+    written.append(write_legacy_rcam_alias())
     print(f"Wrote {len(written)} RSGA pages to {OUT}")
 
 
