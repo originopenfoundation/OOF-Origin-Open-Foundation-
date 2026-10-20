@@ -54,12 +54,12 @@
   "createdAt": "2015-07-02T00:00:00Z",
   "updatedAt": "2015-07-02T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-724490-V7",
+    "assessmentIdentity": "OOF-AII-ASMT-724490-V9",
     "incidentId": "OOF-AII-724490",
-    "analysisVersion": 7,
+    "analysisVersion": 9,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -98,8 +98,7 @@
         "industry": "manufacturing",
         "aiSystemType": null,
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Ramji Lal"
@@ -116,6 +115,17 @@
           "field": "industry",
           "rawValue": "[\"manufacturing\"]",
           "normalizedValue": "manufacturing",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -216,7 +226,7 @@
         "architectureId": "asga",
         "label": "ASGA™ — Autonomous Systems Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-        "score": 28.26,
+        "score": 28.88,
         "matchedTerms": [
           "autonomous",
           "execution"
@@ -247,7 +257,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "92b4c928671fb188d965309ff7c284d6452b996f3d0034cd3685745cf9d88dfe",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -266,7 +276,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-ASGA-AES-2026-07-04-0003",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "6d0a1bca92c5edc4a4824e2e8da12341594ae3269fa2618b47e6bbeb00b2e963",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -283,45 +293,9 @@
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving Skh Metals. The next governance test is: How should autonomous, execution be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing autonomous, execution were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for autonomous, execution, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Autonomous Execution Standard (AES)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes.html",
-          "objectId": "OOF-OID-ASGA-AES-2026-07-04-0003"
-        },
-        {
-          "name": "Execution Authorization Module (EAM)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes-eam-1.html",
-          "objectId": "OOF-OID-ASGA-AES-EAM-2026-07-04-0001"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains autonomous, execution under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Worker killed by robot in welding accident at car parts factory in India, involving Skh Metals, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should autonomous, execution be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "asga",
       "mechanisms": [
@@ -347,7 +321,7 @@
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving Skh Metals. The next governance test is: How should autonomous, execution be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Worker killed by robot in welding accident at car parts factory in India, involving Skh Metals, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should autonomous, execution be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -397,8 +371,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-724490-V6",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-724490-V8",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

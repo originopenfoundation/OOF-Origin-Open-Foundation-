@@ -53,15 +53,15 @@
   "createdAt": "1999-03-16T00:00:00Z",
   "updatedAt": "1999-03-16T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-002783-V7",
+    "assessmentIdentity": "OOF-AII-ASMT-002783-V9",
     "incidentId": "OOF-AII-002783",
-    "analysisVersion": 7,
+    "analysisVersion": 9,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
-    "assessmentConfidence": "Moderate",
+    "assessmentConfidence": "Evidence Insufficient",
     "confidenceDimensions": {
       "sourceCorroboration": {
         "level": "Single-source",
@@ -77,11 +77,9 @@
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
       "methodologicalAssignment": {
-        "level": "Limited",
-        "score": 0.43,
-        "matchedTerms": [
-          "been"
-        ],
+        "level": "Evidence Insufficient",
+        "score": 0.0,
+        "matchedTerms": [],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
     },
@@ -96,8 +94,7 @@
         "industry": "human health and social work activities",
         "aiSystemType": null,
         "impactTypes": [
-          "Discrimination and Toxicity",
-          "yes"
+          "Discrimination and Toxicity"
         ],
         "affectedParties": [
           "Black Patients",
@@ -115,6 +112,17 @@
           "field": "industry",
           "rawValue": "[\"human health and social work activities\"]",
           "normalizedValue": "human health and social work activities",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Discrimination and Toxicity",
+            "yes"
+          ],
+          "normalizedValue": [
+            "Discrimination and Toxicity"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -203,129 +211,65 @@
       "rubricVersion": "OOF-AII-SEV-1.0"
     },
     "architectureAnalysis": {
-      "status": "AUTOMATED_ANALYSIS",
-      "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-LIGA",
-        "architectureId": "liga",
-        "label": "LIGA™ — Liability Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-        "score": 3.25,
-        "matchedTerms": [
-          "been"
-        ],
-        "role": "Primary",
-        "governedMechanism": "been",
-        "reasonForRelevance": "Available reporting describes been. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported been concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-        "governanceFocus": "How should been be governed in the conditions described by the available incident evidence?",
-        "methodologyDepth": "Architecture",
-        "supportingEvidence": [
-          "aiid:79"
-        ],
-        "confidence": 0.51,
-        "uncertainty": "Automated retrieval; no authorized human review performed.",
-        "relevantStandardsModules": []
-      },
+      "status": "INSUFFICIENT_EVIDENCE",
+      "primaryArchitecture": null,
       "contributingArchitectures": []
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving been. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: LIGA™ — Liability Governance Architecture.",
+    "primaryGovernanceProblem": "Available evidence does not establish a sufficiently specific governed problem for architecture assignment.",
+    "governanceRelationship": "No architecture relationship is asserted because the governed space remains unresolved.",
     "governanceQuestions": [
-      "How should been be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Chronic Kidney Disease Epidemiology Collaboration at the relevant time?",
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to LIGA™ — Liability Governance Architecture because the reported activity reached a real-world consequence involving Chronic Kidney Disease Epidemiology Collaboration. The next governance test is: How should been be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing been were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for been, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains been under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": null,
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "liga",
-      "mechanisms": [
-        "been"
-      ],
-      "patternKey": "a7061bfcd974b37c"
+      "primaryArchitectureId": null,
+      "mechanisms": [],
+      "patternKey": "1610767077b37c5d"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:79"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving been. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "LIGA™ — Liability Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-LIGA",
+      "governedProblem": null,
+      "governedSpace": null,
+      "primaryArchitecture": null,
       "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "been",
+      "governedMechanism": null,
       "governanceQuestions": [
-        "How should been be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Chronic Kidney Disease Epidemiology Collaboration at the relevant time?",
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to LIGA™ — Liability Governance Architecture because the reported activity reached a real-world consequence involving Chronic Kidney Disease Epidemiology Collaboration. The next governance test is: How should been be governed in the conditions described by the available incident evidence?",
-      "deepestJustifiedLevel": "Architecture"
+      "incidentGovernanceInsight": null,
+      "deepestJustifiedLevel": "Unresolved"
     },
     "layerAnalysis": {
-      "status": "AUTOMATED_ANALYSIS",
-      "governedMechanisms": [
-        "been"
-      ],
+      "status": "INSUFFICIENT_EVIDENCE",
+      "governedMechanisms": [],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
     "coverageAssessment": {
-      "status": "UNDER_REVIEW",
+      "status": "INSUFFICIENT_EVIDENCE",
       "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
     },
-    "governanceFindings": [
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported been.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported been.",
-        "evidenceBasis": [
-          "aiid:79"
-        ],
-        "basis": [
-          "been"
-        ],
-        "architectureReference": "OOF-KO-ARCH-LIGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      }
-    ],
+    "governanceFindings": [],
     "evidenceGaps": [
       "Only one independent source group is represented; corroboration is not established.",
       "AI technology is not specified in the source record.",
-      "AI system type is not specified in the source record."
+      "AI system type is not specified in the source record.",
+      "Available evidence is insufficient for architecture relevance analysis."
     ],
     "uncertainties": [
       "Only one independent source group is represented; corroboration is not established.",
       "AI technology is not specified in the source record.",
-      "AI system type is not specified in the source record."
+      "AI system type is not specified in the source record.",
+      "Available evidence is insufficient for architecture relevance analysis."
     ],
     "analysisType": "Automated",
     "humanReview": {
@@ -334,8 +278,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-002783-V6",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-002783-V8",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "REVIEW REQUIRED",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

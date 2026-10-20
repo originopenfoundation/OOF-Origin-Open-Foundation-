@@ -54,12 +54,12 @@
   "createdAt": "2026-09-03T21:27:40.269000Z",
   "updatedAt": "2026-09-03T21:27:40.269000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-559322-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-559322-V10",
     "incidentId": "OOF-AII-559322",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -99,8 +99,7 @@
         "industry": "human health and social work activities",
         "aiSystemType": "assign risk; predict healthcare needs",
         "impactTypes": [
-          "Discrimination and Toxicity",
-          "yes"
+          "Discrimination and Toxicity"
         ],
         "affectedParties": [
           "Black Patients"
@@ -117,6 +116,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"assign risk \", \"predict healthcare needs\"]",
           "normalizedValue": "assign risk; predict healthcare needs",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Discrimination and Toxicity",
+            "yes"
+          ],
+          "normalizedValue": [
+            "Discrimination and Toxicity"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -216,7 +226,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 25.52,
+        "score": 25.98,
         "matchedTerms": [
           "support",
           "evidence",
@@ -241,7 +251,7 @@
           "architectureId": "clia",
           "label": "CLIA® — Cognitive Governance Intelligence Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-          "score": 25.15,
+          "score": 25.77,
           "matchedTerms": [
             "decision",
             "evidence"
@@ -264,7 +274,7 @@
           "architectureId": "aga",
           "label": "AGA™ — Accountability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
-          "score": 18.15,
+          "score": 18.61,
           "matchedTerms": [
             "decision",
             "evidence"
@@ -278,7 +288,7 @@
           "supportingEvidence": [
             "aiid:124"
           ],
-          "confidence": 0.6,
+          "confidence": 0.61,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         },
@@ -287,7 +297,7 @@
           "architectureId": "ora",
           "label": "ORA™ - Operational Reality Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/o/ora-about.html",
-          "score": 16.77,
+          "score": 17.18,
           "matchedTerms": [
             "decision",
             "evidence"
@@ -301,7 +311,7 @@
           "supportingEvidence": [
             "aiid:124"
           ],
-          "confidence": 0.59,
+          "confidence": 0.6,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         }
@@ -316,32 +326,9 @@
       "What evidence would establish how Optum, Enterprise Ai Systems, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Optum, Enterprise Ai Systems, Ai Enabled Decision Support Systems. The next governance test is: How should support, evidence, compared be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing support, evidence, compared were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for support, evidence, compared, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains support, evidence, compared under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Optum Algorithmic Health Risk Scores Reportedly Underestimated Black Patients' Needs, involving Optum, Enterprise Ai Systems, Ai Enabled Decision Support Systems, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should support, evidence, compared be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "pga",
       "mechanisms": [
@@ -373,7 +360,7 @@
         "What evidence would establish how Optum, Enterprise Ai Systems, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Optum, Enterprise Ai Systems, Ai Enabled Decision Support Systems. The next governance test is: How should support, evidence, compared be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Optum Algorithmic Health Risk Scores Reportedly Underestimated Black Patients' Needs, involving Optum, Enterprise Ai Systems, Ai Enabled Decision Support Systems, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should support, evidence, compared be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -471,8 +458,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-559322-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-559322-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

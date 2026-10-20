@@ -57,12 +57,12 @@
   "createdAt": "2019-08-24T00:00:00Z",
   "updatedAt": "2019-08-24T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-734635-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-734635-V10",
     "incidentId": "OOF-AII-734635",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -75,8 +75,8 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 0.88,
-        "populatedFields": 7,
+        "score": 0.75,
+        "populatedFields": 6,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -97,13 +97,12 @@
       "rawRecordHash": "e46047d0564dbecb1faecbb93c1744d0adc51ea2fba8ae60f910fab7e1b2429e",
       "normalizedFields": {
         "organization": "Tesla",
-        "system": "yes",
+        "system": null,
         "technology": null,
         "industry": "transportation and storage",
         "aiSystemType": "autonomous navigation; semi-autonomous driving; object detection; classification",
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Jovani Maldonado",
@@ -112,6 +111,12 @@
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "industry",
           "rawValue": "[\"transportation and storage\"]",
@@ -122,6 +127,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"autonomous navigation\", \"semi-autonomous driving\", \"object detection\", \"classification\"]",
           "normalizedValue": "autonomous navigation; semi-autonomous driving; object detection; classification",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -169,7 +185,8 @@
         "A Tesla Model 3 on Autopilot mode crashed into a pickup on a California freeway, where data and video from the company showed neither Autopilot nor the driver slowing the vehicle until seconds before the crash."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -185,7 +202,7 @@
     "severityAssessment": {
       "level": "Low",
       "score": 1,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -211,7 +228,7 @@
         "architectureId": "asga",
         "label": "ASGA™ — Autonomous Systems Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-        "score": 66.42,
+        "score": 67.86,
         "matchedTerms": [
           "autonomous",
           "execution",
@@ -243,7 +260,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "92b4c928671fb188d965309ff7c284d6452b996f3d0034cd3685745cf9d88dfe",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -262,7 +279,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-ASGA-AES-2026-07-04-0003",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "6d0a1bca92c5edc4a4824e2e8da12341594ae3269fa2618b47e6bbeb00b2e963",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -275,7 +292,7 @@
           "architectureId": "pga",
           "label": "PGA™ — Prediction Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-          "score": 55.6,
+          "score": 56.68,
           "matchedTerms": [
             "into",
             "object"
@@ -306,7 +323,7 @@
               "coreQuestion": "How are methodology, Prediction Basis, assumptions, and applicable conditions transformed into a specific governed prediction?",
               "parentObjectId": null,
               "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
                 "contentHash": "ead28ecc125ba5525f35fcb93c869e12a8bf724539e9849cdade7f0e567ab3dc",
                 "authorityState": "CANONICAL_AUTHORITATIVE"
               }
@@ -318,7 +335,7 @@
           "architectureId": "clia",
           "label": "CLIA® — Cognitive Governance Intelligence Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-          "score": 46.05,
+          "score": 46.97,
           "matchedTerms": [
             "autonomous"
           ],
@@ -344,47 +361,11 @@
       "How are methodology, Prediction Basis, assumptions, and applicable conditions transformed into a specific governed prediction?",
       "How should autonomous be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Tesla at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?"
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should autonomous, execution, classification be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing autonomous, execution, classification were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for autonomous, execution, classification, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Autonomous Execution Standard (AES)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes.html",
-          "objectId": "OOF-OID-ASGA-AES-2026-07-04-0003"
-        },
-        {
-          "name": "Execution Authorization Module (EAM)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes-eam-1.html",
-          "objectId": "OOF-OID-ASGA-AES-EAM-2026-07-04-0001"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains autonomous, execution, classification under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Tesla Model 3 on Autopilot Crashed into a Ford Explorer Pickup, Killing a Fifteen-Year-Old in California, involving Tesla, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should autonomous, execution, classification be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "asga",
       "mechanisms": [
@@ -413,9 +394,9 @@
         "How are methodology, Prediction Basis, assumptions, and applicable conditions transformed into a specific governed prediction?",
         "How should autonomous be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Tesla at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?"
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "This case matters to ASGA™ — Autonomous Systems Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should autonomous, execution, classification be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Tesla Model 3 on Autopilot Crashed into a Ford Explorer Pickup, Killing a Fifteen-Year-Old in California, involving Tesla, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should autonomous, execution, classification be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -496,8 +477,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-734635-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-734635-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

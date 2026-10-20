@@ -67,12 +67,12 @@
   "createdAt": "2026-09-03T22:44:06.618000Z",
   "updatedAt": "2026-09-03T22:44:06.618000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-114551-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-114551-V10",
     "incidentId": "OOF-AII-114551",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -111,8 +111,7 @@
         "industry": "law enforcement",
         "aiSystemType": "detect gunshots; locate gunshots; identify weapon calibre; predict shooter movement",
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Troy Residents",
@@ -148,6 +147,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"detect gunshots\", \"locate gunshots\", \"identify weapon calibre\", \"predict shooter movement\"]",
           "normalizedValue": "detect gunshots; locate gunshots; identify weapon calibre; predict shooter movement",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -244,7 +254,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 22.12,
+        "score": 22.39,
         "matchedTerms": [
           "support",
           "enforcement"
@@ -268,7 +278,7 @@
           "architectureId": "aga",
           "label": "AGA™ — Accountability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
-          "score": 21.84,
+          "score": 22.04,
           "matchedTerms": [
             "decision",
             "enforcement"
@@ -299,7 +309,7 @@
               "coreQuestion": null,
               "parentObjectId": null,
               "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
                 "contentHash": "073d8c896af5925428950c7f11e7b07f3bcf2c0bb6e2d719b3639f8540f9f06b",
                 "authorityState": "CANONICAL_AUTHORITATIVE"
               }
@@ -311,7 +321,7 @@
           "architectureId": "ora",
           "label": "ORA™ - Operational Reality Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/o/ora-about.html",
-          "score": 21.84,
+          "score": 22.04,
           "matchedTerms": [
             "decision",
             "enforcement"
@@ -342,7 +352,7 @@
               "coreQuestion": null,
               "parentObjectId": null,
               "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
                 "contentHash": "275e5ea6a7f593388d388bbb0dce72aebcc93a3c71a9d9f6ce042da98d17fb26",
                 "authorityState": "CANONICAL_AUTHORITATIVE"
               }
@@ -354,7 +364,7 @@
           "architectureId": "clia",
           "label": "CLIA® — Cognitive Governance Intelligence Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-          "score": 21.02,
+          "score": 21.48,
           "matchedTerms": [
             "decision"
           ],
@@ -376,7 +386,7 @@
           "architectureId": "vfm",
           "label": "VFM® — Value Flow Mechanisms Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 17.59,
+          "score": 17.63,
           "matchedTerms": [
             "enforcement",
             "positive"
@@ -407,7 +417,7 @@
               "coreQuestion": "When and through what governed transition does existing positive value reach a zero-value condition?",
               "parentObjectId": null,
               "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
                 "contentHash": "e43899d83179c93433f52fa47671d4044e5cb8dcefe156f6550a8187f0e1d252",
                 "authorityState": "CANONICAL_AUTHORITATIVE"
               }
@@ -425,32 +435,9 @@
       "When and through what governed transition does existing positive value reach a zero-value condition?",
       "What operational authority and controls applied to Troy Police Department, Syracuse Police Department, San Francisco Police Department, San Antonio Police Department, New York City Police Department, Fall River Police Department, Chicago Police Department at the relevant time?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Ai Enabled Decision Support Systems, Shotspotter. The next governance test is: How should support, enforcement be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing support, enforcement were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for support, enforcement, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains support, enforcement under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Police Departments Reported ShotSpotter as Unreliable and Wasteful, involving Ai Enabled Decision Support Systems, Shotspotter, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should support, enforcement be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "pga",
       "mechanisms": [
@@ -482,7 +469,7 @@
         "When and through what governed transition does existing positive value reach a zero-value condition?",
         "What operational authority and controls applied to Troy Police Department, Syracuse Police Department, San Francisco Police Department, San Antonio Police Department, New York City Police Department, Fall River Police Department, Chicago Police Department at the relevant time?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Ai Enabled Decision Support Systems, Shotspotter. The next governance test is: How should support, enforcement be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Police Departments Reported ShotSpotter as Unreliable and Wasteful, involving Ai Enabled Decision Support Systems, Shotspotter, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should support, enforcement be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -591,8 +578,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-114551-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-114551-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

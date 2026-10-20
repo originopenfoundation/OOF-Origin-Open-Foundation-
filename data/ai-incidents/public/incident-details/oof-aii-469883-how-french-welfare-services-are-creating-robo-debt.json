@@ -52,12 +52,12 @@
   "createdAt": "2021-03-17T00:00:00Z",
   "updatedAt": "2021-03-17T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-469883-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-469883-V10",
     "incidentId": "OOF-AII-469883",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -79,7 +79,7 @@
         "level": "Limited",
         "score": 0.43,
         "matchedTerms": [
-          "support"
+          "determination"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -95,8 +95,7 @@
         "industry": "administrative and support service activities; human health and social work activities",
         "aiSystemType": "welfare determination",
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Lucie Inland"
@@ -119,6 +118,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"welfare determination\"]",
           "normalizedValue": "welfare determination",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -209,47 +219,47 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-PGA",
-        "architectureId": "pga",
-        "label": "PGA™ — Prediction Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 13.01,
+        "objectId": "OOF-KO-ARCH-LIGA",
+        "architectureId": "liga",
+        "label": "LIGA™ — Liability Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
+        "score": 13.22,
         "matchedTerms": [
-          "support"
+          "determination"
         ],
         "role": "Primary",
-        "governedMechanism": "support",
-        "reasonForRelevance": "Available reporting describes support. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported support concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "How should support be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "determination",
+        "reasonForRelevance": "Available reporting describes determination. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported determination concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
+        "governanceFocus": "How should determination be governed in the conditions described by the available incident evidence?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:100"
         ],
-        "confidence": 0.59,
+        "confidence": 0.6,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
       "contributingArchitectures": [
         {
-          "objectId": "OOF-KO-ARCH-LIGA",
-          "architectureId": "liga",
-          "label": "LIGA™ — Liability Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 12.92,
+          "objectId": "OOF-KO-ARCH-PGA",
+          "architectureId": "pga",
+          "label": "PGA™ — Prediction Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+          "score": 13.21,
           "matchedTerms": [
-            "determination"
+            "support"
           ],
           "role": "Contributing",
-          "governedMechanism": "determination",
-          "reasonForRelevance": "Available reporting describes determination. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported determination concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-          "governanceFocus": "How should determination be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "support",
+          "reasonForRelevance": "Available reporting describes support. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported support concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+          "governanceFocus": "How should support be governed in the conditions described by the available incident evidence?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:100"
           ],
-          "confidence": 0.59,
+          "confidence": 0.6,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         },
@@ -258,7 +268,7 @@
           "architectureId": "trega",
           "label": "TREGA™ — Tax-Relevant Event Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/About%20TREGA%E2%84%A2%20-%20Tax-Relevant%20Event%20Governance%20Architecture.html",
-          "score": 8.61,
+          "score": 8.82,
           "matchedTerms": [
             "determination"
           ],
@@ -280,7 +290,7 @@
           "architectureId": "validos",
           "label": "VALIDOS® — Validation Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/v/validos-about.html",
-          "score": 8.61,
+          "score": 8.82,
           "matchedTerms": [
             "determination"
           ],
@@ -302,7 +312,7 @@
           "architectureId": "vfm",
           "label": "VFM® — Value Flow Mechanisms Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 8.61,
+          "score": 8.82,
           "matchedTerms": [
             "determination"
           ],
@@ -321,78 +331,55 @@
         }
       ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving support. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture, TREGA™ — Tax-Relevant Event Governance Architecture, VALIDOS® — Validation Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving determination. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "LIGA™ — Liability Governance Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture, TREGA™ — Tax-Relevant Event Governance Architecture, VALIDOS® — Validation Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should support be governed in the conditions described by the available incident evidence?",
       "How should determination be governed in the conditions described by the available incident evidence?",
+      "How should support be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to French Welfare Offices at the relevant time?",
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving French Welfare Offices. The next governance test is: How should support be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing support were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for support, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains support under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case How French welfare services are creating ‘robo-debt’, involving French Welfare Offices, raises a preliminary question for LIGA™ — Liability Governance Architecture: How should determination be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "pga",
+      "primaryArchitectureId": "liga",
       "mechanisms": [
-        "support"
+        "determination"
       ],
-      "patternKey": "cdf095d3dff668d3"
+      "patternKey": "f18ab937da2dbf51"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:100"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving support. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "PGA™ — Prediction Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-PGA",
+      "governedProblem": "The incident appears to expose a governance problem involving determination. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "LIGA™ — Liability Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-LIGA",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-LIGA",
+        "OOF-KO-ARCH-PGA",
         "OOF-KO-ARCH-TREGA",
         "OOF-KO-ARCH-VALIDOS",
         "OOF-KO-ARCH-VFM"
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "support",
+      "governedMechanism": "determination",
       "governanceQuestions": [
-        "How should support be governed in the conditions described by the available incident evidence?",
         "How should determination be governed in the conditions described by the available incident evidence?",
+        "How should support be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to French Welfare Offices at the relevant time?",
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving French Welfare Offices. The next governance test is: How should support be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case How French welfare services are creating ‘robo-debt’, involving French Welfare Offices, raises a preliminary question for LIGA™ — Liability Governance Architecture: How should determination be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "support"
+        "determination"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -401,21 +388,6 @@
       "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
     },
     "governanceFindings": [
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
-        "evidenceBasis": [
-          "aiid:100"
-        ],
-        "basis": [
-          "support"
-        ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
       {
         "type": "Governance Signal",
         "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported determination.",
@@ -427,6 +399,21 @@
           "determination"
         ],
         "architectureReference": "OOF-KO-ARCH-LIGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported support.",
+        "evidenceBasis": [
+          "aiid:100"
+        ],
+        "basis": [
+          "support"
+        ],
+        "architectureReference": "OOF-KO-ARCH-PGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -492,8 +479,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-469883-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-469883-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

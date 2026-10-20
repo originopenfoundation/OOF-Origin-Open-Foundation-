@@ -60,12 +60,12 @@
   "createdAt": "2026-05-18T03:36:33.158000Z",
   "updatedAt": "2026-05-18T03:36:33.158000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-071938-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-071938-V10",
     "incidentId": "OOF-AII-071938",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -105,8 +105,7 @@
         "industry": "Education",
         "aiSystemType": "exam proctoring; remote proctoring; identification or detection",
         "impactTypes": [
-          "Discrimination and Toxicity",
-          "yes"
+          "Discrimination and Toxicity"
         ],
         "affectedParties": [
           "University Students",
@@ -127,6 +126,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"exam proctoring\", \"remote proctoring\", \"identification or detection\"]",
           "normalizedValue": "exam proctoring; remote proctoring; identification or detection",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Discrimination and Toxicity",
+            "yes"
+          ],
+          "normalizedValue": [
+            "Discrimination and Toxicity"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -223,7 +233,7 @@
         "architectureId": "obidenity",
         "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-        "score": 73.45,
+        "score": 74.98,
         "matchedTerms": [
           "identity",
           "verification",
@@ -255,7 +265,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "212e180d45a12a035d013f64a64bedf07f32c8228a9e70b1089315d53a01d77a",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -274,7 +284,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "712af4d39fbd7efbefd8341a1adaaee06881c541288159944a55d2d825bb3378",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -287,7 +297,7 @@
           "architectureId": "asga",
           "label": "ASGA™ — Autonomous Systems Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-          "score": 67.5,
+          "score": 68.88,
           "matchedTerms": [
             "identity",
             "verification",
@@ -317,45 +327,9 @@
       "What evidence would establish how Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru. The next governance test is: How should identity, verification, integrity be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing identity, verification, integrity were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for identity, verification, integrity, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Identity Integrity Standard (IIS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis.html",
-          "objectId": "OOF-OID-OBID-IIS-2026-07-12-0002"
-        },
-        {
-          "name": "Identity Uniqueness Integrity Module (IUIM)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis-iuim.html",
-          "objectId": "OOF-OID-OBID-IIS-IUIM-2026-07-12-0001"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains identity, verification, integrity under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should identity, verification, integrity be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "obidenity",
       "mechanisms": [
@@ -384,7 +358,7 @@
         "What evidence would establish how Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru. The next governance test is: How should identity, verification, integrity be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should identity, verification, integrity be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -452,8 +426,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-071938-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-071938-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

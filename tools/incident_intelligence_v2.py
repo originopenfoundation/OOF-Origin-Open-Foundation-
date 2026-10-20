@@ -28,8 +28,13 @@ KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
 REVIEW_QUEUE_PATH = DATA_ROOT / "human-review-queue.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
 ENGINE_VERSION = "3.4.1"
+QUALITY_GATE_VERSION = "OOF-AII-QG-3.4.1.2"
 
 PLACEHOLDER_VALUES = {"", "no", "none", "null", "unknown", "n a", "not specified", "unspecified"}
+# These values are not prohibited in ordinary source prose.  They are rejected only
+# when they appear as a standalone extracted analytical value or generated subject.
+SEMANTIC_NOISE_VALUES = {"yes", "no", "been", "including", "while", "without", "otherwise", "previously", "whether"}
+INVALID_ANALYTICAL_VALUES = PLACEHOLDER_VALUES | SEMANTIC_NOISE_VALUES
 NORMALIZED_FIELDS = (
     "organization", "system", "technology", "industry", "aiSystemType",
     "impactTypes", "affectedParties",
@@ -42,7 +47,7 @@ STOPWORDS = {
     "module", "modules", "oof", "operational", "risk", "standard", "standards", "system", "systems", "that",
     "their", "these", "this", "through", "under", "using", "where", "which", "with",
     "including", "while", "without", "otherwise", "previously", "whether", "history",
-    "historical", "collaboration", "collaborative",
+    "historical", "collaboration", "collaborative", "yes", "no", "been",
 }
 
 # These are mechanism-to-language expansions, not architecture assignments.
@@ -137,6 +142,11 @@ def tokens(value) -> list[str]:
     return [word for word in normalized_text(value).split() if len(word) >= 4 and word not in STOPWORDS]
 
 
+def is_invalid_analytical_value(value) -> bool:
+    """True when a value cannot be used as an extracted governance subject."""
+    return normalized_text(value) in INVALID_ANALYTICAL_VALUES
+
+
 def _parse_serialized_collection(value):
     """Parse source-export collections without executing or inventing data."""
     if not isinstance(value, str):
@@ -160,13 +170,13 @@ def _clean_source_value(value):
         cleaned = []
         for item in value:
             normalized = normalized_text(item)
-            if normalized in PLACEHOLDER_VALUES:
+            if normalized in INVALID_ANALYTICAL_VALUES:
                 continue
             text = str(item).strip()
             if text and text not in cleaned:
                 cleaned.append(text)
         return cleaned
-    if normalized_text(value) in PLACEHOLDER_VALUES:
+    if normalized_text(value) in INVALID_ANALYTICAL_VALUES:
         return None
     return str(value).strip() if value is not None else None
 
@@ -687,7 +697,7 @@ def governance_questions(record: dict, architecture: dict, gaps: list[str]) -> l
         questions.append(f"What operational authority and controls applied to {record['organization']} at the relevant time?")
     else:
         questions.append("Who held operational authority for the reported system or activity at the relevant time?")
-    if record.get("system"):
+    if record.get("system") and not is_invalid_analytical_value(record["system"]):
         questions.append(f"What evidence would establish how {record['system']} produced or enabled the reported outcome?")
     else:
         questions.append("What evidence would establish how the relevant AI system produced or enabled the reported outcome?")
@@ -704,17 +714,61 @@ def governance_insight(record: dict, architecture: dict, confidence_state: str) 
     primary = architecture.get("primaryArchitecture")
     if not primary or confidence_state == "Evidence Insufficient":
         return None
-    subject = record.get("system") or record.get("organization") or "the reported AI activity"
+    subject = record.get("system") or record.get("organization") or record.get("title") or "the reported AI activity"
+    if is_invalid_analytical_value(subject):
+        subject = record.get("title") or "the reported AI activity"
     focus = primary.get("governanceFocus") or "Which governance controls applied, and were they effective?"
+    case_label = record.get("title") or "the source-reported incident"
     if confidence_state == "Limited":
         return (
-            f"Available reporting indicates that {subject} raises a preliminary question for {primary['label']}: {focus} "
+        f"Available reporting on {case_label} indicates that {subject} raises a preliminary question for {primary['label']}: {focus} "
             "The current evidence does not yet establish whether the relevant control existed or was effective."
         )
     return (
-        f"This case matters to {primary['label']} because the reported activity reached a real-world consequence involving "
-        f"{subject}. The next governance test is: {focus}"
+        f"The source-reported case {case_label}, involving {subject}, raises a preliminary question for {primary['label']}: {focus} "
+        "This automated interpretation does not establish fault, control failure, or legal responsibility."
     )
+
+
+def semantic_output_problems(assessment: dict) -> list[str]:
+    """Inspect generated analytical fields without treating ordinary prose as invalid."""
+    problems = []
+    architecture = assessment.get("architectureAnalysis") or {}
+    for item in filter(None, [architecture.get("primaryArchitecture"), *(architecture.get("contributingArchitectures") or [])]):
+        for term in item.get("matchedTerms") or []:
+            if is_invalid_analytical_value(term):
+                problems.append(f"invalid matched term: {term}")
+        if is_invalid_analytical_value(item.get("governedMechanism")):
+            problems.append(f"invalid governed mechanism: {item.get('governedMechanism')}")
+    subject_pattern = r"\b(?:how|involving)\s+(yes|no|been|including|while|without|otherwise|previously|whether)\b"
+    for field in ("incidentGovernanceInsight",):
+        if re.search(subject_pattern, normalized_text(assessment.get(field)), flags=re.I):
+            problems.append(f"invalid generated subject in {field}")
+    for question in assessment.get("governanceQuestions") or []:
+        if re.search(subject_pattern, normalized_text(question), flags=re.I):
+            problems.append("invalid generated subject in governance question")
+    return problems
+
+
+def quality_outcomes(assessment: dict) -> dict:
+    """Return separate outcomes; only a clean generated assessment can be public."""
+    architecture = assessment.get("architectureAnalysis") or {}
+    primary = architecture.get("primaryArchitecture")
+    evidence = assessment.get("evidenceSnapshot") or {}
+    structural = "PASS" if assessment.get("assessmentIdentity") and assessment.get("incidentId") and assessment.get("assessmentDisclosure") else "FAIL"
+    semantic = "FAIL" if semantic_output_problems(assessment) else "PASS"
+    methodological = "PASS" if primary and primary.get("canonicalUrl") else "REVIEW REQUIRED" if primary else "REVIEW REQUIRED"
+    evidence_transparency = "PASS" if evidence.get("sources") and evidence.get("publicEvidenceStatus") else "FAIL"
+    assessment_eligibility = "PUBLISHABLE" if structural == semantic == evidence_transparency == "PASS" else "PENDING"
+    return {
+        "structuralIntegrity": structural,
+        "semanticIntegrity": semantic,
+        "methodologicalSupport": methodological,
+        "evidenceTransparency": evidence_transparency,
+        "publicationEligibility": assessment_eligibility,
+        "sourceRecordEligibility": "PUBLISHABLE",
+        "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT",
+    }
 
 
 def methodological_reasoning_chain(record: dict, architecture: dict, questions: list[str], insight: str | None) -> dict:
@@ -784,7 +838,7 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
             "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance.",
         })
     assessment_id = f"OOF-AII-ASMT-{record['id'].split('-')[-1]}-V{version}"
-    return {
+    assessment = {
         "assessmentIdentity": assessment_id,
         "incidentId": record["id"],
         "analysisVersion": version,
@@ -835,6 +889,9 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
         "supersedes": supersedes,
         "reassessmentReason": reason,
     }
+    assessment["qualityGateVersion"] = QUALITY_GATE_VERSION
+    assessment["qualityOutcomes"] = quality_outcomes(assessment)
+    return assessment
 
 
 def changed_architectures(previous: dict, knowledge: KnowledgeLayer) -> set[str]:
@@ -851,6 +908,8 @@ def should_reassess(record: dict, latest: dict | None, knowledge: KnowledgeLayer
         return True, "Incident evidence changed"
     if latest.get("engineVersion") != ENGINE_VERSION:
         return True, "Material analysis engine change"
+    if latest.get("qualityGateVersion") != QUALITY_GATE_VERSION:
+        return True, "Production semantic quality gate remediation"
     if not changed:
         return False, None
     prior_ids = {
@@ -1008,6 +1067,14 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
     allowed_confidence = {"High", "Moderate", "Limited", "Evidence Insufficient"}
     seen = set()
     versions = defaultdict(list)
+    latest_versions = {
+        assessment.get("incidentId"): max(
+            candidate.get("analysisVersion", 0)
+            for candidate in payload.get("assessments", [])
+            if candidate.get("incidentId") == assessment.get("incidentId")
+        )
+        for assessment in payload.get("assessments", [])
+    }
     for assessment in payload.get("assessments", []):
         identity = assessment.get("assessmentIdentity")
         if identity in seen:
@@ -1023,7 +1090,11 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
             errors.append(f"Automated assessment must not be OOF approved: {identity}")
         if assessment.get("humanReview", {}).get("status") == "Completed":
             errors.append(f"Automated store cannot contain completed human review: {identity}")
-        if assessment.get("engineVersion") == ENGINE_VERSION:
+        is_latest_current = (
+            assessment.get("engineVersion") == ENGINE_VERSION
+            and assessment.get("analysisVersion") == latest_versions.get(incident_id)
+        )
+        if is_latest_current:
             if assessment.get("assessmentConfidence") not in allowed_confidence:
                 errors.append(f"Invalid categorical assessment confidence: {identity}")
             questions = assessment.get("governanceQuestions") or []
@@ -1048,13 +1119,21 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
             }
             if evidence_terms & bad_terms:
                 errors.append(f"Weak or placeholder evidence term found: {identity}")
+            if assessment.get("qualityGateVersion") != QUALITY_GATE_VERSION:
+                errors.append(f"Production quality gate version is missing: {identity}")
+            outcomes = assessment.get("qualityOutcomes") or {}
+            required_outcomes = {"structuralIntegrity", "semanticIntegrity", "methodologicalSupport", "evidenceTransparency", "publicationEligibility"}
+            if not required_outcomes <= set(outcomes):
+                errors.append(f"Quality outcomes are incomplete: {identity}")
+            if semantic_output_problems(assessment):
+                errors.append(f"Semantic integrity failure: {identity}")
             for finding in assessment.get("governanceFindings") or []:
                 if not finding.get("evidenceBasis") or not finding.get("architectureReference") or not finding.get("status"):
                     errors.append(f"Governance finding lacks evidence, architecture, or status: {identity}")
         architecture = assessment.get("architectureAnalysis", {})
         items = [architecture.get("primaryArchitecture")] + architecture.get("contributingArchitectures", [])
         chain = assessment.get("methodologicalReasoningChain")
-        if assessment.get("engineVersion") == ENGINE_VERSION and not chain:
+        if is_latest_current and not chain:
             errors.append(f"Methodological reasoning chain is missing: {identity}")
         for item in (item for item in items if item):
             if not item.get("reasonForRelevance") or not item.get("supportingEvidence"):
@@ -1074,7 +1153,7 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
                 if reference.get("name") != canonical.get("canonicalName") or reference.get("canonicalUrl") != canonical.get("canonicalUrl"):
                     errors.append(f"Methodology reference name or URL is stale: {identity} -> {object_id}")
                 if (
-                    assessment.get("engineVersion") == ENGINE_VERSION
+                    is_latest_current
                     and reference.get("artifactType") == "CoreModule"
                     and canonical.get("parentObjectId") not in parent_ids
                 ):

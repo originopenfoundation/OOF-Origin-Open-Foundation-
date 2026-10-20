@@ -55,12 +55,12 @@
   "createdAt": "2026-09-27T00:00:00Z",
   "updatedAt": "2026-09-27T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-719717-V7",
+    "assessmentIdentity": "OOF-AII-ASMT-719717-V9",
     "incidentId": "OOF-AII-719717",
-    "analysisVersion": 7,
+    "analysisVersion": 9,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
@@ -80,10 +80,9 @@
       },
       "methodologicalAssignment": {
         "level": "Limited",
-        "score": 0.51,
+        "score": 0.43,
         "matchedTerms": [
-          "been",
-          "later"
+          "behavior"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -193,97 +192,98 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-LIGA",
-        "architectureId": "liga",
-        "label": "LIGA™ — Liability Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-        "score": 6.5,
+        "objectId": "OOF-KO-ARCH-AIG",
+        "architectureId": "aig",
+        "label": "AIG® - Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
+        "score": 3.3,
         "matchedTerms": [
-          "been",
-          "later"
+          "behavior"
         ],
         "role": "Primary",
-        "governedMechanism": "been, later",
-        "reasonForRelevance": "Available reporting describes been, later. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported been, later concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-        "governanceFocus": "How should been, later be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "behavior",
+        "reasonForRelevance": "Available reporting describes behavior. This makes AIG® - Governance Architecture relevant to examining AIG® - Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported behavior concern falls within the governed questions represented by AIG® - Governance Architecture.",
+        "governanceFocus": "How should behavior be governed in the conditions described by the available incident evidence?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1714"
         ],
-        "confidence": 0.54,
+        "confidence": 0.51,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
-      "contributingArchitectures": []
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-LIGA",
+          "architectureId": "liga",
+          "label": "LIGA™ — Liability Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
+          "score": 3.3,
+          "matchedTerms": [
+            "later"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "later",
+          "reasonForRelevance": "Available reporting describes later. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported later concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
+          "governanceFocus": "How should later be governed in the conditions described by the available incident evidence?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1714"
+          ],
+          "confidence": 0.51,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving been, later. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: LIGA™ — Liability Governance Architecture.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving behavior. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "AIG® - Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should been, later be governed in the conditions described by the available incident evidence?",
+      "How should behavior be governed in the conditions described by the available incident evidence?",
+      "How should later be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
       "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for LIGA™ — Liability Governance Architecture: How should been, later be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing been, later were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for been, later, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains been, later under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for AIG® - Governance Architecture: How should behavior be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "liga",
+      "primaryArchitectureId": "aig",
       "mechanisms": [
-        "been",
-        "later"
+        "behavior"
       ],
-      "patternKey": "74b193c40a847456"
+      "patternKey": "28eb3ba5fbe48fbb"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1714"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving been, later. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "LIGA™ — Liability Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-LIGA",
-      "contributingArchitectures": [],
+      "governedProblem": "The incident appears to expose a governance problem involving behavior. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "AIG® - Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-AIG",
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-LIGA"
+      ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "been, later",
+      "governedMechanism": "behavior",
       "governanceQuestions": [
-        "How should been, later be governed in the conditions described by the available incident evidence?",
+        "How should behavior be governed in the conditions described by the available incident evidence?",
+        "How should later be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
         "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for LIGA™ — Liability Governance Architecture: How should been, later be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for AIG® - Governance Architecture: How should behavior be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "been",
-        "later"
+        "behavior"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -294,13 +294,27 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported been, later.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported been, later.",
+        "finding": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported behavior.",
+        "statement": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported behavior.",
         "evidenceBasis": [
           "aiid:1714"
         ],
         "basis": [
-          "been",
+          "behavior"
+        ],
+        "architectureReference": "OOF-KO-ARCH-AIG",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported later.",
+        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported later.",
+        "evidenceBasis": [
+          "aiid:1714"
+        ],
+        "basis": [
           "later"
         ],
         "architectureReference": "OOF-KO-ARCH-LIGA",
@@ -330,8 +344,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-719717-V6",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-719717-V8",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

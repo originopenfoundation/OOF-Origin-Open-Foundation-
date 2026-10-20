@@ -55,12 +55,12 @@
   "createdAt": "2018-09-01T00:00:00Z",
   "updatedAt": "2018-09-01T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-480180-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-480180-V10",
     "incidentId": "OOF-AII-480180",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -73,8 +73,8 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 0.88,
-        "populatedFields": 7,
+        "score": 0.75,
+        "populatedFields": 6,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -96,13 +96,12 @@
       "rawRecordHash": "8a2439fb59bb2148c6c3e4c9597b19e48fd9bc7372ad4dbdb908e2976e8d54b5",
       "normalizedFields": {
         "organization": "Dutch Tax Authority",
-        "system": "yes",
+        "system": null,
         "technology": null,
         "industry": "public administration",
         "aiSystemType": "fraud risk prediction",
         "impactTypes": [
-          "Discrimination and Toxicity",
-          "yes"
+          "Discrimination and Toxicity"
         ],
         "affectedParties": [
           "Dutch Tax Authority",
@@ -110,6 +109,12 @@
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "industry",
           "rawValue": "[\"public administration\"]",
@@ -120,6 +125,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"fraud risk prediction\"]",
           "normalizedValue": "fraud risk prediction",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Discrimination and Toxicity",
+            "yes"
+          ],
+          "normalizedValue": [
+            "Discrimination and Toxicity"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -167,7 +183,8 @@
         "A childcare benefits system in the Netherlands falsely accused thousands of families of fraud, in part due to an algorithm that treated having a second nationality as a risk factor."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -183,7 +200,7 @@
     "severityAssessment": {
       "level": "Moderate",
       "score": 7,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 1,
         "scale": 2,
@@ -222,7 +239,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 81.28,
+        "score": 82.56,
         "matchedTerms": [
           "prediction",
           "probability",
@@ -256,7 +273,7 @@
             "coreQuestion": "How should probability, uncertainty, confidence, ranges, and conditionality be represented without overstating what the prediction actually establishes?",
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "a20510a4e695b2615e2bcba16bf0ffff45e20e9dea6cb51fca0fdd4627348706",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -270,42 +287,12 @@
     "governanceQuestions": [
       "How should probability, uncertainty, confidence, ranges, and conditionality be represented without overstating what the prediction actually establishes?",
       "What operational authority and controls applied to Dutch Tax Authority at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should probability, uncertainty, confidence, ranges, and conditionality be represented without overstating what the prediction actually establishes?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing prediction, probability, uncertainty, part were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for prediction, probability, uncertainty, part, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Prediction Probability & Uncertainty Standard (PPUS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-ppus.html",
-          "objectId": "OOF-KO-STD-PGA-06"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains prediction, probability, uncertainty, part under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Dutch Families Wrongfully Accused of Tax Fraud Due to Discriminatory Algorithm, involving Dutch Tax Authority, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should probability, uncertainty, confidence, ranges, and conditionality be represented without overstating what the prediction actually establishes? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "pga",
       "mechanisms": [
@@ -330,10 +317,10 @@
       "governanceQuestions": [
         "How should probability, uncertainty, confidence, ranges, and conditionality be represented without overstating what the prediction actually establishes?",
         "What operational authority and controls applied to Dutch Tax Authority at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should probability, uncertainty, confidence, ranges, and conditionality be represented without overstating what the prediction actually establishes?",
+      "incidentGovernanceInsight": "The source-reported case Dutch Families Wrongfully Accused of Tax Fraud Due to Discriminatory Algorithm, involving Dutch Tax Authority, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should probability, uncertainty, confidence, ranges, and conditionality be represented without overstating what the prediction actually establishes? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -385,8 +372,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-480180-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-480180-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

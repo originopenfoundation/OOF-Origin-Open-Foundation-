@@ -54,12 +54,12 @@
   "createdAt": "2015-12-05T00:00:00Z",
   "updatedAt": "2015-12-05T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-250451-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-250451-V10",
     "incidentId": "OOF-AII-250451",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -72,8 +72,8 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 1.0,
-        "populatedFields": 8,
+        "score": 0.88,
+        "populatedFields": 7,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -95,19 +95,24 @@
       "rawRecordHash": "e03f44b0f472a527f783371490c4f55914f8b50b942a12e44bab3f3ba834abe2",
       "normalizedFields": {
         "organization": "Amazon",
-        "system": "yes",
+        "system": null,
         "technology": "Automatic Speech Recognition; Language Modeling; Acoustic Fingerprint",
         "industry": "wholesale and retail trade; information and communication",
         "aiSystemType": "virtual assistant technology",
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Alexa Device Owners"
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "technology",
           "rawValue": "[\"Automatic Speech Recognition\", \"Language Modeling\", \"Acoustic Fingerprint\"]",
@@ -124,6 +129,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"virtual assistant technology\"]",
           "normalizedValue": "virtual assistant technology",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -171,7 +187,8 @@
         "There are multiple reports of Amazon Alexa products (Echo, Echo Dot) reacting and acting upon unintended stimulus, usually from television commercials or news reporter's voices."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -187,7 +204,7 @@
     "severityAssessment": {
       "level": "Low",
       "score": 2,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 1,
@@ -217,7 +234,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 53.24,
+        "score": 54.12,
         "matchedTerms": [
           "communication",
           "information",
@@ -250,7 +267,7 @@
             "coreQuestion": "How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "719c10864c4aab01f5cf0809e9ea1e7e2458c4e026fc08fff391f7e000b07e47",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -264,42 +281,12 @@
     "governanceQuestions": [
       "How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
       "What operational authority and controls applied to Amazon at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing communication, information, upon, multiple were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for communication, information, upon, multiple, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Prediction Communication & Reliance Standard (PCRS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pcrs.html",
-          "objectId": "OOF-KO-STD-PGA-09"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains communication, information, upon, multiple under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Amazon Alexa Responding to Environmental Inputs, involving Amazon, raises a preliminary question for PGA™ — Prediction Governance Architecture: How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "pga",
       "mechanisms": [
@@ -324,10 +311,10 @@
       "governanceQuestions": [
         "How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
         "What operational authority and controls applied to Amazon at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support?",
+      "incidentGovernanceInsight": "The source-reported case Amazon Alexa Responding to Environmental Inputs, involving Amazon, raises a preliminary question for PGA™ — Prediction Governance Architecture: How may a prediction be communicated, interpreted, and relied upon without exceeding what its methodology, uncertainty, feasibility, intended purpose, and governed conditions legitimately support? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -377,8 +364,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-250451-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-250451-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

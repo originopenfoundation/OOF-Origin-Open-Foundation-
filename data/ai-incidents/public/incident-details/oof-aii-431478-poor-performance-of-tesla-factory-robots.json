@@ -54,12 +54,12 @@
   "createdAt": "2016-10-08T00:00:00Z",
   "updatedAt": "2016-10-08T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-431478-V7",
+    "assessmentIdentity": "OOF-AII-ASMT-431478-V9",
     "incidentId": "OOF-AII-431478",
-    "analysisVersion": 7,
+    "analysisVersion": 9,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -72,8 +72,8 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 0.88,
-        "populatedFields": 7,
+        "score": 0.75,
+        "populatedFields": 6,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -94,19 +94,24 @@
       "rawRecordHash": "a2b6ac7550b2ea7ff878b727ef372e91e7182a93236b86742d56f70e93ed2148",
       "normalizedFields": {
         "organization": "Tesla",
-        "system": "yes",
+        "system": null,
         "technology": null,
         "industry": "manufacturing",
         "aiSystemType": "production; assembly; object detection",
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Tesla"
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "industry",
           "rawValue": "[\"manufacturing\"]",
@@ -117,6 +122,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"production\", \"assembly\", \"object detection\"]",
           "normalizedValue": "production; assembly; object detection",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -164,7 +180,8 @@
         "The goal of manufacturing 2,500 Tesla Model 3's per week was falling short by 500 cars/week, and employees had to be \"borrowed\" from Panasonic in a shared factory to help hand-assemble lithium batteries for Tesla."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -180,7 +197,7 @@
     "severityAssessment": {
       "level": "Moderate",
       "score": 4,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -213,7 +230,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 53.37,
+        "score": 54.44,
         "matchedTerms": [
           "performance",
           "object",
@@ -245,7 +262,7 @@
             "coreQuestion": "Once a sufficiently governed outcome becomes available, how should the prediction be associated with that outcome and its predictive performance legitimately determined over time?",
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "ccfb639ed046aed703ed83dca978b3999433b244717b6540d26fd73a406ff07d",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -258,7 +275,7 @@
           "architectureId": "liga",
           "label": "LIGA™ — Liability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 37.69,
+          "score": 38.51,
           "matchedTerms": [
             "performance",
             "object",
@@ -290,7 +307,7 @@
               "coreQuestion": "How may Liability or its consequences move, be shared, redistributed, recovered, succeeded, or create secondary Liability Relationships?",
               "parentObjectId": null,
               "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
                 "contentHash": "faa147a9fb3c70f0c6fa0f9577c2e697f598118a67fd3d49d13195fc5e33d244",
                 "authorityState": "CANONICAL_AUTHORITATIVE"
               }
@@ -302,7 +319,7 @@
           "architectureId": "mgia",
           "label": "MGIA™ — Memory Governance Intelligence Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-          "score": 37.16,
+          "score": 37.93,
           "matchedTerms": [
             "performance",
             "shared"
@@ -329,41 +346,11 @@
       "How may Liability or its consequences move, be shared, redistributed, recovered, succeeded, or create secondary Liability Relationships?",
       "How should performance, shared be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Tesla at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?"
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: Once a sufficiently governed outcome becomes available, how should the prediction be associated with that outcome and its predictive performance legitimately determined over time?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing performance, object, manufacturing were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for performance, object, manufacturing, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Prediction Outcome & Performance Standard (POFPS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pofps.html",
-          "objectId": "OOF-KO-STD-PGA-11"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains performance, object, manufacturing under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Poor Performance of Tesla Factory Robots, involving Tesla, raises a preliminary question for PGA™ — Prediction Governance Architecture: Once a sufficiently governed outcome becomes available, how should the prediction be associated with that outcome and its predictive performance legitimately determined over time? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "pga",
       "mechanisms": [
@@ -392,9 +379,9 @@
         "How may Liability or its consequences move, be shared, redistributed, recovered, succeeded, or create secondary Liability Relationships?",
         "How should performance, shared be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Tesla at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?"
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: Once a sufficiently governed outcome becomes available, how should the prediction be associated with that outcome and its predictive performance legitimately determined over time?",
+      "incidentGovernanceInsight": "The source-reported case Poor Performance of Tesla Factory Robots, involving Tesla, raises a preliminary question for PGA™ — Prediction Governance Architecture: Once a sufficiently governed outcome becomes available, how should the prediction be associated with that outcome and its predictive performance legitimately determined over time? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -477,8 +464,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-431478-V6",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-431478-V8",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

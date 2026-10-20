@@ -55,12 +55,12 @@
   "createdAt": "2016-06-30T00:00:00Z",
   "updatedAt": "2016-06-30T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-786732-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-786732-V10",
     "incidentId": "OOF-AII-786732",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -73,17 +73,16 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 0.88,
-        "populatedFields": 7,
+        "score": 0.75,
+        "populatedFields": 6,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
       "methodologicalAssignment": {
         "level": "Moderate",
-        "score": 0.75,
+        "score": 0.67,
         "matchedTerms": [
           "object",
-          "been",
           "harm",
           "multiple"
         ],
@@ -96,19 +95,24 @@
       "rawRecordHash": "0a75717ea0c6b090e06346fe721e411c4fd34f31f41155016a6a9a5a24baf935",
       "normalizedFields": {
         "organization": "Tesla",
-        "system": "yes",
+        "system": null,
         "technology": null,
         "industry": "transportation and storage",
         "aiSystemType": "navigation; object detection; object recognition",
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Motorists"
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "industry",
           "rawValue": "[\"transportation and storage\"]",
@@ -119,6 +123,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"navigation\", \"object detection\", \"object recognition\"]",
           "normalizedValue": "navigation; object detection; object recognition",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -166,7 +181,8 @@
         "Multiple unrelated car accidents result in varying levels of harm have been occurred while a Tesla's autopilot was in use."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -182,7 +198,7 @@
     "severityAssessment": {
       "level": "Low",
       "score": 2,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 1,
@@ -212,17 +228,16 @@
         "architectureId": "liga",
         "label": "LIGA™ — Liability Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-        "score": 34.78,
+        "score": 32.24,
         "matchedTerms": [
           "object",
-          "been",
           "harm",
           "multiple"
         ],
         "role": "Primary",
-        "governedMechanism": "object, been, harm, multiple",
-        "reasonForRelevance": "Available reporting describes object, been, harm. This makes LIGA™ — Liability Governance Architecture relevant to examining Liability Basis Standard (LBS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported object, been, harm concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
+        "governedMechanism": "object, harm, multiple",
+        "reasonForRelevance": "Available reporting describes object, harm, multiple. This makes LIGA™ — Liability Governance Architecture relevant to examining Liability Basis Standard (LBS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported object, harm, multiple concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
         "governanceFocus": "On what governed basis can Liability potentially exist?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
@@ -245,7 +260,7 @@
             "coreQuestion": "On what governed basis can Liability potentially exist?",
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "dccff8564b343de53e2083c9a16d53ea1a4c53e72754197ac7b385d17b562a32",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -258,7 +273,7 @@
           "architectureId": "pga",
           "label": "PGA™ — Prediction Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-          "score": 31.52,
+          "score": 32.24,
           "matchedTerms": [
             "object",
             "multiple"
@@ -272,7 +287,7 @@
           "supportingEvidence": [
             "aiid:20"
           ],
-          "confidence": 0.64,
+          "confidence": 0.66,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         },
@@ -281,7 +296,7 @@
           "architectureId": "vfm",
           "label": "VFM® — Value Flow Mechanisms Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 27.21,
+          "score": 27.78,
           "matchedTerms": [
             "recognition",
             "object",
@@ -296,69 +311,38 @@
           "supportingEvidence": [
             "aiid:20"
           ],
-          "confidence": 0.62,
+          "confidence": 0.63,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         }
       ]
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving object, been, harm, multiple. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving object, harm, multiple. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "LIGA™ — Liability Governance Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "On what governed basis can Liability potentially exist?",
       "How should object, multiple be governed in the conditions described by the available incident evidence?",
       "How should recognition, object, occurred be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Tesla at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?"
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "This case matters to LIGA™ — Liability Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: On what governed basis can Liability potentially exist?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing object, been, harm, multiple were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for object, been, harm, multiple, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Liability Basis Standard (LBS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-lbs.html",
-          "objectId": "OOF-KO-STD-LIGA-03"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains object, been, harm, multiple under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case A Collection of Tesla Autopilot-Involved Crashes, involving Tesla, raises a preliminary question for LIGA™ — Liability Governance Architecture: On what governed basis can Liability potentially exist? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "liga",
       "mechanisms": [
         "object",
-        "been",
         "harm",
         "multiple"
       ],
-      "patternKey": "a0d5e70fc88eea5b"
+      "patternKey": "1e4a19cef8de4821"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:20"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving object, been, harm, multiple. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving object, harm, multiple. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "LIGA™ — Liability Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-LIGA",
       "contributingArchitectures": [
@@ -367,22 +351,21 @@
       ],
       "parentStandard": "OOF-KO-STD-LIGA-03",
       "coreModule": null,
-      "governedMechanism": "object, been, harm, multiple",
+      "governedMechanism": "object, harm, multiple",
       "governanceQuestions": [
         "On what governed basis can Liability potentially exist?",
         "How should object, multiple be governed in the conditions described by the available incident evidence?",
         "How should recognition, object, occurred be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Tesla at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?"
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "This case matters to LIGA™ — Liability Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: On what governed basis can Liability potentially exist?",
+      "incidentGovernanceInsight": "The source-reported case A Collection of Tesla Autopilot-Involved Crashes, involving Tesla, raises a preliminary question for LIGA™ — Liability Governance Architecture: On what governed basis can Liability potentially exist? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
         "object",
-        "been",
         "harm",
         "multiple"
       ],
@@ -395,14 +378,13 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported object, been, harm, multiple.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported object, been, harm, multiple.",
+        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported object, harm, multiple.",
+        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported object, harm, multiple.",
         "evidenceBasis": [
           "aiid:20"
         ],
         "basis": [
           "object",
-          "been",
           "harm",
           "multiple"
         ],
@@ -460,8 +442,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-786732-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-786732-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

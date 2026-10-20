@@ -62,7 +62,7 @@ function markCurrentView() {
 
 function requiresIndex() {
   return ["critical", "stress-tests"].includes(view)
-    || ["q", "severity", "eventType", "coverage", "country", "architecture"].some((key) => params.get(key));
+    || ["q", "severity", "eventType", "analysisStatus", "reviewStatus", "evidenceStatus", "country", "architecture"].some((key) => params.get(key));
 }
 
 async function renderRoute(result, mapData, aggregations, architectureLinks) {
@@ -212,10 +212,12 @@ function wireFilters() {
 function applyFilters(items) {
   let result = [...items];
   const query = (params.get("q") || "").toLowerCase();
-  if (query) result = result.filter((item) => JSON.stringify(item).toLowerCase().includes(query));
+  if (query) result = result.filter((item) => (item.searchText || "").includes(query));
   if (params.get("severity")) result = result.filter((item) => item.severity === params.get("severity"));
   if (params.get("eventType")) result = result.filter((item) => item.eventType === params.get("eventType"));
-  if (params.get("coverage")) result = result.filter((item) => item.assessment?.coverage === params.get("coverage"));
+  if (params.get("analysisStatus")) result = result.filter((item) => item.assessment?.analysisStatus === params.get("analysisStatus"));
+  if (params.get("reviewStatus")) result = result.filter((item) => item.assessment?.reviewStatus === params.get("reviewStatus"));
+  if (params.get("evidenceStatus")) result = result.filter((item) => item.assessment?.evidenceStatus === params.get("evidenceStatus"));
   if (params.get("country")) result = result.filter((item) => item.countryCode === params.get("country"));
   if (params.get("architecture")) result = result.filter((item) => {
     const ids = [item.primaryArchitecture, ...(item.contributingArchitectures || [])].map((entry) => entry?.architectureId);

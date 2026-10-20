@@ -54,12 +54,12 @@
   "createdAt": "2015-07-01T00:00:00Z",
   "updatedAt": "2015-07-01T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-675073-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-675073-V10",
     "incidentId": "OOF-AII-675073",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -98,8 +98,7 @@
         "industry": "public administration",
         "aiSystemType": null,
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Australian Welfare Recipients"
@@ -116,6 +115,17 @@
           "field": "industry",
           "rawValue": "[\"public administration\"]",
           "normalizedValue": "public administration",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -217,7 +227,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 21.77,
+        "score": 22.24,
         "matchedTerms": [
           "assessment",
           "evidence"
@@ -241,7 +251,7 @@
           "architectureId": "aga",
           "label": "AGA™ — Accountability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
-          "score": 18.13,
+          "score": 18.74,
           "matchedTerms": [
             "evidence",
             "validation"
@@ -264,7 +274,7 @@
           "architectureId": "aig",
           "label": "AIG® - Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
-          "score": 18.13,
+          "score": 18.74,
           "matchedTerms": [
             "evidence",
             "validation"
@@ -287,7 +297,7 @@
           "architectureId": "integros",
           "label": "INTEGROS® — Integrity Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/integros/About%20Integrity%20Governance%20Architecture%20(INTEGROS%C2%AE).html",
-          "score": 18.13,
+          "score": 18.74,
           "matchedTerms": [
             "evidence",
             "validation"
@@ -310,7 +320,7 @@
           "architectureId": "obidenity",
           "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-          "score": 18.13,
+          "score": 18.74,
           "matchedTerms": [
             "evidence",
             "validation"
@@ -333,7 +343,7 @@
           "architectureId": "asga",
           "label": "ASGA™ — Autonomous Systems Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-          "score": 15.37,
+          "score": 15.88,
           "matchedTerms": [
             "validation",
             "evidence"
@@ -356,7 +366,7 @@
           "architectureId": "goa",
           "label": "GOA™ - Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/About%20Governance%20Architecture%20(GOA%E2%84%A2).html",
-          "score": 15.37,
+          "score": 15.88,
           "matchedTerms": [
             "validation",
             "evidence"
@@ -379,7 +389,7 @@
           "architectureId": "validos",
           "label": "VALIDOS® — Validation Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/v/validos-about.html",
-          "score": 15.37,
+          "score": 15.88,
           "matchedTerms": [
             "validation",
             "evidence"
@@ -410,7 +420,7 @@
               "coreQuestion": null,
               "parentObjectId": null,
               "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+                "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
                 "contentHash": "1600655dfd081cbed0923d8291753f419f73ec3afa6a6ffcec8a0dd53d520ef1",
                 "authorityState": "CANONICAL_AUTHORITATIVE"
               }
@@ -422,7 +432,7 @@
           "architectureId": "clia",
           "label": "CLIA® — Cognitive Governance Intelligence Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-          "score": 14.84,
+          "score": 15.36,
           "matchedTerms": [
             "evidence",
             "validation"
@@ -451,32 +461,9 @@
       "What operational authority and controls applied to Australian Department Of Human Services at the relevant time?",
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Australian Department Of Human Services. The next governance test is: How should assessment, evidence be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing assessment, evidence were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for assessment, evidence, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains assessment, evidence under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Australian Automated Debt Assessment System Issued False Notices to Thousands, involving Australian Department Of Human Services, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should assessment, evidence be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "pga",
       "mechanisms": [
@@ -512,7 +499,7 @@
         "What operational authority and controls applied to Australian Department Of Human Services at the relevant time?",
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving Australian Department Of Human Services. The next governance test is: How should assessment, evidence be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Australian Automated Debt Assessment System Issued False Notices to Thousands, involving Australian Department Of Human Services, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should assessment, evidence be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -690,8 +677,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-675073-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-675073-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

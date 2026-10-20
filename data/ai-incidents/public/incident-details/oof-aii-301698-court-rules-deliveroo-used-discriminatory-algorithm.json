@@ -53,12 +53,12 @@
   "createdAt": "2026-09-05T01:52:02.889000Z",
   "updatedAt": "2026-09-05T01:52:02.889000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-301698-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-301698-V10",
     "incidentId": "OOF-AII-301698",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -96,8 +96,7 @@
         "industry": "accommodation and food service activities",
         "aiSystemType": "shift assignment; rank the reliability of workers",
         "impactTypes": [
-          "Discrimination and Toxicity",
-          "yes"
+          "Discrimination and Toxicity"
         ],
         "affectedParties": [
           "Deliveroo Workers With Legitimate Reasons For Cancelling Shifts",
@@ -115,6 +114,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"shift assignment\", \"rank the reliability of workers\"]",
           "normalizedValue": "shift assignment; rank the reliability of workers",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Discrimination and Toxicity",
+            "yes"
+          ],
+          "normalizedValue": [
+            "Discrimination and Toxicity"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -211,7 +221,7 @@
         "architectureId": "clia",
         "label": "CLIA® — Cognitive Governance Intelligence Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-        "score": 25.61,
+        "score": 26.07,
         "matchedTerms": [
           "reliability"
         ],
@@ -234,7 +244,7 @@
           "architectureId": "validos",
           "label": "VALIDOS® — Validation Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/v/validos-about.html",
-          "score": 17.07,
+          "score": 17.38,
           "matchedTerms": [
             "reliability"
           ],
@@ -261,32 +271,9 @@
       "What evidence would establish how Algorithmic Management Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to CLIA® — Cognitive Governance Intelligence Architecture because the reported activity reached a real-world consequence involving Algorithmic Management Systems. The next governance test is: How should reliability be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing reliability were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for reliability, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains reliability under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Court Rules Deliveroo Used 'Discriminatory' Algorithm, involving Algorithmic Management Systems, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should reliability be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "clia",
       "mechanisms": [
@@ -313,7 +300,7 @@
         "What evidence would establish how Algorithmic Management Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to CLIA® — Cognitive Governance Intelligence Architecture because the reported activity reached a real-world consequence involving Algorithmic Management Systems. The next governance test is: How should reliability be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Court Rules Deliveroo Used 'Discriminatory' Algorithm, involving Algorithmic Management Systems, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should reliability be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -374,8 +361,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-301698-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-301698-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

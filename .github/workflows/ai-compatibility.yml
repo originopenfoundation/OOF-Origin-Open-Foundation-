@@ -61,7 +61,9 @@ jobs:
         run: python -m unittest tests.test_ai_incidents
 
       - name: Audit incident methodology accuracy
-        run: python tools/audit_ai_incident_methodology.py
+        run: |
+          python tools/audit_ai_incident_methodology.py
+          python tools/audit_ai_incident_v341.py
 
       - name: Run knowledge retrieval tests
         run: python -m unittest tests.test_knowledge_infrastructure

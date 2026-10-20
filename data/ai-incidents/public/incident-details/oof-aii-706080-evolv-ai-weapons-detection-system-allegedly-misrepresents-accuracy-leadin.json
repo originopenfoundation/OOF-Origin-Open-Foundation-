@@ -63,12 +63,12 @@
   "createdAt": "2026-09-03T22:51:26.022000Z",
   "updatedAt": "2026-09-03T22:51:26.022000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-706080-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-706080-V10",
     "incidentId": "OOF-AII-706080",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -106,8 +106,7 @@
         "industry": "Education; Arts, entertainment and recreation",
         "aiSystemType": "weapon detection",
         "impactTypes": [
-          "AI system safety, failures, and limitations",
-          "yes"
+          "AI system safety, failures, and limitations"
         ],
         "affectedParties": [
           "Teachers At Charlotte Mecklenburg Schools",
@@ -131,6 +130,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"weapon detection\"]",
           "normalizedValue": "weapon detection",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "AI system safety, failures, and limitations",
+            "yes"
+          ],
+          "normalizedValue": [
+            "AI system safety, failures, and limitations"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -227,7 +237,7 @@
         "architectureId": "aig",
         "label": "AIG® - Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
-        "score": 66.51,
+        "score": 67.85,
         "matchedTerms": [
           "detection"
         ],
@@ -250,7 +260,7 @@
           "architectureId": "goa",
           "label": "GOA™ - Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/About%20Governance%20Architecture%20(GOA%E2%84%A2).html",
-          "score": 66.51,
+          "score": 67.85,
           "matchedTerms": [
             "detection"
           ],
@@ -272,7 +282,7 @@
           "architectureId": "integros",
           "label": "INTEGROS® — Integrity Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/integros/About%20Integrity%20Governance%20Architecture%20(INTEGROS%C2%AE).html",
-          "score": 66.51,
+          "score": 67.85,
           "matchedTerms": [
             "detection"
           ],
@@ -299,32 +309,9 @@
       "What evidence would establish how Weapons Detection System, Evolv Express Weapons Detection System, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Weapons Detection System, Evolv Express Weapons Detection System, Ai Enabled Decision Support Systems. The next governance test is: How should detection be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing detection were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for detection, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains detection under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Evolv AI Weapons Detection System Allegedly Misrepresents Accuracy, Leading to School Security Gaps, involving Weapons Detection System, Evolv Express Weapons Detection System, Ai Enabled Decision Support Systems, raises a preliminary question for AIG® - Governance Architecture: How should detection be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "aig",
       "mechanisms": [
@@ -352,7 +339,7 @@
         "What evidence would establish how Weapons Detection System, Evolv Express Weapons Detection System, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to AIG® - Governance Architecture because the reported activity reached a real-world consequence involving Weapons Detection System, Evolv Express Weapons Detection System, Ai Enabled Decision Support Systems. The next governance test is: How should detection be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Evolv AI Weapons Detection System Allegedly Misrepresents Accuracy, Leading to School Security Gaps, involving Weapons Detection System, Evolv Express Weapons Detection System, Ai Enabled Decision Support Systems, raises a preliminary question for AIG® - Governance Architecture: How should detection be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -428,8 +415,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-706080-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-706080-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

@@ -244,6 +244,16 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertNotIn("how no produced", questions)
         self.assertNotIn("no", terms)
 
+    def test_v341_semantic_noise_values_are_not_used_as_generated_subjects(self):
+        item = record(title="Semantic noise regression case")
+        item["summary"] = "The source report uses ordinary prose that mentions yes and whether."
+        item["system"] = "yes"
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-20T00:00:00Z")
+        generated = " ".join([assessment["incidentGovernanceInsight"] or "", *assessment["governanceQuestions"]]).casefold()
+        self.assertNotIn("how yes", generated)
+        self.assertEqual(assessment["qualityOutcomes"]["semanticIntegrity"], "PASS")
+        self.assertEqual(assessment["qualityOutcomes"]["publicationEligibility"], "PUBLISHABLE")
+
     def test_v3_exposes_three_independent_confidence_dimensions(self):
         item = record(title="Deepfake impersonation report")
         item["summary"] = "A cloned voice reportedly impersonated an executive."

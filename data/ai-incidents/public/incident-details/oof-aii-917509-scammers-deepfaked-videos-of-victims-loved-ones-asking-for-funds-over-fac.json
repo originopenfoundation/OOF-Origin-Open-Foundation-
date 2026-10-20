@@ -54,12 +54,12 @@
   "createdAt": "2023-03-23T00:00:00Z",
   "updatedAt": "2023-03-23T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-917509-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-917509-V10",
     "incidentId": "OOF-AII-917509",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -72,8 +72,8 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 0.88,
-        "populatedFields": 7,
+        "score": 0.75,
+        "populatedFields": 6,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -96,19 +96,24 @@
       "rawRecordHash": "e3105a8cd72e42f2a632a71d34411c1d3641f0a7a181fa050b0582af0d863f9f",
       "normalizedFields": {
         "organization": "Scammers",
-        "system": "yes",
+        "system": null,
         "technology": null,
         "industry": "information and communication",
         "aiSystemType": "deepfake video generation; deepfake audio generation",
         "impactTypes": [
-          "Malicious Actors & Misuse",
-          "yes"
+          "Malicious Actors & Misuse"
         ],
         "affectedParties": [
           "Vietnamese Facebook Users"
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "industry",
           "rawValue": "[\"information and communication\"]",
@@ -119,6 +124,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"deepfake video generation\", \"deepfake audio generation\"]",
           "normalizedValue": "deepfake video generation; deepfake audio generation",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Malicious Actors & Misuse",
+            "yes"
+          ],
+          "normalizedValue": [
+            "Malicious Actors & Misuse"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -166,7 +182,8 @@
         "In Vietnam, to convince victims of their disguises when prompted, scammers deepfaked audios and videos of victims' friends and families asking them over Facebook to send over thousands of dollars."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -182,7 +199,7 @@
     "severityAssessment": {
       "level": "Moderate",
       "score": 5,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 2,
@@ -215,7 +232,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 65.0,
+        "score": 66.23,
         "matchedTerms": [
           "communication",
           "information",
@@ -249,7 +266,7 @@
             "coreQuestion": "What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "94453253af01aaf58427048ad493444231db2f0e41ae8095402a1704614086e5",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -262,7 +279,7 @@
           "architectureId": "vfm",
           "label": "VFM® — Value Flow Mechanisms Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 53.72,
+          "score": 54.8,
           "matchedTerms": [
             "over",
             "origin",
@@ -289,42 +306,12 @@
       "What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
       "How should over, origin, when be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Scammers at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing communication, information, over, evidence, when were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for communication, information, over, evidence, when, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Prediction Basis Standard (PBAS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-pbas.html",
-          "objectId": "OOF-KO-STD-PGA-03"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains communication, information, over, evidence, when under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Scammers Deepfaked Videos of Victims' Loved Ones Asking for Funds over Facebook in Vietnam, involving Scammers, raises a preliminary question for PGA™ — Prediction Governance Architecture: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "pga",
       "mechanisms": [
@@ -353,10 +340,10 @@
         "What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
         "How should over, origin, when be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Scammers at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to PGA™ — Prediction Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
+      "incidentGovernanceInsight": "The source-reported case Scammers Deepfaked Videos of Victims' Loved Ones Asking for Funds over Facebook in Vietnam, involving Scammers, raises a preliminary question for PGA™ — Prediction Governance Architecture: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -427,8 +414,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-917509-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-917509-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

@@ -56,12 +56,12 @@
   "createdAt": "2026-08-29T14:30:11.092000Z",
   "updatedAt": "2026-08-29T14:30:11.092000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-650176-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-650176-V10",
     "incidentId": "OOF-AII-650176",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -99,8 +99,7 @@
         "industry": "administrative and support service activities; professional, scientific and technical activities",
         "aiSystemType": "candidate assessment; virtual interview; emotion recognition; facial expression recognition; speech recognition",
         "impactTypes": [
-          "Discrimination and Toxicity",
-          "yes"
+          "Discrimination and Toxicity"
         ],
         "affectedParties": [
           "Job Applicants Using Hirevue",
@@ -118,6 +117,17 @@
           "field": "aiSystemType",
           "rawValue": "[\"candidate assessment\", \"virtual interview\", \"emotion recognition\", \"facial expression recognition\", \"speech recognition\"]",
           "normalizedValue": "candidate assessment; virtual interview; emotion recognition; facial expression recognition; speech recognition",
+          "reason": "serialized collection normalized"
+        },
+        {
+          "field": "impactTypes",
+          "rawValue": [
+            "Discrimination and Toxicity",
+            "yes"
+          ],
+          "normalizedValue": [
+            "Discrimination and Toxicity"
+          ],
           "reason": "serialized collection normalized"
         }
       ]
@@ -214,7 +224,7 @@
         "architectureId": "vfm",
         "label": "VFM® — Value Flow Mechanisms Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-        "score": 46.05,
+        "score": 46.97,
         "matchedTerms": [
           "recognition"
         ],
@@ -237,7 +247,7 @@
           "architectureId": "integros",
           "label": "INTEGROS® — Integrity Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/integros/About%20Integrity%20Governance%20Architecture%20(INTEGROS%C2%AE).html",
-          "score": 32.51,
+          "score": 33.03,
           "matchedTerms": [
             "analysis",
             "tracking"
@@ -260,7 +270,7 @@
           "architectureId": "trega",
           "label": "TREGA™ — Tax-Relevant Event Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/About%20TREGA%E2%84%A2%20-%20Tax-Relevant%20Event%20Governance%20Architecture.html",
-          "score": 30.7,
+          "score": 31.31,
           "matchedTerms": [
             "recognition"
           ],
@@ -288,32 +298,9 @@
       "What evidence would establish how Enterprise Ai Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to VFM® — Value Flow Mechanisms Architecture because the reported activity reached a real-world consequence involving Enterprise Ai Systems. The next governance test is: How should recognition be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing recognition were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for recognition, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains recognition under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Job Screening Service Halts Facial Analysis of Applicants, involving Enterprise Ai Systems, raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: How should recognition be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "vfm",
       "mechanisms": [
@@ -342,7 +329,7 @@
         "What evidence would establish how Enterprise Ai Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to VFM® — Value Flow Mechanisms Architecture because the reported activity reached a real-world consequence involving Enterprise Ai Systems. The next governance test is: How should recognition be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Job Screening Service Halts Facial Analysis of Applicants, involving Enterprise Ai Systems, raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: How should recognition be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -419,8 +406,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-650176-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-650176-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

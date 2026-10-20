@@ -35,6 +35,7 @@ jobs:
           python tools/audit_ai_incident_methodology.py
           python tools/ai_incidents.py export
           python tools/ai_incidents.py validate
+          python tools/audit_ai_incident_v341.py
           python -m unittest tests.test_ai_incidents
       - name: Rebuild public incident pages and discovery metadata
         run: |
@@ -45,13 +46,13 @@ jobs:
           python tools/validate_url_governance.py
       - name: Commit changed public projections
         run: |
-          if git diff --quiet -- data/ai-incidents ai-incidents sitemap.xml search-index.json data/oof-site-knowledge-graph.json; then
+          if git diff --quiet -- data/ai-incidents ai-incidents docs/AI_INCIDENT_V3_4_1_PRODUCTION_REMEDIATION_AUDIT.md sitemap.xml search-index.json data/oof-site-knowledge-graph.json; then
             echo "No incident data changes."
             exit 0
           fi
           git config user.name "OOF Incident Sync"
           git config user.email "actions@users.noreply.github.com"
-          git add data/ai-incidents ai-incidents sitemap.xml search-index.json llms.txt llms-full.txt ai-index.json
+          git add data/ai-incidents ai-incidents docs/AI_INCIDENT_V3_4_1_PRODUCTION_REMEDIATION_AUDIT.md sitemap.xml search-index.json llms.txt llms-full.txt ai-index.json
           git add data/oof-site-knowledge-graph.json data/oof-typed-relationships.json
           git add data/oof-url-registry.json data/oof-url-governance-audit.json
           git commit -m "Update OOF AI incident public data"

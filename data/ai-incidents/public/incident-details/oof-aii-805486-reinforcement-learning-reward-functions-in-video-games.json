@@ -54,12 +54,12 @@
   "createdAt": "2016-12-22T00:00:00Z",
   "updatedAt": "2016-12-22T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-805486-V7",
+    "assessmentIdentity": "OOF-AII-ASMT-805486-V9",
     "incidentId": "OOF-AII-805486",
-    "analysisVersion": 7,
+    "analysisVersion": 9,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -72,8 +72,8 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 0.88,
-        "populatedFields": 7,
+        "score": 0.75,
+        "populatedFields": 6,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -94,7 +94,7 @@
       "rawRecordHash": "47b6e504a4e9f8fc0c90874cf5f0e6241e18a3b7748cc7579f8f276490a0d841",
       "normalizedFields": {
         "organization": "Openai",
-        "system": "yes",
+        "system": null,
         "technology": null,
         "industry": "Arts, entertainment and recreation",
         "aiSystemType": "optimize movement to win a computer game",
@@ -106,6 +106,12 @@
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "industry",
           "rawValue": "[\"Arts, entertainment and recreation\"]",
@@ -174,7 +180,8 @@
         "OpenAI published a post about its findings when using Universe, a software for measuring and training AI agents to conduct reinforcement learning experiments, showing that the AI agent did not act in the way intended to complete a videogame."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -190,7 +197,7 @@
     "severityAssessment": {
       "level": "Low",
       "score": 1,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -216,7 +223,7 @@
         "architectureId": "mgia",
         "label": "MGIA™ — Memory Governance Intelligence Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-        "score": 69.87,
+        "score": 71.1,
         "matchedTerms": [
           "learning",
           "memory",
@@ -248,7 +255,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "7d8e4eaa909302357ea35b8952320c98fd0e7f1485df5a3f447a7ea4d961283b",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -267,7 +274,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-MEM-AMIS-2026-06-08-0002",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "633da53519fbd14d024f4cdc613ba8e5a813f2fbf4134f26bab5e5218b5375ca",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -280,7 +287,7 @@
           "architectureId": "clia",
           "label": "CLIA® — Cognitive Governance Intelligence Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-          "score": 50.36,
+          "score": 51.29,
           "matchedTerms": [
             "learning",
             "agent"
@@ -306,48 +313,12 @@
       "How should learning, memory, agent be governed in the conditions described by the available incident evidence?",
       "How should learning, agent be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Openai at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to MGIA™ — Memory Governance Intelligence Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should learning, memory, agent be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing learning, memory, agent were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for learning, memory, agent, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Agent Memory Integrity Standard (AMIS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/Agent%20Memory%20Integrity%20Standard%20-%20(AMIS).html",
-          "objectId": "OOF-OID-MEM-AMIS-2026-06-08-0002"
-        },
-        {
-          "name": "OOF™ Agent Memory Accountability Module (AMAM™)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/AMAM.html",
-          "objectId": "OOF-OID-MEM-AMAM-2026-06-08-0005"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains learning, memory, agent under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Reinforcement Learning Reward Functions in Video Games, involving Openai, raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: How should learning, memory, agent be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "mgia",
       "mechanisms": [
@@ -374,10 +345,10 @@
         "How should learning, memory, agent be governed in the conditions described by the available incident evidence?",
         "How should learning, agent be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Openai at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to MGIA™ — Memory Governance Intelligence Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should learning, memory, agent be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Reinforcement Learning Reward Functions in Video Games, involving Openai, raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: How should learning, memory, agent be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -443,8 +414,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-805486-V6",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-805486-V8",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

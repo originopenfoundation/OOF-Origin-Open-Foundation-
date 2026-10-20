@@ -55,12 +55,12 @@
   "createdAt": "2017-07-01T00:00:00Z",
   "updatedAt": "2017-07-01T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-773520-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-773520-V10",
     "incidentId": "OOF-AII-773520",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -73,8 +73,8 @@
       },
       "extractionCompleteness": {
         "level": "High",
-        "score": 1.0,
-        "populatedFields": 8,
+        "score": 0.88,
+        "populatedFields": 7,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -95,7 +95,7 @@
       "rawRecordHash": "d802753ba61692315bf6569582d0a8cf01980265cfb1161a81d4f19cea595998",
       "normalizedFields": {
         "organization": "University Of Washington, Fakeapp",
-        "system": "yes",
+        "system": null,
         "technology": "Neural Network; Face Detection; Recurrent Neural Network; Generative Adversarial Network",
         "industry": "Arts, entertainment and recreation; professional, scientific and technical activities",
         "aiSystemType": "content generation; deepfake video generation",
@@ -107,6 +107,12 @@
         ]
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "technology",
           "rawValue": "[\"Neural Network\", \"Face Detection\", \"Recurrent Neural Network\", \"Generative Adversarial Network\"]",
@@ -181,7 +187,8 @@
         "University of Washington researchers made a deepfake of Obama, followed by Jordan Peele"
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -197,7 +204,7 @@
     "severityAssessment": {
       "level": "Low",
       "score": 3,
-      "confidence": 0.79,
+      "confidence": 0.73,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -228,7 +235,7 @@
         "architectureId": "obidenity",
         "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-        "score": 40.7,
+        "score": 41.62,
         "matchedTerms": [
           "evidence",
           "identity",
@@ -260,7 +267,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "dc6e3ae8d403e9ce277c764c23ebb081902f8f86fa51b70a553198f78844b57b",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -280,7 +287,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "a3cbee6b4d2a8f5519390263567bd46c17aad68e72b4a4f0d2eb0a8c5ba9c658",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -293,7 +300,7 @@
           "architectureId": "asga",
           "label": "ASGA™ — Autonomous Systems Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-          "score": 35.6,
+          "score": 36.32,
           "matchedTerms": [
             "identity",
             "arts",
@@ -317,7 +324,7 @@
           "architectureId": "liga",
           "label": "LIGA™ — Liability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 32.02,
+          "score": 32.58,
           "matchedTerms": [
             "network",
             "evidence"
@@ -344,47 +351,11 @@
       "How should identity, arts, evidence be governed in the conditions described by the available incident evidence?",
       "How should network, evidence be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to University Of Washington, Fakeapp at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?"
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing evidence, identity, origin were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for evidence, identity, origin, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Origin Integrity Standard (OIS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois.html",
-          "objectId": "OOF-OID-OBID-OIS-2026-07-12-0001"
-        },
-        {
-          "name": "Origin Evidence Verification Module (OEVM)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois-oevm.html",
-          "objectId": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains evidence, identity, origin under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "The source-reported case Deepfake Obama Introduction of Deepfakes, involving University Of Washington, Fakeapp, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should evidence, identity, origin be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "obidenity",
       "mechanisms": [
@@ -413,9 +384,9 @@
         "How should identity, arts, evidence be governed in the conditions described by the available incident evidence?",
         "How should network, evidence be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to University Of Washington, Fakeapp at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?"
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "This case matters to OBIDENITY® — Origin-Bound Identity Governance Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "The source-reported case Deepfake Obama Introduction of Deepfakes, involving University Of Washington, Fakeapp, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should evidence, identity, origin be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -496,8 +467,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-773520-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-773520-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

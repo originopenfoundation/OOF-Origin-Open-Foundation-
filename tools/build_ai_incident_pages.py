@@ -7,6 +7,8 @@ import html
 import json
 import re
 
+import ai_incidents
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DISCOVERY_BLOCK_RE = re.compile(r"<!-- OOF AI DISCOVERY START -->.*?<!-- OOF AI DISCOVERY END -->\s*", re.S)
@@ -292,18 +294,7 @@ def build(check: bool = False) -> None:
         emit(target, page)
     payload = json.loads((ROOT / "data" / "ai-incidents" / "incident-store.json").read_text(encoding="utf-8"))
     analyses = json.loads((ROOT / "data" / "ai-incidents" / "analysis-store.json").read_text(encoding="utf-8"))
-    latest = {}
-    for assessment in analyses.get("assessments", []):
-        incident_id = assessment.get("incidentId")
-        if incident_id and assessment.get("analysisVersion", 0) > latest.get(incident_id, {}).get("analysisVersion", 0):
-            latest[incident_id] = assessment
-    public_records = []
-    for record in payload.get("incidents", []):
-        if record.get("publicationStatus") not in {"Monitored", "Published"}:
-            continue
-        record = dict(record)
-        record["automatedAnalysis"] = latest.get(record["id"])
-        public_records.append(record)
+    public_records = ai_incidents.public_records(payload.get("incidents", []))
     detail_count = 0
     for record in public_records:
         analysis = record.get("automatedAnalysis") or {}

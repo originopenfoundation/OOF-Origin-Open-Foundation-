@@ -52,15 +52,15 @@
   "createdAt": "2018-04-02T00:00:00Z",
   "updatedAt": "2018-04-02T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-994961-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-994961-V10",
     "incidentId": "OOF-AII-994961",
-    "analysisVersion": 8,
+    "analysisVersion": 10,
     "engineVersion": "3.4.1",
-    "architectureRegistryVersion": "OOF-KI-1.1-1a1b5e4dd4f4",
-    "knowledgeImpactFingerprint": "a280282089c5e4631beb17164d15d27767def0a18fab7822f2a1dbf12462e544",
+    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
+    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
-    "assessmentConfidence": "Moderate",
+    "assessmentConfidence": "Limited",
     "confidenceDimensions": {
       "sourceCorroboration": {
         "level": "Single-source",
@@ -69,9 +69,9 @@
         "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
       },
       "extractionCompleteness": {
-        "level": "High",
-        "score": 0.75,
-        "populatedFields": 6,
+        "level": "Moderate",
+        "score": 0.62,
+        "populatedFields": 5,
         "evaluatedFields": 8,
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
@@ -91,7 +91,7 @@
       "rawRecordHash": "f4b47305bd89d0a0876078ffa65d564f495eeffb9937afebcea8d0c56fbc3614",
       "normalizedFields": {
         "organization": "Mit Media Lab",
-        "system": "yes",
+        "system": null,
         "technology": null,
         "industry": "professional, scientific and technical activities",
         "aiSystemType": "Generate Captions; image identification; image interpretation",
@@ -101,6 +101,12 @@
         "affectedParties": []
       },
       "transformations": [
+        {
+          "field": "system",
+          "rawValue": "yes",
+          "normalizedValue": null,
+          "reason": "placeholder removed"
+        },
         {
           "field": "industry",
           "rawValue": "[\"professional, scientific and technical activities\"]",
@@ -177,7 +183,8 @@
         "MIT Media Lab researchers create AI-powered \"psychopath\"  named Norman by training a model on \"dark corners\" of Reddit."
       ],
       "materialUnknowns": [
-        "Independent corroboration is not established in the available incident record."
+        "Independent corroboration is not established in the available incident record.",
+        "The specific AI system is not established by the available record."
       ],
       "evidenceState": "Single-source"
     },
@@ -193,7 +200,7 @@
     "severityAssessment": {
       "level": "Low",
       "score": 0,
-      "confidence": 0.73,
+      "confidence": 0.67,
       "dimensions": {
         "actualHarm": 0,
         "scale": 0,
@@ -219,7 +226,7 @@
         "architectureId": "mgia",
         "label": "MGIA™ — Memory Governance Intelligence Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-        "score": 33.52,
+        "score": 34.13,
         "matchedTerms": [
           "interpretation",
           "memory"
@@ -250,7 +257,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "7d8e4eaa909302357ea35b8952320c98fd0e7f1485df5a3f447a7ea4d961283b",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -269,7 +276,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-MEM-AMIS-2026-06-08-0002",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-1a1b5e4dd4f4",
+              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
               "contentHash": "633da53519fbd14d024f4cdc613ba8e5a813f2fbf4134f26bab5e5218b5375ca",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -283,48 +290,12 @@
     "governanceQuestions": [
       "How should interpretation, memory be governed in the conditions described by the available incident evidence?",
       "What operational authority and controls applied to Mit Media Lab at the relevant time?",
-      "What evidence would establish how yes produced or enabled the reported outcome?",
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "This case matters to MGIA™ — Memory Governance Intelligence Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should interpretation, memory be governed in the conditions described by the available incident evidence?",
-    "preventionGuidance": {
-      "governanceGapToExamine": "Examine whether controls governing interpretation, memory were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for interpretation, memory, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Agent Memory Integrity Standard (AMIS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/Agent%20Memory%20Integrity%20Standard%20-%20(AMIS).html",
-          "objectId": "OOF-OID-MEM-AMIS-2026-06-08-0002"
-        },
-        {
-          "name": "OOF™ Agent Memory Accountability Module (AMAM™)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/AMAM.html",
-          "objectId": "OOF-OID-MEM-AMAM-2026-06-08-0005"
-        }
-      ],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
-    "practicalChecklist": [
-      {
-        "item": "Identify accountable authority",
-        "verification": "Record who authorized, operated, and could stop the activity."
-      },
-      {
-        "item": "Reconstruct the evidence chain",
-        "verification": "Link source, system action, observation, consequence, and time."
-      },
-      {
-        "item": "Test the preventive control",
-        "verification": "Demonstrate that the control detects or constrains interpretation, memory under comparable conditions."
-      },
-      {
-        "item": "Record residual uncertainty",
-        "verification": "List unresolved facts and the evidence required to resolve them."
-      }
-    ],
+    "incidentGovernanceInsight": "Available reporting on All Image Captions Produced are Violent indicates that Mit Media Lab raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: How should interpretation, memory be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "preventionGuidance": {},
+    "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "mgia",
       "mechanisms": [
@@ -347,10 +318,10 @@
       "governanceQuestions": [
         "How should interpretation, memory be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Mit Media Lab at the relevant time?",
-        "What evidence would establish how yes produced or enabled the reported outcome?",
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "This case matters to MGIA™ — Memory Governance Intelligence Architecture because the reported activity reached a real-world consequence involving yes. The next governance test is: How should interpretation, memory be governed in the conditions described by the available incident evidence?",
+      "incidentGovernanceInsight": "Available reporting on All Image Captions Produced are Violent indicates that Mit Media Lab raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: How should interpretation, memory be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -378,7 +349,7 @@
           "memory"
         ],
         "architectureReference": "OOF-KO-ARCH-MGIA",
-        "confidenceState": "Moderate",
+        "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
       }
@@ -398,8 +369,21 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-15T16:01:15Z",
-    "supersedes": "OOF-AII-ASMT-994961-V7",
-    "reassessmentReason": "Material analysis engine change"
+    "createdAt": "2026-10-20T16:09:46Z",
+    "supersedes": "OOF-AII-ASMT-994961-V9",
+    "reassessmentReason": "Production semantic quality gate remediation",
+    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "qualityOutcomes": {
+      "structuralIntegrity": "PASS",
+      "semanticIntegrity": "PASS",
+      "methodologicalSupport": "PASS",
+      "evidenceTransparency": "PASS",
+      "publicationEligibility": "PUBLISHABLE",
+      "sourceRecordEligibility": "PUBLISHABLE",
+      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+    },
+    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "reviewStatus": "Not performed",
+    "evidenceStatus": "Source-Reported"
   }
 }

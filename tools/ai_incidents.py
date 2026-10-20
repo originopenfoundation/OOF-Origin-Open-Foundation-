@@ -592,6 +592,28 @@ def latest_automated_analyses() -> dict[str, dict]:
     return latest
 
 
+def public_automated_analysis(analysis: dict | None) -> dict | None:
+    """Publish generated interpretation only when its production quality gate passes."""
+    if not analysis:
+        return None
+    public = dict(analysis)
+    outcomes = public.get("qualityOutcomes") or {}
+    eligible = outcomes.get("publicationEligibility") == "PUBLISHABLE"
+    public["analysisStatus"] = "AUTOMATED_ANALYSIS_AVAILABLE" if eligible else "GOVERNANCE_ANALYSIS_PENDING"
+    public["reviewStatus"] = (public.get("humanReview") or {}).get("status") or "Not performed"
+    public["evidenceStatus"] = (public.get("evidenceSnapshot") or {}).get("publicEvidenceStatus") or "Evidence Insufficient"
+    if not eligible:
+        public["incidentGovernanceInsight"] = "Governance Analysis Pending"
+        public["governanceQuestions"] = []
+        public["governanceFindings"] = []
+        public["architectureAnalysis"] = {"status": "INSUFFICIENT_EVIDENCE", "primaryArchitecture": None, "contributingArchitectures": []}
+    # Preventive controls require independent support before public guidance is shown.
+    if outcomes.get("preventionGuidanceEligibility") != "PUBLISHABLE":
+        public["preventionGuidance"] = {}
+        public["practicalChecklist"] = []
+    return public
+
+
 def public_records(records: list[dict]) -> list[dict]:
     allowed = architecture_ids()
     analyses = latest_automated_analyses()
@@ -613,7 +635,7 @@ def public_records(records: list[dict]) -> list[dict]:
             record["architectureRelevance"] = architecture
         record = dict(record)
         if record["id"] in analyses:
-            record["automatedAnalysis"] = analyses[record["id"]]
+            record["automatedAnalysis"] = public_automated_analysis(analyses[record["id"]])
         result.append(record)
     return result
 
@@ -700,14 +722,22 @@ def _list_projection(record: dict) -> dict:
             "label": analysis.get("assessmentLabel"),
             "confidence": analysis.get("assessmentConfidence"),
             "analysisVersion": analysis.get("analysisVersion"),
+            "analysisStatus": analysis.get("analysisStatus") or "GOVERNANCE_ANALYSIS_PENDING",
+            "reviewStatus": analysis.get("reviewStatus") or "Not performed",
             "coverage": (analysis.get("coverageAssessment") or {}).get("status") or architecture_analysis.get("status"),
             "corroboration": corroboration.get("status") or "Insufficient evidence",
             "evidenceStatus": evidence_status,
+            "publicationEligibility": (analysis.get("qualityOutcomes") or {}).get("publicationEligibility") or "PENDING",
             "oofApproved": analysis.get("oofApproved") is True,
         },
         "governanceFocus": (primary or {}).get("governanceFocus"),
         "governanceInsight": analysis.get("incidentGovernanceInsight"),
         "preventionFocus": prevention.get("recommendedPreventiveControl"),
+        "searchText": " ".join(str(value or "") for value in (
+            record.get("title"), record.get("summary"), record.get("country"),
+            _normalized_public_field(record, "system"), (primary or {}).get("label"),
+            *(item.get("label") for item in architecture_analysis.get("contributingArchitectures", [])),
+        )).casefold(),
         "detailUrl": f"/ai-incidents/incidents/{public_slug}/",
         "verifyUrl": f"/ai-incidents/verify/?incident={public_slug}",
     }
@@ -825,6 +855,11 @@ def export_public(records: list[dict]) -> None:
                 architectures.add(architecture["architectureId"])
     month = datetime.now(timezone.utc).strftime("%Y-%m")
     coverage = Counter(item.get("architectureRelevance", {}).get("status", "NOT_ASSESSED") for item in records)
+    review_queue = read_json(DATA_ROOT / "human-review-queue.json", {})
+    analysis_available = sum(
+        1 for item in records
+        if (item.get("automatedAnalysis") or {}).get("analysisStatus") == "AUTOMATED_ANALYSIS_AVAILABLE"
+    )
     summary = {
         "generatedAt": generated,
         "datasetScope": "Public source facts with separate, versioned Automated OOF® Analysis. Automated analysis is not an OOF® Approved Assessment.",
@@ -836,7 +871,13 @@ def export_public(records: list[dict]) -> None:
         "potentialGovernanceGaps": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("coverageAssessment", {}).get("status") == "POTENTIAL_GOVERNANCE_GAP"),
         "crossArchitectureIncidents": sum(1 for item in records if len(_public_architectures(item)) > 1),
         "stressTestsCompleted": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("oofApproved") is True),
-        "automatedAnalyses": sum(1 for item in records if item.get("automatedAnalysis")),
+        "automatedAnalyses": analysis_available,
+        "automatedAssessmentsAvailable": analysis_available,
+        "humanReviewPending": len(review_queue.get("items") or []),
+        "architectureCoverageReviewRequired": sum(
+            1 for item in records
+            if ((item.get("automatedAnalysis") or {}).get("coverageAssessment") or {}).get("status") == "UNDER_REVIEW"
+        ),
         "oofApprovedAssessments": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("oofApproved") is True),
         "coverage": {
             "identified": coverage["ARCHITECTURE_IDENTIFIED"],
