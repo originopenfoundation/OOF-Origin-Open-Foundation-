@@ -13,6 +13,8 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
 
+import build_ai_compatibility as discovery
+
 
 ROOT = Path(__file__).resolve().parents[1]
 START = "<!-- OOF AI DISCOVERY START -->"
@@ -63,10 +65,7 @@ def relative(path: Path) -> str:
 
 
 def alias_target(page_relative: str) -> str | None:
-    if not page_relative.startswith("content/g/"):
-        return None
-    candidate = "content/aig/" + Path(page_relative).name
-    return candidate if (ROOT / candidate).is_file() else None
+    return discovery.alias_target(page_relative)
 
 
 def expected_language(page_relative: str) -> str:

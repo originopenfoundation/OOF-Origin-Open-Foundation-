@@ -51,6 +51,9 @@ LOCALIZED_LANGUAGES = {
     "it": ("it-IT", "it_IT"),
     "ar": ("ar", "ar_AR"),
 }
+EXPLICIT_ALIAS_TARGETS = {
+    "content/rsga/rsga-rcss-rcam-1.html": "content/rsga/rsga-rcss-rcasm-1.html",
+}
 
 
 class PageParser(HTMLParser):
@@ -188,6 +191,9 @@ def assign_titles(records: list[dict]) -> None:
 
 
 def alias_target(relative: str) -> str | None:
+    explicit_target = EXPLICIT_ALIAS_TARGETS.get(relative)
+    if explicit_target:
+        return explicit_target if (ROOT / explicit_target).is_file() else None
     if not relative.startswith("content/g/"):
         return None
     candidate = "content/aig/" + Path(relative).name

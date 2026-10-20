@@ -345,19 +345,22 @@ def write_legacy_rcam_alias() -> Path:
     target = OUT / "rsga-rcss-rcam-1.html"
     destination = "/content/rsga/rsga-rcss-rcasm-1.html"
     target.write_text(
-        """<!doctype html>
+        f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, follow" />
-<link rel="canonical" href="https://originopenfoundation.org/content/rsga/rsga-rcss-rcasm-1.html" />
-<meta http-equiv="refresh" content="0; url=/content/rsga/rsga-rcss-rcasm-1.html" />
+<meta http-equiv="refresh" content="0; url={destination}" />
 <title>Resource Continuity Assessment Module | OOF®</title>
 </head>
 <body>
-<p>This reference has moved to <a href="/content/rsga/rsga-rcss-rcasm-1.html">RCASM — Resource Continuity Assessment Module</a>.</p>
-<script>location.replace("/content/rsga/rsga-rcss-rcasm-1.html");</script>
+<main>
+<article>
+<h1 id="resource-continuity-assessment-module" data-oof-section-id="true" role="heading" aria-level="1">Resource Continuity Assessment Module</h1>
+<p>This reference has moved to <a href="{destination}">RCASM — Resource Continuity Assessment Module</a>.</p>
+</article>
+</main>
+<script>location.replace("{destination}");</script>
 </body>
 </html>
 """,
