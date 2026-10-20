@@ -8,6 +8,7 @@ import json
 import re
 
 import ai_incidents
+import build_ai_compatibility as discovery
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -271,6 +272,7 @@ fetch("/header.html").then(r=>r.text()).then(v=>{{document.getElementById("heade
 
 def build(check: bool = False) -> None:
     mismatches = []
+    generated_targets: list[Path] = []
 
     def emit(target: Path, value: str) -> None:
         if check:
@@ -279,6 +281,7 @@ def build(check: bool = False) -> None:
             return
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(value, encoding="utf-8")
+        generated_targets.append(target)
 
     source = SOURCE.read_text(encoding="utf-8")
     for route, title in ROUTES.items():
@@ -332,6 +335,13 @@ def build(check: bool = False) -> None:
                 if generated_file.is_file():
                     generated_file.unlink()
             child.rmdir()
+    if not check:
+        # Generated incident routes are public documents too. Hydrate their
+        # discovery metadata here so a later regeneration cannot remove it.
+        for record in discovery.inspect_pages(generated_targets):
+            discovery.inject_metadata(record)
+            discovery.inject_section_ids(record["path"])
+            discovery.inject_semantic_structure(record["path"])
     if mismatches:
         raise SystemExit("Generated AI incident pages are stale:\n- " + "\n- ".join(mismatches[:50]))
     if check:
