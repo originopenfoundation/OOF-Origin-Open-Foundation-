@@ -57,7 +57,9 @@ def run() -> dict:
         errors.append("summary total does not match public incident index")
     result = {
         "auditVersion": "OOF-AII-INDEPENDENT-AUDIT-3.4.1.1",
-        "auditedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        # The public export timestamp makes a CI rerun reproducible.  A wall-clock
+        # audit timestamp would make the generated-artifact check fail every run.
+        "auditedAt": summary.get("generatedAt") or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "scope": "Public projection, generated analysis status, source attribution, and detail-page consistency.",
         "recordsAudited": len(index.get("items", [])),
         "latestAssessmentsAudited": len(latest),
