@@ -9,6 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SECRET_PATTERN = r"\b(AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9_-]{20,}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)"
 
 
 def require(path: Path, expected: tuple[str, ...], errors: list[str]) -> None:
@@ -41,6 +42,18 @@ def main() -> int:
         errors.append("Could not inspect tracked private configuration files.")
     elif tracked.stdout.strip():
         errors.append("Private configuration is tracked: " + ", ".join(tracked.stdout.splitlines()))
+
+    secrets = subprocess.run(
+        ["git", "grep", "-nI", "-E", SECRET_PATTERN],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if secrets.returncode == 0:
+        errors.append("Potential credential material is tracked:\n" + secrets.stdout.strip())
+    elif secrets.returncode not in (0, 1):
+        errors.append("Could not scan tracked text for common credential patterns.")
 
     if errors:
         print("Security baseline validation failed:")

@@ -27,8 +27,8 @@ ANALYSIS_PATH = DATA_ROOT / "analysis-store.json"
 KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
 REVIEW_QUEUE_PATH = DATA_ROOT / "human-review-queue.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
-ENGINE_VERSION = "3.4.1"
-QUALITY_GATE_VERSION = "OOF-AII-QG-3.4.1.2"
+ENGINE_VERSION = "3.4.2"
+QUALITY_GATE_VERSION = "OOF-AII-QG-3.4.2.0"
 
 PLACEHOLDER_VALUES = {"", "no", "none", "null", "unknown", "n a", "not specified", "unspecified"}
 # These values are not prohibited in ordinary source prose.  They are rejected only
@@ -81,6 +81,24 @@ MECHANISM_EXPANSIONS = {
     "reasoning": ("cognition", "decision", "interpretation"),
     "sensor": ("observation", "operational", "reality"),
     "perception": ("observation", "operational", "reality"),
+}
+
+# These classifications are technical component families, not OOF architectures
+# and not findings that a component caused the reported outcome. They remain
+# evidence-bounded labels for the public System Failure Explorer data model.
+SYSTEM_COMPONENT_RULES = {
+    "data-ingestion-provenance": ("Data ingestion and provenance", ("training data", "dataset", "data provenance", "data breach", "data leak")),
+    "training-dataset-integrity": ("Training and dataset integrity", ("training", "dataset", "bias", "discrimination", "resume")),
+    "retrieval-context": ("Retrieval and context handling", ("retrieval", "context", "citation", "search")),
+    "model-inference-output": ("Model inference and output generation", ("hallucination", "incorrect", "fabricated", "generated", "chatbot", "large language model", "llm")),
+    "agent-planning-delegation": ("Agent planning and delegation", ("agent", "agentic", "autonomous", "planning", "delegation")),
+    "tool-execution-external-actions": ("Tool execution and external actions", ("executed", "deleted", "modified", "transaction", "tool", "production")),
+    "identity-authorization": ("Identity and authorization", ("identity", "impersonation", "deepfake", "cloned voice", "biometric", "unauthorized")),
+    "memory-state": ("Memory and state management", ("memory", "retention", "memorized", "state")),
+    "human-oversight": ("Human oversight and intervention", ("oversight", "review", "operator", "human", "approval")),
+    "monitoring-auditability": ("Monitoring and auditability", ("audit", "monitor", "trace", "logging", "evidence")),
+    "physical-execution-robotics": ("Physical-world execution and robotics", ("robot", "drone", "vehicle", "autopilot", "collision", "physical")),
+    "deployment-infrastructure": ("Deployment and infrastructure", ("deployment", "infrastructure", "server", "outage", "vulnerability", "malware")),
 }
 
 SEVERITY_SIGNALS = {
@@ -460,28 +478,109 @@ def original_oof_report(record: dict, evidence: dict) -> dict:
     }
 
 
-def prevention_guidance(record: dict, architecture: dict, gaps: list[str]) -> dict:
+def system_failure_classification(record: dict) -> dict:
+    """Classify evidenced technical components without asserting root cause."""
+    source_text = " ".join(str(record.get(key) or "") for key in (
+        "title", "summary", "system", "technology", "aiSystemType", "impactTypes",
+    ))
+    normalized = normalized_text(source_text)
+    components = []
+    for component_id, (label, signals) in SYSTEM_COMPONENT_RULES.items():
+        matched = [signal for signal in signals if normalized_text(signal) in normalized]
+        if not matched:
+            continue
+        components.append({
+            "componentId": component_id,
+            "label": label,
+            "matchedTerms": matched[:4],
+            "confidence": "Indicated" if len(matched) == 1 else "Preliminary",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+        })
+    return {
+        "classificationVersion": "OOF-AII-SFC-1.0",
+        "status": "COMPONENTS_INDICATED" if components else "UNRESOLVED",
+        "components": components,
+        "technicalMechanismStatus": "NOT_CONFIRMED",
+        "limitation": (
+            "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+        ),
+    }
+
+
+def external_technical_mappings() -> dict:
+    """Reserve a governed external-reference layer without inventing IDs."""
+    return {
+        "status": "NOT_MAPPED",
+        "mappings": [],
+        "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified.",
+    }
+
+
+def prevention_guidance(record: dict, architecture: dict, gaps: list[str], classification: dict, evidence: dict) -> dict:
     primary = architecture.get("primaryArchitecture")
+    components = classification.get("components") or []
+    component_labels = ", ".join(item["label"] for item in components[:3]) or "the relevant AI system components"
+    mechanism = (primary or {}).get("governedMechanism") or "the reported governed mechanism"
+    evidence_limited = evidence.get("corroboration", {}).get("independentSourceCount", 0) < 2
+    state = "EVIDENCE_LIMITED" if evidence_limited else "PRELIMINARY"
+    limitation = (gaps or ["The recommendation is preliminary and should be adapted after incident-specific evidence review."])[0]
     if not primary:
         return {
+            "status": "EVIDENCE_LIMITED",
+            "couldThisHappenToYourSystem": {
+                "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+                "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred.",
+            },
+            "whatShouldBeImplemented": {
+                "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+                "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+                "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+                "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes.",
+            },
+            "howCanProtectionBeVerified": {
+                "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+                "prerequisite": "An attributable system inventory and evidence log are available.",
+                "testAction": "Compare the report with retained system, authority, and outcome records.",
+                "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+                "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+                "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence.",
+            },
             "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
             "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
             "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
             "relevantMethodology": [],
-            "evidenceLimitation": (gaps or ["Available evidence does not justify architecture-level prevention guidance."])[0],
+            "evidenceLimitation": limitation,
         }
     references = primary.get("relevantStandardsModules") or []
-    mechanism = primary.get("governedMechanism") or "the reported governed mechanism"
     methodology = [{
         "name": item.get("name"), "artifactType": item.get("artifactType"),
         "canonicalUrl": item.get("canonicalUrl"), "objectId": item.get("objectId"),
     } for item in references[:2]]
     return {
+        "status": state,
+        "couldThisHappenToYourSystem": {
+            "applicability": f"This pattern may be relevant where systems use {component_labels} in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
+            "knownVsInferred": f"Known: the source record contains descriptors related to {mechanism}. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed.",
+        },
+        "whatShouldBeImplemented": {
+            "controlObjective": f"Ensure that {mechanism} is governed by an evidence-producing control with a named authority and intervention condition.",
+            "governanceBoundary": f"Apply {primary.get('label')} only to the activity, system scope, and authority actually supported by local evidence.",
+            "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
+            "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause.",
+        },
+        "howCanProtectionBeVerified": {
+            "testObjective": f"Test whether the control detects or constrains the relevant {mechanism} scenario without exceeding its authorized scope.",
+            "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
+            "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
+            "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
+            "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
+            "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary.",
+        },
         "governanceGapToExamine": f"Examine whether controls governing {mechanism} were defined, active, and accountable at the time of the reported event.",
         "recommendedPreventiveControl": f"Require an evidence-producing control for {mechanism}, with a named authority, intervention condition, and review owner.",
         "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
         "relevantMethodology": methodology,
-        "evidenceLimitation": (gaps or ["The recommendation is preliminary and should be adapted after incident-specific evidence review."])[0],
+        "evidenceLimitation": limitation,
     }
 
 
@@ -767,7 +866,9 @@ def quality_outcomes(assessment: dict) -> dict:
         "evidenceTransparency": evidence_transparency,
         "publicationEligibility": assessment_eligibility,
         "sourceRecordEligibility": "PUBLISHABLE",
-        "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT",
+        # Evidence-limited public guidance is a disclosure of the control
+        # boundary, not a case-specific engineering or approval claim.
+        "preventionGuidanceEligibility": "LIMITED_PUBLICATION" if assessment_eligibility == "PUBLISHABLE" else "WITHHELD",
     }
 
 
@@ -819,7 +920,9 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
     questions = governance_questions(record, architecture, gaps)
     insight = governance_insight(record, architecture, confidence_state)
     report = original_oof_report(record, evidence)
-    prevention = prevention_guidance(record, architecture, gaps)
+    classification = system_failure_classification(record)
+    external_mappings = external_technical_mappings()
+    prevention = prevention_guidance(record, architecture, gaps, classification, evidence)
     findings = []
     for item in [primary, *architecture.get("contributingArchitectures", [])]:
         if not item:
@@ -855,6 +958,8 @@ def build_assessment(record: dict, knowledge: KnowledgeLayer, version: int, supe
         "oofIncidentReport": report,
         "severityAssessment": severity,
         "architectureAnalysis": architecture,
+        "systemFailureClassification": classification,
+        "externalTechnicalMappings": external_mappings,
         "primaryGovernanceProblem": primary_governance_problem(architecture),
         "governanceRelationship": governance_relationship(architecture),
         "governanceQuestions": questions,

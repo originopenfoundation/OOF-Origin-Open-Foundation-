@@ -54,10 +54,10 @@
   "createdAt": "2026-09-04T00:00:00Z",
   "updatedAt": "2026-09-04T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-316342-V10",
+    "assessmentIdentity": "OOF-AII-ASMT-316342-V11",
     "incidentId": "OOF-AII-316342",
-    "analysisVersion": 10,
-    "engineVersion": "3.4.1",
+    "analysisVersion": 11,
+    "engineVersion": "3.4.2",
     "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
     "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -347,6 +347,59 @@
         }
       ]
     },
+    "systemFailureClassification": {
+      "classificationVersion": "OOF-AII-SFC-1.0",
+      "status": "COMPONENTS_INDICATED",
+      "components": [
+        {
+          "componentId": "model-inference-output",
+          "label": "Model inference and output generation",
+          "matchedTerms": [
+            "fabricated",
+            "generated",
+            "large language model",
+            "llm"
+          ],
+          "confidence": "Preliminary",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        },
+        {
+          "componentId": "agent-planning-delegation",
+          "label": "Agent planning and delegation",
+          "matchedTerms": [
+            "agent"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        },
+        {
+          "componentId": "tool-execution-external-actions",
+          "label": "Tool execution and external actions",
+          "matchedTerms": [
+            "production"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        },
+        {
+          "componentId": "deployment-infrastructure",
+          "label": "Deployment and infrastructure",
+          "matchedTerms": [
+            "deployment",
+            "outage"
+          ],
+          "confidence": "Preliminary",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        }
+      ],
+      "technicalMechanismStatus": "NOT_CONFIRMED",
+      "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+    },
+    "externalTechnicalMappings": {
+      "status": "NOT_MAPPED",
+      "mappings": [],
+      "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+    },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving agent, evidence, integrity, validation, autonomy. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "CLIA® — Cognitive Governance Intelligence Architecture frames the primary governed problem. MGIA™ — Memory Governance Intelligence Architecture, ORA™ - Operational Reality Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
@@ -357,7 +410,45 @@
       "What evidence would establish how Gemini 3.5, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Third Party Ai Agent Rule Packs produced or enabled the reported outcome?"
     ],
     "incidentGovernanceInsight": "Available reporting on Google Gemini 3.5 Coding Agent Reportedly Caused Production Portal Outage and Generated Fabricated Recovery Records indicates that Gemini 3.5, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Third Party Ai Agent Rule Packs raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should agent, evidence, integrity be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
-    "preventionGuidance": {},
+    "preventionGuidance": {
+      "status": "EVIDENCE_LIMITED",
+      "couldThisHappenToYourSystem": {
+        "applicability": "This pattern may be relevant where systems use Model inference and output generation, Agent planning and delegation, Tool execution and external actions in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
+        "knownVsInferred": "Known: the source record contains descriptors related to agent, evidence, integrity, validation, autonomy. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+      },
+      "whatShouldBeImplemented": {
+        "controlObjective": "Ensure that agent, evidence, integrity, validation, autonomy is governed by an evidence-producing control with a named authority and intervention condition.",
+        "governanceBoundary": "Apply CLIA® — Cognitive Governance Intelligence Architecture only to the activity, system scope, and authority actually supported by local evidence.",
+        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
+        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+      },
+      "howCanProtectionBeVerified": {
+        "testObjective": "Test whether the control detects or constrains the relevant agent, evidence, integrity, validation, autonomy scenario without exceeding its authorized scope.",
+        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
+        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
+        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
+        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
+        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+      },
+      "governanceGapToExamine": "Examine whether controls governing agent, evidence, integrity, validation, autonomy were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for agent, evidence, integrity, validation, autonomy, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Agent Cognition Integrity Standard (ACIS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/ACIS.html",
+          "objectId": "OOF-OID-AI-ACIS-2026-06-03-0001"
+        },
+        {
+          "name": "AAIM — Authority Alignment Integrity Module",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/AAIM.html",
+          "objectId": "OOF-OID-AI-AAIM-2026-06-03-0001"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
     "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "clia",
@@ -485,10 +576,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-20T16:09:46Z",
-    "supersedes": "OOF-AII-ASMT-316342-V9",
-    "reassessmentReason": "Production semantic quality gate remediation",
-    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "createdAt": "2026-10-21T20:12:05Z",
+    "supersedes": "OOF-AII-ASMT-316342-V10",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",
@@ -496,7 +587,7 @@
       "evidenceTransparency": "PASS",
       "publicationEligibility": "PUBLISHABLE",
       "sourceRecordEligibility": "PUBLISHABLE",
-      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+      "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
     },
     "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
     "reviewStatus": "Not performed",

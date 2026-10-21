@@ -34,8 +34,8 @@
       "publicationDate": "1999-03-16",
       "sourceType": "Official weekly data export",
       "url": "https://incidentdatabase.ai/cite/79",
-      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-      "retrievedAt": "2026-10-05T00:00:00Z",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261019.xlsx",
+      "retrievedAt": "2026-10-19T00:00:00Z",
       "verificationStatus": "Source Catalogued / OOF Not Assessed"
     }
   ],
@@ -53,10 +53,10 @@
   "createdAt": "1999-03-16T00:00:00Z",
   "updatedAt": "1999-03-16T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-002783-V9",
+    "assessmentIdentity": "OOF-AII-ASMT-002783-V10",
     "incidentId": "OOF-AII-002783",
-    "analysisVersion": 9,
-    "engineVersion": "3.4.1",
+    "analysisVersion": 10,
+    "engineVersion": "3.4.2",
     "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
     "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -86,7 +86,7 @@
     "sourceNormalization": {
       "policyVersion": "OOF-AII-NORM-3.2",
       "sourceRecordModified": false,
-      "rawRecordHash": "806f4580ad20ed436ac1cd987898e8e8f1fcc2d0a3433027dd0af550eb4c64dd",
+      "rawRecordHash": "0868f3dd21f144c6c8bd917bfac259157bce9ad836220958ca3ec92153cc2453",
       "normalizedFields": {
         "organization": "Chronic Kidney Disease Epidemiology Collaboration",
         "system": null,
@@ -128,8 +128,8 @@
       ]
     },
     "evidenceSnapshot": {
-      "snapshotId": "OOF-AII-002783-EVID-806f4580ad20",
-      "incidentSourceHash": "806f4580ad20ed436ac1cd987898e8e8f1fcc2d0a3433027dd0af550eb4c64dd",
+      "snapshotId": "OOF-AII-002783-EVID-0868f3dd21f1",
+      "incidentSourceHash": "0868f3dd21f144c6c8bd917bfac259157bce9ad836220958ca3ec92153cc2453",
       "sources": [
         {
           "sourceId": "aiid:79",
@@ -139,7 +139,7 @@
           "independenceKey": "ai incident database responsible ai collaborative",
           "directness": "Secondary catalogue",
           "publicationTime": "1999-03-16",
-          "retrievalTime": "2026-10-05T00:00:00Z",
+          "retrievalTime": "2026-10-19T00:00:00Z",
           "eventTime": "1999-03-16",
           "verificationState": "Source Catalogued / OOF Not Assessed"
         }
@@ -215,6 +215,28 @@
       "primaryArchitecture": null,
       "contributingArchitectures": []
     },
+    "systemFailureClassification": {
+      "classificationVersion": "OOF-AII-SFC-1.0",
+      "status": "COMPONENTS_INDICATED",
+      "components": [
+        {
+          "componentId": "training-dataset-integrity",
+          "label": "Training and dataset integrity",
+          "matchedTerms": [
+            "discrimination"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        }
+      ],
+      "technicalMechanismStatus": "NOT_CONFIRMED",
+      "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+    },
+    "externalTechnicalMappings": {
+      "status": "NOT_MAPPED",
+      "mappings": [],
+      "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+    },
     "primaryGovernanceProblem": "Available evidence does not establish a sufficiently specific governed problem for architecture assignment.",
     "governanceRelationship": "No architecture relationship is asserted because the governed space remains unresolved.",
     "governanceQuestions": [
@@ -223,7 +245,32 @@
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": null,
-    "preventionGuidance": {},
+    "preventionGuidance": {
+      "status": "EVIDENCE_LIMITED",
+      "couldThisHappenToYourSystem": {
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
+      },
+      "whatShouldBeImplemented": {
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
+      },
+      "howCanProtectionBeVerified": {
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
+      },
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
     "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": null,
@@ -278,10 +325,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-20T16:09:46Z",
-    "supersedes": "OOF-AII-ASMT-002783-V8",
-    "reassessmentReason": "Production semantic quality gate remediation",
-    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "createdAt": "2026-10-21T20:12:05Z",
+    "supersedes": "OOF-AII-ASMT-002783-V9",
+    "reassessmentReason": "Incident evidence changed",
+    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",
@@ -289,7 +336,7 @@
       "evidenceTransparency": "PASS",
       "publicationEligibility": "PUBLISHABLE",
       "sourceRecordEligibility": "PUBLISHABLE",
-      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+      "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
     },
     "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
     "reviewStatus": "Not performed",

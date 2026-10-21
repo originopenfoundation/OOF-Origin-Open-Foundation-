@@ -58,10 +58,10 @@
   "createdAt": "2026-09-08T15:32:51.830000Z",
   "updatedAt": "2026-09-24T20:53:08.905000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-857693-V9",
+    "assessmentIdentity": "OOF-AII-ASMT-857693-V10",
     "incidentId": "OOF-AII-857693",
-    "analysisVersion": 9,
-    "engineVersion": "3.4.1",
+    "analysisVersion": 10,
+    "engineVersion": "3.4.2",
     "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
     "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -251,6 +251,28 @@
       },
       "contributingArchitectures": []
     },
+    "systemFailureClassification": {
+      "classificationVersion": "OOF-AII-SFC-1.0",
+      "status": "COMPONENTS_INDICATED",
+      "components": [
+        {
+          "componentId": "deployment-infrastructure",
+          "label": "Deployment and infrastructure",
+          "matchedTerms": [
+            "infrastructure"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        }
+      ],
+      "technicalMechanismStatus": "NOT_CONFIRMED",
+      "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+    },
+    "externalTechnicalMappings": {
+      "status": "NOT_MAPPED",
+      "mappings": [],
+      "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+    },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving identified, later, rights, required. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: LIGA™ — Liability Governance Architecture.",
     "governanceQuestions": [
@@ -260,7 +282,39 @@
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The source-reported case xAI Reportedly Operated Unpermitted Gas Turbines in Southaven, Mississippi, to Power Colossus 2 AI Data Center, Producing Air Pollution and Noise, involving Unpermitted Energy Infrastructure, Methane Gas Turbines, Grok, Energy Infrastructure, Data Centers, Colossus 2, raises a preliminary question for LIGA™ — Liability Governance Architecture: What conditions must exist, fail, change, or be satisfied for potential Liability to proceed toward determination under the applicable Liability Basis? This automated interpretation does not establish fault, control failure, or legal responsibility.",
-    "preventionGuidance": {},
+    "preventionGuidance": {
+      "status": "EVIDENCE_LIMITED",
+      "couldThisHappenToYourSystem": {
+        "applicability": "This pattern may be relevant where systems use Deployment and infrastructure in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
+        "knownVsInferred": "Known: the source record contains descriptors related to identified, later, rights, required. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+      },
+      "whatShouldBeImplemented": {
+        "controlObjective": "Ensure that identified, later, rights, required is governed by an evidence-producing control with a named authority and intervention condition.",
+        "governanceBoundary": "Apply LIGA™ — Liability Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
+        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
+        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+      },
+      "howCanProtectionBeVerified": {
+        "testObjective": "Test whether the control detects or constrains the relevant identified, later, rights, required scenario without exceeding its authorized scope.",
+        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
+        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
+        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
+        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
+        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+      },
+      "governanceGapToExamine": "Examine whether controls governing identified, later, rights, required were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for identified, later, rights, required, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Liability Conditions Standard (LCOS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-lcos.html",
+          "objectId": "OOF-KO-STD-LIGA-05"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
     "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "liga",
@@ -345,10 +399,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-20T16:09:46Z",
-    "supersedes": "OOF-AII-ASMT-857693-V8",
-    "reassessmentReason": "Production semantic quality gate remediation",
-    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "createdAt": "2026-10-21T20:12:05Z",
+    "supersedes": "OOF-AII-ASMT-857693-V9",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",
@@ -356,7 +410,7 @@
       "evidenceTransparency": "PASS",
       "publicationEligibility": "PUBLISHABLE",
       "sourceRecordEligibility": "PUBLISHABLE",
-      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+      "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
     },
     "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
     "reviewStatus": "Not performed",

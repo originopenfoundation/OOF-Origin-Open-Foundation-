@@ -34,8 +34,8 @@
       "publicationDate": "2019-10-04",
       "sourceType": "Official weekly data export",
       "url": "https://incidentdatabase.ai/cite/77",
-      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-      "retrievedAt": "2026-10-05T00:00:00Z",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261019.xlsx",
+      "retrievedAt": "2026-10-19T00:00:00Z",
       "verificationStatus": "Source Catalogued / OOF Not Assessed"
     }
   ],
@@ -56,10 +56,10 @@
   "createdAt": "2026-09-05T06:41:18.228000Z",
   "updatedAt": "2026-09-05T06:41:18.228000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-028551-V10",
+    "assessmentIdentity": "OOF-AII-ASMT-028551-V11",
     "incidentId": "OOF-AII-028551",
-    "analysisVersion": 10,
-    "engineVersion": "3.4.1",
+    "analysisVersion": 11,
+    "engineVersion": "3.4.2",
     "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
     "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -93,7 +93,7 @@
     "sourceNormalization": {
       "policyVersion": "OOF-AII-NORM-3.2",
       "sourceRecordModified": false,
-      "rawRecordHash": "bc52f38b2f35a61f3927694869adf1869ebabc832f886399c8ff2484a591c49c",
+      "rawRecordHash": "473abbf34805b59e53a3b4c50755491fd251f296455455fcbfe1a2eb90fa67ee",
       "normalizedFields": {
         "organization": "Knightscope",
         "system": "Knightscope K5",
@@ -135,8 +135,8 @@
       ]
     },
     "evidenceSnapshot": {
-      "snapshotId": "OOF-AII-028551-EVID-bc52f38b2f35",
-      "incidentSourceHash": "bc52f38b2f35a61f3927694869adf1869ebabc832f886399c8ff2484a591c49c",
+      "snapshotId": "OOF-AII-028551-EVID-473abbf34805",
+      "incidentSourceHash": "473abbf34805b59e53a3b4c50755491fd251f296455455fcbfe1a2eb90fa67ee",
       "sources": [
         {
           "sourceId": "aiid:77",
@@ -146,7 +146,7 @@
           "independenceKey": "ai incident database responsible ai collaborative",
           "directness": "Secondary catalogue",
           "publicationTime": "2019-10-04",
-          "retrievalTime": "2026-10-05T00:00:00Z",
+          "retrievalTime": "2026-10-19T00:00:00Z",
           "eventTime": "2019-10-04",
           "verificationState": "Source Catalogued / OOF Not Assessed"
         }
@@ -296,6 +296,46 @@
       },
       "contributingArchitectures": []
     },
+    "systemFailureClassification": {
+      "classificationVersion": "OOF-AII-SFC-1.0",
+      "status": "COMPONENTS_INDICATED",
+      "components": [
+        {
+          "componentId": "agent-planning-delegation",
+          "label": "Agent planning and delegation",
+          "matchedTerms": [
+            "autonomous"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        },
+        {
+          "componentId": "monitoring-auditability",
+          "label": "Monitoring and auditability",
+          "matchedTerms": [
+            "monitor"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        },
+        {
+          "componentId": "physical-execution-robotics",
+          "label": "Physical-world execution and robotics",
+          "matchedTerms": [
+            "robot"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        }
+      ],
+      "technicalMechanismStatus": "NOT_CONFIRMED",
+      "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+    },
+    "externalTechnicalMappings": {
+      "status": "NOT_MAPPED",
+      "mappings": [],
+      "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+    },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving autonomous, execution, enforcement. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: ASGA™ — Autonomous Systems Governance Architecture.",
     "governanceQuestions": [
@@ -305,7 +345,45 @@
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The source-reported case Knightscope's Park Patrol Robot Ignored Bystander Pressing Emergency Button to Alert Police about Fight, involving Knightscope K5, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should autonomous, execution, enforcement be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
-    "preventionGuidance": {},
+    "preventionGuidance": {
+      "status": "EVIDENCE_LIMITED",
+      "couldThisHappenToYourSystem": {
+        "applicability": "This pattern may be relevant where systems use Agent planning and delegation, Monitoring and auditability, Physical-world execution and robotics in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
+        "knownVsInferred": "Known: the source record contains descriptors related to autonomous, execution, enforcement. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+      },
+      "whatShouldBeImplemented": {
+        "controlObjective": "Ensure that autonomous, execution, enforcement is governed by an evidence-producing control with a named authority and intervention condition.",
+        "governanceBoundary": "Apply ASGA™ — Autonomous Systems Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
+        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
+        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+      },
+      "howCanProtectionBeVerified": {
+        "testObjective": "Test whether the control detects or constrains the relevant autonomous, execution, enforcement scenario without exceeding its authorized scope.",
+        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
+        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
+        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
+        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
+        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+      },
+      "governanceGapToExamine": "Examine whether controls governing autonomous, execution, enforcement were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for autonomous, execution, enforcement, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Autonomous Execution Standard (AES)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes.html",
+          "objectId": "OOF-OID-ASGA-AES-2026-07-04-0003"
+        },
+        {
+          "name": "Execution Authorization Module (EAM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes-eam-1.html",
+          "objectId": "OOF-OID-ASGA-AES-EAM-2026-07-04-0001"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
     "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "asga",
@@ -383,10 +461,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-20T16:09:46Z",
-    "supersedes": "OOF-AII-ASMT-028551-V9",
-    "reassessmentReason": "Production semantic quality gate remediation",
-    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "createdAt": "2026-10-21T20:12:05Z",
+    "supersedes": "OOF-AII-ASMT-028551-V10",
+    "reassessmentReason": "Incident evidence changed",
+    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",
@@ -394,7 +472,7 @@
       "evidenceTransparency": "PASS",
       "publicationEligibility": "PUBLISHABLE",
       "sourceRecordEligibility": "PUBLISHABLE",
-      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+      "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
     },
     "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
     "reviewStatus": "Not performed",

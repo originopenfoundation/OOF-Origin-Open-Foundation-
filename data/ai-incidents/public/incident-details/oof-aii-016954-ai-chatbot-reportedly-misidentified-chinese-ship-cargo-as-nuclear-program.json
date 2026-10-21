@@ -34,8 +34,8 @@
       "publicationDate": "2026-09-18",
       "sourceType": "Official weekly data export",
       "url": "https://incidentdatabase.ai/cite/1701",
-      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-      "retrievedAt": "2026-10-05T00:00:00Z",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261019.xlsx",
+      "retrievedAt": "2026-10-19T00:00:00Z",
       "verificationStatus": "Source Catalogued / OOF Not Assessed"
     }
   ],
@@ -57,10 +57,10 @@
   "createdAt": "2026-09-19T00:00:00Z",
   "updatedAt": "2026-09-19T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-016954-V10",
+    "assessmentIdentity": "OOF-AII-ASMT-016954-V11",
     "incidentId": "OOF-AII-016954",
-    "analysisVersion": 10,
-    "engineVersion": "3.4.1",
+    "analysisVersion": 11,
+    "engineVersion": "3.4.2",
     "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
     "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -96,7 +96,7 @@
     "sourceNormalization": {
       "policyVersion": "OOF-AII-NORM-3.2",
       "sourceRecordModified": false,
-      "rawRecordHash": "5513ce7d254cae41933a9e03a78f439ad3c0e2acb314489c2cd890a5e118e8b6",
+      "rawRecordHash": "16db99e5d44747db46073faf98aebb3dc29a901a82f3360d33f4871943f785fe",
       "normalizedFields": {
         "organization": "United States Special Operations Command Analyst, United States Military, United States Department Of Defense, Military Organizations, National Security And Intelligence Stakeholders",
         "system": "Chatbots, Ai Enabled Decision Support Systems, Ai Assisted Intelligence Analysis Systems",
@@ -115,8 +115,8 @@
       "transformations": []
     },
     "evidenceSnapshot": {
-      "snapshotId": "OOF-AII-016954-EVID-5513ce7d254c",
-      "incidentSourceHash": "5513ce7d254cae41933a9e03a78f439ad3c0e2acb314489c2cd890a5e118e8b6",
+      "snapshotId": "OOF-AII-016954-EVID-16db99e5d447",
+      "incidentSourceHash": "16db99e5d44747db46073faf98aebb3dc29a901a82f3360d33f4871943f785fe",
       "sources": [
         {
           "sourceId": "aiid:1701",
@@ -126,7 +126,7 @@
           "independenceKey": "ai incident database responsible ai collaborative",
           "directness": "Secondary catalogue",
           "publicationTime": "2026-09-18",
-          "retrievalTime": "2026-10-05T00:00:00Z",
+          "retrievalTime": "2026-10-19T00:00:00Z",
           "eventTime": "2026-09-18",
           "verificationState": "Source Catalogued / OOF Not Assessed"
         }
@@ -230,6 +230,28 @@
       },
       "contributingArchitectures": []
     },
+    "systemFailureClassification": {
+      "classificationVersion": "OOF-AII-SFC-1.0",
+      "status": "COMPONENTS_INDICATED",
+      "components": [
+        {
+          "componentId": "model-inference-output",
+          "label": "Model inference and output generation",
+          "matchedTerms": [
+            "chatbot"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        }
+      ],
+      "technicalMechanismStatus": "NOT_CONFIRMED",
+      "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+    },
+    "externalTechnicalMappings": {
+      "status": "NOT_MAPPED",
+      "mappings": [],
+      "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+    },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving decision, cognition, reasoning, validation, conclusion. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: CLIA® — Cognitive Governance Intelligence Architecture.",
     "governanceQuestions": [
@@ -239,7 +261,32 @@
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The source-reported case AI Chatbot Reportedly Misidentified Chinese Ship Cargo as Nuclear-Program Components, Prompting U.S. Military Interception Preparations, involving Chatbots, Ai Enabled Decision Support Systems, Ai Assisted Intelligence Analysis Systems, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should decision, cognition, reasoning be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
-    "preventionGuidance": {},
+    "preventionGuidance": {
+      "status": "EVIDENCE_LIMITED",
+      "couldThisHappenToYourSystem": {
+        "applicability": "This pattern may be relevant where systems use Model inference and output generation in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
+        "knownVsInferred": "Known: the source record contains descriptors related to decision, cognition, reasoning, validation, conclusion. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+      },
+      "whatShouldBeImplemented": {
+        "controlObjective": "Ensure that decision, cognition, reasoning, validation, conclusion is governed by an evidence-producing control with a named authority and intervention condition.",
+        "governanceBoundary": "Apply CLIA® — Cognitive Governance Intelligence Architecture only to the activity, system scope, and authority actually supported by local evidence.",
+        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
+        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+      },
+      "howCanProtectionBeVerified": {
+        "testObjective": "Test whether the control detects or constrains the relevant decision, cognition, reasoning, validation, conclusion scenario without exceeding its authorized scope.",
+        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
+        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
+        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
+        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
+        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+      },
+      "governanceGapToExamine": "Examine whether controls governing decision, cognition, reasoning, validation, conclusion were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for decision, cognition, reasoning, validation, conclusion, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
     "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "clia",
@@ -327,10 +374,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-20T16:09:46Z",
-    "supersedes": "OOF-AII-ASMT-016954-V9",
-    "reassessmentReason": "Production semantic quality gate remediation",
-    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "createdAt": "2026-10-21T20:12:05Z",
+    "supersedes": "OOF-AII-ASMT-016954-V10",
+    "reassessmentReason": "Incident evidence changed",
+    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",
@@ -338,7 +385,7 @@
       "evidenceTransparency": "PASS",
       "publicationEligibility": "PUBLISHABLE",
       "sourceRecordEligibility": "PUBLISHABLE",
-      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+      "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
     },
     "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
     "reviewStatus": "Not performed",

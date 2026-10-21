@@ -93,29 +93,49 @@ def write_json(path: Path, value) -> None:
 
 
 def source_record_fingerprint(record: dict) -> str:
+    """Fingerprint stable source facts, not per-run retrieval metadata.
+
+    AIID exports provide a new dataset URL and retrieval timestamp for every
+    snapshot. Those fields document provenance, but do not mean that an
+    incident itself changed. Including them here caused every record in a new
+    weekly export to look like a fresh queue candidate.
+    """
+    sources = []
+    for source in record.get("sources") or []:
+        sources.append({
+            "sourceId": source.get("sourceId"),
+            "url": source.get("url"),
+            "publisher": source.get("publisher"),
+            "publicationDate": source.get("publicationDate"),
+            "sourceType": source.get("sourceType"),
+        })
     projection = {
         key: record.get(key) for key in (
             "id", "title", "summary", "eventType", "occurredAt", "reportedAt", "country",
             "countryCode", "region", "organization", "system", "technology", "industry",
-            "aiSystemType", "impactTypes", "affectedParties", "sources",
+            "aiSystemType", "impactTypes", "affectedParties",
         )
     }
+    projection["sources"] = sorted(sources, key=lambda source: (str(source.get("sourceId") or ""), str(source.get("url") or "")))
     return hashlib.sha256(json.dumps(projection, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
 
 
 def queue_candidates(candidates: Iterable[dict], existing: Iterable[dict], path: Path = CANDIDATE_QUEUE_PATH) -> dict:
     payload = read_json(path, {"schemaVersion": "1.0", "updatedAt": None, "candidates": []})
     queued = {item["record"]["id"]: item for item in payload.get("candidates", []) if item.get("record", {}).get("id")}
+    existing_by_id = {item["id"]: item for item in existing}
     existing_fingerprints = {item["id"]: source_record_fingerprint(item) for item in existing}
-    added = refreshed = 0
+    added = refreshed = new_candidates = changed_candidates = 0
     for record in candidates:
         fingerprint = source_record_fingerprint(record)
         if existing_fingerprints.get(record["id"]) == fingerprint:
             queued.pop(record["id"], None)
             continue
+        candidate_kind = "new" if record["id"] not in existing_by_id else "source-change"
         entry = {
             "incidentId": record["id"], "fingerprint": fingerprint,
             "discoveredAt": queued.get(record["id"], {}).get("discoveredAt") or now_iso(),
+            "candidateKind": candidate_kind,
             "record": record,
         }
         if record["id"] in queued:
@@ -123,10 +143,17 @@ def queue_candidates(candidates: Iterable[dict], existing: Iterable[dict], path:
                 refreshed += 1
         else:
             added += 1
+            if candidate_kind == "new":
+                new_candidates += 1
+            else:
+                changed_candidates += 1
         queued[record["id"]] = entry
     ordered = sorted(queued.values(), key=lambda item: (item.get("discoveredAt") or "", item["incidentId"]))
     write_json(path, {"schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": ordered})
-    return {"added": added, "refreshed": refreshed, "queued": len(ordered)}
+    return {
+        "added": added, "refreshed": refreshed, "queued": len(ordered),
+        "newCandidates": new_candidates, "changedCandidates": changed_candidates,
+    }
 
 
 def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH) -> dict:
@@ -136,7 +163,11 @@ def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, pat
     created, updated = repository.upsert_sources(item["record"] for item in selected) if selected else (0, 0)
     remaining = candidates[len(selected):]
     write_json(path, {"schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": remaining})
-    return {"processed": len(selected), "created": created, "updated": updated, "remaining": len(remaining)}
+    return {
+        "processed": len(selected), "created": created, "updated": updated, "remaining": len(remaining),
+        "processedNew": sum(item.get("candidateKind") == "new" for item in selected),
+        "processedSourceChanges": sum(item.get("candidateKind") == "source-change" for item in selected),
+    }
 
 
 def slugify(value: str) -> str:
@@ -607,10 +638,12 @@ def public_automated_analysis(analysis: dict | None) -> dict | None:
         public["governanceQuestions"] = []
         public["governanceFindings"] = []
         public["architectureAnalysis"] = {"status": "INSUFFICIENT_EVIDENCE", "primaryArchitecture": None, "contributingArchitectures": []}
-    # Preventive controls require independent support before public guidance is shown.
-    if outcomes.get("preventionGuidanceEligibility") != "PUBLISHABLE":
+    # Publish only an explicit evidence-limited guidance boundary when the
+    # assessment passes the structural gate. Case-specific engineering remains
+    # unavailable until authorized evidence supports it.
+    if outcomes.get("preventionGuidanceEligibility") == "WITHHELD":
         public["preventionGuidance"] = {}
-        public["practicalChecklist"] = []
+    public["practicalChecklist"] = []
     return public
 
 
@@ -840,6 +873,14 @@ def validate_public_export() -> dict:
 def export_public(records: list[dict]) -> None:
     records = sorted(public_records(records), key=lambda item: (_incident_date(item), item.get("id") or ""), reverse=True)
     generated = now_iso()
+    sync_state = read_json(SYNC_STATE_PATH, {"sources": {}, "lastDailySummary": {}})
+    latest_run = sync_state.get("lastDailySummary") or {}
+    successful_checks = [
+        source.get("lastSuccessfulSync")
+        for source in (sync_state.get("sources") or {}).values()
+        if source.get("lastSuccessfulSync")
+    ]
+    aiid_state = (sync_state.get("sources") or {}).get("AIIDWeeklyExcelAdapter") or {}
     countries = defaultdict(lambda: {"incidentCount": 0, "criticalIncidents": 0, "coverage": Counter()})
     architectures = set()
     for record in records:
@@ -879,6 +920,17 @@ def export_public(records: list[dict]) -> None:
             if ((item.get("automatedAnalysis") or {}).get("coverageAssessment") or {}).get("status") == "UNDER_REVIEW"
         ),
         "oofApprovedAssessments": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("oofApproved") is True),
+        "operationalStatus": {
+            "lastSuccessfulSourceCheck": max(successful_checks) if successful_checks else None,
+            "lastSuccessfulIncidentUpdate": latest_run.get("createdAt"),
+            "latestPublicExport": generated,
+            "newlyPublishedIncidents": latest_run.get("recordsCreated", 0),
+            "updatedIncidents": latest_run.get("recordsUpdated", 0),
+            "pendingCandidateCount": latest_run.get("queueRemaining", 0),
+            "runStatus": latest_run.get("status") or "not-recorded",
+            "latestSourceSnapshot": aiid_state.get("snapshotUrl"),
+            "sourceErrors": latest_run.get("sourceErrors") or [],
+        },
         "coverage": {
             "identified": coverage["ARCHITECTURE_IDENTIFIED"],
             "reviewRequired": coverage["ARCHITECTURE_REVIEW_REQUIRED"],
@@ -935,8 +987,14 @@ def export_public(records: list[dict]) -> None:
 def sync() -> dict:
     repository = FileIncidentRepository()
     state = read_json(SYNC_STATE_PATH, {"sources": {}, "lastDailySummary": None})
+    baseline_count = len(repository.list())
     adapters = [ManualOOFIncidentAdapter(), AIIDWeeklyExcelAdapter()]
-    totals = {"recordsRetrieved": 0, "recordsQueued": 0, "recordsProcessed": 0, "recordsCreated": 0, "recordsUpdated": 0, "duplicatesDetected": 0, "queueRemaining": 0, "sourceErrors": []}
+    totals = {
+        "recordsRetrieved": 0, "recordsQueued": 0, "newCandidates": 0, "changedCandidates": 0,
+        "recordsProcessed": 0, "processedNew": 0, "processedSourceChanges": 0,
+        "recordsCreated": 0, "recordsUpdated": 0, "duplicatesDetected": 0,
+        "queueRemaining": 0, "sourceErrors": [], "baselineIncidentCount": baseline_count,
+    }
     for adapter in adapters:
         attempted = now_iso()
         source_state = state["sources"].get(adapter.name, {})
@@ -947,6 +1005,8 @@ def sync() -> dict:
             queue_result = queue_candidates(normalized, existing)
             totals["recordsRetrieved"] += len(raw)
             totals["recordsQueued"] += queue_result["added"]
+            totals["newCandidates"] += queue_result["newCandidates"]
+            totals["changedCandidates"] += queue_result["changedCandidates"]
             totals["duplicatesDetected"] += max(0, len(raw) - queue_result["added"] - queue_result["refreshed"])
             state["sources"][adapter.name] = {
                 "lastAttemptedSync": attempted, "lastSuccessfulSync": now_iso(),
@@ -964,8 +1024,20 @@ def sync() -> dict:
     totals["recordsCreated"] = queue_result["created"]
     totals["recordsUpdated"] = queue_result["updated"]
     totals["queueRemaining"] = queue_result["remaining"]
+    totals["processedNew"] = queue_result["processedNew"]
+    totals["processedSourceChanges"] = queue_result["processedSourceChanges"]
+    totals["afterIncidentCount"] = len(repository.list())
+    totals["status"] = "success" if not totals["sourceErrors"] else "partial-success" if totals["recordsRetrieved"] else "failed"
+    summary = {"createdAt": now_iso(), **totals}
+    history = list(state.get("syncHistory") or [])
+    if not history and state.get("lastDailySummary"):
+        history.append({"legacy": True, **state["lastDailySummary"]})
+    history.append(summary)
+    state["lastDailySummary"] = summary
+    state["syncHistory"] = history[-60:]
+    write_json(SYNC_STATE_PATH, state)
     export_public(repository.list())
-    state["lastDailySummary"] = {"createdAt": now_iso(), **totals}
+    state["lastPublicExport"] = now_iso()
     write_json(SYNC_STATE_PATH, state)
     return totals
 

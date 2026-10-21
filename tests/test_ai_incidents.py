@@ -276,6 +276,30 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertEqual(len(assessment["practicalChecklist"]), 4)
         self.assertFalse(assessment["oofApproved"])
 
+    def test_v342_source_fingerprint_ignores_rolling_snapshot_metadata(self):
+        first = record("stable-source", "Snapshot stability case")
+        first["sources"][0]["datasetUrl"] = "https://example.test/AIID_Excel_Export-20261012.xlsx"
+        first["sources"][0]["retrievedAt"] = "2026-10-12T00:00:00Z"
+        refreshed = json.loads(json.dumps(first))
+        refreshed["sources"][0]["datasetUrl"] = "https://example.test/AIID_Excel_Export-20261019.xlsx"
+        refreshed["sources"][0]["retrievedAt"] = "2026-10-21T00:00:00Z"
+        self.assertEqual(
+            incidents.source_record_fingerprint(first),
+            incidents.source_record_fingerprint(refreshed),
+        )
+
+    def test_v342_prevention_and_external_mappings_are_evidence_limited(self):
+        item = record(title="Deepfake impersonation report")
+        item["summary"] = "A cloned voice reportedly impersonated an executive."
+        assessment = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-21T00:00:00Z")
+        prevention = assessment["preventionGuidance"]
+        self.assertIn("couldThisHappenToYourSystem", prevention)
+        self.assertIn("whatShouldBeImplemented", prevention)
+        self.assertIn("howCanProtectionBeVerified", prevention)
+        self.assertEqual(assessment["externalTechnicalMappings"]["status"], "NOT_MAPPED")
+        self.assertEqual(assessment["externalTechnicalMappings"]["mappings"], [])
+        self.assertEqual(assessment["systemFailureClassification"]["technicalMechanismStatus"], "NOT_CONFIRMED")
+
     def test_candidate_queue_is_persistent_deduplicated_and_daily_limited(self):
         with tempfile.TemporaryDirectory() as temporary:
             temporary = Path(temporary)

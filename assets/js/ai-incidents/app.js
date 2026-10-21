@@ -112,9 +112,37 @@ function renderSummary(summary) {
     const value = summary[element.dataset.metric];
     element.textContent = Number.isFinite(Number(value)) ? Number(value).toLocaleString("en") : "—";
   });
-  document.getElementById("incident-data-time").textContent = summary.generatedAt
-    ? `Public dataset updated ${new Date(summary.generatedAt).toLocaleString("en")}`
-    : "Public dataset synchronization time is unavailable";
+  const operational = summary.operationalStatus || {};
+  document.getElementById("incident-data-time").textContent = operational.lastSuccessfulSourceCheck
+    ? `Last successful source check ${formatTimestamp(operational.lastSuccessfulSourceCheck)} · Latest public export ${formatTimestamp(operational.latestPublicExport || summary.generatedAt)}`
+    : summary.generatedAt
+      ? `Public dataset updated ${formatTimestamp(summary.generatedAt)}`
+      : "Public dataset synchronization time is unavailable";
+  renderOperationalStatus(operational);
+}
+
+function formatTimestamp(value) {
+  const parsed = new Date(value || "");
+  return Number.isNaN(parsed.valueOf()) ? "not recorded" : parsed.toLocaleString("en");
+}
+
+function renderOperationalStatus(status) {
+  const target = document.getElementById("incident-operational-status");
+  if (!target) return;
+  const rows = [
+    ["Last successful source check", formatTimestamp(status.lastSuccessfulSourceCheck)],
+    ["Last incident update", formatTimestamp(status.lastSuccessfulIncidentUpdate)],
+    ["Latest public export", formatTimestamp(status.latestPublicExport)],
+    ["Newly published incidents", Number(status.newlyPublishedIncidents || 0).toLocaleString("en")],
+    ["Pending candidates", Number(status.pendingCandidateCount || 0).toLocaleString("en")],
+    ["Last run status", status.runStatus || "not recorded"],
+  ];
+  target.replaceChildren();
+  rows.forEach(([label, value]) => {
+    const group = document.createElement("div");
+    group.append(element("dt", "", label), element("dd", "", value));
+    target.append(group);
+  });
 }
 
 function incidentCountColor(country) {

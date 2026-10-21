@@ -20,8 +20,8 @@
   "affectedParties": [
     "Victims Of Sextortion",
     "Victims Of Deepfake Abuse",
-    "Individuals Subjected To Sexual Exploitation Imagery",
-    "Privacy"
+    "Privacy",
+    "People Depicted In Non Consensual Intimate Imagery"
   ],
   "evidenceConfidence": "Moderate Confidence",
   "verificationState": "Source Catalogued / OOF Not Assessed",
@@ -33,8 +33,8 @@
       "publicationDate": "2026-09-10",
       "sourceType": "Official weekly data export",
       "url": "https://incidentdatabase.ai/cite/1722",
-      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-      "retrievedAt": "2026-10-05T00:00:00Z",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261019.xlsx",
+      "retrievedAt": "2026-10-19T00:00:00Z",
       "verificationStatus": "Source Catalogued / OOF Not Assessed"
     }
   ],
@@ -54,10 +54,10 @@
   "createdAt": "2026-10-03T00:00:00Z",
   "updatedAt": "2026-10-03T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-268924-V8",
+    "assessmentIdentity": "OOF-AII-ASMT-268924-V10",
     "incidentId": "OOF-AII-268924",
-    "analysisVersion": 8,
-    "engineVersion": "3.4.1",
+    "analysisVersion": 10,
+    "engineVersion": "3.4.2",
     "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
     "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -91,7 +91,7 @@
     "sourceNormalization": {
       "policyVersion": "OOF-AII-NORM-3.2",
       "sourceRecordModified": false,
-      "rawRecordHash": "0439da1bb38dac54b4340d2e6ddeabccd8106e6259f6739a8ae799dc249a9bcc",
+      "rawRecordHash": "19697f1f53d0147c9aaab1174d0c5fe74829c454bf71feba9943c01a9e892757",
       "normalizedFields": {
         "organization": "Md Faisal, Md Amaan Tyagi, Md Hammad Tyagi, Md Faizaan Malik, Sextortionists, Deepfake Creators, Synthetic Media Creators, Cybercriminals, Scammers, Scammers In India, Cybercriminals In India",
         "system": "Deepfake Technology, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Facebook, Facebook Messenger, Social Media Platforms",
@@ -102,15 +102,15 @@
         "affectedParties": [
           "Victims Of Sextortion",
           "Victims Of Deepfake Abuse",
-          "Individuals Subjected To Sexual Exploitation Imagery",
-          "Privacy"
+          "Privacy",
+          "People Depicted In Non Consensual Intimate Imagery"
         ]
       },
       "transformations": []
     },
     "evidenceSnapshot": {
-      "snapshotId": "OOF-AII-268924-EVID-0439da1bb38d",
-      "incidentSourceHash": "0439da1bb38dac54b4340d2e6ddeabccd8106e6259f6739a8ae799dc249a9bcc",
+      "snapshotId": "OOF-AII-268924-EVID-19697f1f53d0",
+      "incidentSourceHash": "19697f1f53d0147c9aaab1174d0c5fe74829c454bf71feba9943c01a9e892757",
       "sources": [
         {
           "sourceId": "aiid:1722",
@@ -120,7 +120,7 @@
           "independenceKey": "ai incident database responsible ai collaborative",
           "directness": "Secondary catalogue",
           "publicationTime": "2026-09-10",
-          "retrievalTime": "2026-10-05T00:00:00Z",
+          "retrievalTime": "2026-10-19T00:00:00Z",
           "eventTime": "2026-09-10",
           "verificationState": "Source Catalogued / OOF Not Assessed"
         }
@@ -264,6 +264,37 @@
       },
       "contributingArchitectures": []
     },
+    "systemFailureClassification": {
+      "classificationVersion": "OOF-AII-SFC-1.0",
+      "status": "COMPONENTS_INDICATED",
+      "components": [
+        {
+          "componentId": "model-inference-output",
+          "label": "Model inference and output generation",
+          "matchedTerms": [
+            "generated"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        },
+        {
+          "componentId": "identity-authorization",
+          "label": "Identity and authorization",
+          "matchedTerms": [
+            "deepfake"
+          ],
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+        }
+      ],
+      "technicalMechanismStatus": "NOT_CONFIRMED",
+      "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+    },
+    "externalTechnicalMappings": {
+      "status": "NOT_MAPPED",
+      "mappings": [],
+      "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+    },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving evidence, identity, origin. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: OBIDENITY® — Origin-Bound Identity Governance Architecture.",
     "governanceQuestions": [
@@ -273,7 +304,45 @@
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
     "incidentGovernanceInsight": "The source-reported case India-Based Sextortion Gang Allegedly Used AI-Generated Sexual Videos to Extort Canada-Based Indian Victim, involving Deepfake Technology, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Facebook, Facebook Messenger, Social Media Platforms, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should evidence, identity, origin be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
-    "preventionGuidance": {},
+    "preventionGuidance": {
+      "status": "EVIDENCE_LIMITED",
+      "couldThisHappenToYourSystem": {
+        "applicability": "This pattern may be relevant where systems use Model inference and output generation, Identity and authorization in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
+        "knownVsInferred": "Known: the source record contains descriptors related to evidence, identity, origin. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+      },
+      "whatShouldBeImplemented": {
+        "controlObjective": "Ensure that evidence, identity, origin is governed by an evidence-producing control with a named authority and intervention condition.",
+        "governanceBoundary": "Apply OBIDENITY® — Origin-Bound Identity Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
+        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
+        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+      },
+      "howCanProtectionBeVerified": {
+        "testObjective": "Test whether the control detects or constrains the relevant evidence, identity, origin scenario without exceeding its authorized scope.",
+        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
+        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
+        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
+        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
+        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+      },
+      "governanceGapToExamine": "Examine whether controls governing evidence, identity, origin were defined, active, and accountable at the time of the reported event.",
+      "recommendedPreventiveControl": "Require an evidence-producing control for evidence, identity, origin, with a named authority, intervention condition, and review owner.",
+      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "relevantMethodology": [
+        {
+          "name": "Origin Integrity Standard (OIS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois.html",
+          "objectId": "OOF-OID-OBID-OIS-2026-07-12-0001"
+        },
+        {
+          "name": "Origin Evidence Verification Module (OEVM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois-oevm.html",
+          "objectId": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003"
+        }
+      ],
+      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+    },
     "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": "obidenity",
@@ -355,10 +424,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-20T16:09:46Z",
-    "supersedes": "OOF-AII-ASMT-268924-V7",
-    "reassessmentReason": "Production semantic quality gate remediation",
-    "qualityGateVersion": "OOF-AII-QG-3.4.1.2",
+    "createdAt": "2026-10-21T20:17:00Z",
+    "supersedes": "OOF-AII-ASMT-268924-V9",
+    "reassessmentReason": "Incident evidence changed",
+    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",
@@ -366,7 +435,7 @@
       "evidenceTransparency": "PASS",
       "publicationEligibility": "PUBLISHABLE",
       "sourceRecordEligibility": "PUBLISHABLE",
-      "preventionGuidanceEligibility": "WITHHELD_PENDING_INDEPENDENT_SUPPORT"
+      "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
     },
     "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
     "reviewStatus": "Not performed",

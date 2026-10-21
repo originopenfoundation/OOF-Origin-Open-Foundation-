@@ -120,24 +120,108 @@ def source_evidence_markup(record: dict, analysis: dict) -> str:
     return f'<section><h2>Evidence and sources</h2><p><b>Evidence status:</b> {status}</p><ul class="oof-evidence-sources">{"".join(rows)}</ul></section>'
 
 
+def report_markup(analysis: dict) -> str:
+    report = analysis.get("oofIncidentReport") or {}
+    source_url = text(report.get("sourceUrl"))
+    source_name = text(report.get("sourceAttribution") or "Identified public source")
+    source = f'<a href="{source_url}" rel="noopener noreferrer">{source_name}</a>' if source_url else source_name
+    return (
+        '<section class="oof-incident-report"><h2>Original OOF® Incident Report</h2>'
+        f'<p>{text(report.get("report") or "No structured OOF incident report is available for this record.")}</p>'
+        f'<p><b>Original incident source:</b> {source}</p>'
+        f'<p class="oof-evidence-limitation">{text(report.get("uncertaintyStatement"))}</p></section>'
+    )
+
+
+def failure_classification_markup(analysis: dict) -> str:
+    classification = analysis.get("systemFailureClassification") or {}
+    components = classification.get("components") or []
+    if components:
+        entries = "".join(
+            '<article><h3>' + text(component.get("label")) + '</h3>'
+            '<p><b>Evidence signals:</b> ' + text(", ".join(component.get("matchedTerms") or []) or "Not specified") + '</p>'
+            '<p>' + text(component.get("rationale")) + '</p></article>'
+            for component in components
+        )
+    else:
+        entries = '<p>No system component is sufficiently indicated by the available record.</p>'
+    return (
+        '<section><h2>Relevant system components and failure mechanisms</h2>'
+        f'<p><b>Classification state:</b> {text(classification.get("status") or "UNRESOLVED")}</p>'
+        f'<div class="oof-system-components">{entries}</div>'
+        f'<p class="oof-evidence-limitation">{text(classification.get("limitation"))}</p></section>'
+    )
+
+
+def external_mapping_markup(analysis: dict) -> str:
+    mapping = analysis.get("externalTechnicalMappings") or {}
+    items = mapping.get("mappings") or []
+    if items:
+        rows = []
+        for item in items:
+            url = text(item.get("canonicalUrl"))
+            label = text(f'{item.get("framework")} {item.get("identifier")}')
+            heading = f'<a href="{url}" rel="noopener noreferrer">{label}</a>' if url else label
+            rows.append(f'<li>{heading}<p>{text(item.get("rationale"))}</p></li>')
+        body = '<ul class="oof-external-mappings">' + "".join(rows) + '</ul>'
+    else:
+        body = '<p>No external technical identifier is asserted for this incident.</p>'
+    return '<section><h2>External technical mappings</h2>' + body + f'<p class="oof-evidence-limitation">{text(mapping.get("limitation"))}</p></section>'
+
+
 def prevention_markup(analysis: dict) -> str:
     guidance = analysis.get("preventionGuidance") or {}
     if not guidance:
-        return ""
+        return '<section><h2>Prevention guidance</h2><p class="oof-evidence-limitation">Case-specific prevention guidance is withheld because the publication gate did not pass.</p></section>'
     methodology = []
     for item in guidance.get("relevantMethodology") or []:
         label = text(item.get("name") or item.get("objectId"))
         url = text(item.get("canonicalUrl"))
         methodology.append(f'<a href="{url}">{label}</a>' if url else label)
-    entries = [
-        ("Governance Gap to Examine", guidance.get("governanceGapToExamine")),
-        ("Recommended Preventive Control", guidance.get("recommendedPreventiveControl")),
-        ("How to Verify", guidance.get("howToVerify")),
-        ("Relevant OOF® Methodology", ", ".join(methodology) if methodology else "Methodology depth is not yet justified by the evidence."),
-        ("Evidence Limitation", guidance.get("evidenceLimitation")),
+    applicability = guidance.get("couldThisHappenToYourSystem") or {}
+    implementation = guidance.get("whatShouldBeImplemented") or {}
+    verification = guidance.get("howCanProtectionBeVerified") or {}
+    cards = [
+        ("Could This Happen to Your System?", [
+            ("Applicability", applicability.get("applicability")),
+            ("Known versus inferred", applicability.get("knownVsInferred")),
+        ]),
+        ("What Should Be Implemented?", [
+            ("Control objective", implementation.get("controlObjective")),
+            ("Governance boundary", implementation.get("governanceBoundary")),
+            ("Protective mechanism", implementation.get("protectiveMechanism")),
+            ("Expected protective behavior", implementation.get("expectedBehavior")),
+        ]),
+        ("How Can Protection Be Verified?", [
+            ("Test objective", verification.get("testObjective")),
+            ("Prerequisite", verification.get("prerequisite")),
+            ("Test action", verification.get("testAction")),
+            ("Expected safe behavior", verification.get("expectedSafeBehavior")),
+            ("Evidence to retain", verification.get("evidenceToRetain")),
+            ("Failure condition", verification.get("failureCondition")),
+        ]),
     ]
-    cards = "".join(f'<div><h3>{text(label)}</h3><p>{value if label == "Relevant OOF® Methodology" else text(value)}</p></div>' for label, value in entries)
-    return f'<section><h2>Prevention guidance</h2><div class="oof-prevention-grid">{cards}</div></section>'
+    markup = []
+    for heading, entries in cards:
+        rows = "".join(f'<p><b>{text(label)}:</b> {text(value)}</p>' for label, value in entries if value)
+        markup.append(f'<article><h3>{text(heading)}</h3>{rows}</article>')
+    methodology_text = ", ".join(methodology) if methodology else "Methodology depth is not yet justified by the evidence."
+    return (
+        f'<section><h2>Prevention guidance</h2><p><b>Guidance state:</b> {text(guidance.get("status") or "EVIDENCE_LIMITED")}</p>'
+        f'<div class="oof-prevention-grid">{"".join(markup)}</div>'
+        f'<p><b>Relevant OOF® methodology:</b> {methodology_text}</p>'
+        f'<p class="oof-evidence-limitation">{text(guidance.get("evidenceLimitation"))}</p></section>'
+    )
+
+
+def commercial_markup() -> str:
+    return (
+        '<section class="oof-commercial-cta"><h2>Need a Complete Prevention Architecture?</h2>'
+        '<p>OOF® Architecture &amp; Prevention Engineering provides system-specific depth beyond this public, evidence-bounded guidance.</p>'
+        '<ul><li>System-specific risk and architecture assessment</li><li>Architecture blueprint and implementation framework</li>'
+        '<li>Verification and acceptance-testing framework</li><li>Governance integration and documentation</li></ul>'
+        '<p>This service does not certify compliance or eliminate all risk.</p><a href="/Contact.html">Discuss Architecture &amp; Prevention Engineering</a></section>'
+    )
 
 
 def checklist_markup(analysis: dict) -> str:
@@ -201,9 +285,10 @@ def build_incident_detail(record: dict, related: list[dict] | None = None, histo
 <script type="application/ld+json">{json.dumps(json_ld, ensure_ascii=False).replace('</', '<\\/')}</script></head>
 <body><div id="header"></div><main class="oof-incident-app oof-incident-detail"><article>
 <nav class="oof-detail-breadcrumb" aria-label="Breadcrumb"><a href="/index.html">OOF®</a><span>/</span><a href="/ai-incidents/">AI Incident Intelligence</a><span>/</span><span aria-current="page">Incident record</span></nav>
-<header><p class="oof-incident-id">{text(record['id'])}</p><h1>{text(record['title'])}</h1><p class="oof-detail-lede">{text(report.get('report') or record.get('summary') or 'No public summary is available.')}</p></header>
+<header><p class="oof-incident-id">{text(record['id'])}</p><h1>{text(record['title'])}</h1><p class="oof-detail-lede">{text(record.get('summary') or 'No public summary is available.')}</p></header>
 <dl class="oof-incident-detail-facts"><div><dt>Event date</dt><dd>{text((record.get('occurredAt') or record.get('reportedAt') or 'Unknown')[:10])}</dd></div><div><dt>Country</dt><dd>{text(record.get('country') or 'Location not specified')}</dd></div><div><dt>Severity</dt><dd>{text(severity)}</dd></div><div><dt>Evidence status</dt><dd>{text((analysis.get('evidenceSnapshot') or {}).get('publicEvidenceStatus') or 'Evidence Insufficient')}</dd></div></dl>
 <section class="oof-detail-disclosure"><h2>Assessment status</h2><p>{text(disclosure)}</p><p>{text(report.get('uncertaintyStatement'))}</p></section>
+{report_markup(analysis)}
 {source_evidence_markup(record, analysis)}
 <section><h2>Incident overview</h2><p>{text(record.get('summary') or 'No public source summary is available.')}</p></section>
 <section><h2>AI involvement</h2><p><b>System:</b> {text(record.get('system') or 'Not established')}</p><p><b>Technology:</b> {text(record.get('technology') or record.get('aiSystemType') or 'Not established')}</p></section>
@@ -214,8 +299,11 @@ def build_incident_detail(record: dict, related: list[dict] | None = None, histo
 <section><h2>Primary governance problem</h2><p>{text(analysis.get('primaryGovernanceProblem') or 'The available evidence does not support a more specific preliminary governance interpretation.')}</p></section>
 {architecture_markup(analysis)}
 <section><h2>Failure mechanism</h2><p>{text(analysis.get('incidentGovernanceInsight') or 'Available evidence does not yet support a case-specific failure mechanism.')}</p></section>
+{failure_classification_markup(analysis)}
+{external_mapping_markup(analysis)}
 {prevention_markup(analysis)}
 {checklist_markup(analysis)}
+{commercial_markup()}
 {related_markup(related or [])}
 {list_markup('Preliminary governance questions', analysis.get('governanceQuestions') or [])}
 {list_markup('Evidence gaps and limitations', analysis.get('evidenceGaps') or analysis.get('uncertainties') or [])}

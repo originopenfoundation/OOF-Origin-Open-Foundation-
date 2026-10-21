@@ -35,7 +35,7 @@ jobs:
         run: python tools/validate_security_baseline.py
 
       - name: Run LaRA security tests
-        run: node --test tests/lara/security.test.js tests/lara/origin.test.js
+        run: node --test tests/lara/security.test.js tests/lara/origin.test.js tests/lara/http-security.test.js
 
       - name: Check repository diff formatting
         run: git diff --check HEAD^ HEAD

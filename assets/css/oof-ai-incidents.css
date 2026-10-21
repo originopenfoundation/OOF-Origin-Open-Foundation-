@@ -99,6 +99,28 @@
   scrollbar-width: none;
 }
 
+.oof-incident-operations {
+  margin: 20px 0 26px;
+  padding: 15px 0;
+  border-block: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.oof-incident-operations h2 { margin: 0 0 6px; font-size: 18px; }
+.oof-incident-operations > p { margin: 0 0 12px; font-size: 13px; }
+
+.oof-operational-status {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.oof-operational-status > div { min-width: 0; padding: 10px 12px; background: #777a78; }
+.oof-operational-status dt { font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.oof-operational-status dd { margin: 5px 0 0; font-size: 13px; overflow-wrap: anywhere; }
+
 .oof-incident-nav::-webkit-scrollbar { display: none; }
 
 .oof-incident-nav a[aria-current="page"] {
@@ -722,6 +744,7 @@
   background: rgba(255, 255, 255, 0.3);
 }
 .oof-prevention-grid > div,
+.oof-prevention-grid > article,
 .oof-related-incidents > article { padding: 14px; background: #777a78; }
 .oof-prevention-grid h3,
 .oof-related-incidents h3 { margin: 0 0 6px; font-size: 13px; }
@@ -747,6 +770,38 @@
 .oof-incident-detail-architecture { padding: 14px; background: #777a78; }
 .oof-incident-detail-architecture h3 { margin: 0 0 3px; font-size: 15px; }
 .oof-detail-role { margin: 0 0 12px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+
+.oof-system-components {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.oof-system-components > article {
+  padding: 14px;
+  background: #777a78;
+}
+
+.oof-system-components h3 { margin: 0 0 7px; font-size: 14px; }
+.oof-system-components p { margin: 7px 0 0; }
+.oof-evidence-limitation { font-size: 13px; opacity: 0.9; }
+
+.oof-commercial-cta {
+  padding: 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.52) !important;
+  background: rgba(10, 38, 73, 0.2);
+}
+
+.oof-commercial-cta a {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  font-weight: 800;
+  text-decoration: none;
+}
 
 .oof-incident-directory { max-width: 980px; }
 .oof-incident-directory h1 { margin-bottom: 8px; }
@@ -791,6 +846,7 @@
 
 @media (max-width: 1050px) {
   .oof-incident-metrics { grid-template-columns: repeat(4, 1fr); }
+  .oof-operational-status { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .oof-incident-filters { grid-template-columns: repeat(2, 1fr); }
   .oof-aggregate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -812,6 +868,7 @@
     white-space: normal;
   }
   .oof-incident-metrics { grid-template-columns: repeat(2, 1fr); }
+  .oof-operational-status { grid-template-columns: 1fr; }
   .oof-incident-filters { grid-template-columns: 1fr; }
   #incident-map { height: 58vh; min-height: 360px; }
   .oof-geography-summary { grid-template-columns: 1fr; }
@@ -837,7 +894,8 @@
   .oof-incident-detail-architectures { grid-template-columns: 1fr; }
   .oof-confidence-dimensions { grid-template-columns: 1fr; }
   .oof-prevention-grid,
-  .oof-related-incidents { grid-template-columns: 1fr; }
+  .oof-related-incidents,
+  .oof-system-components { grid-template-columns: 1fr; }
   .oof-incident-directory-list li { grid-template-columns: 1fr; gap: 5px; }
   .oof-incident-directory-list li > span { white-space: normal; }
 }

@@ -262,8 +262,16 @@
           mouseover: () => { if (!precisePointer) return; hoveredFeature = feature; showCountry(catalog.get(countryCode(feature))); refreshHighlights(); layer.bringToFront(); },
           mouseout: () => { if (!precisePointer) return; hoveredFeature = null; showCountry(selectedEntry); refreshHighlights(); }
         });
-        if (isTinyFeature(feature) && stateForFeature(feature).status !== "insufficient") { createLabel(feature, 1, 4, true); createLabel(feature, 4); }
-        else createLabel(feature, minimumLabelZoom(feature));
+        const hasPublicSignal = stateForFeature(feature).status !== "insufficient";
+        if (isTinyFeature(feature) && hasPublicSignal) {
+          createLabel(feature, 1, 4, true);
+          createLabel(feature, 4);
+        } else if (hasPublicSignal) {
+          // Publicly classified countries remain identifiable in the overview.
+          createLabel(feature, 1);
+        } else {
+          createLabel(feature, minimumLabelZoom(feature));
+        }
       }
     }).addTo(map);
     updateLabels();
