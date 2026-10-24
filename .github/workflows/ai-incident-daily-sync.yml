@@ -60,3 +60,11 @@ jobs:
           git add data/knowledge
           git commit -m "Update OOF AI incident public data"
           git push
+          python tools/build_knowledge_infrastructure.py
+          python tools/validate_knowledge_infrastructure.py
+          if git diff --quiet -- data/knowledge; then
+            exit 0
+          fi
+          git add data/knowledge
+          git commit -m "Refresh OOF knowledge provenance"
+          git push
