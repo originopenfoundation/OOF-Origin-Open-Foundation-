@@ -42,11 +42,13 @@ jobs:
           python tools/build_ai_compatibility.py
           python tools/build_ai_incident_pages.py
           python tools/build_url_governance.py
+          python tools/build_knowledge_infrastructure.py
           python tools/validate_ai_compatibility.py --allow-visible-changes
           python tools/validate_url_governance.py
+          python tools/validate_knowledge_infrastructure.py
       - name: Commit changed public projections
         run: |
-          if git diff --quiet -- data/ai-incidents ai-incidents docs/AI_INCIDENT_V3_4_1_PRODUCTION_REMEDIATION_AUDIT.md sitemap.xml search-index.json data/oof-site-knowledge-graph.json; then
+          if git diff --quiet -- data/ai-incidents ai-incidents data/knowledge docs/AI_INCIDENT_V3_4_1_PRODUCTION_REMEDIATION_AUDIT.md sitemap.xml search-index.json data/oof-site-knowledge-graph.json; then
             echo "No incident data changes."
             exit 0
           fi
@@ -55,5 +57,6 @@ jobs:
           git add data/ai-incidents ai-incidents docs/AI_INCIDENT_V3_4_1_PRODUCTION_REMEDIATION_AUDIT.md sitemap.xml search-index.json llms.txt llms-full.txt
           git add data/oof-site-knowledge-graph.json data/oof-typed-relationships.json
           git add data/oof-url-registry.json data/oof-url-governance-audit.json
+          git add data/knowledge
           git commit -m "Update OOF AI incident public data"
           git push
