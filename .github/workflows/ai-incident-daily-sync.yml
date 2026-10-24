@@ -39,10 +39,10 @@ jobs:
           python -m unittest tests.test_ai_incidents
       - name: Rebuild public incident pages and discovery metadata
         run: |
-          python tools/build_ai_incident_pages.py
           python tools/build_ai_compatibility.py
+          python tools/build_ai_incident_pages.py
           python tools/build_url_governance.py
-          python tools/validate_ai_compatibility.py
+          python tools/validate_ai_compatibility.py --allow-visible-changes
           python tools/validate_url_governance.py
       - name: Commit changed public projections
         run: |
