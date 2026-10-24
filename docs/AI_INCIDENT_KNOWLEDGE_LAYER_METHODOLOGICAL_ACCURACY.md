@@ -6,12 +6,13 @@ The assessment engine reads canonical objects and authoritative relationships fr
 
 ## B. Canonical Source Verification
 
-Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked for canonical identity, name, URL, architecture ownership and module parentage.
+Knowledge build: `OOF-KI-1.1-c060ca54f268`. Every displayed reference is checked for canonical identity, name, URL, architecture ownership and module parentage.
 
 ## C. Incident Sample Results
 
 | Incident | Primary architecture | Standards / modules | Result |
 |---|---|---|---|
+| OOF-AII-002532 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-002783 | Unresolved | Withheld | STRUCTURALLY VALID |
 | OOF-AII-005499 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-014536 | CLIA® — Cognitive Governance Intelligence Architecture | Value Emergence Standard (VES) | STRUCTURALLY VALID |
@@ -31,6 +32,7 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-046318 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-052851 | MGIA™ — Memory Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-055055 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-059037 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-060325 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-071938 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Identity Integrity Standard (IIS); Identity Uniqueness Integrity Module (IUIM) | STRUCTURALLY VALID |
 | OOF-AII-077008 | PGA™ — Prediction Governance Architecture | Prediction Probability & Uncertainty Standard (PPUS) | STRUCTURALLY VALID |
@@ -38,14 +40,18 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-087837 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-105745 | VFM® — Value Flow Mechanisms Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-114551 | PGA™ — Prediction Governance Architecture | Decision Accountability Standard - (DAS); Operational Decision Integrity Standard (ODIS); Value Nullification Standard (VNS) | STRUCTURALLY VALID |
+| OOF-AII-120728 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-126029 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
+| OOF-AII-128548 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM); Liability Transfer & Recourse Standard (LTRS) | STRUCTURALLY VALID |
 | OOF-AII-130936 | PGA™ — Prediction Governance Architecture | Prediction Basis Standard (PBAS) | STRUCTURALLY VALID |
 | OOF-AII-133202 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-135293 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-138546 | LIGA™ — Liability Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
+| OOF-AII-139515 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-140374 | Unresolved | Withheld | STRUCTURALLY VALID |
 | OOF-AII-140599 | PGA™ — Prediction Governance Architecture | Prediction Communication & Reliance Standard (PCRS) | STRUCTURALLY VALID |
 | OOF-AII-141726 | PGA™ — Prediction Governance Architecture | Prediction Monitoring & Revision Standard (PMRS) | STRUCTURALLY VALID |
+| OOF-AII-149568 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM); Liability Transfer & Recourse Standard (LTRS) | STRUCTURALLY VALID |
 | OOF-AII-156233 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-160472 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-163990 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
@@ -74,12 +80,14 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-251878 | LIGA™ — Liability Governance Architecture | Liability Transfer & Recourse Standard (LTRS) | STRUCTURALLY VALID |
 | OOF-AII-261204 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-262700 | ASGA™ — Autonomous Systems Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
+| OOF-AII-264398 | CLIA® — Cognitive Governance Intelligence Architecture | Agent Cognition Integrity Standard (ACIS); AAIM — Authority Alignment Integrity Module; Agent Memory Integrity Standard (AMIS); OOF™ Agent Memory Accountability Module (AMAM™) | STRUCTURALLY VALID |
 | OOF-AII-264476 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-267152 | VFM® — Value Flow Mechanisms Architecture | Value Recognition Standard (VRS) | STRUCTURALLY VALID |
 | OOF-AII-267465 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-268924 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-269442 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-272869 | PGA™ — Prediction Governance Architecture | Prediction Probability & Uncertainty Standard (PPUS) | STRUCTURALLY VALID |
+| OOF-AII-278711 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-280495 | VFM® — Value Flow Mechanisms Architecture | Value Recognition Standard (VRS); Tax-Relevant Event Recognition Standard - (TRERS) | STRUCTURALLY VALID |
 | OOF-AII-281468 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-285308 | MGIA™ — Memory Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
@@ -92,24 +100,30 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-306226 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Coordination Standard (ACOS); Autonomous Coordination Module (ACM) | STRUCTURALLY VALID |
 | OOF-AII-308576 | PGA™ — Prediction Governance Architecture | Prediction Monitoring & Revision Standard (PMRS) | STRUCTURALLY VALID |
 | OOF-AII-312669 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-313269 | PGA™ — Prediction Governance Architecture | Prediction Basis Standard (PBAS) | STRUCTURALLY VALID |
 | OOF-AII-315781 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-316342 | CLIA® — Cognitive Governance Intelligence Architecture | Agent Cognition Integrity Standard (ACIS); AAIM — Authority Alignment Integrity Module; Agent Memory Integrity Standard (AMIS); OOF™ Agent Memory Accountability Module (AMAM™) | STRUCTURALLY VALID |
 | OOF-AII-318619 | PGA™ — Prediction Governance Architecture | Collective Prediction Governance Standard (CPGS); Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-320670 | MGIA™ — Memory Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-327260 | AIG® - Governance Architecture | Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM) | STRUCTURALLY VALID |
+| OOF-AII-328724 | CLIA® — Cognitive Governance Intelligence Architecture | Agent Cognition Integrity Standard (ACIS) | STRUCTURALLY VALID |
 | OOF-AII-331541 | LIGA™ — Liability Governance Architecture | Liability Basis Standard (LBS) | STRUCTURALLY VALID |
+| OOF-AII-338151 | LIGA™ — Liability Governance Architecture | Liability Transfer & Recourse Standard (LTRS); Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
+| OOF-AII-339331 | LIGA™ — Liability Governance Architecture | Liability Transfer & Recourse Standard (LTRS); Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-340364 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-344232 | VFM® — Value Flow Mechanisms Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-348595 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-349642 | PGA™ — Prediction Governance Architecture | Prediction Record & Continuity Standard (PRCS); Integrity State Standard (ISS); OOF™ Integrity State Classification Module (ISCM); Value Recognition Standard (VRS); Liability State & Change Standard (LSCS) | STRUCTURALLY VALID |
-| OOF-AII-350449 | LIGA™ — Liability Governance Architecture | Value Identification Standard (VIS) | STRUCTURALLY VALID |
+| OOF-AII-350449 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-353609 | AIG® - Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-358918 | CLIA® — Cognitive Governance Intelligence Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
 | OOF-AII-359571 | LIGA™ — Liability Governance Architecture | Liability Transfer & Recourse Standard (LTRS) | STRUCTURALLY VALID |
 | OOF-AII-367584 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-368357 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-370297 | AIG® - Governance Architecture | Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM) | STRUCTURALLY VALID |
 | OOF-AII-370374 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-377425 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM); Prediction Basis Standard (PBAS); Liability State & Change Standard (LSCS) | STRUCTURALLY VALID |
+| OOF-AII-387714 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-388410 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-396418 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-396718 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
@@ -126,12 +140,15 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-431478 | PGA™ — Prediction Governance Architecture | Prediction Outcome & Performance Standard (POFPS); Liability Transfer & Recourse Standard (LTRS) | STRUCTURALLY VALID |
 | OOF-AII-432320 | VFM® — Value Flow Mechanisms Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-437009 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-441493 | VFM® — Value Flow Mechanisms Architecture | Value Change Standard (VCS) | STRUCTURALLY VALID |
 | OOF-AII-443692 | VFM® — Value Flow Mechanisms Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-444645 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-446066 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-452027 | AIG® - Governance Architecture | Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM); Liability Continuity & Finality Standard (LCFS) | STRUCTURALLY VALID |
+| OOF-AII-457808 | PGA™ — Prediction Governance Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
 | OOF-AII-464235 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-469883 | LIGA™ — Liability Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-471293 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-476058 | AIG® - Governance Architecture | Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM) | STRUCTURALLY VALID |
 | OOF-AII-477565 | LIGA™ — Liability Governance Architecture | Liability Connection Standard (LCNS); Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-479643 | LIGA™ — Liability Governance Architecture | Liability Basis Standard (LBS); Responsibility Assignment Standard - (RAS-A) | STRUCTURALLY VALID |
@@ -143,6 +160,7 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-485589 | PGA™ — Prediction Governance Architecture | Prediction Record & Continuity Standard (PRCS) | STRUCTURALLY VALID |
 | OOF-AII-487076 | LIGA™ — Liability Governance Architecture | Liability Transfer & Recourse Standard (LTRS) | STRUCTURALLY VALID |
 | OOF-AII-487868 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-488027 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-488585 | VFM® — Value Flow Mechanisms Architecture | Value Recognition Standard (VRS); Tax-Relevant Event Recognition Standard - (TRERS) | STRUCTURALLY VALID |
 | OOF-AII-493183 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Identity Integrity Standard (IIS); Identity Validation Module (IVAM); Prediction Basis Standard (PBAS) | STRUCTURALLY VALID |
 | OOF-AII-497679 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM); Prediction Basis Standard (PBAS) | STRUCTURALLY VALID |
@@ -162,6 +180,7 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-540270 | PGA™ — Prediction Governance Architecture | Prediction Basis Standard (PBAS); Liability Connection Standard (LCNS); Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM) | STRUCTURALLY VALID |
 | OOF-AII-541634 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-542565 | Unresolved | Withheld | STRUCTURALLY VALID |
+| OOF-AII-543704 | PGA™ — Prediction Governance Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
 | OOF-AII-548734 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-551527 | GOA™ - Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-557203 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
@@ -171,8 +190,11 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-562299 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-565936 | MGIA™ — Memory Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-571155 | PGA™ — Prediction Governance Architecture | Prediction Monitoring & Revision Standard (PMRS) | STRUCTURALLY VALID |
+| OOF-AII-576332 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-576677 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-579984 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-582445 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-587934 | AIG® - Governance Architecture | Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM) | STRUCTURALLY VALID |
 | OOF-AII-592645 | INTEGROS® — Integrity Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-592823 | LIGA™ — Liability Governance Architecture | Liability Transfer & Recourse Standard (LTRS) | STRUCTURALLY VALID |
 | OOF-AII-593106 | PGA™ — Prediction Governance Architecture | Prediction Monitoring & Revision Standard (PMRS); Value Recognition Standard (VRS) | STRUCTURALLY VALID |
@@ -206,18 +228,25 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-699634 | CLIA® — Cognitive Governance Intelligence Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
 | OOF-AII-700117 | LIGA™ — Liability Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-706080 | AIG® - Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-706344 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
+| OOF-AII-711866 | PGA™ — Prediction Governance Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
 | OOF-AII-712502 | VFM® — Value Flow Mechanisms Architecture | Value Restoration Standard (VRSS) | STRUCTURALLY VALID |
+| OOF-AII-716517 | INTEGROS® — Integrity Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-718809 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-719717 | AIG® - Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-724490 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-725427 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
+| OOF-AII-730125 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-730732 | MGIA™ — Memory Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-733569 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-733675 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-734635 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM); Prediction Formation Standard (PFOS) | STRUCTURALLY VALID |
 | OOF-AII-737519 | PGA™ — Prediction Governance Architecture | Prediction Monitoring & Revision Standard (PMRS) | STRUCTURALLY VALID |
 | OOF-AII-741976 | AIG® - Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-747519 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-750086 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-753141 | INTEGROS® — Integrity Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-755245 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-762769 | CLA™ — Classification Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-768541 | LIGA™ — Liability Governance Architecture | Liability Basis Standard (LBS); Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-768876 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
@@ -232,17 +261,23 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-800138 | GOA™ - Governance Architecture | Prediction Basis Standard (PBAS) | STRUCTURALLY VALID |
 | OOF-AII-800840 | PGA™ — Prediction Governance Architecture | Prediction Communication & Reliance Standard (PCRS) | STRUCTURALLY VALID |
 | OOF-AII-801166 | CLIA® — Cognitive Governance Intelligence Architecture | Agent Cognition Integrity Standard (ACIS); Prediction Monitoring & Revision Standard (PMRS) | STRUCTURALLY VALID |
+| OOF-AII-802060 | PGA™ — Prediction Governance Architecture | Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM); Liability Scope & Allocation Standard (LSAS) | STRUCTURALLY VALID |
 | OOF-AII-803982 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-805486 | MGIA™ — Memory Governance Intelligence Architecture | Agent Memory Integrity Standard (AMIS); OOF™ Agent Memory Accountability Module (AMAM™) | STRUCTURALLY VALID |
+| OOF-AII-816385 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM); Value Origin Standard (VOS) | STRUCTURALLY VALID |
 | OOF-AII-816793 | PGA™ — Prediction Governance Architecture | Prediction Communication & Reliance Standard (PCRS) | STRUCTURALLY VALID |
+| OOF-AII-816887 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
+| OOF-AII-817012 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-819870 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-822544 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-825359 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-826493 | PGA™ — Prediction Governance Architecture | Prediction Record & Continuity Standard (PRCS) | STRUCTURALLY VALID |
+| OOF-AII-830011 | VFM® — Value Flow Mechanisms Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-835662 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-836165 | VFM® — Value Flow Mechanisms Architecture | Value Development Standard (VDS) | STRUCTURALLY VALID |
 | OOF-AII-844719 | PGA™ — Prediction Governance Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
 | OOF-AII-848916 | VFM® — Value Flow Mechanisms Architecture | Value Development Standard (VDS) | STRUCTURALLY VALID |
+| OOF-AII-857332 | MGIA™ — Memory Governance Intelligence Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-857693 | LIGA™ — Liability Governance Architecture | Liability Conditions Standard (LCOS) | STRUCTURALLY VALID |
 | OOF-AII-865747 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-867175 | AIG® - Governance Architecture | Behavioral Safety Standard - (BSS); Behavioral Safety Assurance Module - (BSAM) | STRUCTURALLY VALID |
@@ -264,6 +299,8 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-952674 | VFM® — Value Flow Mechanisms Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-952943 | PGA™ — Prediction Governance Architecture | Prediction Basis Standard (PBAS); Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-953019 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
+| OOF-AII-954552 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-956724 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Origin Integrity Standard (OIS); Origin Evidence Verification Module (OEVM) | STRUCTURALLY VALID |
 | OOF-AII-962115 | OBIDENITY® — Origin-Bound Identity Governance Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
 | OOF-AII-967001 | PGA™ — Prediction Governance Architecture | Prediction Communication & Reliance Standard (PCRS) | STRUCTURALLY VALID |
 | OOF-AII-971045 | VFM® — Value Flow Mechanisms Architecture | Withheld | STRUCTURALLY VALID |
@@ -271,6 +308,7 @@ Knowledge build: `OOF-KI-1.1-caa45f9f1793`. Every displayed reference is checked
 | OOF-AII-979799 | AGA™ — Accountability Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-983827 | ASGA™ — Autonomous Systems Governance Architecture | Autonomous Execution Standard (AES); Execution Authorization Module (EAM) | STRUCTURALLY VALID |
 | OOF-AII-986239 | MGIA™ — Memory Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
+| OOF-AII-990437 | CLIA® — Cognitive Governance Intelligence Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-992457 | PGA™ — Prediction Governance Architecture | Withheld | STRUCTURALLY VALID |
 | OOF-AII-994961 | MGIA™ — Memory Governance Intelligence Architecture | Agent Memory Integrity Standard (AMIS); OOF™ Agent Memory Accountability Module (AMAM™) | STRUCTURALLY VALID |
 | OOF-AII-998473 | MGIA™ — Memory Governance Intelligence Architecture | Collective Prediction Governance Standard (CPGS) | STRUCTURALLY VALID |
