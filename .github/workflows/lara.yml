@@ -1,0 +1,34 @@
+name: LaRA engineering
+on:
+  push:
+    branches: [main1, codex/integrate-lara-personality]
+    paths: ['lara/**', 'lib/oof-llm/**', 'tests/lara/**', 'tools/*lara*', 'data/knowledge/**', 'data/localization/**', 'render.yaml', 'package.json', '.github/workflows/lara.yml']
+  pull_request:
+    branches: [main1]
+permissions:
+  contents: read
+jobs:
+  engineering:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: node tools/check_lara.cjs
+      - run: node tools/build_lara_language_inventory.cjs && git diff --exit-code data/localization/lara-language-inventory.json
+      - run: node --test tests/lara/*.test.js
+      - run: python -m unittest discover -s tests -p test_knowledge_infrastructure.py -v
+      - run: python tools/validate_knowledge_infrastructure.py
+      - run: node tests/lara/memory-smoke.cjs memory-smoke.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lara-memory-evidence
+          path: memory-smoke.json

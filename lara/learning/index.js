@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs');const path=require('node:path');const crypto=require('node:crypto');
-const secretPatterns=[/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,/(?<!\w)\+?\d[\d ()-]{7,}\d(?!\w)/g,/(?:sk-[A-Za-z0-9_-]{16,}|gh[pousr]_[A-Za-z0-9_]{16,})/g,/(?:password|passwd|secret|api[_ -]?key)\s*[:=]\s*[^\s,;]+/gi];
+const secretPatterns=[/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,/(?<!\w)\+?\d[\d ()-]{7,}\d(?!\w)/g,/(?:(?:sk-|gsk_)[A-Za-z0-9_-]{16,}|gh[pousr]_[A-Za-z0-9_]{16,})/g,/(?:password|passwd|secret|api[_ -]?key)\s*[:=]\s*[^\s,;]+/gi];
 function sanitize(value){let text=String(value||'');for(const re of secretPatterns)text=text.replace(re,'[redacted]');text=text.replace(/\b(?:my name is|i am|i'm|this is|name:)\s+[\p{L}][\p{L}' -]{1,60}/giu,'[name redacted]');return text.replace(/[\u0000-\u001f\u007f]/g,' ').replace(/\s+/g,' ').trim().slice(0,800);}
 function keyFor(type,text){return crypto.createHash('sha256').update(`${type}\n${sanitize(text).toLocaleLowerCase()}`).digest('hex');}
 function similarity(a,b){const words=x=>new Set(sanitize(x).toLocaleLowerCase().match(/[\p{L}\p{N}]{3,}/gu)||[]),left=words(a),right=words(b);if(!left.size||!right.size)return 0;let common=0;for(const word of left)if(right.has(word))common++;return common/(left.size+right.size-common);}

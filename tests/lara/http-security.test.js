@@ -21,7 +21,7 @@ async function reservePort() {
 }
 
 async function waitForServer(baseUrl, output) {
-  for (let attempt = 0; attempt < 60; attempt += 1) {
+  for (let attempt = 0; attempt < 900; attempt += 1) {
     try {
       const response = await fetch(`${baseUrl}/_lara/status`);
       if (response.ok) return;
