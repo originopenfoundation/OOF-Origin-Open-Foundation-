@@ -38,6 +38,17 @@ GUIDES = [
             ("ASGA™ — Autonomous Systems Governance Architecture", "../a/asga-architecture.html"),
             ("Agent Governance Infrastructure™", "../a/agent-governance-infrastructure.html"),
         ],
+        "assessment": {
+            "status": "available",
+            "title": "AI Governance Assessment™",
+            "href": "../a/ai-governance-assessment.html",
+            "description": "A published professional service for structured governance analysis of AI systems, including authority, accountability, auditability, oversight, and operational control conditions.",
+            "verification": [
+                "A defined authority basis, actor, action, scope, and time condition.",
+                "Delegation and approval records that can be traced to the accountable authority holder.",
+                "Evidence showing whether the stated permission remains current for the proposed action.",
+            ],
+        },
         "examples": [
             ("Procurement agent", "An agent proposes a supplier change. The guide helps distinguish its capability to prepare a recommendation from the authority required to approve and execute it."),
             ("Delegated service agent", "A support agent receives a delegated task. The guide helps examine the defined recipient, scope, conditions, expiry, and evidence of the delegation."),
@@ -90,6 +101,17 @@ GUIDES = [
             ("OOF Authority Governance Reference", "../a/oof-authority-governance-reference.html"),
             ("PGA™ — Prediction Governance Architecture", "../pga/pga-architecture.html"),
         ],
+        "assessment": {
+            "status": "available",
+            "title": "AI Governance Assessment™",
+            "href": "../a/ai-governance-assessment.html",
+            "description": "A published professional service for examining governance, accountability, auditability, transparency, oversight, and operational control conditions.",
+            "verification": [
+                "A stated governance claim, decision context, and applicable system or process version.",
+                "Traceable evidence, records, observations, and decision history relevant to that claim.",
+                "Defined validation conditions and the limits of what the supplied material can establish.",
+            ],
+        },
         "examples": [
             ("Model-release review", "A team says a model release passed governance review. The guide helps identify the review record, applicable conditions, observed evidence, and limits of that statement."),
             ("Automated eligibility decision", "A public-facing system produces an eligibility outcome. The guide helps separate the outcome, evidence of the process, and any claim that the result was validated."),
@@ -143,6 +165,17 @@ GUIDES = [
             ("RSGA™ — Resource Sustainability Governance Architecture", "../rsga/rsga-about.html"),
             ("AI Governance Assessment™", "../a/ai-governance-assessment.html"),
         ],
+        "assessment": {
+            "status": "future",
+            "title": "AI Computational Efficiency Assessment",
+            "href": None,
+            "description": "Future assessment category. It is not currently available as an automated tool, certification, purchasable product, or performance guarantee.",
+            "verification": [
+                "A defined workload, intended outcome, baseline, and measurement boundary.",
+                "Documented compute, resource, cost, and operational constraint assumptions.",
+                "Evidence showing how an optimization affects risk, accountability, and operating conditions.",
+            ],
+        },
         "examples": [
             ("Inference routing", "A team routes requests between models. The guide helps clarify the baseline, response constraint, resource assumptions, and governance effects of the routing decision."),
             ("Training workload", "A project reports lower training cost. The guide helps distinguish an observed cost figure from broader claims about value, sustainability, or system quality."),
@@ -196,6 +229,17 @@ GUIDES = [
             ("VERICYCLE™ — Verification & Accountability Cycle", "../v/vericycle-methodology.html"),
             ("VALIDOS® — Validation Governance Architecture", "../v/validos-architecture.html"),
         ],
+        "assessment": {
+            "status": "future",
+            "title": "Workplace Qualification & Authorization Verification",
+            "href": None,
+            "description": "Future assessment category. It is not currently available as an automated tool, certification, purchasable product, or employment determination.",
+            "verification": [
+                "A defined activity, role, system boundary, and accountable decision holder.",
+                "Available qualification, authorization, permission, approval, and escalation records.",
+                "Evidence that the applicable scope and time conditions remain current.",
+            ],
+        },
         "examples": [
             ("AI-assisted hiring review", "A hiring workflow uses AI-assisted screening. The guide helps distinguish the system output, reviewer qualification, decision authority, and evidence of authorization."),
             ("Operational control room", "A human operator uses an AI recommendation in a control workflow. The guide helps identify who may act, what permission applies, and what intervention authority remains available."),
@@ -248,6 +292,17 @@ GUIDES = [
             ("AIG® — AI Behavioral Governance Architecture", "../aig/AIG® Architecture Map.html"),
             ("OOF Reality Boundary", "../r/oof-reality-boundary.html"),
         ],
+        "assessment": {
+            "status": "available",
+            "title": "AI Governance Assessment™",
+            "href": "../a/ai-governance-assessment.html",
+            "description": "A published professional service that includes autonomous systems, human oversight, operational control, accountability, and auditability within its stated governance scope.",
+            "verification": [
+                "Defined operational boundaries, authority, permissions, and accountability conditions.",
+                "Evidence of intervention, override, escalation, monitoring, and traceability mechanisms.",
+                "Observed records and context needed to distinguish capability from authorization for operational reality.",
+            ],
+        },
         "examples": [
             ("Autonomous warehouse vehicle", "A vehicle moves goods within a facility. The guide helps structure questions about operating boundaries, intervention capability, authority, evidence, and accountability."),
             ("Autonomous customer-support workflow", "A workflow initiates actions after interpreting a request. The guide helps separate the system's action capability from the permissions and oversight required for real-world effects."),
@@ -307,6 +362,49 @@ def faq_json_ld(guide: dict, canonical: str) -> dict:
             for question, answer in guide["faq"]
         ],
     }
+
+
+def assessment_pathway(guide: dict) -> str:
+    assessment = guide["assessment"]
+    methodology_label, methodology_href = guide["sources"][0]
+    availability = "Available published assessment service" if assessment["status"] == "available" else "Future assessment category"
+    if assessment["href"]:
+        action = (
+            f'<a class="oof-discovery-pathway-action" href="{esc(assessment["href"])}">'
+            f'Open {esc(assessment["title"])}</a>'
+        )
+    else:
+        action = '<p class="oof-discovery-pathway-unavailable">No automated assessment, certification, purchase, or submission route is currently offered for this category.</p>'
+    return f"""    <section class="oof-discovery-section oof-discovery-pathway-section">
+      <h2 id="discovery-to-assessment-pathway" data-oof-section-id="true">Discovery-to-Assessment Pathway</h2>
+      <p>This pathway identifies the next relevant step without treating the guide as an assessment result or a decision service.</p>
+      <ol class="oof-discovery-pathway">
+        <li>
+          <p class="oof-discovery-pathway-step">1. Problem</p>
+          <h3>{esc(guide["title"])}</h3>
+          <p>{esc(guide["problem"])}</p>
+        </li>
+        <li>
+          <p class="oof-discovery-pathway-step">2. Applicable OOF® methodology</p>
+          <h3><a href="{esc(methodology_href)}">{esc(methodology_label)}</a></h3>
+          <p>Use the published canonical reference path to frame the governance question before any assessment activity.</p>
+        </li>
+        <li>
+          <p class="oof-discovery-pathway-step">3. Verification requirements</p>
+          <h3>Evidence to assemble</h3>
+          {html_list(assessment["verification"])}
+        </li>
+        <li class="oof-discovery-pathway-outcome oof-discovery-pathway-{esc(assessment["status"])}">
+          <p class="oof-discovery-pathway-step">4. Assessment or future product</p>
+          <p class="oof-discovery-pathway-status">{availability}</p>
+          <h3>{esc(assessment["title"])}</h3>
+          <p>{esc(assessment["description"])}</p>
+          {action}
+        </li>
+      </ol>
+      <p class="oof-discovery-note">A methodology reference, an assessment service, and an institutionally authorized determination are distinct. This pathway does not certify a system, establish legal status, or issue an operational approval.</p>
+    </section>
+"""
 
 
 def render_page(guide: dict) -> str:
@@ -388,6 +486,8 @@ def render_page(guide: dict) -> str:
       </div>
     </section>
 
+{assessment_pathway(guide)}
+
     <section class="oof-discovery-section oof-discovery-faq">
       <h2 id="frequently-asked-questions" data-oof-section-id="true">Frequently asked questions</h2>
 {faqs}
@@ -416,7 +516,7 @@ Promise.all([fetch("../../header.html").then(response => response.text()), fetch
 def render_index() -> str:
     canonical = absolute_url("content/d/ai-discovery-guides.html")
     cards = "\n".join(
-        f'''<a class="oof-discovery-guide-card" href="{esc(guide["slug"])}.html"><strong>{esc(guide["title"])}</strong><span>{esc(guide["summary"])}</span></a>'''
+        f'''<a class="oof-discovery-guide-card" href="{esc(guide["slug"])}.html"><strong>{esc(guide["title"])}</strong><span>{esc(guide["summary"])}</span><small>{"Available assessment service" if guide["assessment"]["status"] == "available" else "Future assessment category"}: {esc(guide["assessment"]["title"])}</small></a>'''
         for guide in GUIDES
     )
     listed_items = [
@@ -470,7 +570,7 @@ def render_index() -> str:
     </section>
     <section class="oof-discovery-section">
       <h2 id="evaluation-boundary" data-oof-section-id="true">Evaluation boundary</h2>
-      <p>A public 50-question evaluation dataset is maintained as a reusable test harness. It records expected reference paths and leaves external search or model results explicitly unfilled until an evaluation is actually run.</p>
+      <p>A public 50-question evaluation dataset is maintained as a reusable test harness. It records expected reference paths, verification requirements, and the available or future assessment category while leaving external search or model results explicitly unfilled until an evaluation is actually run.</p>
     </section>
 </main>
 <div id="footer"></div>
@@ -494,6 +594,8 @@ def build_evaluation_dataset() -> dict:
         guide_url = absolute_url(f"content/d/{guide['slug']}.html")
         canonical_sources = [absolute_url(f"content/d/{guide['slug']}.html")]
         canonical_sources.extend(absolute_url("content/" + href.removeprefix("../")) for _, href in guide["sources"])
+        assessment = guide["assessment"]
+        assessment_url = absolute_url("content/" + assessment["href"].removeprefix("../")) if assessment["href"] else None
         for position, question in enumerate(guide["questions"], start=1):
             queries.append(
                 {
@@ -502,6 +604,16 @@ def build_evaluation_dataset() -> dict:
                     "problem": question,
                     "expectedGuideUrl": guide_url,
                     "expectedCanonicalUrls": canonical_sources,
+                    "expectedAnswerStructure": {
+                        "mustIdentify": ["applicableGuide", "canonicalReferences", "verificationRequirements", "assessmentPathway"],
+                        "mustNotClaim": ["certification", "legalDetermination", "operationalApproval", "guaranteedOutcome"],
+                    },
+                    "verificationRequirements": assessment["verification"],
+                    "expectedAssessmentPathway": {
+                        "status": assessment["status"].upper(),
+                        "title": assessment["title"],
+                        "url": assessment_url,
+                    },
                     "evaluationDate": None,
                     "modelOrSearchEnvironment": None,
                     "mentioned": None,
@@ -514,7 +626,7 @@ def build_evaluation_dataset() -> dict:
                 }
             )
     return {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "title": "OOF AI Discovery Recommendation Evaluation Harness",
         "purpose": "Reusable question set for recording discovery and recommendation observations without fabricating external results.",
         "queryCount": len(queries),
@@ -534,7 +646,7 @@ def build() -> None:
         json.dumps(dataset, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     manifest = {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "layer": "OOF AI Discovery Guides",
         "guideCount": len(GUIDES),
         "guidePaths": [f"content/d/{guide['slug']}.html" for guide in GUIDES],

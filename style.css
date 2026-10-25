@@ -3030,6 +3030,81 @@ padding:10px;
   margin-top: 5px;
 }
 
+.oof-discovery-page .oof-discovery-guide-card small {
+  display: block;
+  margin-top: 10px;
+  color: #c9e7ff;
+  font-weight: 800;
+}
+
+.oof-discovery-page .oof-discovery-pathway {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oof-discovery-page .oof-discovery-pathway > li {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(159, 211, 255, 0.62);
+  border-radius: 6px;
+  background: rgba(94, 145, 195, 0.13);
+}
+
+.oof-discovery-page .oof-discovery-pathway > li h3,
+.oof-discovery-page .oof-discovery-pathway > li p {
+  overflow-wrap: anywhere;
+}
+
+.oof-discovery-page .oof-discovery-pathway > li h3 a {
+  color: #fff;
+  text-underline-offset: 3px;
+}
+
+.oof-discovery-page .oof-discovery-pathway-step,
+.oof-discovery-page .oof-discovery-pathway-status {
+  margin: 0 0 7px;
+  color: #c9e7ff;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.oof-discovery-page .oof-discovery-pathway-future {
+  border-color: rgba(244, 193, 112, 0.78);
+  background: rgba(146, 105, 35, 0.17);
+}
+
+.oof-discovery-page .oof-discovery-pathway-future .oof-discovery-pathway-status {
+  color: #ffe0a6;
+}
+
+.oof-discovery-page .oof-discovery-pathway-action {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 9px 12px;
+  border: 1px solid #a8d9b7;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  background: rgba(44, 132, 78, 0.42);
+}
+
+.oof-discovery-page .oof-discovery-pathway-action:hover,
+.oof-discovery-page .oof-discovery-pathway-action:focus-visible {
+  background: rgba(44, 132, 78, 0.7);
+}
+
+.oof-discovery-page .oof-discovery-pathway-unavailable {
+  margin-bottom: 0;
+  color: #ffe0a6;
+  font-weight: 700;
+}
+
 @media (max-width: 700px) {
   .oof-discovery-page .oof-discovery-shell {
     padding-top: 12px;
@@ -3041,6 +3116,10 @@ padding:10px;
   }
 
   .oof-discovery-page .oof-discovery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .oof-discovery-page .oof-discovery-pathway {
     grid-template-columns: 1fr;
   }
 }

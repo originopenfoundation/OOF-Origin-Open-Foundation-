@@ -1,6 +1,7 @@
 import importlib.util
 import json
 import unittest
+from collections import Counter
 from pathlib import Path
 
 
@@ -24,6 +25,21 @@ class AiDiscoveryGuideTests(unittest.TestCase):
         self.assertTrue(all(query["evaluationStatus"] == "NOT_RUN" for query in dataset["queries"]))
         self.assertTrue(all(query["recommendationAccuracy"] is None for query in dataset["queries"]))
         self.assertTrue(all(query["expectedCanonicalUrls"] for query in dataset["queries"]))
+        self.assertTrue(all(query["verificationRequirements"] for query in dataset["queries"]))
+        self.assertTrue(all(query["expectedAnswerStructure"]["mustIdentify"] for query in dataset["queries"]))
+        self.assertTrue(all(query["expectedAssessmentPathway"]["status"] in {"AVAILABLE", "FUTURE"} for query in dataset["queries"]))
+        self.assertEqual(Counter(query["category"] for query in dataset["queries"]), Counter({guide["title"]: 10 for guide in guides.GUIDES}))
+
+    def test_guides_have_a_truthful_assessment_pathway(self):
+        for guide in guides.GUIDES:
+            assessment = guide["assessment"]
+            self.assertIn(assessment["status"], {"available", "future"})
+            self.assertTrue(assessment["verification"])
+            if assessment["status"] == "available":
+                self.assertTrue(assessment["href"])
+                self.assertTrue((ROOT / "content" / assessment["href"].removeprefix("../")).is_file())
+            else:
+                self.assertIsNone(assessment["href"])
 
     def test_generated_pages_link_to_available_canonical_sources(self):
         for guide in guides.GUIDES:
@@ -32,6 +48,8 @@ class AiDiscoveryGuideTests(unittest.TestCase):
             source = page.read_text(encoding="utf-8")
             self.assertIn('"@type":"FAQPage"', source)
             self.assertIn("../../Contact.html", source)
+            self.assertIn("Discovery-to-Assessment Pathway", source)
+            self.assertIn("methodology reference, an assessment service, and an institutionally authorized determination are distinct", source)
             self.assertNotIn("\\\\n", source)
             self.assertNotIn("<article>\n    <article>", source)
             for _, href in guide["sources"]:
