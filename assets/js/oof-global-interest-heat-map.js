@@ -6,7 +6,7 @@
   const MOMENTUM_LABELS = { "rapidly-rising": "Rapidly rising", rising: "Rising", stable: "Stable", declining: "Declining" };
   const WORLD_BOUNDS = [[-58, -180], [84, 180]];
   const STALE_AFTER_MS = 36 * 60 * 60 * 1000;
-  const SHORT_COUNTRY_NAMES = { US: "USA" };
+  const SHORT_COUNTRY_NAMES = { CN: "China", US: "USA" };
   const regionNames = typeof Intl.DisplayNames === "function" ? new Intl.DisplayNames(["en"], { type: "region" }) : null;
 
   const container = document.getElementById("global-interest-globe");
