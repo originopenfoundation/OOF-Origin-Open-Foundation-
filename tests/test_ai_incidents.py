@@ -359,8 +359,53 @@ class IncidentDomainTests(unittest.TestCase):
             detail = incidents.read_json(incidents.PUBLIC_ROOT / "incident-details" / f"{item['slug']}.json", {})
             self.assertEqual(detail["id"], item["id"])
             self.assertTrue(item["source"]["url"].startswith("https://"))
+            primary = item.get("primaryArchitecture") or {}
+            if primary.get("architectureId"):
+                self.assertTrue(primary.get("label"))
+                self.assertTrue(primary.get("canonicalUrl"))
         dates = [item.get("occurredAt") or item.get("reportedAt") or "" for item in representative]
         self.assertEqual(dates, sorted(dates, reverse=True))
+
+    def test_public_projection_hydrates_legacy_architecture_identity(self):
+        projection = incidents._architecture_projection({"architectureId": "aig"})
+        self.assertEqual(projection["label"], "AIG® - Governance Architecture")
+        self.assertEqual(
+            projection["canonicalUrl"],
+            "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
+        )
+
+    def test_incomplete_primary_architecture_blocks_publication(self):
+        outcomes = engine.quality_outcomes({
+            "assessmentIdentity": "test-assessment",
+            "incidentId": "OOF-AII-TEST",
+            "assessmentDisclosure": "Test disclosure",
+            "architectureAnalysis": {"primaryArchitecture": {"architectureId": "aig"}},
+            "evidenceSnapshot": {"sources": [{"url": "https://example.test/source"}], "publicEvidenceStatus": "Source-Reported"},
+        })
+        self.assertEqual(outcomes["methodologicalSupport"], "REVIEW REQUIRED")
+        self.assertEqual(outcomes["publicationEligibility"], "PENDING")
+
+    def test_public_export_rejects_primary_architecture_without_public_identity(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            original_root = incidents.PUBLIC_ROOT
+            try:
+                incidents.PUBLIC_ROOT = Path(temporary)
+                incidents.write_json(incidents.PUBLIC_ROOT / "summary.json", {"totalIncidents": 1})
+                item = {
+                    "id": "OOF-AII-TEST", "slug": "missing-architecture-identity", "title": "Missing architecture identity",
+                    "detailUrl": "/ai-incidents/incidents/missing-architecture-identity/",
+                    "source": {"url": "https://example.test/source"},
+                    "primaryArchitecture": {"architectureId": "aig"},
+                }
+                incidents.write_json(incidents.PUBLIC_ROOT / "incident-index.json", {"items": [item]})
+                incidents.write_json(
+                    incidents.PUBLIC_ROOT / "incident-details" / "missing-architecture-identity.json",
+                    {"id": "OOF-AII-TEST"},
+                )
+                with self.assertRaisesRegex(ValueError, "primary architecture aig is missing label, canonicalUrl"):
+                    incidents.validate_public_export()
+            finally:
+                incidents.PUBLIC_ROOT = original_root
 
     def test_public_export_rejects_missing_detail_projection(self):
         with tempfile.TemporaryDirectory() as temporary:
