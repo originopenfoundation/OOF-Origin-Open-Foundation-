@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® CIM — Component Identification Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>CIM — Component Identification Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Dependency Standard (SDS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Component Identification Governance<br>
+<b>Module ID:</b> SLGA-SDS-CIM-001<br>
+<b>Origin ID:</b> OOF.CM.SLGA.03.01.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 11.10.2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<section class="viewbor"></section>
+<h1>The Component Identification Module (CIM) governs how software components</h1>
+<a>and other software-related resources upon which a software system<br>materially relies are discovered, distinguished, classified,<br>identified, and represented as governed dependency objects.</a><br><br>
+<section class="viewbor"></section>
+<h1>CIM establishes the methodological conditions under which a software</h1>
+<a>component may be recognized as an identifiable constituent of a<br>software dependency relationship, regardless of whether that component<br>is directly declared, indirectly introduced, dynamically resolved,<br>externally provided, generated, embedded, or accessed through a<br>service interface.</a><br><br>
+<section class="viewbor"></section>
+<h1>It governs the relationship between the dependent software object, the</h1>
+<a>discovered component, its distinguishable identity, relevant version<br>or state, functional role, dependency type, observed reliance, and<br>supporting identification evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>CIM distinguishes component discovery from component identification,</h1>
+<a>declared dependency information from actual software reliance, and<br>technical component presence from sufficiently supported recognition<br>of a governed dependency object.</a><br><br>
+<section class="viewbor"></section>
+<h1>It applies to software libraries, packages, frameworks, plugins, runtime</h1>
+<a>components, build tools, development resources, software services,<br>interfaces, generated components, embedded software resources, and<br>material direct or transitive dependencies.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<a>Its foundational distinction is:</a><br><br>
+<a>Component Discovery ≠ Governed Component Identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>The operational role of CIM is:</a><br><br>
+<a>To ensure that material software components and dependency resources<br>are sufficiently identifiable, distinguishable, classified, and<br>connected to the software systems that rely upon them before their<br>origin, suitability, introduction, change, risk, or continuity can be<br>competently governed.</a><br><br>
+<a>CIM establishes the component-identification foundation of SDS.</a><br><br>
+<a>It answers the first dependency-governance question:</a><br><br>
+<a>What does this software system materially depend on?</a><br><br>
+<a>CIM does not independently determine whether a component should be<br>used, whether its origin is trustworthy, whether its inclusion was<br>authorized, or whether it is suitable for the intended software<br>context.</a><br><br>
+<section class="viewbor"></section>
+<h1>It establishes the identifiable dependency objects upon which those</h1>
+<a>subsequent assessments depend.</a><br><br>
+<section class="viewbor"></section>
+<h1>Core Question</h1>
+<a>How can every material software component and dependency resource be<br>identified and distinguished across direct, transitive, generated,<br>embedded, and externally provided dependency relationships without<br>treating package declarations, component names, or technical discovery<br>results as sufficient proof of actual software reliance?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<a>The SLGA™ governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<a>Cross-cutting:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control</h1>
+<a>CIM operates within:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Dependency Standard (SDS)</h1>
+<a>The SDS internal governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification → Dependency Origin &amp; Traceability → Dependency</h1>
+<a>Suitability → Component Introduction &amp; Change → Dependency Continuity<br>&amp; Risk</a><br><br>
+<a>CIM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification</h1>
+<a>It is the first Core Module of SDS.</a><br><br>
+<a>Its principal upstream references include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Baseline</h1>
+<a>from Software Requirements Standard (SRS).</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Creation State</h1>
+<a>from Software Creation Standard (SCS).</a><br><br>
+<a>Relevant software artifact and composition references may also be<br>received from CRIM and SACM within SCS.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<a>This state supports:</a><br><br>
+<section class="viewbor"></section>
+<h1>DOTM — Dependency Origin &amp; Traceability Module</h1>
+<a>and the remaining SDS Core Modules.</a><br><br>
+<a>CIM may be invoked repeatedly as dependency relationships emerge or<br>change.</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Component Identification Governance</h1>
+<section class="viewbor"></section>
+<h1>This space governs the recognition and identification of material software</h1>
+<a>components and dependency resources.</a><br><br>
+<a>Its principal dimensions include:</a><br><br>
+<ul><li>Dependent software object identification</li><li>Component discovery</li><li>Component recognition</li><li>Component identity</li><li>Component distinguishability</li><li>Component classification</li><li>Dependency relationship identification</li><li>Direct and indirect dependency recognition</li><li>Version and state identification</li><li>Component role identification</li><li>Component boundary identification</li><li>Component occurrence and instance recognition</li><li>Generated and dynamically resolved components</li><li>Identification evidence</li><li>Identification uncertainty</li><li>Identification conflicts</li><li>Identification gaps</li><li>Identification drift</li><li>Identification continuity</li><li>Identification governance states</li></ul><br>
+<a>The governed space is independent of any particular package manager,<br>software repository, programming language, runtime platform, or<br>software development methodology.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Every CIM assessment shall establish a Component Identification Governance</h1>
+<a>Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>The object represents a software component or dependency resource whose</h1>
+<a>identity and relationship to a dependent software object are being<br>assessed.</a><br><br>
+<a>It should identify:</a><br><br>
+<a>Identification Object Identity: The identifiable governance<br>assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependent Software Object: The software system or subsystem under</h1>
+<a>assessment.</a><br><br>
+<a>Candidate Component: The discovered or reported dependency resource.</a><br><br>
+<a>Component Identity: The distinguishable component reference.</a><br><br>
+<a>Component Type: The relevant component classification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Role: The function performed in relation to the dependent</h1>
+<a>software object.</a><br><br>
+<a>Dependency Relationship: The observed or claimed reliance<br>relationship.</a><br><br>
+<a>Version or State: The relevant technical identity condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Occurrence Context: The environment or scope in which the component</h1>
+<a>appears.</a><br><br>
+<a>Identification Evidence: Evidence supporting component recognition.</a><br><br>
+<a>Identification Uncertainty: Material unresolved identification<br>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification Governance State: The current recognized identification</h1>
+<a>condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>The identification object shall remain distinguishable from the underlying</h1>
+<a>software artifact.</a><br><br>
+<a>Component Identification Object ≠ Component Artifact.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependent Software Object Identification</h1>
+<a>CIM shall identify the software object whose dependency relationships<br>are being examined.</a><br><br>
+<a>The dependent software object may be:</a><br><br>
+<ul><li>An application</li><li>A software service</li><li>A software component</li><li>A software platform</li><li>A development tool</li><li>A build system</li><li>A generated software artifact</li><li>An autonomous software system</li><li>A defined software subsystem</li></ul><br>
+<section class="viewbor"></section>
+<h1>The dependent software object shall be sufficiently identified to establish</h1>
+<a>the scope of component recognition.</a><br><br>
+<a>A component may be a dependency of one software object while serving<br>as a dependent software object in another relationship.</a><br><br>
+<a>Dependency Role ≠ Permanent Component Classification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Discovery</h1>
+<section class="viewbor"></section>
+<h1>CIM shall support discovery of material software components and dependency</h1>
+<a>resources.</a><br><br>
+<a>Discovery sources may include:</a><br><br>
+<ul><li>Package manifests</li><li>Lockfiles</li><li>Repository contents</li><li>Build definitions</li><li>Runtime observations</li><li>Software composition records</li><li>Service integration records</li><li>Generated code</li><li>Dependency scanners</li><li>Deployment configurations</li><li>Relevant development evidence</li></ul><br>
+<a>Discovery produces candidate component information.</a><br><br>
+<section class="viewbor"></section>
+<h1>A discovery result shall not automatically be recognized as a sufficiently</h1>
+<a>identified component.</a><br><br>
+<a>Component Discovery ≠ Governed Component Identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Recognition</h1>
+<section class="viewbor"></section>
+<h1>CIM shall establish whether a discovered resource qualifies as a material</h1>
+<a>software component or dependency resource within the assessment scope.</a><br><br>
+<a>Recognition should consider:</a><br><br>
+<ul><li>Whether the resource is identifiable</li><li>Whether a material reliance relationship exists or is claimed</li><li>The relevant software context</li><li>The component's functional or operational role</li><li>The available evidence</li><li>Material uncertainty</li></ul><br>
+<a>A component may be recognized as a candidate while its exact identity<br>remains unresolved.</a><br><br>
+<a>Candidate Component Recognition ≠ Verified Component Identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identity</h1>
+<section class="viewbor"></section>
+<h1>CIM shall establish sufficiently distinguishable identities for material</h1>
+<a>components.</a><br><br>
+<a>Relevant identity information may include:</a><br><br>
+<ul><li>Component name</li><li>Package identifier</li><li>Artifact identifier</li><li>Service identifier</li><li>Component version</li><li>Distribution reference</li><li>Repository reference</li><li>Relevant content identifier</li><li>Component namespace</li><li>Component-specific identification evidence</li></ul><br>
+<section class="viewbor"></section>
+<h1>Identity shall be sufficiently precise to distinguish materially different</h1>
+<a>components or states.</a><br><br>
+<a>Component Name ≠ Governed Component Identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identity Granularity</h1>
+<section class="viewbor"></section>
+<h1>CIM shall establish the identification granularity appropriate to the</h1>
+<a>governed dependency relationship.</a><br><br>
+<a>Granularity may concern:</a><br><br>
+<ul><li>Software product</li><li>Package</li><li>Library</li><li>Module</li><li>Plugin</li><li>Service</li><li>Component instance</li><li>Build artifact</li><li>Runtime artifact</li><li>Relevant software version</li></ul><br>
+<a>Insufficient granularity may conceal materially different resources.</a><br><br>
+<a>Excessive granularity may create identification records without<br>corresponding governance value.</a><br><br>
+<a>Identification Detail ≠ Identification Adequacy.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Classification</h1>
+<section class="viewbor"></section>
+<h1>CIM shall classify components according to their relevant software</h1>
+<a>dependency roles.</a><br><br>
+<a>Classification may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Library: Reusable software functionality incorporated or invoked by other</h1>
+<a>software.</a><br><br>
+<section class="viewbor"></section>
+<h1>Framework: Software structure or services supporting application</h1>
+<a>development or execution.</a><br><br>
+<a>Package: Distributed software unit containing one or more components.</a><br><br>
+<a>Plugin: Extensible software component integrated through a defined<br>mechanism.</a><br><br>
+<a>Runtime Component: Software resource required during execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Build Component: Software resource required during compilation,</h1>
+<a>generation, or packaging.</a><br><br>
+<a>Development Component: Software resource used during software<br>creation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Service Dependency: External or internal service upon which the software</h1>
+<a>relies.</a><br><br>
+<a>Interface Dependency: Software interface whose behavior is materially<br>relied upon.</a><br><br>
+<section class="viewbor"></section>
+<h1>Platform Dependency: Software platform or environment supporting the</h1>
+<a>dependent software.</a><br><br>
+<section class="viewbor"></section>
+<h1>Generated Component: Software component produced by a generation</h1>
+<a>mechanism.</a><br><br>
+<a>Embedded Component: Software component incorporated within another<br>software artifact.</a><br><br>
+<a>Classification shall reflect the component's actual role within the<br>assessed context.</a><br><br>
+<a>Component Type ≠ Component Governance State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Role Identification</h1>
+<a>CIM shall identify the role performed by a material component.</a><br><br>
+<a>Roles may include:</a><br><br>
+<ul><li>Functional execution</li><li>Data processing</li><li>Communication</li><li>Authentication support</li><li>User interface</li><li>Storage access</li><li>Compilation</li><li>Testing</li><li>Generation</li><li>Runtime support</li><li>Integration</li><li>Monitoring</li></ul><br>
+<a>A component may perform multiple roles.</a><br><br>
+<a>The same component may serve different roles across different software<br>systems.</a><br><br>
+<a>Component Identity ≠ Component Role.</a><br><br>
+<section class="viewbor"></section>
+<h1>Direct Dependency Identification</h1>
+<section class="viewbor"></section>
+<h1>CIM shall identify material components directly relied upon by the</h1>
+<a>dependent software object.</a><br><br>
+<a>Direct reliance may arise through:</a><br><br>
+<ul><li>Explicit imports</li><li>Declared packages</li><li>Linked libraries</li><li>Service integrations</li><li>Runtime requirements</li><li>Direct tool invocation</li><li>Explicit platform reliance</li></ul><br>
+<section class="viewbor"></section>
+<h1>A direct dependency shall remain distinguishable from its transitive</h1>
+<a>dependencies.</a><br><br>
+<a>Direct Dependency Declaration ≠ Complete Direct Dependency<br>Identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Transitive Dependency Identification</h1>
+<a>CIM shall identify material components introduced indirectly through<br>other dependencies.</a><br><br>
+<a>A relevant relationship may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependent Software → Direct Component → Transitive Component</h1>
+<a>Identification shall preserve the intermediate relationship where<br>sufficiently supported.</a><br><br>
+<section class="viewbor"></section>
+<h1>A component shall not be excluded solely because it was introduced</h1>
+<a>indirectly.</a><br><br>
+<a>Indirect Introduction ≠ Absence of Material Reliance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Nested Dependency Identification</h1>
+<section class="viewbor"></section>
+<h1>CIM shall support identification of dependency relationships extending</h1>
+<a>across multiple levels.</a><br><br>
+<a>A relevant chain may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Application → Framework → Library → Runtime Component → Supporting Service</h1>
+<a>Identification should preserve material relationship depth.</a><br><br>
+<a>Where the complete dependency chain cannot be established, the<br>unresolved portion shall remain explicit.</a><br><br>
+<a>Known Dependency Root ≠ Complete Dependency Chain.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dynamic Dependency Identification</h1>
+<a>Some components are selected or resolved dynamically.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Runtime-loaded plugins</li><li>Dynamically linked libraries</li><li>Environment-dependent packages</li><li>Remote service discovery</li><li>Conditional component loading</li><li>Automated dependency resolution</li></ul><br>
+<a>CIM shall identify material dynamically resolved components where<br>evidence permits.</a><br><br>
+<section class="viewbor"></section>
+<h1>A static dependency record shall not automatically be treated as a complete</h1>
+<a>representation of dynamic software reliance.</a><br><br>
+<a>Static Dependency Manifest ≠ Actual Runtime Dependency Set.</a><br><br>
+<section class="viewbor"></section>
+<h1>Generated Component Identification</h1>
+<a>CIM shall identify material software components introduced through<br>generation mechanisms.</a><br><br>
+<a>These may include:</a><br><br>
+<ul><li>AI-generated libraries</li><li>Generated code modules</li><li>Automated client libraries</li><li>Generated interface implementations</li><li>Code generator outputs</li><li>Autonomous development artifacts</li></ul><br>
+<section class="viewbor"></section>
+<h1>Identification shall preserve the component's distinguishable identity and</h1>
+<a>relevant generation references.</a><br><br>
+<a>Detailed generation provenance remains within competent artifact<br>integrity and traceability governance.</a><br><br>
+<a>Generated Component Existence ≠ Sufficiently Identified Component.</a><br><br>
+<section class="viewbor"></section>
+<h1>Embedded Component Identification</h1>
+<a>CIM shall identify material components embedded within larger software<br>artifacts.</a><br><br>
+<a>Embedded components may not appear as separately declared packages.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Bundled libraries</li><li>Vendored source code</li><li>Embedded runtime modules</li><li>Copied software components</li><li>Statically linked components</li></ul><br>
+<section class="viewbor"></section>
+<h1>CIM shall distinguish the embedded component from the composite artifact</h1>
+<a>where the distinction is material.</a><br><br>
+<section class="viewbor"></section>
+<h1>Composite Artifact Identity ≠ Complete Constituent Component</h1>
+<a>Identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>External Service Dependency Identification</h1>
+<section class="viewbor"></section>
+<h1>CIM shall identify material software services upon which a software system</h1>
+<a>relies.</a><br><br>
+<a>Relevant information may include:</a><br><br>
+<ul><li>Service identity</li><li>Interface reference</li><li>Service role</li><li>Dependent software context</li><li>Relevant endpoint or service identifier</li><li>Evidence of actual reliance</li></ul><br>
+<a>A service dependency may exist without any corresponding package<br>installation.</a><br><br>
+<a>No Installed Package ≠ No Software Dependency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Platform Dependency Identification</h1>
+<a>CIM shall identify material software platform dependencies.</a><br><br>
+<a>These may include:</a><br><br>
+<ul><li>Operating systems</li><li>Runtime platforms</li><li>Application servers</li><li>Database platforms</li><li>Container runtimes</li><li>Software execution environments</li><li>Managed software platforms</li></ul><br>
+<section class="viewbor"></section>
+<h1>Identification shall preserve the relationship between the dependent</h1>
+<a>software and the relevant platform.</a><br><br>
+<a>Application Portability Claim ≠ Absence of Platform Dependency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Development and Build Dependency Identification</h1>
+<a>CIM shall identify material development and build resources where they<br>affect software creation or resulting artifacts.</a><br><br>
+<a>These may include:</a><br><br>
+<ul><li>Compilers</li><li>Build tools</li><li>Code generators</li><li>Testing frameworks</li><li>Package resolution tools</li><li>Development services</li><li>Automated build environments</li></ul><br>
+<a>A component may be absent from the deployed application while<br>remaining material to its creation.</a><br><br>
+<a>Runtime Absence ≠ Development Dependency Irrelevance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Version Identification</h1>
+<a>CIM shall identify relevant component versions or states.</a><br><br>
+<a>Version information may include:</a><br><br>
+<ul><li>Declared version</li><li>Resolved version</li><li>Installed version</li><li>Executed version</li><li>Build version</li><li>Distribution version</li><li>Relevant content reference</li></ul><br>
+<a>Where these differ, CIM shall preserve the distinction.</a><br><br>
+<a>Declared Version ≠ Actual Component Version.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Instance Identification</h1>
+<a>A software system may use multiple instances of the same component.</a><br><br>
+<a>CIM shall distinguish component identity from component occurrence<br>where material.</a><br><br>
+<a>Relevant occurrence contexts may include:</a><br><br>
+<ul><li>Development environment</li><li>Build environment</li><li>Testing environment</li><li>Production environment</li><li>Multiple service instances</li><li>Separate application deployments</li></ul><br>
+<a>Component Identity ≠ Component Instance Identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Boundary Identification</h1>
+<a>CIM shall establish the boundaries of material component identities.</a><br><br>
+<a>Relevant questions include:</a><br><br>
+<ul><li>What constitutes the component?</li><li>Which artifacts belong to it?</li><li>Which elements are separate dependencies?</li><li>Is the component embedded or independently distributed?</li><li>Does the identified object represent a package, service, or<br>composite</li></ul><br>
+<a>artifact?</a><br><br>
+<a>Boundary uncertainty shall remain explicit.</a><br><br>
+<a>Package Boundary ≠ Necessarily Component Boundary.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Relationship Identification</h1>
+<a>CIM shall identify material relationships between components.</a><br><br>
+<a>Relationships may include:</a><br><br>
+<ul><li>Direct reliance</li><li>Indirect reliance</li><li>Runtime invocation</li><li>Build participation</li><li>Service consumption</li><li>Component embedding</li><li>Shared platform reliance</li><li>Conditional use</li><li>Alternative use</li></ul><br>
+<section class="viewbor"></section>
+<h1>Identification shall distinguish observed relationships from claimed or</h1>
+<a>inferred relationships.</a><br><br>
+<a>Recorded Component Association ≠ Established Dependency Relationship.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Across Environments</h1>
+<a>CIM shall recognize that dependency identities and occurrences may<br>differ across environments.</a><br><br>
+<a>Relevant environments include:</a><br><br>
+<ul><li>Development</li><li>Testing</li><li>Build</li><li>Staging</li><li>Production</li><li>Maintenance</li></ul><br>
+<section class="viewbor"></section>
+<h1>A component discovered in one environment shall not automatically be</h1>
+<a>assumed to exist in every other environment.</a><br><br>
+<a>Development Dependency Set ≠ Production Dependency Set.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Evidence</h1>
+<a>CIM shall preserve evidence supporting material identification claims.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<ul><li>Package manifests</li><li>Lockfiles</li><li>Build records</li><li>Runtime observations</li><li>Service integration records</li><li>Repository evidence</li><li>Artifact identifiers</li><li>Component inventories</li><li>Composition records</li><li>Tool-generated reports</li></ul><br>
+<a>Evidence requirements shall reflect component materiality.</a><br><br>
+<a>Component Inventory Entry ≠ Verified Component Identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification Evidence Competence</h1>
+<a>CIM shall assess whether evidence is competent to support the claimed<br>component identity or relationship.</a><br><br>
+<a>For example:</a><br><br>
+<a>A package manifest may support a declared dependency.</a><br><br>
+<a>A lockfile may support a resolved dependency version.</a><br><br>
+<a>A runtime observation may support actual component execution.</a><br><br>
+<a>A build record may support component participation in software<br>creation.</a><br><br>
+<a>These records establish different facts.</a><br><br>
+<a>Evidence Availability ≠ Evidence Competence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification Evidence Integrity</h1>
+<a>CIM shall preserve the integrity of material identification evidence.</a><br><br>
+<a>Relevant considerations may include:</a><br><br>
+<ul><li>Evidence source</li><li>Content integrity</li><li>Temporal relevance</li><li>Version correspondence</li><li>Preservation history</li><li>Material contradictions</li><li>Evidence completeness</li></ul><br>
+<a>Evidence integrity does not independently establish that the component<br>identification claim is correct.</a><br><br>
+<a>Evidence Integrity ≠ Identification Validity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Declared and Observed Components</h1>
+<section class="viewbor"></section>
+<h1>CIM shall distinguish declared components from components actually observed</h1>
+<a>in relevant software contexts.</a><br><br>
+<a>Possible conditions include:</a><br><br>
+<ul><li>Declared and observed</li><li>Declared but not observed</li><li>Observed but not declared</li><li>Conditionally observed</li><li>Historically observed</li><li>Identification unresolved</li></ul><br>
+<a>Differences may arise through dynamic loading, unused declarations,<br>build conditions, or incomplete discovery.</a><br><br>
+<a>Declared Component Set ≠ Observed Component Set.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Completeness</h1>
+<section class="viewbor"></section>
+<h1>CIM shall assess whether material components have been sufficiently</h1>
+<a>identified within the defined scope.</a><br><br>
+<a>Completeness may concern:</a><br><br>
+<ul><li>Direct dependencies</li><li>Transitive dependencies</li><li>Runtime components</li><li>Build dependencies</li><li>Generated components</li><li>Embedded components</li><li>External services</li><li>Platform dependencies</li></ul><br>
+<a>Completeness shall be evaluated relative to the governed software<br>context.</a><br><br>
+<a>High Discovery Coverage ≠ Complete Component Identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Consistency</h1>
+<a>CIM shall assess whether component identification records are mutually<br>consistent.</a><br><br>
+<a>Potential conflicts include:</a><br><br>
+<ul><li>Contradictory versions</li><li>Inconsistent component names</li><li>Different artifact identities</li><li>Conflicting dependency roles</li><li>Incompatible environment records</li><li>Contradictory component boundaries</li></ul><br>
+<a>Consistency does not independently establish historical accuracy or<br>completeness.</a><br><br>
+<a>Consistent Component Records ≠ Verified Component Reality.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Uncertainty</h1>
+<a>Identification uncertainty may arise where:</a><br><br>
+<ul><li>Component identity is incomplete</li><li>Version information is missing</li><li>Component boundaries are unclear</li><li>Runtime reliance cannot be established</li><li>A service identity is ambiguous</li><li>Generated components lack sufficient identifiers</li><li>Transitive relationships remain unknown</li></ul><br>
+<a>CIM shall preserve material uncertainty.</a><br><br>
+<a>Uncertain Component Identity ≠ Verified Component Identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Conflict</h1>
+<a>An identification conflict exists where material evidence supports<br>incompatible component identities or relationships.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Different versions reported for the same execution context</li><li>Contradictory component identifiers</li><li>Conflicting runtime and manifest records</li><li>Incompatible component boundaries</li><li>Disagreement between build evidence and delivered artifacts</li></ul><br>
+<a>CIM shall preserve the conflict and its supporting evidence.</a><br><br>
+<a>Identification Conflict ≠ Permission to Select an Unsupported<br>Identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Gap</h1>
+<a>A Component Identification Gap exists where a material software<br>component or dependency relationship cannot be sufficiently<br>identified.</a><br><br>
+<a>Examples include:</a><br><br>
+<ul><li>An unknown runtime library</li><li>An unrecognized external service</li><li>A missing transitive component</li><li>An embedded library with uncertain identity</li><li>A generated component without a distinguishable version</li><li>An unidentified build dependency</li></ul><br>
+<a>CIM shall identify the gap and its material significance.</a><br><br>
+<a>Missing Component Identification ≠ Proven Component Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Component Identification Gap</h1>
+<a>A Critical Component Identification Gap exists where insufficient<br>identification prevents competent assessment of a materially<br>consequential dependency.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>An unidentified component supporting a critical software<br>function</li><li>An unknown library embedded in safety-relevant software</li><li>A critical external service whose actual identity cannot be</li><li>An unrecognized transitive component essential to system<br>operation</li></ul><br>
+<a>established.</a><br><br>
+<a>CIM shall preserve the critical gap for competent downstream<br>assessment.</a><br><br>
+<a>It does not independently determine operational suspension, security<br>failure, or liability.</a><br><br>
+<a>Critical Identification Gap ≠ Automatic Software Rejection.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Drift</h1>
+<a>Component Identification Drift occurs when the actual component set or<br>identity relationships materially diverge from the recognized<br>identification state.</a><br><br>
+<a>Possible causes include:</a><br><br>
+<ul><li>Automatic updates</li><li>Dynamic dependency resolution</li><li>Unrecorded component replacement</li><li>Runtime environment changes</li><li>Generated code changes</li><li>Service substitutions</li><li>Build configuration changes</li></ul><br>
+<a>CIM shall identify material drift and support reassessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Previously Identified Component Set ≠ Permanently Identified Component</h1>
+<a>Set.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Change</h1>
+<a>CIM shall preserve material changes to component identification<br>records.</a><br><br>
+<a>Changes may include:</a><br><br>
+<ul><li>Newly discovered components</li><li>Corrected identities</li><li>Version changes</li><li>Revised component boundaries</li><li>Changed dependency roles</li><li>Removed components</li><li>New evidence</li><li>Resolved conflicts</li></ul><br>
+<a>Historical identification states shall remain reconstructable where<br>material.</a><br><br>
+<a>Identification Correction ≠ Historical Identification Erasure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Continuity</h1>
+<section class="viewbor"></section>
+<h1>CIM shall preserve material component identity relationships across</h1>
+<a>software lifecycle changes.</a><br><br>
+<a>Continuity may involve:</a><br><br>
+<ul><li>Software version changes</li><li>Repository migrations</li><li>Package source changes</li><li>Development environment changes</li><li>Runtime environment changes</li><li>Component replacement</li><li>Supplier changes</li><li>Software modernization</li></ul><br>
+<a>A persistent component name does not independently establish identity<br>continuity.</a><br><br>
+<a>Name Continuity ≠ Component Identity Continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Governance States</h1>
+<a>CIM shall support identifiable governance states.</a><br><br>
+<a>Possible states include:</a><br><br>
+<a>Discovered: A candidate component has been detected.</a><br><br>
+<a>Under Assessment: Identification conditions are being evaluated.</a><br><br>
+<a>Identified: The component has a sufficiently distinguishable identity.</a><br><br>
+<a>Conditionally Identified: Identification depends on explicit<br>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Partially Identified: Some material identification dimensions remain</h1>
+<a>unresolved.</a><br><br>
+<a>Evidence-Limited: Available identification evidence is insufficient.</a><br><br>
+<a>Version-Unresolved: The relevant component version cannot be<br>established.</a><br><br>
+<a>Boundary-Unresolved: Material component boundaries remain uncertain.</a><br><br>
+<section class="viewbor"></section>
+<h1>Relationship-Unresolved: The component's dependency relationship cannot</h1>
+<a>be sufficiently established.</a><br><br>
+<a>Conflicted: Material identification evidence contradicts itself.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification-Failed: Applicable identification conditions have been</h1>
+<a>determined not to hold.</a><br><br>
+<a>Superseded: A later identification state has replaced the earlier<br>state.</a><br><br>
+<a>Unresolved: Available information does not support a sufficiently<br>determined state.</a><br><br>
+<section class="viewbor"></section>
+<h1>These states shall not be interpreted as dependency acceptance or software</h1>
+<a>product certification.</a><br><br>
+<a>Component Identified ≠ Dependency Accepted.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Recognition</h1>
+<section class="viewbor"></section>
+<h1>CIM shall determine whether a material component has been sufficiently</h1>
+<a>identified for the intended governance purpose.</a><br><br>
+<a>Recognition should consider:</a><br><br>
+<ul><li>Component identity</li><li>Classification</li><li>Role</li><li>Version</li><li>Boundary</li><li>Dependent software context</li><li>Relationship evidence</li><li>Occurrence context</li><li>Evidence competence</li><li>Evidence integrity</li><li>Uncertainty</li><li>Conflicts</li><li>Continuity</li></ul><br>
+<section class="viewbor"></section>
+<h1>Recognition shall remain limited to the component and relationship</h1>
+<a>conditions actually assessed.</a><br><br>
+<a>Recognized Component Identity ≠ Complete Dependency Governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification and Origin</h1>
+<a>CIM identifies components and preserves relevant origin references.</a><br><br>
+<a>It does not independently establish complete origin provenance.</a><br><br>
+<a>Detailed origin and traceability governance remains within:</a><br><br>
+<section class="viewbor"></section>
+<h1>DOTM — Dependency Origin &amp; Traceability Module</h1>
+<a>A component may be sufficiently identified while its origin remains<br>unresolved.</a><br><br>
+<a>Component Identity ≠ Verified Component Origin.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification and Suitability</h1>
+<a>CIM identifies the components upon which a software system relies.</a><br><br>
+<a>It does not independently determine whether those components are<br>suitable.</a><br><br>
+<a>Detailed suitability governance remains within:</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM — Dependency Suitability Module</h1>
+<a>A component may be correctly identified while being incompatible,<br>unnecessary, or unsuitable.</a><br><br>
+<a>Component Identification ≠ Dependency Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification and Introduction Authority</h1>
+<a>CIM may preserve references to the actors or mechanisms that<br>introduced a component.</a><br><br>
+<a>It does not independently determine whether the introduction was<br>authorized.</a><br><br>
+<a>Detailed introduction and change governance remains within:</a><br><br>
+<section class="viewbor"></section>
+<h1>CICM — Component Introduction &amp; Change Module</h1>
+<a>Component Presence ≠ Authorized Component Introduction.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification and Continuity</h1>
+<a>CIM identifies components and relevant dependency relationships.</a><br><br>
+<a>It does not independently establish whether those components are<br>maintained, replaceable, available, or operationally sustainable.</a><br><br>
+<a>Detailed continuity and risk governance remains within:</a><br><br>
+<section class="viewbor"></section>
+<h1>DCRM — Dependency Continuity &amp; Risk Module</h1>
+<a>Component Identification ≠ Dependency Continuity Assurance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification and Operational Reality</h1>
+<section class="viewbor"></section>
+<h1>CIM shall distinguish declared dependency information from the components</h1>
+<a>actually participating in relevant software operation.</a><br><br>
+<a>A software system may:</a><br><br>
+<ul><li>Load undeclared runtime components</li><li>Invoke external services</li><li>Use dynamically resolved libraries</li><li>Execute embedded code</li><li>Rely on platform components absent from application manifests</li></ul><br>
+<a>Where actual component participation cannot be established, the<br>limitation shall remain explicit.</a><br><br>
+<a>Declared Dependency Inventory ≠ Complete Operational Dependency<br>Reality.</a><br><br>
+<a>Competent operational reality assessment remains within ORA™.</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Reassessment</h1>
+<a>CIM shall support reassessment when material identification conditions<br>change.</a><br><br>
+<a>Triggers may include:</a><br><br>
+<ul><li>New dependency discovery</li><li>Version changes</li><li>Software modifications</li><li>Build changes</li><li>Runtime changes</li><li>Generated component changes</li><li>New service integrations</li><li>Evidence conflicts</li><li>Component identification drift</li><li>Dependency relationship changes</li></ul><br>
+<a>Reassessment shall preserve material historical identification<br>information.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<a>The principal output of CIM is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<a>The state shall preserve sufficient information to identify:</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification Governance Object: The component or relationship under</h1>
+<a>assessment.</a><br><br>
+<a>Dependent Software Object: The software system relying on the<br>component.</a><br><br>
+<a>Component Identity: The distinguishable component reference.</a><br><br>
+<a>Component Classification: The relevant component type.</a><br><br>
+<a>Component Role: The function performed in the dependent software<br>context.</a><br><br>
+<a>Dependency Relationship: The material reliance relationship.</a><br><br>
+<a>Component Version: The relevant version or state.</a><br><br>
+<a>Component Boundary: The identified component scope.</a><br><br>
+<a>Component Occurrence: The relevant environment or instance.</a><br><br>
+<a>Direct or Transitive Position: The component's relationship within the<br>dependency structure.</a><br><br>
+<a>Discovery Source: The source of candidate component information.</a><br><br>
+<a>Identification Evidence: Evidence supporting the identification.</a><br><br>
+<a>Evidence Integrity: The condition of material supporting evidence.</a><br><br>
+<a>Identification Completeness: The sufficiency of identification<br>coverage.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification Consistency: The compatibility of material identification</h1>
+<a>records.</a><br><br>
+<a>Identification Uncertainty: Material unresolved identification<br>conditions.</a><br><br>
+<a>Identification Conflicts: Contradictory component identity evidence.</a><br><br>
+<a>Identification Gaps: Missing material component identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Identification Gaps: Material identification failures requiring</h1>
+<a>competent attention.</a><br><br>
+<a>Identification Drift: Divergence from the recognized component state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification Governance State: The current recognized identification</h1>
+<a>condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Continuity: Preservation of component identity relationships across</h1>
+<a>change.</a><br><br>
+<section class="viewbor"></section>
+<h1>Downstream References: Information required by competent SDS governance</h1>
+<a>modules.</a><br><br>
+<section class="viewbor"></section>
+<h1>The state shall not independently establish dependency suitability,</h1>
+<a>introduction authority, security, quality, or continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A conforming implementation of CIM must provide the following six<br>functional capabilities.</a><br><br>
+<ul><li>Dependent Software Object and Component Discovery Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify the dependent software object, establish discovery</h1>
+<a>scope, and discover candidate software components across direct,<br>transitive, generated, embedded, runtime, development, build, service,<br>and platform relationships.</a><br><br>
+<a>The implementation must distinguish discovered candidates from<br>sufficiently identified components.</a><br><br>
+<ul><li>Component Identity, Classification, and Boundary Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to establish distinguishable component identities, versions,</h1>
+<a>classifications, roles, and material component boundaries.</a><br><br>
+<a>The implementation must not treat component names or package labels as<br>sufficient identity evidence where material ambiguity remains.</a><br><br>
+<ul><li>Dependency Relationship, Occurrence, and Environment Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify material reliance relationships, distinguish direct</h1>
+<a>and indirect dependencies, and preserve relevant component occurrences<br>across development, build, testing, runtime, and deployment<br>environments.</a><br><br>
+<a>The implementation must distinguish declared relationships from<br>observed relationships.</a><br><br>
+<ul><li>Component Identification Evidence and Recognition Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to associate identification claims with competent evidence,</h1>
+<a>evaluate evidence integrity, and determine whether material component<br>identities and relationships are sufficiently supported.</a><br><br>
+<a>The implementation must preserve unsupported claims and identification<br>uncertainty.</a><br><br>
+<ul><li>Identification Gap, Conflict, Drift, and Continuity Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify material gaps, critical gaps, conflicting component</h1>
+<a>records, identification drift, and identity continuity across software<br>changes.</a><br><br>
+<a>The implementation must preserve material historical identification<br>states and corrections.</a><br><br>
+<ul><li>Governed Component Identification State and SDS Handoff<br>Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to produce a Governed Software Component Identification State</h1>
+<a>with sufficient identity, relationship, version, classification,<br>evidence, uncertainty, and continuity information for competent<br>downstream SDS governance.</a><br><br>
+<a>The implementation must not convert component identification into<br>dependency acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>GIE™ Compatibility</h1>
+<a>CIM is compatible with GIE™ as a downstream methodological analysis<br>and execution layer.</a><br><br>
+<a>GIE™ may support:</a><br><br>
+<ul><li>Component discovery</li><li>Dependency candidate identification</li><li>Component identity normalization</li><li>Component classification</li><li>Component role identification</li><li>Direct dependency recognition</li><li>Transitive dependency discovery</li><li>Nested dependency mapping</li><li>Dynamic dependency identification</li><li>Generated component recognition</li><li>Embedded component recognition</li><li>Service dependency identification</li><li>Platform dependency identification</li><li>Build and development dependency identification</li><li>Version correlation</li><li>Component instance identification</li><li>Component boundary analysis</li><li>Cross-environment component comparison</li><li>Identification evidence association</li><li>Identification completeness assessment</li><li>Identification consistency assessment</li><li>Identification gap detection</li><li>Critical identification gap detection</li><li>Identification conflict analysis</li><li>Identification drift detection</li><li>Component identity continuity assessment</li><li>Governed identification state representation</li></ul><br>
+<a>GIE™ may propose candidate identities or infer possible dependency<br>relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>Such outputs shall remain distinguishable from sufficiently evidenced</h1>
+<a>component identities and relationships.</a><br><br>
+<a>GIE™ must not invent component versions, fabricate dependency<br>relationships, or convert incomplete discovery into verified component<br>identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>OOF® logic adapts to the governed reality. The engine adapts to OOF®</h1>
+<a>logic.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>The canonical CIM governance logic is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Requirements Baseline</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Creation State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Component Identification Governance Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Dependent Software Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Component Discovery Scope</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Discover Candidate Components and Dependency Resources</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Direct and Transitive Dependency Candidates</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Generated, Embedded, Dynamic, Service, and Platform Components</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Component Identity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Component Classification and Role</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Component Version or State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Component Boundary</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Component Occurrence and Environment</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Material Dependency Relationships</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Associate Component Identification Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Evidence Competence and Integrity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Identification Completeness</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Identification Consistency</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Identification Gaps and Critical Gaps</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Identification Conflicts and Uncertainty</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Component Identification Drift</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Component Identification Governance State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Governed Software Component Identification State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Component Identification Continuity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff to DOTM and Competent SDS Governance</h1>
+<a>↓</a><br><br>
+<a>Reassess When Material Component Conditions Change</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>CIM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Dependent Software Object Reference</h1>
+<section class="viewbor"></section>
+<h1>Component Discovery Scope Record</h1>
+<section class="viewbor"></section>
+<h1>Candidate Component Inventory</h1>
+<section class="viewbor"></section>
+<h1>Component Recognition Record</h1>
+<section class="viewbor"></section>
+<h1>Component Identity Record</h1>
+<section class="viewbor"></section>
+<h1>Component Identity Granularity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Component Classification Record</h1>
+<section class="viewbor"></section>
+<h1>Component Role Record</h1>
+<section class="viewbor"></section>
+<h1>Direct Dependency Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Transitive Dependency Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Nested Dependency Map</h1>
+<section class="viewbor"></section>
+<h1>Dynamic Dependency Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Generated Component Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Embedded Component Identification Record</h1>
+<section class="viewbor"></section>
+<h1>External Service Dependency Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Platform Dependency Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Development and Build Dependency Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Component Version Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Component Instance Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Component Boundary Record</h1>
+<section class="viewbor"></section>
+<h1>Component Relationship Record</h1>
+<section class="viewbor"></section>
+<h1>Cross-Environment Component Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Evidence Record</h1>
+<section class="viewbor"></section>
+<h1>Identification Evidence Competence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Identification Evidence Integrity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Declared and Observed Component Comparison</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Completeness Assessment</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Consistency Assessment</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Uncertainty State</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Conflict Record</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Gap</h1>
+<section class="viewbor"></section>
+<h1>Critical Component Identification Gap</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Drift Record</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Change Record</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Continuity Record</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Governance State</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Recognition Record</h1>
+<section class="viewbor"></section>
+<h1>Component Origin Reference</h1>
+<section class="viewbor"></section>
+<h1>Component Suitability Reference</h1>
+<section class="viewbor"></section>
+<h1>Component Introduction Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Component Continuity Reference</h1>
+<section class="viewbor"></section>
+<h1>Operational Reality Identification Reference</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Reassessment Record</h1>
+<section class="viewbor"></section>
+<h1>SDS Identification Handoff Record</h1>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>CIM preserves the following distinctions:</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Discovery ≠ Governed Component Identification</h1>
+<section class="viewbor"></section>
+<h1>Component Identification Object ≠ Component Artifact</h1>
+<section class="viewbor"></section>
+<h1>Dependency Role ≠ Permanent Component Classification</h1>
+<section class="viewbor"></section>
+<h1>Candidate Component Recognition ≠ Verified Component Identity</h1>
+<section class="viewbor"></section>
+<h1>Component Name ≠ Governed Component Identity</h1>
+<section class="viewbor"></section>
+<h1>Identification Detail ≠ Identification Adequacy</h1>
+<section class="viewbor"></section>
+<h1>Component Type ≠ Component Governance State</h1>
+<section class="viewbor"></section>
+<h1>Component Identity ≠ Component Role</h1>
+<section class="viewbor"></section>
+<h1>Direct Dependency Declaration ≠ Complete Direct Dependency Identification</h1>
+<section class="viewbor"></section>
+<h1>Indirect Introduction ≠ Absence of Material Reliance</h1>
+<section class="viewbor"></section>
+<h1>Known Dependency Root ≠ Complete Dependency Chain</h1>
+<section class="viewbor"></section>
+<h1>Static Dependency Manifest ≠ Actual Runtime Dependency Set</h1>
+<section class="viewbor"></section>
+<h1>Generated Component Existence ≠ Sufficiently Identified Component</h1>
+<section class="viewbor"></section>
+<h1>Composite Artifact Identity ≠ Complete Constituent Component</h1>
+<a>Identification</a><br><br>
+<section class="viewbor"></section>
+<h1>No Installed Package ≠ No Software Dependency</h1>
+<section class="viewbor"></section>
+<h1>Application Portability Claim ≠ Absence of Platform Dependency</h1>
+<section class="viewbor"></section>
+<h1>Runtime Absence ≠ Development Dependency Irrelevance</h1>
+<section class="viewbor"></section>
+<h1>Declared Version ≠ Actual Component Version</h1>
+<section class="viewbor"></section>
+<h1>Component Identity ≠ Component Instance Identity</h1>
+<section class="viewbor"></section>
+<h1>Package Boundary ≠ Necessarily Component Boundary</h1>
+<section class="viewbor"></section>
+<h1>Recorded Component Association ≠ Established Dependency Relationship</h1>
+<section class="viewbor"></section>
+<h1>Development Dependency Set ≠ Production Dependency Set</h1>
+<section class="viewbor"></section>
+<h1>Component Inventory Entry ≠ Verified Component Identification</h1>
+<section class="viewbor"></section>
+<h1>Evidence Availability ≠ Evidence Competence</h1>
+<section class="viewbor"></section>
+<h1>Evidence Integrity ≠ Identification Validity</h1>
+<section class="viewbor"></section>
+<h1>Declared Component Set ≠ Observed Component Set</h1>
+<section class="viewbor"></section>
+<h1>High Discovery Coverage ≠ Complete Component Identification</h1>
+<section class="viewbor"></section>
+<h1>Consistent Component Records ≠ Verified Component Reality</h1>
+<section class="viewbor"></section>
+<h1>Uncertain Component Identity ≠ Verified Component Identity</h1>
+<section class="viewbor"></section>
+<h1>Identification Conflict ≠ Permission to Select an Unsupported Identity</h1>
+<section class="viewbor"></section>
+<h1>Missing Component Identification ≠ Proven Component Defect</h1>
+<section class="viewbor"></section>
+<h1>Critical Identification Gap ≠ Automatic Software Rejection</h1>
+<section class="viewbor"></section>
+<h1>Previously Identified Component Set ≠ Permanently Identified Component Set</h1>
+<section class="viewbor"></section>
+<h1>Identification Correction ≠ Historical Identification Erasure</h1>
+<section class="viewbor"></section>
+<h1>Name Continuity ≠ Component Identity Continuity</h1>
+<section class="viewbor"></section>
+<h1>Component Identified ≠ Dependency Accepted</h1>
+<section class="viewbor"></section>
+<h1>Recognized Component Identity ≠ Complete Dependency Governance</h1>
+<section class="viewbor"></section>
+<h1>Component Identity ≠ Verified Component Origin</h1>
+<section class="viewbor"></section>
+<h1>Component Identification ≠ Dependency Suitability</h1>
+<section class="viewbor"></section>
+<h1>Component Presence ≠ Authorized Component Introduction</h1>
+<section class="viewbor"></section>
+<h1>Component Identification ≠ Dependency Continuity Assurance</h1>
+<section class="viewbor"></section>
+<h1>Declared Dependency Inventory ≠ Complete Operational Dependency Reality</h1>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<a>CIM governs software component identification within SDS and SLGA™.</a><br><br>
+<a>It does not independently establish dependency origin validity,<br>suitability, introduction authority, security, quality, or continuity.</a><br><br>
+<a>Within SDS:</a><br><br>
+<section class="viewbor"></section>
+<h1>CIM — Component Identification Module identifies material software</h1>
+<a>components and dependency resources.</a><br><br>
+<section class="viewbor"></section>
+<h1>DOTM — Dependency Origin &amp; Traceability Module governs origin,</h1>
+<a>provenance, and dependency traceability.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM — Dependency Suitability Module governs necessity, compatibility, and</h1>
+<a>suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>CICM — Component Introduction &amp; Change Module governs introduction</h1>
+<a>authority, inclusion, modification, replacement, and removal.</a><br><br>
+<section class="viewbor"></section>
+<h1>DCRM — Dependency Continuity &amp; Risk Module governs criticality, risks,</h1>
+<a>maintenance, availability, substitutability, and continuity.</a><br><br>
+<a>Within SLGA™:</a><br><br>
+<a>Software Requirements Standard (SRS) governs requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Creation Standard (SCS) governs software creation and artifact</h1>
+<a>formation.</a><br><br>
+<a>Software Configuration Standard (SCFS) governs software configuration.</a><br><br>
+<a>Software Quality Standard (SQS) governs software quality.</a><br><br>
+<a>Software Security Standard (SSS) governs software security.</a><br><br>
+<a>Software Release Standard (SRLS) governs release.</a><br><br>
+<a>Software Deployment Standard (SDPS) governs deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Change Management Standard (SCMS) governs broader lifecycle</h1>
+<a>change.</a><br><br>
+<a>Software Retirement Standard (SRTS) governs retirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control Standard (SLCS) governs cross-cutting</h1>
+<a>lifecycle control.</a><br><br>
+<a>Relevant interoperating OOF® architectures include:</a><br><br>
+<section class="viewbor"></section>
+<h1>OBIDENITY® — Origin-Bound Identity Governance Architecture: Relevant</h1>
+<a>origin and identity governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>ORA™ — Operational Reality Architecture: Competent operational reality</h1>
+<a>assessment.</a><br><br>
+<a>GOA™ — Governance Architecture: General governance authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>CIM preserves component identification relationships without replacing the</h1>
+<a>competent governance responsibilities of these domains.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>CIM begins when a software system contains, uses, invokes, embeds,<br>generates, or otherwise materially relies upon a software component or<br>software-related resource requiring identification.</a><br><br>
+<a>CIM governs:</a><br><br>
+<ul><li>Component identification governance objects</li><li>Dependent software object identification</li><li>Component discovery</li><li>Component recognition</li><li>Component identity</li><li>Identification granularity</li><li>Component classification</li><li>Component roles</li><li>Direct dependencies</li><li>Transitive dependencies</li><li>Nested dependency relationships</li><li>Dynamic dependencies</li><li>Generated components</li><li>Embedded components</li><li>External service dependencies</li><li>Platform dependencies</li><li>Development and build dependencies</li><li>Component versions</li><li>Component instances</li><li>Component boundaries</li><li>Component relationships</li><li>Cross-environment identification</li><li>Identification evidence</li><li>Evidence competence</li><li>Evidence integrity</li><li>Declared and observed components</li><li>Identification completeness</li><li>Identification consistency</li><li>Identification uncertainty</li><li>Identification conflicts</li><li>Identification gaps</li><li>Critical identification gaps</li><li>Identification drift</li><li>Identification changes</li><li>Identification continuity</li><li>Identification governance states</li><li>Identification recognition</li><li>Component origin references</li><li>Component suitability references</li><li>Component introduction authority references</li><li>Component continuity references</li><li>Operational reality identification references</li><li>Identification reassessment</li></ul><br>
+<a>CIM does not independently determine:</a><br><br>
+<ul><li>Complete dependency provenance</li><li>Dependency necessity</li><li>Dependency suitability</li><li>Dependency introduction authority</li><li>Dependency acceptance</li><li>Software component security</li><li>Software functional correctness</li><li>Dependency continuity</li><li>Software release readiness</li><li>Deployment authorization</li><li>Legal liability</li></ul><br>
+<a>CIM ends when the relevant component or dependency resource has been<br>represented as a:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<section class="viewbor"></section>
+<h1>with sufficient identity, classification, version, role, relationship,</h1>
+<a>evidence, uncertainty, and continuity information for competent<br>downstream SDS governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 1 — An AI-Generated Application Contains an Undeclared</h1>
+<a>External Service Dependency</a><br><br>
+<section class="viewbor"></section>
+<h1>An organization uses an AI coding assistant to generate a business</h1>
+<a>application.</a><br><br>
+<section class="viewbor"></section>
+<h1>The generated application contains a package manifest listing its software</h1>
+<a>libraries.</a><br><br>
+<a>The development team reviews the manifest and concludes that the<br>application's dependencies have been identified.</a><br><br>
+<a>The application compiles successfully and passes its initial tests.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, part of the generated code makes runtime requests to an external</h1>
+<a>service.</a><br><br>
+<a>That service is not represented in the package manifest.</a><br><br>
+<a>The development team has not recognized it as a material dependency.</a><br><br>
+<a>The application may fail or behave differently if the external service<br>becomes unavailable or changes its interface.</a><br><br>
+<a>CIM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependent Software Object → Discovered Components → Runtime Service</h1>
+<a>Relationships → Component Identity → Identification Evidence</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The package manifest does not represent the complete dependency<br>set</li><li>A material service dependency exists outside the declared<br>package</li><li>The service must be sufficiently identified before its origin,</li></ul><br>
+<a>inventory. suitability, authority, and continuity can be competently<br>assessed.</a><br><br>
+<a>The relevant component identification state may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Partially Identified</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Relationship-Unresolved</h1>
+<a>until sufficient evidence is established.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Package Manifest Entry ≠ Complete Dependency Recognition.</a><br><br>
+<a>No Installed Package ≠ No Software Dependency.</a><br><br>
+<a>Declared Dependency Inventory ≠ Complete Operational Dependency<br>Reality.</a><br><br>
+<a>The result: CIM reveals that software dependency identification must<br>reflect actual material reliance, not merely the contents of<br>conventional package declarations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — A Critical Software System Contains an Unidentified</h1>
+<a>Embedded Library</a><br><br>
+<a>An organization acquires a software platform from an external<br>supplier.</a><br><br>
+<section class="viewbor"></section>
+<h1>The supplier provides the application, documentation, and a list of</h1>
+<a>declared third-party packages.</a><br><br>
+<a>The application operates successfully.</a><br><br>
+<a>During a later technical assessment, the organization discovers that a<br>material software library was embedded directly into the application's<br>executable package.</a><br><br>
+<a>The embedded library does not appear as a separate dependency in the<br>supplied package inventory.</a><br><br>
+<a>Its exact version is unknown.</a><br><br>
+<section class="viewbor"></section>
+<h1>Its relationship to the delivered software artifact has not been</h1>
+<a>sufficiently established.</a><br><br>
+<section class="viewbor"></section>
+<h1>The organization cannot competently assess the component's origin,</h1>
+<a>compatibility history, maintenance conditions, or relevant risks until<br>the component is identified.</a><br><br>
+<a>CIM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Delivered Software Artifact → Embedded Component → Component Boundary →</h1>
+<a>Component Identity → Version → Identification Evidence</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The embedded library is a material constituent component</li><li>Its absence from the declared dependency inventory does not<br>eliminate</li><li>The available evidence is insufficient to establish the precise</li><li>Downstream dependency governance requires an explicit<br>identification</li></ul><br>
+<a>the dependency relationship. component version. state.</a><br><br>
+<a>The relevant component identification state may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Version-Unresolved</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence-Limited</h1>
+<a>until sufficient evidence is established.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<section class="viewbor"></section>
+<h1>Composite Artifact Identity ≠ Complete Constituent Component</h1>
+<a>Identification.</a><br><br>
+<a>Component Name ≠ Governed Component Identity.</a><br><br>
+<a>Component Identified ≠ Dependency Accepted.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: CIM prevents an apparently complete software inventory from</h1>
+<a>concealing unidentified components embedded within delivered software<br>artifacts.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>Modern software systems are not composed only of the components<br>developers explicitly declare.</a><br><br>
+<a>They may contain embedded libraries, dynamically resolved packages,<br>generated modules, external services, runtime platforms, build<br>dependencies, and transitive resources extending across multiple<br>software environments.</a><br><br>
+<a>Some components are visible in package manifests.</a><br><br>
+<a>Others appear only during execution.</a><br><br>
+<a>Some are introduced deliberately.</a><br><br>
+<a>Others emerge through automated generation, integration, or dependency<br>resolution.</a><br><br>
+<a>A software system may function correctly while its complete material<br>component structure remains insufficiently identified.</a><br><br>
+<a>Component Discovery ≠ Governed Component Identification.</a><br><br>
+<a>Component Name ≠ Governed Component Identity.</a><br><br>
+<a>Declared Dependency Inventory ≠ Complete Operational Dependency<br>Reality.</a><br><br>
+<section class="viewbor"></section>
+<h1>Composite Artifact Identity ≠ Complete Constituent Component</h1>
+<a>Identification.</a><br><br>
+<a>Component Identified ≠ Dependency Accepted.</a><br><br>
+<section class="viewbor"></section>
+<h1>CIM establishes the first methodological requirement of software dependency</h1>
+<a>governance:</a><br><br>
+<section class="viewbor"></section>
+<h1>A software dependency cannot be competently governed while the component</h1>
+<a>or resource upon which the system relies remains insufficiently<br>identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>This requirement applies regardless of whether the component was selected</h1>
+<a>by a human developer, introduced by an autonomous agent, embedded by a<br>supplier, or resolved dynamically during execution.</a><br><br>
+<a>CIM does not assume that every discovered component is legitimate,<br>suitable, secure, or sustainable.</a><br><br>
+<section class="viewbor"></section>
+<h1>It establishes the identifiable objects and relationships required for</h1>
+<a>those determinations to become possible.</a><br><br>
+<section class="viewbor"></section>
+<h1>CIM transforms software component discovery into governed dependency</h1>
+<a>identification — ensuring that software systems cannot treat<br>incomplete inventories, package declarations, or technical detection<br>results as sufficient substitutes for knowing which material<br>components they actually rely upon.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

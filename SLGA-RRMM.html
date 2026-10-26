@@ -1,0 +1,1559 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® RRMM — Release Record Management Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>RRMM — Release Record Management Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> SRLS — Software Release Standard<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Release Record Governance<br>
+<b>Module ID:</b> SLGA-SRLS-RRMM-04<br>
+<b>Origin ID:</b> OOF-SLGA-SRLS-RRMM<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical Open<br>
+<b>Effective Date:</b> 13.10.2026<br>
+<b>Compatibility:</b> Methodology OS — Modular Compatibility<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> Protected Methodological Work<br>
+<b>Canonical Language:</b> English</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<a>RRMM — Release Record Management Module is the Core Module within SRLS<br>that governs how software release records are established, structured,<br>associated, preserved, updated, verified, superseded, and maintained<br>as traceable evidence of identifiable software releases and their<br>applicable governance states throughout the software lifecycle.</a><br><br>
+<section class="viewbor"></section>
+<h1>RRMM establishes the methodological conditions under which a software</h1>
+<a>release record may represent the relationship between an identifiable<br>release candidate, its artifact and configuration references,<br>readiness assessment, authorization decision, applicable restrictions,<br>release events, and subsequent lifecycle changes.</a><br><br>
+<section class="viewbor"></section>
+<h1>It governs the integrity, completeness, provenance, consistency,</h1>
+<a>accessibility, versioning, and continuity of release governance<br>records.</a><br><br>
+<section class="viewbor"></section>
+<h1>RRMM distinguishes the existence of a release record from the completeness</h1>
+<a>of its evidence, the recording of an authorization decision from the<br>legitimacy of that decision, and the preservation of historical<br>release information from the continued applicability of its original<br>governance conclusions.</a><br><br>
+<a>The module ensures that release records remain usable for subsequent<br>deployment, change management, incident investigation, withdrawal,<br>retirement, and lifecycle control without independently replacing the<br>governance mechanisms responsible for those decisions.</a><br><br>
+<a>Its principal governed output is the Software Release Record Profile.</a><br><br>
+<a>Release Record Exists ≠ Release Governance Evidence Complete.</a><br><br>
+<a>Release Recorded ≠ Release Authorized.</a><br><br>
+<a>Release Record Updated ≠ Underlying Release State Changed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Historical Release Record Preserved ≠ Historical Authorization Still</h1>
+<a>Valid.</a><br><br>
+<a>Artifact Reference Recorded ≠ Artifact Identity Verified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>RRMM governs the establishment and continuity of software release<br>records.</a><br><br>
+<a>Its operational role is to establish:</a><br><br>
+<ul><li>Release record identity</li><li>Release record purpose</li><li>Software product association</li><li>Release candidate association</li><li>Artifact and version references</li><li>Configuration and dependency references</li><li>Readiness assessment references</li><li>Authorization decision references</li><li>Release restrictions</li><li>Release event references</li><li>Release record boundaries</li><li>Record provenance</li><li>Record completeness</li><li>Record consistency</li><li>Evidence sufficiency</li><li>Record integrity</li><li>Record versioning</li><li>Historical state preservation</li><li>Record correction</li><li>Record supersession</li><li>Record accessibility</li><li>Record retention conditions</li><li>Record transfer</li><li>Release withdrawal references</li><li>Deployment handoff</li><li>Lifecycle traceability</li></ul><br>
+<a>RRMM does not independently establish release readiness, grant release<br>authorization, execute deployment, withdraw released software, or<br>certify the correctness of recorded claims.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Question</h1>
+<a>How can software release records preserve a reliable,<br>evidence-supported, and traceable representation of what software was<br>prepared, assessed, authorized, released, restricted, changed, or<br>withdrawn, while ensuring that record completeness, provenance,<br>integrity, historical continuity, and current governance applicability<br>remain distinguishable throughout human-operated, automated, and<br>autonomous software lifecycles?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>SLGA™ Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<a>Cross-cutting:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control</h1>
+<section class="viewbor"></section>
+<h1>SRLS Core Module Flow</h1>
+<section class="viewbor"></section>
+<h1>RCMM — Release Candidate Management Module</h1>
+<a>2. RRM — Release Readiness Module 3. RAM — Release Authorization<br>Module 4. RRMM — Release Record Management Module 5. RWM — Release<br>Withdrawal Module</a><br><br>
+<a>RRMM occupies the fourth Core Module position within SRLS.</a><br><br>
+<section class="viewbor"></section>
+<h1>It receives release candidate identity, readiness conclusions, and</h1>
+<a>authorization decisions from the preceding SRLS modules.</a><br><br>
+<a>Its role is to establish a coherent release governance record that<br>preserves the relationship between these states without merging them<br>into a single unsupported claim of release legitimacy.</a><br><br>
+<section class="viewbor"></section>
+<h1>RRMM supports downstream deployment and lifecycle governance by providing</h1>
+<a>identifiable, traceable release references.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Candidate Profile → Release Readiness Profile → Release</h1>
+<a>Authorization Profile → Release Record Identity → Record Scope →<br>Artifact &amp; Configuration References → Evidence Association → Record<br>Integrity Assessment → Record Classification → Software Release Record<br>Profile → Deployment / Withdrawal / Lifecycle Governance Handoff</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Release Record Governance</h1>
+<section class="viewbor"></section>
+<h1>This governed space concerns the evidence-supported representation and</h1>
+<a>preservation of software release governance information.</a><br><br>
+<a>It includes:</a><br><br>
+<ul><li>Release record identification</li><li>Record scope and boundaries</li><li>Release candidate association</li><li>Artifact identification references</li><li>Readiness and authorization references</li><li>Release event recording</li><li>Record provenance</li><li>Evidence association</li><li>Record completeness</li><li>Record integrity</li><li>Record consistency</li><li>Record versioning</li><li>Record correction</li><li>Historical state preservation</li><li>Record supersession</li><li>Record access and retention</li><li>Governance handoffs</li></ul><br>
+<a>RRMM does not independently determine whether the software is<br>technically correct, secure, ready, authorized, deployed, or<br>operationally acceptable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Object</h1>
+<a>The primary Governed Object is:</a><br><br>
+<section class="viewbor"></section>
+<h1>A Software Release Record State representing the evidence-supported</h1>
+<a>relationship between an identifiable software release, its candidate<br>and artifact references, readiness and authorization states,<br>applicable release conditions, recorded release events, associated<br>evidence, historical changes, and current record integrity.</a><br><br>
+<a>The governed state must preserve:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Product ID</h1>
+<section class="viewbor"></section>
+<h1>Release Record ID</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate ID</h1>
+<section class="viewbor"></section>
+<h1>Artifact Reference</h1>
+<section class="viewbor"></section>
+<h1>Configuration Reference</h1>
+<section class="viewbor"></section>
+<h1>Readiness Profile Reference</h1>
+<section class="viewbor"></section>
+<h1>Authorization Profile Reference</h1>
+<section class="viewbor"></section>
+<h1>Release Event Reference</h1>
+<section class="viewbor"></section>
+<h1>Release Scope</h1>
+<section class="viewbor"></section>
+<h1>Release Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Evidence References</h1>
+<section class="viewbor"></section>
+<h1>Record Provenance</h1>
+<section class="viewbor"></section>
+<h1>Record Completeness State</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity State</h1>
+<section class="viewbor"></section>
+<h1>Record Classification</h1>
+<section class="viewbor"></section>
+<h1>Historical State References</h1>
+<a>Version</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope</h1>
+<a>RRMM governs:</a><br><br>
+<ul><li>Release record creation</li><li>Release identity association</li><li>Release candidate references</li><li>Artifact and configuration references</li><li>Readiness and authorization associations</li><li>Release event recording</li><li>Record provenance</li><li>Record completeness</li><li>Evidence sufficiency</li><li>Record consistency</li><li>Record integrity</li><li>Record updates</li><li>Corrections and supersession</li><li>Historical record preservation</li><li>Record accessibility</li><li>Record retention</li><li>Record transfer</li><li>Deployment and withdrawal references</li><li>Lifecycle governance handoffs</li></ul><br>
+<a>RRMM does not independently perform software verification, authorize<br>release decisions, or establish the operational state of deployed<br>software.</a><br><br>
+<section class="viewbor"></section>
+<h1>Foundational Governance Principles8.1 Record Existence Principle</h1>
+<a>Release Record Exists ≠ Release Governance Evidence Complete. 8.2<br>Authorization Separation Principle</a><br><br>
+<a>Release Recorded ≠ Release Authorized. 8.3 Record–Reality Separation<br>Principle</a><br><br>
+<a>Release Record Updated ≠ Underlying Release State Changed. 8.4<br>Historical Validity Principle</a><br><br>
+<section class="viewbor"></section>
+<h1>Historical Release Record Preserved ≠ Historical Authorization Still</h1>
+<a>Valid. 8.5 Artifact Identity Principle</a><br><br>
+<a>Artifact Reference Recorded ≠ Artifact Identity Verified. 8.6<br>Provenance Principle</a><br><br>
+<a>Release Information Recorded ≠ Release Information Proven. 8.7<br>Completeness Principle</a><br><br>
+<a>Required Fields Populated ≠ Release Record Substantively Complete. 8.8<br>Integrity Principle</a><br><br>
+<a>Release Record Accessible ≠ Release Record Integrity Established. 8.9<br>Version Continuity Principle</a><br><br>
+<a>Release Record Revised ≠ Previous Release Record Erased. 8.10<br>Lifecycle Traceability Principle</a><br><br>
+<section class="viewbor"></section>
+<h1>Release History Available ≠ Complete Software Lifecycle Traceability</h1>
+<a>Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Identity</h1>
+<a>Every governed release record must establish:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record ID</h1>
+<section class="viewbor"></section>
+<h1>Software Product ID</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate ID</h1>
+<section class="viewbor"></section>
+<h1>Release Identifier</h1>
+<section class="viewbor"></section>
+<h1>Record Purpose</h1>
+<section class="viewbor"></section>
+<h1>Record Scope</h1>
+<section class="viewbor"></section>
+<h1>Record Origin</h1>
+<section class="viewbor"></section>
+<h1>Record Creation Time</h1>
+<section class="viewbor"></section>
+<h1>Record Version</h1>
+<section class="viewbor"></section>
+<h1>Record Classification</h1>
+<section class="viewbor"></section>
+<h1>Record Identity Integrity</h1>
+<a>Release Name Recorded ≠ Unique Release Identity Established.</a><br><br>
+<a>Release records must remain distinguishable across products, candidate<br>revisions, artifacts, and release channels.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Purpose</h1>
+<a>Release record purposes may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Governance Documentation</h1>
+<section class="viewbor"></section>
+<h1>Release Evidence Preservation</h1>
+<section class="viewbor"></section>
+<h1>Release Authorization Traceability</h1>
+<section class="viewbor"></section>
+<h1>Release Distribution Traceability</h1>
+<section class="viewbor"></section>
+<h1>Deployment Reference</h1>
+<section class="viewbor"></section>
+<h1>Release Withdrawal Reference</h1>
+<section class="viewbor"></section>
+<h1>Lifecycle Investigation</h1>
+<section class="viewbor"></section>
+<h1>Historical Governance Reconstruction</h1>
+<a>A record created for one purpose must not automatically be treated as<br>sufficient for every other purpose.</a><br><br>
+<section class="viewbor"></section>
+<h1>Purpose Principle</h1>
+<section class="viewbor"></section>
+<h1>Release Record Suitable for Distribution Tracking ≠ Release Record</h1>
+<a>Sufficient for Authorization Audit.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Boundary</h1>
+<section class="viewbor"></section>
+<h1>The record boundary defines the software release information represented by</h1>
+<a>the record.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Product Boundary</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate Boundary</h1>
+<section class="viewbor"></section>
+<h1>Artifact Boundary</h1>
+<section class="viewbor"></section>
+<h1>Configuration Boundary</h1>
+<section class="viewbor"></section>
+<h1>Dependency Boundary</h1>
+<section class="viewbor"></section>
+<h1>Release Channel Boundary</h1>
+<section class="viewbor"></section>
+<h1>Authorization Boundary</h1>
+<section class="viewbor"></section>
+<h1>Evidence Boundary</h1>
+<section class="viewbor"></section>
+<h1>Temporal Boundary</h1>
+<section class="viewbor"></section>
+<h1>Lifecycle Boundary</h1>
+<section class="viewbor"></section>
+<h1>Boundary Integrity</h1>
+<section class="viewbor"></section>
+<h1>Release Record Covers One Candidate ≠ Release Record Covers Every Related</h1>
+<a>Artifact.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Product Association</h1>
+<a>RRMM must preserve the relationship between the release record and its<br>software product.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Product ID</h1>
+<section class="viewbor"></section>
+<h1>Product Name</h1>
+<section class="viewbor"></section>
+<h1>Product Version Reference</h1>
+<section class="viewbor"></section>
+<h1>Product Scope</h1>
+<section class="viewbor"></section>
+<h1>Product Ownership Reference</h1>
+<section class="viewbor"></section>
+<h1>Product Lifecycle Reference</h1>
+<section class="viewbor"></section>
+<h1>Associated Release Candidates</h1>
+<section class="viewbor"></section>
+<h1>Product Association Principle</h1>
+<a>Software Product Identified ≠ Exact Released Artifact Identified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Candidate Association</h1>
+<a>RRMM receives the governed candidate identity established by RCMM.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Candidate ID</h1>
+<section class="viewbor"></section>
+<h1>Candidate Revision</h1>
+<section class="viewbor"></section>
+<h1>Candidate Baseline</h1>
+<section class="viewbor"></section>
+<h1>Candidate Composition Reference</h1>
+<section class="viewbor"></section>
+<h1>Candidate Status</h1>
+<section class="viewbor"></section>
+<h1>Candidate Evidence Reference</h1>
+<section class="viewbor"></section>
+<h1>Candidate Supersession Reference</h1>
+<section class="viewbor"></section>
+<h1>Candidate Association Principle</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate Referenced ≠ Candidate Identity and Composition</h1>
+<a>Verified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Artifact Identity References</h1>
+<section class="viewbor"></section>
+<h1>RRMM preserves references to the software artifacts associated with a</h1>
+<a>release.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Artifact ID</h1>
+<section class="viewbor"></section>
+<h1>Artifact Type</h1>
+<section class="viewbor"></section>
+<h1>Artifact Version</h1>
+<section class="viewbor"></section>
+<h1>Artifact Hash or Equivalent Identifier</h1>
+<section class="viewbor"></section>
+<h1>Build Reference</h1>
+<section class="viewbor"></section>
+<h1>Artifact Origin</h1>
+<section class="viewbor"></section>
+<h1>Artifact Location Reference</h1>
+<section class="viewbor"></section>
+<h1>Artifact Integrity Evidence</h1>
+<section class="viewbor"></section>
+<h1>Artifact identity verification remains dependent on the applicable</h1>
+<a>configuration and integrity mechanisms.</a><br><br>
+<section class="viewbor"></section>
+<h1>Artifact Reference Principle</h1>
+<a>Version Label Equality ≠ Artifact Equivalence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Configuration References</h1>
+<a>RRMM preserves the configuration context relevant to the release.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Configuration Baseline ID</h1>
+<section class="viewbor"></section>
+<h1>Build Configuration Reference</h1>
+<a>Runtime Configuration Reference Where Applicable</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment Assumptions</h1>
+<section class="viewbor"></section>
+<h1>Configuration Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Configuration Evidence</h1>
+<section class="viewbor"></section>
+<h1>Configuration Version</h1>
+<section class="viewbor"></section>
+<h1>Configuration Principle</h1>
+<section class="viewbor"></section>
+<h1>Release Artifact Identified ≠ Applicable Configuration Context Fully</h1>
+<a>Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency References</h1>
+<section class="viewbor"></section>
+<h1>RRMM preserves material dependency references relevant to release</h1>
+<a>reconstruction.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Baseline ID</h1>
+<section class="viewbor"></section>
+<h1>Component Inventory Reference</h1>
+<section class="viewbor"></section>
+<h1>Dependency Origin Reference</h1>
+<section class="viewbor"></section>
+<h1>Dependency Version Reference</h1>
+<section class="viewbor"></section>
+<h1>Dependency Restriction</h1>
+<section class="viewbor"></section>
+<h1>Dependency Risk Reference</h1>
+<section class="viewbor"></section>
+<h1>Dependency Evidence</h1>
+<section class="viewbor"></section>
+<h1>Dependency Reference Principle</h1>
+<section class="viewbor"></section>
+<h1>Dependency Manifest Attached ≠ Complete Release Dependency Reality</h1>
+<a>Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Readiness Assessment References</h1>
+<a>RRMM must preserve the applicable readiness determination.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Readiness Assessment ID</h1>
+<section class="viewbor"></section>
+<h1>Readiness Classification</h1>
+<section class="viewbor"></section>
+<h1>Readiness Assessment Time</h1>
+<section class="viewbor"></section>
+<h1>Assessment Boundary</h1>
+<section class="viewbor"></section>
+<h1>Assessment Evidence</h1>
+<section class="viewbor"></section>
+<h1>Unresolved Findings</h1>
+<section class="viewbor"></section>
+<h1>Applicable Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Reassessment Requirements</h1>
+<a>RRMM records the readiness state established by RRM.</a><br><br>
+<a>It does not independently establish readiness.</a><br><br>
+<section class="viewbor"></section>
+<h1>Readiness Record Principle</h1>
+<section class="viewbor"></section>
+<h1>Readiness Conclusion Recorded ≠ Readiness Conclusion Independently</h1>
+<a>Verified by RRMM.</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorization Decision References</h1>
+<a>RRMM must preserve the applicable release authorization decision.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Authorization ID</h1>
+<section class="viewbor"></section>
+<h1>Authorization Classification</h1>
+<section class="viewbor"></section>
+<h1>Authorization Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Decision Actor Reference</h1>
+<section class="viewbor"></section>
+<h1>Decision Time</h1>
+<section class="viewbor"></section>
+<h1>Authorized Release Scope</h1>
+<section class="viewbor"></section>
+<h1>Authorization Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Validity Conditions</h1>
+<section class="viewbor"></section>
+<h1>Authorization Evidence Reference</h1>
+<a>RRMM records the authorization state established by RAM.</a><br><br>
+<a>It does not independently grant authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorization Record Principle</h1>
+<section class="viewbor"></section>
+<h1>Authorization Decision Referenced ≠ Authorization Legitimacy Independently</h1>
+<a>Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Event Recording</h1>
+<a>RRMM may preserve release events associated with the software release.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Event ID</h1>
+<section class="viewbor"></section>
+<h1>Release Event Type</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate ID</h1>
+<section class="viewbor"></section>
+<h1>Artifact Reference</h1>
+<section class="viewbor"></section>
+<h1>Release Channel</h1>
+<section class="viewbor"></section>
+<h1>Event Actor</h1>
+<section class="viewbor"></section>
+<h1>Event Time</h1>
+<section class="viewbor"></section>
+<h1>Event Evidence</h1>
+<section class="viewbor"></section>
+<h1>Event Classification</h1>
+<a>Events must remain distinguishable from authorization decisions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Event Principle</h1>
+<a>Release Event Recorded ≠ Release Event Authorized.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Distribution References</h1>
+<a>Where applicable, RRMM preserves distribution-related references.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Distribution Event ID</h1>
+<section class="viewbor"></section>
+<h1>Distribution Channel</h1>
+<section class="viewbor"></section>
+<h1>Distributed Artifact Reference</h1>
+<section class="viewbor"></section>
+<h1>Distribution Time</h1>
+<section class="viewbor"></section>
+<h1>Distribution Actor</h1>
+<section class="viewbor"></section>
+<h1>Recipient Scope</h1>
+<section class="viewbor"></section>
+<h1>Distribution Evidence</h1>
+<section class="viewbor"></section>
+<h1>Distribution Restrictions</h1>
+<a>RRMM does not independently establish successful delivery to every<br>intended recipient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Distribution Principle</h1>
+<section class="viewbor"></section>
+<h1>Software Published to a Repository ≠ Software Delivered to Every Intended</h1>
+<a>Recipient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Restrictions</h1>
+<a>RRMM preserves restrictions applicable to the recorded release.</a><br><br>
+<a>Relevant restrictions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Restricted Distribution</h1>
+<section class="viewbor"></section>
+<h1>Limited Recipient Scope</h1>
+<section class="viewbor"></section>
+<h1>Configuration Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Environment Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Validity Period Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Conditional Release Requirements</h1>
+<section class="viewbor"></section>
+<h1>Exception-Related Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Withdrawal Conditions</h1>
+<section class="viewbor"></section>
+<h1>Restriction Integrity</h1>
+<section class="viewbor"></section>
+<h1>Release Restrictions Recorded ≠ Release Restrictions Operationally</h1>
+<a>Enforced.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Provenance</h1>
+<a>RRMM governs the traceability of release record origins and updates.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Origin</h1>
+<section class="viewbor"></section>
+<h1>Record Creator</h1>
+<section class="viewbor"></section>
+<h1>Creation Method</h1>
+<section class="viewbor"></section>
+<h1>Source Systems</h1>
+<section class="viewbor"></section>
+<h1>Referenced Evidence</h1>
+<section class="viewbor"></section>
+<h1>Record Creation Time</h1>
+<section class="viewbor"></section>
+<h1>Modification History</h1>
+<section class="viewbor"></section>
+<h1>Responsible Record Function</h1>
+<section class="viewbor"></section>
+<h1>Record Version</h1>
+<section class="viewbor"></section>
+<h1>Provenance Integrity</h1>
+<a>Release Record Source Identified ≠ Release Record Content<br>Authenticated.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Evidence Association</h1>
+<a>RRMM must associate release record claims with relevant evidence.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Candidate Identity Evidence</h1>
+<section class="viewbor"></section>
+<h1>Artifact Integrity Evidence</h1>
+<section class="viewbor"></section>
+<h1>Configuration Evidence</h1>
+<section class="viewbor"></section>
+<h1>Dependency Evidence</h1>
+<section class="viewbor"></section>
+<h1>Readiness Evidence</h1>
+<section class="viewbor"></section>
+<h1>Authorization Evidence</h1>
+<section class="viewbor"></section>
+<h1>Release Event Evidence</h1>
+<section class="viewbor"></section>
+<h1>Distribution Evidence</h1>
+<section class="viewbor"></section>
+<h1>Record Modification Evidence</h1>
+<section class="viewbor"></section>
+<h1>Withdrawal References</h1>
+<section class="viewbor"></section>
+<h1>Evidence Association Principle</h1>
+<a>Evidence Linked ≠ Evidence Relevant or Sufficient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Completeness</h1>
+<section class="viewbor"></section>
+<h1>Record completeness concerns whether the record contains the information</h1>
+<a>required for its defined governance purpose.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Identity Completeness</h1>
+<section class="viewbor"></section>
+<h1>Candidate Reference Completeness</h1>
+<section class="viewbor"></section>
+<h1>Artifact Reference Completeness</h1>
+<section class="viewbor"></section>
+<h1>Readiness Reference Completeness</h1>
+<section class="viewbor"></section>
+<h1>Authorization Reference Completeness</h1>
+<section class="viewbor"></section>
+<h1>Release Event Coverage</h1>
+<section class="viewbor"></section>
+<h1>Evidence Coverage</h1>
+<section class="viewbor"></section>
+<h1>Restriction Coverage</h1>
+<section class="viewbor"></section>
+<h1>Historical State Coverage</h1>
+<section class="viewbor"></section>
+<h1>Completeness Integrity</h1>
+<section class="viewbor"></section>
+<h1>All Mandatory Fields Present ≠ All Recorded Claims Substantively</h1>
+<a>Supported.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Consistency</h1>
+<section class="viewbor"></section>
+<h1>RRMM evaluates whether the record contains contradictory or incompatible</h1>
+<a>references.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Candidate Identity Consistency</h1>
+<section class="viewbor"></section>
+<h1>Artifact Version Consistency</h1>
+<section class="viewbor"></section>
+<h1>Configuration Consistency</h1>
+<section class="viewbor"></section>
+<h1>Readiness Reference Consistency</h1>
+<section class="viewbor"></section>
+<h1>Authorization Scope Consistency</h1>
+<section class="viewbor"></section>
+<h1>Release Event Consistency</h1>
+<section class="viewbor"></section>
+<h1>Timestamp Consistency</h1>
+<section class="viewbor"></section>
+<h1>Historical State Consistency</h1>
+<section class="viewbor"></section>
+<h1>Consistency Principle</h1>
+<a>Release Record Internally Consistent ≠ Release Record Factually<br>Correct.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Integrity</h1>
+<section class="viewbor"></section>
+<h1>RRMM governs whether the release record remains protected against</h1>
+<a>untraceable or unauthorized alteration.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Integrity Reference</h1>
+<section class="viewbor"></section>
+<h1>Modification Authorization</h1>
+<section class="viewbor"></section>
+<h1>Change Traceability</h1>
+<section class="viewbor"></section>
+<h1>Version History</h1>
+<section class="viewbor"></section>
+<h1>Integrity Verification Evidence</h1>
+<section class="viewbor"></section>
+<h1>Access Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Correction History</h1>
+<section class="viewbor"></section>
+<h1>Supersession History</h1>
+<section class="viewbor"></section>
+<h1>Integrity Principle</h1>
+<a>Record Unchanged ≠ Record Originally Accurate.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Authenticity</h1>
+<section class="viewbor"></section>
+<h1>Record authenticity concerns whether the record's claimed origin and</h1>
+<a>modifications are sufficiently supported.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Origin Identity</h1>
+<section class="viewbor"></section>
+<h1>Record Creator Identity</h1>
+<section class="viewbor"></section>
+<h1>Source System Reference</h1>
+<section class="viewbor"></section>
+<h1>Creation Evidence</h1>
+<section class="viewbor"></section>
+<h1>Modification Evidence</h1>
+<section class="viewbor"></section>
+<h1>Authentication Mechanism Reference</h1>
+<section class="viewbor"></section>
+<h1>Known Authenticity Limitations</h1>
+<section class="viewbor"></section>
+<h1>Authenticity Principle</h1>
+<a>Record Authenticated ≠ Every Claim Within the Record Validated.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Evidence Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>RRMM evaluates whether the available evidence adequately supports the</h1>
+<a>record's intended governance use.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence Coverage</h1>
+<section class="viewbor"></section>
+<h1>Evidence Provenance</h1>
+<section class="viewbor"></section>
+<h1>Evidence Relevance</h1>
+<section class="viewbor"></section>
+<h1>Evidence Consistency</h1>
+<section class="viewbor"></section>
+<h1>Evidence Freshness</h1>
+<section class="viewbor"></section>
+<h1>Evidence Accessibility</h1>
+<section class="viewbor"></section>
+<h1>Evidence Integrity</h1>
+<section class="viewbor"></section>
+<h1>Known Evidence Gaps</h1>
+<section class="viewbor"></section>
+<h1>Sufficiency Principle</h1>
+<section class="viewbor"></section>
+<h1>Release Evidence Available ≠ Release Evidence Sufficient for Every</h1>
+<a>Lifecycle Decision.</a><br><br>
+<section class="viewbor"></section>
+<h1>Missing Record Evidence</h1>
+<a>RRMM must preserve missing or unavailable evidence.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Missing Artifact Identity Evidence</h1>
+<section class="viewbor"></section>
+<h1>Missing Configuration Reference</h1>
+<section class="viewbor"></section>
+<h1>Missing Readiness Assessment</h1>
+<section class="viewbor"></section>
+<h1>Missing Authorization Decision</h1>
+<section class="viewbor"></section>
+<h1>Missing Release Event Evidence</h1>
+<section class="viewbor"></section>
+<h1>Missing Distribution Reference</h1>
+<section class="viewbor"></section>
+<h1>Missing Record Modification History</h1>
+<section class="viewbor"></section>
+<h1>Unavailable Historical Record</h1>
+<section class="viewbor"></section>
+<h1>Missing Evidence Principle</h1>
+<a>Release Information Missing ≠ Release Condition Satisfied.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Uncertainty</h1>
+<a>Record uncertainty may arise from:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unverified Artifact Identity</h1>
+<section class="viewbor"></section>
+<h1>Incomplete Release History</h1>
+<section class="viewbor"></section>
+<h1>Conflicting Authorization References</h1>
+<section class="viewbor"></section>
+<h1>Unknown Release Actor</h1>
+<section class="viewbor"></section>
+<h1>Uncertain Distribution Scope</h1>
+<section class="viewbor"></section>
+<h1>Missing Historical Evidence</h1>
+<section class="viewbor"></section>
+<h1>Inconsistent Timestamps</h1>
+<section class="viewbor"></section>
+<h1>Unverified External Records</h1>
+<section class="viewbor"></section>
+<h1>Uncertainty Principle</h1>
+<a>Record Uncertainty Acknowledged ≠ Record Uncertainty Resolved.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Updates</h1>
+<a>RRMM governs modifications to existing release records.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Update ID</h1>
+<section class="viewbor"></section>
+<h1>Affected Release Record</h1>
+<section class="viewbor"></section>
+<h1>Update Purpose</h1>
+<section class="viewbor"></section>
+<h1>Update Actor</h1>
+<section class="viewbor"></section>
+<h1>Update Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Previous Value</h1>
+<section class="viewbor"></section>
+<h1>Updated Value</h1>
+<section class="viewbor"></section>
+<h1>Update Evidence</h1>
+<section class="viewbor"></section>
+<h1>Update Time</h1>
+<section class="viewbor"></section>
+<h1>Updated Version</h1>
+<section class="viewbor"></section>
+<h1>Update Integrity</h1>
+<a>Release Record Corrected ≠ Original Release Event Changed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Correction</h1>
+<section class="viewbor"></section>
+<h1>A record correction addresses inaccurate, incomplete, or misleading</h1>
+<a>recorded information.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Correction ID</h1>
+<section class="viewbor"></section>
+<h1>Affected Field</h1>
+<section class="viewbor"></section>
+<h1>Original Recorded Value</h1>
+<section class="viewbor"></section>
+<h1>Corrected Value</h1>
+<section class="viewbor"></section>
+<h1>Correction Reason</h1>
+<section class="viewbor"></section>
+<h1>Supporting Evidence</h1>
+<section class="viewbor"></section>
+<h1>Correction Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Correction Time</h1>
+<section class="viewbor"></section>
+<h1>Historical Reference</h1>
+<a>Corrections must preserve the distinction between historical recording<br>and later correction.</a><br><br>
+<section class="viewbor"></section>
+<h1>Correction Principle</h1>
+<a>Historical Record Inaccurate ≠ Historical Record May Be Silently<br>Rewritten.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Supersession</h1>
+<a>RRMM governs the relationship between earlier and later release<br>records.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Record ID</h1>
+<section class="viewbor"></section>
+<h1>Superseding Record ID</h1>
+<section class="viewbor"></section>
+<h1>Supersession Reason</h1>
+<section class="viewbor"></section>
+<h1>Supersession Scope</h1>
+<section class="viewbor"></section>
+<h1>Effective Time</h1>
+<section class="viewbor"></section>
+<h1>Evidence Reference</h1>
+<section class="viewbor"></section>
+<h1>Historical Relationship</h1>
+<a>Supersession must not erase the historical record.</a><br><br>
+<section class="viewbor"></section>
+<h1>Supersession Principle</h1>
+<section class="viewbor"></section>
+<h1>Release Record Superseded ≠ Previous Release Record Invalid for Historical</h1>
+<a>Reconstruction.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Versioning</h1>
+<a>Every material record update must preserve version continuity.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Version</h1>
+<section class="viewbor"></section>
+<h1>Previous Version</h1>
+<section class="viewbor"></section>
+<h1>Version Change Reason</h1>
+<section class="viewbor"></section>
+<h1>Modified Fields</h1>
+<section class="viewbor"></section>
+<h1>Modification Actor</h1>
+<section class="viewbor"></section>
+<h1>Modification Time</h1>
+<section class="viewbor"></section>
+<h1>Evidence Reference</h1>
+<section class="viewbor"></section>
+<h1>Supersession Reference</h1>
+<section class="viewbor"></section>
+<h1>Versioning Principle</h1>
+<a>Release Record Version Increased ≠ Software Release Version Increased.</a><br><br>
+<section class="viewbor"></section>
+<h1>Historical Release State Preservation</h1>
+<a>RRMM preserves historical governance states relevant to the release.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Previous Candidate State</h1>
+<section class="viewbor"></section>
+<h1>Previous Readiness State</h1>
+<section class="viewbor"></section>
+<h1>Previous Authorization State</h1>
+<section class="viewbor"></section>
+<h1>Previous Release Event State</h1>
+<section class="viewbor"></section>
+<h1>Previous Distribution State</h1>
+<section class="viewbor"></section>
+<h1>Previous Record Classification</h1>
+<section class="viewbor"></section>
+<h1>Historical Evidence</h1>
+<section class="viewbor"></section>
+<h1>State Transition Time</h1>
+<section class="viewbor"></section>
+<h1>Superseding State</h1>
+<section class="viewbor"></section>
+<h1>Historical Integrity</h1>
+<a>Current Release Record State ≠ Complete Historical Release State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Retention</h1>
+<section class="viewbor"></section>
+<h1>RRMM governs the identification and preservation of applicable release</h1>
+<a>record retention conditions.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Retention Purpose</h1>
+<section class="viewbor"></section>
+<h1>Retention Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Retention Period</h1>
+<section class="viewbor"></section>
+<h1>Record Category</h1>
+<section class="viewbor"></section>
+<h1>Evidence Retention Requirement</h1>
+<section class="viewbor"></section>
+<h1>Access Conditions</h1>
+<section class="viewbor"></section>
+<h1>Archival Reference</h1>
+<section class="viewbor"></section>
+<h1>Disposal Restriction</h1>
+<a>Retention requirements may arise from applicable organizational,<br>contractual, regulatory, or legal obligations.</a><br><br>
+<a>RRMM does not independently establish those external obligations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Retention Principle</h1>
+<a>Record No Longer Operationally Needed ≠ Record Eligible for Deletion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Accessibility</h1>
+<a>RRMM governs whether authorized governance functions can access the<br>release record when required.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Location</h1>
+<section class="viewbor"></section>
+<h1>Access Authority</h1>
+<section class="viewbor"></section>
+<h1>Access Scope</h1>
+<section class="viewbor"></section>
+<h1>Availability State</h1>
+<section class="viewbor"></section>
+<h1>Retrieval Method</h1>
+<section class="viewbor"></section>
+<h1>Record Format</h1>
+<section class="viewbor"></section>
+<h1>Evidence Accessibility</h1>
+<section class="viewbor"></section>
+<h1>Historical Version Accessibility</h1>
+<section class="viewbor"></section>
+<h1>Accessibility Principle</h1>
+<a>Release Record Stored ≠ Release Record Retrievable When Required.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Transfer and Continuity</h1>
+<section class="viewbor"></section>
+<h1>RRMM preserves release record continuity across organizational, technical,</h1>
+<a>or custodial changes.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Record Custodian</h1>
+<section class="viewbor"></section>
+<h1>Receiving Record Custodian</h1>
+<section class="viewbor"></section>
+<h1>Transfer Scope</h1>
+<section class="viewbor"></section>
+<h1>Transferred Record Identity</h1>
+<section class="viewbor"></section>
+<h1>Transferred Evidence</h1>
+<section class="viewbor"></section>
+<h1>Transfer Integrity</h1>
+<section class="viewbor"></section>
+<h1>Access Continuity</h1>
+<section class="viewbor"></section>
+<h1>Historical Version Preservation</h1>
+<section class="viewbor"></section>
+<h1>Transfer Time</h1>
+<section class="viewbor"></section>
+<h1>Transfer Principle</h1>
+<section class="viewbor"></section>
+<h1>Release Record Transferred ≠ Record Integrity and Accessibility</h1>
+<a>Automatically Preserved.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Classification</h1>
+<a>RRMM may classify release record states as:</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Not Established</h1>
+<section class="viewbor"></section>
+<h1>Record Creation Pending</h1>
+<section class="viewbor"></section>
+<h1>Record Established</h1>
+<section class="viewbor"></section>
+<h1>Record Incomplete</h1>
+<section class="viewbor"></section>
+<h1>Record Evidence-Limited</h1>
+<section class="viewbor"></section>
+<h1>Record Verification Pending</h1>
+<section class="viewbor"></section>
+<h1>Record Consistent</h1>
+<section class="viewbor"></section>
+<h1>Record Conflicted</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity Unresolved</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity Supported</h1>
+<section class="viewbor"></section>
+<h1>Record Correction Required</h1>
+<section class="viewbor"></section>
+<h1>Record Update Pending</h1>
+<section class="viewbor"></section>
+<h1>Record Superseded</h1>
+<section class="viewbor"></section>
+<h1>Record Archived</h1>
+<section class="viewbor"></section>
+<h1>Record Inaccessible</h1>
+<section class="viewbor"></section>
+<h1>Record Retention Exception</h1>
+<section class="viewbor"></section>
+<h1>Unknown</h1>
+<section class="viewbor"></section>
+<h1>Record Closed</h1>
+<a>These are release record governance classifications, not independent<br>readiness or authorization classifications.</a><br><br>
+<section class="viewbor"></section>
+<h1>Classification Integrity</h1>
+<section class="viewbor"></section>
+<h1>Release Record Classified as Complete ≠ Release Independently Validated as</h1>
+<a>Ready or Authorized.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Release Record Profile</h1>
+<a>The principal governed output is the:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Release Record Profile</h1>
+<section class="viewbor"></section>
+<h1>It establishes the evidence-supported record state of an identifiable</h1>
+<a>software release.</a><br><br>
+<a>The profile preserves:</a><br><br>
+<ul><li>Software product identity</li><li>Release record identity</li><li>Release candidate identity</li><li>Artifact and version references</li><li>Configuration references</li><li>Dependency references</li><li>Readiness assessment references</li><li>Authorization decision references</li><li>Release event references</li><li>Distribution references</li><li>Release restrictions</li><li>Record provenance</li><li>Evidence associations</li><li>Record completeness</li><li>Record consistency</li><li>Record integrity</li><li>Record classification</li><li>Record corrections</li><li>Historical versions</li><li>Supersession references</li><li>Retention and accessibility conditions</li><li>Lifecycle governance handoffs</li></ul><br>
+<section class="viewbor"></section>
+<h1>Minimum Profile Fields</h1>
+<a>At minimum:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Release Record Profile ID</h1>
+<section class="viewbor"></section>
+<h1>Release Record ID</h1>
+<section class="viewbor"></section>
+<h1>Software Product ID</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate ID</h1>
+<section class="viewbor"></section>
+<h1>Release Identifier</h1>
+<section class="viewbor"></section>
+<h1>Release Record Purpose</h1>
+<section class="viewbor"></section>
+<h1>Release Record Boundary</h1>
+<section class="viewbor"></section>
+<h1>Artifact ID</h1>
+<section class="viewbor"></section>
+<h1>Artifact Version</h1>
+<section class="viewbor"></section>
+<h1>Artifact Integrity Reference</h1>
+<section class="viewbor"></section>
+<h1>Build Reference</h1>
+<section class="viewbor"></section>
+<h1>Configuration Baseline ID</h1>
+<section class="viewbor"></section>
+<h1>Dependency Baseline ID</h1>
+<section class="viewbor"></section>
+<h1>Readiness Assessment ID</h1>
+<section class="viewbor"></section>
+<h1>Readiness Classification</h1>
+<section class="viewbor"></section>
+<h1>Release Authorization ID</h1>
+<section class="viewbor"></section>
+<h1>Authorization Classification</h1>
+<section class="viewbor"></section>
+<h1>Authorization Scope</h1>
+<section class="viewbor"></section>
+<h1>Authorization Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Release Event ID</h1>
+<section class="viewbor"></section>
+<h1>Release Event Type</h1>
+<section class="viewbor"></section>
+<h1>Release Event Time</h1>
+<section class="viewbor"></section>
+<h1>Release Event Actor</h1>
+<section class="viewbor"></section>
+<h1>Distribution Reference</h1>
+<section class="viewbor"></section>
+<h1>Record Origin</h1>
+<section class="viewbor"></section>
+<h1>Record Creator</h1>
+<section class="viewbor"></section>
+<h1>Record Creation Time</h1>
+<section class="viewbor"></section>
+<h1>Record Evidence Register</h1>
+<section class="viewbor"></section>
+<h1>Evidence Provenance</h1>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>Missing Evidence</h1>
+<section class="viewbor"></section>
+<h1>Evidence Conflicts</h1>
+<section class="viewbor"></section>
+<h1>Record Completeness</h1>
+<section class="viewbor"></section>
+<h1>Record Consistency</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity</h1>
+<section class="viewbor"></section>
+<h1>Record Classification</h1>
+<section class="viewbor"></section>
+<h1>Correction References</h1>
+<section class="viewbor"></section>
+<h1>Supersession References</h1>
+<section class="viewbor"></section>
+<h1>Historical State References</h1>
+<section class="viewbor"></section>
+<h1>Retention Conditions</h1>
+<section class="viewbor"></section>
+<h1>Accessibility State</h1>
+<section class="viewbor"></section>
+<h1>Lifecycle Handoff References</h1>
+<a>Version</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A minimum operational RRMM implementation should contain eight<br>governed layers. Layer 1 — Record Identity and Scope</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish the release record identity, purpose, boundaries, and software</h1>
+<a>product association. Layer 2 — Candidate and Artifact Association</a><br><br>
+<section class="viewbor"></section>
+<h1>Associate the record with the identifiable release candidate, artifact,</h1>
+<a>build, configuration, and dependency references. Layer 3 — Readiness<br>and Authorization Association</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve the applicable readiness assessment and authorization decision</h1>
+<a>without independently replacing either mechanism. Layer 4 — Release<br>Event and Restriction Recording</a><br><br>
+<section class="viewbor"></section>
+<h1>Record applicable release events, distribution references, and release</h1>
+<a>restrictions. Layer 5 — Evidence and Provenance</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish record provenance, evidence associations, missing evidence, and</h1>
+<a>evidence sufficiency. Layer 6 — Record Integrity and Classification</a><br><br>
+<section class="viewbor"></section>
+<h1>Evaluate record completeness, consistency, integrity, and applicable record</h1>
+<a>classifications. Layer 7 — Historical Continuity</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve corrections, versions, supersession relationships, retention</h1>
+<a>conditions, and historical states. Layer 8 — Governed Output and<br>Lifecycle Handoff</a><br><br>
+<section class="viewbor"></section>
+<h1>Produce the Software Release Record Profile and provide relevant</h1>
+<a>references to deployment, withdrawal, change management, retirement,<br>and lifecycle control governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Decision States</h1>
+<a>At minimum:</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Not Established</h1>
+<section class="viewbor"></section>
+<h1>Record Creation Requested</h1>
+<section class="viewbor"></section>
+<h1>Release Record Identity Established</h1>
+<section class="viewbor"></section>
+<h1>Record Purpose Defined</h1>
+<section class="viewbor"></section>
+<h1>Record Boundary Defined</h1>
+<section class="viewbor"></section>
+<h1>Software Product Identified</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate Identified</h1>
+<section class="viewbor"></section>
+<h1>Artifact Reference Established</h1>
+<section class="viewbor"></section>
+<h1>Configuration Reference Established</h1>
+<section class="viewbor"></section>
+<h1>Dependency Reference Established</h1>
+<section class="viewbor"></section>
+<h1>Readiness Reference Established</h1>
+<section class="viewbor"></section>
+<h1>Authorization Reference Established</h1>
+<section class="viewbor"></section>
+<h1>Release Event Recorded</h1>
+<section class="viewbor"></section>
+<h1>Release Restrictions Recorded</h1>
+<section class="viewbor"></section>
+<h1>Record Evidence Associated</h1>
+<section class="viewbor"></section>
+<h1>Record Provenance Established</h1>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency Review Pending</h1>
+<section class="viewbor"></section>
+<h1>Record Evidence Sufficient</h1>
+<section class="viewbor"></section>
+<h1>Record Evidence Insufficient</h1>
+<section class="viewbor"></section>
+<h1>Record Completeness Review Pending</h1>
+<a>Record Complete Within Defined Scope</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Incomplete</h1>
+<section class="viewbor"></section>
+<h1>Record Consistency Review Pending</h1>
+<section class="viewbor"></section>
+<h1>Record Consistent</h1>
+<section class="viewbor"></section>
+<h1>Record Conflicted</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity Review Pending</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity Supported</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity Unresolved</h1>
+<section class="viewbor"></section>
+<h1>Record Correction Required</h1>
+<section class="viewbor"></section>
+<h1>Record Correction Completed</h1>
+<section class="viewbor"></section>
+<h1>Record Update Pending</h1>
+<section class="viewbor"></section>
+<h1>Record Updated</h1>
+<section class="viewbor"></section>
+<h1>Record Superseded</h1>
+<section class="viewbor"></section>
+<h1>Record Archived</h1>
+<section class="viewbor"></section>
+<h1>Record Inaccessible</h1>
+<section class="viewbor"></section>
+<h1>Lifecycle Handoff Completed</h1>
+<section class="viewbor"></section>
+<h1>Unknown</h1>
+<section class="viewbor"></section>
+<h1>Record Closed</h1>
+<section class="viewbor"></section>
+<h1>Minimum Evidence Path</h1>
+<a>Where release record integrity or completeness cannot be sufficiently<br>established:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Product → Release Candidate → Artifact &amp; Configuration References</h1>
+<a>→ Readiness Profile → Authorization Profile → Release Event References<br>→ Record Provenance → Evidence Association → Completeness Review →<br>Consistency Review → Integrity Review → Evidence-Limited / Conflicted<br>/ Unknown State → Missing Evidence Identification → Evidence<br>Acquisition / Record Correction → Record Reassessment → Updated Record<br>Classification → Software Release Record Profile → Lifecycle<br>Governance Handoff</a><br><br>
+<a>Missing record evidence must not be replaced by assumed release<br>legitimacy.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Reassessment Framework</h1>
+<section class="viewbor"></section>
+<h1>Current Software Release Record Profile → New Release Information or</h1>
+<a>Evidence → Record Identity Review → Candidate Association Review →<br>Artifact Reference Review → Configuration &amp; Dependency Review →<br>Readiness Reference Review → Authorization Reference Review → Release<br>Event Review → Evidence Provenance Review → Completeness Review →<br>Consistency Review → Integrity Review → Correction / Supersession<br>Assessment → Historical State Preservation → Record Classification<br>Update → Profile Update → Version Update</a><br><br>
+<a>Reassessment must distinguish:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Event Changed</h1>
+<section class="viewbor"></section>
+<h1>Release Record Changed</h1>
+<section class="viewbor"></section>
+<h1>Evidence Changed</h1>
+<section class="viewbor"></section>
+<h1>Readiness Reference Changed</h1>
+<section class="viewbor"></section>
+<h1>Authorization Reference Changed</h1>
+<section class="viewbor"></section>
+<h1>Artifact Reference Changed</h1>
+<section class="viewbor"></section>
+<h1>Record Correction Required</h1>
+<section class="viewbor"></section>
+<h1>Record Supersession Required</h1>
+<section class="viewbor"></section>
+<h1>Historical State Preserved</h1>
+<section class="viewbor"></section>
+<h1>Governance Requirements</h1>
+<a>A conforming RRMM implementation must satisfy the following<br>requirements. Record Identity and Boundaries</a><br><br>
+<ul><li>Establish a unique release record identity</li><li>Identify the software product</li><li>Identify the release candidate</li><li>Define the record purpose</li><li>Define the record boundary</li><li>Preserve the release identifier</li><li>Preserve record creation time</li><li>Preserve record origin</li><li>Preserve record version</li><li>Prevent release names from replacing unique record identities</li></ul><br>
+<section class="viewbor"></section>
+<h1>Candidate, Artifact, and Configuration References</h1>
+<ul><li>Preserve the release candidate reference</li><li>Preserve candidate revision information</li><li>Preserve artifact identity references</li><li>Preserve artifact version references</li><li>Preserve artifact integrity references where applicable</li><li>Preserve build references</li><li>Preserve configuration baseline references</li><li>Preserve dependency baseline references</li><li>Preserve known artifact identity limitations</li><li>Prevent version labels from automatically establishing artifact</li></ul><br>
+<a>equivalence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Readiness and Authorization References</h1>
+<ul><li>Preserve the applicable readiness assessment reference</li><li>Preserve readiness classification</li><li>Preserve readiness restrictions</li><li>Preserve the applicable authorization reference</li><li>Preserve authorization classification</li><li>Preserve authorization scope</li><li>Preserve authorization restrictions</li><li>Preserve authorization validity references</li><li>Prevent readiness records from automatically establishing<br>release</li><li>Prevent authorization records from independently establishing</li></ul><br>
+<a>authorization. authorization legitimacy.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Events and Distribution</h1>
+<ul><li>Identify relevant release events</li><li>Preserve release event identities</li><li>Preserve event actors</li><li>Preserve event times</li><li>Preserve event evidence</li><li>Preserve release channel references</li><li>Preserve distribution scope where applicable</li><li>Preserve release restrictions</li><li>Prevent release event recording from establishing event</li><li>Prevent repository publication from establishing successful</li></ul><br>
+<a>authorization. distribution to every recipient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence Governance</h1>
+<ul><li>Preserve record evidence provenance</li><li>Preserve evidence source references</li><li>Preserve evidence creation times</li><li>Preserve evidence associations</li><li>Evaluate evidence relevance</li><li>Evaluate evidence sufficiency</li><li>Preserve missing evidence</li><li>Preserve conflicting evidence</li><li>Preserve uncertainty</li><li>Prevent populated record fields from automatically establishing</li></ul><br>
+<a>evidentiary completeness.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Completeness and Integrity</h1>
+<ul><li>Evaluate record completeness</li><li>Preserve completeness boundaries</li><li>Evaluate record consistency</li><li>Preserve conflicting references</li><li>Evaluate record integrity</li><li>Preserve modification traceability</li><li>Preserve applicable authentication references</li><li>Identify unauthorized or unexplained alterations</li><li>Prevent internal consistency from establishing factual<br>correctness</li><li>Prevent record accessibility from automatically establishing<br>record</li></ul><br>
+<a>integrity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Updates and Historical Continuity</h1>
+<ul><li>Preserve material record updates</li><li>Preserve update actors</li><li>Preserve update authority references</li><li>Preserve correction reasons</li><li>Preserve original recorded values</li><li>Preserve corrected values</li><li>Preserve supersession relationships</li><li>Preserve historical record versions</li><li>Preserve state transition times</li><li>Prevent corrections from silently rewriting historical release</li><li>Prevent record supersession from erasing historical records</li><li>Prevent record version changes from being confused with software</li></ul><br>
+<a>events. release version changes.</a><br><br>
+<section class="viewbor"></section>
+<h1>Retention, Accessibility, and Transfer</h1>
+<ul><li>Identify applicable record retention conditions</li><li>Preserve retention authority references</li><li>Preserve archival references</li><li>Preserve authorized access conditions</li><li>Preserve record retrieval capability</li><li>Preserve historical version accessibility where required</li><li>Preserve record transfer identity</li><li>Preserve transfer integrity evidence</li><li>Prevent record storage from automatically establishing</li><li>Prevent record transfer from automatically establishing<br>integrity</li></ul><br>
+<a>retrievability. continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Architecture Boundaries</h1>
+<ul><li>Maintain RCMM candidate governance boundaries</li><li>Maintain RRM readiness governance boundaries</li><li>Maintain RAM authorization governance boundaries</li><li>Maintain RWM withdrawal governance boundaries</li><li>Maintain SCFS configuration governance boundaries</li><li>Maintain SDS dependency governance boundaries</li><li>Maintain SDPS deployment governance boundaries</li><li>Maintain SCMS change governance boundaries</li><li>Maintain SRTS retirement governance boundaries</li><li>Maintain SLCS lifecycle control boundaries</li><li>Prevent RRMM from independently establishing release readiness</li><li>Prevent RRMM from independently granting release authorization</li><li>Prevent RRMM from independently establishing deployment<br>permission</li><li>Prevent RRMM from independently certifying software correctness<br>or</li><li>Produce a Software Release Record Profile</li></ul><br>
+<a>security.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>Canonical RRMM logic:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Product Identity → Release Record Identity → Record Purpose →</h1>
+<a>Record Boundary → Release Candidate Reference → Artifact &amp; Version<br>References → Configuration &amp; Dependency References → Readiness<br>Assessment Reference → Authorization Decision Reference → Release<br>Event References → Distribution &amp; Restriction References → Record<br>Provenance → Evidence Association → Evidence Sufficiency → Record<br>Completeness → Record Consistency → Record Integrity → Record<br>Classification → Software Release Record Profile → Historical State<br>Preservation → Deployment / Withdrawal / Lifecycle Governance Handoff</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>RRMM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Release Record Profile</h1>
+<section class="viewbor"></section>
+<h1>Release Record Identity</h1>
+<section class="viewbor"></section>
+<h1>Release Record Purpose</h1>
+<section class="viewbor"></section>
+<h1>Release Record Boundary</h1>
+<section class="viewbor"></section>
+<h1>Software Product Association</h1>
+<section class="viewbor"></section>
+<h1>Release Candidate Association</h1>
+<section class="viewbor"></section>
+<h1>Artifact Identity Reference</h1>
+<section class="viewbor"></section>
+<h1>Artifact Version Reference</h1>
+<section class="viewbor"></section>
+<h1>Build Reference</h1>
+<section class="viewbor"></section>
+<h1>Configuration Baseline Reference</h1>
+<section class="viewbor"></section>
+<h1>Dependency Baseline Reference</h1>
+<section class="viewbor"></section>
+<h1>Readiness Assessment Reference</h1>
+<section class="viewbor"></section>
+<h1>Authorization Decision Reference</h1>
+<section class="viewbor"></section>
+<h1>Release Event Register</h1>
+<section class="viewbor"></section>
+<h1>Distribution Reference</h1>
+<section class="viewbor"></section>
+<h1>Release Restriction Register</h1>
+<section class="viewbor"></section>
+<h1>Record Provenance Register</h1>
+<section class="viewbor"></section>
+<h1>Record Evidence Register</h1>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency State</h1>
+<section class="viewbor"></section>
+<h1>Missing Evidence Record</h1>
+<section class="viewbor"></section>
+<h1>Evidence Conflict Record</h1>
+<section class="viewbor"></section>
+<h1>Record Completeness Assessment</h1>
+<section class="viewbor"></section>
+<h1>Record Consistency Assessment</h1>
+<section class="viewbor"></section>
+<h1>Record Integrity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Record Authenticity Reference</h1>
+<section class="viewbor"></section>
+<h1>Record Classification</h1>
+<section class="viewbor"></section>
+<h1>Record Update Register</h1>
+<section class="viewbor"></section>
+<h1>Record Correction Register</h1>
+<section class="viewbor"></section>
+<h1>Record Supersession Reference</h1>
+<section class="viewbor"></section>
+<h1>Historical Record Register</h1>
+<section class="viewbor"></section>
+<h1>Record Retention Reference</h1>
+<section class="viewbor"></section>
+<h1>Record Accessibility State</h1>
+<section class="viewbor"></section>
+<h1>Record Transfer Reference</h1>
+<section class="viewbor"></section>
+<h1>Lifecycle Governance Handoff</h1>
+<a>Version</a><br><br>
+<section class="viewbor"></section>
+<h1>Practical ApplicationsAutonomous Software Development</h1>
+<a>Preserving traceable release records when AI agents create, assess,<br>authorize, and distribute software through multiple automated tools.<br>Enterprise Release Management</a><br><br>
+<section class="viewbor"></section>
+<h1>Maintaining coherent release governance records across development,</h1>
+<a>testing, security, operations, and management functions. Continuous<br>Integration and Delivery</a><br><br>
+<section class="viewbor"></section>
+<h1>Associating automated build artifacts, readiness results, authorization</h1>
+<a>decisions, and release events without confusing technical pipeline<br>execution with governance approval. Software Supply Chain Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserving artifact, configuration, dependency, and origin references</h1>
+<a>needed to reconstruct software release composition. Critical<br>Infrastructure Software</a><br><br>
+<a>Maintaining reliable release histories for systems where changes may<br>affect essential operational functions. Incident Investigation and<br>Withdrawal</a><br><br>
+<a>Providing release evidence that supports identification of affected<br>artifacts, release events, authorization conditions, and historical<br>states.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 1 — An AI Software Factory Produces a Release Without a</h1>
+<a>Reconstructable Record</a><br><br>
+<a>An organization operates an autonomous software factory.</a><br><br>
+<section class="viewbor"></section>
+<h1>Multiple AI agents generate source code, modify dependencies, execute</h1>
+<a>builds, perform tests, and prepare release candidates.</a><br><br>
+<a>The software factory successfully produces a functioning application.</a><br><br>
+<a>A release authorization process approves the candidate.</a><br><br>
+<a>The software is subsequently published.</a><br><br>
+<a>However, the organization discovers that its release record contains<br>only a version label and a successful pipeline status.</a><br><br>
+<a>The record does not preserve the exact artifact identity, applicable<br>configuration baseline, dependency references, readiness assessment,<br>or authorization decision.</a><br><br>
+<a>RRMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Identity → Candidate Association → Artifact Identity →</h1>
+<a>Configuration &amp; Dependency References → Readiness Reference →<br>Authorization Reference → Evidence Sufficiency → Record Classification</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>A release event occurred</li><li>A release record exists</li><li>The exact released artifact cannot be sufficiently reconstructed</li><li>Readiness and authorization references are incomplete</li><li>The record cannot fully support subsequent governance<br>investigation</li></ul><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Record Incomplete — Evidence-Limited.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Release Record Exists ≠ Release Governance Evidence Complete.</a><br><br>
+<a>Successful Pipeline ≠ Complete Release Evidence.</a><br><br>
+<a>Version Label ≠ Verified Artifact Identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: RRMM exposes the difference between successful automated</h1>
+<a>software delivery and reconstructable release governance.</a><br><br>
+<ul><li>Use Case 2 — A Release Record Is Silently Modified After an<br>Incident</li></ul><br>
+<a>An organization distributes a software release.</a><br><br>
+<a>Several weeks later, an operational incident reveals that the released<br>software contained a configuration inconsistent with the intended<br>release conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>During the investigation, a release administrator modifies the original</h1>
+<a>release record to reflect the configuration that should have been<br>used.</a><br><br>
+<a>The modification overwrites the previous value.</a><br><br>
+<a>No correction reason, modification time, or historical version is<br>preserved.</a><br><br>
+<section class="viewbor"></section>
+<h1>The current release record appears consistent with the intended</h1>
+<a>configuration.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, it no longer accurately represents the information recorded at the</h1>
+<a>time of release.</a><br><br>
+<a>RRMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Record → Recorded Configuration → Modification Event → Correction</h1>
+<a>Evidence → Historical State → Record Integrity</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The original record was modified</li><li>The original recorded value was not preserved</li><li>The modification cannot be sufficiently reconstructed</li><li>The current record may conceal the historical discrepancy</li><li>Record integrity is not sufficiently established</li></ul><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Record Integrity Unresolved — Historical Evidence Incomplete.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Release Record Corrected ≠ Original Release Event Changed.</a><br><br>
+<a>Current Record Consistent ≠ Historical Record Accurate.</a><br><br>
+<a>Record Updated ≠ Record Integrity Preserved.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: RRMM requires corrections to remain traceable rather than</h1>
+<a>allowing historical release evidence to be silently rewritten.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 3 — A Security Withdrawal Requires Identification of Affected</h1>
+<a>Releases</a><br><br>
+<section class="viewbor"></section>
+<h1>A software supplier discovers a security vulnerability affecting a</h1>
+<a>third-party library.</a><br><br>
+<a>The vulnerable library was used in several software releases.</a><br><br>
+<a>Some releases included the library directly.</a><br><br>
+<a>Others inherited it through transitive dependencies.</a><br><br>
+<a>The supplier must determine which releases may be affected.</a><br><br>
+<section class="viewbor"></section>
+<h1>Its release records contain software version names but do not consistently</h1>
+<a>preserve dependency baselines or artifact composition references.</a><br><br>
+<section class="viewbor"></section>
+<h1>The organization cannot immediately establish which distributed artifacts</h1>
+<a>contain the vulnerable component.</a><br><br>
+<a>RRMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Identity → Artifact References → Dependency Baseline</h1>
+<a>References → Historical Release Composition → Evidence Coverage →<br>Affected Release Identification</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>Release records are available</li><li>Dependency composition evidence is incomplete</li><li>Version names do not sufficiently establish affected artifact</li><li>The organization cannot reliably reconstruct the complete<br>affected</li><li>Additional evidence acquisition is required</li></ul><br>
+<a>composition. release population.</a><br><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Record Evidence-Limited — Dependency Traceability Incomplete.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Release History Available ≠ Dependency Exposure Reconstructable.</a><br><br>
+<a>Software Version Known ≠ Component Composition Known.</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Completeness for Distribution ≠ Record Completeness for Security</h1>
+<a>Withdrawal.</a><br><br>
+<a>The result: RRMM demonstrates why release records must preserve<br>sufficient artifact and dependency traceability before an incident<br>creates an urgent need for reconstruction.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>Release Record Exists ≠ Release Governance Evidence Complete.</a><br><br>
+<a>Release Recorded ≠ Release Authorized.</a><br><br>
+<a>Release Record Updated ≠ Underlying Release State Changed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Historical Release Record Preserved ≠ Historical Authorization Still</h1>
+<a>Valid.</a><br><br>
+<a>Artifact Reference Recorded ≠ Artifact Identity Verified.</a><br><br>
+<a>Release Information Recorded ≠ Release Information Proven.</a><br><br>
+<a>Required Fields Populated ≠ Release Record Substantively Complete.</a><br><br>
+<a>Release Record Accessible ≠ Release Record Integrity Established.</a><br><br>
+<a>Release Record Revised ≠ Previous Release Record Erased.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release History Available ≠ Complete Software Lifecycle Traceability</h1>
+<a>Established.</a><br><br>
+<a>Release Name Recorded ≠ Unique Release Identity Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Suitable for Distribution Tracking ≠ Release Record</h1>
+<a>Sufficient for Authorization Audit.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Covers One Candidate ≠ Release Record Covers Every Related</h1>
+<a>Artifact.</a><br><br>
+<a>Software Product Identified ≠ Exact Released Artifact Identified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Candidate Referenced ≠ Candidate Identity and Composition</h1>
+<a>Verified.</a><br><br>
+<a>Version Label Equality ≠ Artifact Equivalence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Artifact Identified ≠ Applicable Configuration Context Fully</h1>
+<a>Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Manifest Attached ≠ Complete Release Dependency Reality</h1>
+<a>Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Readiness Conclusion Recorded ≠ Readiness Conclusion Independently</h1>
+<a>Verified by RRMM.</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorization Decision Referenced ≠ Authorization Legitimacy Independently</h1>
+<a>Established.</a><br><br>
+<a>Release Event Recorded ≠ Release Event Authorized.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Published to a Repository ≠ Software Delivered to Every Intended</h1>
+<a>Recipient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Restrictions Recorded ≠ Release Restrictions Operationally</h1>
+<a>Enforced.</a><br><br>
+<a>Release Record Source Identified ≠ Release Record Content<br>Authenticated.</a><br><br>
+<a>Evidence Linked ≠ Evidence Relevant or Sufficient.</a><br><br>
+<section class="viewbor"></section>
+<h1>All Mandatory Fields Present ≠ All Recorded Claims Substantively</h1>
+<a>Supported.</a><br><br>
+<a>Release Record Internally Consistent ≠ Release Record Factually<br>Correct.</a><br><br>
+<a>Record Unchanged ≠ Record Originally Accurate.</a><br><br>
+<a>Record Authenticated ≠ Every Claim Within the Record Validated.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Evidence Available ≠ Release Evidence Sufficient for Every</h1>
+<a>Lifecycle Decision.</a><br><br>
+<a>Release Information Missing ≠ Release Condition Satisfied.</a><br><br>
+<a>Record Uncertainty Acknowledged ≠ Record Uncertainty Resolved.</a><br><br>
+<a>Release Record Corrected ≠ Original Release Event Changed.</a><br><br>
+<a>Historical Record Inaccurate ≠ Historical Record May Be Silently<br>Rewritten.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Superseded ≠ Previous Release Record Invalid for Historical</h1>
+<a>Reconstruction.</a><br><br>
+<a>Release Record Version Increased ≠ Software Release Version Increased.</a><br><br>
+<a>Current Release Record State ≠ Complete Historical Release State.</a><br><br>
+<a>Record No Longer Operationally Needed ≠ Record Eligible for Deletion.</a><br><br>
+<a>Release Record Stored ≠ Release Record Retrievable When Required.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Transferred ≠ Record Integrity and Accessibility</h1>
+<a>Automatically Preserved.</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Record Classified as Complete ≠ Release Independently Validated as</h1>
+<a>Ready or Authorized.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<a>RRMM may consume governed references from:</a><br><br>
+<section class="viewbor"></section>
+<h1>GOA™ — Governance Architecture</h1>
+<section class="viewbor"></section>
+<h1>AGA™ — Accountability Governance Architecture</h1>
+<section class="viewbor"></section>
+<h1>SCS — Software Creation Standard</h1>
+<section class="viewbor"></section>
+<h1>SDS — Software Dependency Standard</h1>
+<section class="viewbor"></section>
+<h1>SCFS — Software Configuration Standard</h1>
+<section class="viewbor"></section>
+<h1>SQS — Software Quality Standard</h1>
+<section class="viewbor"></section>
+<h1>SSS — Software Security Standard</h1>
+<a>Within SRLS, RRMM receives release governance references from:</a><br><br>
+<section class="viewbor"></section>
+<h1>RCMM — Release Candidate Management Module</h1>
+<section class="viewbor"></section>
+<h1>RRM — Release Readiness Module</h1>
+<section class="viewbor"></section>
+<h1>RAM — Release Authorization Module</h1>
+<a>RRMM supports:</a><br><br>
+<section class="viewbor"></section>
+<h1>RWM — Release Withdrawal Module</h1>
+<section class="viewbor"></section>
+<h1>SDPS — Software Deployment Standard</h1>
+<section class="viewbor"></section>
+<h1>SCMS — Software Change Management Standard</h1>
+<section class="viewbor"></section>
+<h1>SRTS — Software Retirement Standard</h1>
+<section class="viewbor"></section>
+<h1>SLCS — Software Lifecycle Control Standard</h1>
+<a>RRMM preserves the release governance record and its historical<br>continuity.</a><br><br>
+<a>It does not replace the mechanisms responsible for establishing<br>candidate identity, readiness, authorization, deployment, withdrawal,<br>or lifecycle transitions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Mechanism Principle</h1>
+<a>An operational mechanism may produce inputs for multiple governance<br>architectures, but it belongs only to the architecture whose governed<br>domain includes that mechanism itself. Other architectures govern only<br>its domain-specific relevance or consequences.</a><br><br>
+<a>RRMM may preserve evidence generated through software creation,<br>configuration, dependency, quality, security, authorization,<br>deployment, and operational processes.</a><br><br>
+<a>It governs how that evidence is associated with and preserved within<br>the software release record.</a><br><br>
+<a>It does not redefine the underlying mechanisms or independently<br>validate every referenced governance conclusion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>RRMM governs how software release records are established, structured,<br>associated, preserved, updated, verified, superseded, and maintained<br>as traceable evidence of identifiable software releases and their<br>applicable governance states throughout the software lifecycle.</a><br><br>
+<a>It does not independently establish software readiness, grant release<br>authorization, execute software deployment, withdraw releases, or<br>certify software correctness, security, or operational acceptability.</a><br><br>
+<a>Its principal governed output is the Software Release Record Profile.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<section class="viewbor"></section>
+<h1>Software release governance cannot remain reliable if the evidence of what</h1>
+<a>was released, why it was considered ready, who authorized it, and<br>under which conditions it was distributed cannot be reconstructed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Modern software delivery increasingly involves distributed development</h1>
+<a>environments, automated build systems, external dependencies, AI<br>coding agents, autonomous workflows, and multiple release channels.</a><br><br>
+<a>These mechanisms can produce and distribute software rapidly.</a><br><br>
+<a>But the speed of software delivery does not establish the completeness<br>or integrity of its release history.</a><br><br>
+<a>A software release may be technically successful while its record<br>remains incomplete.</a><br><br>
+<a>An authorization decision may be legitimate while its evidence is<br>poorly preserved.</a><br><br>
+<a>A release record may exist while the exact released artifact cannot be<br>identified.</a><br><br>
+<a>And a historical record may appear complete after modifications have<br>silently erased the information originally recorded.</a><br><br>
+<a>A release record is not reliable merely because it exists.</a><br><br>
+<a>It must preserve identifiable relationships between the software<br>product, release candidate, artifact composition, readiness<br>assessment, authorization decision, release event, and applicable<br>restrictions.</a><br><br>
+<a>It must distinguish what was known at the time of release from what<br>was discovered later.</a><br><br>
+<a>It must preserve corrections without rewriting history.</a><br><br>
+<a>And it must remain accessible and interpretable when software is<br>deployed, modified, investigated, withdrawn, or retired.</a><br><br>
+<a>Historical evidence must remain historical evidence—even when later<br>knowledge changes the interpretation of the release.</a><br><br>
+<a>This principle applies whether software is released by a human<br>development team, an automated delivery pipeline, or an autonomous AI<br>software factory.</a><br><br>
+<a>The release mechanism may change.</a><br><br>
+<a>The participating actors may change.</a><br><br>
+<a>The software artifacts may evolve.</a><br><br>
+<a>The requirement for reconstructable release governance remains.</a><br><br>
+<section class="viewbor"></section>
+<h1>RRMM transforms software release documentation into governed lifecycle</h1>
+<a>evidence — preserving not merely the claim that software was released,<br>but the identifiable artifacts, decisions, conditions, events, and<br>historical relationships required to establish what that release<br>represented and how its governance state can be reconstructed over<br>time.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® DFM — Defect Management Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>DFM — Defect Management Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Quality Standard (SQS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Defect Management Governance<br>
+<b>Module ID:</b> SLGA-SQS-DFM-004<br>
+<b>Origin ID:</b> OOF.CM.SLGA.05.04.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 12.10.2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<section class="viewbor"></section>
+<h1>The Defect Management Module (DFM) governs the identification,</h1>
+<a>recognition, classification, assessment, attribution, prioritization,<br>correction reference, resolution verification, evidence integrity, and<br>lifecycle continuity of software defects.</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM establishes the methodological conditions under which an observed</h1>
+<a>software deviation can be recognized as an identifiable,<br>evidence-supported defect, associated with the relevant software<br>artifact and operating context, assessed according to its material<br>consequences, and subsequently recognized as resolved only when<br>competent verification evidence supports that determination.</a><br><br>
+<section class="viewbor"></section>
+<h1>It governs the relationships among expected software behavior, observed</h1>
+<a>deviations, defect reports, reproduction conditions, affected<br>artifacts, defect severity, operational impact, root-cause findings,<br>corrective actions, verification evidence, regression implications,<br>residual limitations, and defect closure decisions.</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM distinguishes test failure from verified software defect, defect</h1>
+<a>identification from root-cause attribution, correction implementation<br>from verified resolution, administrative closure from technical<br>resolution, and defect resolution in one configuration from<br>demonstrated resolution across all relevant configurations.</a><br><br>
+<section class="viewbor"></section>
+<h1>It applies to software defects identified or managed by humans,</h1>
+<a>organizations, automated testing systems, AI coding assistants,<br>autonomous development agents, and software infrastructure mechanisms.</a><br><br>
+<a>DFM is technology-independent and does not prescribe a particular<br>issue-tracking platform, programming language, debugging tool,<br>development methodology, or defect remediation process.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Defect State</h1>
+<a>Its foundational distinction is:</a><br><br>
+<a>Defect Closure ≠ Verified Defect Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>The operational role of DFM is:</a><br><br>
+<a>To ensure that software defects remain identifiable, attributable only<br>to the extent supported by evidence, assessed according to their<br>actual or reasonably supported significance, connected to the software<br>artifacts and operating conditions affected, and recognized as<br>resolved only through competent verification against the relevant<br>correction and software state.</a><br><br>
+<a>DFM establishes the defect-governance mechanism of SQS.</a><br><br>
+<section class="viewbor"></section>
+<h1>It determines what deviation has been identified, whether the available</h1>
+<a>evidence supports recognizing it as a defect, which software<br>conditions are affected, what correction has been proposed or<br>implemented, and whether the claimed resolution has been sufficiently<br>demonstrated.</a><br><br>
+<a>DFM does not independently authorize software changes, establish<br>testing criteria, accept residual quality risk, authorize software<br>release, or determine legal liability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Question</h1>
+<a>How can an observed software deviation be competently recognized,<br>classified, assessed, traced to the affected software state, and<br>verified as resolved without confusing reported failures, proposed<br>corrections, successful test execution, or administrative ticket<br>closure with demonstrated defect resolution?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<a>The SLGA™ governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<a>Cross-cutting:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control</h1>
+<a>DFM operates within:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Quality Standard (SQS)</h1>
+<a>The SQS internal governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Quality Requirements → Quality Criteria Definition → Testing &amp; Coverage</h1>
+<a>Management → Defect Management → Quality Conformity &amp; Acceptance</a><br><br>
+<a>DFM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Management</h1>
+<a>It is the fourth Core Module of SQS.</a><br><br>
+<a>Its principal upstream references include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Quality Requirements State</h1>
+<a>from QRM — Quality Requirements Module.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Quality Criteria Definition State</h1>
+<a>from QCDM — Quality Criteria Definition Module.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<a>from TCMM — Testing &amp; Coverage Management Module.</a><br><br>
+<a>Relevant supporting references include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Creation State</h1>
+<a>from Software Creation Standard (SCS).</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Dependency State</h1>
+<a>from Software Dependency Standard (SDS).</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Configuration State</h1>
+<a>from Software Configuration Standard (SCFS).</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Defect State</h1>
+<a>This output supports:</a><br><br>
+<section class="viewbor"></section>
+<h1>QCAM — Quality Conformity &amp; Acceptance Module</h1>
+<a>and contributes to:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Quality State</h1>
+<a>DFM may be invoked whenever defects are reported, identified,<br>reassessed, corrected, verified, reopened, superseded, or evaluated<br>for downstream quality acceptance.</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Defect Management Governance</h1>
+<section class="viewbor"></section>
+<h1>This space governs the conditions under which software defects become</h1>
+<a>identifiable, evidence-supported, appropriately assessed, and<br>verifiably resolved.</a><br><br>
+<a>Its principal dimensions include:</a><br><br>
+<ul><li>Defect governance object identity</li><li>Defect report origin</li><li>Defect observation</li><li>Expected behavior</li><li>Observed behavior</li><li>Expected–observed deviation</li><li>Defect recognition</li><li>Defect confirmation</li><li>Defect classification</li><li>Defect scope</li><li>Affected software object</li><li>Artifact identity</li><li>Artifact version</li><li>Configuration correspondence</li><li>Environment correspondence</li><li>Reproduction conditions</li><li>Reproducibility</li><li>Intermittent defects</li><li>Defect severity</li><li>Defect priority</li><li>Defect impact</li><li>Defect criticality</li><li>Defect exposure</li><li>Defect propagation</li><li>Root-cause investigation</li><li>Root-cause evidence</li><li>Defect attribution</li><li>Defect dependencies</li><li>Defect ownership references</li><li>Defect correction proposal</li><li>Correction authority references</li><li>Correction implementation references</li><li>Corrected artifact correspondence</li><li>Defect resolution criteria</li><li>Resolution verification</li><li>Regression verification</li><li>Verification evidence</li><li>Verification competence</li><li>Verification integrity</li><li>Defect closure</li><li>Conditional closure</li><li>Defect reopening</li><li>Residual defect conditions</li><li>Known defect limitations</li><li>Defect uncertainty</li><li>Defect conflict</li><li>Defect evidence gaps</li><li>Critical defect gaps</li><li>Defect history</li><li>Defect continuity</li><li>Defect reassessment</li><li>Defect governance states</li></ul><br>
+<section class="viewbor"></section>
+<h1>This governed space remains distinct from test execution under TCMM,</h1>
+<a>software change authorization under SCMS, and quality acceptance under<br>QCAM.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Governance Object</h1>
+<a>Every material DFM assessment shall establish a Defect Governance<br>Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>The object represents an identifiable software defect or candidate defect</h1>
+<a>and its governance conditions.</a><br><br>
+<a>It should identify:</a><br><br>
+<a>Defect Identity: The identifiable defect reference.</a><br><br>
+<a>Report Origin: The source of the report.</a><br><br>
+<a>Observed Deviation: The behavior requiring assessment.</a><br><br>
+<a>Expected Behavior: The applicable expected condition.</a><br><br>
+<a>Software Object: The affected software.</a><br><br>
+<a>Artifact Reference: The relevant software artifact.</a><br><br>
+<a>Configuration: The applicable software configuration.</a><br><br>
+<a>Environment: The conditions under which the deviation occurred.</a><br><br>
+<a>Recognition State: Whether the deviation is confirmed as a defect.</a><br><br>
+<a>Severity: The assessed technical significance.</a><br><br>
+<a>Impact: The relevant operational consequences.</a><br><br>
+<a>Correction Reference: The proposed or implemented correction.</a><br><br>
+<a>Verification Evidence: The evidence supporting resolution.</a><br><br>
+<a>Defect State: The recognized governance condition.</a><br><br>
+<a>A Defect Governance Object may exist before defect confirmation.</a><br><br>
+<a>Defect Report ≠ Confirmed Software Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Report Origin</h1>
+<a>DFM shall identify the origin of material defect reports.</a><br><br>
+<a>Origins may include:</a><br><br>
+<ul><li>Automated testing</li><li>Human testing</li><li>Production monitoring</li><li>User reports</li><li>Developer observations</li><li>AI code analysis</li><li>Static analysis</li><li>Integration assessment</li><li>Operational incident investigation</li></ul><br>
+<a>Report origin shall remain distinguishable from defect confirmation.</a><br><br>
+<a>Defect Report Source ≠ Defect Validity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Observation Governance</h1>
+<a>DFM shall preserve the actual observation giving rise to a defect<br>claim.</a><br><br>
+<a>Observations may include:</a><br><br>
+<ul><li>Incorrect output</li><li>Unexpected behavior</li><li>Application failure</li><li>Performance deviation</li><li>Data processing error</li><li>Integration malfunction</li><li>Recovery failure</li><li>Inconsistent behavior</li></ul><br>
+<section class="viewbor"></section>
+<h1>Observations shall remain connected to the relevant software and</h1>
+<a>operational conditions.</a><br><br>
+<a>Observed Software Anomaly ≠ Confirmed Software Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Expected Behavior Correspondence</h1>
+<section class="viewbor"></section>
+<h1>DFM shall identify the expected behavior against which a reported deviation</h1>
+<a>is assessed.</a><br><br>
+<a>Expected behavior should derive from:</a><br><br>
+<ul><li>Governed quality requirements</li><li>Governed quality criteria</li><li>Applicable software specifications</li><li>Competent behavioral references</li></ul><br>
+<a>Where expected behavior remains ambiguous, defect confirmation may<br>remain unresolved.</a><br><br>
+<a>Unexpected Behavior ≠ Defect Without an Applicable Expected Condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Observed Behavior Correspondence</h1>
+<a>DFM shall preserve the behavior actually observed.</a><br><br>
+<a>The record should identify:</a><br><br>
+<ul><li>Relevant inputs</li><li>Execution conditions</li><li>Actual outputs</li><li>Error conditions</li><li>State transitions</li><li>Relevant timing</li><li>Available supporting evidence</li></ul><br>
+<a>Observed behavior shall not be replaced by inferred or assumed<br>behavior.</a><br><br>
+<a>Reported Behavior ≠ Independently Verified Behavior.</a><br><br>
+<section class="viewbor"></section>
+<h1>Expected–Observed Deviation</h1>
+<section class="viewbor"></section>
+<h1>DFM shall establish whether a material deviation exists between expected</h1>
+<a>and observed behavior.</a><br><br>
+<a>Possible determinations include:</a><br><br>
+<ul><li>Confirmed deviation</li><li>Partially supported deviation</li><li>Inconclusive deviation</li><li>Invalid comparison</li><li>No demonstrated deviation</li></ul><br>
+<a>Deviation recognition shall remain bounded by the applicable evidence.</a><br><br>
+<a>Observed Deviation ≠ Established Root Cause.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Recognition</h1>
+<section class="viewbor"></section>
+<h1>DFM shall determine whether available evidence supports recognizing an</h1>
+<a>observed deviation as a software defect.</a><br><br>
+<a>Recognition may require:</a><br><br>
+<ul><li>Applicable expected behavior</li><li>Competent observation</li><li>Relevant software correspondence</li><li>Sufficient deviation evidence</li><li>Exclusion or recognition of alternative explanations</li></ul><br>
+<a>A failed test alone shall not automatically establish a software<br>defect.</a><br><br>
+<a>Failed Test ≠ Confirmed Software Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Confirmation</h1>
+<a>DFM shall distinguish candidate defects from sufficiently confirmed<br>defects.</a><br><br>
+<a>Confirmation may depend on:</a><br><br>
+<ul><li>Reproduction</li><li>Competent diagnostic evidence</li><li>Consistent observed deviation</li><li>Verified software correspondence</li><li>Applicable quality criteria</li></ul><br>
+<a>Reproduction is useful but shall not be an absolute prerequisite where<br>other competent evidence sufficiently establishes the defect.</a><br><br>
+<a>Non-Reproducible Defect ≠ Nonexistent Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Classification</h1>
+<a>DFM shall classify material defects according to their nature.</a><br><br>
+<a>Classes may include:</a><br><br>
+<ul><li>Functional defect</li><li>Reliability defect</li><li>Performance defect</li><li>Compatibility defect</li><li>Usability defect</li><li>Maintainability-related defect</li><li>Portability defect</li><li>Recoverability defect</li><li>Integration defect</li><li>Configuration-dependent defect</li></ul><br>
+<a>Classification shall remain distinguishable from severity.</a><br><br>
+<a>Defect Classification ≠ Defect Severity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Scope</h1>
+<a>DFM shall identify the known or reasonably supported scope of a<br>defect.</a><br><br>
+<a>Scope may concern:</a><br><br>
+<ul><li>Specific function</li><li>Component</li><li>Application</li><li>Integration</li><li>Software version</li><li>Configuration</li><li>Environment</li><li>User group</li><li>Operational scenario</li></ul><br>
+<a>Unknown scope shall remain explicit.</a><br><br>
+<a>Observed Defect Scope ≠ Complete Defect Scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Affected Software Object</h1>
+<a>DFM shall identify the software object affected by the defect.</a><br><br>
+<a>Objects may include:</a><br><br>
+<ul><li>Function</li><li>Component</li><li>Service</li><li>API</li><li>Library</li><li>Application</li><li>Embedded system</li><li>Integrated software system</li></ul><br>
+<section class="viewbor"></section>
+<h1>The affected object shall remain distinguishable from the object</h1>
+<a>responsible for the underlying cause.</a><br><br>
+<a>Affected Software Component ≠ Root-Cause Component.</a><br><br>
+<section class="viewbor"></section>
+<h1>Artifact Identity Governance</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve the identity of software artifacts associated with</h1>
+<a>defect observations and corrections.</a><br><br>
+<a>Relevant references may include:</a><br><br>
+<ul><li>Artifact identifier</li><li>Version</li><li>Build reference</li><li>Content integrity reference</li><li>Relevant configuration</li><li>Correction artifact</li></ul><br>
+<a>A version label alone shall not establish artifact correspondence.</a><br><br>
+<a>Declared Defective Version ≠ Verified Defective Artifact.</a><br><br>
+<section class="viewbor"></section>
+<h1>Artifact Version Correspondence</h1>
+<section class="viewbor"></section>
+<h1>DFM shall identify the software versions in which a defect has been</h1>
+<a>observed, confirmed, corrected, or verified.</a><br><br>
+<section class="viewbor"></section>
+<h1>A defect confirmed in one version shall not automatically be assumed</h1>
+<a>present or absent in another.</a><br><br>
+<a>Defect in Version A ≠ Proven Defect in Version B.</a><br><br>
+<section class="viewbor"></section>
+<h1>Configuration Correspondence</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve relevant configuration conditions associated with defect</h1>
+<a>behavior.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Runtime parameters</li><li>Feature flags</li><li>Dependency versions</li><li>Environment variables</li><li>Build settings</li><li>Integration configuration</li></ul><br>
+<a>Configuration changes may affect defect occurrence and correction<br>validity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Resolved in One Configuration ≠ Defect Resolved in Every</h1>
+<a>Configuration.</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment Correspondence</h1>
+<section class="viewbor"></section>
+<h1>DFM shall identify relevant environmental conditions associated with defect</h1>
+<a>observations.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Operating system</li><li>Hardware</li><li>Runtime</li><li>Network</li><li>Infrastructure</li><li>External services</li><li>Workload</li><li>Data characteristics</li></ul><br>
+<a>A defect may be environment-dependent.</a><br><br>
+<a>Environment-Specific Defect ≠ Universal Software Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Reproduction Conditions</h1>
+<a>DFM shall preserve known conditions under which a defect can be<br>reproduced.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Input values</li><li>Execution sequence</li><li>Software state</li><li>Configuration</li><li>Environment</li><li>Timing</li><li>Dependency behavior</li><li>Workload</li></ul><br>
+<a>Reproduction conditions shall remain associated with the relevant<br>artifact.</a><br><br>
+<a>Documented Reproduction Steps ≠ Successfully Reproduced Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Reproducibility</h1>
+<a>DFM shall assess whether the reported defect can be reproduced under<br>sufficiently comparable conditions.</a><br><br>
+<a>Possible conditions include:</a><br><br>
+<ul><li>Consistently reproducible</li><li>Intermittently reproducible</li><li>Reproducible only under specific conditions</li><li>Not yet reproduced</li><li>Reproduction evidence unavailable</li></ul><br>
+<section class="viewbor"></section>
+<h1>Lack of reproduction shall not automatically invalidate competent</h1>
+<a>observational evidence.</a><br><br>
+<a>Failure to Reproduce ≠ Proof of Defect Absence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Intermittent Defect Governance</h1>
+<a>DFM shall recognize defects that occur inconsistently.</a><br><br>
+<a>Intermittent defects may arise from:</a><br><br>
+<ul><li>Concurrency</li><li>Timing</li><li>Resource contention</li><li>Distributed execution</li><li>External dependencies</li><li>Data ordering</li><li>Environmental variation</li></ul><br>
+<section class="viewbor"></section>
+<h1>Intermittent behavior shall not automatically be classified as a test</h1>
+<a>framework defect.</a><br><br>
+<a>Intermittent Failure ≠ Automatically Invalid Defect Evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Severity Governance</h1>
+<a>DFM shall assess the technical significance of a defect.</a><br><br>
+<a>Severity may concern:</a><br><br>
+<ul><li>Functional disruption</li><li>Data correctness</li><li>Reliability degradation</li><li>Performance impact</li><li>Recovery limitations</li><li>Operational consequences</li></ul><br>
+<a>Severity shall remain supported by the known defect conditions.</a><br><br>
+<a>Defect Severity ≠ Defect Priority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Priority Governance</h1>
+<section class="viewbor"></section>
+<h1>DFM shall recognize the priority assigned to defect investigation or</h1>
+<a>correction.</a><br><br>
+<a>Priority may depend on:</a><br><br>
+<ul><li>Severity</li><li>Operational urgency</li><li>User impact</li><li>Available workarounds</li><li>Release objectives</li><li>Resource constraints</li><li>Relevant dependencies</li></ul><br>
+<section class="viewbor"></section>
+<h1>Priority shall remain distinguishable from the technical significance of</h1>
+<a>the defect.</a><br><br>
+<a>High Defect Priority ≠ High Technical Severity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Impact Governance</h1>
+<section class="viewbor"></section>
+<h1>DFM shall assess the actual or reasonably supported impact of material</h1>
+<a>defects.</a><br><br>
+<a>Impact may include:</a><br><br>
+<ul><li>Incorrect processing</li><li>Operational disruption</li><li>User task failure</li><li>Service degradation</li><li>Data inconsistency</li><li>Recovery difficulty</li><li>Dependency effects</li></ul><br>
+<a>Actual impact shall remain distinguishable from hypothetical impact.</a><br><br>
+<a>Potential Defect Impact ≠ Observed Defect Impact.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Criticality</h1>
+<a>DFM shall identify defects whose consequences are materially<br>significant within the relevant software context.</a><br><br>
+<a>Criticality may depend on:</a><br><br>
+<ul><li>Intended use</li><li>Affected functionality</li><li>Operational consequences</li><li>Recovery limitations</li><li>Exposure</li><li>Dependency propagation</li><li>Available mitigation</li></ul><br>
+<a>Criticality shall remain context-dependent.</a><br><br>
+<a>Critical Defect Classification ≠ Automatic Release Rejection.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Exposure</h1>
+<section class="viewbor"></section>
+<h1>DFM shall identify conditions affecting the likelihood or extent of</h1>
+<a>exposure to a defect.</a><br><br>
+<a>Exposure may concern:</a><br><br>
+<ul><li>User population</li><li>Feature usage</li><li>Workload</li><li>Input frequency</li><li>Deployment scope</li><li>Relevant configuration</li><li>Operating duration</li></ul><br>
+<a>Exposure estimates shall preserve uncertainty.</a><br><br>
+<a>Defect Exposure Estimate ≠ Verified Defect Occurrence Frequency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Propagation</h1>
+<a>DFM shall recognize the possibility that a defect affects additional<br>software functions, components, or dependent systems.</a><br><br>
+<a>Propagation may involve:</a><br><br>
+<ul><li>Shared libraries</li><li>Common data structures</li><li>Integration interfaces</li><li>Reused algorithms</li><li>Configuration dependencies</li><li>Downstream processing</li></ul><br>
+<a>Possible propagation shall remain distinguishable from verified<br>propagation.</a><br><br>
+<a>Potential Defect Propagation ≠ Demonstrated Propagation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Root-Cause Investigation</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve the investigation of causes associated with material</h1>
+<a>defects.</a><br><br>
+<a>Investigation may involve:</a><br><br>
+<ul><li>Execution traces</li><li>Source-code analysis</li><li>Configuration analysis</li><li>Dependency assessment</li><li>Data examination</li><li>Reproduction</li><li>Change history</li><li>Environment analysis</li></ul><br>
+<section class="viewbor"></section>
+<h1>Root-cause investigation shall not be represented as completed merely</h1>
+<a>because a plausible explanation has been proposed.</a><br><br>
+<a>Plausible Root Cause ≠ Verified Root Cause.</a><br><br>
+<section class="viewbor"></section>
+<h1>Root-Cause Evidence</h1>
+<section class="viewbor"></section>
+<h1>DFM shall assess the competence of evidence supporting a root-cause</h1>
+<a>determination.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<ul><li>Reproducible causal behavior</li><li>Controlled comparisons</li><li>Code-path evidence</li><li>Relevant logs</li><li>Configuration correspondence</li><li>Dependency behavior</li><li>Corrective experiment results</li></ul><br>
+<section class="viewbor"></section>
+<h1>A correlation between a code change and defect disappearance shall not</h1>
+<a>automatically establish complete causal attribution.</a><br><br>
+<a>Correlation with Defect Disappearance ≠ Complete Root-Cause Proof.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Attribution</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve the attribution of defects to relevant technical</h1>
+<a>conditions only to the extent supported by evidence.</a><br><br>
+<a>Attribution may concern:</a><br><br>
+<ul><li>Software logic</li><li>Component behavior</li><li>Configuration</li><li>Dependency interaction</li><li>Integration conditions</li><li>Data processing</li><li>Environmental factors</li></ul><br>
+<section class="viewbor"></section>
+<h1>Technical defect attribution shall remain distinct from personal</h1>
+<a>responsibility and legal liability.</a><br><br>
+<a>Technical Defect Attribution ≠ Legal Liability Attribution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Dependency Relationships</h1>
+<section class="viewbor"></section>
+<h1>DFM shall identify material relationships between defects and relevant</h1>
+<a>dependencies.</a><br><br>
+<a>Relationships may involve:</a><br><br>
+<ul><li>Shared components</li><li>External libraries</li><li>Runtime behavior</li><li>Infrastructure services</li><li>Interface contracts</li><li>Configuration dependencies</li></ul><br>
+<a>Dependency identification shall not independently establish causation.</a><br><br>
+<a>Dependency Associated with Defect ≠ Dependency Proven as Root Cause.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Ownership References</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve relevant responsibility references for defect</h1>
+<a>investigation, correction, and verification.</a><br><br>
+<a>These may identify:</a><br><br>
+<ul><li>Responsible development team</li><li>Component maintainer</li><li>Assigned investigator</li><li>Correction implementer</li><li>Verification function</li><li>Competent closure authority</li></ul><br>
+<section class="viewbor"></section>
+<h1>An assignment shall not independently establish capability, authority, or</h1>
+<a>actual control.</a><br><br>
+<a>Assigned Defect Owner ≠ Demonstrated Defect Resolution Capability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Correction Proposal</h1>
+<a>DFM shall recognize proposed corrective actions.</a><br><br>
+<a>Proposals may include:</a><br><br>
+<ul><li>Code modification</li><li>Configuration correction</li><li>Dependency update</li><li>Algorithm revision</li><li>Input validation change</li><li>Integration correction</li><li>Error-handling improvement</li></ul><br>
+<section class="viewbor"></section>
+<h1>A proposed correction shall remain distinguishable from an implemented</h1>
+<a>correction.</a><br><br>
+<a>Proposed Defect Correction ≠ Implemented Defect Correction.</a><br><br>
+<section class="viewbor"></section>
+<h1>Correction Authority References</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve the authority references applicable to material</h1>
+<a>corrective actions.</a><br><br>
+<a>Relevant authority may concern:</a><br><br>
+<ul><li>Source-code modification</li><li>Configuration changes</li><li>Dependency replacement</li><li>Production intervention</li><li>Automated agent actions</li><li>Approval requirements</li></ul><br>
+<a>DFM records relevant authority conditions but does not replace SCS,<br>SCFS, SCMS, or agent-governance authority mechanisms.</a><br><br>
+<a>Authority to Diagnose a Defect ≠ Authority to Modify Production<br>Software.</a><br><br>
+<section class="viewbor"></section>
+<h1>Correction Implementation References</h1>
+<a>DFM shall preserve identifiable references to implemented corrections.</a><br><br>
+<a>References may include:</a><br><br>
+<ul><li>Code change</li><li>Commit</li><li>Change request</li><li>Build artifact</li><li>Configuration revision</li><li>Dependency update</li><li>Relevant implementation evidence</li></ul><br>
+<a>Implementation evidence shall not independently establish resolution.</a><br><br>
+<a>Correction Implemented ≠ Defect Resolved.</a><br><br>
+<section class="viewbor"></section>
+<h1>Corrected Artifact Correspondence</h1>
+<section class="viewbor"></section>
+<h1>DFM shall identify the actual software artifact containing the proposed</h1>
+<a>correction.</a><br><br>
+<a>Correspondence should establish:</a><br><br>
+<ul><li>Corrected artifact identity</li><li>Relevant version</li><li>Build reference</li><li>Configuration</li><li>Correction inclusion</li><li>Relationship to the original defective artifact</li></ul><br>
+<section class="viewbor"></section>
+<h1>A correction present in a development branch shall not automatically</h1>
+<a>establish its presence in a release candidate.</a><br><br>
+<a>Correction in Source Code ≠ Correction in Relevant Executable<br>Artifact.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Resolution Criteria</h1>
+<a>DFM shall identify the conditions under which a defect may be<br>recognized as resolved.</a><br><br>
+<a>Resolution criteria may require:</a><br><br>
+<ul><li>Corrected behavior</li><li>Relevant artifact correspondence</li><li>Suitable verification method</li><li>Applicable environment</li><li>Reproduction-condition assessment</li><li>Required regression evidence</li><li>Absence of the original deviation within the assessed scope</li></ul><br>
+<section class="viewbor"></section>
+<h1>Resolution criteria shall remain connected to the defect actually</h1>
+<a>recognized.</a><br><br>
+<a>Defined Resolution Criteria ≠ Demonstrated Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Resolution Verification</h1>
+<section class="viewbor"></section>
+<h1>DFM shall require competent evidence before recognizing a material defect</h1>
+<a>as technically resolved.</a><br><br>
+<a>Verification may involve:</a><br><br>
+<ul><li>Re-execution of relevant tests</li><li>Controlled reproduction comparison</li><li>Verification against corrected artifacts</li><li>Confirmation of applicable configuration</li><li>Observation of corrected behavior</li><li>Assessment of residual limitations</li></ul><br>
+<section class="viewbor"></section>
+<h1>Resolution verification shall not rely solely on developer declarations or</h1>
+<a>administrative ticket status.</a><br><br>
+<a>Defect Closure ≠ Verified Defect Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Method Suitability</h1>
+<a>DFM shall assess whether the selected verification method can<br>meaningfully establish the claimed defect resolution.</a><br><br>
+<a>For example:</a><br><br>
+<a>A unit test may demonstrate correction of a specific function.</a><br><br>
+<a>It may be insufficient to verify a defect that occurs only under<br>concurrent production workloads.</a><br><br>
+<a>A mocked integration test may demonstrate local behavior.</a><br><br>
+<a>It may be insufficient to verify an actual external integration<br>defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Successful Verification Method Execution ≠ Suitable Resolution</h1>
+<a>Verification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Artifact Identity</h1>
+<section class="viewbor"></section>
+<h1>DFM shall establish the identity of the software artifact against which</h1>
+<a>resolution verification was performed.</a><br><br>
+<a>The verification artifact shall be connected to the implemented<br>correction.</a><br><br>
+<a>Where correspondence is unresolved, the resolution claim shall remain<br>evidence-limited.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Against an Unidentified Artifact ≠ Verified Defect</h1>
+<a>Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Configuration Correspondence</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve the configuration under which defect resolution was</h1>
+<a>verified.</a><br><br>
+<a>Where the defect depends on configuration, verification shall address<br>the relevant configuration conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>A passing verification in one configuration shall not automatically</h1>
+<a>establish resolution in another.</a><br><br>
+<a>Verified Correction in One Configuration ≠ Universal Defect<br>Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Environment Correspondence</h1>
+<a>DFM shall assess whether the verification environment is sufficiently<br>representative of the conditions relevant to the defect.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<ul><li>Hardware</li><li>Runtime</li><li>Workload</li><li>Network</li><li>External services</li><li>Data</li><li>Integration conditions</li></ul><br>
+<a>Material differences shall remain explicit.</a><br><br>
+<a>Verification Environment Similarity ≠ Verified Operational<br>Equivalence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Regression Verification</h1>
+<section class="viewbor"></section>
+<h1>DFM shall recognize the need to assess whether corrective changes introduce</h1>
+<a>or expose additional software deviations.</a><br><br>
+<a>Regression verification may concern:</a><br><br>
+<ul><li>Related functions</li><li>Shared components</li><li>Integration behavior</li><li>Configuration interactions</li><li>Relevant historical defects</li><li>Previously established quality conditions</li></ul><br>
+<a>TCMM governs actual regression test execution and coverage evidence.</a><br><br>
+<a>DFM evaluates the relevance of that evidence to the correction.</a><br><br>
+<a>Original Defect Resolved ≠ No New Defects Introduced.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Evidence Governance</h1>
+<a>DFM shall preserve the evidence supporting material resolution claims.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<ul><li>Test execution records</li><li>Corrected behavior observations</li><li>Artifact identity</li><li>Configuration correspondence</li><li>Environment records</li><li>Relevant logs</li><li>Regression assessment references</li><li>Competent technical review</li></ul><br>
+<a>Evidence shall remain associated with the specific defect and<br>correction.</a><br><br>
+<a>Verification Evidence Present ≠ Verification Evidence Sufficient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Evidence Competence</h1>
+<a>DFM shall assess whether evidence is suitable to support the claimed<br>resolution.</a><br><br>
+<a>Competence may depend on:</a><br><br>
+<ul><li>Correct artifact</li><li>Relevant configuration</li><li>Suitable verification method</li><li>Applicable expected behavior</li><li>Actual observations</li><li>Adequate assessment scope</li><li>Material limitations</li></ul><br>
+<section class="viewbor"></section>
+<h1>A successful test against an unrelated code path shall not establish</h1>
+<a>resolution.</a><br><br>
+<a>Passing Test Near a Correction ≠ Verified Correction Effectiveness.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Evidence Integrity</h1>
+<a>DFM shall preserve the integrity of material defect verification<br>evidence.</a><br><br>
+<a>Relevant considerations may include:</a><br><br>
+<ul><li>Evidence source</li><li>Execution identity</li><li>Content integrity</li><li>Artifact correspondence</li><li>Temporal relevance</li><li>Verification record preservation</li><li>Material contradictions</li></ul><br>
+<a>Evidence integrity shall remain distinguishable from evidence<br>competence.</a><br><br>
+<a>Intact Verification Record ≠ Competent Resolution Evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Closure Governance</h1>
+<a>DFM shall distinguish administrative closure from technical<br>resolution.</a><br><br>
+<a>Closure may represent:</a><br><br>
+<ul><li>Verified resolution</li><li>Accepted duplicate</li><li>Invalid report</li><li>Superseded defect</li><li>Withdrawn report</li><li>Explicitly deferred defect</li><li>Competently accepted residual defect condition</li></ul><br>
+<a>The closure reason and authority shall remain identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>A defect shall not be described as technically resolved merely because its</h1>
+<a>administrative record has been closed.</a><br><br>
+<a>Closed Defect Ticket ≠ Resolved Software Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Conditional Defect Closure</h1>
+<a>DFM shall support explicitly bounded closure conditions where<br>appropriate.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Resolution verified only for a defined configuration</li><li>Affected functionality withdrawn</li><li>Defect deferred under competent authority</li><li>Workaround established but underlying defect unresolved</li><li>Known residual limitations</li></ul><br>
+<a>Conditional closure shall preserve the unresolved technical condition<br>where applicable.</a><br><br>
+<a>Conditional Closure ≠ Unconditional Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Reopening</h1>
+<a>DFM shall recognize circumstances requiring a defect to be reopened.</a><br><br>
+<a>Triggers may include:</a><br><br>
+<ul><li>Reappearance of the deviation</li><li>Failed resolution verification</li><li>Newly identified affected configurations</li><li>Contradictory evidence</li><li>Incorrect correction attribution</li><li>Incomplete implementation</li><li>Relevant regression findings</li></ul><br>
+<a>Reopening shall preserve historical closure and verification records.</a><br><br>
+<a>Reopened Defect ≠ Historical Evidence Erasure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Residual Defect Conditions</h1>
+<a>DFM shall identify known defect conditions that remain after<br>corrective action or verification.</a><br><br>
+<a>Residual conditions may include:</a><br><br>
+<ul><li>Partial correction</li><li>Unresolved environments</li><li>Known workarounds</li><li>Remaining affected versions</li><li>Unverified edge cases</li><li>Deferred correction</li><li>Known intermittent behavior</li></ul><br>
+<a>Residual defects shall remain visible to QCAM.</a><br><br>
+<a>Partial Defect Resolution ≠ Complete Defect Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Known Defect Limitations</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve limitations affecting defect assessment and resolution</h1>
+<a>claims.</a><br><br>
+<a>Limitations may include:</a><br><br>
+<ul><li>Restricted reproduction scope</li><li>Incomplete environment access</li><li>Missing historical evidence</li><li>Limited test coverage</li><li>Unknown root cause</li><li>Incomplete artifact correspondence</li><li>Unverified configurations</li></ul><br>
+<a>Limitations shall remain connected to the relevant defect governance<br>state.</a><br><br>
+<a>Bounded Resolution Evidence ≠ Universal Resolution Evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Uncertainty</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve material uncertainty concerning defect recognition,</h1>
+<a>scope, impact, cause, correction, or resolution.</a><br><br>
+<a>Uncertainty may arise where:</a><br><br>
+<ul><li>Observations are incomplete</li><li>Reproduction is inconsistent</li><li>Artifact identity is unresolved</li><li>Root-cause evidence is insufficient</li><li>Verification conditions are incomplete</li><li>Corrective effects are uncertain</li></ul><br>
+<a>Uncertainty shall not be silently converted into defect resolution.</a><br><br>
+<a>Unresolved Defect Evidence ≠ Verified Defect Absence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Conflict</h1>
+<a>A Defect Conflict exists where material defect evidence or conclusions<br>are incompatible.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Contradictory reproduction results</li><li>Conflicting root-cause findings</li><li>Incompatible artifact references</li><li>Different verification outcomes</li><li>Contradictory severity assessments</li><li>Conflicting correction claims</li></ul><br>
+<a>DFM shall preserve the conflict and its supporting evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Conflicting Defect Evidence ≠ Permission to Select the Preferred</h1>
+<a>Conclusion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Evidence Gap</h1>
+<a>A Defect Evidence Gap exists where material information required for<br>competent defect assessment remains unavailable or insufficient.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Missing execution logs</li><li>Unidentified affected artifact</li><li>Incomplete reproduction conditions</li><li>Missing correction reference</li><li>Absent verification evidence</li><li>Unresolved environment correspondence</li></ul><br>
+<section class="viewbor"></section>
+<h1>A defect evidence gap shall not automatically establish or disprove the</h1>
+<a>defect.</a><br><br>
+<a>Defect Evidence Gap ≠ Proof of Defect Absence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Defect Gap</h1>
+<a>A Critical Defect Gap exists where missing or unresolved evidence<br>prevents competent determination of a materially consequential defect<br>condition.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>A critical calculation defect without verified correction</li><li>A recovery defect whose affected configurations remain unknown</li><li>A high-impact integration defect without suitable reproduction</li><li>A defect marked resolved without verification against the<br>intended</li></ul><br>
+<a>evidence. release artifact.</a><br><br>
+<a>DFM shall preserve the critical gap for competent downstream<br>governance.</a><br><br>
+<a>It does not independently authorize release rejection, operational<br>shutdown, or legal liability findings.</a><br><br>
+<a>Critical Defect Gap ≠ Automatic Software Failure Determination.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect History Governance</h1>
+<a>DFM shall preserve the material history of defect governance objects.</a><br><br>
+<a>History may include:</a><br><br>
+<ul><li>Initial report</li><li>Recognition</li><li>Confirmation</li><li>Classification</li><li>Severity assessment</li><li>Root-cause investigation</li><li>Correction proposals</li><li>Implemented corrections</li><li>Verification</li><li>Closure</li><li>Reopening</li><li>Reassessment</li></ul><br>
+<a>Historical records shall remain distinguishable from current defect<br>states.</a><br><br>
+<a>Current Defect State ≠ Complete Defect History.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Continuity</h1>
+<section class="viewbor"></section>
+<h1>DFM shall preserve defect relationships across software versions,</h1>
+<a>configurations, corrections, and lifecycle transitions.</a><br><br>
+<a>Continuity may involve:</a><br><br>
+<ul><li>Original defect identity</li><li>Affected artifacts</li><li>Related defects</li><li>Correction references</li><li>Verification history</li><li>Reopened defects</li><li>Residual conditions</li><li>Superseded defect records</li></ul><br>
+<section class="viewbor"></section>
+<h1>A defect record shall not lose its governance identity merely because its</h1>
+<a>software context changes.</a><br><br>
+<a>Defect Record Migration ≠ Defect Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Reassessment</h1>
+<a>DFM shall support reassessment when material defect conditions change.</a><br><br>
+<a>Triggers may include:</a><br><br>
+<ul><li>New software versions</li><li>Configuration changes</li><li>Dependency updates</li><li>New reproduction evidence</li><li>Revised severity</li><li>New operational impact</li><li>Failed verification</li><li>Defect recurrence</li><li>Contradictory evidence</li></ul><br>
+<a>Reassessment shall preserve relevant historical determinations.</a><br><br>
+<a>Defect Reassessment ≠ Historical Defect Record Erasure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Governance States</h1>
+<a>DFM shall support identifiable governance states.</a><br><br>
+<a>Possible states include:</a><br><br>
+<a>Reported: A potential defect has been reported.</a><br><br>
+<a>Under Assessment: The reported deviation is being evaluated.</a><br><br>
+<a>Unconfirmed: Available evidence does not yet establish the defect.</a><br><br>
+<a>Confirmed: Competent evidence supports defect recognition.</a><br><br>
+<a>Classification-Pending: The defect type remains unresolved.</a><br><br>
+<a>Impact-Pending: Material impact remains insufficiently assessed.</a><br><br>
+<a>Investigation-Active: Root-cause or scope investigation is underway.</a><br><br>
+<a>Correction-Proposed: A corrective action has been proposed.</a><br><br>
+<a>Correction-Pending: An approved correction has not yet been<br>implemented.</a><br><br>
+<a>Correction-Implemented: An identifiable corrective change has been<br>made.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification-Pending: Competent resolution verification remains</h1>
+<a>outstanding.</a><br><br>
+<a>Verification-Failed: Available verification evidence does not support<br>the claimed resolution.</a><br><br>
+<a>Resolution-Verified: Competent evidence supports resolution within the<br>assessed scope.</a><br><br>
+<a>Conditionally-Resolved: Resolution is supported only within explicitly<br>bounded conditions.</a><br><br>
+<a>Residual-Defect: A known defect condition remains.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deferred: Correction or resolution has been postponed under competent</h1>
+<a>authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Closed: The administrative defect record has been closed with an</h1>
+<a>identifiable reason.</a><br><br>
+<section class="viewbor"></section>
+<h1>Reopened: A previously closed or resolved defect requires renewed</h1>
+<a>assessment.</a><br><br>
+<a>Conflict-Detected: Material defect evidence or conclusions are<br>incompatible.</a><br><br>
+<a>Evidence-Limited: Available evidence is insufficient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical-Gap: Missing evidence prevents competent determination of a</h1>
+<a>materially consequential condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Superseded: A later defect governance record has replaced the earlier</h1>
+<a>reference.</a><br><br>
+<a>Unresolved: Available information does not support a sufficiently<br>determined state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Administrative, technical, and evidentiary states shall remain</h1>
+<a>distinguishable.</a><br><br>
+<a>A defect may be administratively closed while its underlying technical<br>condition remains unresolved.</a><br><br>
+<a>Administrative Defect State ≠ Technical Defect State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Defect State</h1>
+<a>The principal output of DFM is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Defect State</h1>
+<a>The state shall preserve sufficient information to identify:</a><br><br>
+<a>Defect Governance Object: The governed defect assessment.</a><br><br>
+<a>Defect Identity: The identifiable defect reference.</a><br><br>
+<a>Report Origin: The source of the report.</a><br><br>
+<a>Defect Observation: The observed anomaly.</a><br><br>
+<a>Expected Behavior: The applicable expected condition.</a><br><br>
+<a>Observed Behavior: The actual behavior recorded.</a><br><br>
+<a>Expected–Observed Deviation: The recognized discrepancy.</a><br><br>
+<a>Defect Recognition: The determination supporting defect<br>identification.</a><br><br>
+<a>Defect Confirmation: The evidence supporting confirmation.</a><br><br>
+<a>Defect Classification: The recognized defect type.</a><br><br>
+<a>Defect Scope: The known affected conditions.</a><br><br>
+<a>Affected Software Object: The relevant software.</a><br><br>
+<a>Artifact Identity: The affected artifact.</a><br><br>
+<a>Artifact Version: The relevant software version.</a><br><br>
+<a>Configuration Correspondence: The applicable configuration.</a><br><br>
+<a>Environment Correspondence: The relevant operating conditions.</a><br><br>
+<a>Reproduction Conditions: The conditions under which the defect can be<br>reproduced.</a><br><br>
+<a>Reproducibility: The recognized reproduction state.</a><br><br>
+<a>Intermittent Behavior: Relevant inconsistent occurrences.</a><br><br>
+<a>Severity: The technical significance.</a><br><br>
+<a>Priority: The recognized correction urgency.</a><br><br>
+<a>Impact: The actual or supported consequences.</a><br><br>
+<a>Criticality: The material significance.</a><br><br>
+<a>Exposure: The conditions affecting defect occurrence.</a><br><br>
+<a>Propagation: The known or potential downstream effects.</a><br><br>
+<a>Root-Cause Investigation: The investigation record.</a><br><br>
+<a>Root-Cause Evidence: The evidence supporting causal findings.</a><br><br>
+<a>Defect Attribution: The supported technical attribution.</a><br><br>
+<a>Dependency Relationships: Relevant component or service relationships.</a><br><br>
+<a>Ownership References: Relevant assigned functions.</a><br><br>
+<a>Correction Proposal: The proposed corrective action.</a><br><br>
+<a>Correction Authority References: The applicable authorization<br>conditions.</a><br><br>
+<a>Correction Implementation: The implemented corrective change.</a><br><br>
+<a>Corrected Artifact: The artifact containing the correction.</a><br><br>
+<a>Resolution Criteria: The conditions required for verified resolution.</a><br><br>
+<a>Resolution Verification: The verification determination.</a><br><br>
+<a>Verification Method Suitability: The suitability of the method.</a><br><br>
+<a>Verification Artifact: The software actually verified.</a><br><br>
+<a>Verification Configuration: The relevant configuration.</a><br><br>
+<a>Verification Environment: The relevant environment.</a><br><br>
+<a>Regression Verification: Relevant regression evidence.</a><br><br>
+<a>Verification Evidence: The evidence supporting resolution.</a><br><br>
+<a>Evidence Competence: The suitability of that evidence.</a><br><br>
+<a>Evidence Integrity: The condition of supporting evidence.</a><br><br>
+<a>Closure State: The administrative closure condition.</a><br><br>
+<a>Conditional Closure: Relevant bounded closure conditions.</a><br><br>
+<a>Reopening History: Material reopened defect events.</a><br><br>
+<a>Residual Defect Conditions: Known remaining defects.</a><br><br>
+<a>Known Limitations: Relevant assessment restrictions.</a><br><br>
+<a>Defect Uncertainty: Material unresolved conditions.</a><br><br>
+<a>Defect Conflicts: Contradictory evidence or conclusions.</a><br><br>
+<a>Evidence Gaps: Missing material evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Defect Gaps: Material unresolved conditions requiring competent</h1>
+<a>attention.</a><br><br>
+<a>Defect History: The historical governance record.</a><br><br>
+<a>Defect Continuity: Preservation of lifecycle relationships.</a><br><br>
+<a>Defect Reassessment: Material reassessment history.</a><br><br>
+<a>Defect Governance State: The recognized defect condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Downstream References: Information required by QCAM and parent SQS</h1>
+<a>governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>The state shall not independently establish overall software quality</h1>
+<a>acceptance, release authorization, deployment authorization, legal<br>compliance, or legal liability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A conforming implementation of DFM must provide the following six<br>functional capabilities.</a><br><br>
+<ul><li>Defect Object, Observation, Recognition, Classification, and<br>Software</li></ul><br>
+<a>Correspondence Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to establish identifiable defect governance objects, preserve</h1>
+<a>report origins, expected and observed behavior, identify material<br>deviations, recognize and confirm defects, classify defect types, and<br>associate findings with affected software artifacts, versions,<br>configurations, and environments.</a><br><br>
+<a>The implementation must distinguish defect reports and failed tests<br>from sufficiently confirmed software defects.</a><br><br>
+<ul><li>Defect Scope, Reproduction, Severity, Priority, Impact,<br>Criticality, and</li></ul><br>
+<a>Exposure Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to establish defect scope, preserve reproduction conditions,</h1>
+<a>recognize intermittent behavior, assess severity, priority, impact,<br>criticality, exposure, and potential propagation.</a><br><br>
+<a>The implementation must distinguish technical severity from correction<br>priority and potential consequences from demonstrated operational<br>impact.</a><br><br>
+<ul><li>Root-Cause, Attribution, Dependency, Ownership, and Correction<br>Reference</li></ul><br>
+<a>Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to preserve root-cause investigations, assess supporting</h1>
+<a>evidence, establish bounded technical attribution, identify dependency<br>relationships, preserve relevant responsibility references, and<br>associate proposed or implemented corrections with competent authority<br>references.</a><br><br>
+<a>The implementation must distinguish plausible root causes from<br>verified causal findings and implemented corrections from verified<br>resolution.</a><br><br>
+<ul><li>Resolution Criteria, Verification, Artifact Correspondence,<br>Regression,</li></ul><br>
+<a>and Evidence Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to establish defect resolution criteria, verify corrections</h1>
+<a>against relevant artifacts, configurations, and environments, evaluate<br>verification method suitability, preserve regression references, and<br>assess verification evidence competence and integrity.</a><br><br>
+<a>The implementation must distinguish passing verification activities<br>from sufficient evidence that the relevant defect has been resolved.</a><br><br>
+<ul><li>Defect Closure, Residual Conditions, Conflict, Uncertainty, Gap,</li></ul><br>
+<a>History, and Continuity Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to distinguish administrative closure from technical resolution,</h1>
+<a>preserve conditional closure, residual defects, reopening, evidence<br>conflicts, uncertainty, gaps, critical gaps, historical records,<br>lifecycle continuity, and reassessment.</a><br><br>
+<a>The implementation must not erase unresolved technical conditions<br>merely because a defect ticket has been closed.</a><br><br>
+<ul><li>Governed Software Defect State and SQS Handoff Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to produce a Governed Software Defect State with sufficient</h1>
+<a>defect identity, observation, recognition, classification, affected<br>artifact, severity, impact, correction references, resolution<br>verification, evidence, residual limitations, uncertainty, and<br>continuity information for competent QCAM and parent SQS governance.</a><br><br>
+<a>The implementation must not represent administrative closure,<br>correction implementation, or a favorable test report as independently<br>sufficient proof of defect resolution. GIE™ Compatibility</a><br><br>
+<a>DFM is compatible with GIE™ as a downstream methodological analysis<br>and execution layer.</a><br><br>
+<a>GIE™ may support:</a><br><br>
+<ul><li>Defect governance object identification</li><li>Defect report origin analysis</li><li>Expected–observed behavior comparison</li><li>Defect recognition assessment</li><li>Defect classification</li><li>Defect scope analysis</li><li>Artifact and version correspondence</li><li>Configuration correspondence analysis</li><li>Environment correspondence analysis</li><li>Reproduction condition identification</li><li>Intermittent defect analysis</li><li>Defect severity assessment</li><li>Defect priority analysis</li><li>Defect impact assessment</li><li>Defect criticality assessment</li><li>Exposure analysis</li><li>Potential propagation mapping</li><li>Root-cause investigation support</li><li>Root-cause evidence assessment</li><li>Technical attribution analysis</li><li>Dependency relationship mapping</li><li>Ownership reference analysis</li><li>Correction proposal evaluation</li><li>Correction authority reference assessment</li><li>Correction implementation mapping</li><li>Corrected artifact correspondence</li><li>Resolution criteria analysis</li><li>Verification method suitability assessment</li><li>Resolution verification evidence analysis</li><li>Regression verification assessment</li><li>Verification evidence competence assessment</li><li>Verification evidence integrity assessment</li><li>Closure state analysis</li><li>Conditional closure assessment</li><li>Residual defect identification</li><li>Defect reopening analysis</li><li>Defect uncertainty recognition</li><li>Defect conflict detection</li><li>Evidence gap detection</li><li>Critical defect gap detection</li><li>Defect history reconstruction</li><li>Defect continuity mapping</li><li>Defect reassessment support</li><li>Governed software defect state representation</li></ul><br>
+<a>GIE™ may identify candidate defects, propose root-cause hypotheses,<br>detect inconsistent correction records, or identify missing<br>verification evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Such outputs shall remain distinguishable from confirmed defects, verified</h1>
+<a>root causes, authorized corrections, and demonstrated resolution.</a><br><br>
+<a>GIE™ must not fabricate defect observations, invent verification<br>evidence, infer root-cause certainty from correlation, treat a closed<br>issue ticket as proof of resolution, or perform unauthorized software<br>changes under the pretext of defect correction.</a><br><br>
+<section class="viewbor"></section>
+<h1>OOF® logic adapts to the governed reality. The engine adapts to OOF®</h1>
+<a>logic.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>The canonical DFM governance logic is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Quality Requirements State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Quality Criteria Definition State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Testing &amp; Coverage State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Defect Governance Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Defect Report Origin</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Expected and Observed Behavior</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Expected–Observed Deviation</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Defect Recognition and Confirmation</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Classify Defect</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Defect Scope</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Affected Software Object and Artifact</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Version, Configuration, and Environment Correspondence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Reproduction Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Reproducibility and Intermittent Behavior</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Severity, Priority, Impact, and Criticality</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Exposure and Potential Propagation</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Investigate Root Cause</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Root-Cause Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Bounded Technical Attribution</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Dependencies and Ownership References</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Proposed Correction</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Correction Authority References</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Implemented Correction</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Corrected Artifact Correspondence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Define Resolution Criteria</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Verification Method Suitability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Verify Against Relevant Artifact, Configuration, and Environment</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Regression Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Verification Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Verification Evidence Competence and Integrity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Technical Resolution State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Administrative Closure Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Residual Defect Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Defect Uncertainty, Conflicts, and Evidence Gaps</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Defect Governance State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Governed Software Defect State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff to QCAM and Parent SQS Governance</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Defect History and Continuity</h1>
+<a>↓</a><br><br>
+<a>Reassess When Material Defect Conditions Change</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Defect State</h1>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>DFM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Defect Identity Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Report Origin Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Observation Record</h1>
+<section class="viewbor"></section>
+<h1>Expected Behavior Reference</h1>
+<section class="viewbor"></section>
+<h1>Observed Behavior Record</h1>
+<section class="viewbor"></section>
+<h1>Expected–Observed Deviation Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Recognition Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Confirmation Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Classification Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Scope Record</h1>
+<section class="viewbor"></section>
+<h1>Affected Software Object Record</h1>
+<section class="viewbor"></section>
+<h1>Defective Artifact Identity Record</h1>
+<section class="viewbor"></section>
+<h1>Defective Artifact Version Record</h1>
+<section class="viewbor"></section>
+<h1>Configuration Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Environment Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Reproduction Conditions Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Reproducibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Intermittent Defect Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Severity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Priority Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Impact Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Criticality Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Exposure Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Propagation Assessment</h1>
+<section class="viewbor"></section>
+<h1>Root-Cause Investigation Record</h1>
+<section class="viewbor"></section>
+<h1>Root-Cause Evidence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Attribution Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Dependency Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Ownership Reference</h1>
+<section class="viewbor"></section>
+<h1>Defect Correction Proposal</h1>
+<section class="viewbor"></section>
+<h1>Correction Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Correction Implementation Record</h1>
+<section class="viewbor"></section>
+<h1>Corrected Artifact Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Resolution Criteria Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Resolution Verification Record</h1>
+<section class="viewbor"></section>
+<h1>Verification Method Suitability Assessment</h1>
+<section class="viewbor"></section>
+<h1>Verification Artifact Identity Record</h1>
+<section class="viewbor"></section>
+<h1>Verification Configuration Record</h1>
+<section class="viewbor"></section>
+<h1>Verification Environment Record</h1>
+<section class="viewbor"></section>
+<h1>Regression Verification Record</h1>
+<section class="viewbor"></section>
+<h1>Verification Evidence Register</h1>
+<section class="viewbor"></section>
+<h1>Verification Evidence Competence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Verification Evidence Integrity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Defect Closure Record</h1>
+<section class="viewbor"></section>
+<h1>Conditional Defect Closure Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Reopening Record</h1>
+<section class="viewbor"></section>
+<h1>Residual Defect Record</h1>
+<section class="viewbor"></section>
+<h1>Known Defect Limitation Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Uncertainty State</h1>
+<section class="viewbor"></section>
+<h1>Defect Conflict</h1>
+<section class="viewbor"></section>
+<h1>Defect Evidence Gap</h1>
+<section class="viewbor"></section>
+<h1>Critical Defect Gap</h1>
+<section class="viewbor"></section>
+<h1>Defect History Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Continuity Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Reassessment Record</h1>
+<section class="viewbor"></section>
+<h1>Defect Governance State</h1>
+<section class="viewbor"></section>
+<h1>SQS Defect Governance Handoff Record</h1>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Defect State</h1>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>DFM preserves the following distinctions:</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Closure ≠ Verified Defect Resolution</h1>
+<section class="viewbor"></section>
+<h1>Defect Report ≠ Confirmed Software Defect</h1>
+<section class="viewbor"></section>
+<h1>Defect Report Source ≠ Defect Validity</h1>
+<section class="viewbor"></section>
+<h1>Observed Software Anomaly ≠ Confirmed Software Defect</h1>
+<section class="viewbor"></section>
+<h1>Unexpected Behavior ≠ Defect Without an Applicable Expected Condition</h1>
+<section class="viewbor"></section>
+<h1>Reported Behavior ≠ Independently Verified Behavior</h1>
+<section class="viewbor"></section>
+<h1>Observed Deviation ≠ Established Root Cause</h1>
+<section class="viewbor"></section>
+<h1>Failed Test ≠ Confirmed Software Defect</h1>
+<section class="viewbor"></section>
+<h1>Non-Reproducible Defect ≠ Nonexistent Defect</h1>
+<section class="viewbor"></section>
+<h1>Defect Classification ≠ Defect Severity</h1>
+<section class="viewbor"></section>
+<h1>Observed Defect Scope ≠ Complete Defect Scope</h1>
+<section class="viewbor"></section>
+<h1>Affected Software Component ≠ Root-Cause Component</h1>
+<section class="viewbor"></section>
+<h1>Declared Defective Version ≠ Verified Defective Artifact</h1>
+<section class="viewbor"></section>
+<h1>Defect in Version A ≠ Proven Defect in Version B</h1>
+<section class="viewbor"></section>
+<h1>Defect Resolved in One Configuration ≠ Defect Resolved in Every</h1>
+<a>Configuration</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment-Specific Defect ≠ Universal Software Defect</h1>
+<section class="viewbor"></section>
+<h1>Documented Reproduction Steps ≠ Successfully Reproduced Defect</h1>
+<section class="viewbor"></section>
+<h1>Failure to Reproduce ≠ Proof of Defect Absence</h1>
+<section class="viewbor"></section>
+<h1>Intermittent Failure ≠ Automatically Invalid Defect Evidence</h1>
+<section class="viewbor"></section>
+<h1>Defect Severity ≠ Defect Priority</h1>
+<section class="viewbor"></section>
+<h1>High Defect Priority ≠ High Technical Severity</h1>
+<section class="viewbor"></section>
+<h1>Potential Defect Impact ≠ Observed Defect Impact</h1>
+<section class="viewbor"></section>
+<h1>Critical Defect Classification ≠ Automatic Release Rejection</h1>
+<section class="viewbor"></section>
+<h1>Defect Exposure Estimate ≠ Verified Defect Occurrence Frequency</h1>
+<section class="viewbor"></section>
+<h1>Potential Defect Propagation ≠ Demonstrated Propagation</h1>
+<section class="viewbor"></section>
+<h1>Plausible Root Cause ≠ Verified Root Cause</h1>
+<section class="viewbor"></section>
+<h1>Correlation with Defect Disappearance ≠ Complete Root-Cause Proof</h1>
+<section class="viewbor"></section>
+<h1>Technical Defect Attribution ≠ Legal Liability Attribution</h1>
+<section class="viewbor"></section>
+<h1>Dependency Associated with Defect ≠ Dependency Proven as Root Cause</h1>
+<section class="viewbor"></section>
+<h1>Assigned Defect Owner ≠ Demonstrated Defect Resolution Capability</h1>
+<section class="viewbor"></section>
+<h1>Proposed Defect Correction ≠ Implemented Defect Correction</h1>
+<section class="viewbor"></section>
+<h1>Authority to Diagnose a Defect ≠ Authority to Modify Production Software</h1>
+<section class="viewbor"></section>
+<h1>Correction Implemented ≠ Defect Resolved</h1>
+<section class="viewbor"></section>
+<h1>Correction in Source Code ≠ Correction in Relevant Executable Artifact</h1>
+<section class="viewbor"></section>
+<h1>Defined Resolution Criteria ≠ Demonstrated Resolution</h1>
+<section class="viewbor"></section>
+<h1>Successful Verification Method Execution ≠ Suitable Resolution</h1>
+<a>Verification</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Against an Unidentified Artifact ≠ Verified Defect Resolution</h1>
+<section class="viewbor"></section>
+<h1>Verified Correction in One Configuration ≠ Universal Defect Resolution</h1>
+<section class="viewbor"></section>
+<h1>Verification Environment Similarity ≠ Verified Operational Equivalence</h1>
+<section class="viewbor"></section>
+<h1>Original Defect Resolved ≠ No New Defects Introduced</h1>
+<section class="viewbor"></section>
+<h1>Verification Evidence Present ≠ Verification Evidence Sufficient</h1>
+<section class="viewbor"></section>
+<h1>Passing Test Near a Correction ≠ Verified Correction Effectiveness</h1>
+<section class="viewbor"></section>
+<h1>Intact Verification Record ≠ Competent Resolution Evidence</h1>
+<section class="viewbor"></section>
+<h1>Closed Defect Ticket ≠ Resolved Software Defect</h1>
+<section class="viewbor"></section>
+<h1>Conditional Closure ≠ Unconditional Resolution</h1>
+<section class="viewbor"></section>
+<h1>Reopened Defect ≠ Historical Evidence Erasure</h1>
+<section class="viewbor"></section>
+<h1>Partial Defect Resolution ≠ Complete Defect Resolution</h1>
+<section class="viewbor"></section>
+<h1>Bounded Resolution Evidence ≠ Universal Resolution Evidence</h1>
+<section class="viewbor"></section>
+<h1>Unresolved Defect Evidence ≠ Verified Defect Absence</h1>
+<section class="viewbor"></section>
+<h1>Conflicting Defect Evidence ≠ Permission to Select the Preferred</h1>
+<a>Conclusion</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Evidence Gap ≠ Proof of Defect Absence</h1>
+<section class="viewbor"></section>
+<h1>Critical Defect Gap ≠ Automatic Software Failure Determination</h1>
+<section class="viewbor"></section>
+<h1>Current Defect State ≠ Complete Defect History</h1>
+<section class="viewbor"></section>
+<h1>Defect Record Migration ≠ Defect Resolution</h1>
+<section class="viewbor"></section>
+<h1>Defect Reassessment ≠ Historical Defect Record Erasure</h1>
+<section class="viewbor"></section>
+<h1>Administrative Defect State ≠ Technical Defect State</h1>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<section class="viewbor"></section>
+<h1>DFM governs software-quality-specific defect identity, observation,</h1>
+<a>recognition, classification, severity, impact, technical attribution,<br>correction references, resolution verification, residual conditions,<br>and continuity within SQS and SLGA™.</a><br><br>
+<a>It does not independently establish software quality requirements,<br>define assessment criteria, execute testing programs, authorize<br>software modifications, determine complete software quality, accept<br>residual quality limitations, certify software security, authorize<br>release, or authorize deployment.</a><br><br>
+<a>Within SQS:</a><br><br>
+<section class="viewbor"></section>
+<h1>QRM — Quality Requirements Module governs software quality requirement</h1>
+<a>establishment.</a><br><br>
+<section class="viewbor"></section>
+<h1>QCDM — Quality Criteria Definition Module governs quality criterion</h1>
+<a>definition, applicability, assessment methods, and evidence<br>requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>TCMM — Testing &amp; Coverage Management Module governs testing activities,</h1>
+<a>execution evidence, observed results, and coverage.</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM — Defect Management Module governs defect identification,</h1>
+<a>classification, impact, correction references, resolution<br>verification, and continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>QCAM — Quality Conformity &amp; Acceptance Module governs quality conformity</h1>
+<a>assessment, intended-use validation, acceptance authority, acceptance<br>decisions, and residual limitations.</a><br><br>
+<a>Within SLGA™:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements Standard (SRS) governs the broader software</h1>
+<a>requirements lifecycle.</a><br><br>
+<a>Software Creation Standard (SCS) governs software creation.</a><br><br>
+<a>Software Dependency Standard (SDS) governs software dependencies.</a><br><br>
+<a>Software Configuration Standard (SCFS) governs software configuration.</a><br><br>
+<a>Software Quality Standard (SQS) governs software quality.</a><br><br>
+<a>Software Security Standard (SSS) governs software security.</a><br><br>
+<a>Software Release Standard (SRLS) governs software release.</a><br><br>
+<a>Software Deployment Standard (SDPS) governs software deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Change Management Standard (SCMS) governs broader lifecycle</h1>
+<a>changes.</a><br><br>
+<a>Software Retirement Standard (SRTS) governs software retirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control Standard (SLCS) governs cross-cutting</h1>
+<a>lifecycle control.</a><br><br>
+<a>Relevant interoperating OOF® architectures include:</a><br><br>
+<section class="viewbor"></section>
+<h1>GOA™ — Governance Architecture: General authority and delegation</h1>
+<a>governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>AGA™ — Accountability Governance Architecture: Relevant responsibility</h1>
+<a>and accountability relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>ORA™ — Operational Reality Architecture: Competent assessment of actual</h1>
+<a>software behavior and operating conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>ASGA™ — Autonomous Systems Governance Architecture: Relevant autonomous</h1>
+<a>defect investigation and correction actions.</a><br><br>
+<section class="viewbor"></section>
+<h1>AGI™ — Agent Governance Infrastructure: Relevant agent permissions,</h1>
+<a>tool-path authority, and constituent action governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM preserves software-defect-specific governance without replacing these</h1>
+<a>competent domains.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>DFM begins when a reported or observed software deviation requires<br>recognition, assessment, investigation, correction reference,<br>resolution verification, or reassessment.</a><br><br>
+<a>DFM governs:</a><br><br>
+<ul><li>Defect governance objects</li><li>Defect identity</li><li>Defect report origins</li><li>Defect observations</li><li>Expected behavior</li><li>Observed behavior</li><li>Expected–observed deviations</li><li>Defect recognition</li><li>Defect confirmation</li><li>Defect classification</li><li>Defect scope</li><li>Affected software objects</li><li>Artifact identity</li><li>Artifact versions</li><li>Configuration correspondence</li><li>Environment correspondence</li><li>Reproduction conditions</li><li>Reproducibility</li><li>Intermittent defects</li><li>Defect severity</li><li>Defect priority</li><li>Defect impact</li><li>Defect criticality</li><li>Defect exposure</li><li>Defect propagation</li><li>Root-cause investigations</li><li>Root-cause evidence</li><li>Technical defect attribution</li><li>Defect dependencies</li><li>Ownership references</li><li>Correction proposals</li><li>Correction authority references</li><li>Correction implementation references</li><li>Corrected artifact correspondence</li><li>Defect resolution criteria</li><li>Resolution verification</li><li>Verification method suitability</li><li>Verification artifact identity</li><li>Verification configuration</li><li>Verification environment</li><li>Regression verification</li><li>Verification evidence</li><li>Verification evidence competence</li><li>Verification evidence integrity</li><li>Defect closure</li><li>Conditional closure</li><li>Defect reopening</li><li>Residual defect conditions</li><li>Known defect limitations</li><li>Defect uncertainty</li><li>Defect conflicts</li><li>Defect evidence gaps</li><li>Critical defect gaps</li><li>Defect history</li><li>Defect continuity</li><li>Defect reassessment</li><li>Defect governance states</li></ul><br>
+<a>DFM does not independently determine:</a><br><br>
+<ul><li>Complete software requirements validity</li><li>Software creation authorization</li><li>Dependency suitability</li><li>Configuration baseline establishment</li><li>Quality criterion establishment</li><li>Overall testing sufficiency</li><li>Complete software correctness</li><li>Software change authorization</li><li>Quality acceptance</li><li>Software security</li><li>Release authorization</li><li>Deployment authorization</li><li>Legal compliance</li><li>Legal liability</li></ul><br>
+<a>DFM ends when material defect conditions have been represented as a:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Defect State</h1>
+<section class="viewbor"></section>
+<h1>with sufficient defect identity, observation, recognition, classification,</h1>
+<a>affected artifact, severity, impact, correction references, resolution<br>verification, evidence, residual limitations, uncertainty, and<br>continuity information for competent downstream QCAM and parent SQS<br>governance.</a><br><br>
+<ul><li>Use Case 1 — A Critical Financial Calculation Defect Is Marked<br>Resolved</li></ul><br>
+<a>Without Verification Against the Release Candidate</a><br><br>
+<a>An organization develops software for processing financial<br>transactions.</a><br><br>
+<a>During testing, a defect is identified that produces incorrect results<br>when specific transaction values are combined.</a><br><br>
+<a>The development team:</a><br><br>
+<ul><li>Creates a defect ticket</li><li>Identifies a likely source-code error</li><li>Implements a correction</li><li>Runs a unit test</li><li>Marks the defect as resolved</li></ul><br>
+<a>The automated issue-tracking system reports:</a><br><br>
+<section class="viewbor"></section>
+<h1>Status: Closed</h1>
+<a>However, the correction was verified only in a development build.</a><br><br>
+<section class="viewbor"></section>
+<h1>The release candidate was generated from a different build process and</h1>
+<a>contains additional configuration changes.</a><br><br>
+<a>No competent evidence establishes that the correction is present and<br>effective in the actual release candidate.</a><br><br>
+<a>DFM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Observation → Defect Recognition → Affected Artifact → Correction →</h1>
+<a>Corrected Artifact → Resolution Criteria → Verification Evidence →<br>Defect State</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>A confirmed software defect</li><li>An identifiable corrective code change</li><li>A successful test against a development artifact</li><li>Missing verification against the intended release candidate</li><li>Unresolved configuration correspondence</li><li>Insufficient evidence supporting technical resolution in the<br>release</li></ul><br>
+<a>candidate.</a><br><br>
+<a>The relevant governance state may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification-Pending</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence-Limited</h1>
+<a>despite the administrative ticket being closed.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Correction Implemented ≠ Defect Resolved.</a><br><br>
+<a>Correction in Source Code ≠ Correction in Relevant Executable<br>Artifact.</a><br><br>
+<a>Closed Defect Ticket ≠ Resolved Software Defect.</a><br><br>
+<a>Defect Closure ≠ Verified Defect Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: DFM prevents administrative defect closure from being</h1>
+<a>interpreted as proof that the relevant software artifact no longer<br>contains the defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — An Autonomous Development Agent Claims to Have Fixed an</h1>
+<a>Intermittent Production Defect</a><br><br>
+<section class="viewbor"></section>
+<h1>An organization uses an autonomous software development agent to</h1>
+<a>investigate intermittent failures in a distributed application.</a><br><br>
+<a>The failures occur during periods of high concurrency.</a><br><br>
+<a>The agent analyzes logs and identifies a possible race condition.</a><br><br>
+<a>It modifies synchronization logic and executes a small local test<br>suite.</a><br><br>
+<a>The tests pass.</a><br><br>
+<a>The agent reports:</a><br><br>
+<section class="viewbor"></section>
+<h1>"Root cause identified and defect resolved."</h1>
+<a>However:</a><br><br>
+<ul><li>The original failure was intermittent</li><li>The local tests did not reproduce production concurrency</li><li>The agent's root-cause hypothesis was not independently verified</li><li>The modified artifact was not evaluated under representative<br>workload</li><li>No competent evidence establishes that the production failure</li></ul><br>
+<a>condition has been eliminated.</a><br><br>
+<a>DFM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Observed Failure → Root-Cause Hypothesis → Technical Attribution →</h1>
+<a>Correction → Verification Method → Operational Correspondence →<br>Resolution Evidence</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>A sufficiently supported defect observation</li><li>A plausible but unverified root-cause hypothesis</li><li>An implemented corrective change</li><li>Limited verification evidence</li><li>Unresolved operational correspondence</li><li>Insufficient evidence supporting complete resolution</li></ul><br>
+<a>The relevant governance state may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Correction-Implemented</h1>
+<a>with:</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification-Pending</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence-Limited</h1>
+<a>The critical distinctions are:</a><br><br>
+<a>Plausible Root Cause ≠ Verified Root Cause.</a><br><br>
+<a>Correlation with Defect Disappearance ≠ Complete Root-Cause Proof.</a><br><br>
+<section class="viewbor"></section>
+<h1>Successful Verification Method Execution ≠ Suitable Resolution</h1>
+<a>Verification.</a><br><br>
+<a>Correction Implemented ≠ Defect Resolved.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: DFM prevents an autonomous development agent from converting</h1>
+<a>a plausible diagnosis and successful local tests into an unsupported<br>claim of verified production defect resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>Software defects are not governed merely because they are reported,<br>classified, assigned, corrected, or marked as closed.</a><br><br>
+<a>A failed test may indicate a software defect, but it may also reflect<br>an invalid test, unsuitable environment, or incorrect expected result.</a><br><br>
+<a>A plausible root cause may explain an observed failure without being<br>sufficiently verified.</a><br><br>
+<a>A corrective code change may exist without being included in the<br>software artifact that matters.</a><br><br>
+<a>A verification test may pass while failing to reproduce the original<br>defect conditions.</a><br><br>
+<a>And an administrative ticket may be closed while the underlying<br>technical defect remains unresolved.</a><br><br>
+<a>Defect Report ≠ Confirmed Software Defect.</a><br><br>
+<a>Plausible Root Cause ≠ Verified Root Cause.</a><br><br>
+<a>Correction Implemented ≠ Defect Resolved.</a><br><br>
+<a>Closed Defect Ticket ≠ Resolved Software Defect.</a><br><br>
+<a>Defect Closure ≠ Verified Defect Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>These distinctions become increasingly important as AI systems and</h1>
+<a>autonomous development agents identify defects, propose corrections,<br>execute tests, and report successful remediation.</a><br><br>
+<a>The ability to generate a correction does not establish that the<br>correction is effective.</a><br><br>
+<a>The ability to execute a test does not establish that the test is<br>suitable.</a><br><br>
+<a>And the ability to close an issue does not establish that the<br>underlying software behavior has been corrected.</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM therefore governs the evidentiary relationship between defect</h1>
+<a>recognition, affected software state, technical investigation,<br>corrective action, and verified resolution.</a><br><br>
+<a>It does not require every defect to be immediately corrected.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires unresolved defects, deferred corrections, partial resolutions,</h1>
+<a>verification limitations, and residual conditions to remain explicit.</a><br><br>
+<a>It does not equate defect management with defect elimination.</a><br><br>
+<section class="viewbor"></section>
+<h1>It establishes the conditions under which defect claims and resolution</h1>
+<a>claims can be competently recognized.</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM transforms software defect management from a sequence of</h1>
+<a>issue-tracking statuses, correction activities, and automated reports<br>into a governed evidentiary process — ensuring that software<br>organizations can establish not merely whether a defect was reported<br>or a correction was implemented, but what behavior was actually<br>defective, which software state was affected, what evidence supports<br>the diagnosis, whether the relevant correction was verified, and what<br>limitations remain.</a><br><br>
+<a>A software defect is not governed because it has been assigned,<br>corrected, or closed. It is governed when its identity, observed<br>behavior, affected software state, significance, correction<br>references, verification evidence, residual limitations, and lifecycle<br>continuity remain sufficiently established for competent software<br>quality governance.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

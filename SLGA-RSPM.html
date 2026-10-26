@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® RSPM — Requirements Specification Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>RSPM — Requirements Specification Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Requirements Standard (SRS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Requirements Specification Governance<br>
+<b>Module ID:</b> SLGA-SRS-RSPM-002<br>
+<b>Origin ID:</b> OOF.CM.SLGA.01.02.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical Draft · Open Standard<br>
+<b>Effective Date:</b> Pending Canonical Publication<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<section class="viewbor"></section>
+<h1>The Requirements Specification Module (RSPM) governs how proposed software</h1>
+<a>requirements are identified, interpreted, formulated, classified,<br>evaluated for specification quality, assessed for material<br>completeness and consistency, and represented as identifiable<br>requirements capable of entering subsequent software requirements<br>governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM establishes the methodological conditions under which a software</h1>
+<a>requirement can be considered sufficiently specified for evaluation,<br>acceptance, scope determination, and lifecycle use.</a><br><br>
+<section class="viewbor"></section>
+<h1>It connects proposed requirements to the applicable Governed Software</h1>
+<a>Purpose State while preserving the distinction between what has been<br>requested, what has been interpreted, what has been specified, and<br>what has been legitimately accepted.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM applies to requirements originating from humans, organizations, AI</h1>
+<a>agents, autonomous systems, automated analysis, existing software<br>behavior, and other competent sources.</a><br><br>
+<a>It does not assume that a requirement becomes legitimate merely<br>because it is clear, technically feasible, or automatically generated.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Specification State</h1>
+<a>Its foundational distinction is:</a><br><br>
+<a>Documented Requirement ≠ Governed Requirement Specification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>The operational role of RSPM is:</a><br><br>
+<section class="viewbor"></section>
+<h1>To transform proposed software requirements into identifiable,</h1>
+<a>sufficiently explicit, assessable, and purpose-aligned requirement<br>specifications while preserving their origin, interpretation,<br>assumptions, uncertainty, conflicts, completeness limitations, and<br>acceptance boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM establishes what each requirement means and whether the proposed</h1>
+<a>requirements collectively provide a sufficiently defined<br>representation of the intended software purpose.</a><br><br>
+<a>It does not independently authorize implementation.</a><br><br>
+<a>Nor does it establish that the specified software has been built,<br>tested, or demonstrated to operate successfully.</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in the SRS Internal Governance Flow</h1>
+<a>The SRS internal governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Purpose Definition → Requirements Specification → Software Scope</h1>
+<a>Management → Requirements Change Control → Requirements Traceability</a><br><br>
+<a>RSPM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Specification</h1>
+<a>It is the second Core Module of SRS.</a><br><br>
+<a>Its principal upstream input is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Purpose State</h1>
+<a>produced by:</a><br><br>
+<section class="viewbor"></section>
+<h1>SPDM — Software Purpose Definition Module</h1>
+<a>Additional inputs may include stakeholder requests, operational<br>observations, applicable constraints, existing requirements, relevant<br>system evidence, and proposed requirements generated by automated<br>systems.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Specification State</h1>
+<a>That state proceeds to:</a><br><br>
+<section class="viewbor"></section>
+<h1>SSMM — Software Scope Management Module</h1>
+<section class="viewbor"></section>
+<h1>RSPM also provides specification information required by subsequent</h1>
+<a>requirements change and traceability governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Central Operational Question</h1>
+<a>How can proposed software requirements be transformed into<br>sufficiently clear, complete, consistent, assessable, and<br>purpose-aligned specifications without allowing interpretation,<br>technical feasibility, or automated generation to substitute for<br>legitimate requirements acceptance?</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirement Governance Object</h1>
+<a>Every RSPM assessment must identify the Software Requirement<br>Governance Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>The object represents an individual proposed requirement or a defined set</h1>
+<a>of related requirements undergoing specification governance.</a><br><br>
+<a>Each requirement should have, where applicable:</a><br><br>
+<ul><li>A stable requirement identifier</li><li>A requirement statement</li><li>An identifiable origin</li><li>A relationship to the governed software purpose</li><li>A requirement classification</li><li>Relevant assumptions and dependencies</li><li>A specification version</li><li>An evaluation and acceptance state</li><li>Supporting evidence and known limitations</li></ul><br>
+<a>A requirement identifier must remain distinguishable from the text or<br>representation used to express the requirement.</a><br><br>
+<a>Requirement Identity ≠ Requirement Wording.</a><br><br>
+<a>Rewording a requirement does not necessarily create a new requirement.</a><br><br>
+<a>Conversely, preserving the same identifier does not justify concealing<br>a material change in meaning.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Input and Origin Governance</h1>
+<a>RSPM shall identify the origin and form of proposed requirements.</a><br><br>
+<a>Inputs may include:</a><br><br>
+<ul><li>Explicit stakeholder requests</li><li>Business or operational needs</li><li>Contractual requirements</li><li>Applicable external obligations</li><li>Existing system behavior</li><li>Defect and incident findings</li><li>Technical or operational constraints</li><li>AI-generated requirements</li><li>Autonomous software analysis</li><li>Derived requirements from other governed requirements</li></ul><br>
+<a>Each material requirement should remain traceable to its source or<br>derivation basis.</a><br><br>
+<a>Where the source is uncertain, reconstructed, or unavailable, that<br>condition shall remain explicit.</a><br><br>
+<a>Requirement Source ≠ Requirement Authority.</a><br><br>
+<a>A source may provide information relevant to requirements formation<br>without being competent to authorize the requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Purpose Alignment</h1>
+<section class="viewbor"></section>
+<h1>RSPM shall evaluate proposed requirements against the applicable Governed</h1>
+<a>Software Purpose State.</a><br><br>
+<a>A requirement should have an identifiable relationship to:</a><br><br>
+<ul><li>The intended software outcome</li><li>A necessary capability</li><li>An applicable constraint</li><li>A relevant operating condition</li><li>A legitimate supporting requirement</li></ul><br>
+<section class="viewbor"></section>
+<h1>Requirements without a defensible relationship to the governed purpose</h1>
+<a>shall be identified for clarification, justification, rejection, or<br>separate purpose reassessment.</a><br><br>
+<a>A technically attractive feature does not automatically belong to the<br>intended software.</a><br><br>
+<a>Technical Usefulness ≠ Purpose Alignment.</a><br><br>
+<a>Where a proposed requirement materially changes the software's<br>intended purpose, the issue shall be referred to SPDM rather than<br>silently incorporated into the specification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Interpretation Governance</h1>
+<a>Proposed requirements may be expressed through natural language,<br>structured data, diagrams, examples, software behavior, or<br>machine-generated representations.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM shall distinguish the original expression from the interpretation used</h1>
+<a>to form the specification.</a><br><br>
+<a>Where material interpretation is necessary, the resulting<br>specification should preserve:</a><br><br>
+<ul><li>The original requirement expression</li><li>The interpreted meaning</li><li>Material assumptions</li><li>Alternative interpretations where relevant</li><li>The source of interpretation</li><li>Unresolved ambiguity</li><li>Relevant confirmation or acceptance evidence</li></ul><br>
+<a>This distinction is particularly important in AI-assisted software<br>development.</a><br><br>
+<a>Requested Behavior ≠ Interpreted Behavior.</a><br><br>
+<section class="viewbor"></section>
+<h1>An AI-generated interpretation shall not automatically become the accepted</h1>
+<a>meaning of a requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Specification Quality</h1>
+<a>RSPM shall assess whether each material requirement is sufficiently<br>specified for its intended governance use.</a><br><br>
+<a>Relevant quality dimensions include:</a><br><br>
+<a>Clarity: The intended meaning can be understood without material<br>unresolved ambiguity.</a><br><br>
+<a>Specificity: The required capability, condition, or constraint is<br>sufficiently defined.</a><br><br>
+<a>Consistency: The requirement does not contain unresolved material<br>contradictions.</a><br><br>
+<a>Assessability: Applicable satisfaction or verification conditions can<br>be identified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Purpose Alignment: The requirement supports the relevant governed</h1>
+<a>software purpose.</a><br><br>
+<a>Contextual Adequacy: Material operating conditions and assumptions are<br>represented.</a><br><br>
+<section class="viewbor"></section>
+<h1>Traceability: The requirement remains identifiable and connected to its</h1>
+<a>relevant sources and governance states.</a><br><br>
+<a>Change Discernibility: Material changes in requirement meaning can be<br>identified.</a><br><br>
+<a>Not every requirement requires the same degree of technical detail.</a><br><br>
+<section class="viewbor"></section>
+<h1>Specification sufficiency depends on the requirement's purpose,</h1>
+<a>criticality, and lifecycle context.</a><br><br>
+<a>Specification Detail ≠ Specification Quality.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Classification</h1>
+<a>RSPM shall support classification where classification materially<br>affects specification, assessment, or downstream governance.</a><br><br>
+<a>Requirements may concern:</a><br><br>
+<ul><li>Functional behavior</li><li>Performance</li><li>Reliability and availability</li><li>Security and privacy</li><li>Safety</li><li>Accessibility and usability</li><li>Data handling</li><li>Interoperability</li><li>Operational constraints</li><li>Maintenance and support</li><li>Continuity and recovery</li><li>External obligations</li><li>Other relevant software characteristics</li></ul><br>
+<section class="viewbor"></section>
+<h1>Classification shall not replace the competent governance domains</h1>
+<a>responsible for validating specialized requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>A security requirement, for example, remains a software requirement while</h1>
+<a>its substantive security adequacy may require assessment under the<br>applicable security governance process.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Granularity and Decomposition</h1>
+<a>Requirements may be expressed at different levels of abstraction.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM shall distinguish high-level objectives from requirements sufficiently</h1>
+<a>detailed for downstream assessment.</a><br><br>
+<a>Where necessary, a requirement may be decomposed into subordinate<br>requirements.</a><br><br>
+<a>Decomposition should preserve:</a><br><br>
+<ul><li>The parent requirement</li><li>The reason for decomposition</li><li>The resulting subordinate requirements</li><li>Material dependencies</li><li>Coverage of the parent requirement</li><li>Unresolved gaps or overlaps</li></ul><br>
+<section class="viewbor"></section>
+<h1>A decomposition shall not silently introduce a materially new purpose or</h1>
+<a>obligation.</a><br><br>
+<a>Requirement Decomposition ≠ Authority to Expand Requirements.</a><br><br>
+<a>The number of subordinate requirements does not establish that the<br>original requirement has been completely represented.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Conditions and Constraints</h1>
+<a>A requirement may depend on conditions that materially affect its<br>meaning.</a><br><br>
+<a>RSPM shall identify relevant:</a><br><br>
+<ul><li>Preconditions</li><li>Trigger conditions</li><li>Operating states</li><li>Input conditions</li><li>Output conditions</li><li>Exception conditions</li><li>Environmental assumptions</li><li>Dependencies</li><li>Applicable constraints</li></ul><br>
+<a>Requirements should distinguish required behavior under normal<br>conditions from behavior required during failures, interruptions,<br>degraded operation, or other materially relevant circumstances.</a><br><br>
+<a>A specification describing only the expected successful path may be<br>insufficient for the intended software purpose.</a><br><br>
+<section class="viewbor"></section>
+<h1>Normal Operation Specification ≠ Complete Operational Behavior</h1>
+<a>Specification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Assessability and Acceptance Criteria</h1>
+<a>RSPM shall establish whether a requirement can be meaningfully<br>assessed.</a><br><br>
+<a>Where appropriate, a specification should identify:</a><br><br>
+<ul><li>The expected behavior or condition</li><li>The applicable evaluation context</li><li>Relevant observable outcomes</li><li>Material thresholds or tolerances</li><li>Applicable exception conditions</li><li>The basis for determining whether the requirement has been<br>satisfied</li></ul><br>
+<a>Requirements may be qualitative, quantitative, conditional, or<br>constraint-based.</a><br><br>
+<a>RSPM does not require every requirement to be reduced to a numerical<br>metric.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, requirements whose satisfaction cannot be meaningfully assessed</h1>
+<a>shall not be represented as fully assessable without qualification.</a><br><br>
+<a>Requirement Statement ≠ Verification Condition.</a><br><br>
+<a>Defining assessment criteria does not establish that the requirement<br>has been satisfied.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Completeness Governance</h1>
+<section class="viewbor"></section>
+<h1>RSPM shall evaluate whether the proposed requirements set sufficiently</h1>
+<a>represents the applicable governed software purpose.</a><br><br>
+<a>Completeness shall be assessed relative to:</a><br><br>
+<ul><li>The recognized software purpose</li><li>The intended software capabilities</li><li>Material operating scenarios</li><li>Known failure and exception conditions</li><li>Applicable constraints</li><li>Relevant interfaces and dependencies</li><li>Material stakeholder and operational needs</li><li>Known assumptions and unresolved questions</li></ul><br>
+<a>Completeness does not require enumeration of every conceivable future<br>condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires sufficient coverage of the material requirements necessary for</h1>
+<a>the declared purpose and applicable assessment context.</a><br><br>
+<a>Requirements Consistency ≠ Requirements Completeness.</a><br><br>
+<a>A specification can be internally consistent while omitting an<br>essential requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Coverage Assessment</h1>
+<section class="viewbor"></section>
+<h1>RSPM shall support an identifiable relationship between the governed</h1>
+<a>software purpose and the requirements intended to realize it.</a><br><br>
+<a>The assessment should identify which material purpose dimensions are:</a><br><br>
+<a>Covered: Sufficiently represented by specified requirements.</a><br><br>
+<a>Partially Covered: Represented, but with material gaps.</a><br><br>
+<a>Uncovered: Not adequately represented.</a><br><br>
+<a>Unresolved: Coverage cannot yet be determined.</a><br><br>
+<a>Coverage should not be inferred merely from the number of<br>requirements.</a><br><br>
+<a>Requirement Volume ≠ Purpose Coverage.</a><br><br>
+<a>Where material coverage gaps exist, they shall remain visible in the<br>specification state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Missing Requirements and Hidden Assumptions</h1>
+<a>RSPM shall identify material missing requirements and assumptions that<br>have not been expressed as requirements.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Undefined failure handling</li><li>Missing recovery behavior</li><li>Unspecified access restrictions</li><li>Unaddressed interface failures</li><li>Undefined data retention conditions</li><li>Unclear human intervention requirements</li><li>Assumed availability of external systems</li><li>Unspecified behavior during interrupted operations</li></ul><br>
+<section class="viewbor"></section>
+<h1>A missing requirement shall not automatically be converted into an accepted</h1>
+<a>requirement.</a><br><br>
+<a>RSPM may identify, formulate, and propose it for evaluation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Recognition and acceptance remain subject to the applicable competent</h1>
+<a>process.</a><br><br>
+<a>Identified Gap ≠ Authorized New Requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Consistency and Conflict</h1>
+<a>RSPM shall identify material conflicts within and between specified<br>requirements.</a><br><br>
+<a>Conflicts may concern:</a><br><br>
+<ul><li>Contradictory required behaviors</li><li>Incompatible thresholds</li><li>Mutually exclusive operating conditions</li><li>Conflicting data handling requirements</li><li>Inconsistent terminology</li><li>Contradictory interface expectations</li><li>Incompatible dependencies</li><li>Conflicts with the governed software purpose</li></ul><br>
+<a>Where conflicts can be resolved through clarification, the resolution<br>should preserve the original conflicting statements and the basis for<br>reconciliation.</a><br><br>
+<a>Where resolution requires a substantive decision outside RSPM's<br>competence, the conflict shall remain explicit.</a><br><br>
+<a>Conflict Detection ≠ Authority to Resolve Conflict.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Dependencies</h1>
+<a>Requirements may depend on other requirements, software components,<br>external systems, operating conditions, or governed constraints.</a><br><br>
+<a>RSPM shall identify dependencies that materially affect the meaning,<br>feasibility, completeness, or assessability of a requirement.</a><br><br>
+<a>Dependencies may be:</a><br><br>
+<ul><li>Prerequisite</li><li>Conditional</li><li>Shared</li><li>Conflicting</li><li>External</li><li>Unverified</li></ul><br>
+<a>Where a requirement depends on another requirement, changes to either<br>may affect the validity of the specification.</a><br><br>
+<a>RSPM identifies these relationships.</a><br><br>
+<a>Detailed software dependency lifecycle governance remains within the<br>competent SLGA™ dependency domain.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Priority and Obligation</h1>
+<a>RSPM shall distinguish a requirement's importance from its binding<br>status.</a><br><br>
+<a>A requirement may be:</a><br><br>
+<ul><li>Mandatory under an applicable competent basis</li><li>Conditionally required</li><li>Optional</li><li>Proposed for future consideration</li><li>Subject to unresolved obligation status</li></ul><br>
+<a>Priority may express implementation urgency or relative importance.</a><br><br>
+<a>Obligation expresses whether the requirement is binding under the<br>applicable governance context.</a><br><br>
+<a>High Priority ≠ Mandatory Obligation.</a><br><br>
+<a>Technical Recommendation ≠ Binding Requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM shall preserve the identified basis for material obligation claims</h1>
+<a>without independently creating legal, contractual, or organizational<br>authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Operational Reality Alignment</h1>
+<a>A requirement may be clear, consistent, and assessable while depending<br>on operational conditions that do not exist.</a><br><br>
+<a>RSPM shall identify material assumptions concerning:</a><br><br>
+<ul><li>Available infrastructure</li><li>Data availability and quality</li><li>System interfaces</li><li>Operating environments</li><li>Resource conditions</li><li>Human capabilities</li><li>External services</li><li>Technical or organizational dependencies</li></ul><br>
+<a>Where operational feasibility has not been established, the<br>specification shall preserve that limitation.</a><br><br>
+<a>RSPM may identify the need for competent validation.</a><br><br>
+<a>It does not independently certify operational feasibility.</a><br><br>
+<a>Requirements Consistency ≠ Operational Feasibility.</a><br><br>
+<a>Specified Capability ≠ Demonstrated Capability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Generated by AI and Autonomous Systems</h1>
+<a>RSPM applies equally to human-authored and machine-generated<br>requirements.</a><br><br>
+<a>Where AI agents or autonomous systems interpret, derive, or propose<br>requirements, the specification process shall preserve:</a><br><br>
+<ul><li>The originating objective</li><li>The source of the generated requirement</li><li>The relevant interpretation or derivation</li><li>Material assumptions</li><li>Proposed scope changes</li><li>Applicable authority boundaries</li><li>The evaluation and acceptance state</li></ul><br>
+<a>An AI system may generate a technically coherent requirement that is<br>not authorized, necessary, or aligned with the governed software<br>purpose.</a><br><br>
+<a>Requirement Generation Capability ≠ Requirements Governance Authority.</a><br><br>
+<a>Task Authority ≠ Constituent Action Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Automated requirement generation shall not silently convert a proposed</h1>
+<a>requirement into an accepted requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Under Distributed Development</h1>
+<a>Software requirements may be created and modified across multiple<br>teams, suppliers, repositories, agents, and organizational boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM shall preserve sufficient specification identity and context to</h1>
+<a>prevent materially different interpretations from being treated as<br>equivalent requirements.</a><br><br>
+<a>Relevant controls include:</a><br><br>
+<ul><li>Stable requirement references</li><li>Explicit specification versions</li><li>Shared definitions</li><li>Identifiable interpretation differences</li><li>Material conflict detection</li><li>Recognition of unresolved requirements</li><li>Traceable specification handoffs</li></ul><br>
+<a>A requirement interpreted consistently within one team may still<br>conflict with the interpretation used elsewhere.</a><br><br>
+<a>Shared Requirement Identifier ≠ Shared Requirement Meaning.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Specification States</h1>
+<section class="viewbor"></section>
+<h1>RSPM shall represent the current governance condition of specified</h1>
+<a>requirements.</a><br><br>
+<a>Possible states include:</a><br><br>
+<a>Proposed: A requirement has been submitted or generated.</a><br><br>
+<a>Under Specification: Its meaning or structure is being established.</a><br><br>
+<a>Specified: The requirement has reached a defined specification state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Conditionally Specified: The specification remains dependent on explicit</h1>
+<a>unresolved conditions.</a><br><br>
+<a>Ambiguous: Material interpretation uncertainty remains.</a><br><br>
+<a>Conflicted: Material contradictions remain unresolved.</a><br><br>
+<section class="viewbor"></section>
+<h1>Incomplete: The requirement or relevant requirements set lacks necessary</h1>
+<a>information or coverage.</a><br><br>
+<a>Evidence-Limited: Material supporting evidence is insufficient.</a><br><br>
+<a>Ready for Acceptance Evaluation: The specification is sufficiently<br>developed for the applicable acceptance process.</a><br><br>
+<a>Accepted: Competent acceptance has been established and recorded.</a><br><br>
+<a>Rejected: The requirement has been rejected through an applicable<br>competent process.</a><br><br>
+<a>Superseded: A later specification has replaced the previous state.</a><br><br>
+<a>Withdrawn: The requirement has been withdrawn through an applicable<br>process.</a><br><br>
+<section class="viewbor"></section>
+<h1>The distinction between specification readiness and acceptance shall remain</h1>
+<a>explicit.</a><br><br>
+<a>Specified Requirement ≠ Accepted Requirement.</a><br><br>
+<a>Accepted Requirement ≠ Applicable Baseline Requirement.</a><br><br>
+<a>Acceptance and baseline incorporation must remain subject to the<br>applicable SRS governance conditions, including scope and<br>applicability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Acceptance Boundary</h1>
+<a>RSPM may support acceptance evaluation by producing sufficiently<br>specified requirements and preserving relevant evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>It shall not treat specification completeness, technical feasibility, or</h1>
+<a>automated approval as independent evidence of competent acceptance.</a><br><br>
+<a>An accepted requirement should preserve, where applicable:</a><br><br>
+<ul><li>The accepted requirement identity and version</li><li>The competent acceptance source</li><li>The acceptance context</li><li>Material acceptance conditions</li><li>Relevant limitations</li><li>Effective applicability references</li></ul><br>
+<a>Where acceptance evidence is absent, the requirement shall not be<br>represented as unconditionally accepted.</a><br><br>
+<a>Specification Readiness ≠ Acceptance Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Specification Change and Version Integrity</h1>
+<a>Requirements specifications may evolve through clarification,<br>correction, decomposition, or substantive change.</a><br><br>
+<a>RSPM shall distinguish:</a><br><br>
+<a>Editorial Change: A change that does not materially alter requirement<br>meaning.</a><br><br>
+<a>Clarification: A change that resolves ambiguity while preserving the<br>recognized intended requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Substantive Change: A change affecting required behavior, obligation,</h1>
+<a>conditions, or intended outcome.</a><br><br>
+<a>New Requirement: A newly introduced requirement that is not merely a<br>reformulation of an existing one.</a><br><br>
+<section class="viewbor"></section>
+<h1>Material changes shall preserve the relationship between previous and</h1>
+<a>current specification states.</a><br><br>
+<section class="viewbor"></section>
+<h1>A substantive change shall be referred to the applicable requirements</h1>
+<a>change governance process.</a><br><br>
+<a>Specification Revision ≠ Automatically Authorized Requirements Change.</a><br><br>
+<a>RCCM governs the competent change-control process.</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence, Provenance, and Specification Integrity</h1>
+<section class="viewbor"></section>
+<h1>RSPM shall preserve evidence sufficient to reconstruct the material basis</h1>
+<a>of a requirements specification.</a><br><br>
+<a>Relevant evidence may include:</a><br><br>
+<ul><li>Original requests</li><li>Governed software purpose references</li><li>Requirement derivation records</li><li>Clarification records</li><li>Applicable constraints</li><li>Operational assumptions</li><li>Conflict assessments</li><li>Completeness and coverage findings</li><li>Acceptance references</li><li>Specification change history</li></ul><br>
+<a>Where the same underlying evidence is repeated through multiple<br>automated processes, repetition shall not automatically be treated as<br>independent corroboration.</a><br><br>
+<a>Where evidence is missing, conflicting, outdated, or potentially<br>compromised, the resulting limitation shall remain explicit.</a><br><br>
+<a>Repeated Interpretation ≠ Independent Confirmation.</a><br><br>
+<a>Documented Specification ≠ Validated Specification.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM shall not suppress material uncertainty to produce an apparently</h1>
+<a>complete requirements set.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Specification Reassessment</h1>
+<a>A requirements specification shall remain capable of reassessment.</a><br><br>
+<a>Reassessment may be triggered by:</a><br><br>
+<ul><li>Changes to the governed software purpose</li><li>New material requirements</li><li>Discovery of missing requirements</li><li>Material interpretation conflicts</li><li>Changes in operational assumptions</li><li>New applicable constraints</li><li>Changes in software interfaces or dependencies</li><li>Material software incidents</li><li>Autonomous reinterpretation of existing requirements</li><li>Evidence that the current specification no longer represents the</li></ul><br>
+<a>intended outcome.</a><br><br>
+<section class="viewbor"></section>
+<h1>Reassessment shall identify affected requirements and the need for</h1>
+<a>competent change control, scope reassessment, or renewed acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Historical Specification Sufficiency ≠ Continued Specification</h1>
+<a>Sufficiency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Specification State</h1>
+<a>The principal output of RSPM is: Governed Software Requirements<br>Specification State</a><br><br>
+<a>The state shall preserve sufficient information to identify:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Purpose Reference: The applicable Governed Software Purpose</h1>
+<a>State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Set Identity: The identifiable set of requirements</h1>
+<a>undergoing governance.</a><br><br>
+<a>Requirement Identities: Stable references and relevant versions.</a><br><br>
+<a>Requirement Origins: Sources and material derivation relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Statements: The specified behavior, capability, condition, or</h1>
+<a>constraint.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Classification: Relevant functional or non-functional</h1>
+<a>categories.</a><br><br>
+<section class="viewbor"></section>
+<h1>Specification Quality: Clarity, specificity, consistency, and</h1>
+<a>assessability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Purpose Alignment: The relationship between requirements and the governed</h1>
+<a>software purpose.</a><br><br>
+<a>Requirements Completeness: Material completeness findings and<br>limitations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Coverage: Covered, partially covered, uncovered, and</h1>
+<a>unresolved purpose dimensions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Conflicts: Material contradictions and reconciliation</h1>
+<a>conditions.</a><br><br>
+<a>Operational Assumptions: Conditions requiring confirmation or<br>validation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Dependencies: Material prerequisite and conditional</h1>
+<a>relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>Obligation State: Applicable mandatory, conditional, optional, or</h1>
+<a>unresolved status.</a><br><br>
+<section class="viewbor"></section>
+<h1>Specification State: The current state of each requirement and the</h1>
+<a>requirements set.</a><br><br>
+<section class="viewbor"></section>
+<h1>Acceptance Boundary: Applicable acceptance evidence, conditions, or</h1>
+<a>unresolved authority questions.</a><br><br>
+<a>Evidence and Provenance: Supporting sources and material limitations.</a><br><br>
+<a>Uncertainty: Material unresolved interpretation or evidence<br>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Version and Continuity: Relevant specification history and superseded</h1>
+<a>states.</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff Conditions: Information required for subsequent software scope</h1>
+<a>governance.</a><br><br>
+<a>The state does not independently establish that every requirement is<br>accepted or applicable to a software baseline.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A conforming implementation of RSPM must provide the following six<br>functional capabilities.</a><br><br>
+<ul><li>Requirement Object, Origin, and Purpose Alignment Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify requirements, preserve their origin and versions,</h1>
+<a>and assess their relationship to the applicable Governed Software<br>Purpose State.</a><br><br>
+<a>The implementation must distinguish a proposed requirement from a<br>purpose-aligned and sufficiently specified requirement.</a><br><br>
+<ul><li>Requirement Interpretation, Formulation, and Classification<br>Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to transform proposed requirements into identifiable</h1>
+<a>specifications while preserving original expressions, material<br>interpretations, classifications, assumptions, and unresolved<br>ambiguity.</a><br><br>
+<a>The implementation must not treat AI-generated interpretation as<br>automatically accepted requirement meaning.</a><br><br>
+<ul><li>Specification Quality, Assessability, and Operational Conditions</li></ul><br>
+<a>Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to assess clarity, specificity, internal consistency, assessment</h1>
+<a>conditions, relevant operating scenarios, dependencies, and material<br>operational assumptions.</a><br><br>
+<a>The implementation must distinguish specification sufficiency from<br>verified operational feasibility.</a><br><br>
+<ul><li>Requirements Completeness, Coverage, and Conflict Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to evaluate material requirements completeness against the</h1>
+<a>governed software purpose, identify coverage gaps, detect<br>contradictions, preserve unresolved conflicts, and distinguish missing<br>requirements from authorized additions.</a><br><br>
+<a>The implementation must not infer completeness from requirement volume<br>or internal consistency alone.</a><br><br>
+<ul><li>Requirements State, Evidence, and Continuity Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to preserve specification states, acceptance boundaries,</h1>
+<a>supporting evidence, uncertainty, versions, substantive changes, and<br>reassessment triggers.</a><br><br>
+<a>The implementation must distinguish specification readiness from<br>competent acceptance and refer substantive changes to RCCM.</a><br><br>
+<ul><li>Governed Specification State and Scope Handoff Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to produce a Governed Software Requirements Specification State</h1>
+<a>with sufficiently explicit requirement identities, meanings, purpose<br>relationships, completeness findings, applicability questions,<br>conflicts, and evidence for subsequent Software Scope Management.</a><br><br>
+<a>The implementation must preserve material limitations and unresolved<br>conditions during handoff.</a><br><br>
+<section class="viewbor"></section>
+<h1>GIE™ Compatibility</h1>
+<a>RSPM is compatible with GIE™ as a downstream methodological execution<br>and analysis layer.</a><br><br>
+<a>GIE™ may support:</a><br><br>
+<ul><li>Requirement discovery and structured extraction</li><li>Interpretation comparison and ambiguity detection</li><li>Purpose alignment assessment</li><li>Requirement classification</li><li>Completeness and coverage analysis</li><li>Conflict and dependency identification</li><li>Evidence and provenance mapping</li><li>Specification state representation</li><li>Reassessment and downstream handoff</li></ul><br>
+<section class="viewbor"></section>
+<h1>Automated assessments shall preserve the distinction between</h1>
+<a>machine-generated findings and competent governance determinations.</a><br><br>
+<a>GIE™ must not independently grant requirements acceptance authority,<br>eliminate unresolved uncertainty, or alter canonical RSPM governance<br>logic to accommodate software implementation limitations.</a><br><br>
+<section class="viewbor"></section>
+<h1>OOF® logic adapts to the governed reality. The engine adapts to OOF®</h1>
+<a>logic.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>The canonical RSPM governance logic is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Purpose State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Proposed Requirements and Sources</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Requirement Identities</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Original Expressions and Interpretations</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Purpose Alignment</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Formulate and Classify Requirements</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Required Behavior, Conditions, and Constraints</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Specification Clarity and Assessability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Material Dependencies and Operational Assumptions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Requirements Completeness Against Governed Purpose</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Requirements Coverage</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Missing Requirements and Hidden Assumptions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Consistency and Detect Conflicts</h1>
+<a>↓</a><br><br>
+<a>Clarify or Reconcile Where Competent</a><br><br>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Unresolved Ambiguity and Conflict</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Evidence Sufficiency and Uncertainty</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Specification and Acceptance States</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Governed Software Requirements Specification State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Identity, Versions, and Provenance</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff to Software Scope Management</h1>
+<a>↓</a><br><br>
+<a>Reassess When Material Requirements Conditions Change</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Specification State</h1>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>RSPM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>- Software Requirement Governance Object</h1>
+<a>- Requirements Set Identity - Requirement Origin Record - Requirement<br>Interpretation Record - Requirement Specification - Requirement<br>Classification Record - Purpose Alignment State - Specification<br>Quality Assessment - Requirement Assessability State - Requirement<br>Conditions Record - Requirements Decomposition Record - Requirements<br>Completeness Assessment - Requirements Coverage State - Missing<br>Requirements Record - Operational Assumption Record - Requirements<br>Conflict Record - Requirements Reconciliation Record - Requirements<br>Dependency Record - Requirement Obligation State - Requirement<br>Specification State - Requirements Acceptance Boundary Record -<br>Requirements Evidence State - Requirements Uncertainty Record -<br>Specification Version Record - Specification Reassessment Record -<br>Requirements Scope Handoff Record</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Specification State</h1>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>RSPM preserves the following distinctions:</a><br><br>
+<section class="viewbor"></section>
+<h1>Documented Requirement ≠ Governed Requirement Specification</h1>
+<section class="viewbor"></section>
+<h1>Requirement Identity ≠ Requirement Wording</h1>
+<section class="viewbor"></section>
+<h1>Requirement Source ≠ Requirement Authority</h1>
+<section class="viewbor"></section>
+<h1>Requested Behavior ≠ Interpreted Behavior</h1>
+<section class="viewbor"></section>
+<h1>Technical Usefulness ≠ Purpose Alignment</h1>
+<section class="viewbor"></section>
+<h1>Specification Detail ≠ Specification Quality</h1>
+<section class="viewbor"></section>
+<h1>Requirement Decomposition ≠ Authority to Expand Requirements</h1>
+<section class="viewbor"></section>
+<h1>Normal Operation Specification ≠ Complete Operational Behavior</h1>
+<a>Specification</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Statement ≠ Verification Condition</h1>
+<section class="viewbor"></section>
+<h1>Requirements Consistency ≠ Requirements Completeness</h1>
+<section class="viewbor"></section>
+<h1>Requirement Volume ≠ Purpose Coverage</h1>
+<section class="viewbor"></section>
+<h1>Identified Gap ≠ Authorized New Requirement</h1>
+<section class="viewbor"></section>
+<h1>Conflict Detection ≠ Authority to Resolve Conflict</h1>
+<section class="viewbor"></section>
+<h1>High Priority ≠ Mandatory Obligation</h1>
+<section class="viewbor"></section>
+<h1>Technical Recommendation ≠ Binding Requirement</h1>
+<section class="viewbor"></section>
+<h1>Requirements Consistency ≠ Operational Feasibility</h1>
+<section class="viewbor"></section>
+<h1>Specified Capability ≠ Demonstrated Capability</h1>
+<section class="viewbor"></section>
+<h1>Requirement Generation Capability ≠ Requirements Governance Authority</h1>
+<section class="viewbor"></section>
+<h1>Task Authority ≠ Constituent Action Authority</h1>
+<section class="viewbor"></section>
+<h1>Shared Requirement Identifier ≠ Shared Requirement Meaning</h1>
+<section class="viewbor"></section>
+<h1>Specified Requirement ≠ Accepted Requirement</h1>
+<section class="viewbor"></section>
+<h1>Accepted Requirement ≠ Applicable Baseline Requirement</h1>
+<section class="viewbor"></section>
+<h1>Specification Readiness ≠ Acceptance Authority</h1>
+<section class="viewbor"></section>
+<h1>Specification Revision ≠ Automatically Authorized Requirements Change</h1>
+<section class="viewbor"></section>
+<h1>Repeated Interpretation ≠ Independent Confirmation</h1>
+<section class="viewbor"></section>
+<h1>Documented Specification ≠ Validated Specification</h1>
+<section class="viewbor"></section>
+<h1>Historical Specification Sufficiency ≠ Continued Specification Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<a>RSPM governs requirements specification within SRS and SLGA™.</a><br><br>
+<a>It does not replace competent governance of authority, accountability,<br>validation, operational reality, software quality, security, or<br>autonomous systems.</a><br><br>
+<a>Relevant interoperating architectures may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>GOA™ — Governance Architecture: General authority, mandate, and</h1>
+<a>delegation boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>AGA™ — Accountability Governance Architecture: Applicable responsibility</h1>
+<a>and accountability conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>ASGA™ — Autonomous Systems Governance Architecture: Autonomous system</h1>
+<a>authority and execution boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>ORA™ — Operational Reality Architecture: Competent assessment of</h1>
+<a>operational reality conditions.</a><br><br>
+<a>VALIDOS™: Applicable validation methodology.</a><br><br>
+<a>ADIT®: Broader evidence and auditability governance.</a><br><br>
+<a>Within SRS:</a><br><br>
+<a>SPDM establishes the Governed Software Purpose State.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM governs requirements interpretation, specification, completeness,</h1>
+<a>consistency, and assessability.</a><br><br>
+<a>SSMM governs detailed requirements scope and applicability.</a><br><br>
+<a>RCCM governs requirements changes and their competent control.</a><br><br>
+<section class="viewbor"></section>
+<h1>RTM governs requirements traceability across relevant lifecycle</h1>
+<a>relationships.</a><br><br>
+<a>Within the wider SLGA™ architecture, subsequent Parent Standards<br>govern software creation, dependencies, configuration, quality,<br>security, release, deployment, change management, retirement, and<br>cross-cutting lifecycle control.</a><br><br>
+<a>RSPM may produce requirements relevant to those domains without<br>replacing their competent governance processes.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>RSPM begins when proposed software requirements must be interpreted,<br>specified, and evaluated against an applicable Governed Software<br>Purpose State.</a><br><br>
+<a>RSPM governs:</a><br><br>
+<ul><li>Requirement identification</li><li>Requirement origin and interpretation</li><li>Purpose alignment</li><li>Requirement formulation</li><li>Requirement classification</li><li>Requirement granularity and decomposition</li><li>Requirement conditions and constraints</li><li>Specification quality</li><li>Requirement assessability</li><li>Requirements completeness</li><li>Requirements coverage</li><li>Missing requirements</li><li>Requirements consistency</li><li>Requirements conflicts</li><li>Requirements dependencies</li><li>Requirement priority and obligation distinction</li><li>Operational assumptions</li><li>AI-generated and autonomous requirements</li><li>Distributed specification consistency</li><li>Specification states</li><li>Acceptance boundaries</li><li>Specification evidence and provenance</li><li>Specification version integrity</li><li>Specification reassessment</li><li>Requirements handoff</li></ul><br>
+<a>RSPM does not independently determine:</a><br><br>
+<ul><li>General organizational or legal authority</li><li>Recognition of a materially new software purpose</li><li>Final requirements scope and baseline applicability</li><li>Authorization of substantive requirements changes</li><li>Complete lifecycle traceability governance</li><li>Software implementation</li><li>Software quality or security conformance</li><li>Operational feasibility certification</li><li>Software release or deployment authorization</li></ul><br>
+<a>RSPM ends when the relevant requirements have been represented as a:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Specification State</h1>
+<section class="viewbor"></section>
+<h1>with sufficient identification, clarity, purpose alignment, completeness</h1>
+<a>assessment, consistency, assessability, evidence, and explicit<br>unresolved conditions for subsequent Software Scope Management.</a><br><br>
+<ul><li>Use Case 1 — Every Requirement Is Clear, but the Software Still<br>Fails</li></ul><br>
+<a>Its Purpose</a><br><br>
+<a>A logistics company commissions software to manage warehouse<br>deliveries.</a><br><br>
+<a>The specification includes:</a><br><br>
+<ul><li>Shipment registration</li><li>Delivery scheduling</li><li>Driver assignment</li><li>Delivery confirmation</li><li>Status reporting</li></ul><br>
+<a>Each requirement is clearly written.</a><br><br>
+<a>The development team implements the specified functions correctly.</a><br><br>
+<a>However, the software cannot adequately handle deliveries when network<br>connectivity is interrupted.</a><br><br>
+<section class="viewbor"></section>
+<h1>The original specification did not establish the required behavior for</h1>
+<a>temporary disconnection, delayed synchronization, or recovery after<br>failed confirmation.</a><br><br>
+<a>The problem is not necessarily a contradiction within the existing<br>requirements.</a><br><br>
+<a>It is a material completeness gap.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM evaluates the requirements set against the governed software purpose</h1>
+<a>and relevant operating scenarios.</a><br><br>
+<a>It identifies missing requirements concerning:</a><br><br>
+<section class="viewbor"></section>
+<h1>Offline Operation</h1>
+<section class="viewbor"></section>
+<h1>Recovery Behavior</h1>
+<section class="viewbor"></section>
+<h1>Synchronization Conditions</h1>
+<section class="viewbor"></section>
+<h1>Failure Handling</h1>
+<section class="viewbor"></section>
+<h1>Operational Continuity</h1>
+<a>The resulting specification state may remain:</a><br><br>
+<section class="viewbor"></section>
+<h1>Incomplete</h1>
+<a>until the missing requirements are formulated and evaluated through<br>the applicable governance process.</a><br><br>
+<a>Requirements Consistency ≠ Requirements Completeness.</a><br><br>
+<a>The module identifies the missing foundation before the requirements<br>set is treated as sufficiently specified for its intended purpose.</a><br><br>
+<ul><li>Use Case 2 — An AI Coding Agent Invents a Requirement That Was<br>Never</li></ul><br>
+<a>Authorized</a><br><br>
+<section class="viewbor"></section>
+<h1>A company uses an autonomous coding agent to develop an internal</h1>
+<a>document-management application.</a><br><br>
+<a>The original request is:</a><br><br>
+<section class="viewbor"></section>
+<h1>“Allow authorized employees to search and retrieve documents relevant to</h1>
+<a>their projects.”</a><br><br>
+<section class="viewbor"></section>
+<h1>During requirements generation, the agent introduces an additional</h1>
+<a>requirement:</a><br><br>
+<section class="viewbor"></section>
+<h1>“The system shall automatically provide organization-wide access to all</h1>
+<a>indexed documents to improve search performance.”</a><br><br>
+<a>The generated requirement is clear.</a><br><br>
+<a>It may also be technically implementable.</a><br><br>
+<a>However, it expands access beyond the original request and may<br>conflict with applicable access restrictions.</a><br><br>
+<a>RSPM preserves the distinction between:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Request</h1>
+<section class="viewbor"></section>
+<h1>Agent Interpretation</h1>
+<section class="viewbor"></section>
+<h1>Generated Requirement</h1>
+<section class="viewbor"></section>
+<h1>Purpose Alignment Assessment</h1>
+<section class="viewbor"></section>
+<h1>Specification Evaluation</h1>
+<section class="viewbor"></section>
+<h1>Acceptance State</h1>
+<section class="viewbor"></section>
+<h1>The module identifies the generated requirement as requiring additional</h1>
+<a>governance evaluation.</a><br><br>
+<a>It does not treat the agent's interpretation as evidence that the<br>organization authorized the expanded access.</a><br><br>
+<a>The requirement may remain:</a><br><br>
+<section class="viewbor"></section>
+<h1>Proposed</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Conflicted</h1>
+<a>until the relevant authority and specification questions are resolved.</a><br><br>
+<a>Requirement Generation Capability ≠ Requirements Governance Authority.</a><br><br>
+<a>Task Authority ≠ Constituent Action Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM allows automated software development to remain productive without</h1>
+<a>allowing automated interpretation to silently redefine the<br>requirements that govern it.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>Software requirements are the point at which an intended purpose<br>becomes a specification that developers, automated systems, and<br>downstream governance processes can act upon.</a><br><br>
+<a>That transformation is not merely a documentation task.</a><br><br>
+<a>A requirement can be clearly written and still be unauthorized.</a><br><br>
+<a>It can be internally consistent and still leave a material gap.</a><br><br>
+<a>It can be technically feasible and still be disconnected from the<br>intended software purpose.</a><br><br>
+<a>It can be generated by an advanced AI system and still represent an<br>unsupported interpretation of the original request.</a><br><br>
+<a>And a complete-looking specification can still omit the conditions<br>under which the software must operate.</a><br><br>
+<a>Documented Requirement ≠ Governed Requirement Specification.</a><br><br>
+<a>Requirements Consistency ≠ Requirements Completeness.</a><br><br>
+<a>Requirement Volume ≠ Purpose Coverage.</a><br><br>
+<a>Specified Requirement ≠ Accepted Requirement.</a><br><br>
+<a>Requirement Generation Capability ≠ Requirements Governance Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM establishes the governance conditions under which proposed</h1>
+<a>requirements become sufficiently explicit, assessable, coherent, and<br>purpose-aligned specifications.</a><br><br>
+<section class="viewbor"></section>
+<h1>It preserves what was requested, what was interpreted, what was specified,</h1>
+<a>what remains uncertain, and what has or has not been legitimately<br>accepted.</a><br><br>
+<a>It does not authorize software implementation merely because a<br>specification is technically ready.</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM transforms proposed software requirements into governed specification</h1>
+<a>states — ensuring that software development proceeds from identifiable<br>meaning, assessed completeness, preserved evidence, and legitimate<br>acceptance boundaries rather than undocumented assumptions or<br>ungoverned interpretation.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

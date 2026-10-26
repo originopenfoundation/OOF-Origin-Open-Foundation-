@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® SSMM — Software Scope Management Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>SSMM — Software Scope Management Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Requirements Standard (SRS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Scope Management Governance<br>
+<b>Module ID:</b> SLGA-SRS-SSMM-003<br>
+<b>Origin ID:</b> OOF.CM.SLGA.01.03.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical Draft · Open Standard<br>
+<b>Effective Date:</b> Pending Canonical Publication<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<section class="viewbor"></section>
+<h1>The Software Scope Management Module (SSMM) governs how the scope of</h1>
+<a>software requirements is identified, defined, bounded, evaluated,<br>accepted, and maintained across software objects, capabilities,<br>configurations, operating contexts, and lifecycle conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSMM establishes the methodological conditions under which a specified</h1>
+<a>software requirement may be recognized as applicable to a particular<br>software scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>It distinguishes the existence of a requirement from its applicability, the</h1>
+<a>recognition of a software purpose from authorization of its<br>implementation scope, and the technical reach of a software capability<br>from the boundaries within which that capability is legitimately<br>intended to operate.</a><br><br>
+<a>SSMM applies regardless of whether software scope is defined by<br>humans, organizations, AI agents, autonomous systems, automated<br>development environments, or combinations of these actors.</a><br><br>
+<a>It preserves scope boundaries when requirements are distributed across<br>components, teams, environments, versions, and software development<br>processes.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Scope State</h1>
+<a>Its foundational distinction is:</a><br><br>
+<a>Requirement Acceptance ≠ Requirement Scope Applicability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>The operational role of SSMM is:</a><br><br>
+<section class="viewbor"></section>
+<h1>To establish and maintain an identifiable, justified, and traceable</h1>
+<a>software requirements scope that determines where accepted or proposed<br>requirements apply, where they do not apply, and which conditions must<br>be satisfied before scope expansion, restriction, or reassignment can<br>be recognized.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSMM prevents a requirement from being treated as universally applicable</h1>
+<a>merely because it has been specified, accepted, or implemented<br>somewhere within a software system.</a><br><br>
+<section class="viewbor"></section>
+<h1>It provides the applicability foundation required for governed requirements</h1>
+<a>baseline formation.</a><br><br>
+<a>SSMM does not independently authorize software creation, requirements<br>changes, release, or deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in the SRS Internal Governance Flow</h1>
+<a>The SRS internal governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Purpose Definition → Requirements Specification → Software Scope</h1>
+<a>Management → Requirements Change Control → Requirements Traceability</a><br><br>
+<a>SSMM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Scope Management</h1>
+<a>It is the third Core Module of SRS.</a><br><br>
+<a>Its principal upstream inputs are:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Purpose State</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>SPDM — Software Purpose Definition Module</h1>
+<a>and:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Specification State</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>RSPM — Requirements Specification Module</h1>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Scope State</h1>
+<a>That state provides the applicable scope reference for:</a><br><br>
+<section class="viewbor"></section>
+<h1>RCCM — Requirements Change Control Module</h1>
+<a>and supports subsequent:</a><br><br>
+<section class="viewbor"></section>
+<h1>RTM — Requirements Traceability Module</h1>
+<section class="viewbor"></section>
+<h1>Central Operational Question</h1>
+<section class="viewbor"></section>
+<h1>Which software requirements legitimately apply to which software objects,</h1>
+<a>functions, configurations, environments, actors, and lifecycle<br>conditions, and how can those applicability boundaries remain explicit<br>when software evolves or its development becomes distributed and<br>autonomous?</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Scope Governance Object</h1>
+<a>Every SSMM assessment must identify the Software Scope Governance<br>Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>The object represents the software capability, system, component, service,</h1>
+<a>or defined software context whose requirements applicability is being<br>governed.</a><br><br>
+<a>It should identify, where applicable:</a><br><br>
+<ul><li>Software object identity</li><li>Relevant purpose reference</li><li>Applicable requirements set</li><li>Scope version or reference state</li><li>Software boundaries</li><li>Relevant configurations</li><li>Intended operating contexts</li><li>Scope origin and recognition conditions</li><li>Material dependencies and exclusions</li></ul><br>
+<a>A software system may contain multiple overlapping scope objects.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope shall therefore not be inferred solely from a project name,</h1>
+<a>repository, or application boundary.</a><br><br>
+<a>Software Object Identity ≠ Software Scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Origin and Recognition Basis</h1>
+<a>SSMM shall identify how a proposed software scope originated.</a><br><br>
+<a>Possible sources include:</a><br><br>
+<ul><li>Organizational project mandates</li><li>Product or service definitions</li><li>Governed software purpose states</li><li>Accepted requirements</li><li>Contractual or operational commitments</li><li>Applicable external constraints</li><li>Software modernization initiatives</li><li>AI-generated scope proposals</li><li>Autonomous development plans</li></ul><br>
+<a>The origin of a scope proposal shall remain traceable.</a><br><br>
+<a>However, a proposed scope does not become legitimate merely because it<br>originates from an authorized project or competent technical system.</a><br><br>
+<a>Scope Origin ≠ Scope Authorization.</a><br><br>
+<a>Where recognition authority is unclear, the resulting scope shall<br>remain conditional or unresolved.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Definition and Intended Coverage</h1>
+<a>SSMM shall establish what the governed software scope includes.</a><br><br>
+<a>Relevant dimensions may include:</a><br><br>
+<a>Functional Coverage: The capabilities and behaviors included within<br>the scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Object Coverage: The systems, services, components, and</h1>
+<a>interfaces concerned.</a><br><br>
+<a>Requirements Coverage: The requirements intended to apply.</a><br><br>
+<a>Operational Coverage: The relevant operating contexts and conditions.</a><br><br>
+<a>Configuration Coverage: The configurations to which requirements<br>apply.</a><br><br>
+<section class="viewbor"></section>
+<h1>Lifecycle Coverage: The software lifecycle stages or states relevant to</h1>
+<a>the scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Organizational Coverage: The applicable organizational or contractual</h1>
+<a>boundaries.</a><br><br>
+<a>Not every software scope requires every dimension.</a><br><br>
+<a>The necessary dimensions depend on the governed software reality.</a><br><br>
+<section class="viewbor"></section>
+<h1>A scope definition shall be sufficiently explicit to distinguish inclusion</h1>
+<a>from assumption.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Inclusion and Exclusion</h1>
+<a>SSMM shall identify material inclusions and exclusions.</a><br><br>
+<a>An inclusion establishes that a defined requirement, function, or<br>software object belongs within the proposed or recognized scope under<br>specified conditions.</a><br><br>
+<a>An exclusion establishes that a defined element is outside that scope.</a><br><br>
+<a>Exclusions should be explicit where omission could create material<br>ambiguity.</a><br><br>
+<a>A scope may exclude:</a><br><br>
+<ul><li>Particular software components</li><li>Specific user groups</li><li>Certain operating environments</li><li>Optional capabilities</li><li>Legacy functions</li><li>External systems</li><li>Particular configurations</li><li>Unapproved autonomous functions</li></ul><br>
+<a>An exclusion shall not be used to conceal a requirement that remains<br>mandatory under a competent external obligation.</a><br><br>
+<a>Scope Exclusion ≠ Elimination of Applicable Obligation.</a><br><br>
+<a>Where an exclusion conflicts with an applicable obligation, the<br>conflict shall be preserved for competent resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Applicability</h1>
+<section class="viewbor"></section>
+<h1>SSMM shall evaluate whether each material requirement applies to the</h1>
+<a>identified Software Scope Governance Object.</a><br><br>
+<a>Applicability may depend on:</a><br><br>
+<ul><li>Software purpose</li><li>Requirement acceptance</li><li>Component identity</li><li>Intended function</li><li>Configuration</li><li>Operating environment</li><li>Applicable users or actors</li><li>Relevant external obligations</li><li>Version or lifecycle state</li><li>Explicit applicability conditions</li></ul><br>
+<a>A requirement may be valid and accepted without applying to every<br>software object.</a><br><br>
+<a>Conversely, a requirement may be materially applicable to a software<br>object even where the current project documentation has omitted it.</a><br><br>
+<a>Requirement Existence ≠ Requirement Applicability.</a><br><br>
+<a>Requirement Omission ≠ Non-Applicability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope–Purpose Alignment</h1>
+<section class="viewbor"></section>
+<h1>SSMM shall evaluate the relationship between the proposed software scope</h1>
+<a>and the applicable Governed Software Purpose State.</a><br><br>
+<a>The assessment should determine whether the scope:</a><br><br>
+<ul><li>Supports the recognized software purpose</li><li>Introduces capabilities beyond that purpose</li><li>Excludes capabilities necessary for that purpose</li><li>Changes intended use</li><li>Creates material purpose conflicts</li><li>Depends on unresolved purpose conditions</li></ul><br>
+<a>Where the proposed scope materially changes the recognized software<br>purpose, SSMM shall refer the matter to SPDM.</a><br><br>
+<a>SSMM does not independently redefine the software purpose.</a><br><br>
+<a>Purpose Recognition ≠ Unlimited Scope Authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Completeness and Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>SSMM shall assess whether the defined scope adequately represents the</h1>
+<a>material requirements applicable to the software object and intended<br>context.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope completeness concerns whether material applicability dimensions have</h1>
+<a>been addressed.</a><br><br>
+<a>Scope sufficiency concerns whether the established boundaries are<br>adequate for the intended governance use.</a><br><br>
+<a>A scope may be clearly bounded while excluding a capability essential<br>to the recognized purpose.</a><br><br>
+<a>A scope may also be broad enough to include relevant functions but<br>insufficiently precise to establish which requirements apply to each<br>component.</a><br><br>
+<a>Defined Scope ≠ Sufficient Scope.</a><br><br>
+<a>Requirements Completeness ≠ Scope Completeness.</a><br><br>
+<a>RSPM governs requirements completeness against the software purpose.</a><br><br>
+<a>SSMM governs the applicability and coverage of those requirements<br>within defined software boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Granularity and Hierarchy</h1>
+<a>Software scope may exist at multiple levels.</a><br><br>
+<a>Examples include:</a><br><br>
+<ul><li>Software portfolio</li><li>Product</li><li>System</li><li>Service</li><li>Subsystem</li><li>Component</li><li>Interface</li><li>Function</li><li>Configuration</li><li>Specific operating context</li></ul><br>
+<section class="viewbor"></section>
+<h1>SSMM shall identify material parent–child and overlapping scope</h1>
+<a>relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>A requirement applicable to a parent scope shall not automatically be</h1>
+<a>assumed to apply identically to every subordinate scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Likewise, requirements established for one component shall not</h1>
+<a>automatically govern an entire system.</a><br><br>
+<a>Parent Scope ≠ Automatic Universal Applicability.</a><br><br>
+<a>Scope inheritance must preserve the conditions under which a<br>requirement applies.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Dependencies and Shared Boundaries</h1>
+<a>Software scopes may depend on shared components, interfaces, services,<br>data, or operational capabilities.</a><br><br>
+<a>SSMM shall identify dependencies that materially affect requirements<br>applicability.</a><br><br>
+<a>Examples include:</a><br><br>
+<ul><li>Shared authentication services</li><li>Common data interfaces</li><li>Third-party software services</li><li>Shared infrastructure functions</li><li>Common operational controls</li><li>Dependencies between software components</li></ul><br>
+<a>A dependency may create requirements implications beyond the<br>immediately modified component.</a><br><br>
+<a>However, the existence of a technical dependency does not<br>automatically authorize expansion of the governed scope.</a><br><br>
+<a>Technical Dependency ≠ Scope Authorization.</a><br><br>
+<a>Detailed software dependency governance remains within the competent<br>SLGA™ Software Dependency Standard.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Configuration and Environment Alignment</h1>
+<a>A requirement may apply differently across software configurations and<br>environments.</a><br><br>
+<a>SSMM shall preserve material distinctions between:</a><br><br>
+<ul><li>Development environments</li><li>Testing environments</li><li>Staging environments</li><li>Production environments</li><li>Regional or organizational deployments</li><li>Configuration variants</li><li>Product editions</li><li>Legacy and current versions</li></ul><br>
+<section class="viewbor"></section>
+<h1>A requirement accepted for one configuration shall not automatically be</h1>
+<a>treated as applicable to another.</a><br><br>
+<a>Configuration Similarity ≠ Scope Equivalence.</a><br><br>
+<a>Test Scope ≠ Production Scope by default.</a><br><br>
+<a>Where requirements applicability depends on configuration, the<br>relevant conditions shall remain identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Boundary Across Software Versions</h1>
+<a>Software versions may introduce, modify, or retire capabilities.</a><br><br>
+<a>SSMM shall determine whether an existing scope remains applicable when<br>the software version changes.</a><br><br>
+<a>Relevant considerations include:</a><br><br>
+<ul><li>Changes in functionality</li><li>New or removed components</li><li>Modified interfaces</li><li>Changed operating assumptions</li><li>Updated requirements</li><li>New applicable constraints</li><li>Changes in intended use</li></ul><br>
+<a>A version change does not necessarily require a new scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, material changes affecting applicability shall trigger scope</h1>
+<a>reassessment.</a><br><br>
+<a>Version Continuity ≠ Scope Continuity by default.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Under Distributed Development</h1>
+<a>Software may be developed by multiple teams, suppliers, organizations,<br>and autonomous systems.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSMM shall preserve scope identity and applicability across distributed</h1>
+<a>development activities.</a><br><br>
+<a>The governance process should identify:</a><br><br>
+<ul><li>Which software objects belong to each governed scope</li><li>Which requirements apply to each object</li><li>Where scope boundaries overlap</li><li>Which interfaces connect different scopes</li><li>Where interpretations conflict</li><li>Which changes require coordination</li></ul><br>
+<section class="viewbor"></section>
+<h1>Distributed development shall not cause locally accepted requirements to be</h1>
+<a>treated as globally applicable without sufficient governance<br>justification.</a><br><br>
+<a>Local Scope Recognition ≠ Global Scope Applicability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Scope Expansion</h1>
+<a>AI agents and autonomous development systems may identify<br>opportunities to extend software functionality.</a><br><br>
+<a>Such systems may propose:</a><br><br>
+<ul><li>New features</li><li>Additional data access</li><li>New integrations</li><li>Expanded automation</li><li>Additional tool permissions</li><li>Changes to operating boundaries</li><li>New downstream actions</li></ul><br>
+<section class="viewbor"></section>
+<h1>SSMM shall distinguish proposed scope expansion from legitimately</h1>
+<a>recognized scope expansion.</a><br><br>
+<a>An agent's authority to complete a development objective does not<br>automatically authorize every additional function or tool path it<br>proposes.</a><br><br>
+<a>Task Authority ≠ Constituent Action Authority.</a><br><br>
+<a>Autonomous Capability Discovery ≠ Authorized Scope Expansion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Material expansion proposals shall remain subject to the applicable</h1>
+<a>purpose, requirements, authority, and change-governance conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Conflict and Boundary Overlap</h1>
+<a>Different requirements or software scopes may overlap or conflict.</a><br><br>
+<a>Examples include:</a><br><br>
+<ul><li>Two components claiming responsibility for the same function</li><li>Different teams assigning incompatible requirements to a shared</li><li>A feature included in one scope but excluded from another</li><li>A software requirement applying under one configuration but not</li><li>Conflicting organizational or contractual scope interpretations</li></ul><br>
+<a>interface. another.</a><br><br>
+<a>SSMM shall identify material conflicts and distinguish:</a><br><br>
+<section class="viewbor"></section>
+<h1>Compatible Overlap</h1>
+<section class="viewbor"></section>
+<h1>Conditional Overlap</h1>
+<section class="viewbor"></section>
+<h1>Conflicting Overlap</h1>
+<section class="viewbor"></section>
+<h1>Unresolved Boundary</h1>
+<a>Where conflict resolution requires competent authority, SSMM shall<br>preserve the unresolved condition rather than impose an unsupported<br>resolution.</a><br><br>
+<a>Scope Overlap ≠ Scope Agreement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Evidence and Recognition Conditions</h1>
+<a>SSMM shall preserve the evidence supporting material scope<br>determinations.</a><br><br>
+<a>Relevant evidence may include:</a><br><br>
+<ul><li>Governed software purpose references</li><li>Accepted requirement references</li><li>Scope proposals</li><li>Competent recognition records</li><li>Contractual or organizational boundaries</li><li>Applicable external constraints</li><li>Configuration records</li><li>Interface definitions</li><li>Scope assessment findings</li><li>Exclusion justifications</li></ul><br>
+<a>Scope recognition shall preserve its applicable conditions.</a><br><br>
+<a>A scope should not be represented as unconditionally recognized where<br>its authority, evidence, or applicability remains materially<br>unresolved.</a><br><br>
+<a>Documented Scope ≠ Governed Scope.</a><br><br>
+<a>Technical Scope Description ≠ Evidence of Scope Authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Recognition and Governance States</h1>
+<a>SSMM shall represent the current governance condition of a software<br>scope.</a><br><br>
+<a>Possible states include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Proposed: The scope has been submitted or generated but not sufficiently</h1>
+<a>evaluated.</a><br><br>
+<a>Under Evaluation: The scope is undergoing applicability, boundary, or<br>recognition assessment.</a><br><br>
+<a>Recognized: The scope satisfies applicable recognition conditions.</a><br><br>
+<a>Conditionally Recognized: The scope is recognized subject to explicit<br>limitations or unresolved conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Partially Defined: Material scope dimensions remain insufficiently</h1>
+<a>specified.</a><br><br>
+<a>Conflicted: Material scope contradictions remain unresolved.</a><br><br>
+<a>Evidence-Limited: Available evidence is insufficient for a reliable<br>scope determination.</a><br><br>
+<section class="viewbor"></section>
+<h1>Out of Scope: A requirement or capability has been determined not to</h1>
+<a>apply within the defined context.</a><br><br>
+<a>Unresolved: The available information does not support a sufficiently<br>determined state.</a><br><br>
+<a>Superseded: A later governed scope state has replaced the previous<br>state.</a><br><br>
+<a>Withdrawn: The scope has been withdrawn through an applicable<br>competent process.</a><br><br>
+<a>These states describe the governance condition of the scope.</a><br><br>
+<a>They do not independently authorize implementation or deployment.</a><br><br>
+<a>Recognized Scope ≠ Software Execution Authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Baseline Applicability</h1>
+<a>SSMM shall support determination of which accepted requirements are<br>applicable to a defined software baseline.</a><br><br>
+<a>The process shall distinguish:</a><br><br>
+<section class="viewbor"></section>
+<h1>Specified Requirement</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>Accepted Requirement</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>Applicable Baseline Requirement</h1>
+<a>A requirement may be accepted generally but not applicable to a<br>particular software object, configuration, or version.</a><br><br>
+<a>A requirement may also be applicable only when a defined condition is<br>satisfied.</a><br><br>
+<a>SSMM shall preserve those applicability conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>The resulting scope state provides an essential input to the Governed</h1>
+<a>Software Requirements Baseline established under SRS.</a><br><br>
+<a>Accepted Requirement ≠ Applicable Baseline Requirement.</a><br><br>
+<a>Requirements Baseline Inclusion Requires Governed Applicability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Change and Impact</h1>
+<a>Software scope may change because of:</a><br><br>
+<ul><li>New requirements</li><li>Removed requirements</li><li>Changes in software purpose</li><li>New integrations</li><li>Component restructuring</li><li>Configuration changes</li><li>Organizational changes</li><li>Changes in applicable obligations</li><li>AI-generated expansion proposals</li><li>Operational findings</li></ul><br>
+<section class="viewbor"></section>
+<h1>SSMM shall identify whether a proposed modification affects the recognized</h1>
+<a>scope.</a><br><br>
+<a>Material scope changes should preserve:</a><br><br>
+<ul><li>Previous scope identity</li><li>Proposed new scope</li><li>Change origin</li><li>Change justification</li><li>Affected requirements</li><li>Affected software objects</li><li>Material dependencies</li><li>Applicable authority conditions</li><li>Recognition state</li><li>Relevant impact findings</li></ul><br>
+<a>RCCM governs the competent requirements change-control process.</a><br><br>
+<a>SSMM governs the resulting scope and applicability implications.</a><br><br>
+<a>Scope Change Proposal ≠ Authorized Scope Change.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Drift and Unauthorized Expansion</h1>
+<a>Scope Drift occurs when the actual or proposed software scope<br>progressively diverges from the recognized scope without adequate<br>governance recognition.</a><br><br>
+<a>Potential indicators include:</a><br><br>
+<ul><li>Features added without scope reassessment</li><li>Requirements applied to unintended components</li><li>Autonomous agents introducing additional functions</li><li>Unreviewed expansion of data access</li><li>New integrations outside the recognized boundary</li><li>Informal assumptions replacing explicit applicability conditions</li></ul><br>
+<section class="viewbor"></section>
+<h1>SSMM shall identify material scope drift and determine whether reassessment</h1>
+<a>is required.</a><br><br>
+<a>Technical implementation of an expanded capability does not<br>retroactively legitimize the expansion.</a><br><br>
+<a>Implemented Functionality ≠ Recognized Scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Continuity and Reassessment</h1>
+<a>A governed software scope shall remain identifiable when development<br>actors, software versions, configurations, organizations, or operating<br>environments change.</a><br><br>
+<a>SSMM shall preserve sufficient continuity to reconstruct:</a><br><br>
+<ul><li>Previous scope states</li><li>Material boundary changes</li><li>Applicable requirements</li><li>Recognition conditions</li><li>Affected software objects</li><li>Unresolved conflicts</li><li>Reassessment outcomes</li></ul><br>
+<a>Reassessment may be triggered by material changes in purpose,<br>requirements, configuration, dependencies, operational context, or<br>applicable obligations.</a><br><br>
+<section class="viewbor"></section>
+<h1>A previously recognized scope shall not automatically remain valid under</h1>
+<a>materially changed conditions.</a><br><br>
+<a>Historical Scope Recognition ≠ Permanent Scope Validity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Scope State</h1>
+<a>The principal output of SSMM is: Governed Software Scope State</a><br><br>
+<a>The state shall preserve sufficient information to identify:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Scope Governance Object: The software object or context whose</h1>
+<a>scope is governed.</a><br><br>
+<a>Scope Identity: The identifiable scope and relevant version.</a><br><br>
+<a>Purpose Reference: The applicable Governed Software Purpose State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Reference: The relevant Governed Software Requirements</h1>
+<a>Specification State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Definition: The included functions, software objects, and operating</h1>
+<a>contexts.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Exclusions: Material functions, objects, or contexts excluded from</h1>
+<a>the scope.</a><br><br>
+<a>Requirements Applicability: Requirements applicable to the defined<br>scope.</a><br><br>
+<a>Conditional Applicability: Requirements that apply only under<br>specified conditions.</a><br><br>
+<a>Scope Hierarchy: Material parent–child and overlapping relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>Configuration and Environment: Relevant software variants and operating</h1>
+<a>contexts.</a><br><br>
+<a>Scope Dependencies: Material interfaces and shared boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope Recognition: The applicable governance state and recognition</h1>
+<a>conditions.</a><br><br>
+<a>Scope Conflicts: Material unresolved overlaps or contradictions.</a><br><br>
+<a>Evidence: Supporting sources and material limitations.</a><br><br>
+<a>Uncertainty: Unresolved applicability or boundary conditions.</a><br><br>
+<a>Change and Continuity: Relevant scope history and reassessment<br>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Traceability: Relationships to software purpose, requirements, and</h1>
+<a>subsequent change governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>The state shall be sufficiently explicit to support requirements baseline</h1>
+<a>applicability and subsequent requirements change governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A conforming implementation of SSMM must provide the following six<br>functional capabilities.</a><br><br>
+<ul><li>Software Scope Object and Boundary Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify the Software Scope Governance Object, define scope</h1>
+<a>identity, and establish material inclusions, exclusions, contexts, and<br>boundaries.</a><br><br>
+<a>The implementation must distinguish software identity from governed<br>software scope.</a><br><br>
+<ul><li>Requirements Applicability and Purpose Alignment Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to evaluate which requirements apply to the defined scope and</h1>
+<a>whether the scope remains aligned with the applicable Governed<br>Software Purpose State.</a><br><br>
+<a>The implementation must distinguish accepted requirements from<br>applicable baseline requirements.</a><br><br>
+<ul><li>Scope Hierarchy, Configuration, and Dependency Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to represent scope relationships across software systems,</h1>
+<a>components, interfaces, versions, configurations, environments, and<br>material dependencies.</a><br><br>
+<a>The implementation must prevent unsupported inheritance of<br>applicability across different scopes.</a><br><br>
+<ul><li>Scope Conflict, Evidence, and Recognition Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify overlapping or conflicting scopes, preserve</h1>
+<a>supporting evidence, assess recognition conditions, and represent<br>unresolved applicability or authority questions.</a><br><br>
+<a>The implementation must not convert technical inclusion into<br>legitimate scope authorization.</a><br><br>
+<ul><li>Scope Change, Drift, and Continuity Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify material scope changes, detect unauthorized</h1>
+<a>expansion, preserve scope history, evaluate affected requirements, and<br>trigger reassessment.</a><br><br>
+<a>The implementation must distinguish proposed changes from changes<br>authorized through the applicable competent process.</a><br><br>
+<ul><li>Governed Scope State and Requirements Change Handoff Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to produce a Governed Software Scope State containing sufficient</h1>
+<a>applicability, boundary, recognition, evidence, and continuity<br>information for subsequent requirements change governance and baseline<br>maintenance.</a><br><br>
+<a>The implementation must preserve material unresolved conditions during<br>handoff.</a><br><br>
+<section class="viewbor"></section>
+<h1>GIE™ Compatibility</h1>
+<a>SSMM is compatible with GIE™ as a downstream methodological execution<br>and analysis layer.</a><br><br>
+<a>GIE™ may support:</a><br><br>
+<ul><li>Software scope discovery</li><li>Requirements applicability mapping</li><li>Purpose–scope alignment assessment</li><li>Scope hierarchy representation</li><li>Boundary overlap and conflict detection</li><li>Configuration and environment comparison</li><li>Scope drift identification</li><li>Change-impact analysis</li><li>Evidence and recognition-state mapping</li><li>Governed scope state generation</li><li>Reassessment and downstream handoff</li></ul><br>
+<section class="viewbor"></section>
+<h1>GIE™ shall not independently grant scope authority, expand the recognized</h1>
+<a>scope, or convert technical reach into legitimate applicability.</a><br><br>
+<a>Automated scope findings must remain distinguishable from competent<br>governance determinations.</a><br><br>
+<section class="viewbor"></section>
+<h1>OOF® logic adapts to the governed reality. The engine adapts to OOF®</h1>
+<a>logic.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>The canonical SSMM governance logic is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Purpose State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Requirements Specification State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Software Scope Governance Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Scope Identity and Context</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Scope Origin and Recognition Basis</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Define Scope Inclusions and Exclusions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Relevant Software Objects and Functions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Map Requirements to Software Scope</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Purpose–Scope Alignment</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Requirements Applicability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Scope Hierarchy and Dependencies</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Configuration and Environment Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Scope Completeness and Sufficiency</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Boundary Overlaps and Conflicts</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Evidence and Recognition Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Unresolved Applicability and Authority Questions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Scope Governance State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Governed Software Scope State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Scope Identity, Versions, and Traceability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff to Requirements Change Control</h1>
+<a>↓</a><br><br>
+<a>Reassess When Material Scope Conditions Change</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Scope State</h1>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>SSMM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>- Software Scope Governance Object</h1>
+<a>- Software Scope Identity Record - Scope Origin Record - Scope<br>Definition - Scope Inclusion Record - Scope Exclusion Record -<br>Purpose–Scope Alignment State - Requirements Applicability State -<br>Conditional Applicability Record - Scope Completeness Assessment -<br>Scope Sufficiency Assessment - Scope Hierarchy Record - Scope<br>Dependency Record - Configuration Applicability Record - Environment<br>Applicability Record - Scope Boundary Overlap Record - Scope Conflict<br>Record - Scope Recognition State - Scope Recognition Conditions -<br>Scope Evidence State - Scope Uncertainty Record - Scope Change Record<br>- Scope Impact Assessment - Scope Drift Record - Scope Continuity<br>Record - Scope Reassessment Record - Requirements Baseline<br>Applicability Record - Requirements Change Handoff Record</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Scope State</h1>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>SSMM preserves the following distinctions:</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Acceptance ≠ Requirement Scope Applicability</h1>
+<section class="viewbor"></section>
+<h1>Software Object Identity ≠ Software Scope</h1>
+<section class="viewbor"></section>
+<h1>Scope Origin ≠ Scope Authorization</h1>
+<section class="viewbor"></section>
+<h1>Scope Exclusion ≠ Elimination of Applicable Obligation</h1>
+<section class="viewbor"></section>
+<h1>Requirement Existence ≠ Requirement Applicability</h1>
+<section class="viewbor"></section>
+<h1>Requirement Omission ≠ Non-Applicability</h1>
+<section class="viewbor"></section>
+<h1>Purpose Recognition ≠ Unlimited Scope Authorization</h1>
+<section class="viewbor"></section>
+<h1>Defined Scope ≠ Sufficient Scope</h1>
+<section class="viewbor"></section>
+<h1>Requirements Completeness ≠ Scope Completeness</h1>
+<section class="viewbor"></section>
+<h1>Parent Scope ≠ Automatic Universal Applicability</h1>
+<section class="viewbor"></section>
+<h1>Technical Dependency ≠ Scope Authorization</h1>
+<section class="viewbor"></section>
+<h1>Configuration Similarity ≠ Scope Equivalence</h1>
+<section class="viewbor"></section>
+<h1>Test Scope ≠ Production Scope by default</h1>
+<section class="viewbor"></section>
+<h1>Version Continuity ≠ Scope Continuity by default</h1>
+<section class="viewbor"></section>
+<h1>Local Scope Recognition ≠ Global Scope Applicability</h1>
+<section class="viewbor"></section>
+<h1>Task Authority ≠ Constituent Action Authority</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Capability Discovery ≠ Authorized Scope Expansion</h1>
+<section class="viewbor"></section>
+<h1>Scope Overlap ≠ Scope Agreement</h1>
+<section class="viewbor"></section>
+<h1>Documented Scope ≠ Governed Scope</h1>
+<section class="viewbor"></section>
+<h1>Technical Scope Description ≠ Evidence of Scope Authorization</h1>
+<section class="viewbor"></section>
+<h1>Recognized Scope ≠ Software Execution Authorization</h1>
+<section class="viewbor"></section>
+<h1>Accepted Requirement ≠ Applicable Baseline Requirement</h1>
+<section class="viewbor"></section>
+<h1>Scope Change Proposal ≠ Authorized Scope Change</h1>
+<section class="viewbor"></section>
+<h1>Implemented Functionality ≠ Recognized Scope</h1>
+<section class="viewbor"></section>
+<h1>Historical Scope Recognition ≠ Permanent Scope Validity</h1>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<a>SSMM governs software scope and requirements applicability within SRS<br>and SLGA™.</a><br><br>
+<a>It does not replace competent governance of authority, accountability,<br>operational reality, software dependencies, configuration, software<br>creation, or autonomous system execution.</a><br><br>
+<a>Relevant interoperating architectures may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>GOA™ — Governance Architecture: General authority, mandate, and</h1>
+<a>delegation boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>AGA™ — Accountability Governance Architecture: Applicable responsibility</h1>
+<a>and accountability conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>ASGA™ — Autonomous Systems Governance Architecture: Autonomous system</h1>
+<a>authority and execution boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>ORA™ — Operational Reality Architecture: Competent assessment of</h1>
+<a>operational reality conditions.</a><br><br>
+<a>VALIDOS™: Applicable validation methodology.</a><br><br>
+<a>ADIT®: Broader evidence and auditability governance.</a><br><br>
+<a>Within SRS:</a><br><br>
+<a>SPDM governs software purpose definition.</a><br><br>
+<a>RSPM governs requirements specification and completeness assessment.</a><br><br>
+<a>SSMM governs software scope and requirements applicability.</a><br><br>
+<a>RCCM governs requirements changes and their competent control.</a><br><br>
+<a>RTM governs requirements traceability.</a><br><br>
+<a>Within SLGA™:</a><br><br>
+<section class="viewbor"></section>
+<h1>The Software Dependency Standard governs the software dependency</h1>
+<a>lifecycle.</a><br><br>
+<a>The Software Configuration Standard governs software configuration<br>states.</a><br><br>
+<a>The Software Creation Standard governs software creation activities.</a><br><br>
+<section class="viewbor"></section>
+<h1>The Software Lifecycle Control Standard governs cross-cutting lifecycle</h1>
+<a>control.</a><br><br>
+<a>SSMM may consume relevant governed states from these domains without<br>replacing their responsibilities.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>SSMM begins when software requirements must be assigned to a defined<br>software object, capability, configuration, operating context, or<br>lifecycle scope.</a><br><br>
+<a>SSMM governs:</a><br><br>
+<ul><li>Software scope object identification</li><li>Scope identity</li><li>Scope origin and recognition basis</li><li>Scope definition</li><li>Scope inclusion and exclusion</li><li>Requirements applicability</li><li>Purpose–scope alignment</li><li>Scope completeness and sufficiency</li><li>Scope hierarchy</li><li>Scope dependencies</li><li>Configuration and environment applicability</li><li>Scope version alignment</li><li>Distributed development boundaries</li><li>Autonomous scope expansion</li><li>Scope overlap and conflict</li><li>Scope evidence</li><li>Scope recognition</li><li>Requirements baseline applicability</li><li>Scope change implications</li><li>Scope drift</li><li>Scope continuity</li><li>Scope reassessment</li><li>Requirements change handoff</li></ul><br>
+<a>SSMM does not independently determine:</a><br><br>
+<ul><li>General organizational or legal authority</li><li>Recognition of a materially new software purpose</li><li>Requirements specification completeness</li><li>Authorization of substantive requirements changes</li><li>Software design or implementation</li><li>Software dependency lifecycle validity</li><li>Software configuration validity</li><li>Software quality or security conformance</li><li>Release or deployment authorization</li><li>Complete lifecycle traceability governance</li></ul><br>
+<a>SSMM ends when the relevant software requirements scope has been<br>represented as a:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Scope State</h1>
+<section class="viewbor"></section>
+<h1>with sufficient identity, applicability, boundaries, recognition</h1>
+<a>conditions, evidence, and continuity to support subsequent<br>requirements change governance and baseline maintenance.</a><br><br>
+<ul><li>Use Case 1 — A Requirement Is Accepted, but It Does Not Apply<br>Everywhere</li></ul><br>
+<a>A software company develops a platform used by several business units.</a><br><br>
+<a>A requirement is accepted requiring all customer transactions to<br>undergo an additional approval step.</a><br><br>
+<a>The requirement is legitimate for one business unit handling<br>high-value financial transactions.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, another business unit uses the same platform for low-risk internal</h1>
+<a>requests.</a><br><br>
+<a>The development team initially assumes that the accepted requirement<br>applies across the entire application.</a><br><br>
+<a>SSMM evaluates the requirement against the relevant software scope.</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement Identity</h1>
+<section class="viewbor"></section>
+<h1>Applicable Business Unit</h1>
+<section class="viewbor"></section>
+<h1>Applicable Transaction Type</h1>
+<section class="viewbor"></section>
+<h1>Relevant Software Components</h1>
+<section class="viewbor"></section>
+<h1>Configuration Conditions</h1>
+<section class="viewbor"></section>
+<h1>Scope Exclusions</h1>
+<a>The resulting Governed Software Scope State establishes that the<br>requirement applies only under the recognized conditions.</a><br><br>
+<a>The requirement remains accepted.</a><br><br>
+<a>Its applicability is bounded.</a><br><br>
+<a>Accepted Requirement ≠ Universal Requirement Applicability.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSMM prevents a locally applicable requirement from becoming an unsupported</h1>
+<a>global software obligation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — An AI Agent Expands the Software Beyond Its Assigned Scope</h1>
+<section class="viewbor"></section>
+<h1>A company uses an autonomous coding agent to improve an internal inventory</h1>
+<a>application.</a><br><br>
+<a>The authorized development objective is to optimize stock-level<br>reporting.</a><br><br>
+<section class="viewbor"></section>
+<h1>During implementation planning, the agent identifies an opportunity to</h1>
+<a>integrate supplier purchasing systems and automatically place<br>replenishment orders.</a><br><br>
+<a>The proposed integration may be technically useful.</a><br><br>
+<a>However, it introduces:</a><br><br>
+<ul><li>New external system connections</li><li>Additional data access</li><li>Financially consequential actions</li><li>New operational dependencies</li><li>Capabilities outside the original development scope</li></ul><br>
+<section class="viewbor"></section>
+<h1>SSMM distinguishes the authorized reporting scope from the proposed</h1>
+<a>purchasing automation scope.</a><br><br>
+<a>The additional capability remains a proposed scope expansion.</a><br><br>
+<section class="viewbor"></section>
+<h1>The module identifies the affected software objects, requirements,</h1>
+<a>dependencies, and applicable recognition conditions.</a><br><br>
+<a>The resulting scope state may remain:</a><br><br>
+<section class="viewbor"></section>
+<h1>Conditionally Recognized</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unresolved</h1>
+<a>until the competent governance processes determine whether the<br>expansion is legitimate.</a><br><br>
+<a>The agent's ability to implement the integration does not establish<br>authority to expand the software's purpose or scope.</a><br><br>
+<a>Autonomous Capability Discovery ≠ Authorized Scope Expansion.</a><br><br>
+<a>Task Authority ≠ Constituent Action Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>Software scope determines where requirements apply and where their<br>applicability ends.</a><br><br>
+<a>A requirement may be correctly specified and legitimately accepted<br>without applying to every software component, configuration,<br>environment, or operating context.</a><br><br>
+<a>A software capability may be technically available without belonging<br>to the recognized scope.</a><br><br>
+<a>A project may have an approved purpose without possessing unlimited<br>authority to expand its functionality.</a><br><br>
+<a>And an autonomous development system may identify useful extensions<br>without possessing authority to incorporate them.</a><br><br>
+<a>Requirement Acceptance ≠ Requirement Scope Applicability.</a><br><br>
+<a>Purpose Recognition ≠ Unlimited Scope Authorization.</a><br><br>
+<a>Technical Dependency ≠ Scope Authorization.</a><br><br>
+<a>Implemented Functionality ≠ Recognized Scope.</a><br><br>
+<a>Autonomous Capability Discovery ≠ Authorized Scope Expansion.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSMM establishes the methodological conditions under which software scope</h1>
+<a>becomes identifiable, bounded, justified, and traceable.</a><br><br>
+<section class="viewbor"></section>
+<h1>It preserves applicability across software objects, versions,</h1>
+<a>configurations, development teams, and autonomous actors.</a><br><br>
+<a>It ensures that scope changes remain distinguishable from technical<br>changes and that expanded functionality does not silently redefine the<br>boundaries of the software requirements baseline.</a><br><br>
+<a>SSMM does not determine whether the software should be implemented or<br>deployed.</a><br><br>
+<a>It establishes where the governed requirements legitimately apply.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSMM transforms software scope from an assumed project boundary into a</h1>
+<a>governed requirements applicability state — ensuring that the reach of<br>software functionality never substitutes for the legitimacy of the<br>scope within which that functionality is intended to operate.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>
