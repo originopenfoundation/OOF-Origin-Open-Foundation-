@@ -13,6 +13,8 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
 
+from PIL import Image
+
 import build_ai_compatibility as discovery
 
 
@@ -21,6 +23,7 @@ START = "<!-- OOF AI DISCOVERY START -->"
 END = "<!-- OOF AI DISCOVERY END -->"
 BLOCK_RE = re.compile(re.escape(START) + r".*?" + re.escape(END) + r"\s*", re.S)
 BASE_URL = "https://originopenfoundation.org/"
+SOCIAL_IMAGE_MINIMUM = (1200, 630)
 LOCALIZED_LANGUAGES = {
     "de": "de-DE",
     "zh-cn": "zh-CN",
@@ -70,6 +73,36 @@ def alias_target(page_relative: str) -> str | None:
 
 def expected_language(page_relative: str) -> str:
     return LOCALIZED_LANGUAGES.get(page_relative.split("/", 1)[0].casefold(), "en")
+
+
+def meta_values(block: str, attribute: str, name: str) -> list[str]:
+    return re.findall(
+        rf'<meta\s+{attribute}=["\']{re.escape(name)}["\']\s+content=["\']([^"\']*)["\']',
+        block,
+        re.I,
+    )
+
+
+def validate_social_image(url: str, page_relative: str, errors: list[str]) -> None:
+    parsed = urlparse(url)
+    if parsed.scheme != "https" or parsed.netloc.casefold() != "originopenfoundation.org":
+        errors.append(f"{page_relative}: social image must use an absolute OriginOpen HTTPS URL")
+        return
+    image_path = ROOT / unquote(parsed.path.lstrip("/"))
+    if not image_path.is_file():
+        errors.append(f"{page_relative}: social image is missing from the public site")
+        return
+    if image_path.suffix.casefold() not in {".png", ".jpg", ".jpeg"}:
+        errors.append(f"{page_relative}: social image must be PNG or JPEG")
+        return
+    if image_path.stat().st_size > 5 * 1024 * 1024:
+        errors.append(f"{page_relative}: social image exceeds 5 MB")
+        return
+    with Image.open(image_path) as image:
+        if image.format not in {"PNG", "JPEG"}:
+            errors.append(f"{page_relative}: social image MIME does not match a supported raster format")
+        if image.width < SOCIAL_IMAGE_MINIMUM[0] or image.height < SOCIAL_IMAGE_MINIMUM[1]:
+            errors.append(f"{page_relative}: social image is smaller than 1200x630")
 
 
 def main() -> int:
@@ -122,9 +155,22 @@ def main() -> int:
                 errors.append(f"{relative(path)}: duplicate meta description")
             if target_relative is None:
                 descriptions.add(description.casefold())
-        for required_meta in ('property="og:title"', 'property="og:description"', 'property="og:url"', 'name="twitter:card"'):
-            if required_meta not in block:
-                errors.append(f"{relative(path)}: missing social metadata {required_meta}")
+        social_fields = (("property", "og:title"), ("property", "og:description"), ("property", "og:url"), ("property", "og:image"), ("property", "og:image:alt"), ("name", "twitter:card"), ("name", "twitter:title"), ("name", "twitter:description"), ("name", "twitter:image"), ("name", "twitter:image:alt"))
+        social_values: dict[str, str] = {}
+        for attribute, name in social_fields:
+            values = meta_values(block, attribute, name)
+            if len(values) != 1:
+                errors.append(f"{relative(path)}: expected one social metadata value for {name}, found {len(values)}")
+            elif not values[0].strip():
+                errors.append(f"{relative(path)}: empty social metadata value for {name}")
+            else:
+                social_values[name] = html.unescape(values[0]).strip()
+        if social_values.get("twitter:card") != "summary_large_image":
+            errors.append(f"{relative(path)}: Twitter card must be summary_large_image")
+        if social_values.get("og:image") and social_values.get("twitter:image") and social_values["og:image"] != social_values["twitter:image"]:
+            errors.append(f"{relative(path)}: Open Graph and Twitter image URLs differ")
+        if social_values.get("og:image"):
+            validate_social_image(social_values["og:image"], relative(path), errors)
         canonical_match = re.search(r'<link rel="canonical" href="([^"]+)"', block)
         if not canonical_match:
             errors.append(f"{relative(path)}: missing canonical URL")

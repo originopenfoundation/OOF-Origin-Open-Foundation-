@@ -21,8 +21,8 @@ from validate_global_interest_heat_map import validate
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
 ARCHITECTURE_INDEX = ROOT / "data" / "oof-architecture-registry.json"
-SCHEMA_VERSION = "1.2"
-INTEREST_ALGORITHM_VERSION = "3.1"
+SCHEMA_VERSION = "1.3"
+INTEREST_ALGORITHM_VERSION = "3.2"
 GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql"
 POPULATION_METADATA_URL = "https://api.worldbank.org/v2/country?format=json&per_page=400"
 POPULATION_VALUES_URL = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=5000&date=2020:2025"
@@ -307,6 +307,21 @@ def public_payload(countries: list[dict], governance_spaces: list[dict], start: 
         "source": "Cloudflare Web Analytics",
         "observationUnit": "Aggregated visits; visits are not unique people or unique users.",
         "technicalTraffic": TECHNICAL_TRAFFIC_POLICY,
+        "trafficViews": {
+            "raw": {
+                "status": "available",
+                "label": "Raw Traffic Map",
+                "countryData": "countries",
+                "classificationVersion": "raw-1.0",
+                "description": "All recorded aggregate visits in the governed observation window, including automated and unknown traffic.",
+            },
+            "qualityAdjusted": {
+                "status": "unavailable",
+                "label": "Quality-Adjusted Traffic Map",
+                "classificationVersion": "quality-adjusted-1.0",
+                "reason": "Unavailable pending sufficient documented evidence to identify automated traffic without country, browser, operating-system, referrer, or single-page assumptions.",
+            },
+        },
         "continuitySignalReview": CONTINUITY_SIGNAL_REVIEW,
         "canonicalArchitectureSource": "data/oof-architecture-registry.json",
         "countries": countries,

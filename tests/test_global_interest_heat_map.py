@@ -92,6 +92,13 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
         query = request.call_args.kwargs["payload"]["query"]
         self.assertIn("OR: [{ bot: 0 }, { bot: 1 }]", query)
 
+    def test_public_payload_keeps_raw_and_quality_adjusted_traffic_views_distinct(self) -> None:
+        spaces = canonical_governance_spaces()
+        payload = public_payload([{"iso": "AA", "status": "emerging"}], spaces, NOW - timedelta(days=14), NOW)
+        self.assertEqual(payload["trafficViews"]["raw"]["countryData"], "countries")
+        self.assertEqual(payload["trafficViews"]["qualityAdjusted"]["status"], "unavailable")
+        self.assertIn("documented evidence", payload["trafficViews"]["qualityAdjusted"]["reason"])
+
     def test_stale_dataset_detection_uses_36_hour_boundary(self) -> None:
         payload = {"lastCheckedAt": "2026-09-29T12:00:00Z", "lastSuccessfulCloudflareRetrievalAt": "2026-09-29T12:00:00Z"}
         self.assertEqual(freshness_state(payload, NOW), "current")
