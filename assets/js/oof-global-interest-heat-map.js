@@ -4,6 +4,7 @@
   const COLORS = { "very-high": "#167a45", high: "#167a45", moderate: "#2468b4", emerging: "#d6a51f", insufficient: "#a3a3a3" };
   const STATUS_LABELS = { "very-high": "High Interest", high: "High Interest", moderate: "Moderate Interest", emerging: "Emerging Interest", insufficient: "Insufficient Signal" };
   const MOMENTUM_LABELS = { "rapidly-rising": "Rapidly rising", rising: "Rising", stable: "Stable", declining: "Declining" };
+  const PUBLIC_STATUS_ORDER = { "very-high": 0, high: 1, moderate: 2, emerging: 3, insufficient: 4 };
   const WORLD_BOUNDS = [[-58, -180], [84, 180]];
   const STALE_AFTER_MS = 36 * 60 * 60 * 1000;
   const SHORT_COUNTRY_NAMES = { CN: "China", US: "USA" };
@@ -211,7 +212,7 @@
       if (!iso || iso === "AQ") return;
       const state = publicCountries.get(iso) || { status: "insufficient" };
       feature.__oofInterest = state;
-      entries.set(iso, { iso, name: countryLabel(feature), state, feature });
+      entries.set(iso, { iso, name: shortCountryLabel(countryLabel(feature), iso), state, feature });
     });
     publicCountries.forEach((state, iso) => {
       if (!entries.has(iso)) entries.set(iso, { iso, name: labelForIso(iso), state, feature: null });
@@ -221,6 +222,13 @@
 
   function sortedCatalog(includeInsufficient) {
     return [...catalog.values()].filter(entry => includeInsufficient || entry.state.status !== "insufficient").sort((a, b) => a.name.localeCompare(b.name, "en"));
+  }
+
+  function sortedPublicCatalog() {
+    return sortedCatalog(false).sort((a, b) => {
+      const statusDifference = (PUBLIC_STATUS_ORDER[a.state.status] ?? Number.MAX_SAFE_INTEGER) - (PUBLIC_STATUS_ORDER[b.state.status] ?? Number.MAX_SAFE_INTEGER);
+      return statusDifference || a.name.localeCompare(b.name, "en");
+    });
   }
 
   function populateCountrySelector() {
@@ -233,7 +241,7 @@
 
   function populateCountryList() {
     if (!countryList) return;
-    const countries = sortedCatalog(false);
+    const countries = sortedPublicCatalog();
     const fragment = document.createDocumentFragment();
     countries.forEach(entry => {
       const item = document.createElement("li");

@@ -78,6 +78,20 @@ test("quality-adjusted view does not reuse raw country classifications without e
   await expect(page.locator("#global-interest-country-status")).toContainText("unavailable pending sufficient documented evidence");
 });
 
+test("public country overview groups countries by interest classification and uses concise country names", async ({ page }) => {
+  await mockDataset(page, {
+    countries: [
+      { iso: "CN", status: "emerging" },
+      { iso: "SG", status: "very-high" },
+      { iso: "SK", status: "high" },
+      { iso: "US", status: "emerging" }
+    ]
+  });
+  await page.goto("/global-interest-heat-map.html");
+  await expect(page.locator("#global-interest-country-list")).toHaveText(/Singapore[\s\S]*Slovakia[\s\S]*China[\s\S]*USA/);
+  await expect(page.locator("#global-interest-country-list")).not.toContainText("People's Republic of China");
+});
+
 test("mobile map has no horizontal overflow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await mockDataset(page);
