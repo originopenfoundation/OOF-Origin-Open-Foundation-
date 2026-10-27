@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® DSM — Dependency Suitability Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>DSM — Dependency Suitability Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Dependency Standard (SDS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Dependency Suitability Governance<br>
+<b>Module ID:</b> SLGA-SDS-DSM-003<br>
+<b>Origin ID:</b> OOF.CM.SLGA.03.03.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 11.10.2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<section class="viewbor"></section>
+<h1>The Dependency Suitability Module (DSM) governs the determination,</h1>
+<a>justification, validation, preservation, and reassessment of software<br>dependency suitability within a defined software purpose, requirements<br>baseline, technical environment, operational context, and intended<br>lifecycle conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM establishes the methodological conditions under which an identified</h1>
+<a>software dependency may be recognized as necessary, appropriate,<br>compatible, sufficiently constrained, and suitable for a specific<br>software reliance relationship.</a><br><br>
+<section class="viewbor"></section>
+<h1>It governs the relationship between dependency purpose, functional</h1>
+<a>contribution, demonstrated necessity, alternative dependency options,<br>technical compatibility, environmental conditions, operational<br>constraints, evidence, uncertainty, and the requirements of the<br>dependent software system.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM distinguishes dependency availability from suitability, functional</h1>
+<a>capability from justified necessity, successful installation from<br>demonstrated compatibility, and current operational success from<br>suitability across the intended software context.</a><br><br>
+<section class="viewbor"></section>
+<h1>It applies to internal and external software components, libraries,</h1>
+<a>packages, frameworks, plugins, runtime platforms, software services,<br>build resources, generated components, embedded dependencies, and<br>material direct or transitive dependency relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM applies regardless of whether the dependency was selected by a human</h1>
+<a>developer, an automated development tool, an AI coding assistant, or<br>an autonomous software development agent.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Suitability State</h1>
+<a>Its foundational distinction is:</a><br><br>
+<a>Dependency Functionality ≠ Governed Dependency Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>The operational role of DSM is:</a><br><br>
+<a>To ensure that software dependencies are assessed against the actual<br>requirements, purpose, constraints, technical conditions, and intended<br>operational context of the software system before their suitability is<br>recognized or relied upon in subsequent dependency governance.</a><br><br>
+<a>DSM establishes the suitability-governance foundation of SDS.</a><br><br>
+<section class="viewbor"></section>
+<h1>It receives sufficiently identified components and their relevant origin</h1>
+<a>and traceability information.</a><br><br>
+<a>It determines whether the dependency is justified for the specific<br>software context in which it is intended to operate.</a><br><br>
+<a>DSM does not independently authorize dependency introduction, certify<br>software security, establish legal compliance, or guarantee dependency<br>continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>It provides a structured suitability determination for competent downstream</h1>
+<a>governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Question</h1>
+<section class="viewbor"></section>
+<h1>Under which evidenced requirements, technical conditions, compatibility</h1>
+<a>boundaries, and operational constraints is a particular software<br>dependency necessary or appropriate for the software system that<br>relies upon it?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<a>The SLGA™ governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<a>Cross-cutting:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control</h1>
+<a>DSM operates within:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Dependency Standard (SDS)</h1>
+<a>The SDS internal governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Component Identification → Dependency Origin &amp; Traceability → Dependency</h1>
+<a>Suitability → Component Introduction &amp; Change → Dependency Continuity<br>&amp; Risk</a><br><br>
+<a>DSM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability</h1>
+<a>It is the third Core Module of SDS.</a><br><br>
+<a>Its principal upstream inputs are:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Component Identification State</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>CIM — Component Identification Module</h1>
+<a>and:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Origin &amp; Traceability State</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>DOTM — Dependency Origin &amp; Traceability Module</h1>
+<a>DSM may also receive relevant requirements references from:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements Standard (SRS)</h1>
+<a>and relevant creation-context information from:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Creation Standard (SCS)</h1>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Suitability State</h1>
+<a>This output supports:</a><br><br>
+<section class="viewbor"></section>
+<h1>CICM — Component Introduction &amp; Change Module</h1>
+<a>and:</a><br><br>
+<section class="viewbor"></section>
+<h1>DCRM — Dependency Continuity &amp; Risk Module</h1>
+<a>Suitability may require reassessment throughout the software<br>lifecycle.</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Dependency Suitability Governance</h1>
+<a>This space governs the conditions under which a software dependency is<br>considered appropriate for a defined software reliance context.</a><br><br>
+<a>Its principal dimensions include:</a><br><br>
+<ul><li>Dependency suitability governance objects</li><li>Dependent software purpose</li><li>Governed requirements alignment</li><li>Dependency purpose</li><li>Dependency necessity</li><li>Functional appropriateness</li><li>Technical compatibility</li><li>Version compatibility</li><li>Interface compatibility</li><li>Runtime compatibility</li><li>Platform compatibility</li><li>Environment compatibility</li><li>Dependency interaction compatibility</li><li>Performance suitability</li><li>Resource suitability</li><li>Operational constraints</li><li>Dependency assumptions</li><li>Alternative dependency options</li><li>Substitutability references</li><li>Suitability evidence</li><li>Evidence competence</li><li>Suitability validation</li><li>Suitability uncertainty</li><li>Suitability conflicts</li><li>Suitability gaps</li><li>Conditional suitability</li><li>Suitability drift</li><li>Suitability continuity</li><li>Suitability governance states</li></ul><br>
+<a>This governed space is technology-independent.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Every DSM assessment shall establish a Dependency Suitability Governance</h1>
+<a>Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>The object represents the suitability conditions of a specific dependency</h1>
+<a>relationship.</a><br><br>
+<a>It should identify:</a><br><br>
+<a>Governance Object Identity: The identifiable suitability assessment.</a><br><br>
+<a>Dependent Software Object: The software system relying on the<br>dependency.</a><br><br>
+<a>Dependency Component: The component identified through CIM.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Origin Reference: Relevant origin and traceability information</h1>
+<a>from DOTM.</a><br><br>
+<a>Dependency Relationship: The material reliance relationship.</a><br><br>
+<a>Software Purpose: The relevant governed software purpose.</a><br><br>
+<a>Requirements Reference: Applicable software requirements.</a><br><br>
+<a>Dependency Purpose: The function the dependency is expected to<br>perform.</a><br><br>
+<a>Necessity Basis: The justification for the dependency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Compatibility Conditions: Relevant technical and operational</h1>
+<a>compatibility requirements.</a><br><br>
+<a>Operational Constraints: Conditions limiting suitable use.</a><br><br>
+<a>Suitability Evidence: Evidence supporting the assessment.</a><br><br>
+<a>Suitability Uncertainty: Material unresolved suitability conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Suitability Governance State: The current recognized suitability</h1>
+<a>condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>The suitability governance object shall remain distinguishable from the</h1>
+<a>dependency component itself.</a><br><br>
+<a>Dependency Component Identity ≠ Dependency Suitability Governance<br>Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependent Software Purpose Alignment</h1>
+<a>DSM shall identify the governed purpose of the dependent software<br>system.</a><br><br>
+<a>Suitability shall be evaluated in relation to that purpose.</a><br><br>
+<a>A dependency may be technically capable of performing a function while<br>contributing nothing necessary or justified to the intended software<br>purpose.</a><br><br>
+<a>Relevant assessment questions include:</a><br><br>
+<ul><li>What purpose does the software system serve?</li><li>What function is the dependency expected to support?</li><li>Is that function relevant to the governed purpose?</li><li>Does the dependency introduce functionality outside the intended<br>scope?</li><li>Does the dependency conflict with established purpose<br>constraints?</li></ul><br>
+<a>Dependency Capability ≠ Software Purpose Alignment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements-Based Suitability</h1>
+<section class="viewbor"></section>
+<h1>DSM shall evaluate dependency suitability against applicable governed</h1>
+<a>software requirements.</a><br><br>
+<a>Relevant requirements may concern:</a><br><br>
+<ul><li>Functional behavior</li><li>Performance</li><li>Reliability</li><li>Interoperability</li><li>Availability</li><li>Maintainability</li><li>Technical constraints</li><li>Operational conditions</li><li>Data handling</li><li>Environmental requirements</li><li>Lifecycle expectations</li></ul><br>
+<a>The presence of a dependency shall not be treated as evidence that it<br>satisfies the relevant requirements.</a><br><br>
+<a>Dependency Inclusion ≠ Requirements Satisfaction.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Purpose Identification</h1>
+<a>DSM shall establish why the dependency is being considered or used.</a><br><br>
+<a>The dependency purpose should identify:</a><br><br>
+<ul><li>The function it supports</li><li>The requirements it addresses</li><li>The software component that relies upon it</li><li>The expected contribution</li><li>The relevant operating conditions</li></ul><br>
+<section class="viewbor"></section>
+<h1>A dependency purpose shall be sufficiently specific to support meaningful</h1>
+<a>suitability assessment.</a><br><br>
+<a>General Dependency Utility ≠ Defined Dependency Purpose.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Necessity</h1>
+<a>DSM shall assess whether the dependency is necessary or sufficiently<br>justified for the intended software context.</a><br><br>
+<a>Necessity may arise because:</a><br><br>
+<ul><li>The dependency provides required functionality</li><li>The dependency enables an essential integration</li><li>The dependency supports an established technical constraint</li><li>The dependency provides a justified implementation mechanism</li><li>The dependency is required by another accepted dependency</li><li>The dependency supports a necessary development or execution<br>function</li></ul><br>
+<section class="viewbor"></section>
+<h1>Necessity shall not be inferred solely from convenience, popularity, or</h1>
+<a>developer preference.</a><br><br>
+<a>Dependency Convenience ≠ Dependency Necessity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Necessity Evidence</h1>
+<a>DSM shall preserve evidence supporting dependency necessity.</a><br><br>
+<a>Relevant evidence may include:</a><br><br>
+<ul><li>Requirements relationships</li><li>Architecture decisions</li><li>Functional analysis</li><li>Technical constraints</li><li>Comparative assessments</li><li>Dependency relationship records</li><li>Demonstrated implementation needs</li></ul><br>
+<section class="viewbor"></section>
+<h1>A necessity claim shall remain distinguishable from a demonstrated</h1>
+<a>necessity condition.</a><br><br>
+<a>Claimed Dependency Necessity ≠ Evidenced Dependency Necessity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Functional Suitability</h1>
+<section class="viewbor"></section>
+<h1>DSM shall assess whether the dependency provides the functionality required</h1>
+<a>by the dependent software.</a><br><br>
+<a>The assessment should consider:</a><br><br>
+<ul><li>Supported functions</li><li>Required behavior</li><li>Functional limitations</li><li>Relevant interfaces</li><li>Input and output conditions</li><li>Material functional assumptions</li></ul><br>
+<a>A dependency may provide the requested function while introducing<br>additional behavior that is unsuitable for the intended context.</a><br><br>
+<a>Functional Availability ≠ Functional Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Functional Scope Alignment</h1>
+<a>DSM shall assess whether the dependency's functional scope is<br>appropriate for the dependent software.</a><br><br>
+<a>Relevant concerns may include:</a><br><br>
+<ul><li>Unnecessary capabilities</li><li>Excessive functionality</li><li>Missing required functions</li><li>Uncontrolled feature dependencies</li><li>Material behavior outside the intended software scope</li></ul><br>
+<a>A large dependency may be justified where its capabilities are<br>necessary.</a><br><br>
+<a>A small dependency may be unsuitable where it introduces incompatible<br>behavior.</a><br><br>
+<a>Dependency Feature Quantity ≠ Dependency Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Technical Compatibility</h1>
+<a>DSM shall assess whether the dependency is technically compatible with<br>the relevant software system.</a><br><br>
+<a>Compatibility may concern:</a><br><br>
+<ul><li>Programming language</li><li>Runtime</li><li>Operating system</li><li>Hardware architecture</li><li>Software interfaces</li><li>Data formats</li><li>Protocols</li><li>Build processes</li><li>Execution conditions</li></ul><br>
+<a>Compatibility shall be established relative to the intended<br>environment.</a><br><br>
+<a>Technical Installability ≠ Demonstrated Technical Compatibility.</a><br><br>
+<section class="viewbor"></section>
+<h1>Version Compatibility</h1>
+<section class="viewbor"></section>
+<h1>DSM shall assess compatibility between the dependency version and the</h1>
+<a>relevant software environment.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<ul><li>Supported version ranges</li><li>Required runtime versions</li><li>Interface changes</li><li>Deprecated functions</li><li>Version-specific behavior</li><li>Relevant migration conditions</li></ul><br>
+<section class="viewbor"></section>
+<h1>A dependency's newest available version shall not automatically be</h1>
+<a>considered the most suitable version.</a><br><br>
+<a>Latest Dependency Version ≠ Most Suitable Dependency Version.</a><br><br>
+<section class="viewbor"></section>
+<h1>Interface Compatibility</h1>
+<a>DSM shall assess whether the dependency's interfaces are compatible<br>with the dependent software.</a><br><br>
+<a>Relevant considerations may include:</a><br><br>
+<ul><li>API contracts</li><li>Data structures</li><li>Function signatures</li><li>Communication protocols</li><li>Error behavior</li><li>Compatibility guarantees</li><li>Interface assumptions</li></ul><br>
+<a>The existence of a callable interface does not independently establish<br>that its behavior is suitable.</a><br><br>
+<a>Interface Accessibility ≠ Interface Compatibility.</a><br><br>
+<section class="viewbor"></section>
+<h1>Runtime Compatibility</h1>
+<a>DSM shall assess whether the dependency can operate under the intended<br>runtime conditions.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<ul><li>Runtime versions</li><li>Execution environments</li><li>Dynamic loading behavior</li><li>Runtime resource requirements</li><li>Execution privileges</li><li>Runtime configuration assumptions</li></ul><br>
+<section class="viewbor"></section>
+<h1>A successful development-environment execution shall not automatically</h1>
+<a>establish production runtime compatibility.</a><br><br>
+<a>Development Execution Success ≠ Production Runtime Compatibility.</a><br><br>
+<section class="viewbor"></section>
+<h1>Platform Compatibility</h1>
+<a>DSM shall assess compatibility with material platform dependencies.</a><br><br>
+<a>Relevant platforms may include:</a><br><br>
+<ul><li>Operating systems</li><li>Database platforms</li><li>Container environments</li><li>Application servers</li><li>Managed runtime services</li><li>Cloud execution platforms</li></ul><br>
+<a>Compatibility shall reflect the intended platform conditions.</a><br><br>
+<a>Platform Support Claim ≠ Verified Platform Compatibility.</a><br><br>
+<section class="viewbor"></section>
+<h1>Build and Development Compatibility</h1>
+<a>DSM shall assess whether dependencies required during software<br>creation are compatible with the intended development and build<br>processes.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<ul><li>Compiler requirements</li><li>Build tool compatibility</li><li>Code generation dependencies</li><li>Package resolution behavior</li><li>Testing environment requirements</li><li>Reproducibility constraints</li></ul><br>
+<a>A dependency may be suitable for runtime operation while being<br>incompatible with the established build environment.</a><br><br>
+<a>Runtime Suitability ≠ Build Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Interaction Compatibility</h1>
+<a>DSM shall assess material compatibility relationships between<br>dependencies.</a><br><br>
+<a>A dependency may function correctly in isolation while interacting<br>incompatibly with other components.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<ul><li>Conflicting library versions</li><li>Shared runtime resources</li><li>Incompatible protocols</li><li>Conflicting interfaces</li><li>Resource contention</li><li>Material configuration interactions</li></ul><br>
+<a>Individual Component Compatibility ≠ Dependency Network Compatibility.</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment-Specific Suitability</h1>
+<a>DSM shall distinguish suitability across different software<br>environments.</a><br><br>
+<a>Relevant environments may include:</a><br><br>
+<ul><li>Development</li><li>Testing</li><li>Staging</li><li>Production</li><li>Maintenance</li><li>Recovery environments</li></ul><br>
+<a>A dependency may be suitable for one environment but unsuitable for<br>another.</a><br><br>
+<a>Environment-Specific Suitability ≠ Universal Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Performance Suitability</h1>
+<section class="viewbor"></section>
+<h1>DSM shall assess whether the dependency's relevant performance</h1>
+<a>characteristics are appropriate for the intended software context.</a><br><br>
+<a>Relevant dimensions may include:</a><br><br>
+<ul><li>Execution latency</li><li>Throughput</li><li>Memory consumption</li><li>Processing overhead</li><li>Resource contention</li><li>Response consistency</li><li>Scalability constraints</li></ul><br>
+<section class="viewbor"></section>
+<h1>Performance suitability shall be assessed against actual requirements and</h1>
+<a>material operating conditions.</a><br><br>
+<a>Benchmark Performance ≠ Contextual Performance Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Resource Suitability</h1>
+<a>DSM shall assess whether the dependency's resource requirements are<br>compatible with the intended software environment.</a><br><br>
+<a>Relevant resources may include:</a><br><br>
+<ul><li>Computational capacity</li><li>Memory</li><li>Storage</li><li>Network capacity</li><li>Energy</li><li>Infrastructure dependencies</li><li>External service capacity</li></ul><br>
+<a>Detailed resource efficiency and value optimization remain within<br>competent governance domains.</a><br><br>
+<a>Resource Availability ≠ Justified Resource Consumption.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Constraints</h1>
+<a>DSM shall identify material constraints affecting dependency<br>suitability.</a><br><br>
+<a>Constraints may arise from:</a><br><br>
+<ul><li>Technical architecture</li><li>Operating environment</li><li>Software requirements</li><li>Interface obligations</li><li>Deployment conditions</li><li>Maintenance expectations</li><li>Resource limitations</li><li>Applicable organizational requirements</li></ul><br>
+<a>A dependency may be suitable only within defined constraints.</a><br><br>
+<a>Conditional Suitability ≠ Unrestricted Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Assumptions</h1>
+<a>DSM shall identify material assumptions underlying suitability claims.</a><br><br>
+<a>Assumptions may concern:</a><br><br>
+<ul><li>Expected runtime behavior</li><li>Interface stability</li><li>Version compatibility</li><li>Resource availability</li><li>Service behavior</li><li>Platform support</li><li>Configuration conditions</li><li>Required operating context</li></ul><br>
+<section class="viewbor"></section>
+<h1>Unsupported assumptions shall not be represented as verified suitability</h1>
+<a>conditions.</a><br><br>
+<a>Assumed Compatibility ≠ Demonstrated Compatibility.</a><br><br>
+<section class="viewbor"></section>
+<h1>Alternative Dependency Assessment</h1>
+<a>DSM shall support assessment of relevant alternatives where<br>alternatives materially affect the suitability determination.</a><br><br>
+<a>An alternative may be:</a><br><br>
+<ul><li>Another library</li><li>Another framework</li><li>An internal component</li><li>A different service</li><li>A different implementation approach</li><li>Removal of unnecessary dependency functionality</li></ul><br>
+<a>DSM does not require exhaustive evaluation of every available<br>alternative.</a><br><br>
+<a>It requires that material alternative considerations be appropriately<br>recognized.</a><br><br>
+<a>Available Alternative ≠ Suitable Alternative.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Selection Justification</h1>
+<a>DSM shall establish whether the suitability of a selected dependency<br>is sufficiently justified.</a><br><br>
+<a>Relevant considerations may include:</a><br><br>
+<ul><li>Requirements alignment</li><li>Functional appropriateness</li><li>Compatibility</li><li>Constraints</li><li>Relevant alternatives</li><li>Supporting evidence</li><li>Material uncertainty</li></ul><br>
+<section class="viewbor"></section>
+<h1>Selection justification shall remain distinct from authorization to</h1>
+<a>introduce the dependency.</a><br><br>
+<a>Justified Dependency Selection ≠ Authorized Dependency Introduction.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability and Provenance</h1>
+<a>DSM shall consider relevant provenance limitations received from DOTM.</a><br><br>
+<a>An unresolved origin may affect the evidence available for a<br>suitability assessment.</a><br><br>
+<a>However, provenance and suitability remain distinct governance<br>dimensions.</a><br><br>
+<a>A dependency may have verified provenance but be technically<br>unsuitable.</a><br><br>
+<a>A dependency may appear functionally suitable while its origin remains<br>unresolved.</a><br><br>
+<a>Verified Dependency Origin ≠ Demonstrated Dependency Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability and Security</h1>
+<a>DSM may recognize security-related requirements and constraints<br>relevant to suitability.</a><br><br>
+<a>It shall not independently replace competent security assessment.</a><br><br>
+<a>Detailed software security governance remains within:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Security Standard (SSS)</h1>
+<a>A dependency may be functionally suitable while presenting<br>unacceptable security conditions.</a><br><br>
+<a>Functional Suitability ≠ Security Acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability and Legal Constraints</h1>
+<section class="viewbor"></section>
+<h1>DSM shall preserve material legal, contractual, or licensing constraints</h1>
+<a>where they affect the permitted software context.</a><br><br>
+<section class="viewbor"></section>
+<h1>It shall not independently determine legal compliance or interpret disputed</h1>
+<a>legal obligations.</a><br><br>
+<a>Competent legal assessment remains necessary where applicable.</a><br><br>
+<a>Technical Suitability ≠ Legal Permission.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability and Authority</h1>
+<a>DSM establishes suitability conditions.</a><br><br>
+<a>It does not independently authorize dependency introduction.</a><br><br>
+<a>Detailed introduction and change governance remains within:</a><br><br>
+<section class="viewbor"></section>
+<h1>CICM — Component Introduction &amp; Change Module</h1>
+<a>A dependency may be technically suitable but introduced without<br>legitimate authority.</a><br><br>
+<a>Dependency Suitability ≠ Dependency Introduction Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability and Continuity</h1>
+<a>DSM may identify maintenance, availability, or support assumptions<br>that materially affect suitability.</a><br><br>
+<a>It does not independently determine long-term dependency continuity.</a><br><br>
+<a>Detailed continuity and risk governance remains within:</a><br><br>
+<section class="viewbor"></section>
+<h1>DCRM — Dependency Continuity &amp; Risk Module</h1>
+<a>Present Suitability ≠ Dependency Continuity Assurance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Dependency Selection</h1>
+<section class="viewbor"></section>
+<h1>DSM shall support suitability assessment of dependencies selected by</h1>
+<a>autonomous software development systems.</a><br><br>
+<a>An autonomous agent may select a component based on:</a><br><br>
+<ul><li>Functional matching</li><li>Search ranking</li><li>Popularity</li><li>Installation convenience</li><li>Generated recommendations</li><li>Automated compatibility predictions</li></ul><br>
+<section class="viewbor"></section>
+<h1>These selection mechanisms shall not automatically establish governed</h1>
+<a>suitability.</a><br><br>
+<a>Autonomous Dependency Selection ≠ Governed Dependency Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>AI-Generated Suitability Claims</h1>
+<a>AI systems may produce dependency recommendations and suitability<br>explanations.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM shall distinguish such explanations from evidence-supported suitability</h1>
+<a>assessments.</a><br><br>
+<a>An AI-generated claim may be useful as an assessment input.</a><br><br>
+<section class="viewbor"></section>
+<h1>It shall not independently establish compatibility, necessity, or</h1>
+<a>appropriateness.</a><br><br>
+<a>AI-Generated Suitability Explanation ≠ Verified Suitability Evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Evidence</h1>
+<a>DSM shall preserve evidence supporting material suitability claims.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<ul><li>Requirements references</li><li>Compatibility documentation</li><li>Test results</li><li>Technical evaluations</li><li>Architecture records</li><li>Performance measurements</li><li>Interface specifications</li><li>Environment assessments</li><li>Comparative analyses</li><li>Operational observations</li></ul><br>
+<section class="viewbor"></section>
+<h1>Evidence shall remain associated with the specific suitability claim it</h1>
+<a>supports.</a><br><br>
+<a>Suitability Evidence Presence ≠ Suitability Claim Validity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Suitability Evidence Competence</h1>
+<a>DSM shall assess whether available evidence is competent to support<br>the relevant suitability determination.</a><br><br>
+<a>For example:</a><br><br>
+<a>An installation record may support installation success.</a><br><br>
+<a>A functional test may support behavior under tested conditions.</a><br><br>
+<a>A compatibility assessment may support specific environment<br>compatibility.</a><br><br>
+<a>A performance benchmark may support measured performance under defined<br>conditions.</a><br><br>
+<a>These records do not establish identical suitability facts.</a><br><br>
+<a>Evidence of One Suitability Dimension ≠ Evidence of Complete<br>Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Suitability Validation</h1>
+<a>DSM shall determine whether material suitability conditions are<br>sufficiently supported.</a><br><br>
+<a>Validation should consider:</a><br><br>
+<ul><li>Software purpose</li><li>Requirements alignment</li><li>Dependency necessity</li><li>Functional appropriateness</li><li>Technical compatibility</li><li>Environmental compatibility</li><li>Dependency interactions</li><li>Material constraints</li><li>Evidence competence</li><li>Material uncertainty</li></ul><br>
+<a>Validation shall remain limited to the conditions actually assessed.</a><br><br>
+<a>Validated Suitability Scope ≠ Universal Dependency Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Suitability Evidence Integrity</h1>
+<a>DSM shall preserve the integrity of material suitability evidence.</a><br><br>
+<a>Relevant considerations may include:</a><br><br>
+<ul><li>Evidence source</li><li>Content integrity</li><li>Assessment context</li><li>Temporal relevance</li><li>Version correspondence</li><li>Test environment correspondence</li><li>Material contradictions</li><li>Evidence completeness</li></ul><br>
+<a>Evidence integrity does not independently establish suitability.</a><br><br>
+<a>Intact Test Evidence ≠ Complete Suitability Assurance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Uncertainty</h1>
+<a>Suitability uncertainty may arise where:</a><br><br>
+<ul><li>Requirements are incomplete</li><li>Compatibility is insufficiently tested</li><li>The relevant operating environment is unknown</li><li>Performance behavior is uncertain</li><li>Dependency interactions remain unresolved</li><li>Material constraints are unidentified</li><li>Alternative assessments are incomplete</li><li>Suitability evidence is insufficient</li></ul><br>
+<a>DSM shall preserve material uncertainty.</a><br><br>
+<a>Uncertain Suitability ≠ Demonstrated Unsuitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Conflict</h1>
+<a>A suitability conflict exists where material evidence supports<br>incompatible suitability conclusions.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Contradictory compatibility assessments</li><li>Conflicting performance measurements</li><li>Inconsistent environmental requirements</li><li>Incompatible dependency version claims</li><li>Conflicting functional evaluations</li></ul><br>
+<a>DSM shall preserve the conflict and its supporting evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Conflicting Suitability Evidence ≠ Permission to Select the Preferred</h1>
+<a>Conclusion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Gap</h1>
+<a>A Dependency Suitability Gap exists where a material suitability<br>condition has not been sufficiently established.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Missing compatibility evidence</li><li>Unjustified dependency necessity</li><li>Unresolved runtime constraints</li><li>Insufficient requirements alignment</li><li>Missing dependency interaction assessment</li><li>Unverified performance assumptions</li></ul><br>
+<a>DSM shall identify the gap and its material significance.</a><br><br>
+<a>Suitability Gap ≠ Proven Dependency Failure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Suitability Gap</h1>
+<a>A Critical Suitability Gap exists where insufficient suitability<br>evidence prevents competent assessment of a materially consequential<br>dependency.</a><br><br>
+<a>Examples may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>- An unverified runtime dependency supporting a critical software</h1>
+<a>function. - A component whose compatibility with the intended<br>operating environment is unresolved. - A dependency whose required<br>performance cannot be established. - An autonomous agent-selected<br>component with unresolved requirements alignment.</a><br><br>
+<a>DSM shall preserve the critical gap for competent downstream<br>assessment.</a><br><br>
+<a>It does not independently determine software rejection, suspension, or<br>legal liability.</a><br><br>
+<a>Critical Suitability Gap ≠ Automatic Software Rejection.</a><br><br>
+<section class="viewbor"></section>
+<h1>Conditional Dependency Suitability</h1>
+<a>A dependency may be suitable only under specific conditions.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Defined software versions</li><li>Particular runtime environments</li><li>Required configurations</li><li>Resource limits</li><li>Interface constraints</li><li>Restricted functional use</li><li>Additional verification requirements</li></ul><br>
+<a>DSM shall preserve the conditions and their supporting evidence.</a><br><br>
+<a>Conditionally Suitable ≠ Unconditionally Suitable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Drift</h1>
+<a>Dependency Suitability Drift occurs when the actual software context<br>materially diverges from the conditions under which suitability was<br>established.</a><br><br>
+<a>Possible causes include:</a><br><br>
+<ul><li>Software requirements changes</li><li>Dependency updates</li><li>Runtime changes</li><li>Platform migrations</li><li>Interface changes</li><li>Configuration changes</li><li>Increased operational demand</li><li>Changed dependency interactions</li></ul><br>
+<a>DSM shall identify material drift and support reassessment.</a><br><br>
+<a>Previously Suitable Dependency ≠ Permanently Suitable Dependency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Change</h1>
+<a>DSM shall preserve material changes to suitability assessments.</a><br><br>
+<a>Changes may include:</a><br><br>
+<ul><li>Revised requirements alignment</li><li>New compatibility evidence</li><li>Updated dependency versions</li><li>Changed operational constraints</li><li>Resolved suitability gaps</li><li>Newly identified conflicts</li><li>Revised suitability conclusions</li></ul><br>
+<a>Historical suitability states shall remain reconstructable where<br>material.</a><br><br>
+<a>Suitability Reassessment ≠ Historical Suitability Erasure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Continuity</h1>
+<section class="viewbor"></section>
+<h1>DSM shall preserve the relationship between a dependency's recognized</h1>
+<a>suitability and the conditions under which that recognition remains<br>applicable.</a><br><br>
+<a>Continuity may involve:</a><br><br>
+<ul><li>Software version changes</li><li>Dependency updates</li><li>Environment changes</li><li>Requirements revisions</li><li>Architecture changes</li><li>Service interface changes</li><li>Software modernization</li></ul><br>
+<section class="viewbor"></section>
+<h1>Suitability continuity concerns the continued applicability of suitability</h1>
+<a>determinations.</a><br><br>
+<a>It does not independently establish supplier support or operational<br>availability.</a><br><br>
+<a>Suitability Continuity ≠ Operational Dependency Continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Governance States</h1>
+<a>DSM shall support identifiable suitability governance states.</a><br><br>
+<a>Possible states include:</a><br><br>
+<a>Under Assessment: Suitability conditions are being evaluated.</a><br><br>
+<a>Suitable: Material suitability conditions are sufficiently established<br>within the assessed scope.</a><br><br>
+<a>Conditionally Suitable: Suitability depends on explicit conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Partially Suitable: Some material suitability dimensions remain</h1>
+<a>unresolved or unsupported.</a><br><br>
+<a>Evidence-Limited: Available evidence is insufficient for the required<br>determination.</a><br><br>
+<a>Necessity-Unresolved: Dependency necessity is not sufficiently<br>established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Compatibility-Unresolved: Material compatibility conditions remain</h1>
+<a>uncertain.</a><br><br>
+<section class="viewbor"></section>
+<h1>Constraint-Unresolved: Material suitability constraints remain</h1>
+<a>unidentified or unresolved.</a><br><br>
+<a>Conflicted: Material suitability evidence is contradictory.</a><br><br>
+<a>Unsuitable: The dependency does not satisfy material suitability<br>conditions within the assessed scope.</a><br><br>
+<a>Suitability-at-Risk: Material changes threaten continued suitability.</a><br><br>
+<a>Superseded: A later suitability state has replaced the earlier state.</a><br><br>
+<a>Unresolved: Available information does not support a sufficiently<br>determined state.</a><br><br>
+<section class="viewbor"></section>
+<h1>These states shall not be interpreted as dependency introduction</h1>
+<a>authorization or software product acceptance.</a><br><br>
+<a>Dependency Suitable ≠ Dependency Authorized.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Recognition</h1>
+<a>DSM shall determine whether a dependency is sufficiently suitable for<br>the defined software context.</a><br><br>
+<a>Recognition should consider:</a><br><br>
+<ul><li>Dependency identity</li><li>Dependency purpose</li><li>Requirements alignment</li><li>Necessity</li><li>Functional appropriateness</li><li>Technical compatibility</li><li>Environmental compatibility</li><li>Interaction compatibility</li><li>Performance suitability</li><li>Resource suitability</li><li>Material constraints</li><li>Alternative considerations</li><li>Supporting evidence</li><li>Material uncertainty</li><li>Suitability conflicts</li><li>Suitability continuity</li></ul><br>
+<a>Recognition shall remain limited to the assessed context.</a><br><br>
+<a>Recognized Suitability ≠ Complete Dependency Governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Reassessment</h1>
+<a>DSM shall support reassessment when material suitability conditions<br>change.</a><br><br>
+<a>Triggers may include:</a><br><br>
+<ul><li>New software requirements</li><li>Dependency version changes</li><li>Runtime changes</li><li>Platform changes</li><li>Interface changes</li><li>Configuration changes</li><li>New performance evidence</li><li>Resource constraints</li><li>Dependency interaction changes</li><li>New operational observations</li><li>Suitability conflicts</li><li>Suitability drift</li><li>Material software lifecycle changes</li></ul><br>
+<a>Reassessment shall preserve material historical suitability records.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Suitability State</h1>
+<a>The principal output of DSM is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Suitability State</h1>
+<a>The state shall preserve sufficient information to identify:</a><br><br>
+<a>Suitability Governance Object: The dependency suitability assessment.</a><br><br>
+<a>Dependent Software Object: The software system relying on the<br>dependency.</a><br><br>
+<a>Component Identity: The component identified by CIM.</a><br><br>
+<a>Dependency Origin Reference: Relevant DOTM provenance information.</a><br><br>
+<a>Dependency Relationship: The material software reliance relationship.</a><br><br>
+<a>Software Purpose Reference: The relevant governed software purpose.</a><br><br>
+<a>Requirements Reference: Applicable requirements.</a><br><br>
+<a>Dependency Purpose: The function the dependency is expected to<br>perform.</a><br><br>
+<a>Necessity Assessment: The justification for dependency reliance.</a><br><br>
+<a>Functional Suitability: The relevant functional appropriateness.</a><br><br>
+<section class="viewbor"></section>
+<h1>Technical Compatibility: The established technical compatibility</h1>
+<a>conditions.</a><br><br>
+<a>Version Compatibility: The relevant version relationships.</a><br><br>
+<a>Interface Compatibility: The relevant interface conditions.</a><br><br>
+<a>Runtime Compatibility: The applicable runtime conditions.</a><br><br>
+<a>Platform Compatibility: The relevant platform conditions.</a><br><br>
+<a>Environment Suitability: The assessed operating contexts.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Interaction Compatibility: Material interactions with other</h1>
+<a>dependencies.</a><br><br>
+<a>Performance Suitability: Relevant performance conditions.</a><br><br>
+<a>Resource Suitability: Relevant resource requirements.</a><br><br>
+<a>Dependency Constraints: Material limits on suitable use.</a><br><br>
+<a>Dependency Assumptions: Material assumptions underlying suitability.</a><br><br>
+<a>Alternative Assessment: Relevant alternative dependency<br>considerations.</a><br><br>
+<a>Suitability Evidence: Evidence supporting the assessment.</a><br><br>
+<a>Evidence Competence: The suitability of evidence for the assessed<br>claim.</a><br><br>
+<a>Evidence Integrity: The condition of supporting evidence.</a><br><br>
+<a>Suitability Validation: The scope and result of suitability<br>assessment.</a><br><br>
+<a>Suitability Uncertainty: Material unresolved conditions.</a><br><br>
+<a>Suitability Conflicts: Contradictory suitability evidence.</a><br><br>
+<a>Suitability Gaps: Missing material suitability conditions.</a><br><br>
+<a>Critical Suitability Gaps: Material gaps requiring competent<br>attention.</a><br><br>
+<a>Conditional Suitability: Explicit conditions governing suitability.</a><br><br>
+<a>Suitability Drift: Divergence from previously recognized conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Suitability Continuity: Continued applicability of suitability</h1>
+<a>determinations.</a><br><br>
+<a>Suitability Governance State: The recognized suitability condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Downstream References: Information required by competent SDS governance</h1>
+<a>modules.</a><br><br>
+<section class="viewbor"></section>
+<h1>The state shall not independently establish dependency introduction</h1>
+<a>authority, security acceptance, legal compliance, operational<br>continuity, or software product acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A conforming implementation of DSM must provide the following six<br>functional capabilities.</a><br><br>
+<ul><li>Dependency Purpose, Requirements, and Necessity Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to establish dependency suitability governance objects, identify</h1>
+<a>relevant software purposes and requirements, define dependency<br>purpose, and assess dependency necessity.</a><br><br>
+<a>The implementation must distinguish useful functionality from<br>justified reliance.</a><br><br>
+<ul><li>Functional, Technical, and Environmental Compatibility<br>Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to assess functional suitability, technical compatibility,</h1>
+<a>version compatibility, interface compatibility, runtime compatibility,<br>platform compatibility, and environment-specific suitability.</a><br><br>
+<a>The implementation must distinguish installation success from<br>demonstrated compatibility.</a><br><br>
+<ul><li>Dependency Interaction, Resource, Constraint, and Alternative<br>Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to assess material dependency interactions, performance</h1>
+<a>conditions, resource requirements, operating constraints, assumptions,<br>and relevant alternatives.</a><br><br>
+<a>The implementation must preserve material limitations and conditional<br>suitability.</a><br><br>
+<ul><li>Suitability Evidence, Competence, Integrity, and Validation<br>Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to associate suitability claims with competent evidence,</h1>
+<a>preserve evidence integrity, and determine which suitability<br>conditions are sufficiently supported.</a><br><br>
+<a>The implementation must distinguish evidence of isolated technical<br>success from evidence of contextual suitability.</a><br><br>
+<ul><li>Suitability Gap, Conflict, Drift, and Continuity Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to identify material suitability gaps, critical gaps,</h1>
+<a>conflicting assessments, changing operating conditions, and<br>suitability drift.</a><br><br>
+<a>The implementation must preserve historical suitability states and<br>support reassessment.</a><br><br>
+<ul><li>Governed Dependency Suitability State and SDS Handoff Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to produce a Governed Dependency Suitability State containing</h1>
+<a>sufficient purpose, requirements, necessity, compatibility,<br>constraint, evidence, uncertainty, and continuity information for<br>competent downstream SDS governance.</a><br><br>
+<a>The implementation must not convert suitability into dependency<br>introduction authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>GIE™ Compatibility</h1>
+<a>DSM is compatible with GIE™ as a downstream methodological analysis<br>and execution layer.</a><br><br>
+<a>GIE™ may support:</a><br><br>
+<ul><li>Dependency purpose identification</li><li>Requirements-to-dependency mapping</li><li>Dependency necessity analysis</li><li>Functional suitability assessment</li><li>Technical compatibility analysis</li><li>Version compatibility analysis</li><li>Interface compatibility analysis</li><li>Runtime compatibility analysis</li><li>Platform compatibility analysis</li><li>Environment-specific suitability comparison</li><li>Dependency interaction analysis</li><li>Performance suitability assessment</li><li>Resource suitability assessment</li><li>Dependency constraint recognition</li><li>Dependency assumption identification</li><li>Alternative dependency comparison</li><li>Suitability evidence association</li><li>Evidence competence assessment</li><li>Suitability validation support</li><li>Suitability uncertainty recognition</li><li>Suitability conflict detection</li><li>Suitability gap detection</li><li>Critical suitability gap detection</li><li>Conditional suitability representation</li><li>Suitability drift detection</li><li>Suitability continuity assessment</li><li>Governed suitability state representation</li></ul><br>
+<a>GIE™ may propose candidate suitability conclusions or identify<br>possible incompatibilities.</a><br><br>
+<section class="viewbor"></section>
+<h1>Such outputs shall remain distinguishable from sufficiently evidenced</h1>
+<a>suitability determinations.</a><br><br>
+<a>GIE™ must not fabricate compatibility results, invent requirements<br>alignment, infer suitability from popularity, or convert installation<br>success into validated suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>OOF® logic adapts to the governed reality. The engine adapts to OOF®</h1>
+<a>logic.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>The canonical DSM governance logic is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Component Identification State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Dependency Origin &amp; Traceability State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Dependency Suitability Governance Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Dependent Software Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Dependency Component and Relationship</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Governed Software Purpose</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Applicable Software Requirements</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Dependency Purpose</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Dependency Necessity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Functional Suitability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Technical Compatibility</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Version and Interface Compatibility</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Runtime and Platform Compatibility</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Environment-Specific Suitability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Dependency Interaction Compatibility</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Performance and Resource Suitability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Material Dependency Constraints</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Dependency Assumptions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Relevant Dependency Alternatives</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Dependency Selection Justification</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Associate Suitability Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Evidence Competence and Integrity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Validate Material Suitability Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Suitability Uncertainty</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Suitability Conflicts</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Suitability Gaps and Critical Gaps</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Conditional Suitability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Suitability Drift</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Dependency Suitability Governance State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Governed Dependency Suitability State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Suitability Continuity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff to CICM and Competent SDS Governance</h1>
+<a>↓</a><br><br>
+<a>Reassess When Material Suitability Conditions Change</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Suitability State</h1>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>DSM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Dependent Software Purpose Reference</h1>
+<section class="viewbor"></section>
+<h1>Requirements Alignment Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Purpose Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Necessity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Dependency Necessity Evidence Record</h1>
+<section class="viewbor"></section>
+<h1>Functional Suitability Assessment</h1>
+<section class="viewbor"></section>
+<h1>Functional Scope Alignment Record</h1>
+<section class="viewbor"></section>
+<h1>Technical Compatibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Version Compatibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Interface Compatibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Runtime Compatibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Platform Compatibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Build and Development Compatibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Dependency Interaction Compatibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Environment-Specific Suitability Record</h1>
+<section class="viewbor"></section>
+<h1>Performance Suitability Assessment</h1>
+<section class="viewbor"></section>
+<h1>Resource Suitability Assessment</h1>
+<section class="viewbor"></section>
+<h1>Dependency Constraint Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Assumption Record</h1>
+<section class="viewbor"></section>
+<h1>Alternative Dependency Assessment</h1>
+<section class="viewbor"></section>
+<h1>Dependency Selection Justification</h1>
+<section class="viewbor"></section>
+<h1>Dependency Provenance Suitability Reference</h1>
+<section class="viewbor"></section>
+<h1>Security Constraint Reference</h1>
+<section class="viewbor"></section>
+<h1>Legal Constraint Reference</h1>
+<section class="viewbor"></section>
+<h1>Introduction Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Continuity Reference</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Dependency Selection Assessment</h1>
+<section class="viewbor"></section>
+<h1>AI-Generated Suitability Claim Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Evidence Record</h1>
+<section class="viewbor"></section>
+<h1>Suitability Evidence Competence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Suitability Evidence Integrity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Suitability Validation Record</h1>
+<section class="viewbor"></section>
+<h1>Suitability Uncertainty State</h1>
+<section class="viewbor"></section>
+<h1>Suitability Conflict Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Gap</h1>
+<section class="viewbor"></section>
+<h1>Critical Suitability Gap</h1>
+<section class="viewbor"></section>
+<h1>Conditional Suitability Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Drift Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Change Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Continuity Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Governance State</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Recognition Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability Reassessment Record</h1>
+<section class="viewbor"></section>
+<h1>SDS Suitability Handoff Record</h1>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Suitability State</h1>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>DSM preserves the following distinctions:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Functionality ≠ Governed Dependency Suitability</h1>
+<section class="viewbor"></section>
+<h1>Dependency Component Identity ≠ Dependency Suitability Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Dependency Capability ≠ Software Purpose Alignment</h1>
+<section class="viewbor"></section>
+<h1>Dependency Inclusion ≠ Requirements Satisfaction</h1>
+<section class="viewbor"></section>
+<h1>General Dependency Utility ≠ Defined Dependency Purpose</h1>
+<section class="viewbor"></section>
+<h1>Dependency Convenience ≠ Dependency Necessity</h1>
+<section class="viewbor"></section>
+<h1>Claimed Dependency Necessity ≠ Evidenced Dependency Necessity</h1>
+<section class="viewbor"></section>
+<h1>Functional Availability ≠ Functional Suitability</h1>
+<section class="viewbor"></section>
+<h1>Dependency Feature Quantity ≠ Dependency Suitability</h1>
+<section class="viewbor"></section>
+<h1>Technical Installability ≠ Demonstrated Technical Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Latest Dependency Version ≠ Most Suitable Dependency Version</h1>
+<section class="viewbor"></section>
+<h1>Interface Accessibility ≠ Interface Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Development Execution Success ≠ Production Runtime Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Platform Support Claim ≠ Verified Platform Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Runtime Suitability ≠ Build Suitability</h1>
+<section class="viewbor"></section>
+<h1>Individual Component Compatibility ≠ Dependency Network Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Environment-Specific Suitability ≠ Universal Suitability</h1>
+<section class="viewbor"></section>
+<h1>Benchmark Performance ≠ Contextual Performance Suitability</h1>
+<section class="viewbor"></section>
+<h1>Resource Availability ≠ Justified Resource Consumption</h1>
+<section class="viewbor"></section>
+<h1>Conditional Suitability ≠ Unrestricted Suitability</h1>
+<section class="viewbor"></section>
+<h1>Assumed Compatibility ≠ Demonstrated Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Available Alternative ≠ Suitable Alternative</h1>
+<section class="viewbor"></section>
+<h1>Justified Dependency Selection ≠ Authorized Dependency Introduction</h1>
+<section class="viewbor"></section>
+<h1>Verified Dependency Origin ≠ Demonstrated Dependency Suitability</h1>
+<section class="viewbor"></section>
+<h1>Functional Suitability ≠ Security Acceptance</h1>
+<section class="viewbor"></section>
+<h1>Technical Suitability ≠ Legal Permission</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitability ≠ Dependency Introduction Authority</h1>
+<section class="viewbor"></section>
+<h1>Present Suitability ≠ Dependency Continuity Assurance</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Dependency Selection ≠ Governed Dependency Suitability</h1>
+<section class="viewbor"></section>
+<h1>AI-Generated Suitability Explanation ≠ Verified Suitability Evidence</h1>
+<section class="viewbor"></section>
+<h1>Suitability Evidence Presence ≠ Suitability Claim Validity</h1>
+<section class="viewbor"></section>
+<h1>Evidence of One Suitability Dimension ≠ Evidence of Complete Suitability</h1>
+<section class="viewbor"></section>
+<h1>Validated Suitability Scope ≠ Universal Dependency Suitability</h1>
+<section class="viewbor"></section>
+<h1>Intact Test Evidence ≠ Complete Suitability Assurance</h1>
+<section class="viewbor"></section>
+<h1>Uncertain Suitability ≠ Demonstrated Unsuitability</h1>
+<section class="viewbor"></section>
+<h1>Conflicting Suitability Evidence ≠ Permission to Select the Preferred</h1>
+<a>Conclusion</a><br><br>
+<section class="viewbor"></section>
+<h1>Suitability Gap ≠ Proven Dependency Failure</h1>
+<section class="viewbor"></section>
+<h1>Critical Suitability Gap ≠ Automatic Software Rejection</h1>
+<section class="viewbor"></section>
+<h1>Conditionally Suitable ≠ Unconditionally Suitable</h1>
+<section class="viewbor"></section>
+<h1>Previously Suitable Dependency ≠ Permanently Suitable Dependency</h1>
+<section class="viewbor"></section>
+<h1>Suitability Reassessment ≠ Historical Suitability Erasure</h1>
+<section class="viewbor"></section>
+<h1>Suitability Continuity ≠ Operational Dependency Continuity</h1>
+<section class="viewbor"></section>
+<h1>Dependency Suitable ≠ Dependency Authorized</h1>
+<section class="viewbor"></section>
+<h1>Recognized Suitability ≠ Complete Dependency Governance</h1>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<a>DSM governs dependency suitability within SDS and SLGA™.</a><br><br>
+<a>It does not independently establish dependency origin, introduction<br>authority, security certification, software quality, operational<br>continuity, or legal compliance.</a><br><br>
+<a>Within SDS:</a><br><br>
+<a>CIM — Component Identification Module governs component<br>identification.</a><br><br>
+<section class="viewbor"></section>
+<h1>DOTM — Dependency Origin &amp; Traceability Module governs origin,</h1>
+<a>provenance, and traceability.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM — Dependency Suitability Module governs necessity, appropriateness,</h1>
+<a>compatibility, constraints, and suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>CICM — Component Introduction &amp; Change Module governs introduction</h1>
+<a>authority, inclusion, modification, replacement, and removal.</a><br><br>
+<section class="viewbor"></section>
+<h1>DCRM — Dependency Continuity &amp; Risk Module governs criticality, risks,</h1>
+<a>maintenance, availability, substitutability, and continuity.</a><br><br>
+<a>Within SLGA™:</a><br><br>
+<a>Software Requirements Standard (SRS) governs software requirements.</a><br><br>
+<a>Software Creation Standard (SCS) governs software creation.</a><br><br>
+<a>Software Configuration Standard (SCFS) governs software configuration.</a><br><br>
+<a>Software Quality Standard (SQS) governs software quality.</a><br><br>
+<a>Software Security Standard (SSS) governs software security.</a><br><br>
+<a>Software Release Standard (SRLS) governs release.</a><br><br>
+<a>Software Deployment Standard (SDPS) governs deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Change Management Standard (SCMS) governs broader lifecycle</h1>
+<a>change.</a><br><br>
+<a>Software Retirement Standard (SRTS) governs retirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control Standard (SLCS) governs cross-cutting</h1>
+<a>lifecycle control.</a><br><br>
+<a>Relevant interoperating OOF® architectures include:</a><br><br>
+<a>GOA™ — Governance Architecture: General authority governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>ORA™ — Operational Reality Architecture: Competent operational reality</h1>
+<a>assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>VEGA™ — Value Execution Governance Architecture: Relevant resource</h1>
+<a>efficiency and value governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>AGA™ — Accountability Governance Architecture: Relevant accountability</h1>
+<a>relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM preserves suitability relationships without replacing the competent</h1>
+<a>governance responsibilities of these domains.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>DSM begins when a software dependency has been sufficiently identified<br>to support assessment of its necessity, appropriateness,<br>compatibility, and suitability for a defined software context.</a><br><br>
+<a>DSM governs:</a><br><br>
+<ul><li>Dependency suitability governance objects</li><li>Software purpose alignment</li><li>Requirements alignment</li><li>Dependency purpose</li><li>Dependency necessity</li><li>Necessity evidence</li><li>Functional suitability</li><li>Functional scope alignment</li><li>Technical compatibility</li><li>Version compatibility</li><li>Interface compatibility</li><li>Runtime compatibility</li><li>Platform compatibility</li><li>Build and development compatibility</li><li>Dependency interaction compatibility</li><li>Environment-specific suitability</li><li>Performance suitability</li><li>Resource suitability</li><li>Dependency constraints</li><li>Dependency assumptions</li><li>Relevant alternatives</li><li>Dependency selection justification</li><li>Provenance suitability references</li><li>Security constraint references</li><li>Legal constraint references</li><li>Introduction authority references</li><li>Continuity references</li><li>Autonomous dependency selection</li><li>AI-generated suitability claims</li><li>Suitability evidence</li><li>Evidence competence</li><li>Evidence integrity</li><li>Suitability validation</li><li>Suitability uncertainty</li><li>Suitability conflicts</li><li>Suitability gaps</li><li>Critical suitability gaps</li><li>Conditional suitability</li><li>Suitability drift</li><li>Suitability changes</li><li>Suitability continuity</li><li>Suitability governance states</li><li>Suitability recognition</li><li>Suitability reassessment</li></ul><br>
+<a>DSM does not independently determine:</a><br><br>
+<ul><li>Component identification completeness</li><li>Complete dependency provenance</li><li>Legitimate introduction authority</li><li>Dependency acceptance</li><li>Software security certification</li><li>Software product quality</li><li>Legal compliance</li><li>Supplier reliability</li><li>Long-term dependency availability</li><li>Operational dependency continuity</li><li>Software release readiness</li><li>Deployment authorization</li><li>Legal liability</li></ul><br>
+<a>DSM ends when the relevant dependency suitability conditions have been<br>represented as a:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Dependency Suitability State</h1>
+<section class="viewbor"></section>
+<h1>with sufficient purpose, necessity, compatibility, constraint, evidence,</h1>
+<a>uncertainty, and continuity information for competent downstream SDS<br>governance.</a><br><br>
+<ul><li>Use Case 1 — An Autonomous AI Agent Selects a Popular Library<br>That Is</li></ul><br>
+<a>Unsuitable for Production</a><br><br>
+<section class="viewbor"></section>
+<h1>An organization authorizes an autonomous AI development agent to build a</h1>
+<a>software service responsible for processing business transactions.</a><br><br>
+<a>The agent identifies a popular external library that provides the<br>required transaction-processing functionality.</a><br><br>
+<section class="viewbor"></section>
+<h1>The library has extensive documentation, numerous downloads, and positive</h1>
+<a>developer feedback.</a><br><br>
+<a>The agent installs the library and integrates it into the application.</a><br><br>
+<a>The application compiles successfully.</a><br><br>
+<a>Functional tests pass in the development environment.</a><br><br>
+<a>The agent concludes that the library is suitable.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, the intended production environment has strict memory limits and</h1>
+<a>requires predictable processing latency.</a><br><br>
+<section class="viewbor"></section>
+<h1>The selected library consumes substantially more memory than the production</h1>
+<a>environment permits under expected workloads.</a><br><br>
+<a>Its behavior under the required operating conditions has not been<br>validated.</a><br><br>
+<a>The dependency is functional.</a><br><br>
+<a>Its production suitability has not been established.</a><br><br>
+<a>DSM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Purpose → Requirements → Dependency Necessity → Functional</h1>
+<a>Suitability → Runtime Compatibility → Resource Constraints →<br>Suitability Evidence</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The dependency provides the required functionality</li><li>The agent's selection was based partly on popularity and<br>installation</li><li>The development tests do not establish production suitability</li><li>Material resource requirements remain unsupported</li><li>The selected dependency may be incompatible with the intended</li></ul><br>
+<a>convenience. operational constraints.</a><br><br>
+<a>The relevant governance state may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Compatibility-Unresolved</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unsuitable</h1>
+<a>depending on the available evidence and demonstrated production<br>conditions.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Dependency Functionality ≠ Governed Dependency Suitability.</a><br><br>
+<a>Development Execution Success ≠ Production Runtime Compatibility.</a><br><br>
+<a>Resource Availability ≠ Justified Resource Consumption.</a><br><br>
+<a>Autonomous Dependency Selection ≠ Governed Dependency Suitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: DSM prevents successful AI-generated development and passing</h1>
+<a>functional tests from being mistaken for evidence that a dependency is<br>suitable for the environment in which the software must actually<br>operate.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — A Dependency Update Preserves Functionality but Breaks</h1>
+<a>System Compatibility</a><br><br>
+<a>An organization operates a software platform that relies on several<br>external libraries.</a><br><br>
+<a>One library provides a critical data-processing function.</a><br><br>
+<section class="viewbor"></section>
+<h1>The existing version has been assessed as suitable for the platform's</h1>
+<a>requirements and operating environment.</a><br><br>
+<a>A newer version becomes available.</a><br><br>
+<a>The update includes improvements and additional functionality.</a><br><br>
+<a>An automated dependency management process recommends the update.</a><br><br>
+<a>The updated library installs successfully.</a><br><br>
+<a>Its isolated functional tests pass.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, the new version changes an interface behavior relied upon by</h1>
+<a>another component.</a><br><br>
+<a>The individual library remains functional.</a><br><br>
+<a>The dependency network is no longer fully compatible.</a><br><br>
+<section class="viewbor"></section>
+<h1>The updated software produces inconsistent results under certain operating</h1>
+<a>conditions.</a><br><br>
+<a>DSM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Version → Interface Compatibility → Dependency Interaction →</h1>
+<a>Operating Environment → Suitability Evidence → Suitability Drift</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The updated library is technically installable</li><li>The updated library performs its primary function</li><li>A material interface relationship has changed</li><li>The previous suitability assessment no longer fully applies</li><li>The interaction between dependencies requires reassessment</li></ul><br>
+<a>The relevant governance state may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Suitability-at-Risk</h1>
+<a>or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unsuitable</h1>
+<a>depending on the demonstrated incompatibility and applicable<br>requirements.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Latest Dependency Version ≠ Most Suitable Dependency Version.</a><br><br>
+<a>Individual Component Compatibility ≠ Dependency Network Compatibility.</a><br><br>
+<a>Technical Installability ≠ Demonstrated Technical Compatibility.</a><br><br>
+<a>Previously Suitable Dependency ≠ Permanently Suitable Dependency.</a><br><br>
+<a>The result: DSM identifies that dependency suitability belongs to the<br>complete software context—not merely to the isolated component or its<br>latest available version.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>A software dependency can be available, authentic, widely used,<br>actively maintained, and technically functional.</a><br><br>
+<a>None of these characteristics independently establishes that the<br>dependency belongs in a particular software system.</a><br><br>
+<a>A library may perform its advertised function while exceeding the<br>resources available in production.</a><br><br>
+<a>A framework may offer extensive capabilities while introducing<br>unnecessary complexity.</a><br><br>
+<a>A newer version may operate correctly in isolation while breaking<br>compatibility with the surrounding dependency network.</a><br><br>
+<a>An AI development agent may select a highly rated component that<br>satisfies a coding task but fails the actual operational requirements<br>of the software.</a><br><br>
+<a>In every case, the component may work.</a><br><br>
+<a>But working is not the same as being suitable.</a><br><br>
+<a>Dependency suitability is not an inherent, universal property of a<br>software component.</a><br><br>
+<a>It is a governed relationship between the component and the specific<br>purpose, requirements, environment, constraints, and conditions under<br>which the software relies upon it.</a><br><br>
+<a>Dependency Functionality ≠ Governed Dependency Suitability.</a><br><br>
+<a>Dependency Convenience ≠ Dependency Necessity.</a><br><br>
+<a>Technical Installability ≠ Demonstrated Technical Compatibility.</a><br><br>
+<a>Individual Component Compatibility ≠ Dependency Network Compatibility.</a><br><br>
+<a>Previously Suitable Dependency ≠ Permanently Suitable Dependency.</a><br><br>
+<a>DSM establishes the methodological requirement that software<br>dependencies must be evaluated in the context of the systems that use<br>them.</a><br><br>
+<a>This requirement remains unchanged whether the dependency is selected<br>by a human developer, recommended by an AI assistant, introduced by an<br>autonomous agent, or updated through an automated process.</a><br><br>
+<a>The selection mechanism may change.</a><br><br>
+<a>The component may change.</a><br><br>
+<a>The software environment may change.</a><br><br>
+<a>The requirement to establish contextual suitability remains.</a><br><br>
+<a>DSM does not confuse a justified dependency choice with legitimate<br>authorization to introduce it.</a><br><br>
+<a>It does not confuse technical compatibility with security acceptance.</a><br><br>
+<a>And it does not confuse present suitability with guaranteed<br>operational continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Instead, it establishes the evidence-supported conditions under which</h1>
+<a>dependency reliance can be considered appropriate for its intended<br>software context.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSM transforms dependency selection from a question of whether a component</h1>
+<a>can perform a function into a governed determination of whether that<br>component should be relied upon for a particular software purpose,<br>under particular conditions, with sufficient evidence that the<br>reliance is justified and compatible.</a><br><br>
+<a>A dependency is not suitable merely because it works. It is suitable<br>when its use is justified by the software's requirements, supported by<br>evidence, compatible with its operating conditions, and bounded by the<br>constraints under which that suitability remains valid.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

@@ -858,7 +858,7 @@ def quality_outcomes(assessment: dict) -> dict:
     semantic = "FAIL" if semantic_output_problems(assessment) else "PASS"
     methodological = "PASS" if primary and primary.get("canonicalUrl") else "REVIEW REQUIRED" if primary else "REVIEW REQUIRED"
     evidence_transparency = "PASS" if evidence.get("sources") and evidence.get("publicEvidenceStatus") else "FAIL"
-    assessment_eligibility = "PUBLISHABLE" if structural == semantic == evidence_transparency == "PASS" else "PENDING"
+    assessment_eligibility = "PUBLISHABLE" if structural == semantic == methodological == evidence_transparency == "PASS" else "PENDING"
     return {
         "structuralIntegrity": structural,
         "semanticIntegrity": semantic,

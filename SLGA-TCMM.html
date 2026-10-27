@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® TCMM — Testing &amp; Coverage Management Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>TCMM — Testing &amp; Coverage Management Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Quality Standard (SQS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Testing &amp; Coverage Governance<br>
+<b>Module ID:</b> SLGA-SQS-TCMM-003<br>
+<b>Origin ID:</b> OOF.CM.SLGA.05.03.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 12.10.2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<section class="viewbor"></section>
+<h1>The Testing &amp; Coverage Management Module (TCMM) governs the</h1>
+<a>identification, planning, design, authorization, execution,<br>observation, measurement, verification, evidence integrity, coverage<br>assessment, and lifecycle continuity of software quality testing.</a><br><br>
+<section class="viewbor"></section>
+<h1>TCMM establishes the methodological conditions under which software testing</h1>
+<a>activities and coverage claims can be recognized as identifiable,<br>appropriately scoped, competently executed, evidence-supported, and<br>traceable to the software artifact, configuration, quality criteria,<br>and operating conditions actually assessed.</a><br><br>
+<section class="viewbor"></section>
+<h1>It governs the relationship between governed quality criteria, test</h1>
+<a>objectives, test cases, test inputs, expected behavior, test<br>environments, execution authority, actual execution records, observed<br>software behavior, coverage measurements, test results, testing<br>limitations, and the evidence supporting testing conclusions.</a><br><br>
+<section class="viewbor"></section>
+<h1>TCMM distinguishes test design from test execution, test execution from</h1>
+<a>verified results, test success from demonstrated software quality,<br>numerical coverage from meaningful behavioral coverage, and testing<br>evidence from broader quality acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>It applies to testing performed by humans, organizations, automated testing</h1>
+<a>infrastructure, AI coding assistants, autonomous testing agents, and<br>software quality assessment systems.</a><br><br>
+<a>TCMM is technology-independent and does not prescribe a particular<br>testing framework, programming language, test automation platform, or<br>software development methodology.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<a>Its foundational distinction is:</a><br><br>
+<a>Test Execution Success ≠ Demonstrated Software Quality.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>The operational role of TCMM is:</a><br><br>
+<a>To ensure that software testing and coverage claims remain<br>identifiable, bounded by governed quality criteria, connected to the<br>software and environment actually evaluated, supported by competent<br>execution evidence, and interpreted according to their demonstrated<br>scope and limitations without confusing successful test execution with<br>comprehensive software quality verification.</a><br><br>
+<a>TCMM establishes the testing and coverage governance mechanism of SQS.</a><br><br>
+<section class="viewbor"></section>
+<h1>It determines whether material testing activities were appropriately</h1>
+<a>defined, authorized, executed, observed, recorded, and interpreted.</a><br><br>
+<section class="viewbor"></section>
+<h1>It also determines what those activities actually cover and which relevant</h1>
+<a>quality conditions remain untested, insufficiently tested, or<br>unresolved.</a><br><br>
+<a>TCMM does not independently establish software quality requirements,<br>redefine quality criteria, resolve defects, authorize quality<br>acceptance, certify software security, or authorize release and<br>deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Question</h1>
+<section class="viewbor"></section>
+<h1>Which software behaviors, quality conditions, artifacts, configurations,</h1>
+<a>and operating scenarios have actually been tested, under which methods<br>and execution conditions, with what evidence and coverage limitations,<br>and what can legitimately be concluded from the observed results?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<a>The SLGA™ governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<a>Cross-cutting:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control</h1>
+<a>TCMM operates within:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Quality Standard (SQS)</h1>
+<a>The SQS internal governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Quality Requirements → Quality Criteria Definition → Testing &amp; Coverage</h1>
+<a>Management → Defect Management → Quality Conformity &amp; Acceptance</a><br><br>
+<a>TCMM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing &amp; Coverage Management</h1>
+<a>It is the third Core Module of SQS.</a><br><br>
+<a>Its principal upstream references are:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Quality Requirements State</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>QRM — Quality Requirements Module</h1>
+<section class="viewbor"></section>
+<h1>Governed Quality Criteria Definition State</h1>
+<a>from:</a><br><br>
+<section class="viewbor"></section>
+<h1>QCDM — Quality Criteria Definition Module</h1>
+<a>Relevant supporting references include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Requirements Baseline</h1>
+<a>from Software Requirements Standard (SRS).</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Creation State</h1>
+<a>from Software Creation Standard (SCS).</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Dependency State</h1>
+<a>from Software Dependency Standard (SDS).</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Configuration State</h1>
+<a>from Software Configuration Standard (SCFS).</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<a>This output supports:</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM — Defect Management Module</h1>
+<section class="viewbor"></section>
+<h1>QCAM — Quality Conformity &amp; Acceptance Module</h1>
+<a>and contributes to:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Quality State</h1>
+<a>TCMM may be invoked repeatedly as software artifacts, configurations,<br>dependencies, quality criteria, test environments, or relevant<br>operational conditions change.</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Testing &amp; Coverage Governance</h1>
+<section class="viewbor"></section>
+<h1>This space governs the conditions under which testing activities and</h1>
+<a>coverage claims become sufficiently established for competent software<br>quality assessment.</a><br><br>
+<a>Its principal dimensions include:</a><br><br>
+<ul><li>Testing governance object identity</li><li>Testing purpose</li><li>Testing scope</li><li>Software object correspondence</li><li>Artifact identity</li><li>Artifact version correspondence</li><li>Configuration correspondence</li><li>Quality requirement correspondence</li><li>Quality criterion correspondence</li><li>Test strategy</li><li>Test classification</li><li>Test objective</li><li>Test design</li><li>Test case identity</li><li>Test scenario definition</li><li>Test input governance</li><li>Test data governance</li><li>Expected behavior</li><li>Test oracle</li><li>Test preconditions</li><li>Test environment</li><li>Environment suitability</li><li>Environment correspondence</li><li>Test dependencies</li><li>Test execution authority</li><li>Automated testing authority</li><li>Test execution identity</li><li>Test execution conditions</li><li>Test execution evidence</li><li>Test completion</li><li>Test interruption</li><li>Test failure</li><li>Test invalidity</li><li>Observed software behavior</li><li>Expected–observed correspondence</li><li>Test result classification</li><li>Test result verification</li><li>Test repeatability</li><li>Test determinism</li><li>Test flakiness</li><li>Test coverage basis</li><li>Requirements coverage</li><li>Functional coverage</li><li>Code coverage</li><li>Branch coverage</li><li>Integration coverage</li><li>Scenario coverage</li><li>Environment coverage</li><li>Failure-condition coverage</li><li>Coverage measurement</li><li>Coverage interpretation</li><li>Coverage exclusions</li><li>Coverage gaps</li><li>Critical coverage gaps</li><li>Test evidence competence</li><li>Test evidence integrity</li><li>Test uncertainty</li><li>Test conflicts</li><li>Regression testing</li><li>Testing continuity</li><li>Testing reassessment</li><li>Testing governance states</li></ul><br>
+<section class="viewbor"></section>
+<h1>This governed space remains distinct from quality criteria definition under</h1>
+<a>QCDM, defect resolution under DFM, and quality conformity and<br>acceptance under QCAM.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Governance Object</h1>
+<a>Every material TCMM assessment shall establish a Testing Governance<br>Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>The object represents an identifiable software testing activity or testing</h1>
+<a>assessment and its applicable governance conditions.</a><br><br>
+<a>It should identify:</a><br><br>
+<a>Testing Identity: The identifiable testing activity.</a><br><br>
+<a>Testing Purpose: The reason testing is performed.</a><br><br>
+<a>Software Object: The software being tested.</a><br><br>
+<a>Artifact Identity: The relevant software artifact or version.</a><br><br>
+<a>Configuration Reference: The configuration being evaluated.</a><br><br>
+<a>Quality Criteria: The criteria against which testing is performed.</a><br><br>
+<a>Testing Scope: The applicable assessment boundaries.</a><br><br>
+<a>Test Method: The method used.</a><br><br>
+<a>Test Cases: The defined tests.</a><br><br>
+<a>Test Environment: The relevant execution conditions.</a><br><br>
+<a>Execution Authority: The legitimate basis for testing actions.</a><br><br>
+<a>Execution Evidence: The records of actual test execution.</a><br><br>
+<a>Observed Results: The behavior or measurements obtained.</a><br><br>
+<a>Coverage State: The recognized scope of testing.</a><br><br>
+<a>Testing Limitations: Known exclusions and unresolved conditions.</a><br><br>
+<a>Governance State: The recognized testing condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>The testing governance object shall remain distinguishable from a test</h1>
+<a>suite, test report, test run, or coverage dashboard.</a><br><br>
+<a>Testing Governance Object ≠ Test Execution Report.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Purpose Governance</h1>
+<a>TCMM shall identify the purpose of material testing activities.</a><br><br>
+<a>Purposes may include:</a><br><br>
+<ul><li>Functional verification</li><li>Requirements conformity</li><li>Integration assessment</li><li>Reliability evaluation</li><li>Performance assessment</li><li>Compatibility testing</li><li>Regression testing</li><li>Recovery assessment</li><li>Quality evidence generation</li><li>Defect reproduction</li><li>Defect resolution verification</li></ul><br>
+<a>Testing purpose shall remain connected to governed quality criteria.</a><br><br>
+<a>Testing Purpose ≠ Testing Result.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Scope Governance</h1>
+<a>TCMM shall establish the boundaries of material testing activities.</a><br><br>
+<a>Scope may concern:</a><br><br>
+<ul><li>Software functions</li><li>Components</li><li>Interfaces</li><li>Integrated systems</li><li>Artifact versions</li><li>Configurations</li><li>Operating environments</li><li>User scenarios</li><li>Workloads</li><li>Failure conditions</li></ul><br>
+<a>Scope shall distinguish tested, excluded, and unresolved conditions.</a><br><br>
+<a>Defined Testing Scope ≠ Executed Testing Scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Object Correspondence</h1>
+<a>TCMM shall identify the software object to which testing evidence<br>applies.</a><br><br>
+<a>Objects may include:</a><br><br>
+<ul><li>Individual function</li><li>Software component</li><li>Library</li><li>Application</li><li>Service</li><li>Interface</li><li>Embedded software</li><li>Integrated system</li></ul><br>
+<section class="viewbor"></section>
+<h1>Testing evidence shall not be generalized to materially different software</h1>
+<a>objects without competent justification.</a><br><br>
+<a>Testing One Software Component ≠ Testing the Entire Software System.</a><br><br>
+<section class="viewbor"></section>
+<h1>Artifact Identity Governance</h1>
+<a>TCMM shall identify the software artifact actually tested.</a><br><br>
+<a>Relevant information may include:</a><br><br>
+<ul><li>Artifact identity</li><li>Content reference</li><li>Build reference</li><li>Artifact version</li><li>Relevant provenance</li><li>Integrity reference</li></ul><br>
+<section class="viewbor"></section>
+<h1>A declared version label shall not independently establish the identity of</h1>
+<a>the tested artifact.</a><br><br>
+<a>Declared Tested Version ≠ Verified Tested Artifact.</a><br><br>
+<section class="viewbor"></section>
+<h1>Artifact Version Correspondence</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve the relationship between testing evidence and the</h1>
+<a>software version actually evaluated.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing performed against one version shall not automatically establish the</h1>
+<a>quality of a different version.</a><br><br>
+<a>Material differences shall remain explicit.</a><br><br>
+<a>Testing Version A ≠ Verification of Version B.</a><br><br>
+<section class="viewbor"></section>
+<h1>Configuration Correspondence</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve the relationship between test results and the software</h1>
+<a>configuration under which they were obtained.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<ul><li>Configuration baseline</li><li>Runtime settings</li><li>Component versions</li><li>Build parameters</li><li>Feature flags</li><li>Relevant external services</li></ul><br>
+<a>Test results shall remain bounded by their applicable configuration.</a><br><br>
+<a>Tested Configuration ≠ Every Configuration.</a><br><br>
+<section class="viewbor"></section>
+<h1>Quality Requirement Correspondence</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve the relationship between testing activities and the</h1>
+<a>governed quality requirements they support.</a><br><br>
+<a>Testing shall identify which requirements are:</a><br><br>
+<ul><li>Addressed</li><li>Partially addressed</li><li>Not addressed</li><li>Not applicable</li><li>Unresolved</li></ul><br>
+<section class="viewbor"></section>
+<h1>Requirement correspondence shall not independently establish requirement</h1>
+<a>satisfaction.</a><br><br>
+<a>Requirement Linked to Test ≠ Requirement Verified by Test.</a><br><br>
+<section class="viewbor"></section>
+<h1>Quality Criterion Correspondence</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall associate material testing activities with applicable governed</h1>
+<a>quality criteria.</a><br><br>
+<a>The relationship should preserve:</a><br><br>
+<ul><li>Criterion identity</li><li>Applicable software object</li><li>Expected quality condition</li><li>Assessment method</li><li>Evaluation rule</li><li>Relevant threshold</li><li>Required evidence</li></ul><br>
+<a>TCMM shall not silently redefine the criterion during execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Executing a Test Against Modified Criteria ≠ Satisfying the Original</h1>
+<a>Criteria.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Strategy Governance</h1>
+<a>TCMM shall identify the strategy governing material testing<br>activities.</a><br><br>
+<a>A strategy may establish:</a><br><br>
+<ul><li>Testing objectives</li><li>Assessment levels</li><li>Relevant methods</li><li>Coverage expectations</li><li>Test sequencing</li><li>Required environments</li><li>Evidence requirements</li><li>Relevant limitations</li></ul><br>
+<a>A documented strategy shall remain distinguishable from its execution.</a><br><br>
+<a>Test Strategy Approval ≠ Test Strategy Execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Classification</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall classify material testing activities according to their purpose</h1>
+<a>and scope.</a><br><br>
+<a>Classifications may include:</a><br><br>
+<ul><li>Unit testing</li><li>Component testing</li><li>Integration testing</li><li>System testing</li><li>Functional testing</li><li>Performance testing</li><li>Reliability testing</li><li>Compatibility testing</li><li>Regression testing</li><li>Recovery testing</li><li>Acceptance-support testing</li></ul><br>
+<a>Classification shall not independently establish test suitability.</a><br><br>
+<a>Test Classification ≠ Test Competence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Objective Governance</h1>
+<a>TCMM shall identify the objective of each material test or test group.</a><br><br>
+<a>An objective should establish:</a><br><br>
+<ul><li>The behavior being assessed</li><li>The applicable criterion</li><li>The relevant software object</li><li>The expected result</li><li>The intended evidentiary contribution</li></ul><br>
+<a>Objectives shall remain distinguishable from observed outcomes.</a><br><br>
+<a>Test Objective ≠ Test Outcome.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Design Governance</h1>
+<a>TCMM shall preserve sufficiently identifiable test designs.</a><br><br>
+<a>A test design may establish:</a><br><br>
+<ul><li>Test case identity</li><li>Preconditions</li><li>Inputs</li><li>Execution steps</li><li>Expected results</li><li>Environment requirements</li><li>Evaluation method</li><li>Evidence requirements</li></ul><br>
+<a>Test design shall remain connected to the applicable quality<br>criterion.</a><br><br>
+<a>Designed Test ≠ Executed Test.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Case Identity</h1>
+<a>TCMM shall establish identifiable references for material test cases.</a><br><br>
+<a>A test case should remain distinguishable by:</a><br><br>
+<ul><li>Identity</li><li>Purpose</li><li>Applicable criterion</li><li>Software object</li><li>Inputs</li><li>Expected result</li><li>Relevant version</li><li>Revision history</li></ul><br>
+<a>Test identity shall not be confused with execution identity.</a><br><br>
+<a>Test Case Identity ≠ Test Execution Identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Scenario Definition</h1>
+<a>TCMM shall identify relevant scenarios under which software behavior<br>is evaluated.</a><br><br>
+<a>Scenarios may concern:</a><br><br>
+<ul><li>Normal operation</li><li>Boundary conditions</li><li>Invalid input</li><li>Failure conditions</li><li>Recovery behavior</li><li>Concurrent operation</li><li>Integration behavior</li><li>Relevant user workflows</li></ul><br>
+<a>A defined scenario shall not be treated as an executed scenario.</a><br><br>
+<a>Defined Test Scenario ≠ Observed Scenario Behavior.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Input Governance</h1>
+<a>TCMM shall identify material inputs used during testing.</a><br><br>
+<a>Inputs may include:</a><br><br>
+<ul><li>Valid values</li><li>Invalid values</li><li>Boundary values</li><li>Input sequences</li><li>Large datasets</li><li>Unexpected combinations</li><li>Relevant operational data</li></ul><br>
+<a>Test inputs shall remain associated with execution evidence.</a><br><br>
+<a>Defined Test Input ≠ Verified Executed Input.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Data Governance</h1>
+<a>TCMM shall preserve relevant conditions concerning test data.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Data identity</li><li>Data origin</li><li>Data structure</li><li>Data suitability</li><li>Data representativeness</li><li>Data integrity</li><li>Data limitations</li></ul><br>
+<section class="viewbor"></section>
+<h1>Data protection and access permissions remain subject to competent external</h1>
+<a>governance.</a><br><br>
+<a>Available Test Data ≠ Representative Test Data.</a><br><br>
+<section class="viewbor"></section>
+<h1>Expected Behavior Governance</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve the expected software behavior relevant to each</h1>
+<a>material test.</a><br><br>
+<a>Expected behavior shall derive from applicable governed quality<br>criteria.</a><br><br>
+<a>It may concern:</a><br><br>
+<ul><li>Functional outputs</li><li>Error responses</li><li>Timing</li><li>State changes</li><li>Resource usage</li><li>Recovery behavior</li></ul><br>
+<a>Expected behavior shall remain distinguishable from actual<br>observations.</a><br><br>
+<a>Expected Test Result ≠ Observed Test Result.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Oracle Governance</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall identify the mechanism used to determine whether observed</h1>
+<a>behavior satisfies the expected condition.</a><br><br>
+<a>A test oracle may involve:</a><br><br>
+<ul><li>Explicit expected output</li><li>Reference implementation</li><li>Formal specification</li><li>Invariant</li><li>Property-based condition</li><li>Competent human evaluation</li><li>Approved measurement threshold</li></ul><br>
+<section class="viewbor"></section>
+<h1>The oracle shall remain sufficiently independent and suitable for the</h1>
+<a>relevant claim.</a><br><br>
+<section class="viewbor"></section>
+<h1>An AI-generated expected result shall not be presumed correct merely</h1>
+<a>because the same AI system generated the implementation.</a><br><br>
+<a>Test Oracle Availability ≠ Test Oracle Validity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Preconditions</h1>
+<a>TCMM shall identify material conditions required before testing can<br>meaningfully proceed.</a><br><br>
+<a>Preconditions may include:</a><br><br>
+<ul><li>Required software state</li><li>Environment readiness</li><li>Test data availability</li><li>Dependency availability</li><li>Relevant permissions</li><li>Required configuration</li><li>Measurement readiness</li></ul><br>
+<a>Preconditions shall remain distinguishable from verified readiness.</a><br><br>
+<a>Declared Test Preconditions ≠ Verified Test Readiness.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Environment Governance</h1>
+<a>TCMM shall identify the environment in which material tests are<br>executed.</a><br><br>
+<a>Relevant dimensions may include:</a><br><br>
+<ul><li>Hardware</li><li>Operating system</li><li>Runtime</li><li>Dependencies</li><li>Network</li><li>Configuration</li><li>External services</li><li>Data conditions</li><li>Resource limits</li></ul><br>
+<a>Environment identity shall remain connected to test execution<br>evidence.</a><br><br>
+<a>Documented Test Environment ≠ Actual Test Environment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment Suitability</h1>
+<a>TCMM shall assess whether the environment is suitable for the relevant<br>test purpose.</a><br><br>
+<a>Suitability may depend on:</a><br><br>
+<ul><li>Applicable criterion</li><li>Intended use</li><li>Workload</li><li>Platform characteristics</li><li>Measurement accuracy</li><li>Dependency behavior</li><li>Required isolation</li></ul><br>
+<a>An environment may be technically functional while unsuitable for a<br>particular quality claim.</a><br><br>
+<a>Operational Test Environment ≠ Suitable Assessment Environment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment Correspondence</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve material differences between the test environment and</h1>
+<a>the environment relevant to the quality claim.</a><br><br>
+<a>Differences may concern:</a><br><br>
+<ul><li>Hardware capacity</li><li>Network conditions</li><li>Data volume</li><li>External integrations</li><li>Runtime configuration</li><li>Dependency versions</li><li>Workload distribution</li></ul><br>
+<a>Where differences materially limit interpretation, the limitation<br>shall remain explicit.</a><br><br>
+<a>Test Environment Similarity ≠ Demonstrated Operational Equivalence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Dependency Governance</h1>
+<a>TCMM shall identify material dependencies required for testing.</a><br><br>
+<a>Dependencies may include:</a><br><br>
+<ul><li>Test frameworks</li><li>External services</li><li>Data sources</li><li>Measurement tools</li><li>Mock services</li><li>Simulated components</li><li>Supporting infrastructure</li></ul><br>
+<a>Dependency suitability and origin remain subject to SDS where<br>applicable.</a><br><br>
+<a>Available Test Dependency ≠ Suitable Test Dependency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Execution Authority</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall identify the legitimate basis for material test execution</h1>
+<a>activities.</a><br><br>
+<a>Authority may concern:</a><br><br>
+<ul><li>Access to software</li><li>Access to environments</li><li>Execution permissions</li><li>Use of test data</li><li>Invocation of external services</li><li>Modification of test infrastructure</li><li>Automated testing actions</li></ul><br>
+<section class="viewbor"></section>
+<h1>Authority to execute tests shall not be confused with authority to redefine</h1>
+<a>quality criteria or approve quality acceptance.</a><br><br>
+<a>Test Execution Authority ≠ Quality Acceptance Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Automated Testing Authority</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve the boundaries under which automated systems and AI</h1>
+<a>agents execute testing activities.</a><br><br>
+<a>Relevant actions may include:</a><br><br>
+<ul><li>Generating tests</li><li>Selecting test cases</li><li>Executing test suites</li><li>Accessing environments</li><li>Modifying test data</li><li>Invoking external services</li><li>Collecting evidence</li><li>Proposing conclusions</li></ul><br>
+<section class="viewbor"></section>
+<h1>Authorization for a testing objective shall not automatically authorize</h1>
+<a>every constituent tool action.</a><br><br>
+<a>Testing Task Authority ≠ Constituent Testing Action Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Execution Identity</h1>
+<a>TCMM shall establish identifiable references for material test<br>executions.</a><br><br>
+<a>Execution identity should preserve:</a><br><br>
+<ul><li>Test case reference</li><li>Execution instance</li><li>Software artifact</li><li>Configuration</li><li>Environment</li><li>Execution actor</li><li>Execution time</li><li>Relevant inputs</li><li>Execution result</li></ul><br>
+<a>Repeated executions of the same test case shall remain<br>distinguishable.</a><br><br>
+<a>Same Test Case ≠ Same Test Execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Execution Conditions</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve the material conditions under which tests were actually</h1>
+<a>executed.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Software state</li><li>Runtime parameters</li><li>Test inputs</li><li>Test data</li><li>Environment conditions</li><li>Resource availability</li><li>External dependencies</li><li>Execution sequence</li></ul><br>
+<section class="viewbor"></section>
+<h1>Declared execution conditions shall remain distinguishable from observed</h1>
+<a>execution conditions.</a><br><br>
+<a>Planned Test Conditions ≠ Actual Test Conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Execution Evidence</h1>
+<a>TCMM shall preserve competent evidence of material test execution.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<ul><li>Execution logs</li><li>Test result records</li><li>Observed outputs</li><li>Measurement records</li><li>Error traces</li><li>Relevant environment records</li><li>Artifact references</li><li>Execution timestamps</li></ul><br>
+<a>Evidence shall remain associated with the actual execution instance.</a><br><br>
+<a>Test Report Generation ≠ Verified Test Execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Completion Governance</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall determine whether a material test execution reached its defined</h1>
+<a>completion condition.</a><br><br>
+<a>Completion may involve:</a><br><br>
+<ul><li>Execution of required steps</li><li>Collection of required observations</li><li>Completion of measurements</li><li>Availability of evaluation evidence</li></ul><br>
+<a>Completion shall remain distinguishable from success.</a><br><br>
+<a>Completed Test ≠ Passed Test.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Interruption Governance</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall recognize test executions interrupted before meaningful</h1>
+<a>completion.</a><br><br>
+<a>Interruptions may arise from:</a><br><br>
+<ul><li>Environment failure</li><li>Tool failure</li><li>Dependency unavailability</li><li>Timeout</li><li>Resource exhaustion</li><li>Execution cancellation</li><li>Permission failure</li></ul><br>
+<section class="viewbor"></section>
+<h1>An interrupted test shall not automatically be classified as a software</h1>
+<a>quality failure.</a><br><br>
+<a>Interrupted Test ≠ Failed Software Quality Criterion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Failure Governance</h1>
+<a>TCMM shall identify test results that fail applicable evaluation<br>conditions.</a><br><br>
+<a>Failure may indicate:</a><br><br>
+<ul><li>Observed software deviation</li><li>Incorrect expected result</li><li>Unsuitable test method</li><li>Environment problem</li><li>Invalid test data</li><li>Test implementation defect</li></ul><br>
+<section class="viewbor"></section>
+<h1>A failed test shall trigger competent interpretation rather than automatic</h1>
+<a>attribution to software defects.</a><br><br>
+<a>Failed Test ≠ Verified Software Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Invalidity Governance</h1>
+<a>TCMM shall recognize testing evidence that cannot competently support<br>its intended conclusion.</a><br><br>
+<a>Invalidity may arise where:</a><br><br>
+<ul><li>Wrong artifact was tested</li><li>Required preconditions were absent</li><li>Test data was corrupted</li><li>Environment conditions were unsuitable</li><li>Evaluation criteria were modified without authority</li><li>Required execution evidence is missing</li></ul><br>
+<a>An invalid test shall remain distinguishable from a valid failed test.</a><br><br>
+<a>Invalid Test Result ≠ Valid Test Failure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Observed Software Behavior</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve the behavior actually observed during material test</h1>
+<a>executions.</a><br><br>
+<a>Observations may include:</a><br><br>
+<ul><li>Functional outputs</li><li>Error behavior</li><li>State transitions</li><li>Timing</li><li>Resource usage</li><li>Integration responses</li><li>Recovery behavior</li><li>Relevant failure conditions</li></ul><br>
+<section class="viewbor"></section>
+<h1>Observed behavior shall remain connected to the tested artifact and</h1>
+<a>execution context.</a><br><br>
+<a>Observed Behavior in One Test ≠ Universal Software Behavior.</a><br><br>
+<section class="viewbor"></section>
+<h1>Expected–Observed Correspondence</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall evaluate the relationship between expected and observed software</h1>
+<a>behavior.</a><br><br>
+<a>Possible determinations include:</a><br><br>
+<ul><li>Corresponding</li><li>Deviating</li><li>Partially corresponding</li><li>Inconclusive</li><li>Invalidly assessed</li><li>Not observed</li></ul><br>
+<a>Correspondence shall remain bounded by the actual test conditions.</a><br><br>
+<a>Expected–Observed Correspondence ≠ Complete Software Correctness.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Result Classification</h1>
+<a>TCMM shall support identifiable result classifications.</a><br><br>
+<a>Possible results include:</a><br><br>
+<a>Passed: Observed evidence satisfies the applicable criterion within<br>the assessed scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Failed: Valid evidence demonstrates non-satisfaction of the applicable</h1>
+<a>test condition.</a><br><br>
+<a>Inconclusive: Available evidence does not support a sufficient<br>determination.</a><br><br>
+<section class="viewbor"></section>
+<h1>Invalid: The execution or evaluation conditions prevent competent</h1>
+<a>interpretation.</a><br><br>
+<a>Interrupted: The test did not reach its required completion condition.</a><br><br>
+<a>Not Executed: The planned test was not performed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Conditionally Passed: The observed result satisfies explicitly limited</h1>
+<a>conditions, where such classification is permitted by the governed<br>criterion.</a><br><br>
+<a>Result classification shall remain distinct from overall quality<br>acceptance.</a><br><br>
+<a>Passed Test ≠ Accepted Software Quality State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Result Verification</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall assess whether reported test results correspond to actual</h1>
+<a>execution evidence and applicable evaluation rules.</a><br><br>
+<a>Verification may include:</a><br><br>
+<ul><li>Execution record correspondence</li><li>Artifact identity confirmation</li><li>Configuration confirmation</li><li>Expected–observed comparison</li><li>Evaluation rule application</li><li>Evidence integrity assessment</li></ul><br>
+<section class="viewbor"></section>
+<h1>A test framework's reported status shall not automatically establish a</h1>
+<a>verified result.</a><br><br>
+<a>Reported Test Pass ≠ Verified Test Pass.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Repeatability</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall recognize the ability to repeat material test executions under</h1>
+<a>sufficiently comparable conditions.</a><br><br>
+<a>Repeatability may depend on:</a><br><br>
+<ul><li>Test identity</li><li>Input preservation</li><li>Environment conditions</li><li>Artifact identity</li><li>Configuration</li><li>Dependencies</li><li>Evaluation method</li></ul><br>
+<a>Repeatability shall remain distinguishable from identical outcomes.</a><br><br>
+<a>Repeatable Test Execution ≠ Identical Test Outcome.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Determinism</h1>
+<a>TCMM shall identify whether relevant testing outcomes are expected to<br>be deterministic.</a><br><br>
+<a>Non-determinism may arise from:</a><br><br>
+<ul><li>Concurrency</li><li>Timing</li><li>Randomization</li><li>External services</li><li>Distributed execution</li><li>Environment variation</li><li>Data ordering</li></ul><br>
+<a>A non-deterministic test shall not automatically be treated as<br>invalid.</a><br><br>
+<a>Its uncertainty and interpretation conditions must remain explicit.</a><br><br>
+<a>Non-Deterministic Test ≠ Automatically Invalid Test.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Flakiness</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall recognize tests producing inconsistent outcomes under conditions</h1>
+<a>intended to be equivalent.</a><br><br>
+<a>Flakiness may indicate:</a><br><br>
+<ul><li>Timing sensitivity</li><li>Environment instability</li><li>Shared-state interference</li><li>Test implementation defects</li><li>Uncontrolled dependencies</li><li>Actual intermittent software behavior</li></ul><br>
+<a>A flaky test shall not automatically establish that the software is<br>correct or defective.</a><br><br>
+<a>Flaky Test ≠ Proven Software Defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Coverage Basis</h1>
+<a>TCMM shall establish the basis on which material test coverage is<br>measured or claimed.</a><br><br>
+<a>Coverage may concern:</a><br><br>
+<ul><li>Requirements</li><li>Functions</li><li>Statements</li><li>Branches</li><li>Paths</li><li>Components</li><li>Interfaces</li><li>Scenarios</li><li>Environments</li><li>Failure conditions</li></ul><br>
+<a>Coverage claims shall preserve their measurement basis.</a><br><br>
+<section class="viewbor"></section>
+<h1>Coverage Percentage Without Coverage Definition ≠ Meaningful Coverage</h1>
+<a>Claim.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirements Coverage</h1>
+<a>TCMM shall assess which governed quality requirements are addressed by<br>executed tests.</a><br><br>
+<a>Requirements may be classified as:</a><br><br>
+<ul><li>Covered by valid evidence</li><li>Partially covered</li><li>Associated with tests but not executed</li><li>Not covered</li><li>Unresolved</li></ul><br>
+<a>A test reference alone shall not establish requirements coverage.</a><br><br>
+<a>Requirement-to-Test Link ≠ Executed Requirement Coverage.</a><br><br>
+<section class="viewbor"></section>
+<h1>Functional Coverage</h1>
+<a>TCMM shall assess the scope of software functionality evaluated by<br>testing.</a><br><br>
+<a>Functional coverage may concern:</a><br><br>
+<ul><li>Required operations</li><li>Input variations</li><li>Output conditions</li><li>Error handling</li><li>Relevant workflows</li><li>Boundary behavior</li></ul><br>
+<a>Functional coverage shall remain distinct from source-code coverage.</a><br><br>
+<a>Code Coverage ≠ Functional Coverage.</a><br><br>
+<section class="viewbor"></section>
+<h1>Code Coverage</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall govern claims concerning the execution of source-code elements</h1>
+<a>during testing.</a><br><br>
+<a>Code coverage may include:</a><br><br>
+<ul><li>Statement coverage</li><li>Line coverage</li><li>Function coverage</li><li>Branch coverage</li><li>Condition coverage</li></ul><br>
+<section class="viewbor"></section>
+<h1>Code coverage measurements shall preserve the relevant artifact,</h1>
+<a>instrumentation method, and exclusions.</a><br><br>
+<a>Execution of code does not independently establish correct behavior.</a><br><br>
+<a>Executed Code ≠ Verified Correct Code.</a><br><br>
+<section class="viewbor"></section>
+<h1>Branch and Condition Coverage</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall recognize coverage of relevant branching and conditional</h1>
+<a>behavior.</a><br><br>
+<a>Coverage may concern:</a><br><br>
+<ul><li>Decision outcomes</li><li>Logical conditions</li><li>Branch alternatives</li><li>Relevant control-flow combinations</li></ul><br>
+<a>High branch coverage shall not establish that every meaningful input<br>combination or failure condition has been assessed.</a><br><br>
+<a>Complete Branch Coverage ≠ Complete Behavioral Coverage.</a><br><br>
+<section class="viewbor"></section>
+<h1>Integration Coverage</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall assess the extent to which relevant software integrations have</h1>
+<a>been evaluated.</a><br><br>
+<a>Integrations may involve:</a><br><br>
+<ul><li>Internal components</li><li>APIs</li><li>Databases</li><li>External services</li><li>Messaging systems</li><li>Infrastructure dependencies</li></ul><br>
+<section class="viewbor"></section>
+<h1>Simulated integrations shall remain distinguishable from actual integration</h1>
+<a>behavior.</a><br><br>
+<a>Mocked Integration Test ≠ Verified Real Integration.</a><br><br>
+<section class="viewbor"></section>
+<h1>Scenario Coverage</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall assess the extent to which relevant operating scenarios have</h1>
+<a>been evaluated.</a><br><br>
+<a>Scenarios may include:</a><br><br>
+<ul><li>Normal use</li><li>Peak workload</li><li>Invalid inputs</li><li>Recovery</li><li>Concurrency</li><li>Integration failure</li><li>Relevant user workflows</li></ul><br>
+<a>Scenario coverage shall remain bounded by the defined scenario set.</a><br><br>
+<a>All Defined Scenarios Tested ≠ All Relevant Scenarios Identified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment Coverage</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall assess the environments and configurations represented by</h1>
+<a>material testing evidence.</a><br><br>
+<a>Coverage may concern:</a><br><br>
+<ul><li>Operating systems</li><li>Hardware</li><li>Runtime versions</li><li>Configuration combinations</li><li>Dependency versions</li><li>Network conditions</li><li>Deployment-relevant environments</li></ul><br>
+<a>Environment coverage shall not be generalized beyond assessed<br>combinations.</a><br><br>
+<a>Testing One Environment ≠ Testing Every Supported Environment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Failure-Condition Coverage</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall assess whether relevant failure conditions have been included in</h1>
+<a>testing.</a><br><br>
+<a>Conditions may include:</a><br><br>
+<ul><li>Dependency failure</li><li>Network interruption</li><li>Resource exhaustion</li><li>Invalid input</li><li>Timeout</li><li>Partial service unavailability</li><li>Recovery failure</li></ul><br>
+<section class="viewbor"></section>
+<h1>Failure-condition coverage shall remain connected to applicable quality</h1>
+<a>criteria.</a><br><br>
+<a>Normal-Operation Test Success ≠ Verified Failure Resilience.</a><br><br>
+<section class="viewbor"></section>
+<h1>Coverage Measurement Governance</h1>
+<a>TCMM shall preserve the methods used to measure material coverage<br>claims.</a><br><br>
+<a>Measurements should identify:</a><br><br>
+<ul><li>Coverage type</li><li>Measurement method</li><li>Covered population</li><li>Excluded population</li><li>Relevant artifact</li><li>Execution evidence</li><li>Aggregation rules</li><li>Known limitations</li></ul><br>
+<section class="viewbor"></section>
+<h1>Coverage measurements shall not be represented without sufficient</h1>
+<a>contextual meaning.</a><br><br>
+<a>Measured Coverage ≠ Demonstrated Quality Sufficiency.</a><br><br>
+<section class="viewbor"></section>
+<h1>Coverage Interpretation</h1>
+<a>TCMM shall assess what a coverage result actually demonstrates.</a><br><br>
+<a>A reported 95% line coverage may establish that defined<br>instrumentation observed execution of 95% of included lines.</a><br><br>
+<a>It does not establish:</a><br><br>
+<ul><li>Correct assertions</li><li>Representative test inputs</li><li>Adequate failure testing</li><li>Complete requirements coverage</li><li>Correct integration behavior</li><li>Production reliability</li></ul><br>
+<a>High Numerical Coverage ≠ High Evidentiary Quality.</a><br><br>
+<section class="viewbor"></section>
+<h1>Coverage Exclusions</h1>
+<a>TCMM shall identify material exclusions affecting coverage claims.</a><br><br>
+<a>Exclusions may include:</a><br><br>
+<ul><li>Generated code</li><li>Unreachable code</li><li>Unsupported platforms</li><li>External integrations</li><li>Specific modules</li><li>Failure scenarios</li><li>Environment combinations</li></ul><br>
+<a>Exclusions shall remain explicit where they affect interpretation.</a><br><br>
+<a>Coverage After Exclusions ≠ Coverage of the Entire Software Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>Coverage Gap</h1>
+<a>A Coverage Gap exists where relevant software behavior, requirements,<br>or conditions remain insufficiently addressed by competent testing<br>evidence.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Untested requirements</li><li>Missing integration scenarios</li><li>Unassessed failure conditions</li><li>Unsupported environment combinations</li><li>Missing regression coverage</li><li>Incomplete workload testing</li></ul><br>
+<section class="viewbor"></section>
+<h1>A coverage gap shall remain distinguishable from a demonstrated software</h1>
+<a>defect.</a><br><br>
+<a>Coverage Gap ≠ Proven Software Failure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Coverage Gap</h1>
+<a>A Critical Coverage Gap exists where missing or insufficient testing<br>prevents competent assessment of a materially consequential quality<br>condition.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>A critical financial calculation without suitable boundary<br>testing</li><li>A high-impact recovery mechanism without failure-condition<br>testing</li><li>A critical integration assessed only through unsuitable mocks</li><li>A release candidate whose relevant artifact was not tested</li><li>A safety-relevant function lacking competent behavioral evidence</li></ul><br>
+<a>TCMM shall preserve the critical gap for competent downstream<br>assessment.</a><br><br>
+<a>It does not independently determine software shutdown, release<br>rejection, security compromise, or legal liability.</a><br><br>
+<a>Critical Coverage Gap ≠ Automatic Software Failure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Evidence Competence</h1>
+<a>TCMM shall assess whether evidence is competent to support the<br>relevant testing claim.</a><br><br>
+<a>Competence may depend on:</a><br><br>
+<ul><li>Suitable test method</li><li>Correct artifact</li><li>Relevant configuration</li><li>Appropriate environment</li><li>Valid inputs</li><li>Applicable evaluation rules</li><li>Sufficient observations</li><li>Relevant coverage</li></ul><br>
+<a>A test report may be authentic while insufficient for the quality<br>claim being made.</a><br><br>
+<a>Authentic Test Evidence ≠ Sufficient Test Evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Evidence Integrity</h1>
+<a>TCMM shall preserve the integrity of material testing evidence.</a><br><br>
+<a>Relevant considerations may include:</a><br><br>
+<ul><li>Evidence source</li><li>Execution identity</li><li>Content integrity</li><li>Artifact correspondence</li><li>Configuration correspondence</li><li>Temporal relevance</li><li>Record preservation</li><li>Material contradictions</li></ul><br>
+<a>An intact execution log shall not independently establish that the<br>test was suitable or correctly interpreted.</a><br><br>
+<a>Intact Test Log ≠ Verified Test Conclusion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Uncertainty</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve material uncertainty concerning testing activities or</h1>
+<a>results.</a><br><br>
+<a>Uncertainty may arise where:</a><br><br>
+<ul><li>Execution evidence is incomplete</li><li>Test conditions are unclear</li><li>Artifact identity is unresolved</li><li>Test oracle validity is uncertain</li><li>Results are inconsistent</li><li>Coverage limitations are material</li><li>Assessment methods are insufficient</li></ul><br>
+<a>Uncertainty shall not be silently converted into a passing result.</a><br><br>
+<a>Unresolved Test Evidence ≠ Verified Test Success.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Conflict</h1>
+<a>A Testing Conflict exists where material testing records or<br>conclusions are incompatible.</a><br><br>
+<a>Examples may include:</a><br><br>
+<ul><li>Contradictory execution results</li><li>Conflicting artifact references</li><li>Incompatible coverage reports</li><li>Different outcomes under allegedly equivalent conditions</li><li>Contradictory test environment records</li><li>Conflicting result classifications</li></ul><br>
+<a>TCMM shall preserve the conflict and its supporting evidence.</a><br><br>
+<a>Conflicting Test Results ≠ Permission to Select the Preferred Result.</a><br><br>
+<section class="viewbor"></section>
+<h1>Regression Testing Governance</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall govern testing intended to assess whether software changes</h1>
+<a>adversely affect previously established behavior.</a><br><br>
+<a>Regression testing shall preserve:</a><br><br>
+<ul><li>Relevant historical behavior</li><li>Changed software artifact</li><li>Applicable configuration</li><li>Selected regression scope</li><li>Execution evidence</li><li>Observed results</li><li>Coverage limitations</li></ul><br>
+<section class="viewbor"></section>
+<h1>Passing selected regression tests shall not establish the absence of all</h1>
+<a>regressions.</a><br><br>
+<a>Regression Test Success ≠ Absence of Regression Risk.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Continuity</h1>
+<section class="viewbor"></section>
+<h1>TCMM shall preserve material testing relationships across software</h1>
+<a>lifecycle changes.</a><br><br>
+<a>Continuity may involve:</a><br><br>
+<ul><li>Historical test cases</li><li>Test revisions</li><li>Artifact changes</li><li>Configuration changes</li><li>Dependency changes</li><li>Updated criteria</li><li>Coverage evolution</li><li>Regression history</li><li>Evidence preservation</li></ul><br>
+<section class="viewbor"></section>
+<h1>Historical testing evidence shall not automatically establish current</h1>
+<a>software quality.</a><br><br>
+<a>Previously Tested Software ≠ Currently Tested Software.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Reassessment</h1>
+<a>TCMM shall support reassessment when material testing conditions<br>change.</a><br><br>
+<a>Triggers may include:</a><br><br>
+<ul><li>New software versions</li><li>Configuration changes</li><li>Dependency updates</li><li>Revised quality criteria</li><li>New operating environments</li><li>Newly discovered defects</li><li>Contradictory test results</li><li>Changed test methods</li><li>New coverage requirements</li></ul><br>
+<a>Reassessment shall preserve relevant historical determinations.</a><br><br>
+<a>Testing Reassessment ≠ Historical Testing Record Erasure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Governance States</h1>
+<a>TCMM shall support identifiable governance states.</a><br><br>
+<a>Possible states include:</a><br><br>
+<a>Identified: A testing governance object has been recognized.</a><br><br>
+<a>Planned: Material testing objectives and scope have been established.</a><br><br>
+<a>Designed: Relevant test cases and methods have been specified.</a><br><br>
+<a>Readiness-Pending: Required execution preconditions remain unresolved.</a><br><br>
+<a>Ready: Material execution preconditions are sufficiently established.</a><br><br>
+<a>Execution-Pending: Testing has not yet been performed.</a><br><br>
+<a>Executing: Testing is underway.</a><br><br>
+<a>Completed: The defined execution completion conditions have been<br>reached.</a><br><br>
+<section class="viewbor"></section>
+<h1>Passed: Valid evidence supports satisfaction of the applicable test</h1>
+<a>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Failed: Valid evidence demonstrates non-satisfaction of the applicable</h1>
+<a>test conditions.</a><br><br>
+<a>Interrupted: Execution ended before required completion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Invalid: Material execution or assessment conditions prevent competent</h1>
+<a>interpretation.</a><br><br>
+<a>Inconclusive: Evidence is insufficient for a reliable determination.</a><br><br>
+<a>Partially Covered: Relevant testing scope has been assessed only in<br>part.</a><br><br>
+<a>Coverage-Gap: Material coverage remains insufficient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical-Coverage-Gap: Missing testing evidence prevents competent</h1>
+<a>assessment of a materially consequential condition.</a><br><br>
+<a>Evidence-Limited: Supporting evidence is insufficient.</a><br><br>
+<a>Conflict-Detected: Material testing records or conclusions are<br>incompatible.</a><br><br>
+<a>Superseded: A later testing assessment has replaced the earlier<br>reference.</a><br><br>
+<section class="viewbor"></section>
+<h1>Reassessment-Required: Material changes require renewed testing</h1>
+<a>evaluation.</a><br><br>
+<a>Unresolved: Available information does not support a sufficiently<br>determined state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing execution states, test result states, and coverage states shall</h1>
+<a>remain distinguishable even where represented together.</a><br><br>
+<a>Test Passed ≠ Testing Governance Complete.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<a>The principal output of TCMM is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<a>The state shall preserve sufficient information to identify:</a><br><br>
+<a>Testing Governance Object: The governed testing activity or<br>assessment.</a><br><br>
+<a>Testing Identity: The identifiable testing reference.</a><br><br>
+<a>Testing Purpose: The reason testing was performed.</a><br><br>
+<a>Testing Scope: The applicable assessment boundaries.</a><br><br>
+<a>Software Object: The software being evaluated.</a><br><br>
+<a>Artifact Identity: The tested artifact.</a><br><br>
+<a>Artifact Version: The relevant version.</a><br><br>
+<a>Configuration Reference: The tested configuration.</a><br><br>
+<a>Quality Requirements: The applicable governed requirements.</a><br><br>
+<a>Quality Criteria: The criteria used for evaluation.</a><br><br>
+<a>Test Strategy: The governing testing approach.</a><br><br>
+<a>Test Classification: The relevant testing type.</a><br><br>
+<a>Test Objectives: The intended assessment outcomes.</a><br><br>
+<a>Test Designs: The defined testing methods and cases.</a><br><br>
+<a>Test Case Identities: The identifiable test definitions.</a><br><br>
+<a>Test Scenarios: The evaluated operating scenarios.</a><br><br>
+<a>Test Inputs: The relevant execution inputs.</a><br><br>
+<a>Test Data: The data used and its limitations.</a><br><br>
+<a>Expected Behavior: The applicable expected software behavior.</a><br><br>
+<a>Test Oracle: The mechanism used to evaluate observed behavior.</a><br><br>
+<a>Test Preconditions: The required execution conditions.</a><br><br>
+<a>Test Environment: The actual testing environment.</a><br><br>
+<a>Environment Suitability: The suitability of that environment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment Correspondence: The relationship to relevant operational</h1>
+<a>conditions.</a><br><br>
+<a>Test Dependencies: Material supporting dependencies.</a><br><br>
+<a>Execution Authority: The legitimate basis for testing actions.</a><br><br>
+<a>Automated Testing Authority: Relevant automated action boundaries.</a><br><br>
+<a>Execution Identities: The identifiable test runs.</a><br><br>
+<a>Execution Conditions: The actual execution circumstances.</a><br><br>
+<a>Execution Evidence: The records supporting execution claims.</a><br><br>
+<a>Completion State: The recognized execution completion condition.</a><br><br>
+<a>Interruption State: Relevant interrupted executions.</a><br><br>
+<a>Failure State: Material failed tests.</a><br><br>
+<a>Invalidity State: Invalid testing evidence or results.</a><br><br>
+<a>Observed Behavior: The behavior actually recorded.</a><br><br>
+<section class="viewbor"></section>
+<h1>Behavior Correspondence: The relationship between expected and observed</h1>
+<a>behavior.</a><br><br>
+<a>Test Result Classification: The recognized execution outcomes.</a><br><br>
+<a>Test Result Verification: The competence of reported results.</a><br><br>
+<a>Test Repeatability: Relevant repeated execution conditions.</a><br><br>
+<a>Test Determinism: The recognized determinism conditions.</a><br><br>
+<a>Test Flakiness: Material inconsistent testing outcomes.</a><br><br>
+<a>Coverage Basis: The definition of coverage.</a><br><br>
+<a>Requirements Coverage: The assessed requirement coverage.</a><br><br>
+<a>Functional Coverage: The assessed functional behavior.</a><br><br>
+<a>Code Coverage: The relevant source-code coverage.</a><br><br>
+<a>Branch Coverage: The relevant decision coverage.</a><br><br>
+<a>Integration Coverage: The assessed integration conditions.</a><br><br>
+<a>Scenario Coverage: The assessed scenarios.</a><br><br>
+<a>Environment Coverage: The assessed environments.</a><br><br>
+<a>Failure-Condition Coverage: The assessed failure conditions.</a><br><br>
+<a>Coverage Measurements: The recorded coverage values.</a><br><br>
+<a>Coverage Interpretation: The justified meaning of those values.</a><br><br>
+<a>Coverage Exclusions: Material excluded conditions.</a><br><br>
+<a>Coverage Gaps: Missing relevant testing coverage.</a><br><br>
+<a>Critical Coverage Gaps: Material gaps requiring competent attention.</a><br><br>
+<a>Evidence Competence: The suitability of testing evidence.</a><br><br>
+<a>Evidence Integrity: The condition of supporting evidence.</a><br><br>
+<a>Testing Uncertainty: Material unresolved testing conditions.</a><br><br>
+<a>Testing Conflicts: Contradictory evidence or conclusions.</a><br><br>
+<a>Regression Testing: Relevant regression assessment evidence.</a><br><br>
+<a>Testing Continuity: Preservation of lifecycle relationships.</a><br><br>
+<a>Testing Reassessment: Material reassessment history.</a><br><br>
+<a>Testing Governance State: The recognized testing condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Downstream References: Information required by DFM, QCAM, and parent SQS</h1>
+<a>governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>The state shall not independently establish complete software correctness,</h1>
+<a>defect resolution, quality acceptance, software security, release<br>authorization, or deployment authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A conforming implementation of TCMM must provide the following six<br>functional capabilities.</a><br><br>
+<ul><li>Testing Object, Purpose, Scope, Artifact, Configuration, and<br>Quality</li></ul><br>
+<a>Criteria Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to establish identifiable testing governance objects, define</h1>
+<a>testing purpose and scope, associate testing activities with the<br>actual software artifact and configuration, and preserve<br>correspondence with governed quality requirements and criteria.</a><br><br>
+<a>The implementation must distinguish the software intended for testing<br>from the software actually tested.</a><br><br>
+<ul><li>Test Strategy, Design, Scenario, Input, Data, Oracle, and<br>Environment</li></ul><br>
+<a>Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to establish suitable testing strategies, identifiable test</h1>
+<a>cases, scenarios, inputs, data conditions, expected behavior, test<br>oracles, preconditions, environments, and supporting dependencies.</a><br><br>
+<a>The implementation must distinguish test design from execution and<br>test oracle availability from oracle validity.</a><br><br>
+<ul><li>Test Authority, Execution, Observation, Result Classification,<br>and</li></ul><br>
+<a>Verification Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to preserve competent test execution authority, automated</h1>
+<a>testing boundaries, execution identities, actual execution conditions,<br>execution evidence, observed behavior, expected–observed<br>correspondence, result classifications, and result verification.</a><br><br>
+<a>The implementation must distinguish reported test success from<br>verified execution evidence and legitimate quality conclusions.</a><br><br>
+<ul><li>Testing Coverage Definition, Measurement, Interpretation,<br>Exclusion, and</li></ul><br>
+<a>Gap Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to establish coverage bases, assess requirements, functional,</h1>
+<a>code, branch, integration, scenario, environment, and<br>failure-condition coverage, interpret coverage measurements, identify<br>exclusions, and recognize material and critical coverage gaps.</a><br><br>
+<a>The implementation must distinguish numerical coverage from sufficient<br>quality evidence.</a><br><br>
+<ul><li>Testing Evidence, Repeatability, Flakiness, Conflict,<br>Uncertainty,</li></ul><br>
+<a>Regression, and Continuity Governance</a><br><br>
+<section class="viewbor"></section>
+<h1>Capability to preserve competent and integrity-supported testing evidence,</h1>
+<a>identify repeatability and determinism conditions, recognize flaky<br>tests, detect conflicts and uncertainty, assess regression testing,<br>and maintain lifecycle continuity and reassessment.</a><br><br>
+<a>The implementation must distinguish test evidence limitations from<br>demonstrated software defects.</a><br><br>
+<ul><li>Governed Software Testing &amp; Coverage State and SQS Handoff<br>Governance</li></ul><br>
+<section class="viewbor"></section>
+<h1>Capability to produce a Governed Software Testing &amp; Coverage State with</h1>
+<a>sufficient testing identity, artifact correspondence, configuration,<br>quality criteria, execution evidence, observed behavior, result<br>verification, coverage scope, exclusions, gaps, uncertainty, and<br>continuity information for competent downstream DFM, QCAM, and parent<br>SQS governance.</a><br><br>
+<a>The implementation must not represent passing tests or high coverage<br>as complete software quality validation. GIE™ Compatibility</a><br><br>
+<a>TCMM is compatible with GIE™ as a downstream methodological analysis<br>and execution layer.</a><br><br>
+<a>GIE™ may support:</a><br><br>
+<ul><li>Testing governance object identification</li><li>Testing purpose and scope analysis</li><li>Software object correspondence</li><li>Artifact and version correspondence assessment</li><li>Configuration correspondence analysis</li><li>Quality requirement and criterion mapping</li><li>Test strategy assessment</li><li>Test classification</li><li>Test objective analysis</li><li>Test design evaluation</li><li>Test case identity mapping</li><li>Test scenario analysis</li><li>Test input and data assessment</li><li>Expected behavior identification</li><li>Test oracle suitability analysis</li><li>Test precondition assessment</li><li>Test environment suitability analysis</li><li>Environment correspondence evaluation</li><li>Test dependency identification</li><li>Test execution authority assessment</li><li>Automated testing action boundary analysis</li><li>Test execution identity mapping</li><li>Execution condition assessment</li><li>Execution evidence verification</li><li>Test completion and interruption analysis</li><li>Test failure interpretation</li><li>Test invalidity detection</li><li>Observed behavior analysis</li><li>Expected–observed correspondence</li><li>Test result classification</li><li>Test result verification</li><li>Test repeatability assessment</li><li>Test determinism analysis</li><li>Test flakiness detection</li><li>Coverage basis identification</li><li>Requirements coverage analysis</li><li>Functional coverage analysis</li><li>Code and branch coverage interpretation</li><li>Integration coverage assessment</li><li>Scenario coverage analysis</li><li>Environment coverage assessment</li><li>Failure-condition coverage analysis</li><li>Coverage measurement interpretation</li><li>Coverage exclusion identification</li><li>Coverage gap detection</li><li>Critical coverage gap detection</li><li>Test evidence competence assessment</li><li>Test evidence integrity assessment</li><li>Testing uncertainty recognition</li><li>Testing conflict detection</li><li>Regression testing analysis</li><li>Testing continuity mapping</li><li>Testing reassessment support</li><li>Governed testing and coverage state representation</li></ul><br>
+<a>GIE™ may identify untested quality conditions, detect inconsistencies<br>between test reports and execution evidence, propose additional test<br>scenarios, or identify possible coverage gaps.</a><br><br>
+<section class="viewbor"></section>
+<h1>Such outputs shall remain distinguishable from completed and verified</h1>
+<a>testing activities.</a><br><br>
+<a>GIE™ must not fabricate test execution evidence, invent observed<br>software behavior, represent generated test cases as executed tests,<br>infer software correctness from numerical coverage, or treat<br>autonomous testing authority as unrestricted authority over test<br>criteria, software artifacts, or external systems.</a><br><br>
+<section class="viewbor"></section>
+<h1>OOF® logic adapts to the governed reality. The engine adapts to OOF®</h1>
+<a>logic.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>The canonical TCMM governance logic is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Quality Requirements State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Quality Criteria Definition State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Testing Governance Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Testing Purpose and Scope</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Software Object, Artifact, and Version</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Configuration Correspondence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Associate Testing with Quality Requirements and Criteria</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Define Test Strategy and Classification</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Test Objectives</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Define Test Cases and Scenarios</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Test Inputs and Data</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Expected Behavior and Test Oracles</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Test Preconditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Test Environment and Suitability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Environment Correspondence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Test Dependencies</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Test Execution Authority</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Automated Testing Action Boundaries</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Test Execution Instances</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Actual Execution Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Execute or Evaluate Material Testing Activities</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Test Execution Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Test Completion, Interruption, or Invalidity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Observe Software Behavior</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Compare Expected and Observed Behavior</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Classify Test Results</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Verify Reported Results</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Repeatability, Determinism, and Flakiness</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Coverage Basis</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Requirements, Functional, Code, Branch, Integration, Scenario,</h1>
+<a>Environment, and Failure-Condition Coverage</a><br><br>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Interpret Coverage Measurements</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Coverage Exclusions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Coverage Gaps and Critical Coverage Gaps</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Testing Evidence Competence and Integrity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Testing Uncertainty and Conflicts</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Relevant Regression Testing</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Testing Governance State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Governed Software Testing &amp; Coverage State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff to DFM, QCAM, and Parent SQS Governance</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Testing Continuity</h1>
+<a>↓</a><br><br>
+<a>Reassess When Material Testing Conditions Change</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>TCMM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Testing Identity Record</h1>
+<section class="viewbor"></section>
+<h1>Testing Purpose Record</h1>
+<section class="viewbor"></section>
+<h1>Testing Scope Record</h1>
+<section class="viewbor"></section>
+<h1>Software Object Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Tested Artifact Identity Record</h1>
+<section class="viewbor"></section>
+<h1>Tested Artifact Version Record</h1>
+<section class="viewbor"></section>
+<h1>Tested Configuration Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Quality Requirement Testing Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Quality Criterion Testing Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Test Strategy Record</h1>
+<section class="viewbor"></section>
+<h1>Test Classification Record</h1>
+<section class="viewbor"></section>
+<h1>Test Objective Record</h1>
+<section class="viewbor"></section>
+<h1>Test Design Record</h1>
+<section class="viewbor"></section>
+<h1>Test Case Register</h1>
+<section class="viewbor"></section>
+<h1>Test Scenario Register</h1>
+<section class="viewbor"></section>
+<h1>Test Input Record</h1>
+<section class="viewbor"></section>
+<h1>Test Data Record</h1>
+<section class="viewbor"></section>
+<h1>Expected Behavior Record</h1>
+<section class="viewbor"></section>
+<h1>Test Oracle Record</h1>
+<section class="viewbor"></section>
+<h1>Test Preconditions Record</h1>
+<section class="viewbor"></section>
+<h1>Test Environment Record</h1>
+<section class="viewbor"></section>
+<h1>Test Environment Suitability Assessment</h1>
+<section class="viewbor"></section>
+<h1>Environment Correspondence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Test Dependency Record</h1>
+<section class="viewbor"></section>
+<h1>Test Execution Authority Record</h1>
+<section class="viewbor"></section>
+<h1>Automated Testing Authority Record</h1>
+<section class="viewbor"></section>
+<h1>Test Execution Identity Record</h1>
+<section class="viewbor"></section>
+<h1>Test Execution Conditions Record</h1>
+<section class="viewbor"></section>
+<h1>Test Execution Evidence Register</h1>
+<section class="viewbor"></section>
+<h1>Test Completion Record</h1>
+<section class="viewbor"></section>
+<h1>Test Interruption Record</h1>
+<section class="viewbor"></section>
+<h1>Test Failure Record</h1>
+<section class="viewbor"></section>
+<h1>Test Invalidity Record</h1>
+<section class="viewbor"></section>
+<h1>Observed Software Behavior Record</h1>
+<section class="viewbor"></section>
+<h1>Expected–Observed Correspondence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Test Result Classification Record</h1>
+<section class="viewbor"></section>
+<h1>Test Result Verification Record</h1>
+<section class="viewbor"></section>
+<h1>Test Repeatability Assessment</h1>
+<section class="viewbor"></section>
+<h1>Test Determinism Assessment</h1>
+<section class="viewbor"></section>
+<h1>Test Flakiness Record</h1>
+<section class="viewbor"></section>
+<h1>Test Coverage Basis Record</h1>
+<section class="viewbor"></section>
+<h1>Requirements Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Functional Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Code Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Branch Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Integration Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Scenario Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Environment Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Failure-Condition Coverage Record</h1>
+<section class="viewbor"></section>
+<h1>Coverage Measurement Record</h1>
+<section class="viewbor"></section>
+<h1>Coverage Interpretation Record</h1>
+<section class="viewbor"></section>
+<h1>Coverage Exclusion Record</h1>
+<section class="viewbor"></section>
+<h1>Coverage Gap</h1>
+<section class="viewbor"></section>
+<h1>Critical Coverage Gap</h1>
+<section class="viewbor"></section>
+<h1>Test Evidence Competence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Test Evidence Integrity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Testing Uncertainty State</h1>
+<section class="viewbor"></section>
+<h1>Testing Conflict</h1>
+<section class="viewbor"></section>
+<h1>Regression Testing Record</h1>
+<section class="viewbor"></section>
+<h1>Testing Continuity Record</h1>
+<section class="viewbor"></section>
+<h1>Testing Reassessment Record</h1>
+<section class="viewbor"></section>
+<h1>Testing Governance State</h1>
+<section class="viewbor"></section>
+<h1>SQS Testing &amp; Coverage Handoff Record</h1>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>TCMM preserves the following distinctions:</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Execution Success ≠ Demonstrated Software Quality</h1>
+<section class="viewbor"></section>
+<h1>Testing Governance Object ≠ Test Execution Report</h1>
+<section class="viewbor"></section>
+<h1>Testing Purpose ≠ Testing Result</h1>
+<section class="viewbor"></section>
+<h1>Defined Testing Scope ≠ Executed Testing Scope</h1>
+<section class="viewbor"></section>
+<h1>Testing One Software Component ≠ Testing the Entire Software System</h1>
+<section class="viewbor"></section>
+<h1>Declared Tested Version ≠ Verified Tested Artifact</h1>
+<section class="viewbor"></section>
+<h1>Testing Version A ≠ Verification of Version B</h1>
+<section class="viewbor"></section>
+<h1>Tested Configuration ≠ Every Configuration</h1>
+<section class="viewbor"></section>
+<h1>Requirement Linked to Test ≠ Requirement Verified by Test</h1>
+<section class="viewbor"></section>
+<h1>Executing a Test Against Modified Criteria ≠ Satisfying the Original</h1>
+<a>Criteria</a><br><br>
+<section class="viewbor"></section>
+<h1>Test Strategy Approval ≠ Test Strategy Execution</h1>
+<section class="viewbor"></section>
+<h1>Test Classification ≠ Test Competence</h1>
+<section class="viewbor"></section>
+<h1>Test Objective ≠ Test Outcome</h1>
+<section class="viewbor"></section>
+<h1>Designed Test ≠ Executed Test</h1>
+<section class="viewbor"></section>
+<h1>Test Case Identity ≠ Test Execution Identity</h1>
+<section class="viewbor"></section>
+<h1>Defined Test Scenario ≠ Observed Scenario Behavior</h1>
+<section class="viewbor"></section>
+<h1>Defined Test Input ≠ Verified Executed Input</h1>
+<section class="viewbor"></section>
+<h1>Available Test Data ≠ Representative Test Data</h1>
+<section class="viewbor"></section>
+<h1>Expected Test Result ≠ Observed Test Result</h1>
+<section class="viewbor"></section>
+<h1>Test Oracle Availability ≠ Test Oracle Validity</h1>
+<section class="viewbor"></section>
+<h1>Declared Test Preconditions ≠ Verified Test Readiness</h1>
+<section class="viewbor"></section>
+<h1>Documented Test Environment ≠ Actual Test Environment</h1>
+<section class="viewbor"></section>
+<h1>Operational Test Environment ≠ Suitable Assessment Environment</h1>
+<section class="viewbor"></section>
+<h1>Test Environment Similarity ≠ Demonstrated Operational Equivalence</h1>
+<section class="viewbor"></section>
+<h1>Available Test Dependency ≠ Suitable Test Dependency</h1>
+<section class="viewbor"></section>
+<h1>Test Execution Authority ≠ Quality Acceptance Authority</h1>
+<section class="viewbor"></section>
+<h1>Testing Task Authority ≠ Constituent Testing Action Authority</h1>
+<section class="viewbor"></section>
+<h1>Same Test Case ≠ Same Test Execution</h1>
+<section class="viewbor"></section>
+<h1>Planned Test Conditions ≠ Actual Test Conditions</h1>
+<section class="viewbor"></section>
+<h1>Test Report Generation ≠ Verified Test Execution</h1>
+<section class="viewbor"></section>
+<h1>Completed Test ≠ Passed Test</h1>
+<section class="viewbor"></section>
+<h1>Interrupted Test ≠ Failed Software Quality Criterion</h1>
+<section class="viewbor"></section>
+<h1>Failed Test ≠ Verified Software Defect</h1>
+<section class="viewbor"></section>
+<h1>Invalid Test Result ≠ Valid Test Failure</h1>
+<section class="viewbor"></section>
+<h1>Observed Behavior in One Test ≠ Universal Software Behavior</h1>
+<section class="viewbor"></section>
+<h1>Expected–Observed Correspondence ≠ Complete Software Correctness</h1>
+<section class="viewbor"></section>
+<h1>Passed Test ≠ Accepted Software Quality State</h1>
+<section class="viewbor"></section>
+<h1>Reported Test Pass ≠ Verified Test Pass</h1>
+<section class="viewbor"></section>
+<h1>Repeatable Test Execution ≠ Identical Test Outcome</h1>
+<section class="viewbor"></section>
+<h1>Non-Deterministic Test ≠ Automatically Invalid Test</h1>
+<section class="viewbor"></section>
+<h1>Flaky Test ≠ Proven Software Defect</h1>
+<section class="viewbor"></section>
+<h1>Coverage Percentage Without Coverage Definition ≠ Meaningful Coverage</h1>
+<a>Claim</a><br><br>
+<section class="viewbor"></section>
+<h1>Requirement-to-Test Link ≠ Executed Requirement Coverage</h1>
+<section class="viewbor"></section>
+<h1>Code Coverage ≠ Functional Coverage</h1>
+<section class="viewbor"></section>
+<h1>Executed Code ≠ Verified Correct Code</h1>
+<section class="viewbor"></section>
+<h1>Complete Branch Coverage ≠ Complete Behavioral Coverage</h1>
+<section class="viewbor"></section>
+<h1>Mocked Integration Test ≠ Verified Real Integration</h1>
+<section class="viewbor"></section>
+<h1>All Defined Scenarios Tested ≠ All Relevant Scenarios Identified</h1>
+<section class="viewbor"></section>
+<h1>Testing One Environment ≠ Testing Every Supported Environment</h1>
+<section class="viewbor"></section>
+<h1>Normal-Operation Test Success ≠ Verified Failure Resilience</h1>
+<section class="viewbor"></section>
+<h1>Measured Coverage ≠ Demonstrated Quality Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>High Numerical Coverage ≠ High Evidentiary Quality</h1>
+<section class="viewbor"></section>
+<h1>Coverage After Exclusions ≠ Coverage of the Entire Software Object</h1>
+<section class="viewbor"></section>
+<h1>Coverage Gap ≠ Proven Software Failure</h1>
+<section class="viewbor"></section>
+<h1>Critical Coverage Gap ≠ Automatic Software Failure</h1>
+<section class="viewbor"></section>
+<h1>Authentic Test Evidence ≠ Sufficient Test Evidence</h1>
+<section class="viewbor"></section>
+<h1>Intact Test Log ≠ Verified Test Conclusion</h1>
+<section class="viewbor"></section>
+<h1>Unresolved Test Evidence ≠ Verified Test Success</h1>
+<section class="viewbor"></section>
+<h1>Conflicting Test Results ≠ Permission to Select the Preferred Result</h1>
+<section class="viewbor"></section>
+<h1>Regression Test Success ≠ Absence of Regression Risk</h1>
+<section class="viewbor"></section>
+<h1>Previously Tested Software ≠ Currently Tested Software</h1>
+<section class="viewbor"></section>
+<h1>Testing Reassessment ≠ Historical Testing Record Erasure</h1>
+<section class="viewbor"></section>
+<h1>Test Passed ≠ Testing Governance Complete</h1>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<section class="viewbor"></section>
+<h1>TCMM governs software-quality-specific testing identity, planning, design,</h1>
+<a>execution, observation, result verification, coverage, evidence,<br>limitations, and continuity within SQS and SLGA™.</a><br><br>
+<a>It does not independently establish software quality requirements,<br>redefine quality criteria, determine complete software quality,<br>resolve defects, authorize quality acceptance, certify security,<br>authorize software release, or authorize deployment.</a><br><br>
+<a>Within SQS:</a><br><br>
+<section class="viewbor"></section>
+<h1>QRM — Quality Requirements Module governs software quality requirement</h1>
+<a>establishment.</a><br><br>
+<section class="viewbor"></section>
+<h1>QCDM — Quality Criteria Definition Module governs quality criterion</h1>
+<a>definition, applicability, assessment methods, and evidence<br>requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>TCMM — Testing &amp; Coverage Management Module governs actual testing</h1>
+<a>activities, execution evidence, observed results, and coverage.</a><br><br>
+<section class="viewbor"></section>
+<h1>DFM — Defect Management Module governs software defect identification,</h1>
+<a>classification, impact, correction references, and resolution<br>verification.</a><br><br>
+<section class="viewbor"></section>
+<h1>QCAM — Quality Conformity &amp; Acceptance Module governs quality conformity</h1>
+<a>assessment, validation, acceptance authority, acceptance decisions,<br>and residual limitations.</a><br><br>
+<a>Within SLGA™:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements Standard (SRS) governs the broader software</h1>
+<a>requirements lifecycle.</a><br><br>
+<a>Software Creation Standard (SCS) governs software creation.</a><br><br>
+<a>Software Dependency Standard (SDS) governs software dependencies.</a><br><br>
+<a>Software Configuration Standard (SCFS) governs software configuration.</a><br><br>
+<a>Software Quality Standard (SQS) governs software quality.</a><br><br>
+<a>Software Security Standard (SSS) governs software security.</a><br><br>
+<a>Software Release Standard (SRLS) governs software release.</a><br><br>
+<a>Software Deployment Standard (SDPS) governs software deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Change Management Standard (SCMS) governs broader lifecycle</h1>
+<a>changes.</a><br><br>
+<a>Software Retirement Standard (SRTS) governs software retirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control Standard (SLCS) governs cross-cutting</h1>
+<a>lifecycle control.</a><br><br>
+<a>Relevant interoperating OOF® architectures include:</a><br><br>
+<section class="viewbor"></section>
+<h1>GOA™ — Governance Architecture: General authority and delegation</h1>
+<a>governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>AGA™ — Accountability Governance Architecture: Relevant responsibility</h1>
+<a>and accountability relationships.</a><br><br>
+<section class="viewbor"></section>
+<h1>ORA™ — Operational Reality Architecture: Competent assessment of actual</h1>
+<a>software behavior and operating conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>ASGA™ — Autonomous Systems Governance Architecture: Relevant autonomous</h1>
+<a>testing activities and execution boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>AGI™ — Agent Governance Infrastructure: Relevant agent permissions,</h1>
+<a>tool-path authority, and constituent action governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>TCMM preserves testing-and-coverage-specific governance without replacing</h1>
+<a>these competent domains.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>TCMM begins when a governed software quality criterion requires<br>testing, execution evidence, observed behavior, coverage assessment,<br>or testing reassessment.</a><br><br>
+<a>TCMM governs:</a><br><br>
+<ul><li>Testing governance objects</li><li>Testing identity</li><li>Testing purpose</li><li>Testing scope</li><li>Software object correspondence</li><li>Artifact identity</li><li>Artifact version correspondence</li><li>Configuration correspondence</li><li>Quality requirement correspondence</li><li>Quality criterion correspondence</li><li>Test strategies</li><li>Test classifications</li><li>Test objectives</li><li>Test designs</li><li>Test cases</li><li>Test scenarios</li><li>Test inputs</li><li>Test data</li><li>Expected behavior</li><li>Test oracles</li><li>Test preconditions</li><li>Test environments</li><li>Environment suitability</li><li>Environment correspondence</li><li>Test dependencies</li><li>Test execution authority</li><li>Automated testing authority</li><li>Test execution identities</li><li>Execution conditions</li><li>Execution evidence</li><li>Test completion</li><li>Test interruption</li><li>Test failure</li><li>Test invalidity</li><li>Observed software behavior</li><li>Expected–observed correspondence</li><li>Test result classifications</li><li>Test result verification</li><li>Test repeatability</li><li>Test determinism</li><li>Test flakiness</li><li>Coverage bases</li><li>Requirements coverage</li><li>Functional coverage</li><li>Code coverage</li><li>Branch coverage</li><li>Integration coverage</li><li>Scenario coverage</li><li>Environment coverage</li><li>Failure-condition coverage</li><li>Coverage measurements</li><li>Coverage interpretation</li><li>Coverage exclusions</li><li>Coverage gaps</li><li>Critical coverage gaps</li><li>Test evidence competence</li><li>Test evidence integrity</li><li>Testing uncertainty</li><li>Testing conflicts</li><li>Regression testing</li><li>Testing continuity</li><li>Testing reassessment</li><li>Testing governance states</li></ul><br>
+<a>TCMM does not independently determine:</a><br><br>
+<ul><li>Complete software requirements validity</li><li>Software creation authorization</li><li>Dependency suitability</li><li>Configuration baseline establishment</li><li>Quality criterion establishment</li><li>Complete software correctness</li><li>Defect root-cause attribution</li><li>Defect resolution</li><li>Software quality acceptance</li><li>Software security</li><li>Release authorization</li><li>Deployment authorization</li><li>Legal compliance</li><li>Legal liability</li></ul><br>
+<a>TCMM ends when material testing and coverage conditions have been<br>represented as a:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Testing &amp; Coverage State</h1>
+<section class="viewbor"></section>
+<h1>with sufficient testing identity, artifact correspondence, configuration,</h1>
+<a>quality criteria, execution evidence, observed behavior, result<br>verification, coverage scope, exclusions, gaps, uncertainty, and<br>continuity information for competent downstream DFM, QCAM, and parent<br>SQS governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 1 — An AI-Generated Test Suite Reports 98% Coverage but Misses</h1>
+<a>a Critical Failure Scenario</a><br><br>
+<section class="viewbor"></section>
+<h1>An organization uses an AI coding assistant to develop a financial</h1>
+<a>calculation service.</a><br><br>
+<a>The assistant generates:</a><br><br>
+<ul><li>Application code</li><li>Unit tests</li><li>Test data</li><li>Expected outputs</li><li>Coverage configuration</li></ul><br>
+<a>The automated pipeline reports:</a><br><br>
+<ul><li>All tests passed</li><li>98% line coverage</li><li>No detected defects</li></ul><br>
+<a>The development team interprets the result as evidence that the<br>service is production-ready.</a><br><br>
+<a>However, the generated tests primarily evaluate normal input values.</a><br><br>
+<a>The test suite does not adequately assess:</a><br><br>
+<ul><li>Extreme numerical values</li><li>Rounding boundaries</li><li>Missing transaction data</li><li>Repeated transactions</li><li>Relevant concurrency conditions</li><li>Critical failure recovery</li></ul><br>
+<a>The expected outputs were also generated by the same AI system that<br>produced the implementation, without sufficient independent<br>verification.</a><br><br>
+<a>TCMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Quality Criteria → Test Design → Test Oracle → Executed Inputs →</h1>
+<a>Observed Behavior → Coverage Basis → Coverage Interpretation →<br>Coverage Gaps</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>Valid execution evidence for the tests actually performed</li><li>High line coverage under the selected instrumentation</li><li>Insufficient evidence of independent test oracle validity</li><li>Incomplete boundary-condition coverage</li><li>Missing critical failure scenarios</li><li>A material difference between code coverage and meaningful<br>behavioral</li></ul><br>
+<a>coverage.</a><br><br>
+<a>The resulting testing state may recognize:</a><br><br>
+<section class="viewbor"></section>
+<h1>Passed</h1>
+<a>for the valid executed tests, while separately recording:</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical-Coverage-Gap</h1>
+<a>for the unassessed consequential conditions.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Executed Code ≠ Verified Correct Code.</a><br><br>
+<a>High Numerical Coverage ≠ High Evidentiary Quality.</a><br><br>
+<a>Test Oracle Availability ≠ Test Oracle Validity.</a><br><br>
+<a>All Defined Scenarios Tested ≠ All Relevant Scenarios Identified.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: TCMM prevents high numerical test coverage and successful</h1>
+<a>automated execution from being interpreted as comprehensive software<br>quality evidence when material behavior remains unassessed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — A Testing Agent Reports Success After Testing the Wrong</h1>
+<a>Software Artifact</a><br><br>
+<a>An organization prepares a new software release.</a><br><br>
+<a>The release candidate contains:</a><br><br>
+<ul><li>Updated application code</li><li>A revised dependency</li><li>Modified runtime configuration</li><li>A new build artifact</li></ul><br>
+<a>An autonomous testing agent is instructed to execute the regression<br>suite against the release candidate.</a><br><br>
+<a>The agent selects an available test environment and executes the<br>tests.</a><br><br>
+<a>The pipeline reports:</a><br><br>
+<ul><li>All regression tests passed</li><li>No critical test failures</li><li>Successful completion</li></ul><br>
+<a>However, the environment still contains the previous software<br>artifact.</a><br><br>
+<a>The agent executed the correct test suite but against the wrong<br>version.</a><br><br>
+<section class="viewbor"></section>
+<h1>The test report contains the expected release version label, but the actual</h1>
+<a>artifact identity was not verified.</a><br><br>
+<a>TCMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Testing Objective → Artifact Identity → Configuration → Execution</h1>
+<a>Environment → Test Execution → Evidence → Reported Result</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>A legitimate testing objective</li><li>Successful execution of the selected regression tests</li><li>Insufficient correspondence between the declared and actual<br>tested</li><li>Testing evidence applicable to the previous software version</li><li>No competent testing evidence establishing the release<br>candidate's</li></ul><br>
+<a>artifact. regression state.</a><br><br>
+<a>The relevant testing governance state may be:</a><br><br>
+<section class="viewbor"></section>
+<h1>Invalid</h1>
+<a>for the intended release-candidate assessment, or:</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence-Limited</h1>
+<a>where artifact correspondence cannot be sufficiently established.</a><br><br>
+<a>The critical distinctions are:</a><br><br>
+<a>Declared Tested Version ≠ Verified Tested Artifact.</a><br><br>
+<a>Testing Version A ≠ Verification of Version B.</a><br><br>
+<a>Reported Test Pass ≠ Verified Test Pass.</a><br><br>
+<a>Test Execution Success ≠ Demonstrated Software Quality.</a><br><br>
+<section class="viewbor"></section>
+<h1>The result: TCMM prevents an automated testing system from transferring</h1>
+<a>successful test results from one software artifact to another merely<br>because the test report contains the intended version label.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>Software testing is not governed merely because a test suite exists,<br>an automated pipeline completes, a dashboard reports successful<br>execution, or a coverage percentage appears favorable.</a><br><br>
+<a>A test may execute correctly against the wrong artifact.</a><br><br>
+<a>A test may pass because its expected result is incorrect.</a><br><br>
+<a>A test suite may achieve high code coverage while failing to evaluate<br>material operational scenarios.</a><br><br>
+<a>An integration test may succeed against a simulated service while the<br>actual integration remains unverified.</a><br><br>
+<a>And an autonomous testing agent may execute thousands of tests without<br>establishing whether those tests provide competent evidence for the<br>quality claims being made.</a><br><br>
+<a>Test Execution Success ≠ Demonstrated Software Quality.</a><br><br>
+<a>Designed Test ≠ Executed Test.</a><br><br>
+<a>Reported Test Pass ≠ Verified Test Pass.</a><br><br>
+<a>Executed Code ≠ Verified Correct Code.</a><br><br>
+<a>High Numerical Coverage ≠ High Evidentiary Quality.</a><br><br>
+<a>Testing Version A ≠ Verification of Version B.</a><br><br>
+<a>These distinctions become increasingly important as software testing<br>is generated, orchestrated, and interpreted by automated systems.</a><br><br>
+<a>The number of executed tests may increase dramatically while the<br>quality of the underlying evidence remains limited.</a><br><br>
+<section class="viewbor"></section>
+<h1>TCMM therefore governs not merely the existence of testing activity, but</h1>
+<a>the relationship between testing purpose, governed criteria, actual<br>software artifacts, execution conditions, observed behavior, result<br>interpretation, and the coverage those observations genuinely support.</a><br><br>
+<a>It does not require every possible software behavior to be tested.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires material testing claims to remain bounded by the behavior</h1>
+<a>actually assessed.</a><br><br>
+<a>It does not treat every failed test as proof of a software defect.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires failures, invalid executions, inconclusive results, and</h1>
+<a>environmental limitations to remain distinguishable.</a><br><br>
+<a>It does not treat high coverage as sufficient evidence of software<br>quality.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires coverage to remain connected to its definition, measurement</h1>
+<a>basis, exclusions, and material untested conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>TCMM transforms software testing from a collection of automated</h1>
+<a>executions, reports, and coverage metrics into a governed evidentiary<br>process — ensuring that software organizations can establish not<br>merely how many tests were executed or how much code was covered, but<br>which software was actually evaluated, under which conditions, what<br>behavior was observed, what the evidence demonstrates, and which<br>quality conditions remain unverified.</a><br><br>
+<a>Software testing is not governed because tests run successfully. It is<br>governed when test identity, artifact correspondence, criteria,<br>execution authority, observed behavior, evidence competence, coverage<br>limitations, and lifecycle continuity remain sufficiently established<br>to support competent software quality assessment.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

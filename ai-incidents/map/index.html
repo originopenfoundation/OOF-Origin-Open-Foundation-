@@ -88,7 +88,7 @@
 <div><dt>Countries</dt><dd data-metric="countriesAffected">—</dd></div>
 <div><dt>Architectures Exposed</dt><dd data-metric="architecturesExposed">—</dd></div>
 <div><dt>Automated Analyses</dt><dd data-metric="automatedAnalyses">—</dd></div>
-<div><dt>Human Review Pending</dt><dd data-metric="humanReviewPending">—</dd></div>
+<div><dt title="Selected incidents awaiting authorized human review">Human Review Priority Queue</dt><dd data-metric="humanReviewPending">—</dd></div>
 <div><dt>Coverage Review Required</dt><dd data-metric="architectureCoverageReviewRequired">—</dd></div>
 <div><dt>Cross-Architecture</dt><dd data-metric="crossArchitectureIncidents">—</dd></div>
 <div><dt>OOF Approved</dt><dd data-metric="oofApprovedAssessments">—</dd></div>
@@ -140,6 +140,7 @@
 <p>Public evidence status uses five explicit states: <b>Source-Reported</b>, <b>Independently Corroborated</b>, <b>Officially Documented</b>, <b>Evidence Insufficient</b>, and <b>Contradicted / Disputed</b>. The label describes the available evidence, not whether an allegation is true.</p>
 <h3 id="incident-monitoring-and-assessment" data-oof-section-id="true" role="heading" aria-level="2">Incident Monitoring and Assessment</h3>
 <p>The normal lifecycle is Discovery, Acquisition, Incident Resolution, Deduplication, Evidence Extraction, Corroboration, Fact Reconstruction, Governance Mechanism Detection, Architecture Analysis, Severity Analysis, Governance Findings, Automated Publication, and Continuous Reassessment. Human review is optional and is not required for normal automated operation.</p>
+<p>The Human Review Priority Queue is a selected subset awaiting authorized human review. It is not a count of every record marked Not performed. Queue selection is triggered by High or Critical automated severity, weak or unresolved methodological assignment, or causal wording supported by a single source.</p>
 <p>Discovery runs every 24 hours. New or changed candidates enter a persistent queue and no more than 10 are fully processed in one daily run. Deterministic adapters, rules, and versioned records remain the primary control path.</p>
 <h3 id="architecture-mapping" data-oof-section-id="true" role="heading" aria-level="2">Architecture Mapping</h3>
 <p>The engine retrieves canonical architectures, Parent Standards, and Core Modules dynamically from the existing OOF® Knowledge Layer. Assignments include matched governed terms, supporting source evidence, confidence, uncertainty, and relevant standards or modules. No fixed architecture list is embedded in the public analysis.</p>

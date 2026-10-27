@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® About Software Deployment Standard - (SDPS)</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>About Software Deployment Standard - (SDPS)</h2></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<a>SDPS — Software Deployment Standard is the Parent Standard within<br>SLGA™ that governs how authorized software releases are prepared,<br>approved for deployment, introduced into defined operational<br>environments, associated with identifiable production versions,<br>monitored for deployment-state changes, and subjected to rollback or<br>recovery when deployment conditions cannot be maintained.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDPS establishes software deployment as a governed operational transition</h1>
+<a>rather than a technical installation event. It requires deployment<br>authority, target environment, execution conditions, production<br>identity, operational verification, and recovery obligations to remain<br>distinguishable, traceable, and evidence-supported.</a><br><br>
+<section class="viewbor"></section>
+<h1>Its governance logic applies to human-operated deployments, automated</h1>
+<a>delivery pipelines, autonomous AI agents, distributed infrastructure,<br>cloud platforms, embedded software, and robotic systems.</a><br><br>
+<ul><li>What It Is</li></ul><br>
+<a>SDPS is a methodological framework for governing the transition of<br>software from an authorized release into an operational environment.</a><br><br>
+<a>It establishes five interconnected governance mechanisms:</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Planning: Defining the deployment purpose, target</h1>
+<a>environment, execution strategy, prerequisites, operational<br>constraints, and recovery conditions. 2. Deployment Authorization:<br>Establishing legitimate permission to deploy a specific release into a<br>specific environment under defined conditions. 3. Production Version<br>Control: Identifying and verifying which software artifacts and<br>versions are actually present and active in operational environments.<br>4. Deployment State Monitoring: Observing and evaluating whether the<br>actual deployment state satisfies applicable operational conditions.<br>5. Rollback &amp; Recovery: Governing corrective actions when deployment<br>failures, unacceptable conditions, or operational disruptions require<br>intervention.</a><br><br>
+<section class="viewbor"></section>
+<h1>Together, these mechanisms establish a traceable relationship between what</h1>
+<a>was authorized, what was executed, what is actually operating, and<br>what must happen when the resulting state is unacceptable.</a><br><br>
+<ul><li>What It Is Not</li></ul><br>
+<a>SDPS is not a software deployment tool, CI/CD platform, orchestration<br>engine, or technical installation procedure.</a><br><br>
+<a>It does not prescribe a particular cloud provider, programming<br>language, deployment framework, infrastructure architecture, or<br>automation technology.</a><br><br>
+<a>It does not replace software release governance. A release may be<br>authorized for publication without being authorized for deployment<br>into a particular production environment.</a><br><br>
+<a>It does not assume that successful execution means successful<br>deployment. A pipeline may finish without errors while an incorrect<br>artifact, incompatible configuration, or degraded service remains in<br>production.</a><br><br>
+<a>It does not treat monitoring as proof of complete operational<br>visibility, nor does it treat rollback execution as proof of<br>successful recovery.</a><br><br>
+<a>SDPS also does not grant authority to human operators or autonomous<br>agents. It governs the application and verification of legitimate<br>deployment authority established through the relevant governance<br>mechanisms.</a><br><br>
+<ul><li>Why It Is Important</li></ul><br>
+<a>Modern software deployment increasingly occurs through automated<br>pipelines, distributed infrastructure, continuous delivery systems,<br>and autonomous AI agents.</a><br><br>
+<a>These systems can introduce software changes rapidly, sometimes across<br>thousands of operational instances.</a><br><br>
+<a>However, technical execution capability does not establish whether a<br>deployment is legitimate, whether the intended software was actually<br>installed, or whether the resulting environment remains operationally<br>acceptable.</a><br><br>
+<a>A software release may be fully approved while its deployment into a<br>particular environment is unauthorized.</a><br><br>
+<a>A deployment pipeline may report success while production runs an<br>artifact different from the authorized release.</a><br><br>
+<a>A monitoring system may show normal service availability while<br>significant parts of the deployment remain unobserved.</a><br><br>
+<a>An automated rollback may restore an earlier software binary while<br>leaving databases, dependencies, or infrastructure in an incompatible<br>state.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDPS addresses these gaps by requiring independent governance over</h1>
+<a>deployment decisions, execution, production identity, operational<br>verification, and recovery.</a><br><br>
+<section class="viewbor"></section>
+<h1>Its importance increases as software systems become more autonomous and the</h1>
+<a>consequences of deployment errors extend beyond software functionality<br>into financial systems, infrastructure, industrial operations, and<br>physical environments.</a><br><br>
+<a>The ability to deploy software must never be confused with the<br>authority to deploy it or with evidence that the resulting operational<br>state is acceptable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<a>SDPS occupies the eighth Parent Standard position within SLGA™ —<br>Software Lifecycle Governance Architecture.</a><br><br>
+<section class="viewbor"></section>
+<h1>SLGA™ Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-cutting: Software Lifecycle Control</h1>
+<a>SDPS follows:</a><br><br>
+<section class="viewbor"></section>
+<h1>SRLS — Software Release Standard</h1>
+<section class="viewbor"></section>
+<h1>SRLS governs release candidates, readiness, authorization, records, and</h1>
+<a>withdrawal.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDPS receives the relevant release identity and authorization references</h1>
+<a>but independently governs whether, where, and under what conditions<br>the release may enter an operational environment.</a><br><br>
+<a>SDPS precedes:</a><br><br>
+<section class="viewbor"></section>
+<h1>SCMS — Software Change Management Standard</h1>
+<section class="viewbor"></section>
+<h1>SCMS governs change requests, impact assessment, coordination, lifecycle</h1>
+<a>re-entry, and change closure.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDPS provides the deployment evidence and operational state references</h1>
+<a>needed to understand how software changes affect deployed<br>environments.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDPS also supports Software Retirement and Software Lifecycle Control by</h1>
+<a>preserving production version identities, deployment histories,<br>operational states, and recovery references.</a><br><br>
+<section class="viewbor"></section>
+<h1>Standard Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>Authorized Software Release → Deployment Purpose → Target Environment →</h1>
+<a>Deployment Planning → Deployment Prerequisites → Deployment Authority<br>→ Deployment Authorization → Deployment Execution → Production Version<br>Identification → Deployment State Monitoring → Operational<br>Verification → Continue / Restrict / Intervene / Roll Back / Recover →<br>Deployment Governance Record</a><br><br>
+<section class="viewbor"></section>
+<h1>This flow distinguishes the intended deployment from the permitted</h1>
+<a>deployment, the permitted deployment from its actual execution, and<br>the executed deployment from the operational state ultimately<br>established.</a><br><br>
+<a>The five Core Modules implement this governance structure:</a><br><br>
+<section class="viewbor"></section>
+<h1>DPM — Deployment Planning Module</h1>
+<section class="viewbor"></section>
+<h1>Establishes the deployment plan, target environment, execution strategy,</h1>
+<a>prerequisites, and verification and recovery conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>DAM — Deployment Authorization Module</h1>
+<a>Determines whether the deployment is legitimately permitted for the<br>specified release, environment, actor, scope, and conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>PVCM — Production Version Control Module</h1>
+<section class="viewbor"></section>
+<h1>Identifies the software versions and artifacts actually present and</h1>
+<a>operating in production.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM — Deployment State Monitoring Module</h1>
+<section class="viewbor"></section>
+<h1>Observes deployment conditions, evaluates operational evidence, and</h1>
+<a>identifies deviations requiring reassessment or intervention.</a><br><br>
+<section class="viewbor"></section>
+<h1>RRVM — Rollback &amp; Recovery Module</h1>
+<section class="viewbor"></section>
+<h1>Governs rollback feasibility, corrective execution, recovery verification,</h1>
+<a>and residual operational conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>These modules form a connected governance sequence while preserving</h1>
+<a>separate responsibilities and outputs.</a><br><br>
+<section class="viewbor"></section>
+<h1>Practical Applications</h1>
+<section class="viewbor"></section>
+<h1>Enterprise Software Deployment</h1>
+<section class="viewbor"></section>
+<h1>Establishing deployment authorization, production version traceability,</h1>
+<a>operational verification, and recovery conditions across<br>business-critical applications.</a><br><br>
+<section class="viewbor"></section>
+<h1>Continuous Integration and Continuous Delivery</h1>
+<section class="viewbor"></section>
+<h1>Distinguishing automated pipeline execution from legitimate deployment</h1>
+<a>authorization and verified production state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous AI Software Agents</h1>
+<a>Ensuring that agents capable of deploying software remain within<br>defined authority, tool-access boundaries, target environments, and<br>operational constraints.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cloud and Distributed Infrastructure</h1>
+<section class="viewbor"></section>
+<h1>Maintaining visibility over software versions, staged rollouts, regional</h1>
+<a>deployments, containerized services, and mixed-version production<br>environments.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Infrastructure and Industrial Systems</h1>
+<a>Governing software updates where deployment failures may affect<br>essential services, equipment, industrial processes, or physical<br>operations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Robotics and Embedded Systems</h1>
+<section class="viewbor"></section>
+<h1>Verifying deployment authority, software identity, activation conditions,</h1>
+<a>and recovery requirements when software changes influence physical<br>system behavior.</a><br><br>
+<section class="viewbor"></section>
+<h1>Emergency Security Deployment</h1>
+<section class="viewbor"></section>
+<h1>Supporting urgent deployment decisions while preserving authorization,</h1>
+<a>scope, exception handling, evidence, and recovery obligations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>SDPS establishes the following principal governance output:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Deployment Governance Profile</h1>
+<section class="viewbor"></section>
+<h1>This profile provides a structured representation of the deployment's</h1>
+<a>identity, authorization, execution, production state, operational<br>verification, and applicable recovery conditions.</a><br><br>
+<a>Supporting outputs include:</a><br><br>
+<ul><li>Software Deployment Plan Profile — DPM</li><li>Software Deployment Authorization Profile — DAM</li><li>Software Production Version Profile — PVCM</li><li>Software Deployment State Profile — DSMM</li><li>Software Deployment Recovery Profile — RRVM</li></ul><br>
+<a>Additional governance records may include deployment execution<br>evidence, target environment references, production artifact identity,<br>monitoring results, operational exceptions, rollback decisions,<br>recovery verification, and historical deployment states.</a><br><br>
+<section class="viewbor"></section>
+<h1>These outputs support auditability, operational reassessment,</h1>
+<a>accountability references, lifecycle continuity, and evidence-based<br>governance decisions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Core Governance Distinctions</h1>
+<a>Release Authorized ≠ Deployment Authorized.</a><br><br>
+<a>Permission to publish or make software available does not<br>automatically authorize its introduction into a particular operational<br>environment.</a><br><br>
+<a>Technical Deployment Capability ≠ Legitimate Deployment Authority.</a><br><br>
+<a>Access to infrastructure or deployment tools does not independently<br>establish permission to execute deployment actions.</a><br><br>
+<a>Deployment Executed ≠ Deployment Successfully Established.</a><br><br>
+<a>Completion of technical deployment actions does not prove that the<br>intended operational state was achieved.</a><br><br>
+<a>Software Version Label ≠ Verified Production Artifact Identity.</a><br><br>
+<a>A displayed version number does not independently prove which artifact<br>is actually running.</a><br><br>
+<a>Software Running ≠ Software Operating Within Authorized Conditions.</a><br><br>
+<a>A functioning application may still violate configuration, security,<br>operational, or authorization requirements.</a><br><br>
+<a>Deployment Monitoring Active ≠ Deployment State Fully Observable.</a><br><br>
+<a>Monitoring coverage and evidence sufficiency must be evaluated rather<br>than assumed.</a><br><br>
+<a>Agent Task Authority ≠ Authority for Every Tool Action.</a><br><br>
+<a>An autonomous agent's assigned deployment objective does not authorize<br>every infrastructure modification or downstream action it could<br>technically perform.</a><br><br>
+<a>Rollback Executed ≠ Operational Recovery Verified.</a><br><br>
+<a>Restoring a previous software version does not necessarily restore<br>compatible data, dependencies, infrastructure, or service<br>functionality.</a><br><br>
+<a>Release Withdrawal ≠ Deployment Rollback.</a><br><br>
+<a>Removing a release from distribution does not automatically remove or<br>reverse existing operational deployments.</a><br><br>
+<a>Deployment Completed ≠ Deployment Governance No Longer Required.</a><br><br>
+<section class="viewbor"></section>
+<h1>Production identity, operational conditions, monitoring, recovery, and</h1>
+<a>lifecycle continuity remain relevant after deployment execution ends.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>Software deployment is not merely the movement of code into<br>production. It is the transfer of an authorized software release into<br>a real operational environment where technical actions produce<br>operational consequences.</a><br><br>
+<a>A release can be legitimate while its deployment is unauthorized.</a><br><br>
+<a>A deployment can execute successfully while the wrong software<br>artifact is running.</a><br><br>
+<a>An automated pipeline can report success while the operational<br>environment remains degraded.</a><br><br>
+<a>An autonomous agent can possess deployment capabilities without<br>possessing legitimate authority over the actions it performs.</a><br><br>
+<a>And a rollback can complete technically without restoring an<br>acceptable operational state.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDPS establishes the governance mechanisms required to distinguish these</h1>
+<a>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>It connects deployment planning, legitimate authorization, production</h1>
+<a>version identity, operational monitoring, and recovery into one<br>coherent methodological structure.</a><br><br>
+<a>The purpose of SDPS is not simply to ensure that software reaches<br>production. It is to ensure that software enters, operates, changes,<br>and can be recovered within identifiable, authorized,<br>evidence-supported, and verifiable operational boundaries.</a><br><br>
+<a>Deployment capability determines what a system can execute. Deployment<br>governance determines what it may execute, under which conditions, and<br>how the resulting operational reality is verified.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

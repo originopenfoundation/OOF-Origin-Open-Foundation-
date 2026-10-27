@@ -1,0 +1,1511 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® Change Request Management Module (CRMM)</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>Change Request Management Module (CRMM)</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Change Management Standard (SCMS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Change Management Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Change Request Governance<br>
+<b>Module ID:</b> SLGA-SCMS-CRMM-01<br>
+<b>Origin ID:</b> OOF-SLGA-SCMS-CRMM<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical Open<br>
+<b>Effective Date:</b> 14.10.2026<br>
+<b>Compatibility:</b> Methodology OS — Modular Compatibility<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> Protected Methodological Work<br>
+<b>Canonical Language:</b> English</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<a>Change Request Management Module (CRMM) is the Core Module within<br>Software Change Management Standard (SCMS) that governs how proposed,<br>required, and emerging software changes are recognized, expressed,<br>identified, recorded, classified, maintained, and directed toward<br>appropriate assessment or disposition.</a><br><br>
+<section class="viewbor"></section>
+<h1>CRMM establishes a software change request as an identifiable governance</h1>
+<a>object representing a proposed or required alteration to an existing<br>or intended software state.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires each change request to preserve its origin, purpose, affected</h1>
+<a>software objects, current-state reference, proposed modification,<br>supporting evidence, urgency, known constraints, and initial<br>governance status.</a><br><br>
+<section class="viewbor"></section>
+<h1>The module distinguishes the recognition of a need for change from proof</h1>
+<a>that the proposed solution is suitable, the acceptance of a request<br>from authorization to implement it, and a technically generated<br>modification from a legitimately established change request.</a><br><br>
+<section class="viewbor"></section>
+<h1>CRMM governs change requests originating from human actors, organizations,</h1>
+<a>operational incidents, security findings, dependency developments,<br>automated systems, AI coding assistants, and autonomous agents.</a><br><br>
+<section class="viewbor"></section>
+<h1>It establishes the initial identity and continuity required for subsequent</h1>
+<a>impact assessment, coordination, lifecycle re-entry, implementation<br>traceability, and closure.</a><br><br>
+<a>Its principal governance output is the Software Change Request<br>Profile.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>CRMM establishes the entry point for software change governance.</a><br><br>
+<a>It governs:</a><br><br>
+<ul><li>Change request recognition</li><li>Request identity</li><li>Change origin</li><li>Requesting actor identification</li><li>Problem or opportunity description</li><li>Change purpose</li><li>Current-state reference</li><li>Proposed modification</li><li>Affected software object identification</li><li>Preliminary change scope</li><li>Supporting evidence</li><li>Initial urgency and priority</li><li>Known dependencies and constraints</li><li>Request completeness</li><li>Duplicate and related requests</li><li>Request classification</li><li>Request revision</li><li>Request withdrawal</li><li>Request deferral</li><li>Initial disposition</li><li>Handoff to change impact assessment</li></ul><br>
+<a>CRMM does not determine the full impact of a change, authorize<br>implementation, coordinate all affected lifecycle activities, or<br>verify the final change outcome.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Question</h1>
+<a>How can a proposed or required software change become an identifiable,<br>sufficiently defined, evidence-supported, and traceable governance<br>request without confusing the recognition of a problem, the proposal<br>of a solution, the urgency of a modification, or an automated<br>recommendation with authorization to change software?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>SLGA™ Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-cutting: Software Lifecycle Control</h1>
+<section class="viewbor"></section>
+<h1>SCMS Core Module Flow</h1>
+<section class="viewbor"></section>
+<h1>Change Request Management Module (CRMM) → Change Impact Assessment Module</h1>
+<a>(CIAM) → Change Coordination Control Module (CHCM) → Lifecycle<br>Re-entry Control Module (LRECM) → Change Closure Management Module<br>(CCLM)</a><br><br>
+<a>CRMM is the first Core Module within SCMS.</a><br><br>
+<a>It establishes the change request identity and initial governance<br>record.</a><br><br>
+<section class="viewbor"></section>
+<h1>Its outputs provide the basis for CIAM to assess consequences and for</h1>
+<a>subsequent modules to coordinate, route, verify, and close the change.</a><br><br>
+<a>A request may be revised or reassessed during later stages without<br>losing its original identity and historical continuity.</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Change Request Governance</h1>
+<section class="viewbor"></section>
+<h1>This governed space concerns the recognition, formation, identification,</h1>
+<a>classification, maintenance, and initial disposition of software<br>change requests.</a><br><br>
+<a>It begins when a potential change requirement, problem, opportunity,<br>or modification proposal becomes identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>It includes requests originating from development, testing, security,</h1>
+<a>production operations, dependencies, external requirements, automated<br>analysis, and autonomous agents.</a><br><br>
+<section class="viewbor"></section>
+<h1>It continues until the request has an appropriate initial disposition and</h1>
+<a>sufficient information for its next governance step, or has been<br>legitimately rejected, deferred, withdrawn, or otherwise classified.</a><br><br>
+<section class="viewbor"></section>
+<h1>The request remains traceable throughout the broader software change</h1>
+<a>lifecycle.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Object</h1>
+<a>The primary Governed Object is:</a><br><br>
+<section class="viewbor"></section>
+<h1>A Software Change Request representing an identifiable proposal or</h1>
+<a>requirement to alter a software object or software condition,<br>associated with its origin, requesting actor, purpose, current-state<br>reference, proposed change, preliminary scope, supporting evidence,<br>and governance status.</a><br><br>
+<a>The governed object must preserve, where applicable:</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request ID</h1>
+<section class="viewbor"></section>
+<h1>Software Product ID</h1>
+<section class="viewbor"></section>
+<h1>Request Origin</h1>
+<section class="viewbor"></section>
+<h1>Requesting Actor Reference</h1>
+<section class="viewbor"></section>
+<h1>Request Creation Time</h1>
+<section class="viewbor"></section>
+<h1>Change Purpose</h1>
+<section class="viewbor"></section>
+<h1>Problem or Opportunity Reference</h1>
+<section class="viewbor"></section>
+<h1>Affected Software Objects</h1>
+<section class="viewbor"></section>
+<h1>Current State Reference</h1>
+<section class="viewbor"></section>
+<h1>Proposed Modification</h1>
+<section class="viewbor"></section>
+<h1>Preliminary Scope</h1>
+<section class="viewbor"></section>
+<h1>Supporting Evidence</h1>
+<section class="viewbor"></section>
+<h1>Urgency Reference</h1>
+<section class="viewbor"></section>
+<h1>Known Constraints</h1>
+<section class="viewbor"></section>
+<h1>Related Request References</h1>
+<section class="viewbor"></section>
+<h1>Request Status</h1>
+<section class="viewbor"></section>
+<h1>Request Version</h1>
+<section class="viewbor"></section>
+<h1>Scope</h1>
+<a>CRMM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request Formation</h1>
+<section class="viewbor"></section>
+<h1>Change Request Identification</h1>
+<section class="viewbor"></section>
+<h1>Request Origin Attribution</h1>
+<section class="viewbor"></section>
+<h1>Requesting Actor Identification</h1>
+<section class="viewbor"></section>
+<h1>Purpose Definition</h1>
+<section class="viewbor"></section>
+<h1>Problem and Opportunity Recognition</h1>
+<section class="viewbor"></section>
+<h1>Proposed Change Description</h1>
+<section class="viewbor"></section>
+<h1>Affected Object Identification</h1>
+<section class="viewbor"></section>
+<h1>Current-State Reference</h1>
+<section class="viewbor"></section>
+<h1>Preliminary Scope Definition</h1>
+<section class="viewbor"></section>
+<h1>Evidence Association</h1>
+<section class="viewbor"></section>
+<h1>Urgency Recognition</h1>
+<section class="viewbor"></section>
+<h1>Request Completeness</h1>
+<section class="viewbor"></section>
+<h1>Duplicate Request Detection</h1>
+<section class="viewbor"></section>
+<h1>Related Request Association</h1>
+<section class="viewbor"></section>
+<h1>Request Classification</h1>
+<section class="viewbor"></section>
+<h1>Request Revision</h1>
+<section class="viewbor"></section>
+<h1>Request Disposition</h1>
+<section class="viewbor"></section>
+<h1>Historical Request Continuity</h1>
+<section class="viewbor"></section>
+<h1>Assessment Handoff</h1>
+<a>CRMM does not prescribe a particular ticketing system, issue tracker,<br>repository platform, development methodology, or organizational<br>approval workflow.</a><br><br>
+<section class="viewbor"></section>
+<h1>Foundational Principle</h1>
+<a>A software change request establishes what change is being proposed or<br>required and why it deserves governance consideration; it does not<br>establish that the change is suitable, authorized, or ready for<br>implementation.</a><br><br>
+<a>A defect report may justify investigation without proving that a<br>particular correction is appropriate.</a><br><br>
+<a>A security alert may establish urgency without authorizing<br>unrestricted modification.</a><br><br>
+<a>An automated system may identify a dependency problem without<br>establishing the legitimacy of its proposed replacement.</a><br><br>
+<a>An autonomous agent may generate a technically plausible patch without<br>authority to introduce it into the software lifecycle.</a><br><br>
+<a>Change Need Identified ≠ Proposed Solution Validated.</a><br><br>
+<a>Change Request Accepted ≠ Change Implementation Authorized.</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request Identity</h1>
+<a>Every governed change request must have a stable identity.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request ID</h1>
+<section class="viewbor"></section>
+<h1>Software Product ID</h1>
+<section class="viewbor"></section>
+<h1>Origin Reference</h1>
+<section class="viewbor"></section>
+<h1>Creation Time</h1>
+<section class="viewbor"></section>
+<h1>Requesting Actor</h1>
+<section class="viewbor"></section>
+<h1>Current Status</h1>
+<section class="viewbor"></section>
+<h1>Request Version</h1>
+<section class="viewbor"></section>
+<h1>Evidence Reference</h1>
+<a>A request identity must remain stable through material revisions,<br>reassessment, deferral, or transfer.</a><br><br>
+<a>Where a request is replaced or separated into multiple requests, the<br>relationship must remain traceable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request Formation</h1>
+<a>A change request is formed when a recognizable change need or proposal<br>is expressed in a manner suitable for governance assessment.</a><br><br>
+<a>Minimum formation elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Identifiable Software Context</h1>
+<section class="viewbor"></section>
+<h1>Recognizable Change Origin</h1>
+<section class="viewbor"></section>
+<h1>Stated Problem or Opportunity</h1>
+<section class="viewbor"></section>
+<h1>Requested or Proposed Change</h1>
+<section class="viewbor"></section>
+<h1>Known Affected Scope</h1>
+<section class="viewbor"></section>
+<h1>Requesting Source</h1>
+<section class="viewbor"></section>
+<h1>Initial Evidence or Justification</h1>
+<a>A request may enter governance with incomplete information.</a><br><br>
+<a>Its incompleteness must remain explicit.</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Origin</h1>
+<a>CRMM must identify the source from which the need for change emerged.</a><br><br>
+<a>Potential origins include:</a><br><br>
+<section class="viewbor"></section>
+<h1>New Requirement</h1>
+<section class="viewbor"></section>
+<h1>Defect Discovery</h1>
+<section class="viewbor"></section>
+<h1>Security Vulnerability</h1>
+<section class="viewbor"></section>
+<h1>Operational Incident</h1>
+<section class="viewbor"></section>
+<h1>Dependency Change</h1>
+<section class="viewbor"></section>
+<h1>Configuration Issue</h1>
+<section class="viewbor"></section>
+<h1>Quality Finding</h1>
+<section class="viewbor"></section>
+<h1>Performance Limitation</h1>
+<section class="viewbor"></section>
+<h1>Compatibility Requirement</h1>
+<section class="viewbor"></section>
+<h1>Infrastructure Change</h1>
+<section class="viewbor"></section>
+<h1>External Obligation</h1>
+<section class="viewbor"></section>
+<h1>Customer Feedback</h1>
+<section class="viewbor"></section>
+<h1>Automated Detection</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Agent Recommendation</h1>
+<section class="viewbor"></section>
+<h1>Software Retirement Requirement</h1>
+<a>The origin must remain distinguishable from the actor submitting the<br>request.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requesting Actor Identity</h1>
+<a>CRMM must identify the actor or system responsible for submitting or<br>generating the request.</a><br><br>
+<a>Potential actors include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Developer</h1>
+<section class="viewbor"></section>
+<h1>Software Maintainer</h1>
+<section class="viewbor"></section>
+<h1>Quality Engineer</h1>
+<section class="viewbor"></section>
+<h1>Security Function</h1>
+<section class="viewbor"></section>
+<h1>Operations Function</h1>
+<section class="viewbor"></section>
+<h1>Product Owner</h1>
+<section class="viewbor"></section>
+<h1>Customer Representative</h1>
+<section class="viewbor"></section>
+<h1>Automated Monitoring System</h1>
+<section class="viewbor"></section>
+<h1>AI Coding Assistant</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Software Agent</h1>
+<section class="viewbor"></section>
+<h1>External System</h1>
+<a>Where the source is automated, the responsible system and its assigned<br>function must remain identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Origin–Actor Distinction</h1>
+<a>A software change request may originate from one condition while being<br>submitted by another actor.</a><br><br>
+<a>For example:</a><br><br>
+<a>A monitoring system detects an operational anomaly.</a><br><br>
+<a>An autonomous agent interprets the anomaly.</a><br><br>
+<a>A human operator submits the formal change request.</a><br><br>
+<a>CRMM must preserve the distinction between:</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Origin</h1>
+<section class="viewbor"></section>
+<h1>Detection Source</h1>
+<section class="viewbor"></section>
+<h1>Requesting Actor</h1>
+<section class="viewbor"></section>
+<h1>Proposed Solution Source</h1>
+<a>These identities must not be collapsed into a single undifferentiated<br>requester field where doing so would obscure material provenance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Problem Recognition</h1>
+<a>CRMM must establish the problem or condition motivating a corrective<br>change request.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Observed Condition</h1>
+<section class="viewbor"></section>
+<h1>Expected Condition</h1>
+<section class="viewbor"></section>
+<h1>Material Difference</h1>
+<section class="viewbor"></section>
+<h1>Affected Software</h1>
+<section class="viewbor"></section>
+<h1>Observation Time</h1>
+<section class="viewbor"></section>
+<h1>Operational Context</h1>
+<section class="viewbor"></section>
+<h1>Supporting Evidence</h1>
+<section class="viewbor"></section>
+<h1>Known Uncertainty</h1>
+<a>A reported problem must remain distinguishable from a verified defect<br>or established root cause.</a><br><br>
+<section class="viewbor"></section>
+<h1>Opportunity Recognition</h1>
+<a>Not every change request originates from a failure.</a><br><br>
+<a>Potential improvement opportunities include:</a><br><br>
+<section class="viewbor"></section>
+<h1>New Functionality</h1>
+<section class="viewbor"></section>
+<h1>Performance Improvement</h1>
+<section class="viewbor"></section>
+<h1>Resource Efficiency</h1>
+<section class="viewbor"></section>
+<h1>Usability Improvement</h1>
+<section class="viewbor"></section>
+<h1>Compatibility Expansion</h1>
+<section class="viewbor"></section>
+<h1>Technical Simplification</h1>
+<section class="viewbor"></section>
+<h1>Maintainability Improvement</h1>
+<section class="viewbor"></section>
+<h1>Dependency Modernization</h1>
+<section class="viewbor"></section>
+<h1>Automation Improvement</h1>
+<section class="viewbor"></section>
+<h1>Operational Capability Enhancement</h1>
+<a>An opportunity must still have an identifiable purpose and a<br>sufficiently described intended outcome.</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Purpose Definition</h1>
+<a>Every request must state what the proposed change is intended to<br>accomplish.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Purpose Statement</h1>
+<section class="viewbor"></section>
+<h1>Problem or Opportunity</h1>
+<section class="viewbor"></section>
+<h1>Expected Benefit</h1>
+<section class="viewbor"></section>
+<h1>Affected Function</h1>
+<section class="viewbor"></section>
+<h1>Intended Outcome</h1>
+<section class="viewbor"></section>
+<h1>Success Reference</h1>
+<section class="viewbor"></section>
+<h1>Known Constraints</h1>
+<a>A request that only specifies a technical action may require<br>clarification of the underlying purpose.</a><br><br>
+<a>Requested Action ≠ Established Change Purpose.</a><br><br>
+<section class="viewbor"></section>
+<h1>Requested Modification</h1>
+<a>CRMM must distinguish the requested modification from the underlying<br>change need.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Modify Source Code</h1>
+<section class="viewbor"></section>
+<h1>Replace Dependency</h1>
+<section class="viewbor"></section>
+<h1>Update Configuration</h1>
+<section class="viewbor"></section>
+<h1>Change Software Behavior</h1>
+<section class="viewbor"></section>
+<h1>Introduce Functionality</h1>
+<section class="viewbor"></section>
+<h1>Remove Functionality</h1>
+<section class="viewbor"></section>
+<h1>Correct a Security Condition</h1>
+<section class="viewbor"></section>
+<h1>Change an Interface</h1>
+<section class="viewbor"></section>
+<h1>Update Firmware</h1>
+<section class="viewbor"></section>
+<h1>Modify Deployment-Related Software Settings</h1>
+<a>The proposed modification may later be replaced by a different<br>solution following impact assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Current-State Reference</h1>
+<a>CRMM must preserve the available reference to the software state that<br>motivates the request.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Current Software Version</h1>
+<section class="viewbor"></section>
+<h1>Current Artifact</h1>
+<section class="viewbor"></section>
+<h1>Current Configuration</h1>
+<section class="viewbor"></section>
+<h1>Current Dependency</h1>
+<section class="viewbor"></section>
+<h1>Current Behavior</h1>
+<section class="viewbor"></section>
+<h1>Current Operational Condition</h1>
+<section class="viewbor"></section>
+<h1>Known Defect</h1>
+<section class="viewbor"></section>
+<h1>Known Restriction</h1>
+<section class="viewbor"></section>
+<h1>Evidence Time</h1>
+<a>The reference may initially be incomplete.</a><br><br>
+<a>CRMM must identify missing information relevant to subsequent<br>assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Proposed-State Reference</h1>
+<a>Where possible, the request must describe the intended resulting<br>state.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Expected Functionality</h1>
+<section class="viewbor"></section>
+<h1>Expected Behavior</h1>
+<section class="viewbor"></section>
+<h1>Target Dependency Condition</h1>
+<section class="viewbor"></section>
+<h1>Target Configuration</h1>
+<section class="viewbor"></section>
+<h1>Target Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Target Security Condition</h1>
+<section class="viewbor"></section>
+<h1>Target Performance</h1>
+<section class="viewbor"></section>
+<h1>Expected Operational Outcome</h1>
+<a>The proposed state is not a verified implementation result.</a><br><br>
+<section class="viewbor"></section>
+<h1>Affected Software Object Identification</h1>
+<a>CRMM must identify the software objects believed to be affected.</a><br><br>
+<a>Potential objects include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Product</h1>
+<section class="viewbor"></section>
+<h1>Application</h1>
+<section class="viewbor"></section>
+<h1>Service</h1>
+<section class="viewbor"></section>
+<h1>Source Component</h1>
+<section class="viewbor"></section>
+<h1>Library</h1>
+<section class="viewbor"></section>
+<h1>Dependency</h1>
+<section class="viewbor"></section>
+<h1>Configuration</h1>
+<section class="viewbor"></section>
+<h1>Build Artifact</h1>
+<section class="viewbor"></section>
+<h1>Interface</h1>
+<section class="viewbor"></section>
+<h1>Database Schema</h1>
+<section class="viewbor"></section>
+<h1>Firmware</h1>
+<section class="viewbor"></section>
+<h1>Automation Logic</h1>
+<section class="viewbor"></section>
+<h1>Agent Behavior Configuration</h1>
+<section class="viewbor"></section>
+<h1>Deployment-Related Software Object</h1>
+<a>Preliminary identification must not be treated as a complete impact<br>assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Preliminary Change Scope</h1>
+<a>CRMM establishes the scope proposed by the requester.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Affected Software Objects</h1>
+<section class="viewbor"></section>
+<h1>Requested Functional Changes</h1>
+<section class="viewbor"></section>
+<h1>Known Dependency Relationships</h1>
+<section class="viewbor"></section>
+<h1>Target Environments</h1>
+<section class="viewbor"></section>
+<h1>Expected Data Changes</h1>
+<section class="viewbor"></section>
+<h1>Known Exclusions</h1>
+<section class="viewbor"></section>
+<h1>Implementation Constraints</h1>
+<section class="viewbor"></section>
+<h1>Known Uncertainty</h1>
+<section class="viewbor"></section>
+<h1>The scope remains provisional until appropriate impact assessment and</h1>
+<a>governance decisions establish its applicability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Boundary</h1>
+<section class="viewbor"></section>
+<h1>The request boundary identifies what the request includes and what remains</h1>
+<a>outside its stated purpose.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Functional Boundary</h1>
+<section class="viewbor"></section>
+<h1>Software Object Boundary</h1>
+<section class="viewbor"></section>
+<h1>Dependency Boundary</h1>
+<section class="viewbor"></section>
+<h1>Configuration Boundary</h1>
+<section class="viewbor"></section>
+<h1>Data Boundary</h1>
+<section class="viewbor"></section>
+<h1>Environment Boundary</h1>
+<section class="viewbor"></section>
+<h1>Authority Boundary</h1>
+<section class="viewbor"></section>
+<h1>Operational Boundary</h1>
+<a>A request must not become an unrestricted authorization to modify<br>adjacent systems.</a><br><br>
+<section class="viewbor"></section>
+<h1>Supporting Evidence</h1>
+<a>CRMM must associate available evidence with the request.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Defect Report</h1>
+<section class="viewbor"></section>
+<h1>Test Result</h1>
+<section class="viewbor"></section>
+<h1>Security Finding</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Observation</h1>
+<section class="viewbor"></section>
+<h1>Dependency Advisory</h1>
+<section class="viewbor"></section>
+<h1>User Report</h1>
+<section class="viewbor"></section>
+<h1>Compatibility Report</h1>
+<section class="viewbor"></section>
+<h1>Performance Measurement</h1>
+<section class="viewbor"></section>
+<h1>Operational Incident Record</h1>
+<section class="viewbor"></section>
+<h1>Automated Analysis</h1>
+<section class="viewbor"></section>
+<h1>Agent-Generated Assessment</h1>
+<a>Evidence must remain distinguishable from assumptions and proposed<br>explanations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence Provenance</h1>
+<a>Material evidence must retain relevant provenance.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence ID</h1>
+<section class="viewbor"></section>
+<h1>Evidence Source</h1>
+<section class="viewbor"></section>
+<h1>Collection Method</h1>
+<section class="viewbor"></section>
+<h1>Collection Time</h1>
+<section class="viewbor"></section>
+<h1>Observed Software Object</h1>
+<section class="viewbor"></section>
+<h1>Evidence Integrity Reference</h1>
+<section class="viewbor"></section>
+<h1>Known Limitations</h1>
+<section class="viewbor"></section>
+<h1>Verification Status</h1>
+<a>Automated or AI-generated evidence must not be treated as<br>independently verified merely because it is presented in a structured<br>report.</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency at Request Formation</h1>
+<section class="viewbor"></section>
+<h1>CRMM evaluates whether the request contains sufficient information for its</h1>
+<a>next governance step.</a><br><br>
+<a>Relevant questions include:</a><br><br>
+<a>Is the software context identifiable?</a><br><br>
+<a>Is the change purpose understandable?</a><br><br>
+<a>Are affected objects sufficiently identified?</a><br><br>
+<a>Is the proposed modification described?</a><br><br>
+<a>Is supporting evidence available?</a><br><br>
+<a>Are material uncertainties visible?</a><br><br>
+<a>Can the request be meaningfully assessed?</a><br><br>
+<a>A request may be valid for investigation without being ready for full<br>impact assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Completeness</h1>
+<a>CRMM recognizes the following completeness conditions:</a><br><br>
+<section class="viewbor"></section>
+<h1>Complete for Initial Assessment</h1>
+<section class="viewbor"></section>
+<h1>Partially Complete</h1>
+<section class="viewbor"></section>
+<h1>Clarification Required</h1>
+<section class="viewbor"></section>
+<h1>Evidence Required</h1>
+<section class="viewbor"></section>
+<h1>Scope Undefined</h1>
+<section class="viewbor"></section>
+<h1>Origin Uncertain</h1>
+<section class="viewbor"></section>
+<h1>Request Conflicted</h1>
+<a>Completeness is assessed relative to the intended next governance<br>step.</a><br><br>
+<a>It does not imply that the proposed change is feasible or authorized.</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request Classification</h1>
+<a>CRMM must establish an initial classification.</a><br><br>
+<a>Potential categories include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Functional Change Request</h1>
+<section class="viewbor"></section>
+<h1>Corrective Change Request</h1>
+<section class="viewbor"></section>
+<h1>Security Change Request</h1>
+<section class="viewbor"></section>
+<h1>Dependency Change Request</h1>
+<section class="viewbor"></section>
+<h1>Configuration Change Request</h1>
+<section class="viewbor"></section>
+<h1>Compatibility Change Request</h1>
+<section class="viewbor"></section>
+<h1>Performance Change Request</h1>
+<section class="viewbor"></section>
+<h1>Emergency Change Request</h1>
+<section class="viewbor"></section>
+<h1>Migration Change Request</h1>
+<section class="viewbor"></section>
+<h1>Retirement-Related Change Request</h1>
+<section class="viewbor"></section>
+<h1>Automated Change Request</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Agent-Initiated Change Request</h1>
+<a>A request may belong to multiple categories.</a><br><br>
+<a>Classification may change following further assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Urgency</h1>
+<a>CRMM must preserve the stated urgency of a request.</a><br><br>
+<a>Relevant factors include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Severity</h1>
+<section class="viewbor"></section>
+<h1>Security Exposure</h1>
+<section class="viewbor"></section>
+<h1>Service Disruption</h1>
+<section class="viewbor"></section>
+<h1>User Impact</h1>
+<section class="viewbor"></section>
+<h1>External Deadline</h1>
+<section class="viewbor"></section>
+<h1>Dependency Deadline</h1>
+<section class="viewbor"></section>
+<h1>Safety-Relevant Condition</h1>
+<section class="viewbor"></section>
+<h1>Continuity Requirement</h1>
+<section class="viewbor"></section>
+<h1>Potential Consequence of Delay</h1>
+<a>Urgency must remain distinguishable from implementation authority.</a><br><br>
+<a>Urgent Request ≠ Authorized Emergency Change.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Priority</h1>
+<a>Priority concerns the relative importance of processing a request.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Requested Priority</h1>
+<section class="viewbor"></section>
+<h1>Priority Justification</h1>
+<section class="viewbor"></section>
+<h1>Known Impact</h1>
+<section class="viewbor"></section>
+<h1>Urgency</h1>
+<section class="viewbor"></section>
+<h1>Resource Considerations</h1>
+<section class="viewbor"></section>
+<h1>Related Requests</h1>
+<section class="viewbor"></section>
+<h1>Applicable Coordination Needs</h1>
+<a>The requester may propose priority.</a><br><br>
+<section class="viewbor"></section>
+<h1>The competent governance function determines applicable prioritization</h1>
+<a>according to its authority and criteria.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Justification</h1>
+<a>Request justification must identify why the proposed change deserves<br>consideration.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Problem Evidence</h1>
+<section class="viewbor"></section>
+<h1>Expected Benefit</h1>
+<section class="viewbor"></section>
+<h1>Operational Necessity</h1>
+<section class="viewbor"></section>
+<h1>Applicable Requirement</h1>
+<section class="viewbor"></section>
+<h1>Risk of Inaction</h1>
+<section class="viewbor"></section>
+<h1>Known Alternatives</h1>
+<section class="viewbor"></section>
+<h1>Time Sensitivity</h1>
+<section class="viewbor"></section>
+<h1>Known Uncertainty</h1>
+<a>A persuasive justification does not independently establish solution<br>suitability or implementation permission.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Assumptions</h1>
+<a>CRMM must preserve assumptions materially affecting the proposed<br>change.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Assumed Root Cause</h1>
+<section class="viewbor"></section>
+<h1>Assumed Dependency Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Assumed Environment State</h1>
+<section class="viewbor"></section>
+<h1>Assumed Software Version</h1>
+<section class="viewbor"></section>
+<h1>Assumed Resource Availability</h1>
+<section class="viewbor"></section>
+<h1>Assumed Implementation Simplicity</h1>
+<section class="viewbor"></section>
+<h1>Assumed Recovery Feasibility</h1>
+<a>Assumptions must remain distinguishable from verified facts.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Constraints</h1>
+<a>Known constraints may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Availability Requirements</h1>
+<section class="viewbor"></section>
+<h1>Security Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Compatibility Requirements</h1>
+<section class="viewbor"></section>
+<h1>Resource Limits</h1>
+<section class="viewbor"></section>
+<h1>Implementation Deadlines</h1>
+<section class="viewbor"></section>
+<h1>Data Protection Conditions</h1>
+<section class="viewbor"></section>
+<h1>Infrastructure Limitations</h1>
+<section class="viewbor"></section>
+<h1>External Dependencies</h1>
+<section class="viewbor"></section>
+<h1>Physical-System Restrictions</h1>
+<a>Constraints must be preserved for subsequent impact assessment and<br>coordination.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Dependencies</h1>
+<a>A change request may depend on other changes or conditions.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Prerequisite Change Request</h1>
+<section class="viewbor"></section>
+<h1>Related Defect</h1>
+<section class="viewbor"></section>
+<h1>Dependency Update</h1>
+<section class="viewbor"></section>
+<h1>Configuration Revision</h1>
+<section class="viewbor"></section>
+<h1>Required Infrastructure Change</h1>
+<section class="viewbor"></section>
+<h1>External System Requirement</h1>
+<section class="viewbor"></section>
+<h1>Required Migration</h1>
+<section class="viewbor"></section>
+<h1>Required Recovery Action</h1>
+<a>Dependencies must remain identifiable even when their complete<br>consequences are not yet known.</a><br><br>
+<section class="viewbor"></section>
+<h1>Duplicate Request Detection</h1>
+<a>Multiple requests may concern the same underlying change need.</a><br><br>
+<a>CRMM must support identification of:</a><br><br>
+<section class="viewbor"></section>
+<h1>Identical Requests</h1>
+<section class="viewbor"></section>
+<h1>Substantially Overlapping Requests</h1>
+<section class="viewbor"></section>
+<h1>Related but Distinct Requests</h1>
+<section class="viewbor"></section>
+<h1>Repeated Reports of One Defect</h1>
+<section class="viewbor"></section>
+<h1>Different Solutions to One Problem</h1>
+<a>Duplicate detection must not erase independent evidence or distinct<br>operational consequences.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Consolidation</h1>
+<a>Related requests may be consolidated where justified.</a><br><br>
+<a>Consolidation must preserve:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Request IDs</h1>
+<section class="viewbor"></section>
+<h1>Original Sources</h1>
+<section class="viewbor"></section>
+<h1>Distinct Evidence</h1>
+<section class="viewbor"></section>
+<h1>Affected Objects</h1>
+<section class="viewbor"></section>
+<h1>Combined Purpose</h1>
+<section class="viewbor"></section>
+<h1>Material Differences</h1>
+<section class="viewbor"></section>
+<h1>Consolidation Decision</h1>
+<section class="viewbor"></section>
+<h1>Historical References</h1>
+<a>Requests must not be merged merely because they share a broad software<br>category.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Separation</h1>
+<a>A request may contain multiple materially distinct changes.</a><br><br>
+<a>Separation may be required where changes differ in:</a><br><br>
+<section class="viewbor"></section>
+<h1>Purpose</h1>
+<section class="viewbor"></section>
+<h1>Affected Software Objects</h1>
+<section class="viewbor"></section>
+<h1>Impact</h1>
+<a>Authority</a><br><br>
+<section class="viewbor"></section>
+<h1>Urgency</h1>
+<section class="viewbor"></section>
+<h1>Implementation Pathway</h1>
+<section class="viewbor"></section>
+<h1>Verification Requirements</h1>
+<section class="viewbor"></section>
+<h1>Operational Consequences</h1>
+<a>Separated requests must retain traceability to their common origin.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Relationship Governance</h1>
+<a>CRMM must preserve relationships among change requests.</a><br><br>
+<a>Potential relationships include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Duplicate Of</h1>
+<section class="viewbor"></section>
+<h1>Related To</h1>
+<section class="viewbor"></section>
+<h1>Depends On</h1>
+<section class="viewbor"></section>
+<h1>Blocks</h1>
+<section class="viewbor"></section>
+<h1>Supersedes</h1>
+<section class="viewbor"></section>
+<h1>Superseded By</h1>
+<section class="viewbor"></section>
+<h1>Derived From</h1>
+<section class="viewbor"></section>
+<h1>Split From</h1>
+<section class="viewbor"></section>
+<h1>Merged Into</h1>
+<section class="viewbor"></section>
+<h1>These relationships support subsequent coordination without predetermining</h1>
+<a>implementation decisions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Automated Request Generation</h1>
+<a>Automated systems may create change requests from predefined<br>conditions.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Update Detection</h1>
+<section class="viewbor"></section>
+<h1>Security Alert</h1>
+<section class="viewbor"></section>
+<h1>Failed Quality Test</h1>
+<section class="viewbor"></section>
+<h1>Configuration Drift</h1>
+<section class="viewbor"></section>
+<h1>Operational Monitoring Trigger</h1>
+<section class="viewbor"></section>
+<h1>Performance Threshold</h1>
+<section class="viewbor"></section>
+<h1>Compatibility Failure</h1>
+<a>CRMM must preserve the generating system, detection basis, request<br>scope, and evidence.</a><br><br>
+<a>Automated Detection ≠ Validated Change Requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>AI-Generated Change Requests</h1>
+<a>AI systems may formulate change requests using code analysis,<br>operational observations, documentation, or user instructions.</a><br><br>
+<a>CRMM must identify:</a><br><br>
+<section class="viewbor"></section>
+<h1>AI System or Agent</h1>
+<section class="viewbor"></section>
+<h1>Assigned Function</h1>
+<section class="viewbor"></section>
+<h1>Input Context Reference</h1>
+<section class="viewbor"></section>
+<h1>Proposed Change</h1>
+<section class="viewbor"></section>
+<h1>Supporting Evidence</h1>
+<section class="viewbor"></section>
+<h1>Generated Assumptions</h1>
+<section class="viewbor"></section>
+<h1>Known Limitations</h1>
+<section class="viewbor"></section>
+<h1>Required Review</h1>
+<a>AI-generated explanations must not be treated as established facts<br>without appropriate verification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Agent Request Boundary</h1>
+<a>An autonomous agent may be authorized to identify or propose changes<br>without being authorized to implement them.</a><br><br>
+<a>CRMM must preserve:</a><br><br>
+<section class="viewbor"></section>
+<h1>Agent Identity</h1>
+<section class="viewbor"></section>
+<h1>Assigned Objective</h1>
+<section class="viewbor"></section>
+<h1>Request Generation Scope</h1>
+<section class="viewbor"></section>
+<h1>Permitted Evidence Sources</h1>
+<section class="viewbor"></section>
+<h1>Affected Software Objects</h1>
+<section class="viewbor"></section>
+<h1>Decision Boundary</h1>
+<section class="viewbor"></section>
+<h1>Escalation Requirements</h1>
+<section class="viewbor"></section>
+<h1>Applicable Authority Reference</h1>
+<a>Agent Permission to Propose ≠ Agent Permission to Implement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Human and Organizational Request Governance</h1>
+<a>Human-generated requests must also preserve applicable identity and<br>authority distinctions.</a><br><br>
+<a>A developer may identify a defect.</a><br><br>
+<a>A product owner may request new functionality.</a><br><br>
+<a>An operations engineer may report an unacceptable deployment<br>condition.</a><br><br>
+<a>A security function may require remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>These roles do not automatically possess identical authority to approve,</h1>
+<a>implement, release, or deploy the proposed changes.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Review</h1>
+<a>CRMM must establish an initial review sufficient to determine the<br>request's next governance step.</a><br><br>
+<a>Review may evaluate:</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Identity</h1>
+<section class="viewbor"></section>
+<h1>Purpose Clarity</h1>
+<section class="viewbor"></section>
+<h1>Affected Object Identification</h1>
+<section class="viewbor"></section>
+<h1>Evidence Availability</h1>
+<section class="viewbor"></section>
+<h1>Preliminary Classification</h1>
+<section class="viewbor"></section>
+<h1>Known Constraints</h1>
+<section class="viewbor"></section>
+<h1>Related Requests</h1>
+<section class="viewbor"></section>
+<h1>Material Uncertainty</h1>
+<section class="viewbor"></section>
+<h1>Assessment Readiness</h1>
+<a>The review must not substitute for CIAM's substantive change impact<br>assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Clarification</h1>
+<a>Clarification may be required when the request lacks information<br>necessary for meaningful assessment.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unclear Problem Description</h1>
+<section class="viewbor"></section>
+<h1>Undefined Software Product</h1>
+<section class="viewbor"></section>
+<h1>Unknown Affected Component</h1>
+<section class="viewbor"></section>
+<h1>Ambiguous Intended Outcome</h1>
+<section class="viewbor"></section>
+<h1>Unsupported Urgency</h1>
+<section class="viewbor"></section>
+<h1>Conflicting Evidence</h1>
+<section class="viewbor"></section>
+<h1>Unclear Requesting Source</h1>
+<section class="viewbor"></section>
+<h1>Missing Operational Context</h1>
+<a>Clarification requirements must remain identifiable and traceable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Rejection</h1>
+<a>A request may be rejected at the request-management stage when an<br>appropriate basis exists.</a><br><br>
+<a>Potential reasons include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Outside Governed Software Scope</h1>
+<section class="viewbor"></section>
+<h1>Insufficient Justification After Reasonable Clarification</h1>
+<section class="viewbor"></section>
+<h1>Request Withdrawn by Applicable Actor</h1>
+<section class="viewbor"></section>
+<h1>Duplicate Already Governed Elsewhere</h1>
+<section class="viewbor"></section>
+<h1>Proposed Change Incompatible With Mandatory Constraints</h1>
+<section class="viewbor"></section>
+<h1>No Identifiable Change Need</h1>
+<a>Rejection must preserve its basis and applicable decision authority.</a><br><br>
+<a>Rejection at this stage must not be used to conceal material defects,<br>security findings, or operational risks that require governance<br>through another mechanism.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Deferral</h1>
+<a>A request may be deferred when assessment or processing cannot<br>appropriately proceed.</a><br><br>
+<a>Potential reasons include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Missing Evidence</h1>
+<section class="viewbor"></section>
+<h1>Unresolved Dependency</h1>
+<section class="viewbor"></section>
+<h1>Insufficient Context</h1>
+<section class="viewbor"></section>
+<h1>Resource Constraint</h1>
+<section class="viewbor"></section>
+<h1>External Decision Pending</h1>
+<section class="viewbor"></section>
+<h1>Related Change Pending</h1>
+<section class="viewbor"></section>
+<h1>Required Clarification</h1>
+<a>Deferral must preserve the reason, responsible function, and<br>applicable reassessment condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Withdrawal</h1>
+<a>A request may be withdrawn when the applicable actor no longer seeks<br>the proposed modification.</a><br><br>
+<a>CRMM must preserve:</a><br><br>
+<section class="viewbor"></section>
+<h1>Withdrawal Actor</h1>
+<section class="viewbor"></section>
+<h1>Withdrawal Authority or Eligibility</h1>
+<section class="viewbor"></section>
+<h1>Withdrawal Reason</h1>
+<section class="viewbor"></section>
+<h1>Withdrawal Time</h1>
+<section class="viewbor"></section>
+<h1>Related Obligations</h1>
+<section class="viewbor"></section>
+<h1>Remaining Risk References</h1>
+<section class="viewbor"></section>
+<h1>Disposition Evidence</h1>
+<a>Withdrawal of a request must not automatically eliminate independently<br>established safety, security, or operational obligations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Supersession</h1>
+<a>A request may be superseded by a newer or more appropriate change<br>request.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Request</h1>
+<section class="viewbor"></section>
+<h1>Successor Request</h1>
+<section class="viewbor"></section>
+<h1>Reason for Supersession</h1>
+<section class="viewbor"></section>
+<h1>Transferred Evidence</h1>
+<section class="viewbor"></section>
+<h1>Changed Scope</h1>
+<section class="viewbor"></section>
+<h1>Changed Purpose</h1>
+<section class="viewbor"></section>
+<h1>Outstanding Obligations</h1>
+<section class="viewbor"></section>
+<h1>Historical Continuity</h1>
+<a>Supersession must not erase the earlier request's decisions or<br>evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Revision</h1>
+<a>A request may require revision when its purpose, scope, evidence, or<br>proposed modification changes.</a><br><br>
+<a>CRMM must preserve:</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Version</h1>
+<section class="viewbor"></section>
+<h1>Previous Version</h1>
+<section class="viewbor"></section>
+<h1>Revised Elements</h1>
+<section class="viewbor"></section>
+<h1>Revision Reason</h1>
+<section class="viewbor"></section>
+<h1>Revision Actor</h1>
+<section class="viewbor"></section>
+<h1>Revision Time</h1>
+<section class="viewbor"></section>
+<h1>New Evidence</h1>
+<section class="viewbor"></section>
+<h1>Assessment Implications</h1>
+<a>Material revisions must not silently inherit earlier conclusions that<br>no longer apply.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Status</h1>
+<a>CRMM recognizes the following principal request states:</a><br><br>
+<section class="viewbor"></section>
+<h1>Identified</h1>
+<section class="viewbor"></section>
+<h1>Draft</h1>
+<section class="viewbor"></section>
+<h1>Submitted</h1>
+<section class="viewbor"></section>
+<h1>Clarification Required</h1>
+<section class="viewbor"></section>
+<h1>Evidence Required</h1>
+<section class="viewbor"></section>
+<h1>Under Initial Review</h1>
+<section class="viewbor"></section>
+<h1>Complete for Initial Assessment</h1>
+<section class="viewbor"></section>
+<h1>Ready for Impact Assessment</h1>
+<section class="viewbor"></section>
+<h1>Deferred</h1>
+<section class="viewbor"></section>
+<h1>Rejected</h1>
+<section class="viewbor"></section>
+<h1>Withdrawn</h1>
+<section class="viewbor"></section>
+<h1>Superseded</h1>
+<section class="viewbor"></section>
+<h1>Transferred</h1>
+<section class="viewbor"></section>
+<h1>Unknown</h1>
+<section class="viewbor"></section>
+<h1>Conflicted</h1>
+<a>Request status must remain distinct from the broader change<br>implementation and closure status governed by SCMS.</a><br><br>
+<section class="viewbor"></section>
+<h1>Initial Request Disposition</h1>
+<a>CRMM must establish an appropriate initial disposition.</a><br><br>
+<a>Possible outcomes include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Proceed to Impact Assessment</h1>
+<section class="viewbor"></section>
+<h1>Request Clarification</h1>
+<section class="viewbor"></section>
+<h1>Request Additional Evidence</h1>
+<section class="viewbor"></section>
+<h1>Consolidate With Related Request</h1>
+<section class="viewbor"></section>
+<h1>Separate Into Distinct Requests</h1>
+<section class="viewbor"></section>
+<h1>Defer</h1>
+<section class="viewbor"></section>
+<h1>Reject</h1>
+<section class="viewbor"></section>
+<h1>Withdraw</h1>
+<section class="viewbor"></section>
+<h1>Supersede</h1>
+<section class="viewbor"></section>
+<h1>Transfer to Another Applicable Governance Mechanism</h1>
+<a>The disposition must remain associated with its basis and competent<br>decision reference.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request-to-Assessment Handoff</h1>
+<a>Where a request proceeds to CIAM, CRMM must provide sufficient<br>information for substantive impact assessment.</a><br><br>
+<a>The handoff should include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request ID</h1>
+<section class="viewbor"></section>
+<h1>Software Product</h1>
+<section class="viewbor"></section>
+<h1>Change Origin</h1>
+<section class="viewbor"></section>
+<h1>Purpose</h1>
+<section class="viewbor"></section>
+<h1>Current-State Reference</h1>
+<section class="viewbor"></section>
+<h1>Proposed Modification</h1>
+<section class="viewbor"></section>
+<h1>Affected Objects</h1>
+<section class="viewbor"></section>
+<h1>Preliminary Scope</h1>
+<section class="viewbor"></section>
+<h1>Evidence</h1>
+<section class="viewbor"></section>
+<h1>Known Constraints</h1>
+<section class="viewbor"></section>
+<h1>Known Dependencies</h1>
+<section class="viewbor"></section>
+<h1>Uncertainty</h1>
+<section class="viewbor"></section>
+<h1>Related Requests</h1>
+<section class="viewbor"></section>
+<h1>Request Classification</h1>
+<a>The handoff must preserve the distinction between preliminary request<br>information and verified assessment findings.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Evidence Continuity</h1>
+<a>CRMM must preserve material evidence throughout the request lifecycle.</a><br><br>
+<a>This includes:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Submission</h1>
+<section class="viewbor"></section>
+<h1>Supporting Evidence</h1>
+<section class="viewbor"></section>
+<h1>Clarifications</h1>
+<section class="viewbor"></section>
+<h1>Request Revisions</h1>
+<section class="viewbor"></section>
+<h1>Duplicate Assessments</h1>
+<section class="viewbor"></section>
+<h1>Relationship Decisions</h1>
+<section class="viewbor"></section>
+<h1>Initial Reviews</h1>
+<section class="viewbor"></section>
+<h1>Disposition Decisions</h1>
+<section class="viewbor"></section>
+<h1>Handoff Records</h1>
+<a>Historical evidence must remain reconstructable even when the request<br>is later revised, merged, or superseded.</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Governance Classification</h1>
+<a>CRMM recognizes the following governance classifications:</a><br><br>
+<section class="viewbor"></section>
+<h1>Request Identifiable</h1>
+<section class="viewbor"></section>
+<h1>Request Incomplete</h1>
+<section class="viewbor"></section>
+<h1>Purpose Unclear</h1>
+<section class="viewbor"></section>
+<h1>Scope Unclear</h1>
+<section class="viewbor"></section>
+<h1>Evidence Insufficient</h1>
+<section class="viewbor"></section>
+<h1>Origin Uncertain</h1>
+<section class="viewbor"></section>
+<h1>Related Request Identified</h1>
+<section class="viewbor"></section>
+<h1>Duplicate Candidate</h1>
+<section class="viewbor"></section>
+<h1>Request Conflicted</h1>
+<section class="viewbor"></section>
+<h1>Ready for Assessment</h1>
+<section class="viewbor"></section>
+<h1>Deferred</h1>
+<section class="viewbor"></section>
+<h1>Rejected</h1>
+<section class="viewbor"></section>
+<h1>Withdrawn</h1>
+<section class="viewbor"></section>
+<h1>Superseded</h1>
+<section class="viewbor"></section>
+<h1>Transferred</h1>
+<section class="viewbor"></section>
+<h1>Unknown</h1>
+<a>Classification must remain associated with the relevant request<br>version and evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Requirements</h1>
+<a>A conforming CRMM implementation must satisfy the following<br>requirements. Request Identity and Formation</a><br><br>
+<ul><li>Establish a stable change request identity</li><li>Identify the software product or relevant software context</li><li>Preserve the request origin</li><li>Identify the requesting actor or system</li><li>Preserve the creation time</li><li>Establish the change purpose</li><li>Identify the proposed modification</li><li>Preserve the request version</li></ul><br>
+<section class="viewbor"></section>
+<h1>Scope and Context</h1>
+<ul><li>Identify the current-state reference</li><li>Identify the intended change outcome where available</li><li>Identify affected software objects</li><li>Establish preliminary scope</li><li>Preserve known exclusions</li><li>Preserve material assumptions</li><li>Preserve known constraints</li><li>Identify related requests and dependencies</li></ul><br>
+<section class="viewbor"></section>
+<h1>Evidence and Classification</h1>
+<ul><li>Preserve supporting evidence</li><li>Identify evidence provenance</li><li>Distinguish observations from assumptions</li><li>Evaluate request completeness</li><li>Identify missing evidence</li><li>Establish initial change classification</li><li>Preserve urgency justification</li><li>Distinguish urgency from authority</li></ul><br>
+<section class="viewbor"></section>
+<h1>Request Control</h1>
+<ul><li>Identify duplicate requests</li><li>Preserve consolidation decisions</li><li>Preserve request separation references</li><li>Maintain request relationships</li><li>Preserve material revisions</li><li>Govern deferral and withdrawal</li><li>Preserve rejection and supersession decisions</li><li>Maintain historical request continuity</li></ul><br>
+<section class="viewbor"></section>
+<h1>Automation and Handoff</h1>
+<ul><li>Identify automated request sources</li><li>Preserve AI-generated request limitations</li><li>Distinguish agent proposal authority from implementation<br>authority</li><li>Preserve initial review outcomes</li><li>Establish request disposition</li><li>Identify assessment readiness</li><li>Provide structured handoff to CIAM</li><li>Preserve the distinction between request acceptance and change</li></ul><br>
+<a>authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<section class="viewbor"></section>
+<h1>Change Signal → Origin Identification → Requesting Actor → Software</h1>
+<a>Context → Problem or Opportunity → Change Purpose → Proposed<br>Modification → Affected Objects → Preliminary Scope → Evidence →<br>Assumptions and Constraints → Request Completeness → Initial<br>Classification → Related Request Assessment → Initial Review → Request<br>Disposition → CIAM Handoff / Clarification / Deferral / Rejection /<br>Withdrawal / Supersession</a><br><br>
+<a>Where information is insufficient:</a><br><br>
+<section class="viewbor"></section>
+<h1>Request → Missing Information → Clarification or Evidence Requirement →</h1>
+<a>Revised Request → Completeness Reassessment</a><br><br>
+<a>Where duplicate or related requests exist:</a><br><br>
+<section class="viewbor"></section>
+<h1>Request → Relationship Assessment → Preserve Distinct Evidence →</h1>
+<a>Consolidate / Separate / Maintain Relationship</a><br><br>
+<a>Where an autonomous agent generates a request:</a><br><br>
+<section class="viewbor"></section>
+<h1>Agent Observation → Proposed Change → Agent Identity and Scope → Evidence</h1>
+<a>Assessment → Request Formation → Authorized Review Pathway</a><br><br>
+<a>Where the request changes materially:</a><br><br>
+<section class="viewbor"></section>
+<h1>Original Request → Material Revision → Version Preservation → Reassessment</h1>
+<a>of Initial Conclusions → Updated Disposition</a><br><br>
+<a>CRMM must not convert request formation, automated detection, or<br>preliminary acceptance into permission to implement software<br>modifications.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Change Request Profile</h1>
+<a>Supporting outputs may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request Identity</h1>
+<section class="viewbor"></section>
+<h1>Change Origin Record</h1>
+<section class="viewbor"></section>
+<h1>Requesting Actor Reference</h1>
+<section class="viewbor"></section>
+<h1>Change Purpose Statement</h1>
+<section class="viewbor"></section>
+<h1>Problem or Opportunity Record</h1>
+<section class="viewbor"></section>
+<h1>Current-State Reference</h1>
+<section class="viewbor"></section>
+<h1>Proposed Modification Record</h1>
+<section class="viewbor"></section>
+<h1>Affected Software Object Register</h1>
+<section class="viewbor"></section>
+<h1>Preliminary Change Scope</h1>
+<section class="viewbor"></section>
+<h1>Supporting Evidence Register</h1>
+<section class="viewbor"></section>
+<h1>Request Completeness Assessment</h1>
+<section class="viewbor"></section>
+<h1>Initial Change Classification</h1>
+<section class="viewbor"></section>
+<h1>Urgency Reference</h1>
+<section class="viewbor"></section>
+<h1>Known Constraint Register</h1>
+<section class="viewbor"></section>
+<h1>Related Request Register</h1>
+<section class="viewbor"></section>
+<h1>Request Revision History</h1>
+<section class="viewbor"></section>
+<h1>Request Disposition Record</h1>
+<section class="viewbor"></section>
+<h1>Assessment Readiness Classification</h1>
+<section class="viewbor"></section>
+<h1>CIAM Handoff Record</h1>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A minimum CRMM implementation must establish eight governance layers.<br>Layer 1 — Request Identity</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify the change request, software context, requesting actor, origin,</h1>
+<a>and creation time. Layer 2 — Change Purpose</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish the problem or opportunity, proposed modification, and intended</h1>
+<a>outcome. Layer 3 — Software Context</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify affected software objects, current-state references, preliminary</h1>
+<a>scope, assumptions, and known constraints. Layer 4 — Evidence</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve supporting observations, reports, source references, provenance,</h1>
+<a>and material uncertainties. Layer 5 — Classification</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish the initial request category, urgency, completeness, and known</h1>
+<a>related requests. Layer 6 — Request Control</a><br><br>
+<section class="viewbor"></section>
+<h1>Manage clarification, duplicate detection, consolidation, separation,</h1>
+<a>revision, deferral, withdrawal, rejection, and supersession. Layer 7 —<br>Disposition</a><br><br>
+<a>Determine whether the request is sufficiently defined for impact<br>assessment or requires another legitimate disposition. Layer 8 —<br>Governed Output and Handoff</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish the Software Change Request Profile and preserve the necessary</h1>
+<a>information for CIAM.</a><br><br>
+<a>The implementation may use manual forms, issue-tracking systems,<br>repository workflows, automated detection, or AI-assisted request<br>generation.</a><br><br>
+<a>The governance logic remains independent of the technology used.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-Module Boundary</h1>
+<section class="viewbor"></section>
+<h1>CRMM → CIAM</h1>
+<section class="viewbor"></section>
+<h1>CRMM establishes the request identity, purpose, preliminary scope, affected</h1>
+<a>objects, and available evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>CIAM evaluates the direct and indirect consequences, feasibility,</h1>
+<a>dependencies, and lifecycle implications of the proposed change.</a><br><br>
+<section class="viewbor"></section>
+<h1>CRMM → CHCM</h1>
+<a>CRMM preserves initial relationships among requests.</a><br><br>
+<section class="viewbor"></section>
+<h1>CHCM governs coordination among affected actors, activities, decisions, and</h1>
+<a>related changes.</a><br><br>
+<section class="viewbor"></section>
+<h1>CRMM → LRECM</h1>
+<a>CRMM identifies the proposed change.</a><br><br>
+<section class="viewbor"></section>
+<h1>LRECM determines the applicable lifecycle re-entry requirements based on</h1>
+<a>the assessed impact and governance conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>CRMM → CCLM</h1>
+<a>CRMM preserves the original request and its historical revisions.</a><br><br>
+<section class="viewbor"></section>
+<h1>CCLM evaluates the final change disposition, verified outcome, and closure</h1>
+<a>obligations.</a><br><br>
+<a>Request Ready for Assessment ≠ Change Ready for Implementation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<a>CRMM may receive change signals and evidence from:</a><br><br>
+<section class="viewbor"></section>
+<h1>SRS — Software Requirements Standard</h1>
+<a>New or revised software requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>SCS — Software Creation Standard</h1>
+<a>Development findings and artifact modification proposals.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDS — Software Dependency Standard</h1>
+<a>Dependency changes, incompatibilities, and continuity requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>SCFS — Software Configuration Standard</h1>
+<a>Configuration changes, build findings, and artifact identity<br>discrepancies.</a><br><br>
+<section class="viewbor"></section>
+<h1>SQS — Software Quality Standard</h1>
+<a>Defects, failed tests, and quality findings.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSS — Software Security Standard</h1>
+<a>Vulnerabilities, security findings, and remediation requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>SRLS — Software Release Standard</h1>
+<section class="viewbor"></section>
+<h1>Release readiness findings, release restrictions, and withdrawal-related</h1>
+<a>change needs.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDPS — Software Deployment Standard</h1>
+<section class="viewbor"></section>
+<h1>Deployment failures, production version inconsistencies, and</h1>
+<a>recovery-related change needs.</a><br><br>
+<section class="viewbor"></section>
+<h1>SRTS — Software Retirement Standard</h1>
+<a>Migration, replacement, and retirement-related modifications.</a><br><br>
+<section class="viewbor"></section>
+<h1>SLCS — Software Lifecycle Control Standard</h1>
+<a>Lifecycle inconsistencies, exceptions, and transition requirements.</a><br><br>
+<a>CRMM establishes the change request associated with these signals.</a><br><br>
+<a>It does not replace the governance mechanisms responsible for the<br>originating conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Practical Applications</h1>
+<section class="viewbor"></section>
+<h1>Software Development Teams</h1>
+<section class="viewbor"></section>
+<h1>Creating traceable requests for defects, enhancements, technical</h1>
+<a>improvements, and compatibility modifications.</a><br><br>
+<section class="viewbor"></section>
+<h1>Security Operations</h1>
+<section class="viewbor"></section>
+<h1>Converting vulnerability findings into identifiable change requests without</h1>
+<a>confusing remediation urgency with implementation authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Automated Dependency Management</h1>
+<section class="viewbor"></section>
+<h1>Maintaining evidence-supported requests for dependency updates detected by</h1>
+<a>automated tools.</a><br><br>
+<section class="viewbor"></section>
+<h1>AI-Assisted Software Engineering</h1>
+<section class="viewbor"></section>
+<h1>Preserving the identity, purpose, assumptions, and evidence of AI-generated</h1>
+<a>software modification proposals.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Agent Systems</h1>
+<section class="viewbor"></section>
+<h1>Separating an agent's ability to detect or propose changes from its</h1>
+<a>permission to modify software or production infrastructure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Industrial and Embedded Software</h1>
+<section class="viewbor"></section>
+<h1>Establishing traceable requests for firmware, controller configuration, and</h1>
+<a>software behavior changes.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 1 — An AI Agent Proposes a Security Fix Without Sufficient</h1>
+<a>Evidence</a><br><br>
+<section class="viewbor"></section>
+<h1>An autonomous coding agent analyzes a software repository and identifies a</h1>
+<a>dependency it considers vulnerable.</a><br><br>
+<a>The agent proposes replacing the dependency with a newer version.</a><br><br>
+<a>Its report contains a vulnerability claim but does not establish which<br>dependency version is actually used in the relevant production<br>release.</a><br><br>
+<a>CRMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Agent Recommendation → Request Identity → Software Context → Vulnerability</h1>
+<a>Claim → Proposed Modification → Supporting Evidence → Request<br>Completeness</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The agent's proposal is a recognizable change request</li><li>The software object and proposed modification are identifiable</li><li>The production dependency reference is not sufficiently<br>established</li><li>The evidence does not yet support the full vulnerability claim</li><li>Additional clarification or evidence is required before<br>substantive</li></ul><br>
+<a>impact assessment.</a><br><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Evidence Insufficient — Clarification Required.</a><br><br>
+<section class="viewbor"></section>
+<h1>AI-Generated Security Recommendation ≠ Verified Software Change</h1>
+<a>Requirement.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — Multiple Teams Report the Same Defect With Different</h1>
+<a>Operational Evidence</a><br><br>
+<section class="viewbor"></section>
+<h1>Three teams submit requests concerning failures in a shared authentication</h1>
+<a>service.</a><br><br>
+<a>The development team reports a failed test.</a><br><br>
+<a>The operations team reports intermittent production authentication<br>failures.</a><br><br>
+<a>The customer support team reports user access problems.</a><br><br>
+<a>All three requests appear to concern the same software component.</a><br><br>
+<a>CRMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Request A → Request B → Request C → Shared Software Object → Evidence</h1>
+<a>Comparison → Relationship Assessment → Consolidation Decision</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The requests may concern one underlying problem</li><li>Each request contains distinct evidence</li><li>The operational consequences differ across the reports</li><li>Consolidation may be appropriate if the common change need is</li><li>Original evidence and request identities must remain traceable</li></ul><br>
+<a>established.</a><br><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Related Requests Identified — Consolidation Assessment Required.</a><br><br>
+<a>Shared Software Component ≠ Automatically Identical Change Request.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>Change Need Identified ≠ Proposed Solution Validated.</a><br><br>
+<a>Change Request Accepted ≠ Change Implementation Authorized.</a><br><br>
+<a>Requested Action ≠ Established Change Purpose.</a><br><br>
+<a>Reported Problem ≠ Verified Defect.</a><br><br>
+<a>Observed Failure ≠ Established Root Cause.</a><br><br>
+<a>Preliminary Scope ≠ Complete Change Impact.</a><br><br>
+<a>Request Urgency ≠ Implementation Authority.</a><br><br>
+<a>Urgent Request ≠ Authorized Emergency Change.</a><br><br>
+<a>Supporting Evidence Available ≠ Evidence Sufficient.</a><br><br>
+<a>AI-Generated Recommendation ≠ Verified Change Requirement.</a><br><br>
+<a>Automated Detection ≠ Validated Change Requirement.</a><br><br>
+<a>Agent Permission to Propose ≠ Agent Permission to Implement.</a><br><br>
+<a>Related Requests ≠ Duplicate Requests.</a><br><br>
+<a>Request Consolidation ≠ Evidence Elimination.</a><br><br>
+<a>Request Withdrawal ≠ Underlying Risk Resolved.</a><br><br>
+<a>Request Ready for Assessment ≠ Change Ready for Implementation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<section class="viewbor"></section>
+<h1>CRMM governs the recognition, identification, formation, preliminary</h1>
+<a>classification, evidence association, maintenance, and initial<br>disposition of software change requests.</a><br><br>
+<section class="viewbor"></section>
+<h1>It establishes the relationship between a change origin, requesting actor,</h1>
+<a>software context, proposed modification, preliminary scope, supporting<br>evidence, and request governance status.</a><br><br>
+<a>CRMM does not determine complete change impact, authorize<br>implementation, coordinate the full change lifecycle, or verify the<br>resulting software state.</a><br><br>
+<a>Its principal governance output is the:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Change Request Profile</h1>
+<section class="viewbor"></section>
+<h1>This output establishes the identifiable and evidence-supported starting</h1>
+<a>point for subsequent software change governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<section class="viewbor"></section>
+<h1>A software change cannot be governed effectively if the original reason</h1>
+<a>for the change, the proposed modification, and the evidence supporting<br>the request cannot be distinguished.</a><br><br>
+<a>A defect report may describe a real problem while proposing the wrong<br>solution.</a><br><br>
+<a>A security alert may justify urgent investigation without establishing<br>the correct remediation.</a><br><br>
+<a>A dependency update may appear routine while its operational<br>consequences remain unknown.</a><br><br>
+<a>Multiple teams may report the same underlying problem through<br>different observations.</a><br><br>
+<a>An AI agent may generate a convincing change proposal without<br>possessing sufficient evidence or authority to implement it.</a><br><br>
+<a>And a software modification may be technically possible before anyone<br>has established why it should be made.</a><br><br>
+<section class="viewbor"></section>
+<h1>CRMM establishes the governance structure required to distinguish these</h1>
+<a>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires software change requests to remain identifiable, attributable,</h1>
+<a>sufficiently described, and connected to their supporting evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>It preserves uncertainty, preliminary assumptions, request relationships,</h1>
+<a>and material revisions.</a><br><br>
+<a>It ensures that requests can be clarified, assessed, consolidated,<br>deferred, rejected, or transferred without losing their origin and<br>historical continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>And it establishes a disciplined boundary between recognizing a change need</h1>
+<a>and deciding whether or how the proposed change should proceed.</a><br><br>
+<a>A change request is not permission to modify software. It is the<br>identifiable governance starting point from which the necessity,<br>consequences, legitimacy, and appropriate lifecycle pathway of a<br>proposed modification can be established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Change Request Management Module (CRMM) transforms software change</h1>
+<a>proposals from informal instructions or automated recommendations into<br>traceable, evidence-supported governance objects suitable for<br>structured lifecycle assessment.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

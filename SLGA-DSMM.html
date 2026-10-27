@@ -1,0 +1,1496 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® DSMM — Deployment State Monitoring Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>DSMM — Deployment State Monitoring Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> SDPS — Software Deployment Standard<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Deployment Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Deployment State Monitoring Governance<br>
+<b>Module ID:</b> SLGA-SDPS-DSMM-04<br>
+<b>Origin ID:</b> OOF-SLGA-SDPS-DSMM<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical Open<br>
+<b>Effective Date:</b> 14.10.2026<br>
+<b>Compatibility:</b> Methodology OS — Modular Compatibility<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> Protected Methodological Work<br>
+<b>Canonical Language:</b> English</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<a>DSMM — Deployment State Monitoring Module is the Core Module within<br>SDPS that governs how the actual state of a software deployment is<br>observed, evaluated, classified, and reassessed against its authorized<br>scope, intended operational conditions, production version identity,<br>verification requirements, and applicable intervention thresholds.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM establishes deployment-state monitoring as an evidence-supported</h1>
+<a>governance mechanism rather than a collection of technical metrics,<br>pipeline completion signals, or automated health reports.</a><br><br>
+<section class="viewbor"></section>
+<h1>It governs the relationship between deployment execution, production</h1>
+<a>version state, monitoring coverage, operational observations, expected<br>conditions, material deviations, and the decisions required when the<br>resulting operational reality cannot be sufficiently established or<br>accepted.</a><br><br>
+<section class="viewbor"></section>
+<h1>The module distinguishes technical execution completion from verified</h1>
+<a>deployment establishment, monitoring activity from sufficient<br>observability, software availability from operational acceptability,<br>and observed anomalies from confirmed causes.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM applies to manually operated deployments, continuous delivery systems,</h1>
+<a>distributed applications, cloud infrastructure, autonomous AI agents,<br>embedded software, industrial systems, and robotic platforms.</a><br><br>
+<a>Its principal governance output is the Software Deployment State<br>Profile.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<section class="viewbor"></section>
+<h1>DSMM establishes and maintains an evidence-supported representation of the</h1>
+<a>actual deployment state.</a><br><br>
+<a>It governs:</a><br><br>
+<ul><li>Deployment-state identity</li><li>Monitoring purpose and scope</li><li>Intended operational state references</li><li>Deployment execution observations</li><li>Production version references</li><li>Monitoring coverage</li><li>Observation source identification</li><li>Evidence reliability and freshness</li><li>Deployment progression monitoring</li><li>Operational condition verification</li><li>Deployment-state consistency</li><li>Monitoring gaps</li><li>Deployment anomalies</li><li>State uncertainty and conflicts</li><li>Intervention thresholds</li><li>Monitoring-driven escalation</li><li>Deployment-state classification</li><li>Material-change reassessment</li><li>Historical state continuity</li><li>Handoff to rollback and recovery governance</li></ul><br>
+<a>DSMM does not independently authorize deployments, redefine production<br>artifact identity, execute rollback actions, or determine recovery<br>success without the applicable evidence and governance references.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Question</h1>
+<a>How can the actual state of a software deployment be observed,<br>evaluated, and reassessed when execution outcomes, production<br>versions, operational conditions, monitoring coverage, and material<br>changes may differ from the intended deployment state, while ensuring<br>that insufficient evidence, conflicting observations, unacceptable<br>conditions, and intervention requirements remain identifiable and<br>governable?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>SLGA™ Governance Flow</h1>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-cutting: Software Lifecycle Control</h1>
+<section class="viewbor"></section>
+<h1>SDPS Core Module Flow</h1>
+<section class="viewbor"></section>
+<h1>DPM — Deployment Planning Module → DAM — Deployment Authorization Module →</h1>
+<a>PVCM — Production Version Control Module → DSMM — Deployment State<br>Monitoring Module → RRVM — Rollback &amp; Recovery Module</a><br><br>
+<a>DSMM is the fourth Core Module within SDPS.</a><br><br>
+<section class="viewbor"></section>
+<h1>It receives the intended deployment conditions from DPM, authorization</h1>
+<a>conditions from DAM, and production version evidence from PVCM.</a><br><br>
+<section class="viewbor"></section>
+<h1>It evaluates whether the observed deployment state supports continuation,</h1>
+<a>operational acceptance, restriction, intervention, rollback<br>consideration, or recovery escalation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Its outputs provide the operational evidence basis for RRVM and other</h1>
+<a>applicable software lifecycle governance mechanisms.</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Deployment State Monitoring Governance</h1>
+<section class="viewbor"></section>
+<h1>This governed space concerns the observation, assessment, classification,</h1>
+<a>and reassessment of software deployment states within defined<br>operational environments.</a><br><br>
+<a>It begins when deployment execution or an applicable deployment-state<br>observation becomes relevant.</a><br><br>
+<a>It continues through deployment progression, activation, operational<br>verification, exception handling, stabilization, and material<br>deployment-related changes.</a><br><br>
+<a>Monitoring may continue after technical execution is complete where<br>the deployment's operational conditions, version consistency, or<br>verification obligations remain unresolved.</a><br><br>
+<a>The scope of DSMM is deployment-state governance, not unrestricted<br>monitoring of every aspect of ongoing software operations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Object</h1>
+<a>The primary Governed Object is:</a><br><br>
+<section class="viewbor"></section>
+<h1>A Software Deployment State representing the evidence-supported</h1>
+<a>relationship between an identifiable deployment, its intended and<br>authorized conditions, the software version actually present or<br>operating, observed execution and operational conditions, monitoring<br>coverage, and the current governance classification of the resulting<br>deployment state.</a><br><br>
+<a>The governed object must preserve:</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment State ID</h1>
+<section class="viewbor"></section>
+<h1>Deployment ID</h1>
+<section class="viewbor"></section>
+<h1>Deployment Plan Reference</h1>
+<section class="viewbor"></section>
+<h1>Deployment Authorization Reference</h1>
+<section class="viewbor"></section>
+<h1>Release ID</h1>
+<section class="viewbor"></section>
+<h1>Environment ID</h1>
+<section class="viewbor"></section>
+<h1>Production Version Reference</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Scope</h1>
+<section class="viewbor"></section>
+<h1>Observation Time</h1>
+<section class="viewbor"></section>
+<h1>Observed Conditions</h1>
+<section class="viewbor"></section>
+<h1>Evidence References</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage</h1>
+<section class="viewbor"></section>
+<h1>Material Deviations</h1>
+<section class="viewbor"></section>
+<h1>Intervention Status</h1>
+<section class="viewbor"></section>
+<h1>Deployment State Classification</h1>
+<a>Version</a><br><br>
+<section class="viewbor"></section>
+<h1>Scope</h1>
+<a>DSMM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment State Identification</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Scope Definition</h1>
+<section class="viewbor"></section>
+<h1>Observation Requirements</h1>
+<section class="viewbor"></section>
+<h1>Execution State Observation</h1>
+<section class="viewbor"></section>
+<h1>Production Version Association</h1>
+<section class="viewbor"></section>
+<h1>Operational Condition Monitoring</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage Assessment</h1>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>State Consistency Assessment</h1>
+<section class="viewbor"></section>
+<h1>Anomaly Identification</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Uncertainty</h1>
+<section class="viewbor"></section>
+<h1>Intervention Trigger Evaluation</h1>
+<section class="viewbor"></section>
+<h1>State Classification</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Continuity</h1>
+<section class="viewbor"></section>
+<h1>Reassessment</h1>
+<section class="viewbor"></section>
+<h1>Historical State Preservation</h1>
+<section class="viewbor"></section>
+<h1>Rollback and Recovery Handoff</h1>
+<a>DSMM does not prescribe a particular monitoring platform,<br>observability framework, telemetry protocol, or infrastructure<br>technology.</a><br><br>
+<section class="viewbor"></section>
+<h1>Foundational Principle</h1>
+<a>A deployment state must be established from evidence of the<br>operational reality that exists, not merely from reports that<br>deployment actions were completed or that monitoring systems are<br>active.</a><br><br>
+<a>Deployment Executed ≠ Deployment Successfully Established.</a><br><br>
+<a>Monitoring Active ≠ Deployment State Fully Observable.</a><br><br>
+<a>Service Available ≠ Deployment Operationally Acceptable.</a><br><br>
+<a>No Alert ≠ No Material Problem.</a><br><br>
+<a>Observed Condition ≠ Verified Cause.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment State Identity</h1>
+<a>Every governed deployment state must have an identifiable reference.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment State ID</h1>
+<section class="viewbor"></section>
+<h1>Deployment ID</h1>
+<section class="viewbor"></section>
+<h1>Environment ID</h1>
+<section class="viewbor"></section>
+<h1>Operational Segment Reference</h1>
+<section class="viewbor"></section>
+<h1>Observation Scope</h1>
+<section class="viewbor"></section>
+<h1>Observation Time</h1>
+<section class="viewbor"></section>
+<h1>State Classification</h1>
+<section class="viewbor"></section>
+<h1>Evidence Reference</h1>
+<section class="viewbor"></section>
+<h1>State Version</h1>
+<a>State identity must remain distinguishable from deployment execution<br>records and production version identities.</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Purpose</h1>
+<a>Monitoring purpose identifies the operational questions that<br>deployment-state observations must answer.</a><br><br>
+<a>These may include:</a><br><br>
+<a>Did deployment execution reach the intended stage?</a><br><br>
+<a>Is the expected software version present?</a><br><br>
+<a>Is the intended version activated?</a><br><br>
+<a>Are required services operating?</a><br><br>
+<a>Are deployment conditions satisfied?</a><br><br>
+<a>Are material deviations present?</a><br><br>
+<a>Is the observed state sufficiently verified?</a><br><br>
+<a>Is intervention required?</a><br><br>
+<a>The monitoring purpose must reflect the actual deployment scope and<br>consequences.</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Scope</h1>
+<section class="viewbor"></section>
+<h1>Monitoring scope defines the environments, services, instances, devices,</h1>
+<a>and conditions subject to deployment-state observation.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment</h1>
+<section class="viewbor"></section>
+<h1>Operational Segments</h1>
+<section class="viewbor"></section>
+<h1>Software Components</h1>
+<section class="viewbor"></section>
+<h1>Production Versions</h1>
+<section class="viewbor"></section>
+<h1>Relevant Dependencies</h1>
+<section class="viewbor"></section>
+<h1>Configuration Conditions</h1>
+<section class="viewbor"></section>
+<h1>Service Conditions</h1>
+<section class="viewbor"></section>
+<h1>Deployment Stages</h1>
+<section class="viewbor"></section>
+<h1>Verification Period</h1>
+<section class="viewbor"></section>
+<h1>Material Restrictions</h1>
+<a>The scope must be sufficient to evaluate the claims being made about<br>deployment state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Intended State Reference</h1>
+<a>DSMM receives the intended operational state from DPM.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Target Release</h1>
+<section class="viewbor"></section>
+<h1>Target Production Version</h1>
+<section class="viewbor"></section>
+<h1>Target Environment</h1>
+<section class="viewbor"></section>
+<h1>Required Configuration</h1>
+<section class="viewbor"></section>
+<h1>Required Dependencies</h1>
+<section class="viewbor"></section>
+<h1>Required Activation State</h1>
+<section class="viewbor"></section>
+<h1>Expected Service Conditions</h1>
+<section class="viewbor"></section>
+<h1>Operational Acceptance Criteria</h1>
+<section class="viewbor"></section>
+<h1>Verification Requirements</h1>
+<a>The intended state is a comparison reference.</a><br><br>
+<a>It must not be treated as proof of the actual state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorization Condition Reference</h1>
+<a>DSMM receives applicable deployment authorization conditions from DAM.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorized Release</h1>
+<section class="viewbor"></section>
+<h1>Authorized Environment</h1>
+<section class="viewbor"></section>
+<h1>Authorized Scope</h1>
+<section class="viewbor"></section>
+<h1>Authorized Execution Actor</h1>
+<section class="viewbor"></section>
+<h1>Permitted Deployment Actions</h1>
+<section class="viewbor"></section>
+<h1>Operational Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Validity Conditions</h1>
+<section class="viewbor"></section>
+<h1>Mandatory Verification Conditions</h1>
+<section class="viewbor"></section>
+<h1>Material Exceptions</h1>
+<section class="viewbor"></section>
+<h1>DSMM evaluates observed deployment conditions against these references</h1>
+<a>without independently granting or revoking deployment authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Production Version Reference</h1>
+<section class="viewbor"></section>
+<h1>DSMM consumes production version identities and consistency assessments</h1>
+<a>established through PVCM.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Observed Artifact Identity</h1>
+<section class="viewbor"></section>
+<h1>Installed Version</h1>
+<section class="viewbor"></section>
+<h1>Activated Version</h1>
+<section class="viewbor"></section>
+<h1>Runtime Version</h1>
+<section class="viewbor"></section>
+<h1>Version Distribution</h1>
+<section class="viewbor"></section>
+<h1>Artifact Verification Status</h1>
+<section class="viewbor"></section>
+<h1>Version Consistency</h1>
+<section class="viewbor"></section>
+<h1>Unknown Version Segments</h1>
+<section class="viewbor"></section>
+<h1>Version Evidence</h1>
+<a>DSMM evaluates the operational consequences of the observed version<br>state.</a><br><br>
+<a>It does not replace PVCM's production artifact identity governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Execution Observation</h1>
+<a>DSMM must identify relevant execution events and their reported<br>outcomes.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Started</h1>
+<section class="viewbor"></section>
+<h1>Artifact Transferred</h1>
+<section class="viewbor"></section>
+<h1>Installation Completed</h1>
+<section class="viewbor"></section>
+<h1>Configuration Applied</h1>
+<section class="viewbor"></section>
+<h1>Service Activated</h1>
+<section class="viewbor"></section>
+<h1>Traffic Transitioned</h1>
+<section class="viewbor"></section>
+<h1>Execution Paused</h1>
+<section class="viewbor"></section>
+<h1>Execution Failed</h1>
+<section class="viewbor"></section>
+<h1>Execution Completed</h1>
+<a>Execution events provide evidence about deployment progression.</a><br><br>
+<a>They do not independently establish operational success.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Progression State</h1>
+<a>DSMM must represent material deployment progression states.</a><br><br>
+<a>These may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Not Started</h1>
+<section class="viewbor"></section>
+<h1>Preparing</h1>
+<section class="viewbor"></section>
+<h1>Execution In Progress</h1>
+<section class="viewbor"></section>
+<h1>Partially Executed</h1>
+<section class="viewbor"></section>
+<h1>Execution Paused</h1>
+<section class="viewbor"></section>
+<h1>Execution Failed</h1>
+<section class="viewbor"></section>
+<h1>Execution Completed</h1>
+<section class="viewbor"></section>
+<h1>Verification Pending</h1>
+<section class="viewbor"></section>
+<h1>Operational Verification In Progress</h1>
+<section class="viewbor"></section>
+<h1>Operationally Established</h1>
+<section class="viewbor"></section>
+<h1>Intervention Required</h1>
+<section class="viewbor"></section>
+<h1>Recovery In Progress</h1>
+<a>Progression states must not conceal uncertainty about the resulting<br>operational condition.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Observation</h1>
+<section class="viewbor"></section>
+<h1>Operational observations provide evidence about the environment affected by</h1>
+<a>deployment.</a><br><br>
+<a>Relevant observations may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Service Availability</h1>
+<section class="viewbor"></section>
+<h1>Process Health</h1>
+<section class="viewbor"></section>
+<h1>Application Errors</h1>
+<section class="viewbor"></section>
+<h1>Request Success</h1>
+<section class="viewbor"></section>
+<h1>Response Latency</h1>
+<section class="viewbor"></section>
+<h1>Resource Utilization</h1>
+<section class="viewbor"></section>
+<h1>Dependency Connectivity</h1>
+<section class="viewbor"></section>
+<h1>Configuration State</h1>
+<section class="viewbor"></section>
+<h1>Data Integrity Conditions</h1>
+<section class="viewbor"></section>
+<h1>Security-Relevant Signals</h1>
+<a>Physical System Conditions Where Applicable</a><br><br>
+<section class="viewbor"></section>
+<h1>Observation requirements depend on the deployment's intended outcome and</h1>
+<a>operational consequences.</a><br><br>
+<section class="viewbor"></section>
+<h1>Observation Source Identity</h1>
+<a>Every material observation must remain associated with an identifiable<br>source.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Observation Source ID</h1>
+<section class="viewbor"></section>
+<h1>Monitoring System</h1>
+<section class="viewbor"></section>
+<h1>Observed Target</h1>
+<section class="viewbor"></section>
+<h1>Observation Method</h1>
+<section class="viewbor"></section>
+<h1>Observation Time</h1>
+<section class="viewbor"></section>
+<h1>Collection Actor or Agent</h1>
+<section class="viewbor"></section>
+<h1>Evidence Reference</h1>
+<section class="viewbor"></section>
+<h1>Known Limitations</h1>
+<section class="viewbor"></section>
+<h1>Source Reliability Reference</h1>
+<a>A monitoring source must not be treated as reliable solely because it<br>is automated.</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage</h1>
+<section class="viewbor"></section>
+<h1>Monitoring coverage represents the portion of the relevant deployment state</h1>
+<a>that can be observed through available evidence.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Environment Coverage</h1>
+<section class="viewbor"></section>
+<h1>Service Coverage</h1>
+<section class="viewbor"></section>
+<h1>Instance Coverage</h1>
+<section class="viewbor"></section>
+<h1>Version Coverage</h1>
+<section class="viewbor"></section>
+<h1>Configuration Coverage</h1>
+<section class="viewbor"></section>
+<h1>Dependency Coverage</h1>
+<section class="viewbor"></section>
+<h1>Operational Condition Coverage</h1>
+<section class="viewbor"></section>
+<h1>Temporal Coverage</h1>
+<section class="viewbor"></section>
+<h1>Recovery Condition Coverage</h1>
+<a>Monitoring coverage must be evaluated relative to the claim being<br>assessed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Coverage Sufficiency</h1>
+<a>DSMM must determine whether monitoring coverage is sufficient for the<br>required deployment-state assessment.</a><br><br>
+<a>Relevant questions include:</a><br><br>
+<a>Are all critical operational segments represented?</a><br><br>
+<a>Are required conditions observable?</a><br><br>
+<a>Are observations sufficiently current?</a><br><br>
+<a>Are relevant deployment stages covered?</a><br><br>
+<a>Are known blind spots identified?</a><br><br>
+<a>Are material failure modes detectable?</a><br><br>
+<a>Can the evidence support the claimed operational state?</a><br><br>
+<a>Monitoring Configured ≠ Monitoring Sufficient.</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Blind Spots</h1>
+<a>Monitoring blind spots are material portions of deployment reality not<br>adequately represented by available observations.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unobserved Service Instances</h1>
+<section class="viewbor"></section>
+<h1>Disconnected Devices</h1>
+<section class="viewbor"></section>
+<h1>Missing Regional Telemetry</h1>
+<section class="viewbor"></section>
+<h1>Unavailable Application Logs</h1>
+<section class="viewbor"></section>
+<h1>Unverified Configuration State</h1>
+<section class="viewbor"></section>
+<h1>Unknown Production Version</h1>
+<section class="viewbor"></section>
+<h1>Unmonitored Data Migration</h1>
+<section class="viewbor"></section>
+<h1>Missing Physical-System Feedback</h1>
+<a>Blind spots must remain explicit when they affect deployment-state<br>confidence or acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Observation Freshness</h1>
+<a>Deployment-state evidence must be evaluated for temporal relevance.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Observation Time</h1>
+<section class="viewbor"></section>
+<h1>Collection Delay</h1>
+<section class="viewbor"></section>
+<h1>Processing Delay</h1>
+<section class="viewbor"></section>
+<h1>Relevant State Change</h1>
+<section class="viewbor"></section>
+<h1>Evidence Age</h1>
+<section class="viewbor"></section>
+<h1>Expected Update Frequency</h1>
+<section class="viewbor"></section>
+<h1>Reverification Requirement</h1>
+<a>A previously verified state may no longer represent current deployment<br>reality after a material change.</a><br><br>
+<section class="viewbor"></section>
+<h1>Observation Reliability</h1>
+<a>DSMM must assess the reliability of material observation sources.</a><br><br>
+<a>Relevant factors include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Source Identity</h1>
+<section class="viewbor"></section>
+<h1>Collection Method</h1>
+<section class="viewbor"></section>
+<h1>Measurement Integrity</h1>
+<section class="viewbor"></section>
+<h1>Known Failure Modes</h1>
+<section class="viewbor"></section>
+<h1>Data Completeness</h1>
+<section class="viewbor"></section>
+<h1>Clock Consistency</h1>
+<section class="viewbor"></section>
+<h1>Source Availability</h1>
+<section class="viewbor"></section>
+<h1>Independent Corroboration</h1>
+<section class="viewbor"></section>
+<h1>Known Bias or Limitations</h1>
+<a>An observation may be technically valid while insufficient for the<br>governance conclusion being drawn.</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence Provenance</h1>
+<a>Material deployment-state evidence must remain attributable.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence ID</h1>
+<section class="viewbor"></section>
+<h1>Source</h1>
+<section class="viewbor"></section>
+<h1>Collection Method</h1>
+<section class="viewbor"></section>
+<h1>Collection Time</h1>
+<section class="viewbor"></section>
+<h1>Observed Environment</h1>
+<section class="viewbor"></section>
+<h1>Observed Segment</h1>
+<section class="viewbor"></section>
+<h1>Integrity Reference</h1>
+<section class="viewbor"></section>
+<h1>Processing Reference</h1>
+<section class="viewbor"></section>
+<h1>Verification Result</h1>
+<section class="viewbor"></section>
+<h1>Known Limitations</h1>
+<a>Evidence provenance supports reconstruction of deployment-state<br>conclusions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency</h1>
+<a>DSMM must determine whether available evidence is sufficient to<br>support the claimed deployment state.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Execution Evidence</h1>
+<section class="viewbor"></section>
+<h1>Production Version Evidence</h1>
+<section class="viewbor"></section>
+<h1>Configuration Evidence</h1>
+<section class="viewbor"></section>
+<h1>Operational Condition Evidence</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage</h1>
+<section class="viewbor"></section>
+<h1>Observation Freshness</h1>
+<section class="viewbor"></section>
+<h1>Source Reliability</h1>
+<section class="viewbor"></section>
+<h1>Evidence Consistency</h1>
+<section class="viewbor"></section>
+<h1>Known Gaps</h1>
+<section class="viewbor"></section>
+<h1>Required Verification Criteria</h1>
+<section class="viewbor"></section>
+<h1>A deployment cannot be classified as operationally verified solely because</h1>
+<a>available observations contain no reported failures.</a><br><br>
+<section class="viewbor"></section>
+<h1>Execution–Reality Alignment</h1>
+<a>DSMM must compare execution reports with observed operational<br>conditions.</a><br><br>
+<a>Relevant relationships include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Reported Installation ↔ Observed Artifact Presence</h1>
+<section class="viewbor"></section>
+<h1>Reported Activation ↔ Observed Runtime State</h1>
+<section class="viewbor"></section>
+<h1>Reported Version ↔ Verified Production Version</h1>
+<section class="viewbor"></section>
+<h1>Reported Completion ↔ Observed Deployment Progression</h1>
+<section class="viewbor"></section>
+<h1>Reported Success ↔ Operational Acceptance Conditions</h1>
+<a>Material differences must remain visible and subject to assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Intended–Observed State Alignment</h1>
+<a>DSMM must evaluate whether the observed deployment state corresponds<br>to the intended operational state.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Release Identity</h1>
+<section class="viewbor"></section>
+<h1>Artifact Identity</h1>
+<section class="viewbor"></section>
+<h1>Environment</h1>
+<section class="viewbor"></section>
+<h1>Activation</h1>
+<section class="viewbor"></section>
+<h1>Configuration</h1>
+<section class="viewbor"></section>
+<h1>Dependencies</h1>
+<section class="viewbor"></section>
+<h1>Service Conditions</h1>
+<section class="viewbor"></section>
+<h1>Operational Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Verification Criteria</h1>
+<section class="viewbor"></section>
+<h1>Residual Exceptions</h1>
+<a>Alignment must be evaluated within the relevant deployment scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorization–Observed State Alignment</h1>
+<a>DSMM must identify material differences between authorized conditions<br>and observed deployment reality.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unauthorized Environment</h1>
+<section class="viewbor"></section>
+<h1>Unexpected Deployment Scope</h1>
+<section class="viewbor"></section>
+<h1>Unapproved Software Version</h1>
+<section class="viewbor"></section>
+<h1>Prohibited Configuration Change</h1>
+<section class="viewbor"></section>
+<h1>Execution Outside Authorized Window</h1>
+<section class="viewbor"></section>
+<h1>Unauthorized Tool Action</h1>
+<section class="viewbor"></section>
+<h1>Violation of Operational Restriction</h1>
+<section class="viewbor"></section>
+<h1>DSMM records the observed deviation and refers authorization questions to</h1>
+<a>DAM.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Condition Verification</h1>
+<section class="viewbor"></section>
+<h1>Operational condition verification evaluates whether required conditions</h1>
+<a>are supported by available evidence.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Service Availability</h1>
+<section class="viewbor"></section>
+<h1>Functional Behavior</h1>
+<section class="viewbor"></section>
+<h1>Performance Limits</h1>
+<section class="viewbor"></section>
+<h1>Dependency Connectivity</h1>
+<section class="viewbor"></section>
+<h1>Data Integrity</h1>
+<section class="viewbor"></section>
+<h1>Security Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Operational Safety Conditions</h1>
+<section class="viewbor"></section>
+<h1>Required Configuration</h1>
+<section class="viewbor"></section>
+<h1>Production Version Consistency</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Availability</h1>
+<a>Verification must distinguish confirmed satisfaction from unknown or<br>insufficiently observed conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification Condition States</h1>
+<a>DSMM applies the following condition model:</a><br><br>
+<section class="viewbor"></section>
+<h1>Satisfied</h1>
+<section class="viewbor"></section>
+<h1>Not Satisfied</h1>
+<section class="viewbor"></section>
+<h1>Partially Satisfied</h1>
+<section class="viewbor"></section>
+<h1>Unknown</h1>
+<section class="viewbor"></section>
+<h1>Not Applicable</h1>
+<section class="viewbor"></section>
+<h1>Conflicted</h1>
+<section class="viewbor"></section>
+<h1>Exception</h1>
+<a>Each condition must preserve its relevant evidence or legitimate<br>exception reference.</a><br><br>
+<a>Unknown ≠ Satisfied.</a><br><br>
+<a>No Failure Detected ≠ Condition Verified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment State Consistency</h1>
+<section class="viewbor"></section>
+<h1>Deployment-state consistency concerns whether observed conditions</h1>
+<a>collectively support the intended and authorized deployment state.</a><br><br>
+<a>Relevant dimensions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Execution Consistency</h1>
+<section class="viewbor"></section>
+<h1>Version Consistency</h1>
+<section class="viewbor"></section>
+<h1>Environment Consistency</h1>
+<section class="viewbor"></section>
+<h1>Configuration Consistency</h1>
+<section class="viewbor"></section>
+<h1>Dependency Consistency</h1>
+<section class="viewbor"></section>
+<h1>Operational Condition Consistency</h1>
+<section class="viewbor"></section>
+<h1>Authorization Condition Consistency</h1>
+<section class="viewbor"></section>
+<h1>Verification Evidence Consistency</h1>
+<a>A deployment may satisfy some conditions while remaining inconsistent<br>overall.</a><br><br>
+<section class="viewbor"></section>
+<h1>Partial Deployment State</h1>
+<a>A partial deployment state exists when deployment actions or resulting<br>conditions have been established for only part of the intended scope.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Completed Segments</h1>
+<section class="viewbor"></section>
+<h1>Pending Segments</h1>
+<section class="viewbor"></section>
+<h1>Failed Segments</h1>
+<section class="viewbor"></section>
+<h1>Unknown Segments</h1>
+<section class="viewbor"></section>
+<h1>Observed Version Distribution</h1>
+<section class="viewbor"></section>
+<h1>Operational Impact</h1>
+<section class="viewbor"></section>
+<h1>Applicable Continuation Conditions</h1>
+<section class="viewbor"></section>
+<h1>Required Intervention</h1>
+<a>A partial deployment may be acceptable during an authorized staged<br>rollout.</a><br><br>
+<a>It must not automatically be treated as a completed deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Mixed-Version Operational State</h1>
+<section class="viewbor"></section>
+<h1>Mixed-version environments require assessment of both version distribution</h1>
+<a>and operational conditions.</a><br><br>
+<a>Relevant considerations include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorized Mixed-Version Scope</h1>
+<section class="viewbor"></section>
+<h1>Observed Version Distribution</h1>
+<section class="viewbor"></section>
+<h1>Compatibility Requirements</h1>
+<section class="viewbor"></section>
+<h1>Service Continuity</h1>
+<section class="viewbor"></section>
+<h1>Dependency Interactions</h1>
+<section class="viewbor"></section>
+<h1>Configuration Compatibility</h1>
+<section class="viewbor"></section>
+<h1>Operational Health</h1>
+<section class="viewbor"></section>
+<h1>Transition Duration</h1>
+<section class="viewbor"></section>
+<h1>Verification Coverage</h1>
+<a>PVCM establishes the version distribution.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM evaluates whether the observed mixed-version state remains</h1>
+<a>operationally acceptable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Anomaly</h1>
+<a>A deployment anomaly is an observed condition that materially differs<br>from an expected or required deployment condition.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Unexpected Software Version</h1>
+<section class="viewbor"></section>
+<h1>Activation Failure</h1>
+<section class="viewbor"></section>
+<h1>Service Degradation</h1>
+<section class="viewbor"></section>
+<h1>Configuration Drift</h1>
+<section class="viewbor"></section>
+<h1>Dependency Failure</h1>
+<section class="viewbor"></section>
+<h1>Unexpected Resource Consumption</h1>
+<section class="viewbor"></section>
+<h1>Unverified Operational Segment</h1>
+<section class="viewbor"></section>
+<h1>Security-Relevant Event</h1>
+<section class="viewbor"></section>
+<h1>Unplanned Traffic Transition</h1>
+<section class="viewbor"></section>
+<h1>Physical-System Behavior Deviation</h1>
+<a>An anomaly must be identified without prematurely assigning its cause.</a><br><br>
+<section class="viewbor"></section>
+<h1>Anomaly Classification</h1>
+<a>DSMM may classify anomalies according to:</a><br><br>
+<section class="viewbor"></section>
+<h1>Affected Condition</h1>
+<section class="viewbor"></section>
+<h1>Operational Scope</h1>
+<section class="viewbor"></section>
+<h1>Severity</h1>
+<section class="viewbor"></section>
+<h1>Evidence Confidence</h1>
+<section class="viewbor"></section>
+<h1>Persistence</h1>
+<section class="viewbor"></section>
+<h1>Reversibility</h1>
+<section class="viewbor"></section>
+<h1>Potential Consequence</h1>
+<section class="viewbor"></section>
+<h1>Required Response</h1>
+<section class="viewbor"></section>
+<h1>Current State</h1>
+<a>Anomaly classification must remain connected to observed evidence and<br>applicable deployment conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Anomaly Attribution Boundary</h1>
+<a>DSMM governs observation and deployment-state assessment.</a><br><br>
+<a>It does not automatically establish why an anomaly occurred or who is<br>responsible.</a><br><br>
+<a>Relevant distinctions include:</a><br><br>
+<a>Observed Failure ≠ Verified Root Cause.</a><br><br>
+<a>Temporal Association ≠ Causal Attribution.</a><br><br>
+<a>Deployment Correlation ≠ Deployment Causation.</a><br><br>
+<a>Where root-cause analysis or accountability determination is required,<br>DSMM preserves the relevant evidence and refers the matter to<br>applicable mechanisms.</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Uncertainty</h1>
+<a>DSMM must preserve uncertainty affecting deployment-state conclusions.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Incomplete Telemetry</h1>
+<section class="viewbor"></section>
+<h1>Unknown Production Version</h1>
+<section class="viewbor"></section>
+<h1>Unverified Service Condition</h1>
+<section class="viewbor"></section>
+<h1>Unobserved Device</h1>
+<section class="viewbor"></section>
+<h1>Stale Evidence</h1>
+<section class="viewbor"></section>
+<h1>Conflicting Metrics</h1>
+<section class="viewbor"></section>
+<h1>Unavailable Dependency Status</h1>
+<section class="viewbor"></section>
+<h1>Uncertain Recovery Condition</h1>
+<a>Uncertainty must influence the deployment-state classification where<br>material.</a><br><br>
+<section class="viewbor"></section>
+<h1>Conflicting Observations</h1>
+<a>Monitoring sources may report inconsistent states.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Pipeline Reports Success</h1>
+<section class="viewbor"></section>
+<h1>Application Health Check Reports Failure</h1>
+<section class="viewbor"></section>
+<h1>Runtime Inventory Reports Unexpected Version</h1>
+<section class="viewbor"></section>
+<h1>Service Metrics Report Normal Availability</h1>
+<a>DSMM must preserve the conflict and identify the affected governance<br>conclusion.</a><br><br>
+<a>Conflicting evidence must not be silently resolved by selecting the<br>most favorable observation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Failure</h1>
+<a>Monitoring failure occurs when required observation capability becomes<br>unavailable, unreliable, or insufficient.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Telemetry Loss</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Agent Failure</h1>
+<section class="viewbor"></section>
+<h1>Logging Failure</h1>
+<section class="viewbor"></section>
+<h1>Metric Collection Failure</h1>
+<section class="viewbor"></section>
+<h1>Evidence Processing Failure</h1>
+<section class="viewbor"></section>
+<h1>Observation Delay</h1>
+<section class="viewbor"></section>
+<h1>Source Integrity Failure</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage Loss</h1>
+<a>Monitoring failure may itself require intervention when it prevents<br>verification of mandatory deployment conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Continuity</h1>
+<a>DSMM must preserve required monitoring continuity during material<br>deployment transitions.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Monitoring Start Condition</h1>
+<section class="viewbor"></section>
+<h1>Required Observation Period</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Availability</h1>
+<section class="viewbor"></section>
+<h1>Observation Frequency</h1>
+<section class="viewbor"></section>
+<h1>Evidence Retention</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Handoff</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Failure Response</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Termination Condition</h1>
+<a>Monitoring must not be terminated solely because a deployment pipeline<br>reports completion.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Stabilization</h1>
+<section class="viewbor"></section>
+<h1>Deployment stabilization concerns whether the resulting operational state</h1>
+<a>remains acceptable over an applicable observation period.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Stabilization Criteria</h1>
+<section class="viewbor"></section>
+<h1>Required Observation Period</h1>
+<section class="viewbor"></section>
+<h1>Operational Metrics</h1>
+<section class="viewbor"></section>
+<h1>Version Consistency</h1>
+<section class="viewbor"></section>
+<h1>Error Conditions</h1>
+<section class="viewbor"></section>
+<h1>Service Availability</h1>
+<section class="viewbor"></section>
+<h1>Material Anomalies</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage</h1>
+<section class="viewbor"></section>
+<h1>Stabilization Evidence</h1>
+<section class="viewbor"></section>
+<h1>The required stabilization period depends on the deployment's operational</h1>
+<a>characteristics and consequences.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Acceptance Assessment</h1>
+<a>DSMM must evaluate whether the deployment satisfies applicable<br>operational acceptance criteria.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Authorized Deployment Reference</h1>
+<section class="viewbor"></section>
+<h1>Verified Production Version</h1>
+<section class="viewbor"></section>
+<h1>Required Operational Conditions</h1>
+<section class="viewbor"></section>
+<h1>Verification Results</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage</h1>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>Material Exceptions</h1>
+<section class="viewbor"></section>
+<h1>Residual Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Acceptance Classification</h1>
+<a>A deployment may be technically complete while operational acceptance<br>remains pending or unsupported.</a><br><br>
+<section class="viewbor"></section>
+<h1>Intervention Thresholds</h1>
+<section class="viewbor"></section>
+<h1>Intervention thresholds define conditions requiring reassessment or</h1>
+<a>corrective action.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Service Failure</h1>
+<section class="viewbor"></section>
+<h1>Unacceptable Error Rate</h1>
+<section class="viewbor"></section>
+<h1>Production Version Mismatch</h1>
+<section class="viewbor"></section>
+<h1>Security Restriction Violation</h1>
+<section class="viewbor"></section>
+<h1>Data Integrity Failure</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage Below Required Level</h1>
+<section class="viewbor"></section>
+<h1>Unauthorized Deployment Action</h1>
+<section class="viewbor"></section>
+<h1>Unacceptable Physical-System Behavior</h1>
+<section class="viewbor"></section>
+<h1>Recovery Threshold Exceeded</h1>
+<a>Thresholds must remain associated with the relevant deployment and<br>operational conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Intervention Trigger Evaluation</h1>
+<a>DSMM evaluates whether observed conditions satisfy an intervention<br>trigger.</a><br><br>
+<a>Relevant elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Trigger ID</h1>
+<section class="viewbor"></section>
+<h1>Observed Condition</h1>
+<section class="viewbor"></section>
+<h1>Threshold</h1>
+<section class="viewbor"></section>
+<h1>Evidence</h1>
+<section class="viewbor"></section>
+<h1>Observation Time</h1>
+<section class="viewbor"></section>
+<h1>Affected Scope</h1>
+<section class="viewbor"></section>
+<h1>Required Response</h1>
+<section class="viewbor"></section>
+<h1>Decision Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Escalation Requirement</h1>
+<a>A detected trigger must not automatically be treated as authorization<br>for every possible corrective action.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Continuation Assessment</h1>
+<a>DSMM may support continuation decisions where deployment occurs in<br>stages.</a><br><br>
+<a>Relevant considerations include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Current Deployment State</h1>
+<section class="viewbor"></section>
+<h1>Required Checkpoint Conditions</h1>
+<section class="viewbor"></section>
+<h1>Operational Health</h1>
+<section class="viewbor"></section>
+<h1>Version Consistency</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage</h1>
+<section class="viewbor"></section>
+<h1>Material Anomalies</h1>
+<section class="viewbor"></section>
+<h1>Applicable Authorization</h1>
+<section class="viewbor"></section>
+<h1>Remaining Execution Scope</h1>
+<section class="viewbor"></section>
+<h1>Required Restrictions</h1>
+<a>DSMM provides evidence and classification.</a><br><br>
+<a>The applicable decision authority determines whether continuation is<br>permitted.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Restriction and Pause</h1>
+<a>A deployment may require restriction or pause when conditions cannot<br>be sufficiently established or maintained.</a><br><br>
+<a>Relevant triggers include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Material Monitoring Gap</h1>
+<section class="viewbor"></section>
+<h1>Unknown Production Version</h1>
+<section class="viewbor"></section>
+<h1>Critical Operational Anomaly</h1>
+<section class="viewbor"></section>
+<h1>Authorization Condition Deviation</h1>
+<section class="viewbor"></section>
+<h1>Unresolved Evidence Conflict</h1>
+<section class="viewbor"></section>
+<h1>Unacceptable Service Degradation</h1>
+<section class="viewbor"></section>
+<h1>Recovery Readiness Concern</h1>
+<a>DSMM identifies the relevant state and required intervention<br>reference.</a><br><br>
+<a>It does not independently grant authority to perform the intervention.</a><br><br>
+<section class="viewbor"></section>
+<h1>Rollback Trigger Reference</h1>
+<a>DSMM must identify conditions potentially requiring rollback<br>consideration.</a><br><br>
+<a>Examples include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Failed Operational Acceptance</h1>
+<section class="viewbor"></section>
+<h1>Unacceptable Version Inconsistency</h1>
+<section class="viewbor"></section>
+<h1>Critical Service Degradation</h1>
+<section class="viewbor"></section>
+<h1>Deployment-Induced Configuration Failure</h1>
+<section class="viewbor"></section>
+<h1>Unacceptable Dependency Failure</h1>
+<section class="viewbor"></section>
+<h1>Material Security Condition</h1>
+<section class="viewbor"></section>
+<h1>Failed Stabilization</h1>
+<section class="viewbor"></section>
+<h1>The rollback decision and execution remain governed by RRVM and applicable</h1>
+<a>authority mechanisms.</a><br><br>
+<section class="viewbor"></section>
+<h1>Recovery Trigger Reference</h1>
+<a>Recovery may be required when rollback is unavailable, insufficient,<br>or inappropriate.</a><br><br>
+<a>Relevant conditions include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Irreversible Data Change</h1>
+<section class="viewbor"></section>
+<h1>Infrastructure Failure</h1>
+<section class="viewbor"></section>
+<h1>Unrecoverable Previous Version</h1>
+<section class="viewbor"></section>
+<h1>Dependency Incompatibility</h1>
+<section class="viewbor"></section>
+<h1>Partial System Restoration</h1>
+<section class="viewbor"></section>
+<h1>Persistent Operational Degradation</h1>
+<section class="viewbor"></section>
+<h1>Physical-System Recovery Requirement</h1>
+<a>DSMM preserves the observed conditions supporting recovery assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Monitoring Systems</h1>
+<a>Autonomous agents may participate in deployment monitoring.</a><br><br>
+<a>Relevant governance elements include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Agent Identity</h1>
+<section class="viewbor"></section>
+<h1>Assigned Monitoring Function</h1>
+<section class="viewbor"></section>
+<h1>Observation Sources</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Scope</h1>
+<section class="viewbor"></section>
+<h1>Permitted Analysis</h1>
+<section class="viewbor"></section>
+<h1>Decision Boundaries</h1>
+<section class="viewbor"></section>
+<h1>Evidence Requirements</h1>
+<section class="viewbor"></section>
+<h1>Escalation Conditions</h1>
+<section class="viewbor"></section>
+<h1>Human Override Reference</h1>
+<a>An agent-generated monitoring conclusion must remain distinguishable<br>from independently verified operational evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Intervention Boundary</h1>
+<a>An autonomous monitoring agent may detect a condition requiring<br>intervention.</a><br><br>
+<a>Detection does not automatically establish authority to execute<br>rollback, modify infrastructure, disable services, or change<br>deployment scope.</a><br><br>
+<a>Monitoring Authority ≠ Intervention Authority.</a><br><br>
+<a>Anomaly Detection ≠ Unrestricted Corrective Permission.</a><br><br>
+<a>Any autonomous intervention must remain within the applicable<br>authority, permission, execution, and operational boundaries.</a><br><br>
+<section class="viewbor"></section>
+<h1>Material-Change Reassessment</h1>
+<a>Deployment-state reassessment may be required when:</a><br><br>
+<section class="viewbor"></section>
+<h1>Production Version Changes</h1>
+<section class="viewbor"></section>
+<h1>Configuration Changes</h1>
+<section class="viewbor"></section>
+<h1>Dependencies Change</h1>
+<section class="viewbor"></section>
+<h1>Operational Environment Changes</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage Changes</h1>
+<section class="viewbor"></section>
+<h1>Authorization Conditions Change</h1>
+<section class="viewbor"></section>
+<h1>New Anomalies Emerge</h1>
+<section class="viewbor"></section>
+<h1>Recovery Actions Occur</h1>
+<section class="viewbor"></section>
+<h1>Observation Evidence Becomes Stale</h1>
+<section class="viewbor"></section>
+<h1>Operational Restrictions Change</h1>
+<a>Reassessment must identify whether previous deployment-state<br>conclusions remain supported.</a><br><br>
+<section class="viewbor"></section>
+<h1>Historical Deployment State Continuity</h1>
+<a>DSMM must preserve relevant historical deployment-state<br>classifications.</a><br><br>
+<a>These may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Execution In Progress</h1>
+<section class="viewbor"></section>
+<h1>Partially Established</h1>
+<section class="viewbor"></section>
+<h1>Verification Pending</h1>
+<section class="viewbor"></section>
+<h1>Operationally Established</h1>
+<section class="viewbor"></section>
+<h1>Degraded</h1>
+<section class="viewbor"></section>
+<h1>Intervention Required</h1>
+<section class="viewbor"></section>
+<h1>Rollback Initiated</h1>
+<section class="viewbor"></section>
+<h1>Recovery In Progress</h1>
+<section class="viewbor"></section>
+<h1>Superseded</h1>
+<section class="viewbor"></section>
+<h1>Unknown</h1>
+<a>Historical states must remain associated with their observation times<br>and evidence.</a><br><br>
+<a>A later acceptable state must not erase earlier material deviations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment State Governance Classification</h1>
+<a>DSMM recognizes the following principal classifications:</a><br><br>
+<section class="viewbor"></section>
+<h1>Not Observed</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Pending</h1>
+<section class="viewbor"></section>
+<h1>Execution In Progress</h1>
+<section class="viewbor"></section>
+<h1>Partially Established</h1>
+<section class="viewbor"></section>
+<h1>Verification Pending</h1>
+<section class="viewbor"></section>
+<h1>Verification In Progress</h1>
+<section class="viewbor"></section>
+<h1>Operationally Established</h1>
+<section class="viewbor"></section>
+<h1>Operationally Established With Restrictions</h1>
+<section class="viewbor"></section>
+<h1>Degraded</h1>
+<section class="viewbor"></section>
+<h1>Operationally Unacceptable</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Insufficient</h1>
+<section class="viewbor"></section>
+<h1>Evidence Insufficient</h1>
+<section class="viewbor"></section>
+<h1>State Inconsistent</h1>
+<section class="viewbor"></section>
+<h1>State Conflicted</h1>
+<section class="viewbor"></section>
+<h1>Intervention Required</h1>
+<section class="viewbor"></section>
+<h1>Deployment Paused</h1>
+<section class="viewbor"></section>
+<h1>Rollback Assessment Required</h1>
+<section class="viewbor"></section>
+<h1>Recovery Assessment Required</h1>
+<section class="viewbor"></section>
+<h1>Reassessment Required</h1>
+<section class="viewbor"></section>
+<h1>Superseded</h1>
+<section class="viewbor"></section>
+<h1>Unknown</h1>
+<a>Each classification must remain associated with the relevant<br>deployment, environment, scope, and evidence time.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Requirements</h1>
+<a>A conforming DSMM implementation must satisfy the following<br>requirements. Identity and References</a><br><br>
+<ul><li>Establish deployment-state identity</li><li>Identify the relevant deployment</li><li>Preserve the deployment plan reference</li><li>Preserve applicable authorization conditions</li><li>Identify the target environment</li><li>Preserve production version references</li><li>Define the monitoring scope</li><li>Identify required operational conditions</li></ul><br>
+<section class="viewbor"></section>
+<h1>Observation and Evidence</h1>
+<ul><li>Identify material observation sources</li><li>Preserve observation times</li><li>Preserve observation provenance</li><li>Evaluate source reliability</li><li>Evaluate monitoring coverage</li><li>Identify monitoring blind spots</li><li>Evaluate evidence freshness</li><li>Evaluate evidence sufficiency</li><li>Preserve conflicting observations</li><li>Preserve material uncertainty</li></ul><br>
+<section class="viewbor"></section>
+<h1>State Assessment</h1>
+<ul><li>Observe deployment progression</li><li>Distinguish execution completion from operational establishment</li><li>Evaluate intended–observed state alignment</li><li>Evaluate authorization–observed state alignment</li><li>Evaluate production version consistency references</li><li>Evaluate applicable operational conditions</li><li>Preserve partial deployment states</li><li>Evaluate mixed-version operational conditions</li><li>Identify material anomalies</li><li>Avoid unsupported causal attribution</li><li>Evaluate stabilization requirements</li><li>Establish operational acceptance classification</li></ul><br>
+<section class="viewbor"></section>
+<h1>Intervention and Continuity</h1>
+<ul><li>Identify intervention thresholds</li><li>Evaluate intervention triggers</li><li>Preserve continuation assessment references</li><li>Identify restriction or pause conditions</li><li>Preserve rollback trigger references</li><li>Preserve recovery trigger references</li><li>Maintain monitoring continuity</li><li>Identify material reassessment triggers</li><li>Preserve historical deployment states</li><li>Provide evidence-supported handoff to RRVM</li></ul><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<section class="viewbor"></section>
+<h1>Deployment Identity → Intended State → Authorization Conditions →</h1>
+<a>Production Version Reference → Monitoring Scope → Observation Sources<br>→ Execution Observations → Operational Observations → Coverage<br>Assessment → Evidence Sufficiency → Intended–Observed Comparison →<br>Condition Verification → Anomaly Assessment → Deployment State<br>Classification → Continue / Restrict / Pause / Escalate / Rollback<br>Assessment / Recovery Assessment</a><br><br>
+<a>Where monitoring is insufficient:</a><br><br>
+<section class="viewbor"></section>
+<h1>Required Condition → Missing or Unreliable Observation → Evidence Gap →</h1>
+<a>Monitoring Insufficient / Evidence Insufficient → Reassessment or<br>Intervention Reference</a><br><br>
+<a>Where material anomalies occur:</a><br><br>
+<section class="viewbor"></section>
+<h1>Observed Deviation → Evidence Assessment → Operational Consequence →</h1>
+<a>Threshold Evaluation → Intervention Reference → State Reclassification</a><br><br>
+<a>Where conditions change:</a><br><br>
+<section class="viewbor"></section>
+<h1>Previously Supported State → Material Change → New Observation → Evidence</h1>
+<a>Reassessment → Updated State Classification</a><br><br>
+<a>DSMM must not convert technical completion reports into operational<br>acceptance without sufficient evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Deployment State Profile</h1>
+<a>Supporting outputs may include:</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment State Identity</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Scope Record</h1>
+<section class="viewbor"></section>
+<h1>Observation Source Register</h1>
+<section class="viewbor"></section>
+<h1>Deployment Progression Record</h1>
+<section class="viewbor"></section>
+<h1>Production Version Reference</h1>
+<section class="viewbor"></section>
+<h1>Operational Condition Assessment</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Coverage Assessment</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Blind Spot Register</h1>
+<section class="viewbor"></section>
+<h1>Evidence Freshness Assessment</h1>
+<section class="viewbor"></section>
+<h1>Evidence Sufficiency Assessment</h1>
+<section class="viewbor"></section>
+<h1>Intended–Observed State Comparison</h1>
+<section class="viewbor"></section>
+<h1>Authorization–Observed State Comparison</h1>
+<section class="viewbor"></section>
+<h1>Deployment Anomaly Register</h1>
+<section class="viewbor"></section>
+<h1>Monitoring Conflict Record</h1>
+<section class="viewbor"></section>
+<h1>Deployment Stabilization Assessment</h1>
+<section class="viewbor"></section>
+<h1>Operational Acceptance Classification</h1>
+<section class="viewbor"></section>
+<h1>Intervention Trigger Record</h1>
+<section class="viewbor"></section>
+<h1>Deployment Restriction Reference</h1>
+<section class="viewbor"></section>
+<h1>Rollback Assessment Trigger</h1>
+<section class="viewbor"></section>
+<h1>Recovery Assessment Trigger</h1>
+<section class="viewbor"></section>
+<h1>Historical Deployment State Register</h1>
+<section class="viewbor"></section>
+<h1>Deployment State Reassessment Record</h1>
+<section class="viewbor"></section>
+<h1>RRVM Handoff Record</h1>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>A minimum DSMM implementation must establish eight governance layers.<br>Layer 1 — Deployment State Identity</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify the deployment, environment, production version references, and</h1>
+<a>monitored operational scope. Layer 2 — Intended and Authorized<br>Conditions</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve the intended deployment state, operational acceptance criteria,</h1>
+<a>and applicable authorization restrictions. Layer 3 — Observation</a><br><br>
+<section class="viewbor"></section>
+<h1>Collect relevant execution, version, configuration, dependency, and</h1>
+<a>operational condition evidence. Layer 4 — Monitoring Coverage</a><br><br>
+<a>Identify which required conditions and operational segments are<br>observable and where material gaps remain. Layer 5 — Verification</a><br><br>
+<section class="viewbor"></section>
+<h1>Compare observed conditions against intended and authorized states using</h1>
+<a>evidence of sufficient relevance and reliability. Layer 6 — Anomaly<br>and Intervention</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify material deviations, monitoring failures, intervention thresholds,</h1>
+<a>and escalation requirements. Layer 7 — Classification and Continuity</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish the deployment-state classification, preserve historical</h1>
+<a>observations, and reassess material changes. Layer 8 — Governed Output<br>and Handoff</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish the Software Deployment State Profile and provide relevant</h1>
+<a>intervention, rollback, or recovery references to RRVM.</a><br><br>
+<a>The implementation may use manual observation, monitoring platforms,<br>automated analysis, autonomous agents, or other suitable mechanisms.</a><br><br>
+<section class="viewbor"></section>
+<h1>The methodological requirements remain independent of the chosen monitoring</h1>
+<a>technology.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-Module Boundary</h1>
+<section class="viewbor"></section>
+<h1>DPM → DSMM</h1>
+<section class="viewbor"></section>
+<h1>DPM establishes intended deployment conditions and verification</h1>
+<a>requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM evaluates whether the observed deployment state satisfies those</h1>
+<a>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>DAM → DSMM</h1>
+<a>DAM establishes authorization conditions and restrictions.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM identifies observed deviations from those conditions and supports</h1>
+<a>authorization reassessment where required.</a><br><br>
+<section class="viewbor"></section>
+<h1>PVCM → DSMM</h1>
+<a>PVCM establishes production version identity and consistency.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM evaluates the operational consequences of the observed production</h1>
+<a>version state.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM → RRVM</h1>
+<section class="viewbor"></section>
+<h1>DSMM identifies unacceptable conditions, intervention triggers, and</h1>
+<a>evidence supporting rollback or recovery assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>RRVM governs corrective action selection, authority, execution, and</h1>
+<a>recovery verification.</a><br><br>
+<a>Deployment State Monitoring ≠ Rollback Execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<a>DSMM consumes relevant governance references from:</a><br><br>
+<section class="viewbor"></section>
+<h1>SQS — Software Quality Standard</h1>
+<a>Quality conditions, verification criteria, and defect references.</a><br><br>
+<section class="viewbor"></section>
+<h1>SSS — Software Security Standard</h1>
+<a>Security restrictions, vulnerability conditions, and remediation<br>references.</a><br><br>
+<section class="viewbor"></section>
+<h1>SDS — Software Dependency Standard</h1>
+<a>Dependency identity and operational dependency conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>SCFS — Software Configuration Standard</h1>
+<a>Configuration identity and consistency references.</a><br><br>
+<section class="viewbor"></section>
+<h1>SCMS — Software Change Management Standard</h1>
+<a>Change coordination and lifecycle re-entry references.</a><br><br>
+<section class="viewbor"></section>
+<h1>SLCS — Software Lifecycle Control Standard</h1>
+<a>Lifecycle state consistency, transitions, exceptions, and continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>ASGA™ — Autonomous Systems Governance Architecture</h1>
+<a>Autonomous observation, intervention, and override boundaries.</a><br><br>
+<a>DSMM does not replace these governance mechanisms.</a><br><br>
+<a>It evaluates their deployment-state relevance where applicable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Practical Applications</h1>
+<section class="viewbor"></section>
+<h1>Continuous Delivery</h1>
+<a>Verifying that automated deployment completion corresponds to an<br>acceptable operational state.</a><br><br>
+<section class="viewbor"></section>
+<h1>Cloud-Native Systems</h1>
+<section class="viewbor"></section>
+<h1>Monitoring deployment progression, service health, version distribution,</h1>
+<a>and operational conditions across clusters and regions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous AI Deployment</h1>
+<section class="viewbor"></section>
+<h1>Preventing autonomous systems from treating self-reported success or</h1>
+<a>incomplete telemetry as sufficient operational verification.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Infrastructure</h1>
+<section class="viewbor"></section>
+<h1>Establishing monitoring coverage, intervention thresholds, and</h1>
+<a>evidence-supported acceptance of consequential software updates.</a><br><br>
+<section class="viewbor"></section>
+<h1>Robotics</h1>
+<a>Monitoring software deployment states where updates may affect<br>physical movement, equipment behavior, or operational safety.</a><br><br>
+<section class="viewbor"></section>
+<h1>Distributed Device Fleets</h1>
+<section class="viewbor"></section>
+<h1>Identifying unobserved devices, partial rollouts, unknown versions, and</h1>
+<a>inconsistent deployment outcomes.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 1 — Deployment Pipeline Reports Success While Production</h1>
+<a>Service Is Degraded</a><br><br>
+<a>A software provider deploys an authorized release into production.</a><br><br>
+<a>The deployment pipeline reports successful completion.</a><br><br>
+<a>The expected artifact is present and activated.</a><br><br>
+<section class="viewbor"></section>
+<h1>However, application response times increase substantially, and a critical</h1>
+<a>service dependency begins failing.</a><br><br>
+<a>DSMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Execution Completion → Production Version → Operational Metrics → Required</h1>
+<a>Conditions → Monitoring Coverage → Operational Acceptance</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>Deployment execution completed</li><li>The intended software version is present</li><li>Critical operational conditions are not satisfied</li><li>The deployment cannot be classified as operationally established</li><li>Intervention assessment is required</li></ul><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Operationally Unacceptable — Intervention Required.</a><br><br>
+<a>Deployment Executed ≠ Deployment Successfully Established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — A Robotic Fleet Reports Healthy Devices but Monitoring</h1>
+<a>Coverage Is Incomplete</a><br><br>
+<section class="viewbor"></section>
+<h1>A robotics operator deploys a software update across autonomous mobile</h1>
+<a>robots.</a><br><br>
+<a>The management system reports healthy operation for connected devices.</a><br><br>
+<a>Several robots are temporarily disconnected and provide no current<br>telemetry.</a><br><br>
+<a>The platform displays an overall successful deployment state.</a><br><br>
+<a>DSMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Deployment Scope → Device Coverage → Observed Conditions → Missing</h1>
+<a>Telemetry → Evidence Sufficiency → Deployment State Classification</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>Connected devices provide acceptable operational observations</li><li>Disconnected devices remain unobserved</li><li>The monitoring scope does not cover the complete fleet</li><li>The available evidence cannot support a fleet-wide operational</li></ul><br>
+<a>acceptance claim.</a><br><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Monitoring Insufficient — Partial Operational Verification.</a><br><br>
+<a>Healthy Observed Devices ≠ Entire Fleet Operationally Verified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 3 — An Autonomous Agent Interprets a Monitoring Alert as</h1>
+<a>Permission to Roll Back</a><br><br>
+<a>An autonomous deployment agent monitors a production rollout.</a><br><br>
+<a>The agent detects an elevated application error rate.</a><br><br>
+<a>Its assigned function permits deployment monitoring and escalation.</a><br><br>
+<section class="viewbor"></section>
+<h1>The agent attempts to execute a full production rollback using available</h1>
+<a>infrastructure credentials.</a><br><br>
+<a>DSMM evaluates:</a><br><br>
+<section class="viewbor"></section>
+<h1>Observed Anomaly → Evidence → Intervention Threshold → Agent Monitoring</h1>
+<a>Scope → Required Authority → Escalation</a><br><br>
+<a>The assessment identifies:</a><br><br>
+<ul><li>The anomaly is supported by monitoring evidence</li><li>The intervention threshold has been reached</li><li>The agent is authorized to monitor and escalate</li><li>The agent's monitoring authority does not independently<br>authorize</li><li>RRVM and applicable authority mechanisms must govern the<br>corrective</li></ul><br>
+<a>rollback execution. action.</a><br><br>
+<a>The appropriate classification is:</a><br><br>
+<a>Intervention Required — Rollback Authorization Assessment.</a><br><br>
+<a>Monitoring Authority ≠ Intervention Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>Deployment Executed ≠ Deployment Successfully Established.</a><br><br>
+<a>Monitoring Active ≠ Deployment State Fully Observable.</a><br><br>
+<a>Service Available ≠ Deployment Operationally Acceptable.</a><br><br>
+<a>No Alert ≠ No Material Problem.</a><br><br>
+<a>Observed Condition ≠ Verified Cause.</a><br><br>
+<a>Monitoring Configured ≠ Monitoring Sufficient.</a><br><br>
+<a>Unknown ≠ Satisfied.</a><br><br>
+<a>No Failure Detected ≠ Condition Verified.</a><br><br>
+<a>Observed Failure ≠ Verified Root Cause.</a><br><br>
+<a>Temporal Association ≠ Causal Attribution.</a><br><br>
+<a>Deployment Correlation ≠ Deployment Causation.</a><br><br>
+<a>Pipeline Completion ≠ Operational Acceptance.</a><br><br>
+<a>Production Version Verified ≠ Deployment State Fully Verified.</a><br><br>
+<a>Partial Deployment ≠ Completed Deployment.</a><br><br>
+<a>Monitoring Authority ≠ Intervention Authority.</a><br><br>
+<a>Anomaly Detection ≠ Unrestricted Corrective Permission.</a><br><br>
+<a>Deployment State Monitoring ≠ Rollback Execution.</a><br><br>
+<a>Healthy Observed Devices ≠ Entire Fleet Operationally Verified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<section class="viewbor"></section>
+<h1>DSMM governs the observation, evidence assessment, verification,</h1>
+<a>classification, and reassessment of actual software deployment states<br>within defined operational environments.</a><br><br>
+<section class="viewbor"></section>
+<h1>It establishes monitoring scope, observation requirements, evidence</h1>
+<a>coverage, operational condition verification, intended–observed state<br>alignment, anomaly identification, intervention trigger references,<br>and historical deployment-state continuity.</a><br><br>
+<a>DSMM does not authorize deployments, independently establish<br>production artifact identity, execute corrective actions, or determine<br>recovery success outside applicable governance mechanisms.</a><br><br>
+<a>Its principal governance output is the:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Deployment State Profile</h1>
+<section class="viewbor"></section>
+<h1>This output provides the evidence-supported deployment-state basis for</h1>
+<a>operational intervention, rollback or recovery assessment, and<br>relevant software lifecycle governance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<a>A deployment is not successfully established merely because its<br>execution has finished or its monitoring dashboard appears healthy.</a><br><br>
+<a>A pipeline may report success while the deployed service is degraded.</a><br><br>
+<a>A software version may be correct while its configuration is<br>incompatible with the operational environment.</a><br><br>
+<a>A monitoring system may report normal conditions while critical<br>devices remain unobserved.</a><br><br>
+<a>An autonomous agent may detect a deployment failure without possessing<br>authority to execute corrective actions.</a><br><br>
+<a>And a previously verified deployment state may become unacceptable<br>when operational conditions materially change.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM establishes the governance structure required to distinguish these</h1>
+<a>realities.</a><br><br>
+<section class="viewbor"></section>
+<h1>It requires deployment-state conclusions to be supported by observations</h1>
+<a>that are relevant, sufficiently complete, reliable, and current.</a><br><br>
+<section class="viewbor"></section>
+<h1>It preserves monitoring blind spots, conflicting evidence, and unresolved</h1>
+<a>conditions instead of allowing them to disappear behind simplified<br>success indicators.</a><br><br>
+<section class="viewbor"></section>
+<h1>It connects deployment execution, production version identity, operational</h1>
+<a>verification, and intervention thresholds without collapsing their<br>separate governance responsibilities.</a><br><br>
+<a>And it ensures that operational acceptance remains a verifiable<br>conclusion rather than an assumption derived from technical execution.</a><br><br>
+<a>The purpose of deployment monitoring is not merely to observe whether<br>software is running. It is to establish whether the actual deployment<br>state remains consistent with its intended, authorized, and<br>operationally acceptable conditions—and to identify when that<br>conclusion can no longer be supported.</a><br><br>
+<section class="viewbor"></section>
+<h1>DSMM transforms deployment monitoring from passive technical observation</h1>
+<a>into an evidence-supported governance mechanism for operational<br>reality, intervention readiness, and software lifecycle continuity.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>

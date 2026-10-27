@@ -14,10 +14,12 @@ import json
 import re
 import unicodedata
 import urllib.request
+from urllib.parse import quote, urljoin
 from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 from typing import Iterable
 
@@ -612,6 +614,38 @@ def architecture_ids() -> set[str]:
     return {item["id"] for item in registry["architectures"]}
 
 
+@lru_cache(maxsize=1)
+def canonical_architecture_registry() -> dict[str, dict]:
+    """Return the public label and canonical page for approved architectures."""
+    registry = read_json(ARCHITECTURE_REGISTRY, {"architectures": []})
+    resolved = {}
+    for item in registry.get("architectures", []):
+        architecture_id = str(item.get("id") or "").casefold()
+        if not architecture_id:
+            continue
+        page_url = ((item.get("primaryPage") or {}).get("url") or "").lstrip("/")
+        resolved[architecture_id] = {
+            "architectureId": architecture_id,
+            "label": item.get("displayName") or item.get("acronymLabel") or item.get("name"),
+            "canonicalUrl": urljoin("https://originopenfoundation.org/", quote(page_url, safe="/%()")) if page_url else None,
+        }
+    return resolved
+
+
+def canonical_architecture_assignment(architecture: dict | None) -> dict | None:
+    """Hydrate legacy architecture IDs with the current approved public identity."""
+    if not architecture:
+        return None
+    assignment = dict(architecture)
+    architecture_id = str(assignment.get("architectureId") or "").casefold()
+    canonical = canonical_architecture_registry().get(architecture_id)
+    if canonical:
+        assignment["architectureId"] = architecture_id
+        assignment["label"] = assignment.get("label") or canonical["label"]
+        assignment["canonicalUrl"] = assignment.get("canonicalUrl") or canonical["canonicalUrl"]
+    return assignment
+
+
 def latest_automated_analyses() -> dict[str, dict]:
     payload = read_json(ANALYSIS_STORE_PATH, {"assessments": []})
     latest = {}
@@ -633,6 +667,16 @@ def public_automated_analysis(analysis: dict | None) -> dict | None:
     public["analysisStatus"] = "AUTOMATED_ANALYSIS_AVAILABLE" if eligible else "GOVERNANCE_ANALYSIS_PENDING"
     public["reviewStatus"] = (public.get("humanReview") or {}).get("status") or "Not performed"
     public["evidenceStatus"] = (public.get("evidenceSnapshot") or {}).get("publicEvidenceStatus") or "Evidence Insufficient"
+    architecture_analysis = dict(public.get("architectureAnalysis") or {})
+    architecture_analysis["primaryArchitecture"] = canonical_architecture_assignment(
+        architecture_analysis.get("primaryArchitecture")
+    )
+    contributing = [
+        canonical_architecture_assignment(item)
+        for item in architecture_analysis.get("contributingArchitectures") or []
+    ]
+    architecture_analysis["contributingArchitectures"] = [item for item in contributing if item]
+    public["architectureAnalysis"] = architecture_analysis
     if not eligible:
         public["incidentGovernanceInsight"] = "Governance Analysis Pending"
         public["governanceQuestions"] = []
@@ -681,9 +725,12 @@ def _public_architectures(record: dict) -> list[dict]:
     analysis = (record.get("automatedAnalysis") or {}).get("architectureAnalysis") or {}
     primary = analysis.get("primaryArchitecture")
     if primary:
-        return [primary] + analysis.get("contributingArchitectures", [])
+        return [canonical_architecture_assignment(primary)] + [
+            canonical_architecture_assignment(item)
+            for item in analysis.get("contributingArchitectures", [])
+        ]
     legacy = record.get("architectureRelevance") or {}
-    return [{"architectureId": legacy.get("primaryArchitectureId")}] if legacy.get("primaryArchitectureId") else []
+    return [canonical_architecture_assignment({"architectureId": legacy.get("primaryArchitectureId")})] if legacy.get("primaryArchitectureId") else []
 
 
 def _incident_date(record: dict) -> str:
@@ -696,6 +743,7 @@ def public_incident_slug(record: dict) -> str:
 
 
 def _architecture_projection(architecture: dict | None) -> dict | None:
+    architecture = canonical_architecture_assignment(architecture)
     if not architecture:
         return None
     return {
@@ -858,6 +906,14 @@ def validate_public_export() -> dict:
             errors.append(f"{item.get('id')} is missing a public source reference")
         elif not re.match(r"^https?://", source_url):
             errors.append(f"{item.get('id')} has a malformed source URL")
+        primary = item.get("primaryArchitecture") or {}
+        if primary.get("architectureId"):
+            missing_primary_identity = [key for key in ("label", "canonicalUrl") if not primary.get(key)]
+            if missing_primary_identity:
+                errors.append(
+                    f"{item.get('id')} primary architecture {primary.get('architectureId')} is missing "
+                    + ", ".join(missing_primary_identity)
+                )
         detail_path = PUBLIC_ROOT / "incident-details" / f"{item.get('slug')}.json"
         if not detail_path.exists():
             errors.append(f"{item.get('id')} is missing its public detail projection")
@@ -915,6 +971,16 @@ def export_public(records: list[dict]) -> None:
         "automatedAnalyses": analysis_available,
         "automatedAssessmentsAvailable": analysis_available,
         "humanReviewPending": len(review_queue.get("items") or []),
+        "humanReviewPriorityQueue": {
+            "count": len(review_queue.get("items") or []),
+            "label": "Human review priority queue",
+            "scope": "A selected subset of public incidents awaiting authorized human review. It is not a count of every record whose review status is Not performed.",
+            "selectionCriteria": [
+                "High or Critical automated severity",
+                "Weak or unresolved methodological assignment",
+                "Causal wording with single-source evidence",
+            ],
+        },
         "architectureCoverageReviewRequired": sum(
             1 for item in records
             if ((item.get("automatedAnalysis") or {}).get("coverageAssessment") or {}).get("status") == "UNDER_REVIEW"

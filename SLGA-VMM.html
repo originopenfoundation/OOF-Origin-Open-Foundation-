@@ -1,0 +1,2066 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>OOF® VMM — Vulnerability Management Module</title><link rel="stylesheet" href="style.css" /></head><body><div id="header"></div><main class="oof-semantic-main"><article class="oof-semantic-article">
+<section class="container"><h2>VMM — Vulnerability Management Module</h2><div class="oof-warning3"><p><b>OOF® Origin Open Foundation®</b></p><p>Independent Methodological Authority</p><p class="podstand"><b>Architecture:</b> SLGA™ — Software Lifecycle Governance Architecture<br>
+<b>Parent Standard:</b> Software Security Standard (SSS)<br>
+<b>Category:</b> Governance &amp; Enforcement<br>
+<b>Subcategory:</b> Software Lifecycle Governance<br>
+<b>Type:</b> Core Module<br>
+<b>Governed Space:</b> Software Vulnerability Governance<br>
+<b>Module ID:</b> SLGA-SSS-VMM-004<br>
+<b>Origin ID:</b> OOF.CM.SLGA.06.04.01<br>
+<b>Version:</b> 1.0<br>
+<b>Status:</b> Canonical · Open Standard<br>
+<b>Effective Date:</b> 13.10.2026<br>
+<b>Compatibility:</b> OOF® Methodology OS™ · Modular OOF® Architecture Ecosystem<br>
+<b>GIE-Compatible:</b> Yes<br>
+<b>AI-Readable:</b> Yes<br>
+<b>Authority:</b> OOF® — OriginOpen® Foundation<br>
+<b>Protection:</b> MIP® — Methodological Intellectual Property<br>
+<b>Canonical Language:</b> English (UCL™)</p></div></section><section class="container"><div class="oof-warning3">
+<h1>Canonical Definition</h1>
+<section class="viewbor"></section>
+<h1>The Vulnerability Management Module (VMM) governs the identification,</h1>
+<a>recognition, confirmation, classification, contextual assessment,<br>prioritization, treatment, remediation verification, determination,<br>and lifecycle continuity of software vulnerabilities.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM establishes the methodological conditions under which a reported</h1>
+<a>weakness, security finding, vulnerability advisory, automated<br>detection, observed failure, or suspected exploitable condition can be<br>recognized as an identifiable, contextually applicable,<br>evidence-supported software vulnerability rather than being assumed to<br>constitute a confirmed vulnerability solely because a scanner,<br>advisory, AI agent, or external source has reported it.</a><br><br>
+<section class="viewbor"></section>
+<h1>It governs the relationships among vulnerability origin, affected software</h1>
+<a>identity, protected assets, relevant security requirements, threat<br>exposure, vulnerability existence, exploitability, accessibility,<br>severity, operational impact, treatment decisions, corrective changes,<br>remediation evidence, verification scope, residual vulnerability<br>conditions, and vulnerability state continuity.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM distinguishes vulnerability reporting from confirmation, severity from</h1>
+<a>operational priority, theoretical exploitability from demonstrated<br>exploitability, remediation implementation from verified remediation,<br>administrative closure from technical resolution, and vulnerability<br>resolution from final security conformity or residual risk acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>It applies to vulnerabilities affecting software created, integrated,</h1>
+<a>maintained, modified, or operated by humans, organizations, automated<br>development systems, AI coding assistants, autonomous software agents,<br>and software infrastructure mechanisms.</a><br><br>
+<a>VMM is technology-independent and does not prescribe a particular<br>vulnerability scanner, severity scoring framework, vulnerability<br>database, patch management system, security testing platform, or<br>remediation methodology.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Vulnerability State</h1>
+<a>Its foundational distinction is:</a><br><br>
+<a>Vulnerability Closure ≠ Verified Vulnerability Remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Role</h1>
+<a>The operational role of VMM is:</a><br><br>
+<a>To ensure that software vulnerability reports, confirmed weaknesses,<br>severity assessments, exploitability conditions, treatment priorities,<br>remediation actions, verification evidence, unresolved conditions, and<br>lifecycle changes remain identifiable, contextually applicable,<br>technically assessable, evidence-supported, and traceable to the<br>actual software artifact and configuration.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM governs the complete vulnerability lifecycle from initial</h1>
+<a>identification to competent resolution determination or explicitly<br>governed unresolved status.</a><br><br>
+<a>It does not independently establish final software security<br>conformity, accept residual security risk, or authorize software<br>release or deployment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Question</h1>
+<a>How can reported or suspected software vulnerabilities be competently<br>identified, confirmed, assessed, prioritized, treated, and verified<br>against the actual affected software and operating conditions so that<br>scanner findings, vulnerability severity, implemented patches, closed<br>tickets, or favorable automated reports are not mistaken for<br>demonstrated vulnerability resolution?</a><br><br>
+<section class="viewbor"></section>
+<h1>Position in Architecture Governance Flow</h1>
+<a>The SLGA™ governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Requirements → Software Creation → Software Dependencies →</h1>
+<a>Software Configuration → Software Quality → Software Security →<br>Software Release → Software Deployment → Software Change Management →<br>Software Retirement</a><br><br>
+<a>Cross-cutting:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Lifecycle Control</h1>
+<a>VMM operates within:</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Security Standard (SSS)</h1>
+<a>It is the fourth Core Module of SSS.</a><br><br>
+<a>The SSS module governance flow is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Security Requirements → Security Exposure Assessment → Security Testing &amp;</h1>
+<a>Control → Vulnerability Management → Security Risk &amp; Conformity →<br>Governed Software Security State</a><br><br>
+<a>VMM governs:</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Management</h1>
+<a>Its principal upstream references are:</a><br><br>
+<section class="viewbor"></section>
+<h1>SRQM — Security Requirements Module</h1>
+<section class="viewbor"></section>
+<h1>Input: Governed Software Security Requirements State</h1>
+<section class="viewbor"></section>
+<h1>SEAM — Security Exposure Assessment Module</h1>
+<section class="viewbor"></section>
+<h1>Input: Governed Software Security Exposure State</h1>
+<section class="viewbor"></section>
+<h1>STCM — Security Testing &amp; Control Module</h1>
+<section class="viewbor"></section>
+<h1>Input: Governed Software Security Testing &amp; Control State</h1>
+<a>Additional references may include:</a><br><br>
+<a>-</a><br><br>
+<a>Software creation and artifact identity from SCS. -</a><br><br>
+<a>Dependency identity and provenance from SDS. -</a><br><br>
+<a>Build and configuration correspondence from SCFS. -</a><br><br>
+<a>Relevant software defect information from SQS. -</a><br><br>
+<a>Operational observations and security incident evidence where<br>applicable.</a><br><br>
+<a>Its principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Vulnerability State</h1>
+<a>This output supports:</a><br><br>
+<section class="viewbor"></section>
+<h1>SRCM — Security Risk &amp; Conformity Module</h1>
+<a>VMM may also return new findings to SRQM, SEAM, or STCM when a<br>vulnerability reveals missing requirements, previously unrecognized<br>exposure, or ineffective controls.</a><br><br>
+<ul><li>Governed Space</li></ul><br>
+<section class="viewbor"></section>
+<h1>Software Vulnerability Governance</h1>
+<a>This space governs:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerability governance object identity. -</a><br><br>
+<a>Vulnerability report origin. -</a><br><br>
+<a>Vulnerability identification. -</a><br><br>
+<a>Vulnerability intake. -</a><br><br>
+<a>Software artifact correspondence. -</a><br><br>
+<a>Dependency correspondence. -</a><br><br>
+<a>Configuration correspondence. -</a><br><br>
+<a>Vulnerability evidence. -</a><br><br>
+<a>Vulnerability confirmation. -</a><br><br>
+<a>False-positive determination. -</a><br><br>
+<a>Duplicate vulnerability identification. -</a><br><br>
+<a>Vulnerability classification. -</a><br><br>
+<a>Vulnerability severity. -</a><br><br>
+<a>Vulnerability exploitability. -</a><br><br>
+<a>Vulnerability exposure. -</a><br><br>
+<a>Protected asset impact. -</a><br><br>
+<a>Operational consequences. -</a><br><br>
+<a>Vulnerability prioritization. -</a><br><br>
+<a>Vulnerability ownership references. -</a><br><br>
+<a>Vulnerability treatment. -</a><br><br>
+<a>Remediation planning. -</a><br><br>
+<a>Corrective action correspondence. -</a><br><br>
+<a>Patch implementation. -</a><br><br>
+<a>Dependency remediation. -</a><br><br>
+<a>Configuration remediation. -</a><br><br>
+<a>Compensating controls. -</a><br><br>
+<a>Remediation testing. -</a><br><br>
+<a>Remediation verification. -</a><br><br>
+<a>Regression assessment. -</a><br><br>
+<a>Residual vulnerability conditions. -</a><br><br>
+<a>Vulnerability exceptions. -</a><br><br>
+<a>Vulnerability deferral. -</a><br><br>
+<a>Vulnerability reopening. -</a><br><br>
+<a>Vulnerability closure eligibility. -</a><br><br>
+<a>Vulnerability evidence gaps. -</a><br><br>
+<a>Critical vulnerability governance gaps. -</a><br><br>
+<a>Vulnerability uncertainty. -</a><br><br>
+<a>Vulnerability conflicts. -</a><br><br>
+<a>Vulnerability state determination. -</a><br><br>
+<a>Vulnerability continuity. -</a><br><br>
+<a>Vulnerability reassessment. -</a><br><br>
+<a>Autonomous vulnerability management. -</a><br><br>
+<a>Vulnerability governance outputs.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Every material VMM determination shall establish an identifiable Vulnerability</h1>
+<a>Governance Object.</a><br><br>
+<section class="viewbor"></section>
+<h1>The object represents a reported, suspected, confirmed, or previously</h1>
+<a>recognized software vulnerability associated with an identifiable<br>software subject.</a><br><br>
+<a>It should preserve:</a><br><br>
+<a>Vulnerability Identity: A stable reference for the vulnerability.</a><br><br>
+<a>Vulnerability Origin: The source of the report or finding.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Object: The affected component, application, service, interface,</h1>
+<a>or system.</a><br><br>
+<a>Artifact Identity: The relevant software artifact or version.</a><br><br>
+<a>Dependency Reference: The affected dependency where applicable.</a><br><br>
+<a>Configuration: The relevant configuration conditions.</a><br><br>
+<a>Security Requirement: The potentially affected protective requirement.</a><br><br>
+<a>Exposure Reference: The relevant SEAM exposure conditions.</a><br><br>
+<a>Testing Reference: The relevant STCM findings and evidence.</a><br><br>
+<a>Vulnerability Description: The suspected or established weakness.</a><br><br>
+<a>Confirmation State: The evidence-supported recognition status.</a><br><br>
+<a>Severity: The assessed seriousness of the vulnerability.</a><br><br>
+<a>Exploitability: The relevant exploitation conditions.</a><br><br>
+<a>Impact: The potential or demonstrated consequences.</a><br><br>
+<a>Treatment: The selected corrective or compensating approach.</a><br><br>
+<a>Remediation Evidence: The evidence supporting corrective action.</a><br><br>
+<a>Verification State: The recognized remediation verification condition.</a><br><br>
+<a>Governance State: The overall vulnerability status.</a><br><br>
+<section class="viewbor"></section>
+<h1>A vulnerability record shall not be treated as confirmed merely because it</h1>
+<a>has been created by a scanner, external advisory, or autonomous agent.</a><br><br>
+<a>Vulnerability Report ≠ Confirmed Software Vulnerability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Governance Principles</h1>
+<a>VMM establishes the following principles.</a><br><br>
+<a>Identifiable Vulnerability Subject: Every material finding must<br>concern identifiable software.</a><br><br>
+<a>Source Traceability: Vulnerability reports must preserve their origin.</a><br><br>
+<a>Artifact Correspondence: Findings must remain connected to relevant<br>software artifacts.</a><br><br>
+<a>Contextual Applicability: Vulnerability relevance must be assessed<br>against actual software conditions.</a><br><br>
+<a>Confirmation Discipline: Reports must remain distinguishable from<br>confirmed vulnerabilities.</a><br><br>
+<a>Severity Separation: Severity must remain distinguishable from<br>treatment priority.</a><br><br>
+<a>Exploitability Separation: Theoretical exploitation must remain<br>distinguishable from demonstrated exploitation.</a><br><br>
+<a>Treatment Traceability: Corrective actions must remain connected to<br>the vulnerability they address.</a><br><br>
+<a>Remediation Verification: Implemented changes must not be mistaken for<br>verified remediation.</a><br><br>
+<a>Residual Condition Preservation: Unresolved vulnerability conditions<br>must remain visible.</a><br><br>
+<a>Closure Integrity: Administrative closure must not replace technical<br>verification.</a><br><br>
+<a>Authority Preservation: Technical assessment must remain distinct from<br>authorized risk acceptance.</a><br><br>
+<a>Lifecycle Continuity: Vulnerability history must remain traceable.</a><br><br>
+<a>Reassessment: Material changes may invalidate previous determinations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Management Purpose</h1>
+<section class="viewbor"></section>
+<h1>VMM shall establish the purpose of material vulnerability management</h1>
+<a>activities.</a><br><br>
+<a>Purposes may include:</a><br><br>
+<a>-</a><br><br>
+<a>Identifying software weaknesses. -</a><br><br>
+<a>Confirming reported vulnerabilities. -</a><br><br>
+<a>Assessing applicability. -</a><br><br>
+<a>Determining exploitability. -</a><br><br>
+<a>Evaluating severity and impact. -</a><br><br>
+<a>Establishing treatment priority. -</a><br><br>
+<a>Coordinating remediation. -</a><br><br>
+<a>Verifying corrective actions. -</a><br><br>
+<a>Preserving unresolved conditions. -</a><br><br>
+<a>Supporting residual security risk evaluation.</a><br><br>
+<section class="viewbor"></section>
+<h1>A management activity shall remain connected to the vulnerability condition</h1>
+<a>it is intended to address.</a><br><br>
+<a>Vulnerability Management Activity ≠ Vulnerability Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Management Scope</h1>
+<section class="viewbor"></section>
+<h1>VMM shall establish the software scope affected by a vulnerability</h1>
+<a>determination.</a><br><br>
+<a>Scope may concern:</a><br><br>
+<a>-</a><br><br>
+<a>A software function. -</a><br><br>
+<a>A component. -</a><br><br>
+<a>A dependency. -</a><br><br>
+<a>An application. -</a><br><br>
+<a>A service. -</a><br><br>
+<a>An interface. -</a><br><br>
+<a>An integrated system. -</a><br><br>
+<a>An autonomous agent. -</a><br><br>
+<a>A particular configuration. -</a><br><br>
+<a>A deployment environment.</a><br><br>
+<section class="viewbor"></section>
+<h1>A vulnerability confirmed in one component shall not automatically</h1>
+<a>establish that every application using that component is exploitable.</a><br><br>
+<a>Component Vulnerability ≠ Universal Application Exploitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Software Artifact Correspondence</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve the identity of the software artifact affected by a</h1>
+<a>vulnerability.</a><br><br>
+<a>Relevant references may include:</a><br><br>
+<a>-</a><br><br>
+<a>Artifact identifier. -</a><br><br>
+<a>Version. -</a><br><br>
+<a>Build identity. -</a><br><br>
+<a>Dependency composition. -</a><br><br>
+<a>Configuration baseline. -</a><br><br>
+<a>Runtime environment. -</a><br><br>
+<a>Relevant deployment references.</a><br><br>
+<section class="viewbor"></section>
+<h1>A vulnerability determination concerning one artifact shall not</h1>
+<a>automatically establish the condition of another artifact.</a><br><br>
+<a>Vulnerability State of Build A ≠ Vulnerability State of Build B.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Correspondence</h1>
+<a>VMM shall preserve relevant dependency relationships.</a><br><br>
+<a>A vulnerability may affect:</a><br><br>
+<a>-</a><br><br>
+<a>A direct dependency. -</a><br><br>
+<a>A transitive dependency. -</a><br><br>
+<a>A shared library. -</a><br><br>
+<a>A runtime component. -</a><br><br>
+<a>A development tool. -</a><br><br>
+<a>A build-time dependency. -</a><br><br>
+<a>An external software service.</a><br><br>
+<a>SDS governs dependency identity and lifecycle relationships.</a><br><br>
+<a>VMM governs the vulnerability conditions associated with those<br>dependencies.</a><br><br>
+<section class="viewbor"></section>
+<h1>Configuration Correspondence</h1>
+<section class="viewbor"></section>
+<h1>VMM shall identify configuration conditions affecting vulnerability</h1>
+<a>relevance.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<a>Enabled vulnerable functionality. -</a><br><br>
+<a>Network exposure. -</a><br><br>
+<a>Authentication requirements. -</a><br><br>
+<a>Runtime privileges. -</a><br><br>
+<a>Feature flags. -</a><br><br>
+<a>Dependency settings. -</a><br><br>
+<a>Security control configuration.</a><br><br>
+<a>A vulnerability may be present in software while exploitation remains<br>dependent on specific configuration conditions.</a><br><br>
+<a>Vulnerability Presence ≠ Exploitability Under Every Configuration.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Report Origin</h1>
+<a>VMM shall preserve the origin of vulnerability reports.</a><br><br>
+<a>Origins may include:</a><br><br>
+<a>-</a><br><br>
+<a>Automated scanners. -</a><br><br>
+<a>Security researchers. -</a><br><br>
+<a>Software vendors. -</a><br><br>
+<a>Public vulnerability advisories. -</a><br><br>
+<a>Internal testing. -</a><br><br>
+<a>Penetration testing. -</a><br><br>
+<a>Operational observations. -</a><br><br>
+<a>Incident investigations. -</a><br><br>
+<a>Developers. -</a><br><br>
+<a>AI coding assistants. -</a><br><br>
+<a>Autonomous security agents.</a><br><br>
+<a>Report origin shall remain distinguishable from report validity.</a><br><br>
+<a>Trusted Vulnerability Source ≠ Automatically Applicable Finding.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Intake</h1>
+<a>VMM shall govern the initial recognition of vulnerability information.</a><br><br>
+<a>Intake should preserve:</a><br><br>
+<a>-</a><br><br>
+<a>Report identity. -</a><br><br>
+<a>Source. -</a><br><br>
+<a>Receipt date. -</a><br><br>
+<a>Affected software reference. -</a><br><br>
+<a>Description. -</a><br><br>
+<a>Initial severity. -</a><br><br>
+<a>Available evidence. -</a><br><br>
+<a>Known uncertainty. -</a><br><br>
+<a>Initial governance state.</a><br><br>
+<a>Intake does not establish confirmation.</a><br><br>
+<a>A newly received report may remain pending contextual assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Identification</h1>
+<section class="viewbor"></section>
+<h1>VMM shall identify the weakness or suspected weakness described by the</h1>
+<a>report.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<a>Authorization bypass. -</a><br><br>
+<a>Authentication failure. -</a><br><br>
+<a>Injection. -</a><br><br>
+<a>Sensitive data exposure. -</a><br><br>
+<a>Insecure deserialization. -</a><br><br>
+<a>Privilege escalation. -</a><br><br>
+<a>Unsafe dependency behavior. -</a><br><br>
+<a>Cryptographic misuse. -</a><br><br>
+<a>Security misconfiguration. -</a><br><br>
+<a>Insecure agent tool execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification shall preserve the affected software function or component</h1>
+<a>where known.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Recognition</h1>
+<section class="viewbor"></section>
+<h1>VMM shall distinguish a recognized vulnerability candidate from a confirmed</h1>
+<a>vulnerability.</a><br><br>
+<a>Recognition establishes that the report warrants governance attention.</a><br><br>
+<section class="viewbor"></section>
+<h1>Confirmation requires competent evidence supporting the vulnerability's</h1>
+<a>existence within the assessed scope.</a><br><br>
+<a>Recognized Vulnerability Candidate ≠ Confirmed Vulnerability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Confirmation</h1>
+<section class="viewbor"></section>
+<h1>VMM shall establish whether available evidence supports the existence of</h1>
+<a>the reported weakness.</a><br><br>
+<a>Confirmation may rely on:</a><br><br>
+<a>-</a><br><br>
+<a>Reproducible technical behavior. -</a><br><br>
+<a>Competent code analysis. -</a><br><br>
+<a>Verified configuration conditions. -</a><br><br>
+<a>Reliable vendor evidence. -</a><br><br>
+<a>Relevant dependency evidence. -</a><br><br>
+<a>Targeted security testing. -</a><br><br>
+<a>Operational observations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Confirmation methods shall be appropriate to the vulnerability and affected</h1>
+<a>software.</a><br><br>
+<a>A vulnerability may be confirmed without demonstrating successful<br>exploitation in production.</a><br><br>
+<a>Confirmed Vulnerability ≠ Confirmed Security Incident.</a><br><br>
+<section class="viewbor"></section>
+<h1>False-Positive Determination</h1>
+<a>VMM shall support competent determination that a reported finding does<br>not represent the claimed vulnerability within the assessed scope.</a><br><br>
+<a>A false-positive determination should preserve:</a><br><br>
+<a>-</a><br><br>
+<a>Original finding. -</a><br><br>
+<a>Affected software identity. -</a><br><br>
+<a>Assessment method. -</a><br><br>
+<a>Supporting evidence. -</a><br><br>
+<a>Relevant assumptions. -</a><br><br>
+<a>Determination scope. -</a><br><br>
+<a>Reassessment conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>A finding shall not be classified as false positive merely because</h1>
+<a>remediation is inconvenient or the scanner result is disputed.</a><br><br>
+<a>Disputed Finding ≠ Demonstrated False Positive.</a><br><br>
+<section class="viewbor"></section>
+<h1>Duplicate Vulnerability Identification</h1>
+<section class="viewbor"></section>
+<h1>VMM shall identify reports concerning the same underlying vulnerability</h1>
+<a>where appropriate.</a><br><br>
+<a>Duplicate recognition should preserve:</a><br><br>
+<a>-</a><br><br>
+<a>Original report references. -</a><br><br>
+<a>Shared technical cause. -</a><br><br>
+<a>Affected artifacts. -</a><br><br>
+<a>Distinct exposure conditions. -</a><br><br>
+<a>Relevant treatment relationships.</a><br><br>
+<a>Two reports may concern the same underlying weakness while affecting<br>different software artifacts or configurations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Duplicate administrative records shall not erase distinct exposure or</h1>
+<a>remediation obligations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Classification</h1>
+<section class="viewbor"></section>
+<h1>VMM shall classify confirmed or suspected vulnerabilities according to</h1>
+<a>relevant technical characteristics.</a><br><br>
+<a>Classification may concern:</a><br><br>
+<a>-</a><br><br>
+<a>Weakness category. -</a><br><br>
+<a>Affected security property. -</a><br><br>
+<a>Vulnerable function. -</a><br><br>
+<a>Attack surface. -</a><br><br>
+<a>Required privileges. -</a><br><br>
+<a>Relevant input conditions. -</a><br><br>
+<a>Dependency origin. -</a><br><br>
+<a>Configuration dependency.</a><br><br>
+<a>Classification supports analysis and treatment.</a><br><br>
+<a>It does not independently establish severity or exploitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Severity</h1>
+<section class="viewbor"></section>
+<h1>VMM shall assess the seriousness of a vulnerability using competent</h1>
+<a>criteria.</a><br><br>
+<a>Severity may consider:</a><br><br>
+<a>-</a><br><br>
+<a>Potential confidentiality impact. -</a><br><br>
+<a>Potential integrity impact. -</a><br><br>
+<a>Potential availability impact. -</a><br><br>
+<a>Attack complexity. -</a><br><br>
+<a>Required privileges. -</a><br><br>
+<a>User interaction. -</a><br><br>
+<a>Scope of affected functionality.</a><br><br>
+<a>A recognized severity scoring framework may provide useful reference<br>information.</a><br><br>
+<a>VMM does not prescribe a single mandatory severity methodology.</a><br><br>
+<section class="viewbor"></section>
+<h1>Severity shall remain distinguishable from organizational treatment</h1>
+<a>priority.</a><br><br>
+<a>Vulnerability Severity ≠ Remediation Priority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Exploitability</h1>
+<a>VMM shall assess conditions affecting whether a vulnerability can be<br>exploited.</a><br><br>
+<a>Relevant factors may include:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerable code reachability. -</a><br><br>
+<a>Required authentication. -</a><br><br>
+<a>Required privileges. -</a><br><br>
+<a>Attack surface accessibility. -</a><br><br>
+<a>Exploit prerequisites. -</a><br><br>
+<a>Configuration. -</a><br><br>
+<a>Available attack techniques. -</a><br><br>
+<a>Existing protective controls.</a><br><br>
+<a>Exploitability shall be assessed within the relevant software context.</a><br><br>
+<a>Theoretical Exploitability ≠ Demonstrated Application Exploitability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Exploit Availability</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve information concerning available exploitation methods</h1>
+<a>where relevant.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<a>Public exploit descriptions. -</a><br><br>
+<a>Proof-of-concept code. -</a><br><br>
+<a>Vendor advisories. -</a><br><br>
+<a>Reproduced exploitation techniques. -</a><br><br>
+<a>Reliable reports of active exploitation.</a><br><br>
+<a>Exploit availability may materially affect urgency.</a><br><br>
+<a>It does not independently establish that the governed software has<br>been exploited.</a><br><br>
+<a>Public Exploit Available ≠ Confirmed Local Exploitation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Exposure</h1>
+<a>VMM shall assess vulnerability exposure using relevant SEAM findings.</a><br><br>
+<a>Exposure may depend on:</a><br><br>
+<a>-</a><br><br>
+<a>Network accessibility. -</a><br><br>
+<a>Enabled functionality. -</a><br><br>
+<a>Dependency reachability. -</a><br><br>
+<a>Trust boundaries. -</a><br><br>
+<a>Authentication. -</a><br><br>
+<a>Authorization. -</a><br><br>
+<a>Runtime privileges. -</a><br><br>
+<a>Operating environment.</a><br><br>
+<a>A confirmed vulnerability may remain inaccessible under specified<br>conditions.</a><br><br>
+<a>Such a determination shall preserve its assumptions and limitations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Protected Asset Impact</h1>
+<a>VMM shall identify protected assets potentially affected by a<br>vulnerability.</a><br><br>
+<a>Assets may include:</a><br><br>
+<a>-</a><br><br>
+<a>Personal data. -</a><br><br>
+<a>Financial information. -</a><br><br>
+<a>Credentials. -</a><br><br>
+<a>Software artifacts. -</a><br><br>
+<a>Critical operations. -</a><br><br>
+<a>Administrative permissions. -</a><br><br>
+<a>Service availability. -</a><br><br>
+<a>Operational infrastructure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Impact shall remain connected to the relevant security property and</h1>
+<a>exposure context.</a><br><br>
+<section class="viewbor"></section>
+<h1>Operational Consequence Assessment</h1>
+<section class="viewbor"></section>
+<h1>VMM shall assess potential operational consequences of material</h1>
+<a>vulnerabilities.</a><br><br>
+<a>Consequences may include:</a><br><br>
+<a>-</a><br><br>
+<a>Unauthorized transactions. -</a><br><br>
+<a>Data disclosure. -</a><br><br>
+<a>Service disruption. -</a><br><br>
+<a>Privilege escalation. -</a><br><br>
+<a>Loss of software integrity. -</a><br><br>
+<a>Compromise of dependent services. -</a><br><br>
+<a>Unauthorized agent actions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Potential consequences shall remain distinguishable from observed</h1>
+<a>consequences.</a><br><br>
+<a>Potential Vulnerability Impact ≠ Observed Operational Damage.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Prioritization</h1>
+<a>VMM shall establish contextual treatment priorities.</a><br><br>
+<a>Prioritization may consider:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerability severity. -</a><br><br>
+<a>Exploitability. -</a><br><br>
+<a>Actual exposure. -</a><br><br>
+<a>Protected asset significance. -</a><br><br>
+<a>Operational criticality. -</a><br><br>
+<a>Available exploitation evidence. -</a><br><br>
+<a>Remediation feasibility. -</a><br><br>
+<a>Relevant organizational obligations.</a><br><br>
+<a>A critical severity score may warrant urgent action even when some<br>exposure conditions remain uncertain.</a><br><br>
+<a>A lower-scored vulnerability may warrant high priority where actual<br>exposure and consequences are significant.</a><br><br>
+<a>Severity Ranking ≠ Complete Treatment Priority Determination.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Ownership References</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve the responsible roles or mechanisms associated with</h1>
+<a>vulnerability assessment and treatment.</a><br><br>
+<a>Relevant responsibilities may include:</a><br><br>
+<a>-</a><br><br>
+<a>Technical investigation. -</a><br><br>
+<a>Remediation implementation. -</a><br><br>
+<a>Security verification. -</a><br><br>
+<a>Operational coordination. -</a><br><br>
+<a>Treatment decision-making. -</a><br><br>
+<a>Escalation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Responsibility for remediation shall remain distinguishable from authority</h1>
+<a>to accept residual security risk.</a><br><br>
+<a>Remediation Responsibility ≠ Residual Risk Acceptance Authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Treatment Governance</h1>
+<a>VMM shall establish identifiable treatment decisions.</a><br><br>
+<a>Possible treatments include:</a><br><br>
+<a>-</a><br><br>
+<a>Corrective remediation. -</a><br><br>
+<a>Dependency update. -</a><br><br>
+<a>Configuration correction. -</a><br><br>
+<a>Control modification. -</a><br><br>
+<a>Compensating protection. -</a><br><br>
+<a>Exposure reduction. -</a><br><br>
+<a>Temporary restriction. -</a><br><br>
+<a>Decommissioning of affected functionality. -</a><br><br>
+<a>Authorized deferral.</a><br><br>
+<section class="viewbor"></section>
+<h1>Treatment shall remain connected to the affected vulnerability and software</h1>
+<a>state.</a><br><br>
+<a>A selected treatment does not establish successful execution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Planning</h1>
+<a>VMM shall preserve material remediation plans.</a><br><br>
+<a>Plans may identify:</a><br><br>
+<a>-</a><br><br>
+<a>Affected software. -</a><br><br>
+<a>Vulnerability reference. -</a><br><br>
+<a>Intended corrective action. -</a><br><br>
+<a>Relevant dependencies. -</a><br><br>
+<a>Required verification. -</a><br><br>
+<a>Responsible roles. -</a><br><br>
+<a>Operational constraints. -</a><br><br>
+<a>Expected treatment conditions.</a><br><br>
+<a>A remediation plan shall not be represented as completed remediation.</a><br><br>
+<a>Remediation Planned ≠ Remediation Implemented.</a><br><br>
+<section class="viewbor"></section>
+<h1>Corrective Action Correspondence</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve the relationship between the vulnerability and the</h1>
+<a>action intended to address it.</a><br><br>
+<a>Corrective actions may include:</a><br><br>
+<a>-</a><br><br>
+<a>Source-code modification. -</a><br><br>
+<a>Dependency replacement. -</a><br><br>
+<a>Configuration correction. -</a><br><br>
+<a>Permission restriction. -</a><br><br>
+<a>Removal of vulnerable functionality. -</a><br><br>
+<a>Security control improvement.</a><br><br>
+<section class="viewbor"></section>
+<h1>The corrective action shall be assessed against the underlying</h1>
+<a>vulnerability mechanism.</a><br><br>
+<a>Software Change Completed ≠ Vulnerability Corrected.</a><br><br>
+<section class="viewbor"></section>
+<h1>Patch Implementation</h1>
+<a>VMM shall identify patches intended to correct vulnerabilities.</a><br><br>
+<a>Relevant evidence may include:</a><br><br>
+<a>-</a><br><br>
+<a>Patch identity. -</a><br><br>
+<a>Affected artifact. -</a><br><br>
+<a>Code changes. -</a><br><br>
+<a>Dependency changes. -</a><br><br>
+<a>Build references. -</a><br><br>
+<a>Configuration changes. -</a><br><br>
+<a>Implementation records.</a><br><br>
+<a>A patch being applied does not independently demonstrate that the<br>vulnerability has been eliminated.</a><br><br>
+<a>Patch Applied ≠ Remediation Verified.</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency Vulnerability Remediation</h1>
+<a>VMM shall govern corrective treatment of vulnerable dependencies.</a><br><br>
+<a>Treatment may involve:</a><br><br>
+<a>-</a><br><br>
+<a>Updating the dependency. -</a><br><br>
+<a>Replacing the component. -</a><br><br>
+<a>Removing affected functionality. -</a><br><br>
+<a>Restricting exposure. -</a><br><br>
+<a>Applying a vendor correction. -</a><br><br>
+<a>Implementing compensating controls.</a><br><br>
+<a>Dependency remediation shall preserve actual artifact composition.</a><br><br>
+<a>Updating a dependency manifest does not establish that the corrected<br>component is present in the deployed artifact.</a><br><br>
+<a>Dependency Manifest Updated ≠ Deployed Dependency Corrected.</a><br><br>
+<section class="viewbor"></section>
+<h1>Configuration Vulnerability Remediation</h1>
+<a>VMM shall govern corrective changes addressing security<br>misconfiguration.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<a>Disabling exposed debug interfaces. -</a><br><br>
+<a>Restricting network access. -</a><br><br>
+<a>Correcting authentication settings. -</a><br><br>
+<a>Reducing excessive privileges. -</a><br><br>
+<a>Protecting sensitive configuration values.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation verification shall assess the configuration actually applied to</h1>
+<a>the relevant software environment.</a><br><br>
+<section class="viewbor"></section>
+<h1>Compensating Protection</h1>
+<section class="viewbor"></section>
+<h1>VMM shall recognize protective measures intended to reduce vulnerability</h1>
+<a>exposure or consequences without necessarily removing the underlying<br>weakness.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<a>Network restrictions. -</a><br><br>
+<a>Additional authorization checks. -</a><br><br>
+<a>Feature isolation. -</a><br><br>
+<a>Runtime monitoring. -</a><br><br>
+<a>Temporary access restrictions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Compensating protection shall remain distinguishable from elimination of</h1>
+<a>the vulnerability.</a><br><br>
+<a>Compensating Control Active ≠ Underlying Vulnerability Removed.</a><br><br>
+<a>STCM governs verification of the compensating control's effectiveness.</a><br><br>
+<a>SRCM governs any relevant residual risk acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Temporary Mitigation</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve temporary measures used while permanent remediation</h1>
+<a>remains incomplete.</a><br><br>
+<a>A temporary mitigation should identify:</a><br><br>
+<a>-</a><br><br>
+<a>The vulnerability. -</a><br><br>
+<a>The affected software. -</a><br><br>
+<a>The mitigation mechanism. -</a><br><br>
+<a>Its applicable scope. -</a><br><br>
+<a>Its expected duration. -</a><br><br>
+<a>Verification evidence. -</a><br><br>
+<a>Remaining limitations. -</a><br><br>
+<a>Reassessment conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Temporary mitigation shall not silently become permanent vulnerability</h1>
+<a>closure.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Deferral</h1>
+<a>VMM shall recognize decisions to defer vulnerability treatment.</a><br><br>
+<a>Deferral may arise from:</a><br><br>
+<a>-</a><br><br>
+<a>Operational constraints. -</a><br><br>
+<a>Dependency availability. -</a><br><br>
+<a>Remediation complexity. -</a><br><br>
+<a>Planned software replacement. -</a><br><br>
+<a>Technical compatibility. -</a><br><br>
+<a>Required maintenance windows.</a><br><br>
+<a>Deferral shall preserve the unresolved vulnerability state.</a><br><br>
+<section class="viewbor"></section>
+<h1>It shall not independently establish authorized acceptance of residual</h1>
+<a>security risk.</a><br><br>
+<a>Remediation Deferred ≠ Security Risk Accepted.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Exception References</h1>
+<a>VMM shall preserve exceptions relevant to vulnerability treatment.</a><br><br>
+<a>An exception may concern:</a><br><br>
+<a>-</a><br><br>
+<a>Treatment timing. -</a><br><br>
+<a>Temporary compensating controls. -</a><br><br>
+<a>Operational restrictions. -</a><br><br>
+<a>Conditional continuation. -</a><br><br>
+<a>Alternative remediation.</a><br><br>
+<a>VMM records the vulnerability-specific exception conditions.</a><br><br>
+<a>SRCM governs residual risk evaluation and competent acceptance where<br>applicable.</a><br><br>
+<a>Vulnerability Exception Recorded ≠ Authorized Risk Acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Implementation Evidence</h1>
+<a>VMM shall preserve evidence that the intended corrective action was<br>performed.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<a>-</a><br><br>
+<a>Source-code changes. -</a><br><br>
+<a>Patch records. -</a><br><br>
+<a>Dependency updates. -</a><br><br>
+<a>Configuration changes. -</a><br><br>
+<a>Build records. -</a><br><br>
+<a>Deployment references. -</a><br><br>
+<a>Operational change records.</a><br><br>
+<section class="viewbor"></section>
+<h1>Implementation evidence shall remain distinguishable from verification</h1>
+<a>evidence.</a><br><br>
+<a>Corrective Action Evidence ≠ Verified Vulnerability Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Verification Purpose</h1>
+<a>VMM shall establish the purpose of remediation verification.</a><br><br>
+<a>The purpose is to determine whether the corrective action sufficiently<br>addresses the recognized vulnerability within the relevant software<br>artifact, configuration, and operating conditions.</a><br><br>
+<a>Verification shall remain connected to the original vulnerability<br>mechanism.</a><br><br>
+<a>A generic passing test shall not automatically establish remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Verification Method</h1>
+<section class="viewbor"></section>
+<h1>VMM shall identify competent methods for assessing corrective action</h1>
+<a>effectiveness.</a><br><br>
+<a>Methods may include:</a><br><br>
+<a>-</a><br><br>
+<a>Reproduction of the original weakness. -</a><br><br>
+<a>Targeted security testing. -</a><br><br>
+<a>Code analysis. -</a><br><br>
+<a>Configuration verification. -</a><br><br>
+<a>Dependency composition verification. -</a><br><br>
+<a>Runtime assessment. -</a><br><br>
+<a>Relevant regression testing.</a><br><br>
+<section class="viewbor"></section>
+<h1>Verification method suitability shall be assessed against the vulnerability</h1>
+<a>and the corrective action.</a><br><br>
+<a>STCM governs the underlying testing and control evidence.</a><br><br>
+<a>VMM interprets that evidence for vulnerability resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Artifact Correspondence</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve the identity of the software artifact against which</h1>
+<a>remediation is verified.</a><br><br>
+<a>A successful test against a temporary build shall not establish that<br>the intended release or production artifact is corrected.</a><br><br>
+<a>Remediation Verified in Build A ≠ Remediation Verified in Build B.</a><br><br>
+<a>Where a correction is intended for multiple affected artifacts, the<br>relevant correspondence and verification conditions shall remain<br>identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Configuration Correspondence</h1>
+<a>VMM shall assess whether verification applies to the relevant<br>configuration.</a><br><br>
+<a>A vulnerability may appear corrected in one environment while<br>remaining exploitable under another configuration.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<a>-</a><br><br>
+<a>Enabled features. -</a><br><br>
+<a>Dependency settings. -</a><br><br>
+<a>Runtime privileges. -</a><br><br>
+<a>Authentication. -</a><br><br>
+<a>Network accessibility. -</a><br><br>
+<a>External integrations.</a><br><br>
+<a>A favorable verification result shall remain bounded by its<br>configuration.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Effectiveness</h1>
+<section class="viewbor"></section>
+<h1>VMM shall determine whether competent evidence supports resolution of the</h1>
+<a>recognized vulnerability.</a><br><br>
+<a>A favorable determination should establish:</a><br><br>
+<a>-</a><br><br>
+<a>Correct vulnerability identity. -</a><br><br>
+<a>Relevant software artifact. -</a><br><br>
+<a>Corrective action correspondence. -</a><br><br>
+<a>Applicable configuration. -</a><br><br>
+<a>Suitable verification method. -</a><br><br>
+<a>Observed corrective behavior. -</a><br><br>
+<a>Relevant evidence. -</a><br><br>
+<a>Known limitations.</a><br><br>
+<a>A remediation determination shall not exceed the supported scope.</a><br><br>
+<a>Remediation Implementation ≠ Remediation Effectiveness.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Regression</h1>
+<section class="viewbor"></section>
+<h1>VMM shall assess whether a corrective action introduces or reintroduces</h1>
+<a>material security weaknesses.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<a>-</a><br><br>
+<a>Changed authorization behavior. -</a><br><br>
+<a>Modified authentication logic. -</a><br><br>
+<a>New dependency exposure. -</a><br><br>
+<a>Changed privileges. -</a><br><br>
+<a>New attack surfaces. -</a><br><br>
+<a>Broken protective controls.</a><br><br>
+<a>A vulnerability may be corrected while a separate vulnerability is<br>introduced.</a><br><br>
+<a>Original Vulnerability Resolved ≠ No New Security Weakness Introduced.</a><br><br>
+<a>STCM provides relevant regression testing evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Residual Vulnerability Conditions</h1>
+<a>VMM shall preserve vulnerability conditions that remain after<br>treatment.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<a>Partially corrected functionality. -</a><br><br>
+<a>Remaining vulnerable configurations. -</a><br><br>
+<a>Unpatched affected components. -</a><br><br>
+<a>Incomplete deployment. -</a><br><br>
+<a>Unverified remediation. -</a><br><br>
+<a>Continuing exposure under specified conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Residual vulnerability conditions shall remain distinguishable from</h1>
+<a>residual security risk acceptance.</a><br><br>
+<a>Residual Vulnerability Identified ≠ Residual Risk Accepted.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Resolution Determination</h1>
+<a>VMM shall establish whether a vulnerability is sufficiently resolved<br>within the assessed scope.</a><br><br>
+<a>Possible determinations include:</a><br><br>
+<a>-</a><br><br>
+<a>Verified resolved. -</a><br><br>
+<a>Partially resolved. -</a><br><br>
+<a>Mitigated but unresolved. -</a><br><br>
+<a>Not resolved. -</a><br><br>
+<a>Verification pending. -</a><br><br>
+<a>Evidence-limited. -</a><br><br>
+<a>Reassessment required.</a><br><br>
+<section class="viewbor"></section>
+<h1>Resolution shall remain connected to the actual software artifact and</h1>
+<a>configuration.</a><br><br>
+<section class="viewbor"></section>
+<h1>A vulnerability shall not be considered verified resolved solely because a</h1>
+<a>corrective change was merged.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Closure Eligibility</h1>
+<a>VMM shall assess whether a vulnerability record is eligible for<br>administrative closure.</a><br><br>
+<a>Eligibility should consider:</a><br><br>
+<a>-</a><br><br>
+<a>Confirmation status. -</a><br><br>
+<a>Treatment status. -</a><br><br>
+<a>Remediation verification. -</a><br><br>
+<a>Residual conditions. -</a><br><br>
+<a>Evidence sufficiency. -</a><br><br>
+<a>Relevant authority and workflow requirements.</a><br><br>
+<a>Administrative closure shall not substitute for technical resolution.</a><br><br>
+<a>Vulnerability Closure ≠ Verified Vulnerability Remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Administrative Closure</h1>
+<a>VMM shall preserve the reason for administrative closure.</a><br><br>
+<a>Possible reasons may include:</a><br><br>
+<a>-</a><br><br>
+<a>Verified remediation. -</a><br><br>
+<a>Confirmed false positive. -</a><br><br>
+<a>Duplicate record consolidation. -</a><br><br>
+<a>Superseded software artifact. -</a><br><br>
+<a>Other competently authorized administrative disposition.</a><br><br>
+<a>The closure reason shall remain explicit.</a><br><br>
+<section class="viewbor"></section>
+<h1>A record closed because its software artifact was retired shall not be</h1>
+<a>represented as technically remediated.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Reopening</h1>
+<a>VMM shall support reopening vulnerability records when material<br>evidence invalidates a previous resolution or closure determination.</a><br><br>
+<a>Triggers may include:</a><br><br>
+<a>-</a><br><br>
+<a>Failed remediation verification. -</a><br><br>
+<a>Reintroduced vulnerable code. -</a><br><br>
+<a>Incorrect dependency update. -</a><br><br>
+<a>New exploitability evidence. -</a><br><br>
+<a>Production configuration differences. -</a><br><br>
+<a>Contradictory test results. -</a><br><br>
+<a>Incomplete deployment.</a><br><br>
+<a>Reopening shall preserve historical records.</a><br><br>
+<a>Previously Closed Vulnerability ≠ Permanently Resolved Vulnerability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Governance</h1>
+<a>VMM shall preserve evidence supporting vulnerability determinations.</a><br><br>
+<a>Evidence may include:</a><br><br>
+<a>-</a><br><br>
+<a>Scanner findings. -</a><br><br>
+<a>Vendor advisories. -</a><br><br>
+<a>Security test results. -</a><br><br>
+<a>Code analysis. -</a><br><br>
+<a>Runtime observations. -</a><br><br>
+<a>Dependency composition. -</a><br><br>
+<a>Configuration records. -</a><br><br>
+<a>Patch records. -</a><br><br>
+<a>Remediation verification results.</a><br><br>
+<a>Evidence shall remain connected to the determination it supports.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Competence</h1>
+<a>VMM shall assess whether evidence is suitable for the relevant<br>vulnerability claim.</a><br><br>
+<a>Competence may depend on:</a><br><br>
+<a>-</a><br><br>
+<a>Correct artifact identity. -</a><br><br>
+<a>Applicable configuration. -</a><br><br>
+<a>Relevant vulnerability mechanism. -</a><br><br>
+<a>Appropriate assessment method. -</a><br><br>
+<a>Reliable observations. -</a><br><br>
+<a>Temporal relevance. -</a><br><br>
+<a>Known limitations.</a><br><br>
+<a>A recognized scanner or advisory may provide useful evidence without<br>independently establishing application-specific vulnerability status.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Integrity</h1>
+<a>VMM shall preserve material evidence integrity.</a><br><br>
+<a>Relevant conditions may include:</a><br><br>
+<a>-</a><br><br>
+<a>Evidence origin. -</a><br><br>
+<a>Record authenticity. -</a><br><br>
+<a>Artifact correspondence. -</a><br><br>
+<a>Assessment timing. -</a><br><br>
+<a>Change history. -</a><br><br>
+<a>Preservation of contradictory findings.</a><br><br>
+<a>Evidence integrity shall remain distinguishable from evidence<br>sufficiency.</a><br><br>
+<a>Intact Vulnerability Report ≠ Sufficient Vulnerability Evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Sufficiency</h1>
+<section class="viewbor"></section>
+<h1>VMM shall assess whether available evidence supports the intended</h1>
+<a>vulnerability determination.</a><br><br>
+<a>Evidence sufficient to identify a candidate may be insufficient to<br>confirm exploitability.</a><br><br>
+<a>Evidence sufficient to establish patch implementation may be<br>insufficient to verify remediation.</a><br><br>
+<a>Evidence sufficient for one artifact may be insufficient for another.</a><br><br>
+<a>Evidence of Patch Implementation ≠ Evidence of Vulnerability<br>Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Uncertainty</h1>
+<a>VMM shall preserve material uncertainty.</a><br><br>
+<a>Uncertainty may concern:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerability applicability. -</a><br><br>
+<a>Affected artifact identity. -</a><br><br>
+<a>Exploitability. -</a><br><br>
+<a>Exposure. -</a><br><br>
+<a>Severity. -</a><br><br>
+<a>Operational impact. -</a><br><br>
+<a>Remediation completeness. -</a><br><br>
+<a>Verification sufficiency. -</a><br><br>
+<a>Residual conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Unknown conditions shall not be silently converted into favorable</h1>
+<a>determinations.</a><br><br>
+<a>Unknown Vulnerability Status ≠ No Vulnerability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Conflict</h1>
+<a>A Vulnerability Evidence Conflict exists where material evidence or<br>determinations are incompatible.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<section class="viewbor"></section>
+<h1>A scanner reports a vulnerability while competent analysis disputes</h1>
+<a>applicability. -</a><br><br>
+<a>A patch report states remediation is complete while runtime testing<br>demonstrates continued weakness. -</a><br><br>
+<section class="viewbor"></section>
+<h1>Dependency records indicate an updated component while the deployed</h1>
+<a>artifact contains an older version.</a><br><br>
+<a>VMM shall preserve the conflict and relevant evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>A favorable administrative status shall not override contradictory</h1>
+<a>technical evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Gap</h1>
+<a>A Vulnerability Evidence Gap exists where information necessary for<br>competent vulnerability determination is missing.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<a>Unknown affected artifact. -</a><br><br>
+<a>Missing dependency composition. -</a><br><br>
+<a>Unverified exploitability. -</a><br><br>
+<a>Missing remediation evidence. -</a><br><br>
+<a>Unavailable test results. -</a><br><br>
+<a>Unknown production configuration. -</a><br><br>
+<a>Incomplete deployment correspondence.</a><br><br>
+<a>A gap shall remain identifiable until competently addressed.</a><br><br>
+<section class="viewbor"></section>
+<h1>Critical Vulnerability Governance Gap</h1>
+<a>A Critical Vulnerability Governance Gap exists where unresolved<br>information prevents competent determination or treatment of a<br>materially consequential vulnerability.</a><br><br>
+<a>Examples include:</a><br><br>
+<a>-</a><br><br>
+<section class="viewbor"></section>
+<h1>A critical privileged-access weakness without competent confirmation or</h1>
+<a>exclusion evidence. -</a><br><br>
+<section class="viewbor"></section>
+<h1>A reported vulnerability affecting production software whose artifact</h1>
+<a>identity cannot be established. -</a><br><br>
+<section class="viewbor"></section>
+<h1>A critical dependency vulnerability with unknown reachability and no</h1>
+<a>adequate assessment. -</a><br><br>
+<section class="viewbor"></section>
+<h1>A remediation marked complete without verification against the affected</h1>
+<a>production artifact. -</a><br><br>
+<section class="viewbor"></section>
+<h1>An autonomous agent closing critical vulnerability records without</h1>
+<a>preserving competent evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>A critical gap shall prevent unsupported favorable vulnerability</h1>
+<a>determinations.</a><br><br>
+<a>It does not independently establish exploitation or operational<br>damage.</a><br><br>
+<a>Critical Vulnerability Governance Gap ≠ Confirmed Security Incident.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Governance States</h1>
+<a>VMM shall support identifiable vulnerability governance states.</a><br><br>
+<a>Possible states include:</a><br><br>
+<a>Reported: Vulnerability information has been received.</a><br><br>
+<section class="viewbor"></section>
+<h1>Identification-Pending: The affected weakness or software subject remains</h1>
+<a>insufficiently identified.</a><br><br>
+<a>Candidate: A potentially relevant vulnerability has been recognized.</a><br><br>
+<a>Applicability-Pending: Software-specific relevance remains unresolved.</a><br><br>
+<a>Confirmation-Pending: Technical confirmation remains incomplete.</a><br><br>
+<a>Confirmed: Competent evidence supports vulnerability existence.</a><br><br>
+<section class="viewbor"></section>
+<h1>False-Positive: Competent evidence supports exclusion of the reported</h1>
+<a>weakness within the assessed scope.</a><br><br>
+<section class="viewbor"></section>
+<h1>Duplicate: The report corresponds to an existing vulnerability governance</h1>
+<a>object.</a><br><br>
+<a>Severity-Pending: Severity remains insufficiently established.</a><br><br>
+<a>Exploitability-Pending: Exploitability remains unresolved.</a><br><br>
+<a>Exposure-Pending: Relevant exposure conditions remain unresolved.</a><br><br>
+<a>Prioritization-Pending: Treatment priority remains undetermined.</a><br><br>
+<a>Treatment-Planned: A treatment approach has been established.</a><br><br>
+<a>Remediation-Active: Corrective action is underway.</a><br><br>
+<section class="viewbor"></section>
+<h1>Mitigated: Exposure or consequences have been reduced without necessarily</h1>
+<a>eliminating the vulnerability.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation-Implemented: The intended corrective action has been</h1>
+<a>performed.</a><br><br>
+<a>Verification-Pending: Remediation effectiveness remains unverified.</a><br><br>
+<a>Verification-Active: Remediation verification is underway.</a><br><br>
+<a>Verified-Resolved: Competent evidence supports resolution within the<br>assessed scope.</a><br><br>
+<a>Partially-Resolved: Some affected conditions remain unresolved.</a><br><br>
+<section class="viewbor"></section>
+<h1>Unresolved: The vulnerability remains present or cannot be competently</h1>
+<a>resolved.</a><br><br>
+<a>Deferred: Treatment has been postponed under identified conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Exception-Referenced: A relevant exception exists without automatically</h1>
+<a>establishing risk acceptance.</a><br><br>
+<a>Evidence-Limited: Material supporting evidence is insufficient.</a><br><br>
+<a>Conflict-Detected: Material vulnerability evidence is incompatible.</a><br><br>
+<a>Critical-Gap: A consequential governance condition remains unresolved.</a><br><br>
+<a>Closure-Eligible: Closure conditions are sufficiently established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Administratively-Closed: The record has been closed for an identified</h1>
+<a>reason.</a><br><br>
+<section class="viewbor"></section>
+<h1>Reopened: A previous closure or resolution determination requires renewed</h1>
+<a>treatment.</a><br><br>
+<a>Reassessment-Required: Material changes require renewed evaluation.</a><br><br>
+<section class="viewbor"></section>
+<h1>Superseded: The determination has been replaced by a later governed</h1>
+<a>assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>These states shall preserve distinctions among vulnerability existence,</h1>
+<a>treatment, verification, and administrative disposition.</a><br><br>
+<a>Vulnerability State ≠ Remediation State ≠ Administrative Closure<br>State.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Lifecycle Continuity</h1>
+<a>VMM shall preserve vulnerability history across material software<br>changes.</a><br><br>
+<a>Continuity should support identification of:</a><br><br>
+<a>-</a><br><br>
+<a>Original vulnerability reports. -</a><br><br>
+<a>Affected artifacts. -</a><br><br>
+<a>Confirmation evidence. -</a><br><br>
+<a>Severity assessments. -</a><br><br>
+<a>Exploitability assessments. -</a><br><br>
+<a>Exposure changes. -</a><br><br>
+<a>Treatment decisions. -</a><br><br>
+<a>Corrective actions. -</a><br><br>
+<a>Verification results. -</a><br><br>
+<a>Residual conditions. -</a><br><br>
+<a>Closure reasons. -</a><br><br>
+<a>Reopening events. -</a><br><br>
+<a>Reassessment decisions.</a><br><br>
+<section class="viewbor"></section>
+<h1>A new vulnerability record shall not erase the history of an earlier</h1>
+<a>unresolved condition affecting the same software.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Reassessment</h1>
+<a>VMM shall support reassessment when material conditions change.</a><br><br>
+<a>Triggers may include:</a><br><br>
+<a>-</a><br><br>
+<a>New exploit information. -</a><br><br>
+<a>New software versions. -</a><br><br>
+<a>Dependency changes. -</a><br><br>
+<a>Configuration changes. -</a><br><br>
+<a>New exposure evidence. -</a><br><br>
+<a>Failed remediation. -</a><br><br>
+<a>Changed operational context. -</a><br><br>
+<a>Newly discovered affected components. -</a><br><br>
+<a>Contradictory technical findings. -</a><br><br>
+<a>Reintroduced vulnerable functionality.</a><br><br>
+<a>Reassessment shall preserve relevant historical determinations.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Vulnerability Management</h1>
+<section class="viewbor"></section>
+<h1>VMM shall recognize vulnerability management performed or assisted by</h1>
+<a>autonomous systems.</a><br><br>
+<a>Automated activities may include:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerability discovery. -</a><br><br>
+<a>Advisory analysis. -</a><br><br>
+<a>Dependency inspection. -</a><br><br>
+<a>Severity estimation. -</a><br><br>
+<a>Patch generation. -</a><br><br>
+<a>Remediation testing. -</a><br><br>
+<a>Ticket updates. -</a><br><br>
+<a>Vulnerability reporting.</a><br><br>
+<a>Automation may improve assessment and treatment capacity.</a><br><br>
+<a>It does not independently establish evidence competence, technical<br>resolution, or legitimate risk acceptance authority.</a><br><br>
+<a>Autonomous Vulnerability Processing ≠ Competent Vulnerability<br>Resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Remediation Authority</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve the authority boundary applicable to autonomous</h1>
+<a>corrective actions.</a><br><br>
+<a>An agent may be authorized to:</a><br><br>
+<a>-</a><br><br>
+<a>Propose a patch. -</a><br><br>
+<a>Modify development code. -</a><br><br>
+<a>Update dependencies. -</a><br><br>
+<a>Execute approved tests. -</a><br><br>
+<a>Submit remediation evidence.</a><br><br>
+<a>Such authority shall not automatically extend to:</a><br><br>
+<a>-</a><br><br>
+<a>Production deployment. -</a><br><br>
+<a>Modification of security requirements. -</a><br><br>
+<a>Acceptance of residual risk. -</a><br><br>
+<a>Closure of critical vulnerability records without required<br>verification. -</a><br><br>
+<a>Disabling mandatory protective controls.</a><br><br>
+<a>Authority to Implement Remediation ≠ Authority to Accept Residual<br>Risk.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Vulnerability Closure Control</h1>
+<section class="viewbor"></section>
+<h1>VMM shall preserve the distinction between an agent updating a</h1>
+<a>vulnerability record and competent technical resolution.</a><br><br>
+<a>An automated closure operation should preserve:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerability identity. -</a><br><br>
+<a>Affected artifact. -</a><br><br>
+<a>Corrective action. -</a><br><br>
+<a>Verification evidence. -</a><br><br>
+<a>Verification scope. -</a><br><br>
+<a>Residual conditions. -</a><br><br>
+<a>Closure reason. -</a><br><br>
+<a>Applicable authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>An agent shall not convert a successful test or completed code change into</h1>
+<a>verified remediation without sufficient supporting evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Vulnerability State</h1>
+<a>The principal output of VMM is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Vulnerability State</h1>
+<a>The state shall preserve sufficient information to identify:</a><br><br>
+<a>Vulnerability Governance Object: The governed vulnerability subject.</a><br><br>
+<a>Vulnerability Identity: The stable vulnerability reference.</a><br><br>
+<a>Report Origin: The source of the vulnerability information.</a><br><br>
+<a>Report Intake: The initial recognition record.</a><br><br>
+<a>Software Identity: The affected software object.</a><br><br>
+<a>Artifact Identity: The relevant artifact and version.</a><br><br>
+<a>Dependency Correspondence: Relevant component relationships.</a><br><br>
+<a>Configuration: The applicable configuration conditions.</a><br><br>
+<a>Security Requirements: Relevant SRQM references.</a><br><br>
+<a>Exposure Conditions: Relevant SEAM references.</a><br><br>
+<a>Testing Evidence: Relevant STCM references.</a><br><br>
+<a>Vulnerability Description: The reported or established weakness.</a><br><br>
+<a>Recognition State: The candidate or recognized status.</a><br><br>
+<a>Confirmation State: The evidence-supported existence determination.</a><br><br>
+<a>False-Positive Determination: Relevant exclusion evidence.</a><br><br>
+<a>Duplicate References: Related vulnerability records.</a><br><br>
+<a>Classification: The relevant weakness category.</a><br><br>
+<a>Severity: The assessed seriousness.</a><br><br>
+<a>Exploitability: The relevant exploitation conditions.</a><br><br>
+<a>Exploit Availability: Relevant exploit information.</a><br><br>
+<a>Exposure: The software-specific exposure context.</a><br><br>
+<a>Protected Assets: The potentially affected assets.</a><br><br>
+<a>Operational Consequences: Potential or observed effects.</a><br><br>
+<a>Treatment Priority: The contextual priority.</a><br><br>
+<a>Ownership References: Relevant responsibility references.</a><br><br>
+<a>Treatment Decision: The selected treatment.</a><br><br>
+<a>Remediation Plan: The intended corrective action.</a><br><br>
+<a>Corrective Action: The performed software or configuration changes.</a><br><br>
+<a>Patch Evidence: Relevant patch implementation records.</a><br><br>
+<a>Dependency Remediation: Relevant dependency corrections.</a><br><br>
+<a>Configuration Remediation: Relevant configuration corrections.</a><br><br>
+<a>Compensating Protection: Applicable alternative protections.</a><br><br>
+<a>Temporary Mitigation: Relevant interim measures.</a><br><br>
+<a>Deferral: Relevant treatment postponement.</a><br><br>
+<a>Exception References: Relevant exception conditions.</a><br><br>
+<a>Remediation Evidence: The implementation evidence.</a><br><br>
+<a>Verification Purpose: The intended verification objective.</a><br><br>
+<a>Verification Method: The selected assessment method.</a><br><br>
+<a>Verification Artifact: The artifact assessed.</a><br><br>
+<a>Verification Configuration: The applicable configuration.</a><br><br>
+<a>Verification Results: The observed corrective behavior.</a><br><br>
+<a>Remediation Effectiveness: The supported resolution determination.</a><br><br>
+<a>Regression Assessment: Relevant newly introduced weakness assessment.</a><br><br>
+<a>Residual Vulnerability Conditions: Remaining unresolved conditions.</a><br><br>
+<a>Resolution State: The recognized technical resolution status.</a><br><br>
+<a>Closure Eligibility: The supported closure condition.</a><br><br>
+<a>Administrative Closure: The closure reason and status.</a><br><br>
+<a>Reopening: Relevant reopening events.</a><br><br>
+<a>Evidence Competence: The suitability of supporting evidence.</a><br><br>
+<a>Evidence Integrity: The integrity of material records.</a><br><br>
+<a>Evidence Sufficiency: The supported determination boundaries.</a><br><br>
+<a>Vulnerability Uncertainty: Material unresolved conditions.</a><br><br>
+<a>Evidence Conflicts: Contradictory findings.</a><br><br>
+<a>Evidence Gaps: Missing material information.</a><br><br>
+<a>Critical Governance Gaps: Consequential unresolved conditions.</a><br><br>
+<a>Vulnerability Governance State: The recognized overall condition.</a><br><br>
+<a>Lifecycle Continuity: Historical vulnerability relationships.</a><br><br>
+<a>Reassessment: Relevant reassessment records.</a><br><br>
+<a>Autonomous Management References: Applicable automation activity.</a><br><br>
+<section class="viewbor"></section>
+<h1>Authority References: Relevant action and closure authorization</h1>
+<a>conditions.</a><br><br>
+<a>Downstream References: Information required by SRCM.</a><br><br>
+<section class="viewbor"></section>
+<h1>The state shall not independently establish final software security</h1>
+<a>conformity, authorized residual risk acceptance, software release<br>authorization, or deployment authorization.</a><br><br>
+<section class="viewbor"></section>
+<h1>Minimum Implementation Framework</h1>
+<a>An implementation of VMM shall provide at least six functional<br>capabilities. Capability 1 — Vulnerability Identification &amp; Intake</a><br><br>
+<section class="viewbor"></section>
+<h1>The implementation shall support identifiable vulnerability reports and</h1>
+<a>affected software references.</a><br><br>
+<a>Minimum functions include:</a><br><br>
+<a>-</a><br><br>
+<a>Recording vulnerability origin. -</a><br><br>
+<a>Establishing vulnerability identity. -</a><br><br>
+<a>Preserving software artifact references. -</a><br><br>
+<a>Recording dependency and configuration correspondence. -</a><br><br>
+<a>Identifying reported weaknesses. -</a><br><br>
+<a>Preserving initial evidence. -</a><br><br>
+<a>Establishing initial governance states.</a><br><br>
+<a>Minimum Output: Vulnerability Governance Object. Capability 2 —<br>Vulnerability Confirmation &amp; Contextual Assessment</a><br><br>
+<section class="viewbor"></section>
+<h1>The implementation shall support competent assessment of vulnerability</h1>
+<a>existence and applicability.</a><br><br>
+<a>Minimum functions include:</a><br><br>
+<a>-</a><br><br>
+<a>Assessing report applicability. -</a><br><br>
+<a>Evaluating confirmation evidence. -</a><br><br>
+<a>Identifying false positives. -</a><br><br>
+<a>Identifying duplicate reports. -</a><br><br>
+<a>Classifying vulnerabilities. -</a><br><br>
+<a>Assessing exploitability. -</a><br><br>
+<a>Associating SEAM exposure conditions.</a><br><br>
+<a>Minimum Output: Governed Vulnerability Assessment State. Capability 3<br>— Severity, Impact &amp; Treatment Prioritization</a><br><br>
+<section class="viewbor"></section>
+<h1>The implementation shall support contextual vulnerability treatment</h1>
+<a>decisions.</a><br><br>
+<a>Minimum functions include:</a><br><br>
+<a>-</a><br><br>
+<a>Recording severity. -</a><br><br>
+<a>Assessing exploitability. -</a><br><br>
+<a>Identifying protected assets. -</a><br><br>
+<a>Assessing potential operational consequences. -</a><br><br>
+<a>Preserving exploit availability references. -</a><br><br>
+<a>Establishing treatment priority. -</a><br><br>
+<a>Preserving responsibility references.</a><br><br>
+<a>Minimum Output: Vulnerability Treatment Priority State. Capability 4 —<br>Vulnerability Treatment &amp; Remediation Control</a><br><br>
+<a>The implementation shall support traceable corrective actions.</a><br><br>
+<a>Minimum functions include:</a><br><br>
+<a>-</a><br><br>
+<a>Recording treatment decisions. -</a><br><br>
+<a>Preserving remediation plans. -</a><br><br>
+<a>Associating corrective changes. -</a><br><br>
+<a>Recording patch implementation. -</a><br><br>
+<a>Preserving dependency and configuration remediation. -</a><br><br>
+<a>Identifying compensating controls. -</a><br><br>
+<a>Recording deferrals and exception references.</a><br><br>
+<a>Minimum Output: Governed Vulnerability Treatment State. Capability 5 —<br>Remediation Verification &amp; Closure Integrity</a><br><br>
+<section class="viewbor"></section>
+<h1>The implementation shall support competent technical resolution</h1>
+<a>determinations.</a><br><br>
+<a>Minimum functions include:</a><br><br>
+<a>-</a><br><br>
+<a>Identifying verification objectives. -</a><br><br>
+<a>Preserving artifact and configuration correspondence. -</a><br><br>
+<a>Recording suitable verification methods. -</a><br><br>
+<a>Associating STCM testing evidence. -</a><br><br>
+<a>Evaluating remediation effectiveness. -</a><br><br>
+<a>Preserving residual vulnerability conditions. -</a><br><br>
+<a>Distinguishing technical resolution from administrative closure.</a><br><br>
+<a>Minimum Output: Governed Vulnerability Remediation Verification State.<br>Capability 6 — Vulnerability State, Continuity &amp; Downstream Handoff</a><br><br>
+<a>The implementation shall consolidate vulnerability governance<br>information.</a><br><br>
+<a>Minimum functions include:</a><br><br>
+<a>-</a><br><br>
+<a>Establishing vulnerability governance states. -</a><br><br>
+<a>Preserving uncertainty and evidence conflicts. -</a><br><br>
+<a>Identifying critical governance gaps. -</a><br><br>
+<a>Maintaining vulnerability history. -</a><br><br>
+<a>Supporting reopening and reassessment. -</a><br><br>
+<a>Preserving autonomous action authority references. -</a><br><br>
+<a>Providing SRCM with traceable vulnerability information.</a><br><br>
+<a>Minimum Output: Governed Software Vulnerability State.</a><br><br>
+<a>These capabilities define methodological implementation requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>They do not prescribe a particular vulnerability management platform,</h1>
+<a>scanning tool, ticketing system, severity scoring framework, or<br>execution engine.</a><br><br>
+<section class="viewbor"></section>
+<h1>GIE™ Compatibility</h1>
+<section class="viewbor"></section>
+<h1>GIE-Compatible: Yes</h1>
+<a>VMM may provide structured governance inputs to the Governance<br>Intelligence Engine™ (GIE).</a><br><br>
+<a>Potential GIE-supported functions include:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerability report classification. -</a><br><br>
+<a>Vulnerability applicability analysis. -</a><br><br>
+<a>Artifact and dependency correspondence assessment. -</a><br><br>
+<a>Confirmation evidence evaluation. -</a><br><br>
+<a>Duplicate finding identification. -</a><br><br>
+<a>Severity and exploitability comparison. -</a><br><br>
+<a>Exposure-aware treatment prioritization. -</a><br><br>
+<a>Remediation action traceability. -</a><br><br>
+<a>Remediation verification evidence assessment. -</a><br><br>
+<a>Vulnerability state consistency checking. -</a><br><br>
+<a>Administrative closure integrity analysis. -</a><br><br>
+<a>Residual vulnerability condition detection. -</a><br><br>
+<a>Critical evidence gap identification. -</a><br><br>
+<a>Vulnerability reopening trigger detection. -</a><br><br>
+<a>Autonomous remediation authority analysis. -</a><br><br>
+<a>Downstream security conformity handoff preparation.</a><br><br>
+<a>GIE™ may assist with structured analysis, evidence organization,<br>inconsistency detection, and methodological completeness evaluation.</a><br><br>
+<section class="viewbor"></section>
+<h1>GIE™ shall not independently convert reported findings into confirmed</h1>
+<a>vulnerabilities, implemented patches into verified remediation, or<br>closed tickets into authorized residual risk acceptance.</a><br><br>
+<a>The governing principle remains:</a><br><br>
+<section class="viewbor"></section>
+<h1>OOF® logic adapts to the governed reality. The engine adapts to OOF®</h1>
+<a>logic.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Requirements</h1>
+<a>A conforming VMM implementation shall satisfy the following<br>requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R01 — Vulnerability Identity: Material vulnerability determinations</h1>
+<a>shall reference identifiable vulnerability objects.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R02 — Software Correspondence: Vulnerability findings shall remain</h1>
+<a>connected to affected software.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R03 — Artifact Correspondence: Vulnerability determinations shall</h1>
+<a>preserve relevant artifact identity.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R04 — Dependency Correspondence: Relevant dependency relationships</h1>
+<a>shall remain traceable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R05 — Configuration Correspondence: Material configuration conditions</h1>
+<a>shall remain identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R06 — Report Origin: Vulnerability information shall preserve its</h1>
+<a>source.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R07 — Intake: Material vulnerability reports shall remain</h1>
+<a>identifiable from initial recognition.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R08 — Identification: Reported weaknesses shall be sufficiently</h1>
+<a>described.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R09 — Recognition: Vulnerability candidates shall remain</h1>
+<a>distinguishable from confirmed vulnerabilities.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R10 — Confirmation: Confirmation shall require competent supporting</h1>
+<a>evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R11 — False Positives: False-positive determinations shall preserve</h1>
+<a>their evidentiary basis.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R12 — Duplicates: Duplicate recognition shall not erase distinct</h1>
+<a>affected conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R13 — Classification: Vulnerabilities shall preserve relevant</h1>
+<a>technical classifications.</a><br><br>
+<a>VMM-R14 — Severity: Severity shall be assessed using competent<br>criteria.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R15 — Exploitability: Exploitability shall be evaluated in the</h1>
+<a>relevant software context.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R16 — Exploit Availability: Relevant exploit information shall remain</h1>
+<a>identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R17 — Exposure: Vulnerability exposure shall remain connected to</h1>
+<a>relevant SEAM findings.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R18 — Protected Assets: Material affected assets shall remain</h1>
+<a>identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R19 — Operational Consequences: Potential and observed consequences</h1>
+<a>shall remain distinguishable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R20 — Prioritization: Treatment priority shall consider relevant</h1>
+<a>contextual conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R21 — Ownership: Material treatment responsibilities shall remain</h1>
+<a>identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R22 — Treatment: Vulnerability treatment decisions shall remain</h1>
+<a>traceable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R23 — Remediation Planning: Intended corrective actions shall remain</h1>
+<a>identifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R24 — Corrective Correspondence: Remediation actions shall remain</h1>
+<a>connected to the vulnerability addressed.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R25 — Patch Implementation: Patch execution shall remain</h1>
+<a>distinguishable from verified remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R26 — Dependency Remediation: Dependency corrections shall preserve</h1>
+<a>actual artifact correspondence.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R27 — Configuration Remediation: Corrective configuration shall</h1>
+<a>remain verifiable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R28 — Compensating Protection: Alternative protections shall preserve</h1>
+<a>their limitations.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R29 — Temporary Mitigation: Interim treatment shall not be</h1>
+<a>represented as permanent resolution.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R30 — Deferral: Deferred vulnerabilities shall remain identifiable as</h1>
+<a>unresolved where applicable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R31 — Exceptions: Exception records shall remain distinct from</h1>
+<a>authorized risk acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R32 — Remediation Evidence: Corrective action evidence shall remain</h1>
+<a>traceable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R33 — Verification Purpose: Remediation verification shall address</h1>
+<a>the recognized vulnerability.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R34 — Verification Method: Verification methods shall be suitable for</h1>
+<a>the intended resolution claim.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R35 — Verification Artifact: Remediation evidence shall correspond to</h1>
+<a>the relevant artifact.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R36 — Verification Configuration: Verification shall preserve</h1>
+<a>relevant configuration conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R37 — Remediation Effectiveness: Resolution shall require competent</h1>
+<a>supporting evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R38 — Regression: Corrective changes shall support relevant</h1>
+<a>regression assessment.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R39 — Residual Conditions: Remaining vulnerability conditions shall</h1>
+<a>remain explicit.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R40 — Resolution: Technical resolution shall remain distinguishable</h1>
+<a>from administrative closure.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R41 — Closure Eligibility: Closure shall require an identifiable</h1>
+<a>competent basis.</a><br><br>
+<a>VMM-R42 — Administrative Closure: Closure reasons shall remain<br>explicit.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R43 — Reopening: Invalidated resolution or closure determinations</h1>
+<a>shall support reopening.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R44 — Evidence Competence: Vulnerability determinations shall rely on</h1>
+<a>suitable evidence.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R45 — Evidence Integrity: Material evidence integrity shall remain</h1>
+<a>preserved.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R46 — Evidence Sufficiency: Evidence shall support the specific</h1>
+<a>determination claimed.</a><br><br>
+<a>VMM-R47 — Uncertainty: Material uncertainty shall remain explicit.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R48 — Evidence Conflicts: Contradictory vulnerability evidence shall</h1>
+<a>remain visible.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R49 — Evidence Gaps: Missing evidence shall not be treated as</h1>
+<a>demonstrated remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R50 — Critical Gaps: Consequential unresolved conditions shall</h1>
+<a>prevent unsupported favorable determinations.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R51 — Governance States: Vulnerability, treatment, verification, and</h1>
+<a>closure states shall remain distinguishable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R52 — Lifecycle Continuity: Vulnerability history shall remain</h1>
+<a>traceable across material changes.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R53 — Reassessment: Material changes shall trigger competent</h1>
+<a>reassessment where applicable.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R54 — Autonomous Management: Automated vulnerability actions shall</h1>
+<a>remain subject to the same evidence requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R55 — Autonomous Authority: Remediation execution authority shall</h1>
+<a>remain distinct from residual risk acceptance authority.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R56 — Autonomous Closure: Automated closure shall not replace</h1>
+<a>competent remediation verification.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R57 — Governance Output: The implementation shall produce an</h1>
+<a>identifiable Governed Software Vulnerability State.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM-R58 — Downstream Boundary: Vulnerability management shall not</h1>
+<a>independently establish final security conformity or residual risk<br>acceptance.</a><br><br>
+<section class="viewbor"></section>
+<h1>Governance Logic</h1>
+<a>The canonical VMM governance logic is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Security Requirements State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Security Exposure State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Receive Governed Software Security Testing &amp; Control State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Vulnerability Governance Object</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Software Artifact and Configuration Correspondence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Record Vulnerability Report Origin</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Recognize Vulnerability Candidate</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Vulnerability Applicability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Evaluate Confirmation Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Vulnerability Confirmation State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify False Positives and Duplicate Reports</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Classify Vulnerability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Severity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Exploitability</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Relevant Exposure</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Protected Assets and Operational Consequences</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Treatment Priority</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Responsible Treatment Roles</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Vulnerability Treatment Decision</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Define Remediation Plan</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Implement Corrective Action</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Patch, Dependency, or Configuration Evidence</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Compensating Controls and Temporary Mitigations</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Remediation Verification Purpose</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Select Competent Verification Method</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Verify Relevant Artifact and Configuration</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Evaluate Remediation Effectiveness</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Security Regression</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Identify Residual Vulnerability Conditions</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Vulnerability Resolution State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Assess Administrative Closure Eligibility</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Uncertainty, Conflicts, and Evidence Gaps</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Determine Vulnerability Governance State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Establish Governed Software Vulnerability State</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Handoff to Security Risk &amp; Conformity</h1>
+<a>↓</a><br><br>
+<section class="viewbor"></section>
+<h1>Preserve Vulnerability Lifecycle Continuity</h1>
+<a>↓</a><br><br>
+<a>Reassess or Reopen When Material Conditions Change</a><br><br>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Vulnerability State</h1>
+<section class="viewbor"></section>
+<h1>Governance Outputs</h1>
+<a>VMM may produce:</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Governance Object</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Management Purpose Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Management Scope Record</h1>
+<section class="viewbor"></section>
+<h1>Software Vulnerability Artifact Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Vulnerability Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Configuration Vulnerability Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Report Origin Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Intake Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Identification Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Candidate Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Recognition State</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Confirmation Assessment</h1>
+<section class="viewbor"></section>
+<h1>False-Positive Determination</h1>
+<section class="viewbor"></section>
+<h1>Duplicate Vulnerability Reference</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Classification Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Severity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Exploitability Assessment</h1>
+<section class="viewbor"></section>
+<h1>Exploit Availability Reference</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Exposure Assessment</h1>
+<section class="viewbor"></section>
+<h1>Protected Asset Impact Assessment</h1>
+<section class="viewbor"></section>
+<h1>Operational Consequence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Treatment Priority State</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Ownership Reference</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Treatment Decision</h1>
+<section class="viewbor"></section>
+<h1>Remediation Plan</h1>
+<section class="viewbor"></section>
+<h1>Corrective Action Record</h1>
+<section class="viewbor"></section>
+<h1>Patch Implementation Record</h1>
+<section class="viewbor"></section>
+<h1>Dependency Remediation Record</h1>
+<section class="viewbor"></section>
+<h1>Configuration Remediation Record</h1>
+<section class="viewbor"></section>
+<h1>Compensating Protection Record</h1>
+<section class="viewbor"></section>
+<h1>Temporary Mitigation Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Deferral Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Exception Reference</h1>
+<section class="viewbor"></section>
+<h1>Remediation Implementation Evidence Record</h1>
+<section class="viewbor"></section>
+<h1>Remediation Verification Specification</h1>
+<section class="viewbor"></section>
+<h1>Remediation Verification Method Record</h1>
+<section class="viewbor"></section>
+<h1>Remediation Artifact Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Remediation Configuration Correspondence Record</h1>
+<section class="viewbor"></section>
+<h1>Remediation Effectiveness Assessment</h1>
+<section class="viewbor"></section>
+<h1>Remediation Regression Assessment</h1>
+<section class="viewbor"></section>
+<h1>Residual Vulnerability Condition Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Resolution Determination</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Closure Eligibility Assessment</h1>
+<section class="viewbor"></section>
+<h1>Administrative Closure Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Reopening Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Register</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Competence Assessment</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Integrity Assessment</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Sufficiency Assessment</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Uncertainty State</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Conflict</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Evidence Gap</h1>
+<section class="viewbor"></section>
+<h1>Critical Vulnerability Governance Gap</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Governance State</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Lifecycle Continuity Record</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Reassessment Record</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Vulnerability Management Record</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Remediation Authority Reference</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Vulnerability Closure Assessment</h1>
+<section class="viewbor"></section>
+<h1>SRCM Vulnerability Handoff Record</h1>
+<a>The principal output is:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Vulnerability State</h1>
+<section class="viewbor"></section>
+<h1>Critical Distinctions</h1>
+<a>VMM preserves the following distinctions.</a><br><br>
+<section class="viewbor"></section>
+<h1>Vulnerability Closure ≠ Verified Vulnerability Remediation</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Report ≠ Confirmed Software Vulnerability</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Management Activity ≠ Vulnerability Resolution</h1>
+<section class="viewbor"></section>
+<h1>Component Vulnerability ≠ Universal Application Exploitability</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability State of Build A ≠ Vulnerability State of Build B</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Presence ≠ Exploitability Under Every Configuration</h1>
+<section class="viewbor"></section>
+<h1>Trusted Vulnerability Source ≠ Automatically Applicable Finding</h1>
+<section class="viewbor"></section>
+<h1>Recognized Vulnerability Candidate ≠ Confirmed Vulnerability</h1>
+<section class="viewbor"></section>
+<h1>Confirmed Vulnerability ≠ Confirmed Security Incident</h1>
+<section class="viewbor"></section>
+<h1>Disputed Finding ≠ Demonstrated False Positive</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Severity ≠ Remediation Priority</h1>
+<section class="viewbor"></section>
+<h1>Theoretical Exploitability ≠ Demonstrated Application Exploitability</h1>
+<section class="viewbor"></section>
+<h1>Public Exploit Available ≠ Confirmed Local Exploitation</h1>
+<section class="viewbor"></section>
+<h1>Potential Vulnerability Impact ≠ Observed Operational Damage</h1>
+<section class="viewbor"></section>
+<h1>Severity Ranking ≠ Complete Treatment Priority Determination</h1>
+<section class="viewbor"></section>
+<h1>Remediation Responsibility ≠ Residual Risk Acceptance Authority</h1>
+<section class="viewbor"></section>
+<h1>Remediation Planned ≠ Remediation Implemented</h1>
+<section class="viewbor"></section>
+<h1>Software Change Completed ≠ Vulnerability Corrected</h1>
+<section class="viewbor"></section>
+<h1>Patch Applied ≠ Remediation Verified</h1>
+<section class="viewbor"></section>
+<h1>Dependency Manifest Updated ≠ Deployed Dependency Corrected</h1>
+<section class="viewbor"></section>
+<h1>Compensating Control Active ≠ Underlying Vulnerability Removed</h1>
+<section class="viewbor"></section>
+<h1>Remediation Deferred ≠ Security Risk Accepted</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability Exception Recorded ≠ Authorized Risk Acceptance</h1>
+<section class="viewbor"></section>
+<h1>Corrective Action Evidence ≠ Verified Vulnerability Resolution</h1>
+<section class="viewbor"></section>
+<h1>Remediation Verified in Build A ≠ Remediation Verified in Build B</h1>
+<section class="viewbor"></section>
+<h1>Remediation Implementation ≠ Remediation Effectiveness</h1>
+<section class="viewbor"></section>
+<h1>Original Vulnerability Resolved ≠ No New Security Weakness Introduced</h1>
+<section class="viewbor"></section>
+<h1>Residual Vulnerability Identified ≠ Residual Risk Accepted</h1>
+<section class="viewbor"></section>
+<h1>Previously Closed Vulnerability ≠ Permanently Resolved Vulnerability</h1>
+<section class="viewbor"></section>
+<h1>Intact Vulnerability Report ≠ Sufficient Vulnerability Evidence</h1>
+<section class="viewbor"></section>
+<h1>Evidence of Patch Implementation ≠ Evidence of Vulnerability Resolution</h1>
+<section class="viewbor"></section>
+<h1>Unknown Vulnerability Status ≠ No Vulnerability</h1>
+<section class="viewbor"></section>
+<h1>Critical Vulnerability Governance Gap ≠ Confirmed Security Incident</h1>
+<section class="viewbor"></section>
+<h1>Vulnerability State ≠ Remediation State ≠ Administrative Closure State</h1>
+<section class="viewbor"></section>
+<h1>Autonomous Vulnerability Processing ≠ Competent Vulnerability Resolution</h1>
+<section class="viewbor"></section>
+<h1>Authority to Implement Remediation ≠ Authority to Accept Residual Risk</h1>
+<section class="viewbor"></section>
+<h1>Cross-Architecture Boundary</h1>
+<section class="viewbor"></section>
+<h1>VMM governs software vulnerability identification, confirmation,</h1>
+<a>classification, severity, exploitability, exposure, prioritization,<br>treatment, remediation verification, closure integrity, and lifecycle<br>continuity.</a><br><br>
+<a>It does not independently establish:</a><br><br>
+<a>-</a><br><br>
+<a>Security requirement authority. -</a><br><br>
+<a>Complete software threat exposure. -</a><br><br>
+<a>General security control effectiveness. -</a><br><br>
+<a>Final software security conformity. -</a><br><br>
+<a>Authorized residual security risk acceptance. -</a><br><br>
+<a>Software release authorization. -</a><br><br>
+<a>Software deployment authorization. -</a><br><br>
+<a>Security incident attribution. -</a><br><br>
+<a>Legal liability.</a><br><br>
+<a>Within SSS:</a><br><br>
+<section class="viewbor"></section>
+<h1>SRQM — Security Requirements Module establishes governed security</h1>
+<a>requirements.</a><br><br>
+<section class="viewbor"></section>
+<h1>SEAM — Security Exposure Assessment Module establishes governed exposure</h1>
+<a>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>STCM — Security Testing &amp; Control Module establishes governed security</h1>
+<a>testing and control conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM — Vulnerability Management Module establishes governed vulnerability</h1>
+<a>conditions.</a><br><br>
+<section class="viewbor"></section>
+<h1>SRCM — Security Risk &amp; Conformity Module governs security conformity,</h1>
+<a>residual risk, and security acceptance.</a><br><br>
+<a>Within SLGA™:</a><br><br>
+<a>SRS governs software requirements.</a><br><br>
+<a>SCS governs software creation.</a><br><br>
+<a>SDS governs software dependencies.</a><br><br>
+<a>SCFS governs software configuration.</a><br><br>
+<a>SQS governs software quality.</a><br><br>
+<a>SSS governs software security.</a><br><br>
+<a>SRLS governs software release.</a><br><br>
+<a>SDPS governs software deployment.</a><br><br>
+<a>SCMS governs software changes.</a><br><br>
+<a>SRTS governs software retirement.</a><br><br>
+<a>SLCS governs cross-cutting lifecycle control.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM preserves vulnerability-specific references to relevant OOF® authority,</h1>
+<a>accountability, operational reality, identity, and autonomous-agent<br>governance mechanisms without replacing their competent governance<br>domains.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Boundary</h1>
+<a>VMM begins when a reported, suspected, detected, or previously<br>recognized software vulnerability requires competent governance<br>assessment.</a><br><br>
+<a>VMM governs:</a><br><br>
+<a>-</a><br><br>
+<a>Vulnerability identity. -</a><br><br>
+<a>Report origin. -</a><br><br>
+<a>Intake. -</a><br><br>
+<a>Software correspondence. -</a><br><br>
+<a>Artifact correspondence. -</a><br><br>
+<a>Dependency correspondence. -</a><br><br>
+<a>Configuration correspondence. -</a><br><br>
+<a>Vulnerability identification. -</a><br><br>
+<a>Candidate recognition. -</a><br><br>
+<a>Applicability. -</a><br><br>
+<a>Confirmation. -</a><br><br>
+<a>False-positive determination. -</a><br><br>
+<a>Duplicate identification. -</a><br><br>
+<a>Classification. -</a><br><br>
+<a>Severity. -</a><br><br>
+<a>Exploitability. -</a><br><br>
+<a>Exploit availability. -</a><br><br>
+<a>Exposure. -</a><br><br>
+<a>Protected asset impact. -</a><br><br>
+<a>Operational consequences. -</a><br><br>
+<a>Prioritization. -</a><br><br>
+<a>Ownership references. -</a><br><br>
+<a>Treatment. -</a><br><br>
+<a>Remediation planning. -</a><br><br>
+<a>Corrective actions. -</a><br><br>
+<a>Patch implementation. -</a><br><br>
+<a>Dependency remediation. -</a><br><br>
+<a>Configuration remediation. -</a><br><br>
+<a>Compensating protection. -</a><br><br>
+<a>Temporary mitigation. -</a><br><br>
+<a>Deferral. -</a><br><br>
+<a>Exception references. -</a><br><br>
+<a>Remediation evidence. -</a><br><br>
+<a>Verification purpose. -</a><br><br>
+<a>Verification methods. -</a><br><br>
+<a>Verification artifact correspondence. -</a><br><br>
+<a>Verification configuration correspondence. -</a><br><br>
+<a>Remediation effectiveness. -</a><br><br>
+<a>Regression. -</a><br><br>
+<a>Residual vulnerability conditions. -</a><br><br>
+<a>Resolution. -</a><br><br>
+<a>Closure eligibility. -</a><br><br>
+<a>Administrative closure. -</a><br><br>
+<a>Reopening. -</a><br><br>
+<a>Evidence competence. -</a><br><br>
+<a>Evidence integrity. -</a><br><br>
+<a>Evidence sufficiency. -</a><br><br>
+<a>Uncertainty. -</a><br><br>
+<a>Evidence conflicts. -</a><br><br>
+<a>Evidence gaps. -</a><br><br>
+<a>Critical governance gaps. -</a><br><br>
+<a>Vulnerability governance states. -</a><br><br>
+<a>Lifecycle continuity. -</a><br><br>
+<a>Reassessment. -</a><br><br>
+<a>Autonomous vulnerability management. -</a><br><br>
+<a>Autonomous remediation authority. -</a><br><br>
+<a>Autonomous closure control.</a><br><br>
+<a>VMM does not independently determine:</a><br><br>
+<a>-</a><br><br>
+<a>Final software security conformity. -</a><br><br>
+<a>Residual security risk acceptance. -</a><br><br>
+<a>Release authorization. -</a><br><br>
+<a>Deployment authorization. -</a><br><br>
+<a>Complete security assurance. -</a><br><br>
+<a>Security incident attribution. -</a><br><br>
+<a>Legal compliance certification. -</a><br><br>
+<a>Legal liability.</a><br><br>
+<a>VMM ends when the relevant vulnerability conditions have been<br>represented as a:</a><br><br>
+<section class="viewbor"></section>
+<h1>Governed Software Vulnerability State</h1>
+<section class="viewbor"></section>
+<h1>with sufficient vulnerability identity, software correspondence,</h1>
+<a>confirmation evidence, severity, exploitability, exposure, treatment,<br>remediation verification, residual conditions, authority references,<br>and lifecycle continuity for competent downstream security governance.</a><br><br>
+<ul><li>Use Case 1 — A Dependency Vulnerability Is Marked Resolved, but<br>the</li></ul><br>
+<a>Production Artifact Still Contains the Vulnerable Component</a><br><br>
+<a>A software company maintains a cloud-based enterprise application.</a><br><br>
+<section class="viewbor"></section>
+<h1>A vulnerability scanner identifies a critical vulnerability in a</h1>
+<a>third-party dependency.</a><br><br>
+<a>The development team updates the dependency manifest to a corrected<br>version.</a><br><br>
+<a>The build pipeline completes successfully.</a><br><br>
+<a>The vulnerability management dashboard automatically changes the<br>record to:</a><br><br>
+<section class="viewbor"></section>
+<h1>Status: Resolved</h1>
+<section class="viewbor"></section>
+<h1>Remediation: Completed</h1>
+<section class="viewbor"></section>
+<h1>Critical Vulnerabilities: 0</h1>
+<section class="viewbor"></section>
+<h1>However, the production artifact was created using a cached dependency</h1>
+<a>layer.</a><br><br>
+<a>The deployed software still contains the vulnerable component.</a><br><br>
+<a>Under VMM, the assessment identifies:</a><br><br>
+<a>Vulnerability Origin: Dependency security advisory.</a><br><br>
+<a>Affected Software: Enterprise cloud application.</a><br><br>
+<a>Vulnerability Confirmation: The affected dependency version is present<br>in the deployed artifact.</a><br><br>
+<a>Corrective Action: Dependency manifest updated.</a><br><br>
+<section class="viewbor"></section>
+<h1>Remediation Implementation: A change was performed in the development</h1>
+<a>source.</a><br><br>
+<a>Artifact Correspondence: The deployed artifact does not contain the<br>corrected dependency.</a><br><br>
+<a>Verification Evidence: Insufficient for the deployed software.</a><br><br>
+<a>Resolution State: Not Verified Resolved.</a><br><br>
+<a>Administrative Closure: Unsupported by the available technical<br>evidence.</a><br><br>
+<a>The dependency manifest update does not establish that the deployed<br>software has been corrected.</a><br><br>
+<a>The relevant artifact must be identified and assessed.</a><br><br>
+<a>The resulting distinctions are:</a><br><br>
+<a>Dependency Manifest Updated ≠ Deployed Dependency Corrected.</a><br><br>
+<a>Patch Applied ≠ Remediation Verified.</a><br><br>
+<a>Vulnerability Closure ≠ Verified Vulnerability Remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM preserves the unresolved vulnerability state and provides the relevant</h1>
+<a>information to SRCM.</a><br><br>
+<a>Any residual risk acceptance requires a separate competent decision.</a><br><br>
+<section class="viewbor"></section>
+<h1>Use Case 2 — An Autonomous Security Agent Closes a Critical</h1>
+<a>Authorization Vulnerability Without Competent Verification</a><br><br>
+<a>An organization operates an autonomous software security agent.</a><br><br>
+<a>The agent is authorized to inspect code, propose patches, execute<br>development tests, and update vulnerability records.</a><br><br>
+<a>A critical authorization weakness is identified in an administrative<br>API.</a><br><br>
+<a>The weakness may allow an authenticated ordinary user to invoke a<br>privileged operation.</a><br><br>
+<a>The agent:</a><br><br>
+<a>1.</a><br><br>
+<a>Identifies the vulnerability. 2.</a><br><br>
+<a>Generates a corrective patch. 3.</a><br><br>
+<a>Modifies the authorization logic. 4.</a><br><br>
+<a>Executes automated tests. 5.</a><br><br>
+<a>Receives passing results. 6.</a><br><br>
+<a>Closes the vulnerability ticket. 7.</a><br><br>
+<a>Reports the issue as fully resolved.</a><br><br>
+<a>A subsequent review discovers that the tests verified successful<br>administrative access but did not test prohibited access by ordinary<br>users.</a><br><br>
+<a>The agent also lacks authority to accept residual security risk.</a><br><br>
+<a>Under VMM, the assessment identifies:</a><br><br>
+<a>Vulnerability: Privileged authorization enforcement weakness.</a><br><br>
+<a>Affected Asset: Administrative operations.</a><br><br>
+<a>Corrective Action: Modified authorization logic.</a><br><br>
+<a>Remediation Implementation: Patch implemented.</a><br><br>
+<a>Verification Scope: Positive administrative access tests.</a><br><br>
+<a>Verification Gap: Missing negative authorization testing.</a><br><br>
+<a>Remediation Effectiveness: Not sufficiently demonstrated.</a><br><br>
+<a>Closure Eligibility: Not established.</a><br><br>
+<section class="viewbor"></section>
+<h1>Autonomous Authority: Authorized to propose and test remediation, but not</h1>
+<a>to accept residual risk.</a><br><br>
+<a>Governance State: Verification Pending / Evidence-Limited.</a><br><br>
+<a>The successful tests demonstrate only the behavior they actually<br>assessed.</a><br><br>
+<a>They do not establish that ordinary users are prevented from executing<br>privileged operations.</a><br><br>
+<a>The resulting distinctions are:</a><br><br>
+<a>Test Execution Success ≠ Verified Vulnerability Resolution.</a><br><br>
+<a>Administrative Closure ≠ Technical Remediation.</a><br><br>
+<a>Authority to Implement Remediation ≠ Authority to Accept Residual<br>Risk.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM preserves the vulnerability record, verification gap, and relevant</h1>
+<a>authority boundary.</a><br><br>
+<a>The agent may perform additional authorized testing or request<br>competent review.</a><br><br>
+<section class="viewbor"></section>
+<h1>It shall not silently convert incomplete verification into a favorable</h1>
+<a>vulnerability resolution determination.</a><br><br>
+<section class="viewbor"></section>
+<h1>Canonical Closing Statement</h1>
+<section class="viewbor"></section>
+<h1>Software vulnerabilities do not become resolved merely because they have</h1>
+<a>been detected, classified, assigned, patched, or marked as closed.</a><br><br>
+<a>A scanner may report a vulnerability that is not applicable to the<br>software.</a><br><br>
+<a>A confirmed vulnerability may require contextual assessment before its<br>exploitability and operational significance are understood.</a><br><br>
+<a>A critical severity score may not fully determine treatment priority.</a><br><br>
+<a>A patch may be implemented without correcting the relevant deployed<br>artifact.</a><br><br>
+<a>A compensating control may reduce exposure without eliminating the<br>underlying weakness.</a><br><br>
+<a>And a vulnerability ticket may be closed while material verification<br>evidence remains missing.</a><br><br>
+<a>Vulnerability Report ≠ Confirmed Software Vulnerability.</a><br><br>
+<a>Vulnerability Severity ≠ Remediation Priority.</a><br><br>
+<a>Patch Applied ≠ Remediation Verified.</a><br><br>
+<a>Compensating Control Active ≠ Underlying Vulnerability Removed.</a><br><br>
+<a>Vulnerability Closure ≠ Verified Vulnerability Remediation.</a><br><br>
+<section class="viewbor"></section>
+<h1>These distinctions become increasingly important as automated vulnerability</h1>
+<a>management and autonomous software remediation become more common.</a><br><br>
+<a>An AI agent may identify a vulnerability, generate a patch, execute<br>tests, and update a dashboard within minutes.</a><br><br>
+<a>That speed can be valuable.</a><br><br>
+<a>But automated execution does not eliminate the need to establish what<br>software was affected, whether the vulnerability was correctly<br>understood, whether the corrective action addressed the underlying<br>weakness, whether the intended artifact was verified, and which<br>residual conditions remain.</a><br><br>
+<a>Nor does remediation authority automatically establish authority to<br>accept residual security risk.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM therefore governs the complete evidentiary relationship between</h1>
+<a>vulnerability identification, technical confirmation, contextual<br>assessment, corrective action, verification, and resolution.</a><br><br>
+<a>It does not promise that every vulnerability will be discovered.</a><br><br>
+<a>It does not treat administrative closure as proof of security.</a><br><br>
+<a>Its purpose is to ensure that vulnerability determinations remain<br>connected to the software, evidence, and operating conditions they<br>actually concern.</a><br><br>
+<section class="viewbor"></section>
+<h1>VMM transforms vulnerability reports, security findings, technical</h1>
+<a>assessments, corrective actions, remediation tests, and administrative<br>records into a governed software vulnerability state — establishing<br>which weaknesses are confirmed, how they affect the software, what<br>treatment has occurred, what remediation has been competently<br>verified, which conditions remain unresolved, and how those<br>determinations continue across the software lifecycle.</a><br><br>
+<a>Software vulnerability management becomes governable when<br>vulnerability existence, contextual significance, treatment decisions,<br>corrective actions, verification evidence, residual conditions, and<br>administrative closure remain distinct, traceable, and connected to<br>the actual software artifact and configuration throughout its<br>lifecycle.</a><br><br>
+</div></section>
+</article></main><div id="footer"></div><script src="header.js"></script><script>fetch("header.html").then(r=>r.text()).then(t=>{header.innerHTML=t;if(window.normalizePageLinks)normalizePageLinks()});fetch("footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)</script></body></html>
