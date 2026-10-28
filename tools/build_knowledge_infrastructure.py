@@ -249,7 +249,15 @@ def architecture_snapshot(item: dict) -> dict:
     }
 
 
-def cross_validate_architecture(index_item: dict | None, complete_item: dict | None) -> dict:
+def cross_validate_architecture(index_item: dict | None, complete_item: dict | None, approved: bool | None = None) -> dict:
+    # index_item is from the approval-filtered registry. The build additionally
+    # checks the explicit approval list, so a manually edited registry cannot grant authority.
+    authorized = bool(index_item) if approved is None else approved
+    pending_states = {"discovered", "draft", "in-progress", "pending", "published"}
+    status = clean((complete_item or index_item or {}).get("status")).casefold()
+    status = {"development": "in-progress", "in progress": "in-progress", "draft / in progress": "in-progress"}.get(status, status)
+    if not authorized and not index_item and complete_item and status in pending_states:
+        return {"result": "PENDING", "authorityState": "SUPPORTING_CITABLE", "conflicts": [], "lifecycleStatus": status, "approvalVerified": False}
     fields = ("acronym", "displayName", "name", "status", "primaryUrl", "standardCount", "standards")
     identity_fields = {"acronym", "membership", "primaryUrl"}
     index_value = architecture_snapshot(index_item) if index_item else None
@@ -261,6 +269,8 @@ def cross_validate_architecture(index_item: dict | None, complete_item: dict | N
         for field in fields:
             if index_value[field] != complete_value[field]:
                 conflicts.append({"field": field, "architectureIndex": index_value[field], "completeArchitectureIndex": complete_value[field]})
+    if not authorized or status not in {"completed", "published", "current", "approved"}:
+        conflicts.append({"field": "membership", "reason": "Explicit current approval and consistent final lifecycle evidence are required"})
     if not conflicts:
         result = "PASS"
         authority_state = "CANONICAL_AUTHORITATIVE"
@@ -270,7 +280,7 @@ def cross_validate_architecture(index_item: dict | None, complete_item: dict | N
     else:
         result = "CONFLICT"
         authority_state = "QUARANTINED" if any(item["field"] in identity_fields for item in conflicts) else "REVIEW_REQUIRED"
-    return {"result": result, "authorityState": authority_state, "conflicts": conflicts}
+    return {"result": result, "authorityState": authority_state, "conflicts": conflicts, "lifecycleStatus": status or "unknown", "approvalVerified": authorized and result == "PASS"}
 
 
 def authority_for(rep_type: str, mapped: bool, relative: str) -> tuple[str, list[str], str]:
@@ -291,6 +301,11 @@ def authority_for(rep_type: str, mapped: bool, relative: str) -> tuple[str, list
 
 def object_record(object_id: str, name: str, kind: str, canonical_url: str | None, identity_basis: str, record: dict | None = None, authority_state: str = "CANONICAL_AUTHORITATIVE") -> dict:
     fields = record["fields"] if record else {}
+    source_status = clean(fields.get("Status")) or "published"
+    if authority_state == "CANONICAL_AUTHORITATIVE" and re.search(r"draft|pending|in.progress|development|incomplete", source_status, re.I):
+        authority_state = "SUPPORTING_CITABLE"
+    if re.search(r"withdrawn|superseded", source_status, re.I):
+        authority_state = "REVIEW_REQUIRED"
     item = {
         "id": object_id,
         "canonicalName": clean(name),
@@ -306,7 +321,7 @@ def object_record(object_id: str, name: str, kind: str, canonical_url: str | Non
         "canonicalDefinition": section_value(record["source"], "Canonical Definition") if record else None,
         "governedSpace": clean(fields.get("Governed Space")) or None,
         "coreQuestion": section_value(record["source"], "Core Question") if record else None,
-        "status": clean(fields.get("Status")) or "published",
+        "status": source_status,
         "version": clean(fields.get("Version")) or None,
         "dates": {"publicationDate": clean(fields.get("Publication Date")) or None},
         "language": normalized_language(record) if record else "en",
@@ -345,14 +360,15 @@ def build(output_root: Path) -> dict:
     complete_by_acronym = {item["acronym"]: item for item in complete_architectures}
     index_by_acronym = {item["acronym"]: item for item in architecture_registry.get("architectures", [])}
     architecture_validation = []
+    approved_acronyms = set(json.loads((ROOT / "data/oof-architecture-map-approved.json").read_text(encoding="utf-8"))["approved"])
     for acronym in sorted(set(index_by_acronym) | set(complete_by_acronym)):
-        result = cross_validate_architecture(index_by_acronym.get(acronym), complete_by_acronym.get(acronym))
+        result = cross_validate_architecture(index_by_acronym.get(acronym), complete_by_acronym.get(acronym), acronym in approved_acronyms)
         result.update({
             "acronym": acronym,
             "architectureIndexSource": ARCHITECTURE_INDEX_PATH,
             "completeArchitectureIndexSource": COMPLETE_ARCHITECTURE_INDEX_PATH,
             "candidateCanonicalUrl": discovery.canonical_url((((index_by_acronym.get(acronym) or complete_by_acronym.get(acronym) or {}).get("primaryPage") or {}).get("url", ""))),
-            "reviewReason": None if result["result"] == "PASS" else "Canonical source fields do not fully agree; no automatic promotion was applied.",
+            "reviewReason": None if result["result"] == "PASS" else "Explicit non-final lifecycle; canonical approval is pending." if result["result"] == "PENDING" else "Canonical source fields do not fully agree; no automatic promotion was applied.",
             "provenance": provenance(
                 ARCHITECTURE_INDEX_PATH,
                 discovery.canonical_url(ARCHITECTURE_INDEX_PATH),
@@ -397,7 +413,7 @@ def build(output_root: Path) -> dict:
     for architecture in architecture_registry.get("architectures", []):
         object_id = f"OOF-KO-ARCH-{architecture['id'].upper()}"
         architecture_objects[architecture["id"]] = object_id
-        primary_url = discovery.canonical_url(architecture["primaryPage"]["url"])
+        primary_url = discovery.canonical_url((architecture.get("primaryPage") or {"url": COMPLETE_ARCHITECTURE_INDEX_PATH})["url"])
         primary_record = records_by_url.get(primary_url)
         objects[object_id] = object_record(
             object_id,
@@ -442,6 +458,28 @@ def build(output_root: Path) -> dict:
             add_authoritative(object_id, "containsStandard", standard_id, "approvedArchitectureRegistry", primary_url)
             add_authoritative(standard_id, "belongsToArchitecture", object_id, "approvedArchitectureRegistry", standard_url)
 
+    # Keep explicitly pending discoveries in the SAME registry, as supporting
+    # objects. Do not infer their standards, hierarchy, or canonical membership.
+    for acronym, validation in validation_by_acronym.items():
+        if validation["result"] != "PENDING":
+            continue
+        architecture = complete_by_acronym[acronym]
+        primary_url = discovery.canonical_url((architecture.get("primaryPage") or {"url": COMPLETE_ARCHITECTURE_INDEX_PATH})["url"])
+        record = records_by_url.get(primary_url)
+        if not record:
+            continue
+        oid = f"OOF-KO-ARCH-{architecture['id'].upper()}"
+        objects[oid] = object_record(oid, architecture["displayName"], "Architecture", primary_url,
+                                     "discoveredArchitectureIndex", record, "SUPPORTING_CITABLE")
+        objects[oid]["acronym"] = acronym
+        objects[oid]["status"] = validation["lifecycleStatus"]
+        objects[oid]["sourceAuthority"] = {"state": "SUPPORTING_CITABLE", "basis": "explicitPendingLifecycle",
+            "sources": [COMPLETE_ARCHITECTURE_INDEX_PATH], "validationResult": "PENDING", "approvalVerified": False}
+        for page in architecture.get("pages", []):
+            url = discovery.canonical_url(page["url"])
+            if url in records_by_url:
+                rep_to_object[url + "#webpage"] = oid
+
     for origin_id in sorted(unique_origin_ids):
         record = origin_groups[origin_id][0]
         rep_id = record["canonical"] + "#webpage"
@@ -479,6 +517,28 @@ def build(output_root: Path) -> dict:
             item["architectureId"] = architecture_id
             add_authoritative(object_id, "belongsToArchitecture", architecture_id, "explicitArchitectureMetadata", record["canonical"])
 
+    # Lifecycle applies to source-backed children too; an OriginID establishes
+    # identity, never approval of an architecture still being uploaded.
+    pending_sources = {}
+    pending_names = {}
+    for acronym, validation in validation_by_acronym.items():
+        if validation["result"] != "PENDING":
+            continue
+        architecture = complete_by_acronym[acronym]
+        for value in (acronym, architecture["displayName"], architecture["name"]):
+            pending_names[normalize(value)] = validation
+        for page in architecture.get("pages", []) + architecture.get("standards", []):
+            pending_sources[discovery.canonical_url(page["url"])] = validation
+    for item in objects.values():
+        record = records_by_url.get(item["canonicalUrl"])
+        family = clean(record["fields"].get("Architecture") or record["fields"].get("Architecture Family")) if record else ""
+        validation = pending_sources.get(item["canonicalUrl"]) or pending_names.get(normalize(family))
+        if validation and item["authorityState"] == "CANONICAL_AUTHORITATIVE":
+            item["authorityState"] = "SUPPORTING_CITABLE"
+            item["status"] = validation["lifecycleStatus"]
+            item["sourceAuthority"] = {"state": "SUPPORTING_CITABLE", "basis": "explicitPendingLifecycle", "approvalVerified": False,
+                "sources": [COMPLETE_ARCHITECTURE_INDEX_PATH], "validationResult": "PENDING"}
+
     representations = []
     for record in records:
         rep_id = record["canonical"] + "#webpage"
@@ -487,6 +547,8 @@ def build(output_root: Path) -> dict:
         role, domains, basis = authority_for(rep_type, bool(mapped_id), record["relative"])
         identity_status = "resolved" if mapped_id else "unresolved"
         authority_state = "CANONICAL_AUTHORITATIVE" if mapped_id and role == "canonical" else "SUPPORTING_CITABLE"
+        if mapped_id and objects[mapped_id]["authorityState"] != "CANONICAL_AUTHORITATIVE":
+            authority_state = objects[mapped_id]["authorityState"]
         origin_id = valid_origin_id(record["fields"].get("OriginID"))
         if origin_id in duplicates:
             identity_status = "quarantined-duplicate-origin-id"
@@ -517,6 +579,13 @@ def build(output_root: Path) -> dict:
             objects[mapped_id]["representations"].append(rep_id)
             add_authoritative(rep_id, "representsObject", mapped_id, basis, record["canonical"])
 
+    for edge in authoritative:
+        source = objects.get(edge["sourceId"])
+        target = objects.get(edge["targetId"])
+        if any(item and (item["sourceAuthority"].get("validationResult") == "PENDING" or re.search(r"draft|pending|in.progress|development|incomplete", item.get("status", ""), re.I)) for item in (source, target)):
+            edge["authorityState"] = "SUPPORTING"
+            edge["sourceAuthority"]["state"] = "SUPPORTING_CITABLE"
+            edge["status"] = "pending"
     relationships = list(authoritative)
     known_rep_ids = {item["id"] for item in representations}
     seen_discovery: set[tuple[str, str, str]] = set()
@@ -734,7 +803,7 @@ def build(output_root: Path) -> dict:
         for acronym in reference_acronyms
     ]
     malformed_languages = [item["id"] for item in representation_list if not LANGUAGE_RE.fullmatch(item["language"])]
-    architecture_blockers = [item["acronym"] for item in architecture_validation if item["result"] != "PASS"]
+    architecture_blockers = [item["acronym"] for item in architecture_validation if item["result"] not in {"PASS", "PENDING"}]
     readiness_blockers = []
     if architecture_blockers:
         readiness_blockers.append(f"Architecture Core cross-validation requires review: {', '.join(architecture_blockers)}")
@@ -748,7 +817,7 @@ def build(output_root: Path) -> dict:
         readiness_blockers.append(f"{len(malformed_languages)} representations contain an unapproved language code.")
     lara_ready = not readiness_blockers
     review_queue = {
-        "architectureConflicts": [item for item in architecture_validation if item["result"] != "PASS"],
+        "architectureConflicts": [item for item in architecture_validation if item["result"] not in {"PASS", "PENDING"}],
         "duplicateOriginIdGroups": [item["originId"] for item in duplicate_report],
         "candidateEntityGroups": [item["normalizedName"] for item in candidate_review],
         "automaticPromotionApplied": False,
@@ -805,7 +874,7 @@ def build(output_root: Path) -> dict:
     })
     dump(output / "reports/architecture-canonical-validation.json", {
         "schemaVersion": SCHEMA_VERSION,
-        "policy": "PASS promotes to canonical; PARTIAL remains supporting and enters review; CONFLICT enters review or quarantine for identity conflicts.",
+        "policy": "PASS requires explicit approval and consistent final lifecycle evidence; PENDING is explicitly non-final supporting discovery without approval; PARTIAL remains supporting and enters review; CONFLICT remains blocking and enters review or quarantine.",
         "canonicalSources": {
             "architectureIndex": ARCHITECTURE_INDEX_PATH,
             "completeArchitectureIndex": COMPLETE_ARCHITECTURE_INDEX_PATH,
