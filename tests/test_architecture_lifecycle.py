@@ -1,5 +1,7 @@
 import sys
 import unittest
+import json
+import re
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from build_knowledge_infrastructure import cross_validate_architecture
@@ -41,3 +43,21 @@ class LifecycleTests(unittest.TestCase):
     def test_draft_in_approved_registry_is_a_conflict(self):
         item = self.architecture('draft')
         self.assertEqual(cross_validate_architecture(item, item, True)['result'], 'CONFLICT')
+
+    def test_generated_slga_is_traceable_without_approved_membership(self):
+        root = Path(__file__).resolve().parents[1]
+        approved = json.loads((root / 'data/oof-architecture-map-approved.json').read_text(encoding='utf-8'))
+        self.assertNotIn('SLGA', approved['approved'])
+        objects = json.loads((root / 'data/knowledge/objects-core.json').read_text(encoding='utf-8'))['objects']
+        slga = next(item for item in objects if item['id'] == 'OOF-KO-ARCH-SLGA')
+        self.assertEqual(slga['status'], 'in-progress')
+        self.assertEqual(slga['authorityState'], 'SUPPORTING_CITABLE')
+        self.assertFalse(slga['sourceAuthority']['approvalVerified'])
+        self.assertTrue(slga['provenance']['contentHash'])
+
+    def test_generated_drafts_never_enter_canonical_retrieval(self):
+        root = Path(__file__).resolve().parents[1]
+        objects = json.loads((root / 'data/knowledge/objects-core.json').read_text(encoding='utf-8'))['objects']
+        drafts = [item for item in objects if re.search(r'draft|pending|in.progress|development|incomplete', item.get('status', ''), re.I)]
+        self.assertTrue(drafts)
+        self.assertTrue(all(item['authorityState'] != 'CANONICAL_AUTHORITATIVE' for item in drafts))
