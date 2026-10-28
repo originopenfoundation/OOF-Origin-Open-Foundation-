@@ -249,10 +249,10 @@ def architecture_snapshot(item: dict) -> dict:
     }
 
 
-def cross_validate_architecture(index_item: dict | None, complete_item: dict | None, approved: bool | None = None) -> dict:
-    # index_item is from the approval-filtered registry. The build additionally
-    # checks the explicit approval list, so a manually edited registry cannot grant authority.
-    authorized = bool(index_item) if approved is None else approved
+def cross_validate_architecture(index_item: dict | None, complete_item: dict | None, approved: bool = False) -> dict:
+    # Membership or matching source fields alone never establish approval.
+    # The caller must supply evidence from the explicit approval list.
+    authorized = approved is True
     pending_states = {"discovered", "draft", "in-progress", "pending", "published"}
     status = clean((complete_item or index_item or {}).get("status")).casefold()
     status = {"development": "in-progress", "in progress": "in-progress", "draft / in progress": "in-progress"}.get(status, status)

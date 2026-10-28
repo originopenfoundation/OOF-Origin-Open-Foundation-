@@ -22,6 +22,11 @@ class LifecycleTests(unittest.TestCase):
         item = self.architecture()
         self.assertEqual(cross_validate_architecture(item, item, False)['result'], 'CONFLICT')
 
+    def test_approval_is_never_inferred_from_registry_presence(self):
+        item = self.architecture()
+        self.assertEqual(cross_validate_architecture(item, item)['result'], 'CONFLICT')
+        self.assertEqual(cross_validate_architecture(item, item, approved='true')['result'], 'CONFLICT')
+
     def test_current_authorized_agreement_passes(self):
         for status in ('completed', 'published'):
             item = self.architecture(status)
