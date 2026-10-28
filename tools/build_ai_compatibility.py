@@ -16,6 +16,10 @@ from xml.sax.saxutils import escape as xml_escape
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://originopenfoundation.org/"
 SITE_NAME = "OOF® — OriginOpen® Foundation"
+SOCIAL_IMAGE_RELATIVE = "assets/images/oof-governance-architecture-heat-map-v3.png"
+SOCIAL_IMAGE_MIME = "image/png"
+SOCIAL_IMAGE_WIDTH = 1672
+SOCIAL_IMAGE_HEIGHT = 941
 START = "<!-- OOF AI DISCOVERY START -->"
 END = "<!-- OOF AI DISCOVERY END -->"
 BLOCK_RE = re.compile(re.escape(START) + r".*?" + re.escape(END) + r"\s*", re.S)
@@ -468,6 +472,8 @@ def metadata_block(record: dict) -> str:
     description = html.escape(record["description"], quote=True)
     json_ld = json.dumps(page_json_ld(record), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     language, og_locale = language_metadata(record["relative"])
+    social_image = html.escape(canonical_url(SOCIAL_IMAGE_RELATIVE), quote=True)
+    social_alt = html.escape(f"{SITE_NAME} — {record['title']}", quote=True)
     alternate_links = [
         f'<link rel="alternate" hreflang="{html.escape(code, quote=True)}" href="{html.escape(url, quote=True)}" />'
         for code, url in localized_home_alternates(record["relative"])
@@ -488,9 +494,17 @@ def metadata_block(record: dict) -> str:
             f'<meta property="og:type" content="{"website" if record["relative"] == "index.html" else "article"}" />',
             f'<meta property="og:site_name" content="{html.escape(SITE_NAME, quote=True)}" />',
             f'<meta property="og:locale" content="{og_locale}" />',
-            '<meta name="twitter:card" content="summary" />',
+            f'<meta property="og:image" content="{social_image}" />',
+            f'<meta property="og:image:secure_url" content="{social_image}" />',
+            f'<meta property="og:image:type" content="{SOCIAL_IMAGE_MIME}" />',
+            f'<meta property="og:image:width" content="{SOCIAL_IMAGE_WIDTH}" />',
+            f'<meta property="og:image:height" content="{SOCIAL_IMAGE_HEIGHT}" />',
+            f'<meta property="og:image:alt" content="{social_alt}" />',
+            '<meta name="twitter:card" content="summary_large_image" />',
             f'<meta name="twitter:title" content="{title}" />',
             f'<meta name="twitter:description" content="{description}" />',
+            f'<meta name="twitter:image" content="{social_image}" />',
+            f'<meta name="twitter:image:alt" content="{social_alt}" />',
             f'<meta name="DC.title" content="{title}" />',
             f'<meta name="DC.language" content="{language}" />',
             f'<meta name="DC.identifier" content="{canonical}" />',
@@ -535,6 +549,12 @@ def inject_metadata(record: dict) -> None:
     source = path.read_text(encoding="utf-8")
     source = BLOCK_RE.sub("", source)
     source = re.sub(
+        r'\s*<meta\b(?=[^>]*\b(?:property|name)=["\'](?:og:image(?:[:][\w-]+)?|twitter:image(?:[:][\w-]+)?)["\'])[^>]*>',
+        "",
+        source,
+        flags=re.I,
+    )
+    source = re.sub(
         r'\s*<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>',
         "",
         source,
@@ -560,6 +580,12 @@ def inject_alias_metadata(record: dict, target: dict) -> None:
     source = path.read_text(encoding="utf-8")
     source = BLOCK_RE.sub("", source)
     source = re.sub(
+        r'\s*<meta\b(?=[^>]*\b(?:property|name)=["\'](?:og:image(?:[:][\w-]+)?|twitter:image(?:[:][\w-]+)?)["\'])[^>]*>',
+        "",
+        source,
+        flags=re.I,
+    )
+    source = re.sub(
         r'\s*<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>',
         "",
         source,
@@ -568,6 +594,8 @@ def inject_alias_metadata(record: dict, target: dict) -> None:
     target_url = html.escape(target["canonical"], quote=True)
     description = html.escape(target["description"], quote=True)
     title = html.escape(record["title"], quote=True)
+    social_image = html.escape(canonical_url(SOCIAL_IMAGE_RELATIVE), quote=True)
+    social_alt = html.escape(f"{SITE_NAME} — {record['title']}", quote=True)
     block = "\n".join(
         [
             START,
@@ -582,9 +610,17 @@ def inject_alias_metadata(record: dict, target: dict) -> None:
             f'<meta property="og:url" content="{target_url}" />',
             '<meta property="og:type" content="article" />',
             f'<meta property="og:site_name" content="{html.escape(SITE_NAME, quote=True)}" />',
-            '<meta name="twitter:card" content="summary" />',
+            f'<meta property="og:image" content="{social_image}" />',
+            f'<meta property="og:image:secure_url" content="{social_image}" />',
+            f'<meta property="og:image:type" content="{SOCIAL_IMAGE_MIME}" />',
+            f'<meta property="og:image:width" content="{SOCIAL_IMAGE_WIDTH}" />',
+            f'<meta property="og:image:height" content="{SOCIAL_IMAGE_HEIGHT}" />',
+            f'<meta property="og:image:alt" content="{social_alt}" />',
+            '<meta name="twitter:card" content="summary_large_image" />',
             f'<meta name="twitter:title" content="{title}" />',
             f'<meta name="twitter:description" content="{description}" />',
+            f'<meta name="twitter:image" content="{social_image}" />',
+            f'<meta name="twitter:image:alt" content="{social_alt}" />',
             END,
         ]
     )

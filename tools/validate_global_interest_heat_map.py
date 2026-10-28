@@ -15,7 +15,7 @@ DEFAULT_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
 REQUIRED_TOP_LEVEL = {
     "schemaVersion", "algorithmVersion", "windowStart", "windowEnd", "generatedAt", "lastCheckedAt",
     "lastSuccessfulCloudflareRetrievalAt", "lastSuccessfulDatasetGenerationAt", "lastSuccessfulDatasetPublicationAt",
-    "dataRevision", "source", "observationUnit", "technicalTraffic", "canonicalArchitectureSource",
+    "dataRevision", "source", "observationUnit", "technicalTraffic", "trafficViews", "canonicalArchitectureSource",
     "continuitySignalReview", "countries", "governanceSpaces",
 }
 STATUSES = {"very-high", "high", "moderate", "emerging"}
@@ -51,7 +51,7 @@ def validate(path: Path) -> dict:
         "lastSuccessfulCloudflareRetrievalAt", "lastSuccessfulDatasetGenerationAt", "lastSuccessfulDatasetPublicationAt",
     ):
         parse_timestamp(payload[field], field)
-    if payload["schemaVersion"] != "1.2" or payload["algorithmVersion"] != "3.1":
+    if payload["schemaVersion"] != "1.3" or payload["algorithmVersion"] != "3.2":
         raise ValueError("Unsupported Global Interest Heat Map schema or algorithm version")
     if not re.fullmatch(r"[a-f0-9]{64}", str(payload["dataRevision"])):
         raise ValueError("dataRevision must be a SHA-256 value")
@@ -62,6 +62,15 @@ def validate(path: Path) -> dict:
     technical = payload["technicalTraffic"]
     if not isinstance(technical, dict) or not isinstance(technical.get("cloudflareBotFilter"), bool):
         raise ValueError("Technical traffic policy must declare whether the Cloudflare bot filter is enabled")
+    traffic_views = payload["trafficViews"]
+    if not isinstance(traffic_views, dict) or set(traffic_views) != {"raw", "qualityAdjusted"}:
+        raise ValueError("trafficViews must declare raw and quality-adjusted public views")
+    raw_view = traffic_views["raw"]
+    adjusted_view = traffic_views["qualityAdjusted"]
+    if raw_view.get("status") != "available" or raw_view.get("countryData") != "countries":
+        raise ValueError("Raw traffic view must use the unchanged public country dataset")
+    if adjusted_view.get("status") != "unavailable" or not isinstance(adjusted_view.get("reason"), str) or not adjusted_view["reason"].strip():
+        raise ValueError("Quality-adjusted traffic view must remain explicitly unavailable without sufficient evidence")
     continuity = payload["continuitySignalReview"]
     if not isinstance(continuity, dict) or continuity.get("windowDays") != 30 or continuity.get("enabled") is not False:
         raise ValueError("The 30-day continuity signal must remain explicitly evaluated but disabled")

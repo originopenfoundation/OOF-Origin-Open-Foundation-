@@ -4,6 +4,7 @@
   const COLORS = { "very-high": "#167a45", high: "#167a45", moderate: "#2468b4", emerging: "#d6a51f", insufficient: "#a3a3a3" };
   const STATUS_LABELS = { "very-high": "High Interest", high: "High Interest", moderate: "Moderate Interest", emerging: "Emerging Interest", insufficient: "Insufficient Signal" };
   const MOMENTUM_LABELS = { "rapidly-rising": "Rapidly rising", rising: "Rising", stable: "Stable", declining: "Declining" };
+  const PUBLIC_STATUS_ORDER = { "very-high": 0, high: 1, moderate: 2, emerging: 3, insufficient: 4 };
   const WORLD_BOUNDS = [[-58, -180], [84, 180]];
   const STALE_AFTER_MS = 36 * 60 * 60 * 1000;
   const SHORT_COUNTRY_NAMES = { CN: "China", US: "USA" };
@@ -18,6 +19,9 @@
   const countryStatus = document.getElementById("global-interest-country-status");
   const countryMomentum = document.getElementById("global-interest-country-momentum");
   const viewControls = document.querySelector(".oof-global-interest-view-controls");
+  const dataModeControls = document.querySelector(".oof-global-interest-data-mode");
+  const mapTitle = document.getElementById("global-interest-map-title");
+  const viewNotice = document.getElementById("global-interest-view-notice");
   const updated = document.getElementById("global-interest-updated");
   const dataWindow = document.getElementById("global-interest-window");
   const dataSource = document.getElementById("global-interest-source");
@@ -31,6 +35,9 @@
   let countryLayers = [];
   let labelLayers = [];
   let catalog = new Map();
+  let activeDataset = null;
+  let activeWorld = null;
+  let interestView = "raw";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
@@ -68,6 +75,27 @@
 
   function stateForFeature(feature) { return feature.__oofInterest || { status: "insufficient" }; }
 
+  function viewDefinition(dataset = activeDataset) {
+    return dataset && dataset.trafficViews ? dataset.trafficViews[interestView] : null;
+  }
+
+  function countriesForView(dataset) {
+    const definition = viewDefinition(dataset);
+    return interestView === "raw" && definition && definition.countryData === "countries" ? dataset.countries || [] : definition && Array.isArray(definition.countries) ? definition.countries : [];
+  }
+
+  function applyViewPresentation() {
+    const definition = viewDefinition();
+    const available = definition && definition.status === "available";
+    if (mapTitle) mapTitle.textContent = `OOF® Global Interest Heat Map™ — ${definition ? definition.label : "Traffic Map"}`;
+    if (viewNotice) viewNotice.textContent = available
+      ? definition.description
+      : definition && definition.reason ? definition.reason : "This traffic quality view is unavailable.";
+    if (dataModeControls) dataModeControls.querySelectorAll("button[data-interest-view]").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.interestView === interestView));
+    });
+  }
+
   function escapeHtml(value) {
     const span = document.createElement("span");
     span.textContent = value;
@@ -83,6 +111,11 @@
     }
     const flag = flagFor(entry.iso);
     countryName.textContent = `${flag ? `${flag} ` : ""}${entry.name}`;
+    if (viewDefinition() && viewDefinition().status !== "available") {
+      countryStatus.textContent = "Quality-adjusted classification is unavailable pending sufficient documented evidence.";
+      countryMomentum.hidden = true;
+      return;
+    }
     countryStatus.textContent = `Interest: ${STATUS_LABELS[entry.state.status] || STATUS_LABELS.insufficient}`;
     if (entry.state.momentum && MOMENTUM_LABELS[entry.state.momentum]) {
       countryMomentum.textContent = `Momentum: ${MOMENTUM_LABELS[entry.state.momentum]}`;
@@ -172,14 +205,14 @@
   }
 
   function buildCatalog(dataset, features) {
-    const publicCountries = new Map((dataset.countries || []).map(item => [String(item.iso || "").toUpperCase(), item]));
+    const publicCountries = new Map(countriesForView(dataset).map(item => [String(item.iso || "").toUpperCase(), item]));
     const entries = new Map();
     (features || []).forEach(feature => {
       const iso = countryCode(feature);
       if (!iso || iso === "AQ") return;
       const state = publicCountries.get(iso) || { status: "insufficient" };
       feature.__oofInterest = state;
-      entries.set(iso, { iso, name: countryLabel(feature), state, feature });
+      entries.set(iso, { iso, name: shortCountryLabel(countryLabel(feature), iso), state, feature });
     });
     publicCountries.forEach((state, iso) => {
       if (!entries.has(iso)) entries.set(iso, { iso, name: labelForIso(iso), state, feature: null });
@@ -189,6 +222,13 @@
 
   function sortedCatalog(includeInsufficient) {
     return [...catalog.values()].filter(entry => includeInsufficient || entry.state.status !== "insufficient").sort((a, b) => a.name.localeCompare(b.name, "en"));
+  }
+
+  function sortedPublicCatalog() {
+    return sortedCatalog(false).sort((a, b) => {
+      const statusDifference = (PUBLIC_STATUS_ORDER[a.state.status] ?? Number.MAX_SAFE_INTEGER) - (PUBLIC_STATUS_ORDER[b.state.status] ?? Number.MAX_SAFE_INTEGER);
+      return statusDifference || a.name.localeCompare(b.name, "en");
+    });
   }
 
   function populateCountrySelector() {
@@ -201,7 +241,7 @@
 
   function populateCountryList() {
     if (!countryList) return;
-    const countries = sortedCatalog(false);
+    const countries = sortedPublicCatalog();
     const fragment = document.createDocumentFragment();
     countries.forEach(entry => {
       const item = document.createElement("li");
@@ -280,6 +320,20 @@
     else window.addEventListener("resize", () => map.invalidateSize({ pan: false }));
   }
 
+  function rebuildMap() {
+    selectedEntry = null;
+    selectedFeature = null;
+    hoveredFeature = null;
+    if (map) map.remove();
+    map = null;
+    countryLayers = [];
+    labelLayers = [];
+    applyViewPresentation();
+    if (activeWorld) initializeMap(activeWorld, activeDataset);
+    else if (activeDataset) prepareDataset(activeDataset);
+    showCountry(null);
+  }
+
   if (viewControls) viewControls.addEventListener("click", event => {
     const button = event.target.closest("button[data-map-action]");
     if (!button || !map) return;
@@ -288,14 +342,23 @@
     if (button.dataset.mapAction === "reset") { selectedEntry = null; selectedFeature = null; hoveredFeature = null; selectCountry(null, false); map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: !reducedMotion }); }
   });
 
+  if (dataModeControls) dataModeControls.addEventListener("click", event => {
+    const button = event.target.closest("button[data-interest-view]");
+    if (!button || button.dataset.interestView === interestView) return;
+    interestView = button.dataset.interestView;
+    rebuildMap();
+  });
+
   fetch("data/oof-global-interest-heat-map.json", { cache: "no-store" })
     .then(response => { if (!response.ok) throw new Error("Public interest dataset unavailable"); return response.json(); })
     .then(dataset => {
-      if (!dataset || dataset.schemaVersion !== "1.2" || dataset.algorithmVersion !== "3.1" || !Array.isArray(dataset.countries)) throw new Error("Public Global Interest Heat Map dataset is invalid");
+      if (!dataset || dataset.schemaVersion !== "1.3" || dataset.algorithmVersion !== "3.2" || !Array.isArray(dataset.countries) || !dataset.trafficViews) throw new Error("Public Global Interest Heat Map dataset is invalid");
+      activeDataset = dataset;
+      applyViewPresentation();
       prepareDataset(dataset);
       return fetch("assets/data/ne_50m_admin_0_countries.geojson", { cache: "force-cache" })
         .then(response => { if (!response.ok) throw new Error("Country geometry unavailable"); return response.json(); })
-        .then(world => initializeMap(world, dataset))
+        .then(world => { activeWorld = world; initializeMap(world, dataset); })
         .catch(error => { showFallback("The interactive map is temporarily unavailable. Available country classifications remain accessible below."); console.warn("OOF Global Interest Heat Map fallback:", error); });
     })
     .catch(error => { showFallback("The public map and its classification dataset could not be loaded."); console.error("OOF Global Interest Heat Map:", error); });

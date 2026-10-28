@@ -41,6 +41,7 @@ async function start() {
     await renderRoute(result, mapData, aggregations, architectureLinks);
     setState("success", "Public incident dataset loaded.");
   } catch (error) {
+    document.getElementById("incident-map")?.setAttribute("aria-busy", "false");
     setState("error", "The public incident dataset could not be loaded. Your filters have been preserved.");
     console.error(error);
   }
@@ -155,8 +156,11 @@ function incidentCountColor(country) {
 }
 
 async function renderMap(mapData) {
+  const mapElement = document.getElementById("incident-map");
+  mapElement?.setAttribute("aria-busy", "true");
   if (leafletMap) {
     leafletMap.invalidateSize();
+    mapElement?.setAttribute("aria-busy", "false");
     return;
   }
   const map = L.map("incident-map", { minZoom: 1, maxZoom: 7, worldCopyJump: true, attributionControl: false }).setView([18, 8], 2);
@@ -209,6 +213,8 @@ async function renderMap(mapData) {
       });
     },
   }).addTo(map);
+  requestAnimationFrame(() => map.invalidateSize({ pan: false }));
+  mapElement?.setAttribute("aria-busy", "false");
 }
 
 function escapeHtml(value) {

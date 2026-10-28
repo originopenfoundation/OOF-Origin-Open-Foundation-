@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>OOF® Global Interest Heat Map™</title>
 <link rel="stylesheet" href="assets/vendor/leaflet-1.9.4/leaflet.css" />
-<link rel="stylesheet" href="style.css?v=20261021.2" />
+<link rel="stylesheet" href="style.css?v=20261027.1" />
 <!-- OOF AI DISCOVERY START -->
 <meta name="description" content="Geographic signals of observed website activity associated with OOF® methodology, classified by country over a rolling 14-day observation period." />
 <link rel="canonical" href="https://originopenfoundation.org/global-interest-heat-map.html" />
@@ -22,9 +22,17 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="OOF® — OriginOpen® Foundation" />
 <meta property="og:locale" content="en_US" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png" />
+<meta property="og:image:secure_url" content="https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1672" />
+<meta property="og:image:height" content="941" />
+<meta property="og:image:alt" content="OOF® — OriginOpen® Foundation — OOF® Global Interest Heat Map™" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="OOF® Global Interest Heat Map™" />
 <meta name="twitter:description" content="Geographic signals of observed website activity associated with OOF® methodology, classified by country over a rolling 14-day observation period." />
+<meta name="twitter:image" content="https://originopenfoundation.org/assets/images/oof-governance-architecture-heat-map-v3.png" />
+<meta name="twitter:image:alt" content="OOF® — OriginOpen® Foundation — OOF® Global Interest Heat Map™" />
 <meta name="DC.title" content="OOF® Global Interest Heat Map™" />
 <meta name="DC.language" content="en" />
 <meta name="DC.identifier" content="https://originopenfoundation.org/global-interest-heat-map.html" />
@@ -44,9 +52,15 @@
     <p class="oof-global-interest-description">Country classifications reflect aggregated activity patterns over a rolling observation period. They do not identify individual visitors or establish public endorsement, institutional adoption, or verified human interest.</p>
   </header>
 
+  <div class="oof-global-interest-data-mode" role="group" aria-label="Traffic quality view">
+    <button type="button" data-interest-view="raw" aria-pressed="true">Raw Traffic Map</button>
+    <button type="button" data-interest-view="qualityAdjusted" aria-pressed="false">Quality-Adjusted Traffic Map</button>
+  </div>
+  <p id="global-interest-view-notice" class="oof-global-interest-view-notice" role="status">Raw Traffic Map includes all recorded aggregate visits, including automated and unknown traffic.</p>
+
   <div class="oof-global-interest-globe-shell">
     <div class="oof-global-interest-map-panel">
-      <p class="oof-global-interest-map-title">OOF® Global Interest Heat Map™</p>
+      <p id="global-interest-map-title" class="oof-global-interest-map-title">OOF® Global Interest Heat Map™ — Raw Traffic Map</p>
       <div id="global-interest-globe" class="oof-global-interest-globe" role="application" aria-label="Interactive two-dimensional Global Interest Heat Map showing privacy-reduced country-level interest classifications. Countries with a public signal are named in the overview; drag to move, zoom to reveal additional English country names, or choose a country from the map or list.">
         <div class="oof-global-interest-loading" role="status">Loading Global Interest Heat Map...</div>
       </div>
@@ -119,6 +133,6 @@ fetch("header.html").then(res => res.text()).then(data => { document.getElementB
 fetch("footer.html").then(res => res.text()).then(data => { document.getElementById("footer").innerHTML = data; if (window.normalizePageLinks) window.normalizePageLinks(); });
 </script>
 <script defer src="assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script defer src="assets/js/oof-global-interest-heat-map.js?v=20261021.1"></script>
+<script defer src="assets/js/oof-global-interest-heat-map.js?v=20261027.1"></script>
 </body>
 </html>

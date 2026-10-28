@@ -1,8 +1,8 @@
 import { expect, test } from "@playwright/test";
 
 const dataset = {
-  schemaVersion: "1.2",
-  algorithmVersion: "3.1",
+  schemaVersion: "1.3",
+  algorithmVersion: "3.2",
   windowStart: "2026-09-16T09:40:24Z",
   windowEnd: "2026-09-30T09:40:24Z",
   generatedAt: "2026-09-30T09:40:24Z",
@@ -11,6 +11,21 @@ const dataset = {
   lastSuccessfulDatasetGenerationAt: "2026-09-30T09:40:24Z",
   lastSuccessfulDatasetPublicationAt: "2026-09-30T09:40:24Z",
   source: "Cloudflare Web Analytics",
+  trafficViews: {
+    raw: {
+      status: "available",
+      label: "Raw Traffic Map",
+      countryData: "countries",
+      classificationVersion: "raw-1.0",
+      description: "All recorded aggregate visits in the governed observation window, including automated and unknown traffic."
+    },
+    qualityAdjusted: {
+      status: "unavailable",
+      label: "Quality-Adjusted Traffic Map",
+      classificationVersion: "quality-adjusted-1.0",
+      reason: "Unavailable pending sufficient documented evidence to identify automated traffic without country, browser, operating-system, referrer, or single-page assumptions."
+    }
+  },
   countries: [
     { iso: "SG", status: "very-high" },
     { iso: "SK", status: "high" },
@@ -51,6 +66,30 @@ test("desktop map supports all states, selection, zoom, reset and small countrie
   await page.getByRole("button", { name: "Reset map view" }).click();
   await expect(page.locator("#global-interest-country-name")).toHaveText("Select a country");
   expect(consoleErrors).toEqual([]);
+});
+
+test("quality-adjusted view does not reuse raw country classifications without evidence", async ({ page }) => {
+  await mockDataset(page);
+  await page.goto("/global-interest-heat-map.html");
+  await page.getByRole("button", { name: "Quality-Adjusted Traffic Map" }).click();
+  await expect(page.locator("#global-interest-view-notice")).toContainText("Unavailable pending sufficient documented evidence");
+  await expect(page.locator("#global-interest-country-list")).toContainText("No countries have a sufficient public signal");
+  await page.locator("#global-interest-country-select").selectOption("SG");
+  await expect(page.locator("#global-interest-country-status")).toContainText("unavailable pending sufficient documented evidence");
+});
+
+test("public country overview groups countries by interest classification and uses concise country names", async ({ page }) => {
+  await mockDataset(page, {
+    countries: [
+      { iso: "CN", status: "emerging" },
+      { iso: "SG", status: "very-high" },
+      { iso: "SK", status: "high" },
+      { iso: "US", status: "emerging" }
+    ]
+  });
+  await page.goto("/global-interest-heat-map.html");
+  await expect(page.locator("#global-interest-country-list")).toHaveText(/Singapore[\s\S]*Slovakia[\s\S]*China[\s\S]*USA/);
+  await expect(page.locator("#global-interest-country-list")).not.toContainText("People's Republic of China");
 });
 
 test("mobile map has no horizontal overflow", async ({ page }) => {
