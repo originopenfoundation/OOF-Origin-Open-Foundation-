@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypt
 const {chunks:presentedChunks}=require('../security/presentation');
 const ALLOWED=new Set(['CANONICAL_AUTHORITATIVE','SUPPORTING_CITABLE']);
 const normalize=value=>String(value).toLowerCase().replace(/[®™]/g,'').replace(/\babout\b/g,' ').replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
-const accessible=item=>item.visibility==='public'&&Array.isArray(item.allowedConsumers)&&item.allowedConsumers.includes('LaRA')&&ALLOWED.has(item.authorityState);
+const accessible=item=>item.visibility==='public'&&Array.isArray(item.allowedConsumers)&&item.allowedConsumers.includes('LaRA')&&ALLOWED.has(item.authorityState)&&!/withdrawn|superseded/i.test(item.status||'');
 function textOf(html){return html.replace(/<!--[\s\S]*?-->/g,' ').replace(/<(script|style|noscript|svg|nav|footer)\b[^>]*>[\s\S]*?<\/\1\s*>/gi,' ').replace(/<\/(p|div|section|article|li|h[1-6]|tr|main)>/gi,'\n').replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&nbsp;/g,' ').replace(/&#(x[0-9a-f]+|[0-9]+);/gi,(m,n)=>{const code=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):Number(n);return Number.isInteger(code)&&code>=0&&code<=0x10ffff?String.fromCodePoint(code):m;}).replace(/[\t\r ]+/g,' ').replace(/\n{3,}/g,'\n\n').trim();}
 function readShared(root){
  const base=path.join(root,'data/knowledge'),read=file=>JSON.parse(fs.readFileSync(path.join(base,file),'utf8'));
@@ -29,7 +29,7 @@ function readShared(root){
   resources.push({resource_id:rep.id,object_id:object?.id||null,representation_id:rep.id,
    title:rep.title,resource_type:object?.artifactType||rep.artifactTypeHint||'Methodology Resource',
    canonical_url:rep.canonicalUrl,authority_state:rep.authorityState,authority_domain:rep.authorityDomain,
-   provenance:rep.provenance,canonical_language:rep.language,keywords:[object?.acronym,object?.canonicalName].filter(Boolean),
+   provenance:rep.provenance,lifecycle_status:object?.status||'unknown',object_authority:object?.authorityState||null,canonical_language:rep.language,keywords:[object?.acronym,object?.canonicalName].filter(Boolean),
    topics:[],chunks,related_resources:[]});
  }
  const canonicalByObject=new Map(resources.filter(r=>r.authority_state==='CANONICAL_AUTHORITATIVE').map(r=>[r.object_id,r]));
@@ -38,7 +38,9 @@ function readShared(root){
   const source=canonicalByObject.get(edge.sourceId),target=canonicalByObject.get(edge.targetId);
   if(source&&target)source.related_resources.push({resource_id:target.resource_id,relationship:edge.relationshipType,authority:edge.authorityState});
  }
- return {resources,resource_count:resources.length,objects,byId,byUrl:read('indexes/object-by-canonical-url.json').index,
+ const inventory_digest=crypto.createHash('sha256').update(resources.map(r=>`${r.resource_id}:${r.provenance.contentHash}`).sort().join('\n')).digest('hex');
+ let registry_fingerprint=null;try{registry_fingerprint=read('manifest.json').buildFingerprint;}catch{}
+ return {resources,resource_count:resources.length,inventory_digest,registry_fingerprint,objects,byId,byUrl:read('indexes/object-by-canonical-url.json').index,
   byName:read('indexes/object-by-name.json').index,aliases:read('indexes/object-aliases.json').index,
   readiness,report_only:readiness.reportOnly!==false||readiness.LARA_INTEGRATION_READY!==true,diagnostics};
 }

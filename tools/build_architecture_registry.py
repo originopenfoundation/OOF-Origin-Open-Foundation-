@@ -59,7 +59,8 @@ def parse_index() -> list[dict]:
                 "acronymLabel": label.split(" ", 1)[0],
                 "displayName": label.rsplit(" (", 1)[0],
                 "name": parsed.group("name"),
-                "status": "completed",
+                "status": (re.search(r'\bdata-oof-status=["\x27]([^"\x27]+)', match.group(0), re.I).group(1)
+                           if re.search(r'\bdata-oof-status=["\x27]([^"\x27]+)', match.group(0), re.I) else "completed"),
                 "source": INDEX_PATH.name,
                 "standards": standards,
                 "standardCount": len(standards),
@@ -98,7 +99,7 @@ def validate(architectures: list[dict]) -> list[str]:
     if len(ids) != len(set(ids)):
         errors.append("Architecture Index contains duplicate architecture acronyms.")
     for architecture in architectures:
-        if not architecture["standards"]:
+        if not architecture["standards"] and architecture["status"] not in {"discovered", "draft", "in-progress", "pending", "published"}:
             errors.append(f"{architecture['acronym']} has no indexed Parent Standards.")
         for page in architecture["pages"]:
             target = ROOT / page["url"].split("#", 1)[0]
@@ -135,6 +136,7 @@ def main() -> int:
     public_architectures = [item for item in architectures if item["acronym"] in approved]
     pending = [item["acronym"] for item in architectures if item["acronym"] not in approved]
     blue = [item for item in development if item["acronym"] not in completed_ids]
+    blue += [item for item in architectures if item["acronym"] not in approved]
     upgrades = [item["acronym"] for item in development if item["acronym"] in completed_ids]
     errors = validate(architectures)
 

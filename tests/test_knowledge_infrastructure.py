@@ -103,11 +103,11 @@ class KnowledgeInfrastructureTests(unittest.TestCase):
         architecture = fixture["base"]
         for case in fixture["cases"]:
             candidate = {**architecture, **case["override"]}
-            result = cross_validate_architecture(architecture, candidate)
+            result = cross_validate_architecture(architecture, candidate, approved=True)
             self.assertEqual(result["result"], case["expectedResult"], case["name"])
             self.assertEqual(result["authorityState"], case["expectedAuthorityState"], case["name"])
         corrected = {**architecture, "acronym": "TEST"}
-        self.assertEqual(cross_validate_architecture(architecture, corrected)["authorityState"], "CANONICAL_AUTHORITATIVE")
+        self.assertEqual(cross_validate_architecture(architecture, corrected, approved=True)["authorityState"], "CANONICAL_AUTHORITATIVE")
 
     def test_supporting_lookup_returns_only_citable_material(self):
         results = self.registry.supporting("governance", 20)
