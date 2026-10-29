@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://originopenfoundation.org/schemas/oof-problem-discovery.v1.schema.json",
+  "title": "OOF Problem Discovery 1.0",
+  "description": "Structural contract. The reusable core additionally validates cross-record provenance, evidence bindings and trusted verification criteria; schema validity alone is not evidence authenticity.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "problem",
+    "report_only",
+    "validation",
+    "metrics",
+    "provenance",
+    "knowledge_references",
+    "observations",
+    "assumptions",
+    "hypotheses",
+    "supporting_evidence",
+    "contradictory_evidence",
+    "evidence_gaps",
+    "verification_actions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "problem": {
+      "type": "object",
+      "required": [
+        "stated",
+        "candidate_root",
+        "status",
+        "objective",
+        "affected_system",
+        "boundary",
+        "expected_outcome",
+        "observed_outcome",
+        "symptom_not_root"
+      ],
+      "properties": {
+        "stated": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "VALIDATED",
+            "PROVISIONAL",
+            "UNRESOLVED",
+            "CONTRADICTED"
+          ]
+        }
+      }
+    },
+    "report_only": {
+      "const": true
+    },
+    "validation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "processing_ms",
+        "additional_model_calls"
+      ],
+      "properties": {
+        "processing_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "additional_model_calls": {
+          "const": 0
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "verified",
+              "user_claim",
+              "reference",
+              "inference"
+            ]
+          }
+        }
+      }
+    },
+    "knowledge_references": {
+      "type": "array",
+      "description": "Existing navigator results; same verified Knowledge identities, lifecycle and representation provenance, not a parallel object registry.",
+      "items": {
+        "type": "object",
+        "required": [
+          "object_id",
+          "url",
+          "lifecycle_status",
+          "authority_state",
+          "provenance",
+          "resource_id"
+        ],
+        "properties": {
+          "authority_state": {
+            "enum": [
+              "CANONICAL_AUTHORITATIVE",
+              "SUPPORTING_CITABLE"
+            ]
+          },
+          "provenance": {
+            "type": "object",
+            "required": [
+              "contentHash"
+            ]
+          }
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/finding"
+          },
+          {
+            "required": [
+              "status",
+              "evidence_ids"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "SUPPORTED",
+                  "CONTRADICTED",
+                  "UNVERIFIED",
+                  "NOT_ASSESSABLE"
+                ]
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/finding"
+          },
+          {
+            "required": [
+              "supporting_ids",
+              "contradictory_ids",
+              "missing_ids",
+              "confidence",
+              "verification_test"
+            ]
+          }
+        ]
+      }
+    },
+    "supporting_evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "contradictory_evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "evidence_gaps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "verification_actions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    }
+  },
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "provenance_ids"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "problem": {
+            "properties": {
+              "status": {
+                "const": "VALIDATED"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "validation": {
+            "type": "object",
+            "required": [
+              "criteria",
+              "evidence_ids"
+            ],
+            "properties": {
+              "criteria": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_ids": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

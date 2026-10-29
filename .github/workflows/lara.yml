@@ -2,7 +2,7 @@ name: LaRA engineering
 on:
   push:
     branches: [main1, codex/integrate-lara-personality]
-    paths: ['lara/**', 'lib/oof-llm/**', 'tests/lara/**', 'tools/*lara*', 'data/knowledge/**', 'data/localization/**', 'render.yaml', 'package.json', '.github/workflows/lara.yml']
+    paths: ['lara/**', 'lib/**', 'tests/lara/**', 'tools/*lara*', 'data/knowledge/**', 'data/localization/**', 'render.yaml', 'package.json', '.github/workflows/lara.yml']
   pull_request:
     branches: [main1]
 permissions:
@@ -28,6 +28,7 @@ jobs:
       - run: python -m unittest discover -s tests -p test_architecture_lifecycle.py -v
       - run: python tools/validate_knowledge_infrastructure.py
       - run: node tools/lara_navigation_acceptance.cjs navigation-evidence.json
+      - run: node tools/lara_discovery_acceptance.cjs discovery-evidence.json
       - run: node tests/lara/memory-smoke.cjs memory-smoke.json
       - uses: actions/upload-artifact@v4
         if: always()
@@ -36,3 +37,4 @@ jobs:
           path: |
             memory-smoke.json
             navigation-evidence.json
+            discovery-evidence.json
