@@ -366,6 +366,26 @@ class IncidentDomainTests(unittest.TestCase):
         dates = [item.get("occurredAt") or item.get("reportedAt") or "" for item in representative]
         self.assertEqual(dates, sorted(dates, reverse=True))
 
+    def test_search_projection_is_compact_and_keeps_card_filtering_fields(self):
+        projection = incidents._list_projection(incidents.public_records([record()])[0])
+        search = incidents._search_projection(projection)
+        self.assertNotIn("summary", search)
+        self.assertNotIn("oofReport", search)
+        self.assertEqual(search["id"], projection["id"])
+        self.assertEqual(search["detailUrl"], projection["detailUrl"])
+        self.assertIn("assessment", search)
+
+    def test_source_snapshot_freshness_uses_a_bounded_slo(self):
+        current = incidents._source_snapshot_freshness(
+            "https://example.test/AIID_Excel_Export-20261026.xlsx", "2026-10-27T00:00:00Z"
+        )
+        stale = incidents._source_snapshot_freshness(
+            "https://example.test/AIID_Excel_Export-20261020.xlsx", "2026-10-27T00:00:00Z"
+        )
+        self.assertEqual(current["status"], "CURRENT")
+        self.assertEqual(stale["status"], "STALE")
+        self.assertEqual(stale["sloHours"], incidents.SOURCE_FRESHNESS_SLO_HOURS)
+
     def test_public_projection_hydrates_legacy_architecture_identity(self):
         projection = incidents._architecture_projection({"architectureId": "aig"})
         self.assertEqual(projection["label"], "AIG® - Governance Architecture")

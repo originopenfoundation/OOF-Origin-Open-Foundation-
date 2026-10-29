@@ -42,6 +42,7 @@ ALLOWED_EVENT_TYPES = {"Incident", "Hazard", "Near Miss", "Emerging Risk"}
 ALLOWED_EVIDENCE = {"Verified", "High Confidence", "Moderate Confidence", "Unverified"}
 ALLOWED_SEVERITY = {"Low", "Moderate", "High", "Critical", "Unclassified"}
 DAILY_PROCESSING_LIMIT = 10
+SOURCE_FRESHNESS_SLO_HOURS = 36
 
 COUNTRY_ALIASES = {
     "u s": "US", "u s a": "US", "united states": "US", "united states of america": "US",
@@ -91,7 +92,13 @@ def read_json(path: Path, fallback):
 
 def write_json(path: Path, value) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+
+def write_compact_json(path: Path, value) -> None:
+    """Write client-side search data without formatting overhead."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
 
 
 def source_record_fingerprint(record: dict) -> str:
@@ -824,6 +831,37 @@ def _list_projection(record: dict) -> dict:
     }
 
 
+def _search_projection(projection: dict) -> dict:
+    """Keep only the card and filtering fields needed for in-browser search."""
+    return {
+        key: projection.get(key)
+        for key in (
+            "id", "slug", "title", "eventType", "occurredAt", "reportedAt", "country",
+            "countryCode", "industry", "system", "severity", "source", "primaryArchitecture",
+            "contributingArchitectures", "architectureCount", "assessment", "governanceFocus",
+            "governanceInsight", "preventionFocus", "searchText", "detailUrl", "verifyUrl",
+        )
+    }
+
+
+def _source_snapshot_freshness(snapshot_url: str | None, generated: str) -> dict:
+    """Expose a bounded freshness state even when an adapter provides only a dated snapshot URL."""
+    snapshot_date = None
+    match = re.search(r"(20\d{2})(\d{2})(\d{2})", snapshot_url or "")
+    if match:
+        try:
+            snapshot_date = datetime.strptime("".join(match.groups()), "%Y%m%d").replace(tzinfo=timezone.utc)
+        except ValueError:
+            snapshot_date = None
+    generated_at = datetime.fromisoformat(generated.replace("Z", "+00:00"))
+    age_hours = int((generated_at - snapshot_date).total_seconds() // 3600) if snapshot_date else None
+    return {
+        "sloHours": SOURCE_FRESHNESS_SLO_HOURS,
+        "snapshotAgeHours": age_hours,
+        "status": "STALE" if age_hours is not None and age_hours > SOURCE_FRESHNESS_SLO_HOURS else "CURRENT" if age_hours is not None else "UNKNOWN",
+    }
+
+
 def _aggregate_public_records(records: list[dict], generated: str) -> dict:
     architecture_counts = defaultdict(lambda: {"primary": 0, "contributing": 0, "methodologyReferences": 0, "label": None, "canonicalUrl": None})
     industry_counts = Counter()
@@ -887,12 +925,15 @@ def _aggregate_public_records(records: list[dict], generated: str) -> dict:
 def validate_public_export() -> dict:
     summary = read_json(PUBLIC_ROOT / "summary.json", {})
     index = read_json(PUBLIC_ROOT / "incident-index.json", {"items": []})
+    search = read_json(PUBLIC_ROOT / "incident-search.json", {"items": []})
     items = index.get("items") or []
     errors = []
     ids = [item.get("id") for item in items]
     slugs = [item.get("slug") for item in items]
     if summary.get("totalIncidents") != len(items):
         errors.append("summary total does not match the public incident index")
+    if summary.get("totalIncidents") != len(search.get("items") or []):
+        errors.append("summary total does not match the public incident search projection")
     if len(ids) != len(set(ids)):
         errors.append("duplicate incident IDs found in the public incident index")
     if len(slugs) != len(set(slugs)):
@@ -937,6 +978,10 @@ def export_public(records: list[dict]) -> None:
         if source.get("lastSuccessfulSync")
     ]
     aiid_state = (sync_state.get("sources") or {}).get("AIIDWeeklyExcelAdapter") or {}
+    source_publishers = {
+        source.get("publisher")
+        for record in records for source in (record.get("sources") or []) if source.get("publisher")
+    }
     countries = defaultdict(lambda: {"incidentCount": 0, "criticalIncidents": 0, "coverage": Counter()})
     architectures = set()
     for record in records:
@@ -971,6 +1016,11 @@ def export_public(records: list[dict]) -> None:
         "automatedAnalyses": analysis_available,
         "automatedAssessmentsAvailable": analysis_available,
         "humanReviewPending": len(review_queue.get("items") or []),
+        "sourceTransparency": {
+            "publisherCount": len(source_publishers),
+            "publishers": sorted(source_publishers),
+            "disclosure": "Current records are attributed to their listed source publisher. Independent corroboration and authorized human review remain separate record-level statuses.",
+        },
         "humanReviewPriorityQueue": {
             "count": len(review_queue.get("items") or []),
             "label": "Human review priority queue",
@@ -995,6 +1045,7 @@ def export_public(records: list[dict]) -> None:
             "pendingCandidateCount": latest_run.get("queueRemaining", 0),
             "runStatus": latest_run.get("status") or "not-recorded",
             "latestSourceSnapshot": aiid_state.get("snapshotUrl"),
+            "sourceFreshness": _source_snapshot_freshness(aiid_state.get("snapshotUrl"), generated),
             "sourceErrors": latest_run.get("sourceErrors") or [],
         },
         "coverage": {
@@ -1007,7 +1058,13 @@ def export_public(records: list[dict]) -> None:
     map_data = {
         "generatedAt": generated,
         "countries": [
-            {"countryCode": code, "incidentCount": data["incidentCount"], "criticalIncidents": data["criticalIncidents"], "coverage": dict(data["coverage"])}
+            {
+                "countryCode": code,
+                "country": _country_names().get(code, code),
+                "incidentCount": data["incidentCount"],
+                "criticalIncidents": data["criticalIncidents"],
+                "coverage": dict(data["coverage"]),
+            }
             for code, data in sorted(countries.items())
         ],
         "incidents": [
@@ -1025,6 +1082,7 @@ def export_public(records: list[dict]) -> None:
     write_json(PUBLIC_ROOT / "map.json", map_data)
     projections = [_list_projection(record) for record in records]
     write_json(PUBLIC_ROOT / "incident-index.json", {"generatedAt": generated, "total": len(records), "items": projections})
+    write_compact_json(PUBLIC_ROOT / "incident-search.json", {"generatedAt": generated, "total": len(records), "items": [_search_projection(item) for item in projections]})
     write_json(PUBLIC_ROOT / "aggregations.json", _aggregate_public_records(records, generated))
     detail_root = PUBLIC_ROOT / "incident-details"
     detail_root.mkdir(parents=True, exist_ok=True)

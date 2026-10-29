@@ -91,6 +91,11 @@ SOURCE_HISTORY = git_source_history()
 
 def git_value(format_string: str, source_path: str) -> str:
     metadata = SOURCE_HISTORY.get(Path(source_path).as_posix())
+    # Detail pages are generated from the canonical incident store during the
+    # workflow, before that same workflow commits them. Attribute a new page to
+    # its tracked source record instead of rejecting a valid pre-commit build.
+    if metadata is None and source_path.startswith("ai-incidents/incidents/"):
+        metadata = SOURCE_HISTORY.get("data/ai-incidents/incident-store.json")
     if not metadata:
         return ""
     return metadata[0] if format_string == "%H" else metadata[1] if format_string == "%cI" else ""

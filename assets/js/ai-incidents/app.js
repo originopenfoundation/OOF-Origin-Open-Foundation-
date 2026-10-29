@@ -1,7 +1,7 @@
 import { IncidentRepository } from "./repository.js";
 
 const repository = new IncidentRepository();
-const params = new URLSearchParams(location.search);
+let params = new URLSearchParams(location.search);
 const view = document.documentElement.dataset.aiIncidentsView || "dashboard";
 const monitor = document.getElementById("incident-monitor-view");
 const methodology = document.getElementById("incident-methodology-view");
@@ -13,6 +13,7 @@ const mapPane = document.querySelector(".oof-incident-map-pane");
 const listPane = document.querySelector(".oof-incident-list-pane");
 let leafletMap = null;
 let filtersWired = false;
+let activeRequest = null;
 
 markCurrentView();
 if (view === "methodology") {
@@ -25,22 +26,26 @@ if (view === "methodology") {
 }
 
 async function start() {
+  activeRequest?.abort();
+  activeRequest = new AbortController();
+  const { signal } = activeRequest;
   setState("loading", "Loading the public incident dataset…");
   try {
     const requestedPage = Math.max(1, Number(params.get("page")) || 1);
     const [summary, mapData, page, aggregations, architectureLinks] = await Promise.all([
-      repository.summary(), repository.map(), repository.page(requestedPage),
-      repository.aggregations(), loadArchitectureLinks(),
+      repository.summary(signal), repository.map(signal), repository.page(requestedPage, signal),
+      repository.aggregations(signal), loadArchitectureLinks(signal),
     ]);
     renderSummary(summary);
     let result = page;
-    if (requiresIndex()) {
-      const index = await repository.index();
-      result = { ...index, page: requestedPage, pageSize: 25 };
+    if (requiresSearchProjection()) {
+      const search = await repository.search(signal);
+      result = { ...search, page: requestedPage, pageSize: 25 };
     }
     await renderRoute(result, mapData, aggregations, architectureLinks);
     setState("success", "Public incident dataset loaded.");
   } catch (error) {
+    if (error.name === "AbortError") return;
     document.getElementById("incident-map")?.setAttribute("aria-busy", "false");
     setState("error", "The public incident dataset could not be loaded. Your filters have been preserved.");
     console.error(error);
@@ -61,7 +66,7 @@ function markCurrentView() {
   });
 }
 
-function requiresIndex() {
+function requiresSearchProjection() {
   return ["critical", "stress-tests"].includes(view)
     || ["q", "severity", "eventType", "analysisStatus", "reviewStatus", "evidenceStatus", "country", "architecture"].some((key) => params.get(key));
 }
@@ -84,7 +89,7 @@ async function renderRoute(result, mapData, aggregations, architectureLinks) {
   let items = applyFilters(result.items || []);
   if (view === "critical") items = items.filter((item) => item.severity === "Critical");
   if (view === "stress-tests") items = items.filter((item) => item.assessment?.oofApproved === true);
-  const locallyPaged = requiresIndex();
+  const locallyPaged = requiresSearchProjection();
   renderIncidents(items, architectureLinks, {
     page: Math.max(1, Number(params.get("page")) || 1),
     pageSize: result.pageSize || 25,
@@ -93,9 +98,9 @@ async function renderRoute(result, mapData, aggregations, architectureLinks) {
   });
 }
 
-async function loadArchitectureLinks() {
+async function loadArchitectureLinks(signal) {
   try {
-    const response = await fetch("/data/oof-architecture-registry.json", { headers: { Accept: "application/json" } });
+    const response = await fetch("/data/oof-architecture-registry.json", { headers: { Accept: "application/json" }, signal });
     if (!response.ok) throw new Error(`Architecture registry request failed (${response.status})`);
     const registry = await response.json();
     return new Map((registry.architectures || []).map((architecture) => [
@@ -120,6 +125,9 @@ function renderSummary(summary) {
       ? `Public dataset updated ${formatTimestamp(summary.generatedAt)}`
       : "Public dataset synchronization time is unavailable";
   renderOperationalStatus(operational);
+  const transparency = summary.sourceTransparency || {};
+  const disclosure = document.getElementById("incident-source-disclosure");
+  if (disclosure) disclosure.textContent = transparency.disclosure || "Source and review states are shown for each public record.";
 }
 
 function formatTimestamp(value) {
@@ -134,6 +142,7 @@ function renderOperationalStatus(status) {
     ["Last successful source check", formatTimestamp(status.lastSuccessfulSourceCheck)],
     ["Last incident update", formatTimestamp(status.lastSuccessfulIncidentUpdate)],
     ["Latest public export", formatTimestamp(status.latestPublicExport)],
+    ["Source freshness", formatFreshness(status.sourceFreshness)],
     ["Newly published incidents", Number(status.newlyPublishedIncidents || 0).toLocaleString("en")],
     ["Pending candidates", Number(status.pendingCandidateCount || 0).toLocaleString("en")],
     ["Last run status", status.runStatus || "not recorded"],
@@ -144,6 +153,13 @@ function renderOperationalStatus(status) {
     group.append(element("dt", "", label), element("dd", "", value));
     target.append(group);
   });
+}
+
+function formatFreshness(freshness) {
+  if (!freshness) return "not recorded";
+  if (freshness.status === "STALE") return `stale: ${freshness.snapshotAgeHours} hours old (SLO ${freshness.sloHours} hours)`;
+  if (freshness.status === "CURRENT") return `${freshness.snapshotAgeHours} hours old (SLO ${freshness.sloHours} hours)`;
+  return "snapshot date unavailable";
 }
 
 function incidentCountColor(country) {
@@ -171,7 +187,7 @@ async function renderMap(mapData) {
   const geojson = await response.json();
   let selectedLayer = null;
   const styleForFeature = (feature) => {
-    const country = countryByCode.get(countryCodeForFeature(feature));
+    const country = canonicalCountryForFeature(feature, countryByCode);
     return { color: "#e7e7e7", weight: 0.65, fillColor: incidentCountColor(country), fillOpacity: country ? 0.94 : 0.55 };
   };
   const countriesLayer = L.geoJSON(geojson, {
@@ -179,19 +195,22 @@ async function renderMap(mapData) {
     style: styleForFeature,
     onEachFeature(feature, layer) {
       const code = countryCodeForFeature(feature);
-      const country = countryByCode.get(code);
+      const country = canonicalCountryForFeature(feature, countryByCode);
       const name = feature.properties.NAME_EN || feature.properties.NAME || "Country";
       const count = country?.incidentCount || 0;
       const label = `${name}: ${count ? `${count} public incident${count === 1 ? "" : "s"}` : "no public incident data"}`;
       layer.bindTooltip(label, { sticky: true });
-      layer.bindPopup(`<strong>${escapeHtml(name)}</strong><br>${count ? `${count} public incident${count === 1 ? "" : "s"}` : "No public incident data"}`);
+      layer.bindPopup(`<strong>${escapeHtml(name)}</strong><br>${count ? `${count} public incident${count === 1 ? "" : "s"}<br><small>Open filtered incidents</small>` : "No public incident data"}`);
       const selectLayer = () => {
         if (selectedLayer && selectedLayer !== layer) countriesLayer.resetStyle(selectedLayer);
         selectedLayer = layer;
         layer.setStyle({ color: "#ffffff", weight: 2.2, fillOpacity: 1 });
         layer.bringToFront();
       };
-      layer.on("click", selectLayer);
+      layer.on("click", () => {
+        selectLayer();
+        if (country?.countryCode) navigate({ country: country.countryCode, page: null });
+      });
       layer.on("popupclose", () => {
         if (selectedLayer === layer) {
           countriesLayer.resetStyle(layer);
@@ -208,13 +227,20 @@ async function renderMap(mapData) {
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
           selectLayer();
-          layer.openPopup();
+          if (country?.countryCode) navigate({ country: country.countryCode, page: null });
         });
       });
     },
   }).addTo(map);
   requestAnimationFrame(() => map.invalidateSize({ pan: false }));
   mapElement?.setAttribute("aria-busy", "false");
+}
+
+function canonicalCountryForFeature(feature, countryByCode) {
+  const country = countryByCode.get(countryCodeForFeature(feature));
+  if (!country) return null;
+  const featureName = feature.properties?.NAME_EN || feature.properties?.NAME || "";
+  return featureName === country.country ? country : null;
 }
 
 function escapeHtml(value) {
@@ -233,14 +259,40 @@ function wireFilters() {
   if (filtersWired) return;
   filtersWired = true;
   const form = document.getElementById("incident-filters");
-  for (const [key, value] of params.entries()) if (form.elements[key]) form.elements[key].value = value;
+  setFilterFormValues(form);
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const query = new URLSearchParams();
     new FormData(form).forEach((value, key) => { if (value) query.set(key, value); });
-    location.search = query.toString();
+    navigate(Object.fromEntries(query.entries()));
   });
-  form.addEventListener("reset", () => { location.search = ""; });
+  form.addEventListener("reset", (event) => {
+    event.preventDefault();
+    navigate({}, true);
+  });
+  window.addEventListener("popstate", () => {
+    params = new URLSearchParams(location.search);
+    setFilterFormValues(form);
+    start();
+  });
+}
+
+function setFilterFormValues(form) {
+  [...form.elements].forEach((control) => { if (control.name) control.value = params.get(control.name) || ""; });
+}
+
+function navigate(changes, replace = false) {
+  const query = new URLSearchParams(location.search);
+  Object.entries(changes).forEach(([key, value]) => {
+    if (value === null || value === "") query.delete(key);
+    else query.set(key, value);
+  });
+  const next = `${location.pathname}${query.toString() ? `?${query}` : ""}`;
+  history[replace ? "replaceState" : "pushState"]({}, "", next);
+  params = new URLSearchParams(query);
+  const form = document.getElementById("incident-filters");
+  if (form) setFilterFormValues(form);
+  start();
 }
 
 function applyFilters(items) {
@@ -409,6 +461,7 @@ function createIncidentCard(incident, architectureLinks) {
     ["Evidence", incident.assessment?.evidenceStatus || "Evidence Insufficient"],
     ["Source", incident.source?.publisher || "Source not identified"],
     ["Severity", incident.severity || "Insufficient Evidence"],
+    ["Review", incident.assessment?.reviewStatus || "Not performed"],
   ].forEach(([term, value]) => {
     const group = document.createElement("div");
     group.append(element("dt", "", term), element("dd", "", value));
@@ -426,8 +479,9 @@ function createIncidentCard(incident, architectureLinks) {
     link.href = architectureUrl;
     focus.append(link);
   } else focus.textContent = "Governed space unresolved";
+  const assignment = element("p", "oof-incident-card-assignment", `Assignment: ${incident.assessment?.coverage || "Review required"}`);
   const insight = element("p", "oof-incident-card-insight", incident.governanceInsight || "Available evidence does not yet support a case-specific governance conclusion.");
-  intelligence.append(focusHeading, focus, insight);
+  intelligence.append(focusHeading, focus, assignment, insight);
   headingBlock.append(intelligence);
 
   const actions = element("div", "oof-incident-card-actions");
