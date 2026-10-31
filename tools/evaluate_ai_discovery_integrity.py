@@ -56,7 +56,7 @@ def evaluate() -> dict:
         checks.append(result(
             "Generated guide exists",
             guide_page.is_file(),
-            str(guide_page.relative_to(ROOT)) if guide_page.is_file() else None,
+            guide_page.relative_to(ROOT).as_posix() if guide_page.is_file() else None,
             "The expected public guide is generated.",
         ))
         checks.append(result(
