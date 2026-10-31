@@ -2,7 +2,7 @@
 
 ## 1. Executive Result
 
-Quality gate: **PASS**. Audited all 300 latest assessments while preserving all 300 raw incident records.
+Quality gate: **PASS**. Audited all 310 latest assessments while preserving all 310 raw incident records.
 
 ## 2. Baseline and Scope
 
@@ -54,7 +54,7 @@ The static deterministic build supports governed incremental processing. A futur
 
 ## 14. Quality Gates
 
-Full-dataset assessments: 300. Critical defects: 0. Repeated generic insights: 0.
+Full-dataset assessments: 310. Critical defects: 0. Repeated generic insights: 0.
 
 ## 15. Deferred Stage B
 
