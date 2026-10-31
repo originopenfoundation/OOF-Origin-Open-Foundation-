@@ -14,6 +14,13 @@ function initialCore(){
 }
 function initial(){return {version:'2.1',real_model_status:'NOT_VERIFIED',quality_score:null,acceptance:'NOT_EVALUATED',cases:inventory.languages.flatMap(locale=>prompts.map((question,i)=>({id:locale.code+':'+(i+1),language:locale.code,scenario:i+1,input:{question,language:i===5?'en':i>5?'auto':locale.code},evaluation:'NOT_RUN',actual:null,reason:null}))) };}
 function parseSSE(raw){return raw.split('\n').filter(l=>l.startsWith('data: ')).map(l=>JSON.parse(l.slice(6))).find(e=>e.done)?.done||null;}
+// Resuming after quota must not replay completed policy refusals or rejected
+// outputs: those are inspectable results, not transient transport failures.
+function retryableCase(record){
+ if(record.evaluation==='CAPTURED_PENDING_MANUAL_REVIEW')return false;
+ if(record.evaluation!=='BLOCKED')return true;
+ return ['rate_limited','timeout','provider_error','busy','http_error','AbortError','TimeoutError','TypeError','two_authenticated_model_responses_required','model_not_configured','public_report_only_gate'].includes(record.reason);
+}
 async function collect({base='http://127.0.0.1:4173',out='multilingual-v21.json',probe,localReview=false,maxCases=8,suite='languages'}={}){
  const report=fs.existsSync(out)?JSON.parse(fs.readFileSync(out,'utf8')):suite==='initial'?initialCore():initial();
  const save=()=>fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n',{mode:0o600});
@@ -34,7 +41,7 @@ async function collect({base='http://127.0.0.1:4173',out='multilingual-v21.json'
  if(report.resume_after&&Date.parse(report.resume_after)>Date.now()){save();return report;}
  let executed=0;
  for(const c of report.cases){
-  if(c.evaluation==='CAPTURED_PENDING_MANUAL_REVIEW')continue;
+  if(!retryableCase(c))continue;
   if(executed>=Math.max(1,Math.min(Number(maxCases)||8,104)))break;
   if(report.cases.some(p=>p.language===c.language&&p.evaluation==='CAPTURED_PENDING_MANUAL_REVIEW')&&!state.sessions[c.language]){c.evaluation='BLOCKED';c.reason='session_checkpoint_missing';save();continue;}
   c.evaluation='NOT_VERIFIED';c.reason=null;const started=Date.now();
@@ -60,4 +67,4 @@ async function collect({base='http://127.0.0.1:4173',out='multilingual-v21.json'
 }
 if(require.main===module){const args=process.argv.slice(2),arg=(n,d)=>args.includes(n)?args[args.indexOf(n)+1]:d;
  const probeFile=arg('--probe',null);collect({base:arg('--base','http://127.0.0.1:4173'),out:path.resolve(arg('--out','multilingual-v21.json')),probe:probeFile?JSON.parse(fs.readFileSync(probeFile,'utf8')):null,localReview:args.includes('--local-review'),maxCases:arg('--max-cases',8),suite:arg('--suite','languages')}).then(r=>console.log(JSON.stringify({cases:r.cases.length,status:r.real_model_status,resume_after:r.resume_after||null}))).catch(e=>{console.error(e.message);process.exitCode=1;});}
-module.exports={initial,initialCore,collect,parseSSE};
+module.exports={initial,initialCore,collect,parseSSE,retryableCase};
