@@ -29,6 +29,7 @@ jobs:
       - name: Rebuild AI discovery files
         run: |
           python tools/build_localization.py
+          python tools/build_ai_discovery_guides.py
           python tools/build_ai_compatibility.py
           python tools/build_ai_incident_pages.py
 
@@ -52,6 +53,9 @@ jobs:
       - name: Validate knowledge infrastructure
         run: python tools/validate_knowledge_infrastructure.py
 
+      - name: Evaluate AI discovery integrity
+        run: python tools/evaluate_ai_discovery_integrity.py
+
       - name: Validate automated incident intelligence
         run: |
           python tools/ai_incidents.py validate
@@ -66,7 +70,7 @@ jobs:
           python tools/audit_ai_incident_v341.py
 
       - name: Run knowledge retrieval tests
-        run: python -m unittest tests.test_knowledge_infrastructure
+        run: python -m unittest tests.test_knowledge_infrastructure tests.test_ai_discovery_guides tests.test_ai_discovery_integrity
 
       - name: Validate localized access pages
         run: python -m unittest tests.test_localization

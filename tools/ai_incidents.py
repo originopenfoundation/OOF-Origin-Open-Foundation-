@@ -768,6 +768,13 @@ def _normalized_public_field(record: dict, field: str, fallback=None):
     return normalized.get(field) if field in normalized else record.get(field, fallback)
 
 
+def _preview_text(value: str | None, limit: int = 210) -> str | None:
+    value = " ".join(str(value or "").split())
+    if not value:
+        return None
+    return value if len(value) <= limit else f"{value[:limit - 3].rstrip()}..."
+
+
 def _list_projection(record: dict) -> dict:
     analysis = record.get("automatedAnalysis") or {}
     architecture_analysis = analysis.get("architectureAnalysis") or {}
@@ -779,6 +786,7 @@ def _list_projection(record: dict) -> dict:
     corroboration = (analysis.get("evidenceSnapshot") or {}).get("corroboration") or {}
     evidence_status = (analysis.get("evidenceSnapshot") or {}).get("publicEvidenceStatus") or "Evidence Insufficient"
     prevention = analysis.get("preventionGuidance") or {}
+    failure = analysis.get("systemFailureClassification") or {}
     report = analysis.get("oofIncidentReport") or {}
     public_slug = public_incident_slug(record)
     return {
@@ -820,6 +828,16 @@ def _list_projection(record: dict) -> dict:
         },
         "governanceFocus": (primary or {}).get("governanceFocus"),
         "governanceInsight": analysis.get("incidentGovernanceInsight"),
+        "systemFailure": {
+            "component": (failure.get("components") or [{}])[0].get("label"),
+            "mechanismStatus": failure.get("technicalMechanismStatus") or "NOT_ESTABLISHED",
+        },
+        "preventionPreview": {
+            "applicability": _preview_text((prevention.get("couldThisHappenToYourSystem") or {}).get("applicability")),
+            "control": _preview_text((prevention.get("whatShouldBeImplemented") or {}).get("controlObjective")),
+            "verification": _preview_text((prevention.get("howCanProtectionBeVerified") or {}).get("testObjective")),
+            "limitation": _preview_text(prevention.get("evidenceLimitation")),
+        },
         "preventionFocus": prevention.get("recommendedPreventiveControl"),
         "searchText": " ".join(str(value or "") for value in (
             record.get("title"), record.get("summary"), record.get("country"),
@@ -839,7 +857,7 @@ def _search_projection(projection: dict) -> dict:
             "id", "slug", "title", "eventType", "occurredAt", "reportedAt", "country",
             "countryCode", "industry", "system", "severity", "source", "primaryArchitecture",
             "contributingArchitectures", "architectureCount", "assessment", "governanceFocus",
-            "governanceInsight", "preventionFocus", "searchText", "detailUrl", "verifyUrl",
+            "governanceInsight", "systemFailure", "preventionPreview", "preventionFocus", "searchText", "detailUrl", "verifyUrl",
         )
     }
 
@@ -1002,6 +1020,10 @@ def export_public(records: list[dict]) -> None:
         1 for item in records
         if (item.get("automatedAnalysis") or {}).get("analysisStatus") == "AUTOMATED_ANALYSIS_AVAILABLE"
     )
+    review_statuses = Counter(
+        (item.get("automatedAnalysis") or {}).get("reviewStatus") or "Not performed"
+        for item in records
+    )
     summary = {
         "generatedAt": generated,
         "datasetScope": "Public source facts with separate, versioned Automated OOF® Analysis. Automated analysis is not an OOF® Approved Assessment.",
@@ -1015,13 +1037,15 @@ def export_public(records: list[dict]) -> None:
         "stressTestsCompleted": sum(1 for item in records if (item.get("automatedAnalysis") or {}).get("oofApproved") is True),
         "automatedAnalyses": analysis_available,
         "automatedAssessmentsAvailable": analysis_available,
-        "humanReviewPending": len(review_queue.get("items") or []),
+        "humanReviewPriorityQueue": len(review_queue.get("items") or []),
+        "unreviewedAssessments": sum(count for status, count in review_statuses.items() if status != "Completed"),
+        "completedAuthorizedReviews": review_statuses["Completed"],
         "sourceTransparency": {
             "publisherCount": len(source_publishers),
             "publishers": sorted(source_publishers),
             "disclosure": "Current records are attributed to their listed source publisher. Independent corroboration and authorized human review remain separate record-level statuses.",
         },
-        "humanReviewPriorityQueue": {
+        "humanReviewPriorityQueueDetail": {
             "count": len(review_queue.get("items") or []),
             "label": "Human review priority queue",
             "scope": "A selected subset of public incidents awaiting authorized human review. It is not a count of every record whose review status is Not performed.",

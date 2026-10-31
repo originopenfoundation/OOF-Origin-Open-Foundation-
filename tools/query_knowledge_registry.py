@@ -36,6 +36,9 @@ class KnowledgeRegistry:
         self.representations = load(root / "representations.json")["representations"]
         self.by_id = {item["id"]: item for item in self.objects}
         self.representation_by_id = {item["id"]: item for item in self.representations}
+        self.representations_by_url: dict[str, list[dict]] = {}
+        for representation in self.representations:
+            self.representations_by_url.setdefault(representation["canonicalUrl"], []).append(representation)
         self.by_url = load(root / "indexes" / "object-by-canonical-url.json")["index"]
         self.by_name = load(root / "indexes" / "object-by-name.json")["index"]
         alias_path = root / "indexes" / "object-aliases.json"
@@ -53,6 +56,71 @@ class KnowledgeRegistry:
     def exact(self, value: str) -> dict | None:
         result = self.exact_result(value)
         return result.get("object") if result["status"] == "FOUND" else None
+
+    def resolve_source(self, value: str, *, current_only: bool = True) -> dict:
+        """Resolve a published source without upgrading it into a factual claim.
+
+        A representation can be authentic and citable while still being only an
+        explanatory or discovery page. Callers must retain that distinction
+        instead of treating a canonical URL as proof of the underlying claim.
+        """
+        representations = [
+            item for item in self.representations_by_url.get(value, [])
+            if item.get("authorityState") not in {"REVIEW_REQUIRED", "QUARANTINED"}
+        ]
+        if len(representations) > 1:
+            return {
+                "status": "AMBIGUOUS",
+                "sourceKind": "MULTIPLE_PUBLISHED_REPRESENTATIONS",
+                "representationIds": sorted(item["id"] for item in representations),
+                "claimState": "NOT_DETERMINED",
+                "evidenceState": "NOT_EVALUATED",
+                "authorityBoundary": "No source is selected until the representation ambiguity is resolved.",
+            }
+        if representations:
+            representation = representations[0]
+            object_record = self.by_id.get(representation.get("representsObject"))
+            if object_record and (not current_only or self._lifecycle_rank(object_record) == 0):
+                source_kind = "CANONICAL_OBJECT_REPRESENTATION" if representation["authorityState"] == "CANONICAL_AUTHORITATIVE" else "SUPPORTING_REPRESENTATION_OF_OBJECT"
+            else:
+                source_kind = "SUPPORTING_PUBLISHED_REPRESENTATION"
+                object_record = None
+            return {
+                "status": "FOUND",
+                "sourceKind": source_kind,
+                "representation": representation,
+                "object": object_record,
+                "canonicalSource": representation["canonicalUrl"],
+                "lifecycleState": object_record.get("status") if object_record else "PUBLISHED_REPRESENTATION",
+                "claimState": "SOURCE_AUTHENTICITY_ONLY" if source_kind != "CANONICAL_OBJECT_REPRESENTATION" else "CANONICAL_METHODOLOGY_REFERENCE",
+                "evidenceState": "NOT_EVALUATED",
+                "authorityBoundary": "The resolver identifies the published OOF source and its authority role; it does not verify facts, certify a system, make a legal or regulatory determination, or approve an operation.",
+            }
+        resolved = self.resolve(value, allow_candidates=False, current_only=current_only)
+        if resolved["status"] == "FOUND":
+            item = resolved["object"]
+            return {
+                "status": "FOUND",
+                "sourceKind": "CANONICAL_OBJECT",
+                "representation": None,
+                "object": item,
+                "canonicalSource": item["canonicalUrl"],
+                "lifecycleState": item.get("status"),
+                "claimState": "CANONICAL_METHODOLOGY_REFERENCE",
+                "evidenceState": "NOT_EVALUATED",
+                "authorityBoundary": "The resolver identifies a canonical methodology record; it does not verify facts, certify a system, make a legal or regulatory determination, or approve an operation.",
+            }
+        return {
+            "status": "UNKNOWN",
+            "sourceKind": "UNRESOLVED",
+            "representation": None,
+            "object": None,
+            "canonicalSource": None,
+            "lifecycleState": None,
+            "claimState": "NOT_DETERMINED",
+            "evidenceState": "NOT_EVALUATED",
+            "authorityBoundary": "No OOF source was resolved; no methodology recommendation should be made from this input.",
+        }
 
     def exact_result(self, value: str) -> dict:
         object_id = value if value in self.by_id else self.by_url.get(value)
@@ -72,7 +140,7 @@ class KnowledgeRegistry:
     @staticmethod
     def _lifecycle_rank(item: dict) -> int:
         value = normalize(item.get("status") or "")
-        if value in {"current", "completed", "published", "active", "canonical"}:
+        if any(token in value.split() for token in {"current", "completed", "published", "active", "canonical"}):
             return 0
         if value == "draft":
             return 1

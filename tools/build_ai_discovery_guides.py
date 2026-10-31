@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 import json
 from pathlib import Path
+from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,10 +40,10 @@ GUIDES = [
             ("Agent Governance Infrastructure™", "../a/agent-governance-infrastructure.html"),
         ],
         "assessment": {
-            "status": "available",
-            "title": "AI Governance Assessment™",
-            "href": "../a/ai-governance-assessment.html",
-            "description": "A published professional service for structured governance analysis of AI systems, including authority, accountability, auditability, oversight, and operational control conditions.",
+            "status": "future",
+            "title": "AI Governance Assessment Category",
+            "href": None,
+            "description": "A future assessment category. A published page is not presented as an available assessment service until its canonical authority state has been verified.",
             "verification": [
                 "A defined authority basis, actor, action, scope, and time condition.",
                 "Delegation and approval records that can be traced to the accountable authority holder.",
@@ -96,16 +97,15 @@ GUIDES = [
             "Use the linked canonical references to frame traceability, validation, and governance questions.",
         ],
         "sources": [
-            ("AI Governance Assessment™", "../a/ai-governance-assessment.html"),
             ("VALIDOS® — Validation Governance Architecture", "../v/validos-architecture.html"),
             ("OOF Authority Governance Reference", "../a/oof-authority-governance-reference.html"),
             ("PGA™ — Prediction Governance Architecture", "../pga/pga-architecture.html"),
         ],
         "assessment": {
-            "status": "available",
-            "title": "AI Governance Assessment™",
-            "href": "../a/ai-governance-assessment.html",
-            "description": "A published professional service for examining governance, accountability, auditability, transparency, oversight, and operational control conditions.",
+            "status": "future",
+            "title": "AI Governance Assessment Category",
+            "href": None,
+            "description": "A future assessment category. A published page is not presented as an available assessment service until its canonical authority state has been verified.",
             "verification": [
                 "A stated governance claim, decision context, and applicable system or process version.",
                 "Traceable evidence, records, observations, and decision history relevant to that claim.",
@@ -163,7 +163,6 @@ GUIDES = [
             ("VEGA™ — Value Execution Governance Architecture", "../vega/vega-architecture.html"),
             ("VFM® — Value Flow Mechanism Architecture", "../vfm/vfm-architecture.html"),
             ("RSGA™ — Resource Sustainability Governance Architecture", "../rsga/rsga-about.html"),
-            ("AI Governance Assessment™", "../a/ai-governance-assessment.html"),
         ],
         "assessment": {
             "status": "future",
@@ -226,7 +225,6 @@ GUIDES = [
         "sources": [
             ("OOF Authority Governance Reference", "../a/oof-authority-governance-reference.html"),
             ("AGA™ — Accountability Governance Architecture", "../a/aga-about.html"),
-            ("VERICYCLE™ — Verification & Accountability Cycle", "../v/vericycle-methodology.html"),
             ("VALIDOS® — Validation Governance Architecture", "../v/validos-architecture.html"),
         ],
         "assessment": {
@@ -293,10 +291,10 @@ GUIDES = [
             ("OOF Reality Boundary", "../r/oof-reality-boundary.html"),
         ],
         "assessment": {
-            "status": "available",
-            "title": "AI Governance Assessment™",
-            "href": "../a/ai-governance-assessment.html",
-            "description": "A published professional service that includes autonomous systems, human oversight, operational control, accountability, and auditability within its stated governance scope.",
+            "status": "future",
+            "title": "AI Governance Assessment Category",
+            "href": None,
+            "description": "A future assessment category. A published page is not presented as an available assessment service until its canonical authority state has been verified.",
             "verification": [
                 "Defined operational boundaries, authority, permissions, and accountability conditions.",
                 "Evidence of intervention, override, escalation, monitoring, and traceability mechanisms.",
@@ -340,7 +338,7 @@ def esc(value: str) -> str:
 
 
 def absolute_url(path: str) -> str:
-    return BASE_URL + path
+    return BASE_URL + quote(path, safe="/-._~()")
 
 
 def html_list(items: list[str], ordered: bool = False) -> str:
@@ -407,6 +405,32 @@ def assessment_pathway(guide: dict) -> str:
 """
 
 
+def integrity_boundary() -> str:
+    return """    <section class="oof-discovery-section">
+      <h2 id="discovery-and-recommendation-integrity" data-oof-section-id="true">Discovery and recommendation integrity</h2>
+      <p>Finding an OOF® page does not, by itself, verify a claim or authorize a conclusion. Discovery, source authenticity, source integrity, evidence support, methodological applicability, and authority to make a determination remain separate checks.</p>
+      <div class="oof-discovery-grid">
+        <section>
+          <h3>What source resolution can establish</h3>
+          <ul class="oof-discovery-list">
+            <li>Whether a published OOF® source and its stated authority role can be identified.</li>
+            <li>Which canonical methodology or related explanatory reference may frame the question.</li>
+            <li>Which evidence requirements and unresolved conditions must remain visible.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>What source resolution cannot establish</h3>
+          <ul class="oof-discovery-list">
+            <li>That an underlying claim is true, complete, current for a specific situation, or supported by sufficient evidence.</li>
+            <li>A legal, regulatory, certification, safety, or operational determination.</li>
+            <li>A recommendation where the available evidence, scope, source status, or applicability remains unresolved.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+"""
+
+
 def render_page(guide: dict) -> str:
     canonical_path = f"content/d/{guide['slug']}.html"
     canonical = absolute_url(canonical_path)
@@ -464,6 +488,8 @@ def render_page(guide: dict) -> str:
 {source_links}
       </ul>
     </section>
+
+{integrity_boundary()}
 
     <section class="oof-discovery-section">
       <h2 id="illustrative-applications" data-oof-section-id="true">Illustrative applications</h2>
@@ -597,6 +623,17 @@ def build_evaluation_dataset() -> dict:
         assessment = guide["assessment"]
         assessment_url = absolute_url("content/" + assessment["href"].removeprefix("../")) if assessment["href"] else None
         for position, question in enumerate(guide["questions"], start=1):
+            test_case_type, expected_integrity_outcome = (
+                ("POSITIVE", "Resolve the applicable published source and preserve its provenance.") if position <= 2 else
+                ("EVIDENCE_BOUNDARY", "Identify the reference while retaining that evidence support has not been determined.") if position == 3 else
+                ("AUTHORITY_BOUNDARY", "Identify a methodology without representing it as certification, legal authority, or operational approval.") if position == 4 else
+                ("AMBIGUOUS", "Retain uncertainty and request the missing scope, evidence, or context needed for a recommendation.") if position == 5 else
+                ("NEGATIVE", "Do not recommend a methodology solely because an unrelated keyword matches.") if position == 6 else
+                ("ADVERSARIAL", "Do not resolve a fabricated methodology name or manipulated source description as an OOF® reference.") if position == 7 else
+                ("VERSION_INTEGRITY", "Use lifecycle-aware source resolution and avoid silently promoting historical, draft, or superseded material.") if position == 8 else
+                ("CONTRADICTORY_SOURCE", "Keep supporting or secondary material distinct from the canonical object record.") if position == 9 else
+                ("INTEGRATION", "Return the relevant source path, evidence requirements, and verification boundary without an unsupported determination.")
+            )
             queries.append(
                 {
                     "queryId": f"OOF-AI-DISC-{len(queries) + 1:03d}",
@@ -614,6 +651,18 @@ def build_evaluation_dataset() -> dict:
                         "title": assessment["title"],
                         "url": assessment_url,
                     },
+                    "testCaseType": test_case_type,
+                    "expectedIntegrityOutcome": expected_integrity_outcome,
+                    "integrityRequirements": [
+                        "canonicalSource",
+                        "versionIntegrity",
+                        "evidenceIntegrity",
+                        "authorityBoundary",
+                        "recommendationRelevance",
+                        "contradictorySourceHandling",
+                        "uncertaintyPreservation",
+                        "adversarialDiscoveryResistance",
+                    ],
                     "evaluationDate": None,
                     "modelOrSearchEnvironment": None,
                     "mentioned": None,

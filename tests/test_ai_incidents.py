@@ -374,6 +374,18 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertEqual(search["id"], projection["id"])
         self.assertEqual(search["detailUrl"], projection["detailUrl"])
         self.assertIn("assessment", search)
+        self.assertIn("systemFailure", search)
+        self.assertIn("preventionPreview", search)
+
+    def test_card_previews_are_evidence_bounded(self):
+        item = record(title="Deepfake impersonation report")
+        item["summary"] = "A cloned voice reportedly impersonated an executive."
+        item["automatedAnalysis"] = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, "test", "2026-10-29T00:00:00Z")
+        projection = incidents._list_projection(item)
+        self.assertEqual(projection["systemFailure"]["mechanismStatus"], "NOT_CONFIRMED")
+        self.assertTrue(projection["preventionPreview"]["applicability"])
+        self.assertTrue(projection["preventionPreview"]["control"])
+        self.assertTrue(projection["preventionPreview"]["verification"])
 
     def test_source_snapshot_freshness_uses_a_bounded_slo(self):
         current = incidents._source_snapshot_freshness(
