@@ -3,30 +3,30 @@ export class IncidentRepository {
     this.baseUrl = baseUrl;
   }
 
-  async request(path) {
-    const response = await fetch(`${this.baseUrl}/${path}`, { headers: { Accept: "application/json" } });
+  async request(path, signal) {
+    const response = await fetch(`${this.baseUrl}/${path}`, { headers: { Accept: "application/json" }, signal });
     if (!response.ok) throw new Error(`Incident data request failed (${response.status})`);
     return response.json();
   }
 
-  summary() {
-    return this.request("summary.json");
+  summary(signal) {
+    return this.request("summary.json", signal);
   }
 
-  map() {
-    return this.request("map.json");
+  map(signal) {
+    return this.request("map.json", signal);
   }
 
-  aggregations() {
-    return this.request("aggregations.json");
+  aggregations(signal) {
+    return this.request("aggregations.json", signal);
   }
 
-  page(page = 1) {
-    return this.request(`incidents-page-${Math.max(1, Number(page) || 1)}.json`);
+  page(page = 1, signal) {
+    return this.request(`incidents-page-${Math.max(1, Number(page) || 1)}.json`, signal);
   }
 
-  index() {
-    return this.request("incident-index.json");
+  search(signal) {
+    return this.request("incident-search.json", signal);
   }
 
   detail(slug) {

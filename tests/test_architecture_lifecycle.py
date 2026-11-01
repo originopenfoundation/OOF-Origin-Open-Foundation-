@@ -49,15 +49,20 @@ class LifecycleTests(unittest.TestCase):
         item = self.architecture('draft')
         self.assertEqual(cross_validate_architecture(item, item, True)['result'], 'CONFLICT')
 
-    def test_generated_slga_is_traceable_without_approved_membership(self):
+    def test_generated_slga_tracks_explicit_approval_and_consistent_lifecycle(self):
         root = Path(__file__).resolve().parents[1]
         approved = json.loads((root / 'data/oof-architecture-map-approved.json').read_text(encoding='utf-8'))
-        self.assertNotIn('SLGA', approved['approved'])
+        approved_slga = 'SLGA' in approved['approved']
+        validations = json.loads((root / 'data/knowledge/reports/architecture-canonical-validation.json').read_text(encoding='utf-8'))['architectures']
+        validation = next(item for item in validations if item['acronym'] == 'SLGA')
+        self.assertEqual(validation['approvalVerified'], approved_slga)
+        self.assertEqual(validation['result'], 'PASS' if approved_slga else 'PENDING')
         objects = json.loads((root / 'data/knowledge/objects-core.json').read_text(encoding='utf-8'))['objects']
         slga = next(item for item in objects if item['id'] == 'OOF-KO-ARCH-SLGA')
-        self.assertEqual(slga['status'], 'in-progress')
-        self.assertEqual(slga['authorityState'], 'SUPPORTING_CITABLE')
-        self.assertFalse(slga['sourceAuthority']['approvalVerified'])
+        self.assertEqual(slga['status'], 'completed' if approved_slga else 'in-progress')
+        self.assertEqual(slga['authorityState'], 'CANONICAL_AUTHORITATIVE' if approved_slga else 'SUPPORTING_CITABLE')
+        if not approved_slga:
+            self.assertFalse(slga['sourceAuthority']['approvalVerified'])
         self.assertTrue(slga['provenance']['contentHash'])
 
     def test_generated_drafts_never_enter_canonical_retrieval(self):

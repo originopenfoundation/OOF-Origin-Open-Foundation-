@@ -281,7 +281,7 @@ def build_incident_detail(record: dict, related: list[dict] | None = None, histo
 <html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{text(record['title'])} | OOF® AI Incident Intelligence</title>
 <meta name="description" content="{text(description)}" /><link rel="canonical" href="{canonical}" />
-<link rel="stylesheet" href="/style.css" /><link rel="stylesheet" href="/assets/css/oof-ai-incidents.css?v=6" />
+<link rel="stylesheet" href="/style.css" /><link rel="stylesheet" href="/assets/css/oof-ai-incidents.css?v=7" />
 <script type="application/ld+json">{json.dumps(json_ld, ensure_ascii=False).replace('</', '<\\/')}</script></head>
 <body><div id="header"></div><main class="oof-incident-app oof-incident-detail"><article>
 <nav class="oof-detail-breadcrumb" aria-label="Breadcrumb"><a href="/index.html">OOF®</a><span>/</span><a href="/ai-incidents/">AI Incident Intelligence</a><span>/</span><span aria-current="page">Incident record</span></nav>
@@ -368,7 +368,7 @@ def build(check: bool = False) -> None:
                 mismatches.append(str(target.relative_to(ROOT)))
             return
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(value, encoding="utf-8")
+        target.write_text(value, encoding="utf-8", newline="\n")
         generated_targets.append(target)
 
     source = SOURCE.read_text(encoding="utf-8")

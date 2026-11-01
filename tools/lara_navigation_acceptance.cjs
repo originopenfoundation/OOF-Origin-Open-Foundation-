@@ -12,6 +12,12 @@ const cases=[
 async function run(){
  if(fs.existsSync(path.join(root,'.env')))throw Error('Run in a checkout without .env; this probe never accesses credentials');
  const reservation=net.createServer();await new Promise(r=>reservation.listen(0,'127.0.0.1',r));const port=reservation.address().port;await new Promise(r=>reservation.close(r));
+ const approvedSLGA=require('../data/oof-architecture-map-approved.json').approved.includes('SLGA');
+ const slgaValidation=require('../data/knowledge/reports/architecture-canonical-validation.json').architectures.find(a=>a.acronym==='SLGA');
+ assert.equal(slgaValidation.approvalVerified,approvedSLGA);assert.equal(slgaValidation.result,approvedSLGA?'PASS':'PENDING');
+ const expectedLifecycle=approvedSLGA?'approved-canonical':'in-progress',expectedAuthority=approvedSLGA?'CANONICAL_AUTHORITATIVE':'SUPPORTING_CITABLE';
+ const representations=require('../data/knowledge/representations.json').representations;
+ function checkSlgaReference(ref){assert.equal(ref.lifecycle_status,expectedLifecycle);const rep=representations.find(r=>r.id===ref.resource_id);assert(rep);assert.equal(ref.authority_state,approvedSLGA&&rep.authorityState==='CANONICAL_AUTHORITATIVE'?'CANONICAL_AUTHORITATIVE':'SUPPORTING_CITABLE');}
  const base=`http://127.0.0.1:${port}`,report={revision:require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),provider:'none',authenticated_responses:0,model_acceptance:'NOT_TESTED',cases:[],result:'FAIL'};
  const child=spawn(process.execPath,['--max-old-space-size=256','lara/server.js'],{cwd:root,env:{...process.env,HOST:'127.0.0.1',PORT:String(port),NODE_ENV:'development',LLM_PROVIDER:'none',LLM_API_KEY:'',LARA_RATE_LIMIT_PER_MINUTE:'1000'},stdio:['ignore','pipe','pipe']});
  let errors='';child.stderr.on('data',p=>{errors=(errors+p).slice(-2000);});
@@ -28,7 +34,7 @@ async function run(){
    const {done,latency_ms}=await chat(question),navigation=done.navigation;assert(navigation);
    assert.equal(navigation.report_only,true);assert.equal(navigation.model_explanation_verified,false);
    if(id==='unknown')assert.equal(navigation.status,'UNSUPPORTED');else assert(navigation.results.length>0,id);
-   if(id==='software'){assert.equal(navigation.results[0].object_id,'OOF-KO-ARCH-SLGA');assert.equal(navigation.results[0].lifecycle_status,'in-progress');assert.equal(navigation.results[0].authority_state,'SUPPORTING_CITABLE');}
+   if(id==='software'){assert.equal(navigation.results[0].object_id,'OOF-KO-ARCH-SLGA');checkSlgaReference(navigation.results[0]);}
    const links=[];
    for(const result of navigation.results){
     assert(result.provenance.contentHash);const url=new URL(result.url);assert.equal(url.origin,'https://originopenfoundation.org');
@@ -37,8 +43,8 @@ async function run(){
    }
    report.cases.push({id,question,latency_ms,answer:done.answer,navigation,verified_links:links,status:'VERIFIED'});
   }
-  const first=await chat('What is SLGA?','knowledge');assert.match(first.done.answer,/in-progress/);assert.match(first.done.answer,/not verified/);
-  const followup=await chat('Is it approved?','knowledge',first.cookie);assert.match(followup.done.answer,/in-progress/);assert.match(followup.done.answer,/not verified/);
+  const first=await chat('What is SLGA?','knowledge');assert(first.done.sources.some(s=>s.object_id==='OOF-KO-ARCH-SLGA'&&s.authority_state===expectedAuthority));if(!approvedSLGA){assert.match(first.done.answer,/in-progress/);assert.match(first.done.answer,/not verified/);}
+  const followup=await chat('Is it approved?','knowledge',first.cookie);assert(followup.done.sources.some(s=>s.object_id==='OOF-KO-ARCH-SLGA'&&s.authority_state===expectedAuthority));if(!approvedSLGA){assert.match(followup.done.answer,/in-progress/);assert.match(followup.done.answer,/not verified/);}
   report.lifecycle_communication={direct:first.done.answer,followup:followup.done.answer,status:'VERIFIED'};
   const isolated=await chat('Is it approved?','knowledge');assert(!isolated.done.answer.includes('SLGA'));report.session_isolation='VERIFIED';
   const {navigate}=require('../lara/knowledge/navigator');

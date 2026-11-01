@@ -120,6 +120,7 @@
 .oof-operational-status > div { min-width: 0; padding: 10px 12px; background: #777a78; }
 .oof-operational-status dt { font-size: 10px; font-weight: 800; text-transform: uppercase; }
 .oof-operational-status dd { margin: 5px 0 0; font-size: 13px; overflow-wrap: anywhere; }
+.oof-incident-source-disclosure { margin: -12px 0 22px; font-size: 12px; color: rgba(255, 255, 255, 0.88); }
 
 .oof-incident-nav::-webkit-scrollbar { display: none; }
 
@@ -395,7 +396,7 @@
 
 .oof-incident-card-status {
   display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   grid-template-rows: none !important;
   align-items: stretch !important;
   gap: 1px !important;
@@ -407,6 +408,7 @@
 .oof-incident-card-status dd { margin-top: 3px; text-align: left; font-size: 11px; }
 .oof-incident-card-intelligence { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.28); }
 .oof-incident-card-intelligence h4 { margin: 0 0 4px; font-size: 10px; text-transform: uppercase; }
+.oof-incident-card-assignment { margin-top: 5px !important; font-size: 11px; font-weight: 700; }
 .oof-incident-card-insight { margin-top: 8px !important; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .oof-incident-card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 16px; }
 .oof-incident-card-actions a { padding: 8px 11px; border: 1px solid rgba(255, 255, 255, 0.58); text-decoration: none; font-size: 11px; font-weight: 800; }
@@ -884,7 +886,7 @@
     grid-template-rows: none;
     gap: 7px 12px;
   }
-  .oof-incident-card-status { grid-template-columns: 1fr !important; }
+  .oof-incident-card-status { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .oof-incident-row dd { text-align: right; }
   .oof-analysis-status { grid-template-columns: 1fr; }
   .oof-analysis-status dd { text-align: left; }

@@ -13,6 +13,10 @@ test('navigator exposes inspectable ranking and provenance while preserving repo
  assert.equal(result.results[0].score,26);assert.equal(result.report_only,true);assert.equal(result.model_explanation_verified,false);
  assert.match(explain(result),/example.html/);assert.deepEqual(result,navigate(fixture(),'software lifecycle governance'));
 });
+test('an approved architecture does not turn its supporting About page into canonical text',()=>{
+ const index=fixture();index.resources[0].authority_state='SUPPORTING_CITABLE';
+ const ref=navigate(index,'software').results[0];assert.equal(ref.lifecycle_status,'approved-canonical');assert.equal(ref.authority_state,'SUPPORTING_CITABLE');
+});
 test('drafts are labelled and never promoted even with a contradictory canonical flag',()=>{
  for(const state of ['draft','in-progress','pending']){
   const result=navigate(fixture(state),'software');
