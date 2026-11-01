@@ -10,7 +10,7 @@ const conversation=require('./conversation');
 const discoveryEngine=require('../lib/oof-discovery');
 const {redact}=require('./security/presentation');
 const {generationPolicy,protectedIntent,smallTalk}=require('./llm/policy');
-const {publicEgressPolicy}=require('./llm/public-egress');
+const {publicEgressPolicy,privateReviewAllowed}=require('./llm/public-egress');
 const {communicationState}=require('./knowledge/communication-policy');
 const {approvedScopes}=require('./knowledge/communication-approval');
 const ROOT=path.resolve(__dirname,'..');
@@ -55,7 +55,7 @@ async function chat(req,res){
   const started=Date.now();
   if(!validOrigin(req))return send(res,403,{error:'Allowed frontend origin required'});
   if(!index)return send(res,503,{error:'Shared knowledge registry is unavailable'});
-  const publicRequest=process.env.NODE_ENV!=='development'||!loopback(req);
+  const publicRequest=!privateReviewAllowed({host:HOST,nodeEnv:process.env.NODE_ENV,render:process.env.RENDER,remoteAddress:req.socket.remoteAddress});
   const publicReportOnly=index.report_only&&publicRequest;
   if(!allow(req,res,'chat'))return;
   const release=chatConcurrency.tryAcquire();if(!release)return send(res,429,{error:'Service is busy. Please retry shortly.'},{'Retry-After':'5'});

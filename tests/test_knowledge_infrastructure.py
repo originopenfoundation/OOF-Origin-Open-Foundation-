@@ -7,7 +7,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from query_knowledge_registry import KnowledgeRegistry  # noqa: E402
-from build_knowledge_infrastructure import cross_validate_architecture, git_value, source_hash  # noqa: E402
+from build_knowledge_infrastructure import (  # noqa: E402
+    LOCALIZED_ACCESS_PATHS,
+    SOURCE_COMMIT,
+    cross_validate_architecture,
+    git_value,
+    source_hash,
+)
 from validate_json_schema import validate_instance  # noqa: E402
 
 
@@ -103,11 +109,11 @@ class KnowledgeInfrastructureTests(unittest.TestCase):
         architecture = fixture["base"]
         for case in fixture["cases"]:
             candidate = {**architecture, **case["override"]}
-            result = cross_validate_architecture(architecture, candidate, approved=True)
+            result = cross_validate_architecture(architecture, candidate)
             self.assertEqual(result["result"], case["expectedResult"], case["name"])
             self.assertEqual(result["authorityState"], case["expectedAuthorityState"], case["name"])
         corrected = {**architecture, "acronym": "TEST"}
-        self.assertEqual(cross_validate_architecture(architecture, corrected, approved=True)["authorityState"], "CANONICAL_AUTHORITATIVE")
+        self.assertEqual(cross_validate_architecture(architecture, corrected)["authorityState"], "CANONICAL_AUTHORITATIVE")
 
     def test_supporting_lookup_returns_only_citable_material(self):
         results = self.registry.supporting("governance", 20)
@@ -119,10 +125,15 @@ class KnowledgeInfrastructureTests(unittest.TestCase):
         self.assertEqual(report["candidatePoolCount"], report["candidateGroupCount"])
         self.assertEqual(report["candidateGroupCount"], len(report["groups"]))
 
-    def test_provenance_uses_each_source_files_commit(self):
+    def test_provenance_uses_source_commit_without_generated_layer_cycles(self):
         for item in self.registry.representations:
             provenance = item["provenance"]
-            self.assertEqual(provenance["repositoryCommit"], git_value("%H", provenance["sourcePath"]))
+            expected_commit = (
+                SOURCE_COMMIT
+                if provenance["sourcePath"] in LOCALIZED_ACCESS_PATHS
+                else git_value("%H", provenance["sourcePath"])
+            )
+            self.assertEqual(provenance["repositoryCommit"], expected_commit)
 
     def test_schema_date_time_requires_time_and_timezone(self):
         schema = {"type": "string", "format": "date-time"}

@@ -43,6 +43,24 @@ PUBLIC_CONSUMERS = [
     "OOF-search",
     "authorized-machine-consumer",
 ]
+# These pages are generated public-language access layers, not independently
+# authored methodology. Referencing their own commit in their provenance makes
+# a tracked Knowledge Layer build self-referential: each localization rebuild
+# changes the source revision consumed by the next build.
+LOCALIZED_ACCESS_PATHS = frozenset({
+    "ar/index.html",
+    "de/index.html",
+    "es/index.html",
+    "fr/index.html",
+    "hi/index.html",
+    "it/index.html",
+    "ja/index.html",
+    "ko/index.html",
+    "pt/index.html",
+    "ru/index.html",
+    "zh-cn/index.html",
+    "zh-hk/index.html",
+})
 TOKEN_STOPWORDS = {
     "a", "about", "an", "and", "architecture", "as", "at", "by", "for", "from", "governance",
     "in", "index", "is", "map", "module", "of", "oof", "on", "or", "standard", "the", "to", "with",
@@ -226,8 +244,12 @@ def normalized_language(record: dict) -> str:
 
 
 def provenance(source_path: str, source_url: str, content_hash: str) -> dict:
-    repository_commit = git_value("%H", source_path)
-    generated_timestamp = git_value("%cI", source_path)
+    if source_path in LOCALIZED_ACCESS_PATHS:
+        repository_commit = SOURCE_COMMIT
+        generated_timestamp = GENERATED_TIMESTAMP
+    else:
+        repository_commit = git_value("%H", source_path)
+        generated_timestamp = git_value("%cI", source_path)
     if not re.fullmatch(r"[a-f0-9]{40,64}", repository_commit) or not generated_timestamp:
         raise RuntimeError(f"Source provenance is unavailable for {source_path}")
     return {

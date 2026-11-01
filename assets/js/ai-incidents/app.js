@@ -481,8 +481,26 @@ function createIncidentCard(incident, architectureLinks) {
   } else focus.textContent = "Governed space unresolved";
   const assignment = element("p", "oof-incident-card-assignment", `Assignment: ${incident.assessment?.coverage || "Review required"}`);
   const insight = element("p", "oof-incident-card-insight", incident.governanceInsight || "Available evidence does not yet support a case-specific governance conclusion.");
-  intelligence.append(focusHeading, focus, assignment, insight);
+  const systemFailure = incident.systemFailure || {};
+  const component = element("p", "oof-incident-card-component", `System component: ${systemFailure.component || "Not established"}`);
+  const mechanism = element("p", "oof-incident-card-mechanism", systemFailure.mechanismStatus === "NOT_CONFIRMED" || !systemFailure.mechanismStatus
+    ? "Failure mechanism not established."
+    : `Failure mechanism status: ${systemFailure.mechanismStatus}`);
+  intelligence.append(focusHeading, focus, assignment, component, mechanism, insight);
   headingBlock.append(intelligence);
+
+  const preview = incident.preventionPreview || {};
+  const prevention = element("ol", "oof-incident-prevention-preview");
+  [
+    ["Could this happen?", preview.applicability],
+    ["What to implement", preview.control],
+    ["How to verify", preview.verification],
+  ].forEach(([label, value]) => {
+    const row = document.createElement("li");
+    row.append(element("b", "", label), element("span", "", value || "Prevention analysis pending sufficient evidence."));
+    prevention.append(row);
+  });
+  headingBlock.append(prevention);
 
   const actions = element("div", "oof-incident-card-actions");
   const view = element("a", "oof-incident-primary-action", "View incident");
@@ -490,6 +508,11 @@ function createIncidentCard(incident, architectureLinks) {
   const verify = element("a", "oof-incident-secondary-action", "Help verify / Submit evidence");
   verify.href = incident.verifyUrl || `/ai-incidents/verify/?incident=${encodeURIComponent(incident.slug)}`;
   actions.append(view, verify);
+  if (architectureUrl) {
+    const explore = element("a", "oof-incident-secondary-action", "Explore Prevention Architecture");
+    explore.href = architectureUrl;
+    actions.append(explore);
+  }
   headingBlock.append(actions);
   article.append(headingBlock);
   return article;

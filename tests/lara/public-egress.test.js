@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
-const {publicEgressPolicy}=require('../../lara/llm/public-egress');
+const {publicEgressPolicy,privateReviewAllowed}=require('../../lara/llm/public-egress');
 const {generationPolicy}=require('../../lara/llm/policy');
 test('public visitor consent cannot replace governed public communication approval',()=>{
  const result=generationPolicy({configured:true,publicReportOnly:true,question:'Hello',passages:[],approvedPublicScopes:[]});
@@ -14,4 +14,9 @@ test('an approved public scope still needs explicit visitor consent for the pinn
 });
 test('controlled local review remains independent from public visitor consent',()=>{
  assert.deepEqual(publicEgressPolicy({publicRequest:false,provider:'groq'}),{allowed:true});
+});
+test('development mode cannot turn a hosted or publicly bound server into private review',()=>{
+ const local={host:'127.0.0.1',nodeEnv:'development',remoteAddress:'::ffff:127.0.0.1'};
+ assert.equal(privateReviewAllowed(local),true);
+ for(const override of [{host:'0.0.0.0'},{nodeEnv:'production'},{render:'true'},{remoteAddress:'198.51.100.1'}])assert.equal(privateReviewAllowed({...local,...override}),false);
 });
