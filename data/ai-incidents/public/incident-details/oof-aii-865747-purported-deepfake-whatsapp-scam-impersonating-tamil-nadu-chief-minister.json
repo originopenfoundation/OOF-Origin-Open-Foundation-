@@ -61,10 +61,10 @@
   "createdAt": "2026-09-26T20:49:45.590000Z",
   "updatedAt": "2026-09-26T20:49:45.590000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-865747-V12",
+    "assessmentIdentity": "OOF-AII-ASMT-865747-V13",
     "incidentId": "OOF-AII-865747",
-    "analysisVersion": 12,
-    "engineVersion": "3.4.2",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
     "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
     "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -171,10 +171,12 @@
     },
     "oofIncidentReport": {
       "headline": "Purported Deepfake WhatsApp Scam Impersonating Tamil Nadu Chief Minister and Actor C. Joseph Vijay Reportedly Defrauded Bengaluru Security Guard of ₹104,000 (~$1,085.40)",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that Ratikanta Giri, a 29-year-old security guard in Bengaluru, India, reportedly lost ₹104,000 (~$1,085.40) after a WhatsApp video caller used a purportedly AI-generated deepfake to impersonate C. Joseph Vijay, the actor and chief minister of the southern Indian state of Tamil Nadu. The caller promised financial aid, while accomplices allegedly demanded fees and later impersonated India's Central Bureau of Investigation. (2026-09-09, India).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-09-09, India). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1711",
       "eventDate": "2026-09-09",
+      "sourceRecordTimestamp": "2026-09-26",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -235,10 +237,10 @@
           "evidence"
         ],
         "role": "Primary",
-        "governedMechanism": "identity, origin, attribution, evidence",
-        "reasonForRelevance": "Available reporting describes identity, origin, attribution. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining Origin Integrity Standard (OIS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported identity, origin, attribution concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
-        "governanceFocus": "How should identity, origin, attribution be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining Origin Integrity Standard (OIS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+        "governanceFocus": "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:1711"
@@ -290,7 +292,17 @@
       "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-865747",
+      "systemDomains": [
+        "Generative AI"
+      ],
+      "observedOutcome": "Ratikanta Giri, a 29-year-old security guard in Bengaluru, India, reportedly lost ₹104,000 (~$1,085.40) after a WhatsApp video caller used a purportedly AI-generated deepfake to impersonate C. Joseph Vijay, the actor and chief minister of the southern Indian state of Tamil Nadu. The caller promised financial aid, while accomplices allegedly demanded fees and later impersonated India's Central Bureau of Investigation.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1711"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -300,7 +312,10 @@
             "generated"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1711"
+          ]
         },
         {
           "componentId": "identity-authorization",
@@ -309,7 +324,10 @@
             "deepfake"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1711"
+          ]
         },
         {
           "componentId": "memory-state",
@@ -318,7 +336,10 @@
             "state"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1711"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -329,15 +350,15 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving identity, origin, attribution, evidence. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: OBIDENITY® — Origin-Bound Identity Governance Architecture.",
     "governanceQuestions": [
-      "How should identity, origin, attribution be governed in the conditions described by the available incident evidence?",
+      "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Synthetic Media Creators, Scammers, Impersonation Scammers, Deepfake Creators, Cybercriminals In India, Cybercriminals, Scammers In India at the relevant time?",
       "What evidence would establish how Whatsapp, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Messaging Apps, Deepfake Technology produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Purported Deepfake WhatsApp Scam Impersonating Tamil Nadu Chief Minister and Actor C. Joseph Vijay Reportedly Defrauded Bengaluru Security Guard of ₹104,000 (~$1,085.40), involving Whatsapp, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Messaging Apps, Deepfake Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should identity, origin, attribution be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Purported Deepfake WhatsApp Scam Impersonating Tamil Nadu Chief Minister and Actor C. Joseph Vijay Reportedly Defrauded Bengaluru Security Guard of ₹104,000 (~$1,085.40), involving Whatsapp, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Messaging Apps, Deepfake Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -379,20 +400,20 @@
       "incidentEvidence": [
         "aiid:1711"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving identity, origin, attribution, evidence. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-OBIDENITY",
       "contributingArchitectures": [],
       "parentStandard": "OOF-OID-OBID-OIS-2026-07-12-0001",
       "coreModule": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
-      "governedMechanism": "identity, origin, attribution, evidence",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should identity, origin, attribution be governed in the conditions described by the available incident evidence?",
+        "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Synthetic Media Creators, Scammers, Impersonation Scammers, Deepfake Creators, Cybercriminals In India, Cybercriminals, Scammers In India at the relevant time?",
         "What evidence would establish how Whatsapp, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Messaging Apps, Deepfake Technology produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Purported Deepfake WhatsApp Scam Impersonating Tamil Nadu Chief Minister and Actor C. Joseph Vijay Reportedly Defrauded Bengaluru Security Guard of ₹104,000 (~$1,085.40), involving Whatsapp, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Messaging Apps, Deepfake Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should identity, origin, attribution be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Purported Deepfake WhatsApp Scam Impersonating Tamil Nadu Chief Minister and Actor C. Joseph Vijay Reportedly Defrauded Bengaluru Security Guard of ₹104,000 (~$1,085.40), involving Whatsapp, Synthetic Video Generation Technology, Synthetic Media Generation Technology, Messaging Apps, Deepfake Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "CoreModule"
     },
     "layerAnalysis": {
@@ -412,8 +433,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported identity, origin, attribution, evidence.",
-        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported identity, origin, attribution, evidence.",
+        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1711"
         ],
@@ -448,10 +469,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T19:23:44Z",
-    "supersedes": "OOF-AII-ASMT-865747-V11",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-865747-V12",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

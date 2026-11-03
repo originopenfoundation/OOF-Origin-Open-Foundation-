@@ -60,10 +60,10 @@
   "createdAt": "2026-07-24T00:00:00Z",
   "updatedAt": "2026-07-24T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-822544-V13",
+    "assessmentIdentity": "OOF-AII-ASMT-822544-V14",
     "incidentId": "OOF-AII-822544",
-    "analysisVersion": 13,
-    "engineVersion": "3.4.2",
+    "analysisVersion": 14,
+    "engineVersion": "3.4.5",
     "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
     "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -168,10 +168,12 @@
     },
     "oofIncidentReport": {
       "headline": "SASSA Facial-Verification Failures Reportedly Contributed to Social Grant Access Disruptions in South Africa",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that South African social grant beneficiaries reportedly encountered repeated failures in SASSA's eLife facial-verification portal. Later parliamentary reporting said unsuccessful facial recognition was among the causes of non-verification and confirmed 67,868 grant suspensions in one quarter, but did not specify how many suspensions resulted from facial-verification failures. Affected users were redirected to in-person fingerprint checks. (2026-03-30, South Africa).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-03-30, South Africa). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1606",
       "eventDate": "2026-03-30",
+      "sourceRecordTimestamp": "2026-07-24",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -219,10 +221,10 @@
           "classification"
         ],
         "role": "Primary",
-        "governedMechanism": "verification, identity, access, classification",
-        "reasonForRelevance": "Available reporting describes verification, identity, access. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining OBIDENITY® — Origin-Bound Identity Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported verification, identity, access concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
-        "governanceFocus": "How should verification, identity, access be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining OBIDENITY® — Origin-Bound Identity Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+        "governanceFocus": "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1606"
@@ -244,10 +246,10 @@
             "classification"
           ],
           "role": "Contributing",
-          "governedMechanism": "verification, identity, classification",
-          "reasonForRelevance": "Available reporting describes verification, identity, classification. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported verification, identity, classification concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
-          "governanceFocus": "How should verification, identity, classification be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
+          "governanceFocus": "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:1606"
@@ -259,7 +261,17 @@
       ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-822544",
+      "systemDomains": [
+        "Computer vision"
+      ],
+      "observedOutcome": "South African social grant beneficiaries reportedly encountered repeated failures in SASSA's eLife facial-verification portal. Later parliamentary reporting said unsuccessful facial recognition was among the causes of non-verification and confirmed 67,868 grant suspensions in one quarter, but did not specify how many suspensions resulted from facial-verification failures. Affected users were redirected to in-person fingerprint checks.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1606"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -270,7 +282,10 @@
             "biometric"
           ],
           "confidence": "Preliminary",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1606"
+          ]
         },
         {
           "componentId": "human-oversight",
@@ -279,7 +294,10 @@
             "review"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1606"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -290,16 +308,16 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving verification, identity, access, classification. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "OBIDENITY® — Origin-Bound Identity Governance Architecture frames the primary governed problem. ASGA™ — Autonomous Systems Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should verification, identity, access be governed in the conditions described by the available incident evidence?",
-      "How should verification, identity, classification be governed in the conditions described by the available incident evidence?",
+      "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to South African Social Security Agency (Sassa), Facial Recognition System Deployers at the relevant time?",
       "What evidence would establish how Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case SASSA Facial-Verification Failures Reportedly Contributed to Social Grant Access Disruptions in South Africa, involving Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should verification, identity, access be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case SASSA Facial-Verification Failures Reportedly Contributed to Social Grant Access Disruptions in South Africa, involving Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -341,7 +359,7 @@
       "incidentEvidence": [
         "aiid:1606"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving verification, identity, access, classification. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-OBIDENITY",
       "contributingArchitectures": [
@@ -349,15 +367,15 @@
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "verification, identity, access, classification",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should verification, identity, access be governed in the conditions described by the available incident evidence?",
-        "How should verification, identity, classification be governed in the conditions described by the available incident evidence?",
+        "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to South African Social Security Agency (Sassa), Facial Recognition System Deployers at the relevant time?",
         "What evidence would establish how Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case SASSA Facial-Verification Failures Reportedly Contributed to Social Grant Access Disruptions in South Africa, involving Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should verification, identity, access be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case SASSA Facial-Verification Failures Reportedly Contributed to Social Grant Access Disruptions in South Africa, involving Sassa Elife Certification Portal, Electronic Facial Biometric Verification System, Facial Recognition Systems, Biometric Identity Verification Systems, Social Grant Review And Suspension Workflow, Online Government Service Portals, Password Authentication Systems, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -377,8 +395,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported verification, identity, access, classification.",
-        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported verification, identity, access, classification.",
+        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1606"
         ],
@@ -395,8 +413,8 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported verification, identity, classification.",
-        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported verification, identity, classification.",
+        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1606"
         ],
@@ -430,10 +448,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T19:23:44Z",
-    "supersedes": "OOF-AII-ASMT-822544-V12",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-822544-V13",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

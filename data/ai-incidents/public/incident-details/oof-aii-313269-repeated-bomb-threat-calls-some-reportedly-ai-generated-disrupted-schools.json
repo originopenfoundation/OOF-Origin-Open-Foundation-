@@ -65,10 +65,10 @@
   "createdAt": "2026-10-10T23:57:48.398000Z",
   "updatedAt": "2026-10-10T23:57:48.398000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-313269-V2",
+    "assessmentIdentity": "OOF-AII-ASMT-313269-V3",
     "incidentId": "OOF-AII-313269",
-    "analysisVersion": 2,
-    "engineVersion": "3.4.2",
+    "analysisVersion": 3,
+    "engineVersion": "3.4.5",
     "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
     "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -179,10 +179,12 @@
     },
     "oofIncidentReport": {
       "headline": "Repeated Bomb Threat Calls, Some Reportedly AI-Generated, Disrupted Schools in Wheatland, California",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that A series of anonymous bomb threat calls, some reportedly using AI-generated voices, targeted Wheatland Union High School and Bear River Middle School in Wheatland, California. The calls prompted an evacuation, canceled or delayed classes, and repeated campus searches. Police deemed the initial threats hoaxes. Schools added overnight security and other precautions as further calls continued. (2026-08-18, United States of America).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-08-18, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1746",
       "eventDate": "2026-08-18",
+      "sourceRecordTimestamp": "2026-10-10",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -230,10 +232,10 @@
           "further"
         ],
         "role": "Primary",
-        "governedMechanism": "information, other, further",
-        "reasonForRelevance": "Available reporting describes information, other, further. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Basis Standard (PBAS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported information, other, further concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Basis Standard (PBAS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:1746"
@@ -265,7 +267,15 @@
       "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-313269",
+      "systemDomains": [],
+      "observedOutcome": "A series of anonymous bomb threat calls, some reportedly using AI-generated voices, targeted Wheatland Union High School and Bear River Middle School in Wheatland, California. The calls prompted an evacuation, canceled or delayed classes, and repeated campus searches. Police deemed the initial threats hoaxes. Schools added overnight security and other precautions as further calls continued.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1746"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -275,7 +285,10 @@
             "generated"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1746"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -286,15 +299,15 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving information, other, further. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
     "governanceQuestions": [
-      "What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
+      "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Synthetic Media Creators, Malicious Actors, Information Manipulation Actors In The United States, Information Manipulation Actors, Hoax Threat Perpetrators at the relevant time?",
       "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Repeated Bomb Threat Calls, Some Reportedly AI-Generated, Disrupted Schools in Wheatland, California, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Repeated Bomb Threat Calls, Some Reportedly AI-Generated, Disrupted Schools in Wheatland, California, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -335,20 +348,20 @@
       "incidentEvidence": [
         "aiid:1746"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving information, other, further. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "PGA™ — Prediction Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-PGA",
       "contributingArchitectures": [],
       "parentStandard": "OOF-KO-STD-PGA-03",
       "coreModule": null,
-      "governedMechanism": "information, other, further",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "What information, data, observations, evidence references, and signals legitimately form the basis of the prediction?",
+        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Synthetic Media Creators, Malicious Actors, Information Manipulation Actors In The United States, Information Manipulation Actors, Hoax Threat Perpetrators at the relevant time?",
         "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Repeated Bomb Threat Calls, Some Reportedly AI-Generated, Disrupted Schools in Wheatland, California, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: What information, data, observations, evidence references, and signals legitimately form the basis of the prediction? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Repeated Bomb Threat Calls, Some Reportedly AI-Generated, Disrupted Schools in Wheatland, California, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -367,8 +380,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, other, further.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, other, further.",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1746"
         ],
@@ -402,10 +415,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T19:23:44Z",
-    "supersedes": "OOF-AII-ASMT-313269-V1",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-313269-V2",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

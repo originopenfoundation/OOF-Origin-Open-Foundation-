@@ -37,12 +37,15 @@ async function start() {
       repository.aggregations(signal), loadArchitectureLinks(signal),
     ]);
     renderSummary(summary);
+    loadWorkflowStatus(signal);
     let result = page;
     if (requiresSearchProjection()) {
       const search = await repository.search(signal);
       result = { ...search, page: requestedPage, pageSize: 25 };
     }
-    await renderRoute(result, mapData, aggregations, architectureLinks);
+    if (signal.aborted) return;
+    await renderRoute(result, mapData, aggregations, architectureLinks, signal);
+    if (signal.aborted) return;
     setState("success", "Public incident dataset loaded.");
   } catch (error) {
     if (error.name === "AbortError") return;
@@ -62,33 +65,46 @@ function setState(kind, message) {
 function markCurrentView() {
   const route = view === "dashboard" ? "/ai-incidents/" : `/ai-incidents/${view}/`;
   document.querySelectorAll(".oof-incident-nav a").forEach((link) => {
-    if (new URL(link.href, location.origin).pathname === route) link.setAttribute("aria-current", "page");
+    const target = new URL(link.href, location.origin);
+    if (target.pathname === route) link.setAttribute("aria-current", "page");
+    target.search = params.toString();
+    target.searchParams.delete("page");
+    link.href = target.pathname + target.search;
   });
 }
 
 function requiresSearchProjection() {
   return ["critical", "stress-tests"].includes(view)
-    || ["q", "severity", "eventType", "analysisStatus", "reviewStatus", "evidenceStatus", "country", "architecture"].some((key) => params.get(key));
+    || ["q", "severity", "eventType", "analysisStatus", "reviewStatus", "evidenceStatus", "source", "country", "architecture", "dateFrom", "dateTo", "lens", "domain", "component", "mechanism", "prevention"].some((key) => params.get(key));
 }
 
-async function renderRoute(result, mapData, aggregations, architectureLinks) {
+async function renderRoute(result, mapData, aggregations, architectureLinks, signal) {
   const showMap = view === "dashboard" || view === "map";
   const aggregateViews = ["architectures", "industries", "countries", "trends"];
   mapPane.hidden = !showMap;
   analysisView.hidden = !aggregateViews.includes(view);
   listPane.hidden = aggregateViews.includes(view) && !params.get("architecture") && !params.get("country");
-  if (showMap) {
-    await renderMap(mapData);
-    renderGeographySummary(aggregations.geography);
-    renderCountryTable(aggregations.geography.countries, true);
-  }
-  if (view === "architectures") renderArchitectures(aggregations.architectures, architectureLinks);
-  if (view === "industries") renderIndustries(aggregations.industries, aggregations.scopeNotice);
-  if (view === "countries") renderCountries(aggregations.geography, aggregations.scopeNotice);
-  if (view === "trends") renderTrends(aggregations.trends, aggregations.scopeNotice);
   let items = applyFilters(result.items || []);
   if (view === "critical") items = items.filter((item) => item.severity === "Critical");
   if (view === "stress-tests") items = items.filter((item) => item.assessment?.oofApproved === true);
+  const viewAggregations = aggregateViews.includes(view) && requiresSearchProjection() ? filteredAggregations(items) : aggregations;
+  if (view === "architectures") renderArchitectures(viewAggregations.architectures, architectureLinks);
+  if (view === "industries") renderIndustries(viewAggregations.industries, viewAggregations.scopeNotice);
+  if (view === "countries") renderCountries(viewAggregations.geography, viewAggregations.scopeNotice);
+  if (view === "trends") renderTrends(viewAggregations.trends, viewAggregations.scopeNotice);
+  if (showMap) {
+    const geography = requiresSearchProjection() ? filteredGeography(items) : aggregations.geography;
+    const visibleMap = requiresSearchProjection() ? { countries: geography.countries.map((country) => ({ ...country, incidentCount: country.count })) } : mapData;
+    if (leafletMap) { leafletMap.remove(); leafletMap = null; }
+    await renderMap(visibleMap, signal);
+    if (signal.aborted) return;
+    renderGeographySummary(geography);
+    renderCountryTable(geography.countries, true);
+  }
+  if (view === "dashboard" && params.get("lens")) {
+    analysisView.hidden = false;
+    renderIncidentLens(items, params.get("lens"));
+  }
   const locallyPaged = requiresSearchProjection();
   renderIncidents(items, architectureLinks, {
     page: Math.max(1, Number(params.get("page")) || 1),
@@ -96,6 +112,42 @@ async function renderRoute(result, mapData, aggregations, architectureLinks) {
     total: locallyPaged ? items.length : result.total,
     locallyPaged,
   });
+}
+
+function filteredAggregations(items) {
+  const industries = new Map(), architectures = new Map(), trends = new Map();
+  items.forEach((item) => {
+    const industry = item.industry || "Industry not specified";
+    industries.set(industry, (industries.get(industry) || 0) + 1);
+    const addArchitecture = (architecture, role) => {
+      if (!architecture?.architectureId) return;
+      const row = architectures.get(architecture.architectureId) || { architectureId: architecture.architectureId, label: architecture.label, canonicalUrl: architecture.canonicalUrl, primary: 0, contributing: 0, methodologyReferences: "Not available" };
+      row[role] += 1;
+      architectures.set(architecture.architectureId, row);
+    };
+    addArchitecture(item.primaryArchitecture, "primary");
+    (item.contributingArchitectures || []).forEach((architecture) => addArchitecture(architecture, "contributing"));
+    const period = item.occurredAt ? item.occurredAt.slice(0, 7) : "Date not specified";
+    const trend = trends.get(period) || { period, total: 0, critical: 0, high: 0, moderate: 0, low: 0 };
+    trend.total += 1;
+    const severity = String(item.severity || "").toLowerCase();
+    if (["critical", "high", "moderate", "low"].includes(severity)) trend[severity] += 1;
+    trends.set(period, trend);
+  });
+  return { geography: filteredGeography(items), industries: [...industries].map(([industry, count]) => ({industry, count})).sort((a, b) => b.count - a.count), architectures: [...architectures.values()], trends: [...trends.values()].sort((a, b) => a.period.localeCompare(b.period)), scopeNotice: "Counts describe filtered public records, not global prevalence or architecture quality." };
+}
+
+function filteredGeography(items) {
+  const countries = new Map();
+  items.forEach((item) => {
+    if (!item.countryCode) return;
+    const row = countries.get(item.countryCode) || { countryCode: item.countryCode, country: item.country || item.countryCode, count: 0, critical: 0 };
+    row.count += 1;
+    if (item.severity === "Critical") row.critical += 1;
+    countries.set(item.countryCode, row);
+  });
+  const assigned = [...countries.values()].reduce((total, row) => total + row.count, 0);
+  return { total: items.length, geographicallyAssigned: assigned, locationNotSpecified: items.length - assigned, countries: [...countries.values()].sort((a, b) => b.count - a.count || a.country.localeCompare(b.country)) };
 }
 
 async function loadArchitectureLinks(signal) {
@@ -108,6 +160,7 @@ async function loadArchitectureLinks(signal) {
       architecture.primaryPage?.url ? `/${architecture.primaryPage.url.replace(/^\/+/, "")}` : null,
     ]));
   } catch (error) {
+    if (error.name === "AbortError") throw error;
     console.warn("Architecture links are temporarily unavailable.", error);
     return new Map();
   }
@@ -117,6 +170,7 @@ function renderSummary(summary) {
   document.querySelectorAll("[data-metric]").forEach((element) => {
     const value = summary[element.dataset.metric];
     element.textContent = Number.isFinite(Number(value)) ? Number(value).toLocaleString("en") : "—";
+    if (element.dataset.metric === "architecturesExposed" && element.previousElementSibling) element.previousElementSibling.textContent = "Architectures identified for review";
     if (element.dataset.metric === "incidentsThisMonth") {
       const generated = new Date(summary.generatedAt || "");
       const now = new Date();
@@ -124,8 +178,8 @@ function renderSummary(summary) {
         element.textContent = "Unavailable (outdated export)";
       }
       if (!Number.isNaN(generated.valueOf()) && now - generated > 36 * 3600000) element.textContent = "Unavailable (outdated export)";
-      if (element.previousElementSibling) element.previousElementSibling.textContent = "Reports this month (UTC)";
-      element.title = "Source report dates in the UTC calendar month of the public export; not incident occurrence dates.";
+      if (element.previousElementSibling) element.previousElementSibling.textContent = "Record timestamps this month (UTC)";
+      element.title = "Source record timestamps in the UTC calendar month of the public export; these may reflect source updates, not incident occurrence or first publication.";
     }
   });
   const operational = summary.operationalStatus || {};
@@ -136,6 +190,13 @@ function renderSummary(summary) {
       : "Public dataset synchronization time is unavailable";
   renderOperationalStatus(operational);
   const transparency = summary.sourceTransparency || {};
+  const sourceSelect = document.querySelector('#incident-filters select[name="source"]');
+  if (sourceSelect) {
+    const selected = params.get("source") || "";
+    sourceSelect.replaceChildren(new Option("All", ""));
+    (transparency.publishers || []).forEach((publisher) => sourceSelect.add(new Option(publisher, publisher)));
+    sourceSelect.value = selected;
+  }
   const disclosure = document.getElementById("incident-source-disclosure");
   if (disclosure) disclosure.textContent = transparency.disclosure || "Source and review states are shown for each public record.";
 }
@@ -156,13 +217,37 @@ function renderOperationalStatus(status) {
     ["Newly published incidents", Number(status.newlyPublishedIncidents || 0).toLocaleString("en")],
     ["Pending candidates", Number(status.pendingCandidateCount || 0).toLocaleString("en")],
     ["Last run recorded in export", `${status.runStatus || "not recorded"} (later runs may not be reflected)`],
+    ["Latest GitHub workflow run", "Checking GitHub Actions…"],
+    ["Most recent unsuccessful run (last 20)", "Checking GitHub Actions…"],
   ];
   target.replaceChildren();
   rows.forEach(([label, value]) => {
     const group = document.createElement("div");
-    group.append(element("dt", "", label), element("dd", "", value));
+    const detail = element("dd", "", value);
+    if (label === "Latest GitHub workflow run") detail.id = "incident-live-workflow";
+    if (label === "Most recent unsuccessful run (last 20)") detail.id = "incident-live-failure";
+    group.append(element("dt", "", label), detail);
     target.append(group);
   });
+}
+
+async function loadWorkflowStatus(signal) {
+  const latestTarget = document.getElementById("incident-live-workflow");
+  const failedTarget = document.getElementById("incident-live-failure");
+  if (!latestTarget || !failedTarget) return;
+  try {
+    const url = "https://api.github.com/repos/originopenfoundation/OOF-Origin-Open-Foundation-/actions/workflows/ai-incident-daily-sync.yml/runs?branch=main1&per_page=20";
+    const response = await fetch(url, { signal, headers: { Accept: "application/vnd.github+json" } });
+    if (!response.ok) throw new Error(`Workflow status request failed (${response.status})`);
+    const runs = (await response.json()).workflow_runs || [];
+    const describe = (run) => run ? `${run.conclusion || run.status || "unknown"} · ${formatTimestamp(run.created_at)}` : "No recorded run in the latest 20";
+    latestTarget.textContent = describe(runs[0]);
+    failedTarget.textContent = describe(runs.find((run) => ["failure", "timed_out", "cancelled"].includes(run.conclusion)));
+  } catch (error) {
+    if (error.name === "AbortError") return;
+    latestTarget.textContent = "Unavailable; GitHub status could not be checked";
+    failedTarget.textContent = "Unavailable; GitHub status could not be checked";
+  }
 }
 
 function formatFreshness(freshness, snapshotUrl) {
@@ -186,7 +271,7 @@ function incidentCountColor(country) {
   return "#777b79";
 }
 
-async function renderMap(mapData) {
+async function renderMap(mapData, signal) {
   const mapElement = document.getElementById("incident-map");
   mapElement?.setAttribute("aria-busy", "true");
   if (leafletMap) {
@@ -197,7 +282,7 @@ async function renderMap(mapData) {
   const map = L.map("incident-map", { minZoom: 1, maxZoom: 7, worldCopyJump: true, attributionControl: false }).setView([18, 8], 2);
   leafletMap = map;
   const countryByCode = new Map(mapData.countries.map((country) => [country.countryCode, country]));
-  const response = await fetch("/assets/data/ne_50m_admin_0_countries.geojson");
+  const response = await fetch("/assets/data/ne_50m_admin_0_countries.geojson", { signal });
   if (!response.ok) throw new Error(`Map geometry request failed (${response.status})`);
   const geojson = await response.json();
   let selectedLayer = null;
@@ -279,14 +364,15 @@ function wireFilters() {
     event.preventDefault();
     const query = new URLSearchParams();
     new FormData(form).forEach((value, key) => { if (value) query.set(key, value); });
-    navigate(Object.fromEntries(query.entries()));
+    navigate(Object.fromEntries(query.entries()), false, true);
   });
   form.addEventListener("reset", (event) => {
     event.preventDefault();
-    navigate({}, true);
+    navigate({}, true, true);
   });
   window.addEventListener("popstate", () => {
     params = new URLSearchParams(location.search);
+    markCurrentView();
     setFilterFormValues(form);
     start();
   });
@@ -296,8 +382,8 @@ function setFilterFormValues(form) {
   [...form.elements].forEach((control) => { if (control.name) control.value = params.get(control.name) || ""; });
 }
 
-function navigate(changes, replace = false) {
-  const query = new URLSearchParams(location.search);
+function navigate(changes, replace = false, clear = false) {
+  const query = new URLSearchParams(clear ? "" : location.search);
   Object.entries(changes).forEach(([key, value]) => {
     if (value === null || value === "") query.delete(key);
     else query.set(key, value);
@@ -305,6 +391,7 @@ function navigate(changes, replace = false) {
   const next = `${location.pathname}${query.toString() ? `?${query}` : ""}`;
   history[replace ? "replaceState" : "pushState"]({}, "", next);
   params = new URLSearchParams(query);
+  markCurrentView();
   const form = document.getElementById("incident-filters");
   if (form) setFilterFormValues(form);
   start();
@@ -319,7 +406,15 @@ function applyFilters(items) {
   if (params.get("analysisStatus")) result = result.filter((item) => item.assessment?.analysisStatus === params.get("analysisStatus"));
   if (params.get("reviewStatus")) result = result.filter((item) => item.assessment?.reviewStatus === params.get("reviewStatus"));
   if (params.get("evidenceStatus")) result = result.filter((item) => item.assessment?.evidenceStatus === params.get("evidenceStatus"));
+  if (params.get("source")) result = result.filter((item) => item.source?.publisher === params.get("source"));
   if (params.get("country")) result = result.filter((item) => item.countryCode === params.get("country"));
+  if (params.get("domain")) result = result.filter((item) => (item.systemFailure?.domains || []).includes(params.get("domain")));
+  if (params.get("component")) result = result.filter((item) => (item.systemFailure?.components || []).includes(params.get("component")));
+  if (params.get("mechanism")) result = result.filter((item) => (item.systemFailure?.candidateMechanisms || []).includes(params.get("mechanism")));
+  if (params.get("prevention")) result = result.filter((item) => Boolean(item.preventionPreview?.conditionalIdeaAvailable) === (params.get("prevention") === "conditional"));
+  if (params.get("excludeDisputed") === "1") result = result.filter((item) => item.assessment?.evidenceStatus !== "Contradicted / Disputed");
+  if (params.get("dateFrom")) result = result.filter((item) => item.occurredAt && item.occurredAt.slice(0, 10) >= params.get("dateFrom"));
+  if (params.get("dateTo")) result = result.filter((item) => item.occurredAt && item.occurredAt.slice(0, 10) <= params.get("dateTo"));
   if (params.get("architecture")) result = result.filter((item) => {
     const ids = [item.primaryArchitecture, ...(item.contributingArchitectures || [])].map((entry) => entry?.architectureId);
     return ids.includes(params.get("architecture"));
@@ -404,7 +499,7 @@ function renderCountries(geography, notice) {
 }
 
 function renderTrends(trends, notice) {
-  analysisView.replaceChildren(viewIntro("Incident trends", `${notice} Event dates reflect the best date available in each source record.`));
+  analysisView.replaceChildren(viewIntro("Incident trends", `${notice} Periods use event occurrence dates only; records without an occurrence date are excluded from this table.`));
   const recent = trends.filter((item) => item.period !== "Date not specified").slice(-24).reverse();
   const wrapper = element("div", "oof-country-table-wrap");
   const table = document.createElement("table");
@@ -419,6 +514,64 @@ function renderTrends(trends, notice) {
   table.append(body);
   wrapper.append(table);
   analysisView.append(wrapper);
+}
+
+function renderIncidentLens(items, lens) {
+  const counts = new Map();
+  const add = (key) => counts.set(key, (counts.get(key) || 0) + 1);
+  if (lens === "systems") {
+    items.forEach((item) => (item.systemFailure?.components || []).forEach(add));
+    analysisView.replaceChildren(viewIntro("System components", "Indicators are drawn from source descriptions and are not confirmed causes."));
+  } else if (lens === "patterns") {
+    items.forEach((item) => {
+      if (item.assessment?.evidenceStatus === "Contradicted / Disputed") return;
+      (item.systemFailure?.domains || []).forEach((domain) => (item.systemFailure?.components || []).forEach((component) => (item.systemFailure?.candidateMechanisms || []).forEach((mechanism) => add(`${domain} | ${component} | ${mechanism}`))));
+    });
+    analysisView.replaceChildren(viewIntro("Candidate recurring contexts", "Shared domain, component and source-language mechanism are leads for review, not evidence of a recurring failure or shared root cause."));
+  } else if (lens === "timeline" || lens === "yearly") {
+    items.forEach((item) => add(item.occurredAt ? item.occurredAt.slice(0, lens === "yearly" ? 4 : 7) : "Event date unknown"));
+    analysisView.replaceChildren(viewIntro("Event timeline", "Counts are reports in this dataset, not real-world failure rates. Unknown event dates remain separate."));
+  } else if (lens === "architectures") {
+    items.forEach((item) => [item.primaryArchitecture, ...(item.contributingArchitectures || [])].filter(Boolean).forEach((architecture) => add(`${architecture.architectureId} | ${architecture.label}`)));
+    analysisView.replaceChildren(viewIntro("Architecture relevance", "Automated relevance is provisional and does not establish a violation or governance failure."));
+  } else if (lens === "prevention") {
+    items.forEach((item) => add(item.preventionPreview?.conditionalIdeaAvailable ? "Conditional idea available" : "Evidence review needed"));
+    analysisView.replaceChildren(viewIntro("Prevention and verification", "Conditional ideas are not confirmed causes, approved controls, or guarantees of protection."));
+  } else {
+    analysisView.hidden = true;
+    return;
+  }
+  const rows = [...counts.entries()].filter(([, count]) => lens !== "patterns" || count > 1)
+    .sort((a, b) => ["timeline", "yearly"].includes(lens) ? b[0].localeCompare(a[0]) : b[1] - a[1] || a[0].localeCompare(b[0]));
+  if (!rows.length) {
+    analysisView.append(element("p", "", "No supported entries for the selected filters."));
+    return;
+  }
+  const list = element("div", "oof-bar-list");
+  rows.forEach(([label, count]) => {
+    const row = element("div", "oof-bar-row");
+    const action = element("a", "", label);
+    if (lens === "patterns") {
+      const [domain, component, mechanism] = label.split(" | ");
+      action.href = queryLink({ domain, component, mechanism, excludeDisputed: "1", lens: null, page: null });
+    } else if (lens === "systems") action.href = queryLink({ component: label, lens: null, page: null });
+    else if (lens === "architectures") action.href = queryLink({ architecture: label.split(" | ")[0], lens: null, page: null });
+    else if (lens === "prevention") action.href = queryLink({ prevention: label === "Conditional idea available" ? "conditional" : "pending", lens: null, page: null });
+    else {
+      action.textContent = label;
+      if (label !== "Event date unknown") {
+        if (lens === "yearly") action.href = queryLink({ dateFrom: `${label}-01-01`, dateTo: `${label}-12-31`, lens: null, page: null });
+        else {
+          const [year, month] = label.split("-").map(Number);
+          const last = new Date(Date.UTC(year, month, 0)).getUTCDate();
+          action.href = queryLink({ dateFrom: `${label}-01`, dateTo: `${label}-${String(last).padStart(2, "0")}`, lens: null, page: null });
+        }
+      }
+    }
+    row.append(action, element("b", "", count));
+    list.append(row);
+  });
+  analysisView.append(list);
 }
 
 function viewIntro(title, copy) {
@@ -462,7 +615,7 @@ function createIncidentCard(incident, architectureLinks) {
     element("span", "oof-incident-id", incident.id),
     element("span", "", incident.industry || "Industry not specified"),
     element("span", "", incident.country || "Location not specified"),
-    element("time", "", (incident.occurredAt || incident.reportedAt || "Date not specified").slice(0, 10)),
+    element("time", "", incident.occurredAt ? `Event: ${incident.occurredAt.slice(0, 10)}` : incident.reportedAt ? `Record timestamp: ${incident.reportedAt.slice(0, 10)} (event date unknown)` : "Event date unknown"),
   );
   headingBlock.append(eyebrow);
   const heading = element("h3", "");
@@ -535,7 +688,7 @@ function createIncidentCard(incident, architectureLinks) {
 
 function incidentDefinitionList(incident, architectureLinks) {
   const list = document.createElement("dl");
-  [["Date", (incident.occurredAt || incident.reportedAt || "Unknown").slice(0, 10)], ["Country", incident.country || "Location not specified"], ["Severity", incident.severity || "Insufficient evidence"]].forEach(([term, value]) => {
+  [["Event date", (incident.occurredAt || "Unknown").slice(0, 10)], ["Record timestamp (may be source update)", (incident.reportedAt || "Unknown").slice(0, 10)], ["Country", incident.country || "Location not specified"], ["Severity", incident.severity || "Insufficient evidence"]].forEach(([term, value]) => {
     const group = document.createElement("div");
     group.append(element("dt", "", term), element("dd", "", value));
     list.append(group);

@@ -56,10 +56,10 @@
   "createdAt": "2026-08-29T14:30:11.092000Z",
   "updatedAt": "2026-08-29T14:30:11.092000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-650176-V12",
+    "assessmentIdentity": "OOF-AII-ASMT-650176-V13",
     "incidentId": "OOF-AII-650176",
-    "analysisVersion": 12,
-    "engineVersion": "3.4.2",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
     "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
     "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -181,10 +181,12 @@
     },
     "oofIncidentReport": {
       "headline": "Job Screening Service Halts Facial Analysis of Applicants",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that In January 2021, HireVue removed the controversial AI expression tracking tool from its virtual job interview software. (2019-11-06, United States of America).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2019-11-06, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/95",
       "eventDate": "2019-11-06",
+      "sourceRecordTimestamp": "2026-08-29",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -229,10 +231,10 @@
           "recognition"
         ],
         "role": "Primary",
-        "governedMechanism": "recognition",
-        "reasonForRelevance": "Available reporting describes recognition. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported recognition concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-        "governanceFocus": "How should recognition be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+        "governanceFocus": "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:95"
@@ -253,10 +255,10 @@
             "tracking"
           ],
           "role": "Contributing",
-          "governedMechanism": "analysis, tracking",
-          "reasonForRelevance": "Available reporting describes analysis, tracking. This makes INTEGROS® — Integrity Governance Architecture relevant to examining INTEGROS® — Integrity Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported analysis, tracking concern falls within the governed questions represented by INTEGROS® — Integrity Governance Architecture.",
-          "governanceFocus": "How should analysis, tracking be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes INTEGROS® — Integrity Governance Architecture relevant to examining INTEGROS® — Integrity Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by INTEGROS® — Integrity Governance Architecture.",
+          "governanceFocus": "Which questions from INTEGROS® — Integrity Governance Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:95"
@@ -275,10 +277,10 @@
             "recognition"
           ],
           "role": "Contributing",
-          "governedMechanism": "recognition",
-          "reasonForRelevance": "Available reporting describes recognition. This makes TREGA™ — Tax-Relevant Event Governance Architecture relevant to examining TREGA™ — Tax-Relevant Event Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported recognition concern falls within the governed questions represented by TREGA™ — Tax-Relevant Event Governance Architecture.",
-          "governanceFocus": "How should recognition be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes TREGA™ — Tax-Relevant Event Governance Architecture relevant to examining TREGA™ — Tax-Relevant Event Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by TREGA™ — Tax-Relevant Event Governance Architecture.",
+          "governanceFocus": "Which questions from TREGA™ — Tax-Relevant Event Governance Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:95"
@@ -290,7 +292,15 @@
       ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-650176",
+      "systemDomains": [],
+      "observedOutcome": "In January 2021, HireVue removed the controversial AI expression tracking tool from its virtual job interview software.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:95"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -300,7 +310,10 @@
             "discrimination"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:95"
+          ]
         },
         {
           "componentId": "tool-execution-external-actions",
@@ -309,7 +322,10 @@
             "tool"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:95"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -320,16 +336,16 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving recognition. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "VFM® — Value Flow Mechanisms Architecture frames the primary governed problem. INTEGROS® — Integrity Governance Architecture, TREGA™ — Tax-Relevant Event Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should recognition be governed in the conditions described by the available incident evidence?",
-      "How should analysis, tracking be governed in the conditions described by the available incident evidence?",
+      "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from INTEGROS® — Integrity Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from TREGA™ — Tax-Relevant Event Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Hirevue at the relevant time?",
-      "What evidence would establish how Enterprise Ai Systems produced or enabled the reported outcome?",
-      "What additional independent evidence is required to resolve the material evidence gaps?"
+      "What evidence would establish how Enterprise Ai Systems produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Job Screening Service Halts Facial Analysis of Applicants, involving Enterprise Ai Systems, raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: How should recognition be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Job Screening Service Halts Facial Analysis of Applicants, involving Enterprise Ai Systems, raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -368,7 +384,7 @@
       "incidentEvidence": [
         "aiid:95"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving recognition. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "VFM® — Value Flow Mechanisms Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-VFM",
       "contributingArchitectures": [
@@ -377,15 +393,15 @@
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "recognition",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should recognition be governed in the conditions described by the available incident evidence?",
-        "How should analysis, tracking be governed in the conditions described by the available incident evidence?",
+        "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from INTEGROS® — Integrity Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from TREGA™ — Tax-Relevant Event Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Hirevue at the relevant time?",
-        "What evidence would establish how Enterprise Ai Systems produced or enabled the reported outcome?",
-        "What additional independent evidence is required to resolve the material evidence gaps?"
+        "What evidence would establish how Enterprise Ai Systems produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Job Screening Service Halts Facial Analysis of Applicants, involving Enterprise Ai Systems, raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: How should recognition be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Job Screening Service Halts Facial Analysis of Applicants, involving Enterprise Ai Systems, raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -402,8 +418,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported recognition.",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:95"
         ],
@@ -417,8 +433,8 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to INTEGROS® — Integrity Governance Architecture for the reported analysis, tracking.",
-        "statement": "Available evidence indicated relevance to INTEGROS® — Integrity Governance Architecture for the reported analysis, tracking.",
+        "finding": "Available evidence indicated relevance to INTEGROS® — Integrity Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to INTEGROS® — Integrity Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:95"
         ],
@@ -433,8 +449,8 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to TREGA™ — Tax-Relevant Event Governance Architecture for the reported recognition.",
-        "statement": "Available evidence indicated relevance to TREGA™ — Tax-Relevant Event Governance Architecture for the reported recognition.",
+        "finding": "Available evidence indicated relevance to TREGA™ — Tax-Relevant Event Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to TREGA™ — Tax-Relevant Event Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:95"
         ],
@@ -462,10 +478,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T19:23:44Z",
-    "supersedes": "OOF-AII-ASMT-650176-V11",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-650176-V12",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

@@ -54,10 +54,10 @@
   "createdAt": "2026-09-23T00:00:00Z",
   "updatedAt": "2026-09-23T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-021593-V13",
+    "assessmentIdentity": "OOF-AII-ASMT-021593-V14",
     "incidentId": "OOF-AII-021593",
-    "analysisVersion": 13,
-    "engineVersion": "3.4.2",
+    "analysisVersion": 14,
+    "engineVersion": "3.4.5",
     "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
     "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -157,10 +157,12 @@
     },
     "oofIncidentReport": {
       "headline": "Milwaukee Police Detective Allegedly Used Flock Safety License-Plate Reader 20 Times to Track Two People in Violation of Department Policy",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that A Milwaukee County criminal complaint alleges that Police Detective Tehrangi Chapman used Flock Safety license-plate readers 20 times to track two people from January 2024 to January 2025, entering \"test\" or \"training\" as search reasons. The complaint says Chapman later admitted using Flock to track both people in violation of Milwaukee Police Department policy. He was charged with misconduct in public office; a separate count concerned an unauthorized GPS tracker. (2024-01-10, United States of America).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2024-01-10, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1706",
       "eventDate": "2024-01-10",
+      "sourceRecordTimestamp": "2026-09-23",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -210,10 +212,10 @@
           "enforcement"
         ],
         "role": "Primary",
-        "governedMechanism": "safety, policy, enforcement",
-        "reasonForRelevance": "Available reporting describes safety, policy, enforcement. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported safety, policy, enforcement concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
-        "governanceFocus": "How should safety, policy, enforcement be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
+        "governanceFocus": "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1706"
@@ -234,10 +236,10 @@
             "enforcement"
           ],
           "role": "Contributing",
-          "governedMechanism": "safety, enforcement",
-          "reasonForRelevance": "Available reporting describes safety, enforcement. This makes AIG® - Governance Architecture relevant to examining Behavioral Safety Standard - (BSS) in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported safety, enforcement concern falls within the governed questions represented by AIG® - Governance Architecture.",
-          "governanceFocus": "How should safety, enforcement be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes AIG® - Governance Architecture relevant to examining Behavioral Safety Standard - (BSS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by AIG® - Governance Architecture.",
+          "governanceFocus": "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "ParentStandard",
           "supportingEvidence": [
             "aiid:1706"
@@ -288,7 +290,15 @@
       ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-021593",
+      "systemDomains": [],
+      "observedOutcome": "A Milwaukee County criminal complaint alleges that Police Detective Tehrangi Chapman used Flock Safety license-plate readers 20 times to track two people from January 2024 to January 2025, entering \"test\" or \"training\" as search reasons. The complaint says Chapman later admitted using Flock to track both people in violation of Milwaukee Police Department policy. He was charged with misconduct in public office; a separate count concerned an unauthorized GPS tracker.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1706"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -298,7 +308,10 @@
             "training"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1706"
+          ]
         },
         {
           "componentId": "retrieval-context",
@@ -307,7 +320,10 @@
             "search"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1706"
+          ]
         },
         {
           "componentId": "identity-authorization",
@@ -316,7 +332,10 @@
             "unauthorized"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1706"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -327,16 +346,16 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving safety, policy, enforcement. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "ASGA™ — Autonomous Systems Governance Architecture frames the primary governed problem. AIG® - Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should safety, policy, enforcement be governed in the conditions described by the available incident evidence?",
-      "How should safety, enforcement be governed in the conditions described by the available incident evidence?",
+      "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Tehrangi Chapman, Law Enforcement, Police Departments In The United States, Milwaukee Police Department at the relevant time?",
       "What evidence would establish how Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Milwaukee Police Detective Allegedly Used Flock Safety License-Plate Reader 20 Times to Track Two People in Violation of Department Policy, involving Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should safety, policy, enforcement be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Milwaukee Police Detective Allegedly Used Flock Safety License-Plate Reader 20 Times to Track Two People in Violation of Department Policy, involving Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -377,7 +396,7 @@
       "incidentEvidence": [
         "aiid:1706"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving safety, policy, enforcement. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "ASGA™ — Autonomous Systems Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-ASGA",
       "contributingArchitectures": [
@@ -385,15 +404,15 @@
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "safety, policy, enforcement",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should safety, policy, enforcement be governed in the conditions described by the available incident evidence?",
-        "How should safety, enforcement be governed in the conditions described by the available incident evidence?",
+        "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Tehrangi Chapman, Law Enforcement, Police Departments In The United States, Milwaukee Police Department at the relevant time?",
         "What evidence would establish how Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Milwaukee Police Detective Allegedly Used Flock Safety License-Plate Reader 20 Times to Track Two People in Violation of Department Policy, involving Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should safety, policy, enforcement be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Milwaukee Police Detective Allegedly Used Flock Safety License-Plate Reader 20 Times to Track Two People in Violation of Department Policy, involving Flock Safety Automated License Plate Reader System, Automated License Plate Readers (Alpr), Surveillance Technology, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -412,8 +431,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported safety, policy, enforcement.",
-        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported safety, policy, enforcement.",
+        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1706"
         ],
@@ -429,8 +448,8 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported safety, enforcement.",
-        "statement": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported safety, enforcement.",
+        "finding": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1706"
         ],
@@ -463,10 +482,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T19:23:44Z",
-    "supersedes": "OOF-AII-ASMT-021593-V12",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-021593-V13",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

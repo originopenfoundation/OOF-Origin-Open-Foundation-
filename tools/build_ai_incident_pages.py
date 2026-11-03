@@ -126,7 +126,7 @@ def report_markup(analysis: dict) -> str:
     source_name = text(report.get("sourceAttribution") or "Identified public source")
     source = f'<a href="{source_url}" rel="noopener noreferrer">{source_name}</a>' if source_url else source_name
     return (
-        '<section class="oof-incident-report"><h2>Original OOF® Incident Report</h2>'
+        '<section class="oof-incident-report"><h2>OOF® Analytical Context</h2>'
         f'<p>{text(report.get("report") or "No structured OOF incident report is available for this record.")}</p>'
         f'<p><b>Original incident source:</b> {source}</p>'
         f'<p class="oof-evidence-limitation">{text(report.get("uncertaintyStatement"))}</p></section>'
@@ -145,10 +145,21 @@ def failure_classification_markup(analysis: dict) -> str:
         )
     else:
         entries = '<p>No system component is sufficiently indicated by the available record.</p>'
+    candidates = classification.get("candidateFailureMechanisms") or []
+    candidate_entries = ''.join(
+        '<li><b>' + text(item.get('label')) + '</b> — candidate only; source signal: '
+        + text(', '.join(item.get('matchedTerms') or [])) + '; evidence reference: '
+        + text(', '.join(item.get('evidenceReferences') or [])) + '.</li>'
+        for item in candidates
+    )
+    mechanisms = '<ul>' + candidate_entries + '</ul>' if candidate_entries else '<p>No candidate mechanism is supported by the available source language.</p>'
     return (
         '<section><h2>Relevant system components and failure mechanisms</h2>'
         f'<p><b>Classification state:</b> {text(classification.get("status") or "UNRESOLVED")}</p>'
+        f'<p><b>System domains:</b> {text(", ".join(classification.get("systemDomains") or []) or "Not established")}</p>'
         f'<div class="oof-system-components">{entries}</div>'
+        '<h3>Candidate mechanisms</h3>' + mechanisms +
+        '<p>These candidates are not confirmed causes and require evidence review.</p>'
         f'<p class="oof-evidence-limitation">{text(classification.get("limitation"))}</p></section>'
     )
 
@@ -266,7 +277,6 @@ def build_incident_detail(record: dict, related: list[dict] | None = None, histo
         "@context": "https://schema.org", "@type": "Report", "url": canonical,
         "headline": record["title"], "description": description, "inLanguage": "en",
         "publisher": {"@id": "https://originopenfoundation.org/#organization"},
-        "datePublished": record.get("reportedAt"),
         "about": ["AI incident intelligence", record.get("country"), record.get("industry")],
         "isBasedOn": source.get("url"),
         "breadcrumb": {
@@ -286,11 +296,11 @@ def build_incident_detail(record: dict, related: list[dict] | None = None, histo
 <body><div id="header"></div><main class="oof-incident-app oof-incident-detail"><article>
 <nav class="oof-detail-breadcrumb" aria-label="Breadcrumb"><a href="/index.html">OOF®</a><span>/</span><a href="/ai-incidents/">AI Incident Intelligence</a><span>/</span><span aria-current="page">Incident record</span></nav>
 <header><p class="oof-incident-id">{text(record['id'])}</p><h1>{text(record['title'])}</h1><p class="oof-detail-lede">{text(record.get('summary') or 'No public summary is available.')}</p></header>
-<dl class="oof-incident-detail-facts"><div><dt>Event date</dt><dd>{text((record.get('occurredAt') or record.get('reportedAt') or 'Unknown')[:10])}</dd></div><div><dt>Country</dt><dd>{text(record.get('country') or 'Location not specified')}</dd></div><div><dt>Severity</dt><dd>{text(severity)}</dd></div><div><dt>Evidence status</dt><dd>{text((analysis.get('evidenceSnapshot') or {}).get('publicEvidenceStatus') or 'Evidence Insufficient')}</dd></div></dl>
+<dl class="oof-incident-detail-facts"><div><dt>Event date</dt><dd>{text((record.get('occurredAt') or 'Unknown')[:10])}</dd></div><div><dt>Country</dt><dd>{text(record.get('country') or 'Location not specified')}</dd></div><div><dt>Severity</dt><dd>{text(severity)}</dd></div><div><dt>Evidence status</dt><dd>{text((analysis.get('evidenceSnapshot') or {}).get('publicEvidenceStatus') or 'Evidence Insufficient')}</dd></div></dl>
 <section class="oof-detail-disclosure"><h2>Assessment status</h2><p>{text(disclosure)}</p><p>{text(report.get('uncertaintyStatement'))}</p></section>
 {report_markup(analysis)}
 {source_evidence_markup(record, analysis)}
-<section><h2>Incident overview</h2><p>{text(record.get('summary') or 'No public source summary is available.')}</p></section>
+<section><h2>Source-reported incident overview</h2><p>{text(record.get('summary') or 'No public source summary is available.')}</p></section>
 <section><h2>AI involvement</h2><p><b>System:</b> {text(record.get('system') or 'Not established')}</p><p><b>Technology:</b> {text(record.get('technology') or record.get('aiSystemType') or 'Not established')}</p></section>
 {confidence_markup(analysis)}
 {list_markup('Known facts from the incident record', evidence.get('knownFacts') or [])}
@@ -298,7 +308,7 @@ def build_incident_detail(record: dict, related: list[dict] | None = None, histo
 {list_markup('Material unknowns', evidence.get('materialUnknowns') or [])}
 <section><h2>Primary governance problem</h2><p>{text(analysis.get('primaryGovernanceProblem') or 'The available evidence does not support a more specific preliminary governance interpretation.')}</p></section>
 {architecture_markup(analysis)}
-<section><h2>Failure mechanism</h2><p>{text(analysis.get('incidentGovernanceInsight') or 'Available evidence does not yet support a case-specific failure mechanism.')}</p></section>
+<section><h2>Governance interpretation</h2><p>{text(analysis.get('incidentGovernanceInsight') or 'Available evidence does not yet support a case-specific governance interpretation.')}</p></section>
 {failure_classification_markup(analysis)}
 {external_mapping_markup(analysis)}
 {prevention_markup(analysis)}
@@ -342,8 +352,8 @@ def build_submission_page(mode: str) -> str:
 
 def build_incident_directory(records: list[dict]) -> str:
     rows = []
-    for record in sorted(records, key=lambda item: (str(item.get("occurredAt") or item.get("reportedAt") or ""), item["id"]), reverse=True):
-        date = str(record.get("occurredAt") or record.get("reportedAt") or "Unknown")[:10]
+    for record in sorted(records, key=lambda item: (str(item.get("occurredAt") or ""), item["id"]), reverse=True):
+        date = str(record.get("occurredAt") or "Unknown")[:10]
         rows.append(
             '<li><a href="/ai-incidents/incidents/' + text(public_slug(record)) + '/">' + text(record["title"]) + '</a>'
             f'<span>{text(date)} · {text(record.get("country") or "Location not specified")}</span></li>'
@@ -352,7 +362,7 @@ def build_incident_directory(records: list[dict]) -> str:
 <title>Public AI Incident Index | OOF®</title><meta name="description" content="Index of public AI incident records monitored by OOF® Global AI Incident Intelligence™." />
 <link rel="canonical" href="https://originopenfoundation.org/ai-incidents/incidents/" /><link rel="stylesheet" href="/style.css" /><link rel="stylesheet" href="/assets/css/oof-ai-incidents.css?v=6" /></head>
 <body><div id="header"></div><main class="oof-incident-app oof-incident-directory"><article><nav class="oof-detail-breadcrumb" aria-label="Breadcrumb"><a href="/index.html">OOF®</a><span>/</span><a href="/ai-incidents/">AI Incident Intelligence</a><span>/</span><span aria-current="page">Incident Index</span></nav>
-<header><h1>Public AI Incident Index</h1><p>All {len(records)} public records, ordered by the best available event date. Inclusion does not constitute an OOF® Approved Assessment.</p></header>
+<header><h1>Public AI Incident Index</h1><p>All {len(records)} public records, ordered by recorded event date; unknown event dates appear last. Inclusion does not constitute an OOF® Approved Assessment.</p></header>
 <ol class="oof-incident-directory-list">{"".join(rows)}</ol></article></main><div id="footer"></div><script src="/header.js"></script><script>
 fetch("/header.html").then(r=>r.text()).then(v=>{{document.getElementById("header").innerHTML=v;if(window.normalizePageLinks)window.normalizePageLinks();}});fetch("/footer.html").then(r=>r.text()).then(v=>{{document.getElementById("footer").innerHTML=v;if(window.normalizePageLinks)window.normalizePageLinks();}});
 </script></body></html>'''

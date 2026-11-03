@@ -52,10 +52,10 @@
   "createdAt": "2008-07-01T00:00:00Z",
   "updatedAt": "2008-07-01T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-315781-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-315781-V12",
     "incidentId": "OOF-AII-315781",
-    "analysisVersion": 11,
-    "engineVersion": "3.4.2",
+    "analysisVersion": 12,
+    "engineVersion": "3.4.5",
     "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
     "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -184,10 +184,12 @@
     },
     "oofIncidentReport": {
       "headline": "Machine Personal Assistants Failed to Maintain Social Norms",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that During an experiment of software personal assistants at the Information Sciences Institute (ISI) at the University of Southern California (USC), researchers found that the assistants violated the privacy of their principals and were unable to respect the social norms of the office. (2008-07-01, United States of America).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2008-07-01, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/44",
       "eventDate": "2008-07-01",
+      "sourceRecordTimestamp": "2008-07-01",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -230,10 +232,10 @@
           "support"
         ],
         "role": "Primary",
-        "governedMechanism": "information, support",
-        "reasonForRelevance": "Available reporting describes information, support. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported information, support concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "How should information, support be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:44"
@@ -245,7 +247,15 @@
       "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-315781",
+      "systemDomains": [],
+      "observedOutcome": "During an experiment of software personal assistants at the Information Sciences Institute (ISI) at the University of Southern California (USC), researchers found that the assistants violated the privacy of their principals and were unable to respect the social norms of the office.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:44"
+      ],
       "status": "UNRESOLVED",
       "components": [],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -256,15 +266,15 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving information, support. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
     "governanceQuestions": [
-      "How should information, support be governed in the conditions described by the available incident evidence?",
+      "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Usc Information Sciences Institute at the relevant time?",
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Machine Personal Assistants Failed to Maintain Social Norms, involving Usc Information Sciences Institute, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should information, support be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Machine Personal Assistants Failed to Maintain Social Norms, involving Usc Information Sciences Institute, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -304,20 +314,20 @@
       "incidentEvidence": [
         "aiid:44"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving information, support. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "PGA™ — Prediction Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-PGA",
       "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "information, support",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should information, support be governed in the conditions described by the available incident evidence?",
+        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Usc Information Sciences Institute at the relevant time?",
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Machine Personal Assistants Failed to Maintain Social Norms, involving Usc Information Sciences Institute, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should information, support be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Machine Personal Assistants Failed to Maintain Social Norms, involving Usc Information Sciences Institute, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -335,8 +345,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, support.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, support.",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:44"
         ],
@@ -365,10 +375,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T19:23:44Z",
-    "supersedes": "OOF-AII-ASMT-315781-V10",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-315781-V11",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

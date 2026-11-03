@@ -53,10 +53,10 @@
   "createdAt": "2012-01-05T00:00:00Z",
   "updatedAt": "2012-01-05T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-737519-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-737519-V12",
     "incidentId": "OOF-AII-737519",
-    "analysisVersion": 11,
-    "engineVersion": "3.4.2",
+    "analysisVersion": 12,
+    "engineVersion": "3.4.5",
     "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
     "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -187,10 +187,12 @@
     },
     "oofIncidentReport": {
       "headline": "Google Instant's Allegedly 'Anti-Semitic' Results Lead To Lawsuit In France",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that The organizations SOS Racisme, Union of Jewish Students of France, Movement Against Racism and for Friendship Among Peoples are suing Google due to its autocomplete software suggesting \"jewish\" when the names of certain public figures were searched on the platform. (2012-01-05, France).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2012-01-05, France). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/75",
       "eventDate": "2012-01-05",
+      "sourceRecordTimestamp": "2012-01-05",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -234,10 +236,10 @@
           "when"
         ],
         "role": "Primary",
-        "governedMechanism": "communication, information, when",
-        "reasonForRelevance": "Available reporting describes communication, information, when. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Monitoring & Revision Standard (PMRS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported communication, information, when concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining Prediction Monitoring & Revision Standard (PMRS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:75"
@@ -269,7 +271,15 @@
       "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-737519",
+      "systemDomains": [],
+      "observedOutcome": "The organizations SOS Racisme, Union of Jewish Students of France, Movement Against Racism and for Friendship Among Peoples are suing Google due to its autocomplete software suggesting \"jewish\" when the names of certain public figures were searched on the platform.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:75"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -279,7 +289,10 @@
             "discrimination"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:75"
+          ]
         },
         {
           "componentId": "retrieval-context",
@@ -288,7 +301,10 @@
             "search"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:75"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -299,15 +315,15 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving communication, information, when. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
     "governanceQuestions": [
-      "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
+      "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Google at the relevant time?",
       "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Google Instant's Allegedly 'Anti-Semitic' Results Lead To Lawsuit In France, involving Google, raises a preliminary question for PGA™ — Prediction Governance Architecture: When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Google Instant's Allegedly 'Anti-Semitic' Results Lead To Lawsuit In France, involving Google, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -348,20 +364,20 @@
       "incidentEvidence": [
         "aiid:75"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving communication, information, when. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "PGA™ — Prediction Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-PGA",
       "contributingArchitectures": [],
       "parentStandard": "OOF-KO-STD-PGA-10",
       "coreModule": null,
-      "governedMechanism": "communication, information, when",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn?",
+        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Google at the relevant time?",
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Google Instant's Allegedly 'Anti-Semitic' Results Lead To Lawsuit In France, involving Google, raises a preliminary question for PGA™ — Prediction Governance Architecture: When changing information or conditions materially affect a prediction, when must it be preserved, reviewed, revised, superseded, or withdrawn? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Google Instant's Allegedly 'Anti-Semitic' Results Lead To Lawsuit In France, involving Google, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -380,8 +396,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported communication, information, when.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported communication, information, when.",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:75"
         ],
@@ -411,10 +427,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T19:23:44Z",
-    "supersedes": "OOF-AII-ASMT-737519-V10",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-737519-V11",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

@@ -50,6 +50,8 @@ jobs:
           python tools/validate_ai_compatibility.py --allow-visible-changes
           python tools/validate_url_governance.py
           python tools/validate_knowledge_infrastructure.py
+          python tools/build_incident_release_manifest.py
+          python tools/build_incident_release_manifest.py --verify
       - name: Commit changed public projections
         run: |
           if git diff --quiet -- data/ai-incidents ai-incidents data/knowledge docs/AI_INCIDENT_V3_4_1_PRODUCTION_REMEDIATION_AUDIT.md sitemap.xml search-index.json data/oof-site-knowledge-graph.json; then

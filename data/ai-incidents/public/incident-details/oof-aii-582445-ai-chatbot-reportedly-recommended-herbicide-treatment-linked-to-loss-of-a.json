@@ -56,12 +56,12 @@
   "createdAt": "2026-09-04T02:33:26.647000Z",
   "updatedAt": "2026-09-04T02:33:26.647000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-582445-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-582445-V12",
     "incidentId": "OOF-AII-582445",
-    "analysisVersion": 11,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 12,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
+    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
@@ -160,10 +160,12 @@
     },
     "oofIncidentReport": {
       "headline": "AI Chatbot Reportedly Recommended Herbicide Treatment Linked to Loss of About 25 Acres of Sesame in China",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that A 67-year-old farmer in Chuzhou, Anhui, reportedly used an AI-generated weed-and-pest-control plan to spray about 150 mu (25 acres) of sesame by drone. By the next day, the crop had largely withered. Agricultural technicians said the recommended mixture included fomesafen, a herbicide unsuitable for blanket application to sesame. The specific AI product and model have not been publicly confirmed. (2026-07-10).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-07-10). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1654",
       "eventDate": "2026-07-10",
+      "sourceRecordTimestamp": "2026-09-04",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -200,7 +202,7 @@
         "architectureId": "clia",
         "label": "CLIA® — Cognitive Governance Intelligence Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-        "score": 112.56,
+        "score": 114.61,
         "matchedTerms": [
           "decision",
           "autonomous",
@@ -208,10 +210,10 @@
           "reasoning"
         ],
         "role": "Primary",
-        "governedMechanism": "decision, autonomous, cognition, reasoning",
-        "reasonForRelevance": "Available reporting describes decision, autonomous, cognition. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported decision, autonomous, cognition concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
-        "governanceFocus": "How should decision, autonomous, cognition be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+        "governanceFocus": "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1654"
@@ -223,7 +225,18 @@
       "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-582445",
+      "systemDomains": [
+        "Generative AI",
+        "Decision support"
+      ],
+      "observedOutcome": "A 67-year-old farmer in Chuzhou, Anhui, reportedly used an AI-generated weed-and-pest-control plan to spray about 150 mu (25 acres) of sesame by drone. By the next day, the crop had largely withered. Agricultural technicians said the recommended mixture included fomesafen, a herbicide unsuitable for blanket application to sesame. The specific AI product and model have not been publicly confirmed.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1654"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -231,11 +244,13 @@
           "label": "Model inference and output generation",
           "matchedTerms": [
             "generated",
-            "chatbot",
-            "large language model"
+            "chatbot"
           ],
           "confidence": "Preliminary",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1654"
+          ]
         },
         {
           "componentId": "physical-execution-robotics",
@@ -244,7 +259,10 @@
             "drone"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1654"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -255,38 +273,38 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving decision, autonomous, cognition, reasoning. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "The available evidence currently supports one primary governed domain: CLIA® — Cognitive Governance Intelligence Architecture.",
     "governanceQuestions": [
-      "How should decision, autonomous, cognition be governed in the conditions described by the available incident evidence?",
+      "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Wu (Chuzhou Farmer), Chatbot Users at the relevant time?",
       "What evidence would establish how Large Language Models, Chatbots, Ai Assisted Agricultural Decision Making, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting on AI Chatbot Reportedly Recommended Herbicide Treatment Linked to Loss of About 25 Acres of Sesame in China indicates that Large Language Models, Chatbots, Ai Assisted Agricultural Decision Making, Ai Enabled Decision Support Systems raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should decision, autonomous, cognition be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "incidentGovernanceInsight": "Available reporting on AI Chatbot Reportedly Recommended Herbicide Treatment Linked to Loss of About 25 Acres of Sesame in China indicates that Large Language Models, Chatbots, Ai Assisted Agricultural Decision Making, Ai Enabled Decision Support Systems raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Model inference and output generation, Physical-world execution and robotics in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to decision, autonomous, cognition, reasoning. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that decision, autonomous, cognition, reasoning is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply CLIA® — Cognitive Governance Intelligence Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant decision, autonomous, cognition, reasoning scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing decision, autonomous, cognition, reasoning were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for decision, autonomous, cognition, reasoning, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
       "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
@@ -305,20 +323,20 @@
       "incidentEvidence": [
         "aiid:1654"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving decision, autonomous, cognition, reasoning. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "CLIA® — Cognitive Governance Intelligence Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-CLIA",
       "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "decision, autonomous, cognition, reasoning",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should decision, autonomous, cognition be governed in the conditions described by the available incident evidence?",
+        "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Wu (Chuzhou Farmer), Chatbot Users at the relevant time?",
         "What evidence would establish how Large Language Models, Chatbots, Ai Assisted Agricultural Decision Making, Ai Enabled Decision Support Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting on AI Chatbot Reportedly Recommended Herbicide Treatment Linked to Loss of About 25 Acres of Sesame in China indicates that Large Language Models, Chatbots, Ai Assisted Agricultural Decision Making, Ai Enabled Decision Support Systems raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should decision, autonomous, cognition be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "incidentGovernanceInsight": "Available reporting on AI Chatbot Reportedly Recommended Herbicide Treatment Linked to Loss of About 25 Acres of Sesame in China indicates that Large Language Models, Chatbots, Ai Assisted Agricultural Decision Making, Ai Enabled Decision Support Systems raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -338,8 +356,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported decision, autonomous, cognition, reasoning.",
-        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported decision, autonomous, cognition, reasoning.",
+        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1654"
         ],
@@ -376,10 +394,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:12:05Z",
-    "supersedes": "OOF-AII-ASMT-582445-V10",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-582445-V11",
     "reassessmentReason": "Material analysis engine change",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

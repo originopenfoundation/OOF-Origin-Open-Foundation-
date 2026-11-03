@@ -12,7 +12,9 @@ import hashlib
 import io
 import json
 import re
+import time
 import unicodedata
+import urllib.error
 import urllib.request
 from urllib.parse import quote, urljoin
 from abc import ABC, abstractmethod
@@ -424,8 +426,20 @@ class AIIDWeeklyExcelAdapter(SourceAdapter):
     @staticmethod
     def _request(url: str) -> bytes:
         request = urllib.request.Request(url, headers={"User-Agent": "OOF-Incident-Sync/1.0"})
-        with urllib.request.urlopen(request, timeout=60) as response:
-            return response.read()
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(request, timeout=60) as response:
+                    return response.read()
+            except urllib.error.HTTPError as error:
+                if error.code != 429 and error.code < 500:
+                    raise
+                if attempt == 2:
+                    raise
+            except (urllib.error.URLError, TimeoutError, OSError):
+                if attempt == 2:
+                    raise
+            time.sleep(2 ** attempt)
+        raise RuntimeError('Source request failed')
 
     def _latest_snapshot_url(self) -> str:
         if self.snapshot_url:
@@ -830,9 +844,13 @@ def _list_projection(record: dict) -> dict:
         "governanceInsight": analysis.get("incidentGovernanceInsight"),
         "systemFailure": {
             "component": (failure.get("components") or [{}])[0].get("label"),
+            "components": [item.get("label") for item in failure.get("components", []) if item.get("label")],
+            "domains": failure.get("systemDomains") or [],
+            "candidateMechanisms": [item.get("label") for item in failure.get("candidateFailureMechanisms", []) if item.get("label")],
             "mechanismStatus": failure.get("technicalMechanismStatus") or "NOT_ESTABLISHED",
         },
         "preventionPreview": {
+            "conditionalIdeaAvailable": bool(prevention.get("supportingEvidence")),
             "applicability": _preview_text((prevention.get("couldThisHappenToYourSystem") or {}).get("applicability")),
             "control": _preview_text((prevention.get("whatShouldBeImplemented") or {}).get("controlObjective")),
             "verification": _preview_text((prevention.get("howCanProtectionBeVerified") or {}).get("testObjective")),
@@ -881,6 +899,56 @@ def _source_snapshot_freshness(snapshot_url: str | None, generated: str) -> dict
     }
 
 
+def build_candidate_patterns(projections: list[dict], generated: str, previous: dict | None = None) -> dict:
+    """Group supported signals as review leads, never as established root causes."""
+    grouped = defaultdict(dict)
+    for item in projections:
+        assessment = item.get('assessment') or {}
+        if assessment.get('evidenceStatus') == 'Contradicted / Disputed':
+            continue
+        failure = item.get('systemFailure') or {}
+        for domain in failure.get('domains') or []:
+            for component in failure.get('components') or []:
+                for mechanism in failure.get('candidateMechanisms') or []:
+                    grouped[(domain, component, mechanism)][item['id']] = item
+    old = {item['patternId']: item for item in (previous or {}).get('patterns', [])}
+    patterns = []
+    for criteria, members in sorted(grouped.items()):
+        if len(members) < 2:
+            continue
+        canonical = json.dumps(criteria, ensure_ascii=False, separators=(',', ':'))
+        pattern_id = 'OOF-AII-PAT-' + hashlib.sha256(canonical.encode('utf-8')).hexdigest()[:16]
+        ids = sorted(members)
+        existing = old.get(pattern_id) or {}
+        history = list(existing.get('history') or [])
+        if existing and existing.get('supportingIncidentIds') != ids:
+            history.append({'version': existing.get('version', 1), 'supportingIncidentIds': existing.get('supportingIncidentIds', []), 'recordedAt': existing.get('updatedAt')})
+        changed = not existing or existing.get('supportingIncidentIds') != ids
+        architectures = sorted({a.get('architectureId') for record in members.values() for a in [record.get('primaryArchitecture'), *(record.get('contributingArchitectures') or [])] if a and a.get('architectureId')})
+        patterns.append({
+            'patternId': pattern_id, 'version': (existing.get('version', 0) + 1) if changed else existing['version'],
+            'updatedAt': generated if changed else existing.get('updatedAt'), 'status': 'CANDIDATE',
+            'criteria': {'systemDomain': criteria[0], 'component': criteria[1], 'candidateMechanism': criteria[2]},
+            'supportingIncidentIds': ids, 'contradictoryIncidentIds': None,
+            'confidenceRationale': 'Shared source-language signals only; technical causes, contradictions, and recurrence are not established.',
+            'relevantArchitectureIds': architectures, 'history': history,
+        })
+    active_ids = {item['patternId'] for item in patterns}
+    for pattern_id, item in old.items():
+        if pattern_id in active_ids:
+            continue
+        if item.get('status') == 'INSUFFICIENT_EVIDENCE':
+            patterns.append(item)
+            continue
+        history = list(item.get('history') or [])
+        history.append({'version': item.get('version', 1), 'supportingIncidentIds': item.get('supportingIncidentIds', []), 'recordedAt': item.get('updatedAt')})
+        patterns.append({**item, 'version': item.get('version', 1) + 1, 'updatedAt': generated,
+                         'status': 'INSUFFICIENT_EVIDENCE', 'supportingIncidentIds': [], 'history': history})
+    patterns.sort(key=lambda item: item['patternId'])
+    return {'generatedAt': generated, 'classificationVersion': 'OOF-AII-PAT-1.0', 'patterns': patterns,
+            'limitation': 'Candidate contexts for review only; counts are not failure rates or proof of a shared cause.'}
+
+
 def _aggregate_public_records(records: list[dict], generated: str) -> dict:
     architecture_counts = defaultdict(lambda: {"primary": 0, "contributing": 0, "methodologyReferences": 0, "label": None, "canonicalUrl": None})
     industry_counts = Counter()
@@ -911,7 +979,7 @@ def _aggregate_public_records(records: list[dict], generated: str) -> dict:
             country_counts[country_code]["count"] += 1
             if _public_severity(record) == "Critical":
                 country_counts[country_code]["critical"] += 1
-        date = _incident_date(record)
+        date = str(record.get("occurredAt") or "")
         period = date[:7] if len(date) >= 7 else "Date not specified"
         severity = _public_severity(record).casefold()
         trend_counts[period]["total"] += 1
@@ -1106,6 +1174,8 @@ def export_public(records: list[dict]) -> None:
     write_json(PUBLIC_ROOT / "summary.json", summary)
     write_json(PUBLIC_ROOT / "map.json", map_data)
     projections = [_list_projection(record) for record in records]
+    pattern_path = PUBLIC_ROOT / 'patterns.json'
+    write_json(pattern_path, build_candidate_patterns(projections, generated, read_json(pattern_path, {})))
     write_json(PUBLIC_ROOT / "incident-index.json", {"generatedAt": generated, "total": len(records), "items": projections})
     write_compact_json(PUBLIC_ROOT / "incident-search.json", {"generatedAt": generated, "total": len(records), "items": [_search_projection(item) for item in projections]})
     write_json(PUBLIC_ROOT / "aggregations.json", _aggregate_public_records(records, generated))
@@ -1197,7 +1267,10 @@ def main() -> int:
     args = parser.parse_args()
     repository = FileIncidentRepository()
     if args.command == "sync":
-        print(json.dumps(sync(), indent=2))
+        result = sync()
+        print(json.dumps(result, indent=2))
+        if result.get('sourceErrors'):
+            return 1
     elif args.command == "export":
         export_public(repository.list())
         print(f"Exported {len(public_records(repository.list()))} public incidents.")
