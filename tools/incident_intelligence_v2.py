@@ -486,7 +486,7 @@ def system_failure_classification(record: dict) -> dict:
     normalized = normalized_text(source_text)
     components = []
     for component_id, (label, signals) in SYSTEM_COMPONENT_RULES.items():
-        matched = [signal for signal in signals if normalized_text(signal) in normalized]
+        matched = [signal for signal in signals if re.search(r"(?<!\w)" + re.escape(normalized_text(signal)) + r"(?!\w)", normalized)]
         if not matched:
             continue
         components.append({
@@ -524,7 +524,7 @@ def prevention_guidance(record: dict, architecture: dict, gaps: list[str], class
     evidence_limited = evidence.get("corroboration", {}).get("independentSourceCount", 0) < 2
     state = "EVIDENCE_LIMITED" if evidence_limited else "PRELIMINARY"
     limitation = (gaps or ["The recommendation is preliminary and should be adapted after incident-specific evidence review."])[0]
-    if not primary:
+    if not primary or classification.get("technicalMechanismStatus") != "CONFIRMED":
         return {
             "status": "EVIDENCE_LIMITED",
             "couldThisHappenToYourSystem": {

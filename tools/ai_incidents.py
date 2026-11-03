@@ -875,6 +875,7 @@ def _source_snapshot_freshness(snapshot_url: str | None, generated: str) -> dict
     age_hours = int((generated_at - snapshot_date).total_seconds() // 3600) if snapshot_date else None
     return {
         "sloHours": SOURCE_FRESHNESS_SLO_HOURS,
+        "snapshotDate": snapshot_date.isoformat().replace("+00:00", "Z") if snapshot_date else None,
         "snapshotAgeHours": age_hours,
         "status": "STALE" if age_hours is not None and age_hours > SOURCE_FRESHNESS_SLO_HOURS else "CURRENT" if age_hours is not None else "UNKNOWN",
     }

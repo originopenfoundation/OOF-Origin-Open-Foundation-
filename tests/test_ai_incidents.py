@@ -35,6 +35,29 @@ def record(source_id="source-1", title="Test incident"):
 
 
 class IncidentDomainTests(unittest.TestCase):
+    def test_production_sync_generates_incident_pages_before_discovery(self):
+        workflow = (ROOT / '.github/workflows/ai-incident-daily-sync.yml').read_text(encoding='utf-8')
+        self.assertIn('schedule:', workflow)
+        self.assertIn('cron:', workflow)
+        self.assertLess(workflow.index('python tools/build_ai_incident_pages.py'), workflow.index('python tools/build_ai_compatibility.py'))
+        self.assertIn('python tools/validate_ai_compatibility.py', workflow)
+
+    def test_real_vehicle_case_does_not_infer_memory_from_united_states(self):
+        store = json.loads((ROOT / 'data/ai-incidents/incident-store.json').read_text(encoding='utf-8'))
+        item = next(item for item in store['incidents'] if item['id'] == 'OOF-AII-134071')
+        labels = {component['componentId'] for component in engine.system_failure_classification(item)['components']}
+        self.assertIn('physical-execution-robotics', labels)
+        self.assertNotIn('memory-state', labels)
+
+    def test_unconfirmed_mechanism_withholds_specific_prevention(self):
+        item = record(title='Vehicle incident')
+        architecture = {'primaryArchitecture': {'governedMechanism': 'self', 'label': 'Example'}}
+        classification = {'technicalMechanismStatus': 'NOT_CONFIRMED', 'components': []}
+        evidence = {'corroboration': {'independentSourceCount': 1}}
+        result = engine.prevention_guidance(item, architecture, [], classification, evidence)
+        self.assertIn('before control selection', result['recommendedPreventiveControl'].lower())
+        self.assertNotIn('for self', result['recommendedPreventiveControl'].lower())
+
     def test_stable_identity(self):
         self.assertEqual(record()["id"], record()["id"])
 

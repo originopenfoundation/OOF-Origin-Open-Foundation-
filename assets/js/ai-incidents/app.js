@@ -117,6 +117,16 @@ function renderSummary(summary) {
   document.querySelectorAll("[data-metric]").forEach((element) => {
     const value = summary[element.dataset.metric];
     element.textContent = Number.isFinite(Number(value)) ? Number(value).toLocaleString("en") : "—";
+    if (element.dataset.metric === "incidentsThisMonth") {
+      const generated = new Date(summary.generatedAt || "");
+      const now = new Date();
+      if (Number.isNaN(generated.valueOf()) || generated.getUTCFullYear() !== now.getUTCFullYear() || generated.getUTCMonth() !== now.getUTCMonth()) {
+        element.textContent = "Unavailable (outdated export)";
+      }
+      if (!Number.isNaN(generated.valueOf()) && now - generated > 36 * 3600000) element.textContent = "Unavailable (outdated export)";
+      if (element.previousElementSibling) element.previousElementSibling.textContent = "Reports this month (UTC)";
+      element.title = "Source report dates in the UTC calendar month of the public export; not incident occurrence dates.";
+    }
   });
   const operational = summary.operationalStatus || {};
   document.getElementById("incident-data-time").textContent = operational.lastSuccessfulSourceCheck
@@ -142,10 +152,10 @@ function renderOperationalStatus(status) {
     ["Last successful source check", formatTimestamp(status.lastSuccessfulSourceCheck)],
     ["Last incident update", formatTimestamp(status.lastSuccessfulIncidentUpdate)],
     ["Latest public export", formatTimestamp(status.latestPublicExport)],
-    ["Source freshness", formatFreshness(status.sourceFreshness)],
+    ["Source freshness", formatFreshness(status.sourceFreshness, status.latestSourceSnapshot)],
     ["Newly published incidents", Number(status.newlyPublishedIncidents || 0).toLocaleString("en")],
     ["Pending candidates", Number(status.pendingCandidateCount || 0).toLocaleString("en")],
-    ["Last run status", status.runStatus || "not recorded"],
+    ["Last run recorded in export", `${status.runStatus || "not recorded"} (later runs may not be reflected)`],
   ];
   target.replaceChildren();
   rows.forEach(([label, value]) => {
@@ -155,10 +165,15 @@ function renderOperationalStatus(status) {
   });
 }
 
-function formatFreshness(freshness) {
+function formatFreshness(freshness, snapshotUrl) {
   if (!freshness) return "not recorded";
-  if (freshness.status === "STALE") return `stale: ${freshness.snapshotAgeHours} hours old (SLO ${freshness.sloHours} hours)`;
-  if (freshness.status === "CURRENT") return `${freshness.snapshotAgeHours} hours old (SLO ${freshness.sloHours} hours)`;
+  const dateMatch = String(snapshotUrl || "").match(/(20\d{2})(\d{2})(\d{2})/);
+  const timestamp = Date.parse(freshness.snapshotDate || (dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}T00:00:00Z` : ""));
+  if (Number.isFinite(timestamp)) {
+    const hours = Math.max(0, Math.floor((Date.now() - timestamp) / 3600000));
+    return `${hours > freshness.sloHours ? "stale: " : ""}${hours} hours old (SLO ${freshness.sloHours} hours; snapshot date)`;
+  }
+  if (Number.isFinite(freshness.snapshotAgeHours)) return `at export: ${freshness.snapshotAgeHours} hours old; current age unavailable`;
   return "snapshot date unavailable";
 }
 
