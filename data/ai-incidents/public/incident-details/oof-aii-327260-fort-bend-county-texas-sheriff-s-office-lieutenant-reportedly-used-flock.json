@@ -52,12 +52,12 @@
   "createdAt": "2026-09-16T21:04:29.256000Z",
   "updatedAt": "2026-09-16T21:04:29.256000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-327260-V12",
+    "assessmentIdentity": "OOF-AII-ASMT-327260-V13",
     "incidentId": "OOF-AII-327260",
-    "analysisVersion": 12,
+    "analysisVersion": 13,
     "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-c060ca54f268",
-    "knowledgeImpactFingerprint": "ddcb744455c342bd48cbb81ab59abf2cdf031199b7ba496a79b7c7cb4a0edf30",
+    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
+    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -192,7 +192,7 @@
         "architectureId": "aig",
         "label": "AIG® - Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
-        "score": 112.99,
+        "score": 113.88,
         "matchedTerms": [
           "enforcement",
           "safety"
@@ -223,7 +223,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-c060ca54f268",
+              "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
               "contentHash": "43ad643f4197b36af873c7d792ef1444e2d5c1630b2d3a44d78d05a53e1e8704",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -242,7 +242,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-AIG-BSS-2026-06-26-0010",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-c060ca54f268",
+              "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
               "contentHash": "f6cedf9de85b63fec56c000d8c1d66d24167f7bc3fdf6e99cb3e438937ae2122",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -255,7 +255,7 @@
           "architectureId": "asga",
           "label": "ASGA™ — Autonomous Systems Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-          "score": 75.33,
+          "score": 75.92,
           "matchedTerms": [
             "enforcement",
             "safety"
@@ -318,40 +318,27 @@
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Retrieval and context handling, Physical-world execution and robotics in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to enforcement, safety. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that enforcement, safety is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply AIG® - Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant enforcement, safety scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing enforcement, safety were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for enforcement, safety, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Behavioral Safety Standard - (BSS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/aig/Behavioral%20Safety%20Standard%20-%20(BSS).html",
-          "objectId": "OOF-OID-AIG-BSS-2026-06-26-0010"
-        },
-        {
-          "name": "Behavioral Safety Assurance Module - (BSAM)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/aig/BSAM.html",
-          "objectId": "OOF-OID-AIG-BSS-BSAM-2026-06-26-0005"
-        }
-      ],
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+      "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
     "practicalChecklist": [],
@@ -450,8 +437,8 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-24T10:42:34Z",
-    "supersedes": "OOF-AII-ASMT-327260-V11",
+    "createdAt": "2026-11-03T19:23:44Z",
+    "supersedes": "OOF-AII-ASMT-327260-V12",
     "reassessmentReason": "New or changed OOF knowledge may affect this incident",
     "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
     "qualityOutcomes": {

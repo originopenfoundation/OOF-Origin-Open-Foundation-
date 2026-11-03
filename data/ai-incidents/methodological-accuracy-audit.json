@@ -3,7 +3,7 @@
   "engineVersion": "3.4.2",
   "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
   "sampleMethod": "Full-dataset deterministic audit of every latest assessment",
-  "sampleSize": 310,
+  "sampleSize": 320,
   "auditedIncidents": [
     {
       "incidentId": "OOF-AII-002532",
@@ -893,11 +893,23 @@
       "severity": "Moderate",
       "evidenceState": "Single-source",
       "assessmentConfidence": "Moderate",
-      "primaryArchitecture": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+      "primaryArchitecture": "SLGA™ — Software Lifecycle Governance Architecture",
       "contributingArchitectures": [
+        "OBIDENITY® — Origin-Bound Identity Governance Architecture",
         "ASGA™ — Autonomous Systems Governance Architecture"
       ],
       "methodologyReferences": [
+        {
+          "objectId": "OOF-KO-STD-SLGA-08",
+          "name": "Software Deployment Standard - (SDPS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/Software%20Deployment%20Standard%20-%20(SDPS).html",
+          "matchedTerms": [
+            "software",
+            "deployment"
+          ],
+          "canonical": true
+        },
         {
           "objectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
           "name": "Identity Integrity Standard (IIS)",
@@ -922,18 +934,21 @@
         }
       ],
       "evidenceTerms": [
+        "deployment",
         "identity",
         "integrity",
         "monitoring",
+        "software",
         "verification"
       ],
       "governanceQuestions": [
+        "How should software, deployment be governed in the conditions described by the available incident evidence?",
         "How should identity, verification, integrity be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to University Of Toronto at the relevant time?",
         "What evidence would establish how Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "governanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should identity, verification, integrity be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "governanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for SLGA™ — Software Lifecycle Governance Architecture: How should software, deployment be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:140"
@@ -1073,21 +1088,23 @@
       "assessmentConfidence": "Moderate",
       "primaryArchitecture": "LIGA™ — Liability Governance Architecture",
       "contributingArchitectures": [
-        "INTEGROS® — Integrity Governance Architecture"
+        "INTEGROS® — Integrity Governance Architecture",
+        "SLGA™ — Software Lifecycle Governance Architecture"
       ],
       "methodologyReferences": [],
       "evidenceTerms": [
         "analysis",
         "authority",
         "basis",
-        "rights"
+        "rights",
+        "software"
       ],
       "governanceQuestions": [
         "How should rights, basis, authority be governed in the conditions described by the available incident evidence?",
         "How should analysis be governed in the conditions described by the available incident evidence?",
+        "How should software be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Budapest Bank, Banks at the relevant time?",
-        "What evidence would establish how Ai Assisted Call Center Software, Emotion Recognition Systems, Enterprise Ai Systems produced or enabled the reported outcome?",
-        "What additional independent evidence is required to resolve the material evidence gaps?"
+        "What evidence would establish how Ai Assisted Call Center Software, Emotion Recognition Systems, Enterprise Ai Systems produced or enabled the reported outcome?"
       ],
       "governanceInsight": "The source-reported case Budapest Bank's AI Call Analysis Was Found to Have Violated Callers' and Employees' Privacy Rights in Hungary, involving Ai Assisted Call Center Software, Emotion Recognition Systems, Enterprise Ai Systems, raises a preliminary question for LIGA™ — Liability Governance Architecture: How should rights, basis, authority be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "methodologicalCorrectness": "STRUCTURALLY VALID",
@@ -2313,20 +2330,19 @@
       "severity": "Moderate",
       "evidenceState": "Single-source",
       "assessmentConfidence": "Moderate",
-      "primaryArchitecture": "LIGA™ — Liability Governance Architecture",
+      "primaryArchitecture": "SLGA™ — Software Lifecycle Governance Architecture",
       "contributingArchitectures": [],
       "methodologyReferences": [],
       "evidenceTerms": [
-        "network",
-        "other"
+        "software"
       ],
       "governanceQuestions": [
-        "How should network, other be governed in the conditions described by the available incident evidence?",
+        "How should software be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Scammers, Fraud Networks at the relevant time?",
         "What evidence would establish how Call Center Systems, Ai Assisted Call Center Software produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "governanceInsight": "The source-reported case Istanbul Fraud Network Reportedly Used AI-Assisted Call Center Software to Impersonate Officials and Defraud Europeans, involving Call Center Systems, Ai Assisted Call Center Software, raises a preliminary question for LIGA™ — Liability Governance Architecture: How should network, other be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "governanceInsight": "The source-reported case Istanbul Fraud Network Reportedly Used AI-Assisted Call Center Software to Impersonate Officials and Defraud Europeans, involving Call Center Systems, Ai Assisted Call Center Software, raises a preliminary question for SLGA™ — Software Lifecycle Governance Architecture: How should software be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:1640"
@@ -2847,25 +2863,26 @@
       "severity": "Low",
       "evidenceState": "Single-source",
       "assessmentConfidence": "Limited",
-      "primaryArchitecture": "PGA™ — Prediction Governance Architecture",
+      "primaryArchitecture": "SLGA™ — Software Lifecycle Governance Architecture",
       "contributingArchitectures": [
+        "PGA™ — Prediction Governance Architecture",
         "CLIA® — Cognitive Governance Intelligence Architecture",
-        "MGIA™ — Memory Governance Intelligence Architecture",
-        "ORA™ - Operational Reality Architecture"
+        "MGIA™ — Memory Governance Intelligence Architecture"
       ],
       "methodologyReferences": [],
       "evidenceTerms": [
         "agent",
-        "models"
+        "models",
+        "software"
       ],
       "governanceQuestions": [
+        "How should software be governed in the conditions described by the available incident evidence?",
         "How should models be governed in the conditions described by the available incident evidence?",
         "How should agent be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Bruno Lemos, Ai Agent System Deployers at the relevant time?",
-        "What evidence would establish how Production Database Servers, Openai Large Language Models, Openai Codex, Llm Integrated Code Assistants, Large Language Models, Gpt 5.6 Sol, Chatbots, Ai Agent Systems produced or enabled the reported outcome?",
-        "What additional independent evidence is required to resolve the material evidence gaps?"
+        "What evidence would establish how Production Database Servers, Openai Large Language Models, Openai Codex, Llm Integrated Code Assistants, Large Language Models, Gpt 5.6 Sol, Chatbots, Ai Agent Systems produced or enabled the reported outcome?"
       ],
-      "governanceInsight": "Available reporting on OpenAI GPT-5.6 Sol Reportedly Deleted Software Engineer's Production Database During Local Testing indicates that Production Database Servers, Openai Large Language Models, Openai Codex, Llm Integrated Code Assistants, Large Language Models, Gpt 5.6 Sol, Chatbots, Ai Agent Systems raises a preliminary question for PGA™ — Prediction Governance Architecture: How should models be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "governanceInsight": "Available reporting on OpenAI GPT-5.6 Sol Reportedly Deleted Software Engineer's Production Database During Local Testing indicates that Production Database Servers, Openai Large Language Models, Openai Codex, Llm Integrated Code Assistants, Large Language Models, Gpt 5.6 Sol, Chatbots, Ai Agent Systems raises a preliminary question for SLGA™ — Software Lifecycle Governance Architecture: How should software be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:1672"
@@ -4304,7 +4321,9 @@
       "evidenceState": "Single-source",
       "assessmentConfidence": "Moderate",
       "primaryArchitecture": "ASGA™ — Autonomous Systems Governance Architecture",
-      "contributingArchitectures": [],
+      "contributingArchitectures": [
+        "SLGA™ — Software Lifecycle Governance Architecture"
+      ],
       "methodologyReferences": [
         {
           "objectId": "OOF-OID-ASGA-AES-2026-07-04-0003",
@@ -4331,10 +4350,12 @@
       ],
       "evidenceTerms": [
         "autonomous",
-        "execution"
+        "execution",
+        "security"
       ],
       "governanceQuestions": [
         "How should autonomous, execution be governed in the conditions described by the available incident evidence?",
+        "How should security be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Stanford Shopping Center at the relevant time?",
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
@@ -4998,6 +5019,85 @@
       "problems": []
     },
     {
+      "incidentId": "OOF-AII-384593",
+      "title": "Purportedly AI-Generated Videos Posted by Texas Lieutenant Governor's Campaign Allegedly Misrepresented Opponent's Tax Positions",
+      "severity": "High",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+      "contributingArchitectures": [],
+      "methodologyReferences": [
+        {
+          "objectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
+          "name": "Origin Integrity Standard (OIS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois.html",
+          "matchedTerms": [
+            "identity",
+            "origin"
+          ],
+          "canonical": true
+        },
+        {
+          "objectId": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
+          "name": "Origin Evidence Verification Module (OEVM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois-oevm.html",
+          "matchedTerms": [
+            "evidence",
+            "origin",
+            "identity"
+          ],
+          "canonical": true
+        }
+      ],
+      "evidenceTerms": [
+        "evidence",
+        "identity",
+        "origin"
+      ],
+      "governanceQuestions": [
+        "How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Synthetic Media Creators, Public Figures, Politicians In The United States, Politicians, Political Campaigns, Deepfake Creators, Dan Patrick'S Campaign, Dan Patrick at the relevant time?",
+        "What evidence would establish how X (Twitter), Synthetic Video Generation Technology, Synthetic Media Generation Technology, Social Media Platforms, Deepfake Technology produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case Purportedly AI-Generated Videos Posted by Texas Lieutenant Governor's Campaign Allegedly Misrepresented Opponent's Tax Positions, involving X (Twitter), Synthetic Video Generation Technology, Synthetic Media Generation Technology, Social Media Platforms, Deepfake Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should evidence, identity, origin be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1775"
+      ],
+      "problems": []
+    },
+    {
+      "incidentId": "OOF-AII-387301",
+      "title": "AI Chatbot at BMW Dealership in Toronto, Canada, Reportedly Made Erroneous Buyback Offer, Prompting Customer Dispute",
+      "severity": "Low",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "CLIA® — Cognitive Governance Intelligence Architecture",
+      "contributingArchitectures": [],
+      "methodologyReferences": [],
+      "evidenceTerms": [
+        "cognition",
+        "decision",
+        "reasoning",
+        "validation"
+      ],
+      "governanceQuestions": [
+        "How should decision, cognition, reasoning be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Car Dealerships, Bmw Toronto, Bmw at the relevant time?",
+        "What evidence would establish how Quinn (Bmw Toronto Chatbot), Enterprise Ai Systems, Chatbots, Ai Customer Support Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case AI Chatbot at BMW Dealership in Toronto, Canada, Reportedly Made Erroneous Buyback Offer, Prompting Customer Dispute, involving Quinn (Bmw Toronto Chatbot), Enterprise Ai Systems, Chatbots, Ai Customer Support Systems, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should decision, cognition, reasoning be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1772"
+      ],
+      "problems": []
+    },
+    {
       "incidentId": "OOF-AII-387714",
       "title": "Ten Plaintiffs in Estonia Reportedly Fined After AI-Assisted Court Filing Cited Nonexistent Researchers in Logging-Permit Dispute",
       "severity": "Low",
@@ -5185,6 +5285,45 @@
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:1639"
+      ],
+      "problems": []
+    },
+    {
+      "incidentId": "OOF-AII-403576",
+      "title": "Attackers Reportedly Used ARTEX, an AI Security-Testing Tool, to Steal Data from South Korean Financial Institutions",
+      "severity": "Moderate",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "PGA™ — Prediction Governance Architecture",
+      "contributingArchitectures": [],
+      "methodologyReferences": [
+        {
+          "objectId": "OOF-KO-STD-PGA-08",
+          "name": "Collective Prediction Governance Standard (CPGS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-cpgs.html",
+          "matchedTerms": [
+            "models",
+            "institutions"
+          ],
+          "canonical": true
+        }
+      ],
+      "evidenceTerms": [
+        "institutions",
+        "models",
+        "support"
+      ],
+      "governanceQuestions": [
+        "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
+        "What operational authority and controls applied to Cybercriminals, Hackers, Threat Actors, Agentic Threat Actors, Ai Agent System Deployers at the relevant time?",
+        "What evidence would establish how Artex, Claude Code, Deepseek V4.1 Flash, Glm 5.3, Deepseek, Grok 4.6, Grok, Ai Agent Systems, Ai Penetration Testing Systems, Large Language Models, Anthropic Large Language Models produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case Attackers Reportedly Used ARTEX, an AI Security-Testing Tool, to Steal Data from South Korean Financial Institutions, involving Artex, Claude Code, Deepseek V4.1 Flash, Glm 5.3, Deepseek, Grok 4.6, Grok, Ai Agent Systems, Ai Penetration Testing Systems, Large Language Models, Anthropic Large Language Models, raises a preliminary question for PGA™ — Prediction Governance Architecture: Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1782"
       ],
       "problems": []
     },
@@ -5534,6 +5673,61 @@
       "problems": []
     },
     {
+      "incidentId": "OOF-AII-429232",
+      "title": "Purportedly AI-Generated Campaign Ad Allegedly Depicted Pennsylvania Governor Josh Shapiro Making Fabricated Statements About Sexual Harassment Scandals",
+      "severity": "High",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+      "contributingArchitectures": [
+        "AGA™ — Accountability Governance Architecture"
+      ],
+      "methodologyReferences": [
+        {
+          "objectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
+          "name": "Identity Integrity Standard (IIS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis.html",
+          "matchedTerms": [
+            "identity",
+            "integrity"
+          ],
+          "canonical": true
+        },
+        {
+          "objectId": "OOF-OID-OBID-IIS-IVAM-2026-07-12-0002",
+          "name": "Identity Validation Module (IVAM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis-ivam.html",
+          "matchedTerms": [
+            "identity",
+            "validation"
+          ],
+          "canonical": true
+        }
+      ],
+      "evidenceTerms": [
+        "evidence",
+        "identity",
+        "integrity",
+        "origin",
+        "validation"
+      ],
+      "governanceQuestions": [
+        "How should evidence, identity, integrity be governed in the conditions described by the available incident evidence?",
+        "How should evidence, integrity, origin be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Synthetic Media Creators, Stacy Garrity'S Gubernatorial Campaign, Stacy Garrity, Public Figures, Politicians In The United States, Politicians, Political Campaigns, Deepfake Creators at the relevant time?",
+        "What evidence would establish how Synthetic Video Generation Technology, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Deepfake Technology produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case Purportedly AI-Generated Campaign Ad Allegedly Depicted Pennsylvania Governor Josh Shapiro Making Fabricated Statements About Sexual Harassment Scandals, involving Synthetic Video Generation Technology, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Deepfake Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should evidence, identity, integrity be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1778"
+      ],
+      "problems": []
+    },
+    {
       "incidentId": "OOF-AII-431478",
       "title": "Poor Performance of Tesla Factory Robots",
       "severity": "Moderate",
@@ -5646,6 +5840,56 @@
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:1656"
+      ],
+      "problems": []
+    },
+    {
+      "incidentId": "OOF-AII-440584",
+      "title": "Purportedly AI-Assisted Hospital-Bed Prioritization Allegedly Delayed Intensive Care Before a Patient's Death in Minas Gerais, Brazil",
+      "severity": "High",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "PGA™ — Prediction Governance Architecture",
+      "contributingArchitectures": [
+        "RSGA™ — Resource Sustainability Governance Architecture",
+        "LIGA™ — Liability Governance Architecture",
+        "INTEGROS® — Integrity Governance Architecture"
+      ],
+      "methodologyReferences": [
+        {
+          "objectId": "OOF-KO-STD-RSGA-09",
+          "name": "Resource Prioritization & Allocation Standard (RPAS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/rsga/rsga-rpas.html",
+          "matchedTerms": [
+            "prioritization",
+            "allocation"
+          ],
+          "canonical": true
+        }
+      ],
+      "evidenceTerms": [
+        "allocation",
+        "assessed",
+        "availability",
+        "condition",
+        "prioritization",
+        "severity",
+        "state",
+        "support",
+        "transfer"
+      ],
+      "governanceQuestions": [
+        "How should state, support, assessed be governed in the conditions described by the available incident evidence?",
+        "How should prioritization, allocation, availability be governed in the conditions described by the available incident evidence?",
+        "How should state, allocation, transfer be governed in the conditions described by the available incident evidence?",
+        "How should state, condition, severity be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Minas Gerais State Health Department (Ses Mg), Government Agencies, Government Of Brazil, Governments, Hospitals at the relevant time?"
+      ],
+      "governanceInsight": "The source-reported case Purportedly AI-Assisted Hospital-Bed Prioritization Allegedly Delayed Intensive Care Before a Patient's Death in Minas Gerais, Brazil, involving Core Mg, Healthcare Decision Support Systems, Ai Enabled Healthcare Systems, Enterprise Ai Systems, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should state, support, assessed be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1763"
       ],
       "problems": []
     },
@@ -5954,6 +6198,7 @@
       "primaryArchitecture": "LIGA™ — Liability Governance Architecture",
       "contributingArchitectures": [
         "PGA™ — Prediction Governance Architecture",
+        "SLGA™ — Software Lifecycle Governance Architecture",
         "TREGA™ — Tax-Relevant Event Governance Architecture",
         "VALIDOS® — Validation Governance Architecture",
         "VFM® — Value Flow Mechanisms Architecture"
@@ -5961,14 +6206,15 @@
       "methodologyReferences": [],
       "evidenceTerms": [
         "determination",
+        "software",
         "support"
       ],
       "governanceQuestions": [
         "How should determination be governed in the conditions described by the available incident evidence?",
         "How should support be governed in the conditions described by the available incident evidence?",
+        "How should software be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to French Welfare Offices at the relevant time?",
-        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
-        "What additional independent evidence is required to resolve the material evidence gaps?"
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
       ],
       "governanceInsight": "The source-reported case How French welfare services are creating ‘robo-debt’, involving French Welfare Offices, raises a preliminary question for LIGA™ — Liability Governance Architecture: How should determination be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "methodologicalCorrectness": "STRUCTURALLY VALID",
@@ -7065,6 +7311,129 @@
       "problems": []
     },
     {
+      "incidentId": "OOF-AII-518663",
+      "title": "Meta's Muse AI Agent Reportedly Shared a Seller's Home Address and Arranged an Unexpected Pickup in Toronto",
+      "severity": "Low",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "CLIA® — Cognitive Governance Intelligence Architecture",
+      "contributingArchitectures": [
+        "MGIA™ — Memory Governance Intelligence Architecture"
+      ],
+      "methodologyReferences": [],
+      "evidenceTerms": [
+        "agent",
+        "shared"
+      ],
+      "governanceQuestions": [
+        "How should agent, shared be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Matt Robb, Ai Agent System Deployers at the relevant time?",
+        "What evidence would establish how Meta Muse, Ai Agent Systems, Ai Personal Assistants, Facebook Marketplace produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case Meta's Muse AI Agent Reportedly Shared a Seller's Home Address and Arranged an Unexpected Pickup in Toronto, involving Meta Muse, Ai Agent Systems, Ai Personal Assistants, Facebook Marketplace, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: How should agent, shared be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1776"
+      ],
+      "problems": []
+    },
+    {
+      "incidentId": "OOF-AII-524225",
+      "title": "Kenya's Public Broadcaster Violated Employees' Privacy with Mandatory Facial Recognition Attendance, Court Found",
+      "severity": "Low",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "VFM® — Value Flow Mechanisms Architecture",
+      "contributingArchitectures": [],
+      "methodologyReferences": [
+        {
+          "objectId": "OOF-KO-STD-VFM-05",
+          "name": "Value State Standard (VSS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vss.html",
+          "matchedTerms": [
+            "state",
+            "classification"
+          ],
+          "canonical": true
+        }
+      ],
+      "evidenceTerms": [
+        "classification",
+        "recognition",
+        "state",
+        "third"
+      ],
+      "governanceQuestions": [
+        "What is the current governed state of value?",
+        "What operational authority and controls applied to Kenya Broadcasting Corporation, Facial Recognition System Deployers, Employers at the relevant time?",
+        "What evidence would establish how Kenya Broadcasting Corporation Facial Recognition Attendance System, Facial Recognition Systems, Biometric Data Processing Systems, Enterprise Ai Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case Kenya's Public Broadcaster Violated Employees' Privacy with Mandatory Facial Recognition Attendance, Court Found, involving Kenya Broadcasting Corporation Facial Recognition Attendance System, Facial Recognition Systems, Biometric Data Processing Systems, Enterprise Ai Systems, raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: What is the current governed state of value? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1770"
+      ],
+      "problems": []
+    },
+    {
+      "incidentId": "OOF-AII-525619",
+      "title": "Purportedly AI-Generated Calls Impersonating Banks Reportedly Helped Steal €380,000 from Customers in the Netherlands",
+      "severity": "Moderate",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+      "contributingArchitectures": [
+        "ASGA™ — Autonomous Systems Governance Architecture"
+      ],
+      "methodologyReferences": [
+        {
+          "objectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
+          "name": "Origin Integrity Standard (OIS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois.html",
+          "matchedTerms": [
+            "identity",
+            "origin"
+          ],
+          "canonical": true
+        },
+        {
+          "objectId": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
+          "name": "Origin Evidence Verification Module (OEVM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois-oevm.html",
+          "matchedTerms": [
+            "evidence",
+            "origin",
+            "identity"
+          ],
+          "canonical": true
+        }
+      ],
+      "evidenceTerms": [
+        "evidence",
+        "identity",
+        "monitoring",
+        "origin"
+      ],
+      "governanceQuestions": [
+        "How should evidence, identity, origin be governed in the conditions described by the available incident evidence?",
+        "How should identity, evidence, monitoring be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Voice Phishers, Synthetic Media Creators, Scammers, Deepfake Creators, Cybercriminals In The Netherlands, Cybercriminals, Bank Helpdesk Fraud Ring In The Netherlands at the relevant time?",
+        "What evidence would establish how Synthetic Media Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case Purportedly AI-Generated Calls Impersonating Banks Reportedly Helped Steal €380,000 from Customers in the Netherlands, involving Synthetic Media Technology, Synthetic Audio Generation Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should evidence, identity, origin be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1788"
+      ],
+      "problems": []
+    },
+    {
       "incidentId": "OOF-AII-527928",
       "title": "New Jersey Regulators Found DataOne Operated 62 Unpermitted Natural-Gas Generators at Vineland AI Data Center",
       "severity": "Moderate",
@@ -7501,6 +7870,61 @@
       "problems": []
     },
     {
+      "incidentId": "OOF-AII-543910",
+      "title": "Spain's People's Party Reportedly Published Purported Deepfakes Featuring Fabricated Admissions of Misconduct",
+      "severity": "Moderate",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Moderate",
+      "primaryArchitecture": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+      "contributingArchitectures": [
+        "AGA™ — Accountability Governance Architecture"
+      ],
+      "methodologyReferences": [
+        {
+          "objectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
+          "name": "Identity Integrity Standard (IIS)",
+          "artifactType": "ParentStandard",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis.html",
+          "matchedTerms": [
+            "identity",
+            "integrity"
+          ],
+          "canonical": true
+        },
+        {
+          "objectId": "OOF-OID-OBID-IIS-IVAM-2026-07-12-0002",
+          "name": "Identity Validation Module (IVAM)",
+          "artifactType": "CoreModule",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis-ivam.html",
+          "matchedTerms": [
+            "identity",
+            "validation"
+          ],
+          "canonical": true
+        }
+      ],
+      "evidenceTerms": [
+        "evidence",
+        "identity",
+        "integrity",
+        "origin",
+        "validation"
+      ],
+      "governanceQuestions": [
+        "How should evidence, identity, integrity be governed in the conditions described by the available incident evidence?",
+        "How should evidence, integrity, origin be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Synthetic Media Creators, Political Organizations, People'S Party (Spain), Partido Popular, Deepfake Creators at the relevant time?",
+        "What evidence would establish how X (Twitter), Voice Cloning Technology, Tiktok, Synthetic Video Generation Technology, Synthetic Media Technology, Synthetic Audio Generation Technology, Social Media Platforms, Instagram, Deepfake Technology produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "The source-reported case Spain's People's Party Reportedly Published Purported Deepfakes Featuring Fabricated Admissions of Misconduct, involving X (Twitter), Voice Cloning Technology, Tiktok, Synthetic Video Generation Technology, Synthetic Media Technology, Synthetic Audio Generation Technology, Social Media Platforms, Instagram, Deepfake Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should evidence, identity, integrity be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1785"
+      ],
+      "problems": []
+    },
+    {
       "incidentId": "OOF-AII-548734",
       "title": "Walmart's AI Voice System Allegedly Collected Illinois Callers' Biometric Voiceprints Without Consent",
       "severity": "Moderate",
@@ -7555,6 +7979,35 @@
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:1605"
+      ],
+      "problems": []
+    },
+    {
+      "incidentId": "OOF-AII-552833",
+      "title": "OpenAI Research Agent Reportedly Changed a Research Organization's Live Systems and Retrieved Nonpublic Data",
+      "severity": "Moderate",
+      "evidenceState": "Single-source",
+      "assessmentConfidence": "Limited",
+      "primaryArchitecture": "MGIA™ — Memory Governance Intelligence Architecture",
+      "contributingArchitectures": [
+        "CLIA® — Cognitive Governance Intelligence Architecture"
+      ],
+      "methodologyReferences": [],
+      "evidenceTerms": [
+        "agent",
+        "user"
+      ],
+      "governanceQuestions": [
+        "How should agent, user be governed in the conditions described by the available incident evidence?",
+        "How should agent be governed in the conditions described by the available incident evidence?",
+        "What operational authority and controls applied to Openai, Ai Agent System Deployers at the relevant time?",
+        "What evidence would establish how Openai Ai Agents, Large Language Models, Ai Agent Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "governanceInsight": "Available reporting on OpenAI Research Agent Reportedly Changed a Research Organization's Live Systems and Retrieved Nonpublic Data indicates that Openai Ai Agents, Large Language Models, Ai Agent Systems raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: How should agent, user be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "methodologicalCorrectness": "STRUCTURALLY VALID",
+      "supportingEvidence": [
+        "aiid:1784"
       ],
       "problems": []
     },
@@ -10033,24 +10486,24 @@
       "severity": "Moderate",
       "evidenceState": "Single-source",
       "assessmentConfidence": "Moderate",
-      "primaryArchitecture": "CLA™ — Classification Architecture",
+      "primaryArchitecture": "SLGA™ — Software Lifecycle Governance Architecture",
       "contributingArchitectures": [
-        "INTEGROS® — Integrity Governance Architecture",
-        "ASGA™ — Autonomous Systems Governance Architecture",
-        "OBIDENITY® — Origin-Bound Identity Governance Architecture",
-        "ORA™ - Operational Reality Architecture"
+        "CLA™ — Classification Architecture",
+        "INTEGROS® — Integrity Governance Architecture"
       ],
       "methodologyReferences": [],
       "evidenceTerms": [
-        "classification"
+        "classification",
+        "quality"
       ],
       "governanceQuestions": [
+        "How should quality be governed in the conditions described by the available incident evidence?",
         "How should classification be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Uk Home Office, Government Of The United Kingdom at the relevant time?",
         "What evidence would establish how Uk Passport Photo Checker produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "governanceInsight": "The source-reported case UK passport photo checker shows bias against dark-skinned women, involving Uk Passport Photo Checker, raises a preliminary question for CLA™ — Classification Architecture: How should classification be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "governanceInsight": "The source-reported case UK passport photo checker shows bias against dark-skinned women, involving Uk Passport Photo Checker, raises a preliminary question for SLGA™ — Software Lifecycle Governance Architecture: How should quality be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:87"
@@ -11646,48 +12099,19 @@
       "severity": "Low",
       "evidenceState": "Single-source",
       "assessmentConfidence": "Moderate",
-      "primaryArchitecture": "ASGA™ — Autonomous Systems Governance Architecture",
-      "contributingArchitectures": [
-        "PGA™ — Prediction Governance Architecture"
-      ],
-      "methodologyReferences": [
-        {
-          "objectId": "OOF-OID-ASGA-AES-2026-07-04-0003",
-          "name": "Autonomous Execution Standard (AES)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes.html",
-          "matchedTerms": [
-            "autonomous",
-            "execution"
-          ],
-          "canonical": true
-        },
-        {
-          "objectId": "OOF-OID-ASGA-AES-EAM-2026-07-04-0001",
-          "name": "Execution Authorization Module (EAM)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-aes-eam-1.html",
-          "matchedTerms": [
-            "execution",
-            "autonomous"
-          ],
-          "canonical": true
-        }
-      ],
+      "primaryArchitecture": "SLGA™ — Software Lifecycle Governance Architecture",
+      "contributingArchitectures": [],
+      "methodologyReferences": [],
       "evidenceTerms": [
-        "autonomous",
-        "execution",
-        "into",
-        "support"
+        "security"
       ],
       "governanceQuestions": [
-        "How should autonomous, execution be governed in the conditions described by the available incident evidence?",
-        "How should support, into be governed in the conditions described by the available incident evidence?",
+        "How should security be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Knightscope at the relevant time?",
         "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "governanceInsight": "The source-reported case Security Robot Drowns Itself in a Fountain, involving Knightscope, raises a preliminary question for ASGA™ — Autonomous Systems Governance Architecture: How should autonomous, execution be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "governanceInsight": "The source-reported case Security Robot Drowns Itself in a Fountain, involving Knightscope, raises a preliminary question for SLGA™ — Software Lifecycle Governance Architecture: How should security be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "methodologicalCorrectness": "STRUCTURALLY VALID",
       "supportingEvidence": [
         "aiid:68"
@@ -12021,7 +12445,9 @@
       "evidenceState": "Single-source",
       "assessmentConfidence": "Limited",
       "primaryArchitecture": "VFM® — Value Flow Mechanisms Architecture",
-      "contributingArchitectures": [],
+      "contributingArchitectures": [
+        "SLGA™ — Software Lifecycle Governance Architecture"
+      ],
       "methodologyReferences": [
         {
           "objectId": "OOF-KO-STD-VFM-06",
@@ -12037,10 +12463,12 @@
       ],
       "evidenceTerms": [
         "flow",
+        "software",
         "value"
       ],
       "governanceQuestions": [
         "When has existing value materially changed, and what change has occurred to it?",
+        "How should software be governed in the conditions described by the available incident evidence?",
         "What operational authority and controls applied to Udr, Residential Property Management Companies, Landlords at the relevant time?",
         "What evidence would establish how Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
