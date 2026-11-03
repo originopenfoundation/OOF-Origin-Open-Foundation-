@@ -36,10 +36,9 @@ jobs:
         run: |
           python tools/incident_intelligence_v2.py build
           python tools/incident_intelligence_v2.py validate
-          python tools/audit_ai_incident_methodology.py
           python tools/ai_incidents.py export
           python tools/ai_incidents.py validate
-          python tools/audit_ai_incident_v341.py
+          python tools/run_incident_ci_audits.py incident
           python -m unittest tests.test_ai_incidents
       - name: Rebuild public incident pages and discovery metadata
         run: |
