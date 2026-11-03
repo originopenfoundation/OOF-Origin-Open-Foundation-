@@ -81,6 +81,6 @@ jobs:
             changed_files="$(git diff --name-only | paste -sd ', ' -)"
             echo "::error title=Generated files are stale::$changed_files"
             git diff --stat
-            git --no-pager diff -- data/knowledge/manifest.json data/knowledge/relationships.json data/knowledge/representations.json | head -n 200
+            git --no-pager diff -- data/knowledge/manifest.json data/knowledge/relationships.json data/knowledge/representations.json | sed -n '1,200p'
             exit 1
           fi
