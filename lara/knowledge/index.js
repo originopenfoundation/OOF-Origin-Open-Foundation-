@@ -33,7 +33,8 @@ function readShared(root){
    topics:[],chunks,related_resources:[]});
  }
  const canonicalByObject=new Map(resources.filter(r=>r.authority_state==='CANONICAL_AUTHORITATIVE').map(r=>[r.object_id,r]));
- for(const edge of read('relationships.json').relationships){
+ const relationships=read('relationships.json').relationships;
+ for(const edge of relationships){
   if(!['AUTHORITATIVE','VALIDATED_AUTHORITATIVE'].includes(edge.authorityState))continue;
   const source=canonicalByObject.get(edge.sourceId),target=canonicalByObject.get(edge.targetId);
   if(source&&target)source.related_resources.push({resource_id:target.resource_id,relationship:edge.relationshipType,authority:edge.authorityState});
@@ -42,6 +43,7 @@ function readShared(root){
  let registry_fingerprint=null;try{registry_fingerprint=read('manifest.json').buildFingerprint;}catch{}
  return {resources,resource_count:resources.length,inventory_digest,registry_fingerprint,objects,byId,byUrl:read('indexes/object-by-canonical-url.json').index,
   byName:read('indexes/object-by-name.json').index,aliases:read('indexes/object-aliases.json').index,
+  relationships:relationships.filter(e=>byId.has(e.sourceId)&&byId.has(e.targetId)),architectureValidation:read('reports/architecture-canonical-validation.json').architectures,
   readiness,report_only:readiness.reportOnly!==false||readiness.LARA_INTEGRATION_READY!==true,diagnostics};
 }
 function exact(index,value){

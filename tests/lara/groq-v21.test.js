@@ -13,6 +13,10 @@ test('approved Groq route pins model and endpoint and requires account attestati
  const gateway=createGateway(env);assert(gateway.primary instanceof GroqAdapter);assert.equal(gateway.fallback,null);assert.equal(gateway.maxConcurrent,1);
  for(const change of [{LLM_MODEL:'openai/gpt-oss-20b'},{LLM_MODEL:'paid-model'},{LLM_BASE_URL:'https://evil.test/openai/v1'},{LLM_GROQ_FREE_TIER_CONFIRMED:'false'},{LLM_API_KEY:''}])assert.throws(()=>createGateway({...env,...change}),e=>e.kind==='invalid_configuration');
 });
+test('Groq narration uses bounded low reasoning effort without increasing output tokens',async()=>{
+ await withFetch(async(url,options)=>{const body=JSON.parse(options.body);assert.equal(body.reasoning_effort,'low');assert.equal(body.max_tokens,700);return response();},async()=>{await createGateway(env).generateDetailed(input);});
+ assert.throws(()=>new GroqAdapter({model:env.LLM_MODEL,baseUrl:env.LLM_BASE_URL,freeTierConfirmed:true,reasoningEffort:'unbounded'}),e=>e.kind==='invalid_configuration');
+});
 test('OpenAI-compatible alias cannot bypass Groq cost or fallback restrictions',()=>{
  assert.equal(createGateway({...env,LLM_PROVIDER:'openai-compatible'}).primary.name,'groq');
  assert.throws(()=>createGateway({...env,LLM_PROVIDER:'openai-compatible',LLM_GROQ_FREE_TIER_CONFIRMED:'false'}));
