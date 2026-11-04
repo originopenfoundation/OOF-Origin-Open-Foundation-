@@ -53,12 +53,12 @@
   "createdAt": "2026-09-05T02:08:48.754000Z",
   "updatedAt": "2026-09-05T02:08:48.754000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-712502-V12",
+    "assessmentIdentity": "OOF-AII-ASMT-712502-V13",
     "incidentId": "OOF-AII-712502",
-    "analysisVersion": 12,
+    "analysisVersion": 13,
     "engineVersion": "3.4.5",
-    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
-    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
@@ -77,11 +77,11 @@
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
       "methodologicalAssignment": {
-        "level": "Moderate",
-        "score": 0.59,
+        "level": "Limited",
+        "score": 0.51,
         "matchedTerms": [
-          "value",
-          "lost"
+          "delivery",
+          "claims"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -206,116 +206,29 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-VFM",
-        "architectureId": "vfm",
-        "label": "VFM® — Value Flow Mechanisms Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-        "score": 11.33,
+        "objectId": "OOF-KO-ARCH-EGA",
+        "architectureId": "ega",
+        "label": "EGA™ — Energy Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+        "score": 33.98,
         "matchedTerms": [
-          "value",
-          "lost"
+          "delivery",
+          "claims"
         ],
         "role": "Primary",
         "governedMechanism": "the reported system and activity",
-        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Restoration Standard (VRSS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-        "governanceFocus": "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
-        "methodologyDepth": "ParentStandard",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+        "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+        "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1662"
         ],
-        "confidence": 0.58,
+        "confidence": 0.66,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
-        "relevantStandardsModules": [
-          {
-            "objectId": "OOF-KO-STD-VFM-10",
-            "name": "Value Restoration Standard (VRSS)",
-            "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vrss.html",
-            "matchedTerms": [
-              "value",
-              "lost"
-            ],
-            "score": 4,
-            "governedSpace": "Value Restoration",
-            "coreQuestion": null,
-            "parentObjectId": null,
-            "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
-              "contentHash": "0337ff4d3c9114c58b5737b0f10a6e9e1a99b10f2a973619ed07dff1beaedf5b",
-              "authorityState": "CANONICAL_AUTHORITATIVE"
-            }
-          }
-        ]
+        "relevantStandardsModules": []
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-AGA",
-          "architectureId": "aga",
-          "label": "AGA™ — Accountability Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
-          "score": 8.84,
-          "matchedTerms": [
-            "chain"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes AGA™ — Accountability Governance Architecture relevant to examining AGA™ — Accountability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by AGA™ — Accountability Governance Architecture.",
-          "governanceFocus": "Which questions from AGA™ — Accountability Governance Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1662"
-          ],
-          "confidence": 0.56,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-OBIDENITY",
-          "architectureId": "obidenity",
-          "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-          "score": 8.84,
-          "matchedTerms": [
-            "chain"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining OBIDENITY® — Origin-Bound Identity Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
-          "governanceFocus": "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1662"
-          ],
-          "confidence": 0.56,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-VEGA",
-          "architectureId": "vega",
-          "label": "VEGA™ — Value Execution Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vega/vega-about.html",
-          "score": 7.97,
-          "matchedTerms": [
-            "value"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes VEGA™ — Value Execution Governance Architecture relevant to examining VEGA™ — Value Execution Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by VEGA™ — Value Execution Governance Architecture.",
-          "governanceFocus": "Which questions from VEGA™ — Value Execution Governance Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1662"
-          ],
-          "confidence": 0.55,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        }
-      ]
+      "contributingArchitectures": []
     },
     "systemFailureClassification": {
       "classificationVersion": "OOF-AII-SFC-1.1",
@@ -338,15 +251,14 @@
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "VFM® — Value Flow Mechanisms Architecture frames the primary governed problem. AGA™ — Accountability Governance Architecture, OBIDENITY® — Origin-Bound Identity Governance Architecture, VEGA™ — Value Execution Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: EGA™ — Energy Governance Architecture.",
     "governanceQuestions": [
-      "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
-      "Which questions from AGA™ — Accountability Governance Architecture, if any, are relevant to the reported system and activity?",
-      "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
-      "Which questions from VEGA™ — Value Execution Governance Architecture, if any, are relevant to the reported system and activity?",
-      "What operational authority and controls applied to Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast at the relevant time?"
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+      "What operational authority and controls applied to Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast at the relevant time?",
+      "What evidence would establish how Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting on Pizza Hut Franchisee Chaac Pizza Northeast Alleged Dragontail AI System Contributed to Delivery Delays and $100 Million in Losses indicates that Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "incidentGovernanceInsight": "Available reporting on Pizza Hut Franchisee Chaac Pizza Northeast Alleged Dragontail AI System Contributed to Delivery Delays and $100 Million in Losses indicates that Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -375,43 +287,38 @@
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "vfm",
+      "primaryArchitectureId": "ega",
       "mechanisms": [
-        "value",
-        "lost"
+        "delivery",
+        "claims"
       ],
-      "patternKey": "c63aca87d561d0ee"
+      "patternKey": "68523506812a1d25"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1662"
       ],
       "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "VFM® — Value Flow Mechanisms Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-VFM",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-AGA",
-        "OOF-KO-ARCH-OBIDENITY",
-        "OOF-KO-ARCH-VEGA"
-      ],
-      "parentStandard": "OOF-KO-STD-VFM-10",
+      "governedSpace": "EGA™ — Energy Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-EGA",
+      "contributingArchitectures": [],
+      "parentStandard": null,
       "coreModule": null,
       "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
-        "Which questions from AGA™ — Accountability Governance Architecture, if any, are relevant to the reported system and activity?",
-        "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
-        "Which questions from VEGA™ — Value Execution Governance Architecture, if any, are relevant to the reported system and activity?",
-        "What operational authority and controls applied to Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast at the relevant time?"
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+        "What operational authority and controls applied to Restaurants, Pizza Hut, Companies, Chaac Pizza Northeast at the relevant time?",
+        "What evidence would establish how Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting on Pizza Hut Franchisee Chaac Pizza Northeast Alleged Dragontail AI System Contributed to Delivery Delays and $100 Million in Losses indicates that Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
-      "deepestJustifiedLevel": "ParentStandard"
+      "incidentGovernanceInsight": "Available reporting on Pizza Hut Franchisee Chaac Pizza Northeast Alleged Dragontail AI System Contributed to Delivery Delays and $100 Million in Losses indicates that Enterprise Ai Systems, Dragontail Algo Platform, Doordash Delivery Platform, Algorithmic Management Systems, Doordash raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "value",
-        "lost"
+        "delivery",
+        "claims"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -422,61 +329,16 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1662"
         ],
         "basis": [
-          "value",
-          "lost"
+          "delivery",
+          "claims"
         ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to AGA™ — Accountability Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to AGA™ — Accountability Governance Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1662"
-        ],
-        "basis": [
-          "chain"
-        ],
-        "architectureReference": "OOF-KO-ARCH-AGA",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1662"
-        ],
-        "basis": [
-          "chain"
-        ],
-        "architectureReference": "OOF-KO-ARCH-OBIDENITY",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VEGA™ — Value Execution Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to VEGA™ — Value Execution Governance Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1662"
-        ],
-        "basis": [
-          "value"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VEGA",
+        "architectureReference": "OOF-KO-ARCH-EGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -503,9 +365,9 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T20:35:58Z",
-    "supersedes": "OOF-AII-ASMT-712502-V11",
-    "reassessmentReason": "Material analysis engine change",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-712502-V12",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
     "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",

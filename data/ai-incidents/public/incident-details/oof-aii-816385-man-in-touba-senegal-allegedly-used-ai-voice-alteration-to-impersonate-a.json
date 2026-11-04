@@ -60,12 +60,12 @@
   "createdAt": "2026-10-18T17:59:26.122000Z",
   "updatedAt": "2026-10-18T17:59:26.122000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-816385-V2",
+    "assessmentIdentity": "OOF-AII-ASMT-816385-V3",
     "incidentId": "OOF-AII-816385",
-    "analysisVersion": 2,
+    "analysisVersion": 3,
     "engineVersion": "3.4.5",
-    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
-    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -222,7 +222,7 @@
         "architectureId": "obidenity",
         "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-        "score": 42.5,
+        "score": 42.0,
         "matchedTerms": [
           "evidence",
           "identity",
@@ -254,7 +254,7 @@
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
+              "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
               "contentHash": "dc6e3ae8d403e9ce277c764c23ebb081902f8f86fa51b70a553198f78844b57b",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -274,7 +274,7 @@
             "coreQuestion": null,
             "parentObjectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
+              "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
               "contentHash": "a3cbee6b4d2a8f5519390263567bd46c17aad68e72b4a4f0d2eb0a8c5ba9c658",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
@@ -283,11 +283,35 @@
       },
       "contributingArchitectures": [
         {
+          "objectId": "OOF-KO-ARCH-EGA",
+          "architectureId": "ega",
+          "label": "EGA™ — Energy Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+          "score": 35.54,
+          "matchedTerms": [
+            "generation",
+            "conversion",
+            "origin"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+          "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1762"
+          ],
+          "confidence": 0.63,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        {
           "objectId": "OOF-KO-ARCH-AGA",
           "architectureId": "aga",
           "label": "AGA™ — Accountability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
-          "score": 34.57,
+          "score": 33.97,
           "matchedTerms": [
             "evidence",
             "origin",
@@ -311,7 +335,7 @@
           "architectureId": "vfm",
           "label": "VFM® — Value Flow Mechanisms Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 31.9,
+          "score": 31.12,
           "matchedTerms": [
             "origin",
             "value"
@@ -342,7 +366,7 @@
               "coreQuestion": null,
               "parentObjectId": null,
               "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
+                "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
                 "contentHash": "754b63b4858bad7ab733cb3b04f71bdfe526c87ef0a35e65eb9e0ed13442ddeb",
                 "authorityState": "CANONICAL_AUTHORITATIVE"
               }
@@ -387,13 +411,13 @@
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "OBIDENITY® — Origin-Bound Identity Governance Architecture frames the primary governed problem. AGA™ — Accountability Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "OBIDENITY® — Origin-Bound Identity Governance Architecture frames the primary governed problem. EGA™ — Energy Governance Architecture, AGA™ — Accountability Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "Which questions from AGA™ — Accountability Governance Architecture, if any, are relevant to the reported system and activity?",
       "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
-      "What operational authority and controls applied to Synthetic Media Creators, Scammers In Senegal, Scammers, Online Impersonators, Extortionists, Deepfake Creators, Cybercriminals at the relevant time?",
-      "What evidence would establish how Whatsapp, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Messaging Apps, Deepfake Technology, Ai Voice Conversion Technology produced or enabled the reported outcome?"
+      "What operational authority and controls applied to Synthetic Media Creators, Scammers In Senegal, Scammers, Online Impersonators, Extortionists, Deepfake Creators, Cybercriminals at the relevant time?"
     ],
     "incidentGovernanceInsight": "The source-reported case Man in Touba, Senegal, Allegedly Used AI Voice Alteration to Impersonate a Woman and Collect Intimate Images, involving Whatsapp, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Messaging Apps, Deepfake Technology, Ai Voice Conversion Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
@@ -440,6 +464,7 @@
       "governedSpace": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-OBIDENITY",
       "contributingArchitectures": [
+        "OOF-KO-ARCH-EGA",
         "OOF-KO-ARCH-AGA",
         "OOF-KO-ARCH-VFM"
       ],
@@ -448,10 +473,10 @@
       "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
         "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "Which questions from AGA™ — Accountability Governance Architecture, if any, are relevant to the reported system and activity?",
         "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
-        "What operational authority and controls applied to Synthetic Media Creators, Scammers In Senegal, Scammers, Online Impersonators, Extortionists, Deepfake Creators, Cybercriminals at the relevant time?",
-        "What evidence would establish how Whatsapp, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Messaging Apps, Deepfake Technology, Ai Voice Conversion Technology produced or enabled the reported outcome?"
+        "What operational authority and controls applied to Synthetic Media Creators, Scammers In Senegal, Scammers, Online Impersonators, Extortionists, Deepfake Creators, Cybercriminals at the relevant time?"
       ],
       "incidentGovernanceInsight": "The source-reported case Man in Touba, Senegal, Allegedly Used AI Voice Alteration to Impersonate a Woman and Collect Intimate Images, involving Whatsapp, Synthetic Media Generation Technology, Synthetic Audio Generation Technology, Messaging Apps, Deepfake Technology, Ai Voice Conversion Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "CoreModule"
@@ -483,6 +508,23 @@
           "origin"
         ],
         "architectureReference": "OOF-KO-ARCH-OBIDENITY",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "evidenceBasis": [
+          "aiid:1762"
+        ],
+        "basis": [
+          "generation",
+          "conversion",
+          "origin"
+        ],
+        "architectureReference": "OOF-KO-ARCH-EGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -540,9 +582,9 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T20:35:58Z",
-    "supersedes": "OOF-AII-ASMT-816385-V1",
-    "reassessmentReason": "Material analysis engine change",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-816385-V2",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
     "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",

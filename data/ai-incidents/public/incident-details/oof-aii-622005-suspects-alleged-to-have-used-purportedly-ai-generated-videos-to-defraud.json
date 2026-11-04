@@ -54,12 +54,12 @@
   "createdAt": "2026-08-15T17:58:45.093000Z",
   "updatedAt": "2026-08-15T17:58:45.093000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-622005-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-622005-V12",
     "incidentId": "OOF-AII-622005",
-    "analysisVersion": 11,
+    "analysisVersion": 12,
     "engineVersion": "3.4.5",
-    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
-    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -79,10 +79,9 @@
       },
       "methodologicalAssignment": {
         "level": "Limited",
-        "score": 0.51,
+        "score": 0.43,
         "matchedTerms": [
-          "identified",
-          "specific"
+          "generation"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -202,75 +201,28 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-PGA",
-        "architectureId": "pga",
-        "label": "PGA™ — Prediction Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 11.21,
+        "objectId": "OOF-KO-ARCH-EGA",
+        "architectureId": "ega",
+        "label": "EGA™ — Energy Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+        "score": 20.39,
         "matchedTerms": [
-          "identified",
-          "specific"
+          "generation"
         ],
         "role": "Primary",
         "governedMechanism": "the reported system and activity",
-        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+        "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1638"
         ],
-        "confidence": 0.58,
+        "confidence": 0.66,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-LIGA",
-          "architectureId": "liga",
-          "label": "LIGA™ — Liability Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 10.92,
-          "matchedTerms": [
-            "identified",
-            "specific"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-          "governanceFocus": "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1638"
-          ],
-          "confidence": 0.58,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-VFM",
-          "architectureId": "vfm",
-          "label": "VFM® — Value Flow Mechanisms Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 7.97,
-          "matchedTerms": [
-            "identified"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-          "governanceFocus": "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1638"
-          ],
-          "confidence": 0.55,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        }
-      ]
+      "contributingArchitectures": []
     },
     "systemFailureClassification": {
       "classificationVersion": "OOF-AII-SFC-1.1",
@@ -306,15 +258,14 @@
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: EGA™ — Energy Governance Architecture.",
     "governanceQuestions": [
-      "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
-      "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
-      "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Synthetic Media Creators, Scammers In Turkey, Scammers at the relevant time?",
-      "What evidence would establish how Synthetic Video Generation Technology, Synthetic Media Generation Technology produced or enabled the reported outcome?"
+      "What evidence would establish how Synthetic Video Generation Technology, Synthetic Media Generation Technology produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Suspects Alleged to Have Used Purportedly AI-Generated Videos to Defraud 33 People of Approximately 15 Million Lira in Turkey, involving Synthetic Video Generation Technology, Synthetic Media Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Suspects Alleged to Have Used Purportedly AI-Generated Videos to Defraud 33 People of Approximately 15 Million Lira in Turkey, involving Synthetic Video Generation Technology, Synthetic Media Generation Technology, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -343,42 +294,36 @@
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "pga",
+      "primaryArchitectureId": "ega",
       "mechanisms": [
-        "identified",
-        "specific"
+        "generation"
       ],
-      "patternKey": "a65554aa28b5211d"
+      "patternKey": "ea8a0c7b96031393"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1638"
       ],
       "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "PGA™ — Prediction Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-PGA",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-LIGA",
-        "OOF-KO-ARCH-VFM"
-      ],
+      "governedSpace": "EGA™ — Energy Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-EGA",
+      "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
       "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
-        "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
-        "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Synthetic Media Creators, Scammers In Turkey, Scammers at the relevant time?",
-        "What evidence would establish how Synthetic Video Generation Technology, Synthetic Media Generation Technology produced or enabled the reported outcome?"
+        "What evidence would establish how Synthetic Video Generation Technology, Synthetic Media Generation Technology produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Suspects Alleged to Have Used Purportedly AI-Generated Videos to Defraud 33 People of Approximately 15 Million Lira in Turkey, involving Synthetic Video Generation Technology, Synthetic Media Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Suspects Alleged to Have Used Purportedly AI-Generated Videos to Defraud 33 People of Approximately 15 Million Lira in Turkey, involving Synthetic Video Generation Technology, Synthetic Media Generation Technology, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "identified",
-        "specific"
+        "generation"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -389,47 +334,15 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1638"
         ],
         "basis": [
-          "identified",
-          "specific"
+          "generation"
         ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1638"
-        ],
-        "basis": [
-          "identified",
-          "specific"
-        ],
-        "architectureReference": "OOF-KO-ARCH-LIGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1638"
-        ],
-        "basis": [
-          "identified"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
+        "architectureReference": "OOF-KO-ARCH-EGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -454,9 +367,9 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T20:35:58Z",
-    "supersedes": "OOF-AII-ASMT-622005-V10",
-    "reassessmentReason": "Material analysis engine change",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-622005-V11",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
     "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",

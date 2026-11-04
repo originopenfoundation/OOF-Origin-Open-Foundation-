@@ -55,12 +55,12 @@
   "createdAt": "2026-09-27T00:00:00Z",
   "updatedAt": "2026-09-27T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-719717-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-719717-V12",
     "incidentId": "OOF-AII-719717",
-    "analysisVersion": 11,
+    "analysisVersion": 12,
     "engineVersion": "3.4.5",
-    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
-    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
@@ -82,7 +82,7 @@
         "level": "Limited",
         "score": 0.43,
         "matchedTerms": [
-          "behavior"
+          "generation"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -194,51 +194,28 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-AIG",
-        "architectureId": "aig",
-        "label": "AIG® - Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
-        "score": 3.35,
+        "objectId": "OOF-KO-ARCH-EGA",
+        "architectureId": "ega",
+        "label": "EGA™ — Energy Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+        "score": 10.19,
         "matchedTerms": [
-          "behavior"
+          "generation"
         ],
         "role": "Primary",
         "governedMechanism": "the reported system and activity",
-        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes AIG® - Governance Architecture relevant to examining AIG® - Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by AIG® - Governance Architecture.",
-        "governanceFocus": "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+        "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1714"
         ],
-        "confidence": 0.51,
+        "confidence": 0.57,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-LIGA",
-          "architectureId": "liga",
-          "label": "LIGA™ — Liability Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 3.35,
-          "matchedTerms": [
-            "later"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-          "governanceFocus": "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1714"
-          ],
-          "confidence": 0.51,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        }
-      ]
+      "contributingArchitectures": []
     },
     "systemFailureClassification": {
       "classificationVersion": "OOF-AII-SFC-1.1",
@@ -274,15 +251,14 @@
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "AIG® - Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: EGA™ — Energy Governance Architecture.",
     "governanceQuestions": [
-      "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
-      "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
       "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for AIG® - Governance Architecture: Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -311,39 +287,36 @@
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "aig",
+      "primaryArchitectureId": "ega",
       "mechanisms": [
-        "behavior"
+        "generation"
       ],
-      "patternKey": "28eb3ba5fbe48fbb"
+      "patternKey": "ea8a0c7b96031393"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1714"
       ],
       "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "AIG® - Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-AIG",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-LIGA"
-      ],
+      "governedSpace": "EGA™ — Energy Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-EGA",
+      "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
       "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
-        "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
         "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for AIG® - Governance Architecture: Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "behavior"
+        "generation"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -354,30 +327,15 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported the reported system and activity.",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1714"
         ],
         "basis": [
-          "behavior"
+          "generation"
         ],
-        "architectureReference": "OOF-KO-ARCH-AIG",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1714"
-        ],
-        "basis": [
-          "later"
-        ],
-        "architectureReference": "OOF-KO-ARCH-LIGA",
+        "architectureReference": "OOF-KO-ARCH-EGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -404,9 +362,9 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-03T20:35:58Z",
-    "supersedes": "OOF-AII-ASMT-719717-V10",
-    "reassessmentReason": "Material analysis engine change",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-719717-V11",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
     "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
