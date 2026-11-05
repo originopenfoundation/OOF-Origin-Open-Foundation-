@@ -41,12 +41,13 @@
     {
       "sourceId": "aiid:1746",
       "publisher": "AI Incident Database (Responsible AI Collaborative)",
-      "publicationDate": "2026-08-18",
+      "publicationDate": null,
       "sourceType": "Official weekly data export",
       "url": "https://incidentdatabase.ai/cite/1746",
       "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261019.xlsx",
-      "retrievedAt": "2026-10-19T00:00:00Z",
-      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+      "retrievedAt": null,
+      "verificationStatus": "Source Catalogued / OOF Not Assessed",
+      "snapshotDate": "2026-10-19T00:00:00Z"
     }
   ],
   "architectureRelevance": {
@@ -65,10 +66,10 @@
   "createdAt": "2026-10-10T23:57:48.398000Z",
   "updatedAt": "2026-10-10T23:57:48.398000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-313269-V4",
+    "assessmentIdentity": "OOF-AII-ASMT-313269-V5",
     "incidentId": "OOF-AII-313269",
-    "analysisVersion": 4,
-    "engineVersion": "3.4.5",
+    "analysisVersion": 5,
+    "engineVersion": "3.4.6",
     "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
     "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -141,8 +142,9 @@
           "authority": "Specialist database",
           "independenceKey": "ai incident database responsible ai collaborative",
           "directness": "Secondary catalogue",
-          "publicationTime": "2026-08-18",
-          "retrievalTime": "2026-10-19T00:00:00Z",
+          "publicationTime": null,
+          "retrievalTime": null,
+          "snapshotTime": "2026-10-19T00:00:00Z",
           "eventTime": "2026-08-18",
           "verificationState": "Source Catalogued / OOF Not Assessed"
         }
@@ -264,30 +266,7 @@
           }
         ]
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-EGA",
-          "architectureId": "ega",
-          "label": "EGA™ — Energy Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
-          "score": 20.39,
-          "matchedTerms": [
-            "generation"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
-          "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1746"
-          ],
-          "confidence": 0.6,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        }
-      ]
+      "contributingArchitectures": []
     },
     "systemFailureClassification": {
       "classificationVersion": "OOF-AII-SFC-1.1",
@@ -323,10 +302,9 @@
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. EGA™ — Energy Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
     "governanceQuestions": [
       "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
-      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Synthetic Media Creators, Malicious Actors, Information Manipulation Actors In The United States, Information Manipulation Actors, Hoax Threat Perpetrators at the relevant time?",
       "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
@@ -375,15 +353,12 @@
       "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "PGA™ — Prediction Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-PGA",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-EGA"
-      ],
+      "contributingArchitectures": [],
       "parentStandard": "OOF-KO-STD-PGA-03",
       "coreModule": null,
       "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
         "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
-        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Synthetic Media Creators, Malicious Actors, Information Manipulation Actors In The United States, Information Manipulation Actors, Hoax Threat Perpetrators at the relevant time?",
         "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
@@ -421,21 +396,6 @@
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1746"
-        ],
-        "basis": [
-          "generation"
-        ],
-        "architectureReference": "OOF-KO-ARCH-EGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
       }
     ],
     "evidenceGaps": [
@@ -457,9 +417,9 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-04T09:25:07Z",
-    "supersedes": "OOF-AII-ASMT-313269-V3",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+    "createdAt": "2026-11-05T22:15:14Z",
+    "supersedes": "OOF-AII-ASMT-313269-V4",
+    "reassessmentReason": "Material analysis engine change",
     "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",

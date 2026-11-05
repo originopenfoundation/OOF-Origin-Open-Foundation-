@@ -256,7 +256,7 @@ function formatFreshness(freshness, snapshotUrl) {
   const timestamp = Date.parse(freshness.snapshotDate || (dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}T00:00:00Z` : ""));
   if (Number.isFinite(timestamp)) {
     const hours = Math.max(0, Math.floor((Date.now() - timestamp) / 3600000));
-    return `${hours > freshness.sloHours ? "stale: " : ""}${hours} hours old (SLO ${freshness.sloHours} hours; snapshot date)`;
+    return `${hours > freshness.sloHours ? "Older than expected: " : ""}${hours} hours old (weekly snapshot; alert after ${freshness.sloHours} hours). A successful check does not guarantee a newer export exists.`;
   }
   if (Number.isFinite(freshness.snapshotAgeHours)) return `at export: ${freshness.snapshotAgeHours} hours old; current age unavailable`;
   return "snapshot date unavailable";
@@ -400,7 +400,11 @@ function navigate(changes, replace = false, clear = false) {
 function applyFilters(items) {
   let result = [...items];
   const query = (params.get("q") || "").toLowerCase();
-  if (query) result = result.filter((item) => (item.searchText || "").includes(query));
+  if (query) result = result.filter((item) => {
+    const text = `${item.id || ""} ${item.searchText || ""}`.toLowerCase();
+    const normalizedIdQuery = query.replace(/[^a-z0-9]/g, "");
+    return text.includes(query) || (normalizedIdQuery.length >= 4 && String(item.id || "").toLowerCase().replace(/[^a-z0-9]/g, "").includes(normalizedIdQuery));
+  });
   if (params.get("severity")) result = result.filter((item) => item.severity === params.get("severity"));
   if (params.get("eventType")) result = result.filter((item) => item.eventType === params.get("eventType"));
   if (params.get("analysisStatus")) result = result.filter((item) => item.assessment?.analysisStatus === params.get("analysisStatus"));
@@ -659,10 +663,11 @@ function createIncidentCard(incident, architectureLinks) {
 
   const preview = incident.preventionPreview || {};
   const prevention = element("ol", "oof-incident-prevention-preview");
+  const conditional = Boolean(preview.conditionalIdeaAvailable);
   [
     ["Could this happen?", preview.applicability],
-    ["What to implement", preview.control],
-    ["How to verify", preview.verification],
+    [conditional ? "Conditional control idea" : "Evidence needed before control selection", preview.control],
+    [conditional ? "Conditional verification idea" : "Evidence review", preview.verification],
   ].forEach(([label, value]) => {
     const row = document.createElement("li");
     row.append(element("b", "", label), element("span", "", value || "Prevention analysis pending sufficient evidence."));
