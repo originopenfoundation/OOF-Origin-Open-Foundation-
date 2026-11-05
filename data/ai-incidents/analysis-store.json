@@ -1,11 +1,11 @@
 {
   "schemaVersion": "3.0",
   "engineVersion": "3.4.5",
-  "generatedAt": "2026-11-04T09:25:07Z",
+  "generatedAt": "2026-11-05T09:35:52Z",
   "knowledgeLayer": {
     "source": "data/knowledge",
     "buildId": "OOF-KI-1.1-f4775c6f4a7a",
-    "buildFingerprint": "e36c853a5c5b34c94e8c6d30a7b32692f4b62fcad5e274bee7777816f8f7a35c",
+    "buildFingerprint": "f174b8df90c0ac0eacf4ddf5bf47eee374bab9980884259e84d83b7e3279f09d",
     "impactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "architectureCount": 21,
     "retrievalMode": "structured lexical relational hybrid"
@@ -542620,6 +542620,405 @@
       }
     },
     {
+      "assessmentIdentity": "OOF-AII-ASMT-464478-V1",
+      "incidentId": "OOF-AII-464478",
+      "analysisVersion": 1,
+      "engineVersion": "3.4.5",
+      "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+      "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
+      "assessmentLabel": "Automated Preliminary Governance Assessment",
+      "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+      "assessmentConfidence": "Limited",
+      "confidenceDimensions": {
+        "sourceCorroboration": {
+          "level": "Single-source",
+          "score": 0.5,
+          "independentSourceCount": 1,
+          "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+        },
+        "extractionCompleteness": {
+          "level": "Moderate",
+          "score": 0.5,
+          "populatedFields": 4,
+          "evaluatedFields": 8,
+          "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+        },
+        "methodologicalAssignment": {
+          "level": "Moderate",
+          "score": 0.75,
+          "matchedTerms": [
+            "agents",
+            "models",
+            "evidence",
+            "over"
+          ],
+          "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+        }
+      },
+      "sourceNormalization": {
+        "policyVersion": "OOF-AII-NORM-3.2",
+        "sourceRecordModified": false,
+        "rawRecordHash": "9cd9b11c23ae1fd10188f96117f57d63ae207bac476e9d8395a80a2747a62b4e",
+        "normalizedFields": {
+          "organization": "Openai, Ai Agent System Deployers",
+          "system": "Ai Agent Systems, Openai Ai Agents, Large Language Models, Openai Large Language Models",
+          "technology": null,
+          "industry": null,
+          "aiSystemType": null,
+          "impactTypes": [],
+          "affectedParties": [
+            "Rubydoc.Info",
+            "Rubygems",
+            "Rubygems Users",
+            "Software Developers",
+            "Information Security",
+            "Targets Of Autonomous Ai Enabled Intrusion Operations"
+          ]
+        },
+        "transformations": []
+      },
+      "evidenceSnapshot": {
+        "snapshotId": "OOF-AII-464478-EVID-9cd9b11c23ae",
+        "incidentSourceHash": "9cd9b11c23ae1fd10188f96117f57d63ae207bac476e9d8395a80a2747a62b4e",
+        "sources": [
+          {
+            "sourceId": "aiid:1797",
+            "url": "https://incidentdatabase.ai/cite/1797",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "authority": "Specialist database",
+            "independenceKey": "ai incident database responsible ai collaborative",
+            "directness": "Secondary catalogue",
+            "publicationTime": "2026-05-11",
+            "retrievalTime": "2026-11-02T00:00:00Z",
+            "eventTime": "2026-05-11",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "corroboration": {
+          "sourceCount": 1,
+          "independentSourceCount": 1,
+          "status": "Single-source",
+          "contradictionState": "Not evaluated"
+        },
+        "publicEvidenceStatus": "Source-Reported"
+      },
+      "incidentEvidence": {
+        "sourcesUsed": [
+          {
+            "sourceId": "aiid:1797",
+            "url": "https://incidentdatabase.ai/cite/1797",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "sourceType": "Specialist database",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "knownFacts": [
+          "The incident record identifies the event date as 2026-05-11."
+        ],
+        "reportedClaims": [
+          "Researchers linked a malicious-package campaign against RubyGems, a software registry, and RubyDoc.info, a documentation service, to OpenAI agents. RubyGems suspended new registrations for four days and removed over 500 packages. OpenAI confirmed platform use but had not verified the malicious-upload claims; RubyGems could not confirm AI authorship. Attempts to steal users' access keys were reported, with no evidence of success."
+        ],
+        "materialUnknowns": [
+          "Independent corroboration is not established in the available incident record."
+        ],
+        "evidenceState": "Single-source"
+      },
+      "oofIncidentReport": {
+        "headline": "OpenAI AI Agents Reportedly Flooded RubyGems Software Registry With Malicious Packages",
+        "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-05-11). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
+        "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+        "sourceUrl": "https://incidentdatabase.ai/cite/1797",
+        "eventDate": "2026-05-11",
+        "sourceRecordTimestamp": "2026-10-31",
+        "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
+        "evidenceStatus": "Source-Reported",
+        "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
+      },
+      "severityAssessment": {
+        "level": "High",
+        "score": 9,
+        "confidence": 0.67,
+        "dimensions": {
+          "actualHarm": 0,
+          "scale": 2,
+          "reversibility": 1,
+          "autonomy": 2,
+          "propagation": 2,
+          "infrastructureImportance": 0,
+          "financialImpact": 0,
+          "physicalImpact": 0,
+          "informationImpact": 0,
+          "controlFailure": 0,
+          "persistence": 0,
+          "affectedPopulation": 2
+        },
+        "matchedEvidence": {
+          "scale": [
+            "campaign"
+          ],
+          "reversibility": [
+            "suspended",
+            "removed"
+          ],
+          "autonomy": [
+            "autonomous"
+          ],
+          "propagation": [
+            "campaign"
+          ]
+        },
+        "rationale": "Automated evidence-based severity is High from 5 supported dimensions: scale, reversibility, autonomy, propagation, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+        "rubricVersion": "OOF-AII-SEV-1.0"
+      },
+      "architectureAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "primaryArchitecture": {
+          "objectId": "OOF-KO-ARCH-PGA",
+          "architectureId": "pga",
+          "label": "PGA™ — Prediction Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+          "score": 100.9,
+          "matchedTerms": [
+            "agents",
+            "models",
+            "evidence",
+            "over"
+          ],
+          "role": "Primary",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining Collective Prediction Governance Standard (CPGS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+          "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:1797"
+          ],
+          "confidence": 0.66,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-KO-STD-PGA-08",
+              "name": "Collective Prediction Governance Standard (CPGS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-cpgs.html",
+              "matchedTerms": [
+                "agents",
+                "models"
+              ],
+              "score": 28,
+              "governedSpace": null,
+              "coreQuestion": "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
+                "contentHash": "bf11b8830d2fa50fc4ec3dc5056734b97a1c42e1994d23552f5bd505ddbbe121",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
+        },
+        "contributingArchitectures": []
+      },
+      "systemFailureClassification": {
+        "classificationVersion": "OOF-AII-SFC-1.1",
+        "incidentId": "OOF-AII-464478",
+        "systemDomains": [
+          "AI agents"
+        ],
+        "observedOutcome": "Researchers linked a malicious-package campaign against RubyGems, a software registry, and RubyDoc.info, a documentation service, to OpenAI agents. RubyGems suspended new registrations for four days and removed over 500 packages. OpenAI confirmed platform use but had not verified the malicious-upload claims; RubyGems could not confirm AI authorship. Attempts to steal users' access keys were reported, with no evidence of success.",
+        "candidateFailureMechanisms": [],
+        "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+        "evidenceReferences": [
+          "aiid:1797"
+        ],
+        "status": "COMPONENTS_INDICATED",
+        "components": [
+          {
+            "componentId": "agent-planning-delegation",
+            "label": "Agent planning and delegation",
+            "matchedTerms": [
+              "ai agent"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1797"
+            ]
+          },
+          {
+            "componentId": "monitoring-auditability",
+            "label": "Monitoring and auditability",
+            "matchedTerms": [
+              "evidence"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1797"
+            ]
+          }
+        ],
+        "technicalMechanismStatus": "NOT_CONFIRMED",
+        "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+      },
+      "externalTechnicalMappings": {
+        "status": "NOT_MAPPED",
+        "mappings": [],
+        "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+      },
+      "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governanceRelationship": "The available evidence currently supports one primary governed domain: PGA™ — Prediction Governance Architecture.",
+      "governanceQuestions": [
+        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+        "What operational authority and controls applied to Openai, Ai Agent System Deployers at the relevant time?",
+        "What evidence would establish how Ai Agent Systems, Openai Ai Agents, Large Language Models, Openai Large Language Models produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "Available reporting on OpenAI AI Agents Reportedly Flooded RubyGems Software Registry With Malicious Packages indicates that Ai Agent Systems, Openai Ai Agents, Large Language Models, Openai Large Language Models raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "preventionGuidance": {
+        "status": "EVIDENCE_LIMITED",
+        "couldThisHappenToYourSystem": {
+          "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+          "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
+        },
+        "whatShouldBeImplemented": {
+          "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+          "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+          "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+          "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
+        },
+        "howCanProtectionBeVerified": {
+          "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+          "prerequisite": "An attributable system inventory and evidence log are available.",
+          "testAction": "Compare the report with retained system, authority, and outcome records.",
+          "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+          "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+          "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
+        },
+        "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+        "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+        "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+        "relevantMethodology": [],
+        "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+      },
+      "practicalChecklist": [
+        {
+          "item": "Identify accountable authority",
+          "verification": "Record who authorized, operated, and could stop the activity."
+        },
+        {
+          "item": "Reconstruct the evidence chain",
+          "verification": "Link source, system action, observation, consequence, and time."
+        },
+        {
+          "item": "Test the preventive control",
+          "verification": "Demonstrate that the control detects or constrains the reported system and activity under comparable conditions."
+        },
+        {
+          "item": "Record residual uncertainty",
+          "verification": "List unresolved facts and the evidence required to resolve them."
+        }
+      ],
+      "governanceFailurePattern": {
+        "primaryArchitectureId": "pga",
+        "mechanisms": [
+          "agents",
+          "models",
+          "evidence",
+          "over"
+        ],
+        "patternKey": "a6ac5420930b518c"
+      },
+      "methodologicalReasoningChain": {
+        "incidentEvidence": [
+          "aiid:1797"
+        ],
+        "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+        "governedSpace": "PGA™ — Prediction Governance Architecture",
+        "primaryArchitecture": "OOF-KO-ARCH-PGA",
+        "contributingArchitectures": [],
+        "parentStandard": "OOF-KO-STD-PGA-08",
+        "coreModule": null,
+        "governedMechanism": "the reported system and activity",
+        "governanceQuestions": [
+          "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+          "What operational authority and controls applied to Openai, Ai Agent System Deployers at the relevant time?",
+          "What evidence would establish how Ai Agent Systems, Openai Ai Agents, Large Language Models, Openai Large Language Models produced or enabled the reported outcome?",
+          "What additional independent evidence is required to resolve the material evidence gaps?"
+        ],
+        "incidentGovernanceInsight": "Available reporting on OpenAI AI Agents Reportedly Flooded RubyGems Software Registry With Malicious Packages indicates that Ai Agent Systems, Openai Ai Agents, Large Language Models, Openai Large Language Models raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+        "deepestJustifiedLevel": "ParentStandard"
+      },
+      "layerAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "governedMechanisms": [
+          "agents",
+          "models",
+          "evidence",
+          "over"
+        ],
+        "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+      },
+      "coverageAssessment": {
+        "status": "UNDER_REVIEW",
+        "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+      },
+      "governanceFindings": [
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1797"
+          ],
+          "basis": [
+            "agents",
+            "models",
+            "evidence",
+            "over"
+          ],
+          "architectureReference": "OOF-KO-ARCH-PGA",
+          "confidenceState": "Limited",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        }
+      ],
+      "evidenceGaps": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "Country could not be resolved from the available evidence.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "uncertainties": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "Country could not be resolved from the available evidence.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "analysisType": "Automated",
+      "humanReview": {
+        "status": "Not performed",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "oofApproved": false,
+      "createdAt": "2026-11-05T09:35:52Z",
+      "supersedes": null,
+      "reassessmentReason": "Initial automated analysis",
+      "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
+      "qualityOutcomes": {
+        "structuralIntegrity": "PASS",
+        "semanticIntegrity": "PASS",
+        "methodologicalSupport": "PASS",
+        "evidenceTransparency": "PASS",
+        "publicationEligibility": "PUBLISHABLE",
+        "sourceRecordEligibility": "PUBLISHABLE",
+        "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
+      }
+    },
+    {
       "assessmentIdentity": "OOF-AII-ASMT-469883-V1",
       "incidentId": "OOF-AII-469883",
       "analysisVersion": 1,
@@ -592223,6 +592622,413 @@
       "createdAt": "2026-11-04T09:25:07Z",
       "supersedes": "OOF-AII-ASMT-487076-V13",
       "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+      "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
+      "qualityOutcomes": {
+        "structuralIntegrity": "PASS",
+        "semanticIntegrity": "PASS",
+        "methodologicalSupport": "PASS",
+        "evidenceTransparency": "PASS",
+        "publicationEligibility": "PUBLISHABLE",
+        "sourceRecordEligibility": "PUBLISHABLE",
+        "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
+      }
+    },
+    {
+      "assessmentIdentity": "OOF-AII-ASMT-487528-V1",
+      "incidentId": "OOF-AII-487528",
+      "analysisVersion": 1,
+      "engineVersion": "3.4.5",
+      "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+      "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
+      "assessmentLabel": "Automated Preliminary Governance Assessment",
+      "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+      "assessmentConfidence": "Moderate",
+      "confidenceDimensions": {
+        "sourceCorroboration": {
+          "level": "Single-source",
+          "score": 0.5,
+          "independentSourceCount": 1,
+          "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+        },
+        "extractionCompleteness": {
+          "level": "Moderate",
+          "score": 0.62,
+          "populatedFields": 5,
+          "evaluatedFields": 8,
+          "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+        },
+        "methodologicalAssignment": {
+          "level": "High",
+          "score": 0.75,
+          "matchedTerms": [
+            "identity",
+            "evidence",
+            "origin"
+          ],
+          "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+        }
+      },
+      "sourceNormalization": {
+        "policyVersion": "OOF-AII-NORM-3.2",
+        "sourceRecordModified": false,
+        "rawRecordHash": "b8f5ffa2a8c9ee972a4abbb744fa2c40cc3768a83bdcc51c228d3772834f5ec8",
+        "normalizedFields": {
+          "organization": "Storm 1516, Information Manipulation Actors, Deepfake Creators, Synthetic Media Creators, Information Manipulation Actors In Russia",
+          "system": "Deepfake Technology, Synthetic Video Generation Technology, Synthetic Media Generation Technology",
+          "technology": null,
+          "industry": null,
+          "aiSystemType": null,
+          "impactTypes": [],
+          "affectedParties": [
+            "James Talarico",
+            "Zyon Lewis",
+            "Political Candidates",
+            "Politicians",
+            "Politicians In The United States",
+            "Public Figures",
+            "Epistemic Integrity",
+            "Privacy",
+            "Targets Of Online Impersonation",
+            "Voters",
+            "Voters In The United States",
+            "Democratic Integrity"
+          ]
+        },
+        "transformations": []
+      },
+      "evidenceSnapshot": {
+        "snapshotId": "OOF-AII-487528-EVID-b8f5ffa2a8c9",
+        "incidentSourceHash": "b8f5ffa2a8c9ee972a4abbb744fa2c40cc3768a83bdcc51c228d3772834f5ec8",
+        "sources": [
+          {
+            "sourceId": "aiid:1793",
+            "url": "https://incidentdatabase.ai/cite/1793",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "authority": "Specialist database",
+            "independenceKey": "ai incident database responsible ai collaborative",
+            "directness": "Secondary catalogue",
+            "publicationTime": "2026-10-20",
+            "retrievalTime": "2026-11-02T00:00:00Z",
+            "eventTime": "2026-10-20",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "corroboration": {
+          "sourceCount": 1,
+          "independentSourceCount": 1,
+          "status": "Single-source",
+          "contradictionState": "Not evaluated"
+        },
+        "publicEvidenceStatus": "Source-Reported"
+      },
+      "incidentEvidence": {
+        "sourcesUsed": [
+          {
+            "sourceId": "aiid:1793",
+            "url": "https://incidentdatabase.ai/cite/1793",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "sourceType": "Specialist database",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "knownFacts": [
+          "The incident record identifies the event date as 2026-10-20.",
+          "The incident record identifies the location as United States of America."
+        ],
+        "reportedClaims": [
+          "Two purported deepfake videos circulated on X using former student Zyon Lewis's identity to allegedly falsely accuse Texas U.S. Senate candidate James Talarico of sexual assault. Lewis said the person depicted was not him and denied the allegation. Researchers linked the videos to the Russia-aligned Storm-1516 influence operation. The original account was suspended, but copies continued to circulate."
+        ],
+        "materialUnknowns": [
+          "Independent corroboration is not established in the available incident record."
+        ],
+        "evidenceState": "Single-source"
+      },
+      "oofIncidentReport": {
+        "headline": "Purported Deepfake Videos Allegedly Impersonated a Former Student to Falsely Accuse Texas U.S. Senate Candidate James Talarico of Sexual Assault",
+        "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-10-20, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
+        "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+        "sourceUrl": "https://incidentdatabase.ai/cite/1793",
+        "eventDate": "2026-10-20",
+        "sourceRecordTimestamp": "2026-10-29",
+        "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
+        "evidenceStatus": "Source-Reported",
+        "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
+      },
+      "severityAssessment": {
+        "level": "Moderate",
+        "score": 7,
+        "confidence": 0.73,
+        "dimensions": {
+          "actualHarm": 1,
+          "scale": 0,
+          "reversibility": 1,
+          "autonomy": 0,
+          "propagation": 0,
+          "infrastructureImportance": 0,
+          "financialImpact": 0,
+          "physicalImpact": 0,
+          "informationImpact": 2,
+          "controlFailure": 0,
+          "persistence": 1,
+          "affectedPopulation": 2
+        },
+        "matchedEvidence": {
+          "actualHarm": [
+            "denied"
+          ],
+          "reversibility": [
+            "suspended"
+          ],
+          "informationImpact": [
+            "deepfake"
+          ],
+          "persistence": [
+            "continued"
+          ]
+        },
+        "rationale": "Automated evidence-based severity is Moderate from 5 supported dimensions: actualHarm, reversibility, informationImpact, persistence, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+        "rubricVersion": "OOF-AII-SEV-1.0"
+      },
+      "architectureAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "primaryArchitecture": {
+          "objectId": "OOF-KO-ARCH-OBIDENITY",
+          "architectureId": "obidenity",
+          "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
+          "score": 50.98,
+          "matchedTerms": [
+            "identity",
+            "evidence",
+            "origin"
+          ],
+          "role": "Primary",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining Origin Integrity Standard (OIS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+          "governanceFocus": "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:1793"
+          ],
+          "confidence": 0.66,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
+              "name": "Origin Integrity Standard (OIS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois.html",
+              "matchedTerms": [
+                "identity",
+                "origin"
+              ],
+              "score": 5,
+              "governedSpace": null,
+              "coreQuestion": null,
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
+                "contentHash": "dc6e3ae8d403e9ce277c764c23ebb081902f8f86fa51b70a553198f78844b57b",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            },
+            {
+              "objectId": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
+              "name": "Origin Evidence Verification Module (OEVM)",
+              "artifactType": "CoreModule",
+              "canonicalUrl": "https://originopenfoundation.org/content/o/obid-ois-oevm.html",
+              "matchedTerms": [
+                "evidence",
+                "origin",
+                "identity"
+              ],
+              "score": 11,
+              "governedSpace": "Origin Evidence Verification",
+              "coreQuestion": null,
+              "parentObjectId": "OOF-OID-OBID-OIS-2026-07-12-0001",
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
+                "contentHash": "a3cbee6b4d2a8f5519390263567bd46c17aad68e72b4a4f0d2eb0a8c5ba9c658",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
+        },
+        "contributingArchitectures": []
+      },
+      "systemFailureClassification": {
+        "classificationVersion": "OOF-AII-SFC-1.1",
+        "incidentId": "OOF-AII-487528",
+        "systemDomains": [
+          "Generative AI"
+        ],
+        "observedOutcome": "Two purported deepfake videos circulated on X using former student Zyon Lewis's identity to allegedly falsely accuse Texas U.S. Senate candidate James Talarico of sexual assault. Lewis said the person depicted was not him and denied the allegation. Researchers linked the videos to the Russia-aligned Storm-1516 influence operation. The original account was suspended, but copies continued to circulate.",
+        "candidateFailureMechanisms": [],
+        "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+        "evidenceReferences": [
+          "aiid:1793"
+        ],
+        "status": "COMPONENTS_INDICATED",
+        "components": [
+          {
+            "componentId": "identity-authorization",
+            "label": "Identity and authorization",
+            "matchedTerms": [
+              "identity",
+              "deepfake"
+            ],
+            "confidence": "Preliminary",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1793"
+            ]
+          }
+        ],
+        "technicalMechanismStatus": "NOT_CONFIRMED",
+        "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+      },
+      "externalTechnicalMappings": {
+        "status": "NOT_MAPPED",
+        "mappings": [],
+        "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+      },
+      "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governanceRelationship": "The available evidence currently supports one primary governed domain: OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+      "governanceQuestions": [
+        "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+        "What operational authority and controls applied to Storm 1516, Information Manipulation Actors, Deepfake Creators, Synthetic Media Creators, Information Manipulation Actors In Russia at the relevant time?",
+        "What evidence would establish how Deepfake Technology, Synthetic Video Generation Technology, Synthetic Media Generation Technology produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "The source-reported case Purported Deepfake Videos Allegedly Impersonated a Former Student to Falsely Accuse Texas U.S. Senate Candidate James Talarico of Sexual Assault, involving Deepfake Technology, Synthetic Video Generation Technology, Synthetic Media Generation Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "preventionGuidance": {
+        "status": "EVIDENCE_LIMITED",
+        "couldThisHappenToYourSystem": {
+          "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+          "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
+        },
+        "whatShouldBeImplemented": {
+          "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+          "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+          "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+          "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
+        },
+        "howCanProtectionBeVerified": {
+          "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+          "prerequisite": "An attributable system inventory and evidence log are available.",
+          "testAction": "Compare the report with retained system, authority, and outcome records.",
+          "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+          "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+          "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
+        },
+        "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+        "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+        "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+        "relevantMethodology": [],
+        "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+      },
+      "practicalChecklist": [
+        {
+          "item": "Identify accountable authority",
+          "verification": "Record who authorized, operated, and could stop the activity."
+        },
+        {
+          "item": "Reconstruct the evidence chain",
+          "verification": "Link source, system action, observation, consequence, and time."
+        },
+        {
+          "item": "Test the preventive control",
+          "verification": "Demonstrate that the control detects or constrains the reported system and activity under comparable conditions."
+        },
+        {
+          "item": "Record residual uncertainty",
+          "verification": "List unresolved facts and the evidence required to resolve them."
+        }
+      ],
+      "governanceFailurePattern": {
+        "primaryArchitectureId": "obidenity",
+        "mechanisms": [
+          "identity",
+          "evidence",
+          "origin"
+        ],
+        "patternKey": "b4490c3c1c9b0edd"
+      },
+      "methodologicalReasoningChain": {
+        "incidentEvidence": [
+          "aiid:1793"
+        ],
+        "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+        "governedSpace": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+        "primaryArchitecture": "OOF-KO-ARCH-OBIDENITY",
+        "contributingArchitectures": [],
+        "parentStandard": "OOF-OID-OBID-OIS-2026-07-12-0001",
+        "coreModule": "OOF-OID-OBID-OIS-OEVM-2026-07-12-0003",
+        "governedMechanism": "the reported system and activity",
+        "governanceQuestions": [
+          "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+          "What operational authority and controls applied to Storm 1516, Information Manipulation Actors, Deepfake Creators, Synthetic Media Creators, Information Manipulation Actors In Russia at the relevant time?",
+          "What evidence would establish how Deepfake Technology, Synthetic Video Generation Technology, Synthetic Media Generation Technology produced or enabled the reported outcome?",
+          "What additional independent evidence is required to resolve the material evidence gaps?"
+        ],
+        "incidentGovernanceInsight": "The source-reported case Purported Deepfake Videos Allegedly Impersonated a Former Student to Falsely Accuse Texas U.S. Senate Candidate James Talarico of Sexual Assault, involving Deepfake Technology, Synthetic Video Generation Technology, Synthetic Media Generation Technology, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+        "deepestJustifiedLevel": "CoreModule"
+      },
+      "layerAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "governedMechanisms": [
+          "identity",
+          "evidence",
+          "origin"
+        ],
+        "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+      },
+      "coverageAssessment": {
+        "status": "UNDER_REVIEW",
+        "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+      },
+      "governanceFindings": [
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1793"
+          ],
+          "basis": [
+            "identity",
+            "evidence",
+            "origin"
+          ],
+          "architectureReference": "OOF-KO-ARCH-OBIDENITY",
+          "confidenceState": "Moderate",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        }
+      ],
+      "evidenceGaps": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "uncertainties": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "analysisType": "Automated",
+      "humanReview": {
+        "status": "Not performed",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "oofApproved": false,
+      "createdAt": "2026-11-05T09:35:52Z",
+      "supersedes": null,
+      "reassessmentReason": "Initial automated analysis",
       "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
       "qualityOutcomes": {
         "structuralIntegrity": "PASS",
@@ -866710,6 +867516,454 @@
       }
     },
     {
+      "assessmentIdentity": "OOF-AII-ASMT-703082-V2",
+      "incidentId": "OOF-AII-703082",
+      "analysisVersion": 2,
+      "engineVersion": "3.4.5",
+      "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+      "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
+      "assessmentLabel": "Automated Preliminary Governance Assessment",
+      "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+      "assessmentConfidence": "Limited",
+      "confidenceDimensions": {
+        "sourceCorroboration": {
+          "level": "Single-source",
+          "score": 0.5,
+          "independentSourceCount": 1,
+          "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+        },
+        "extractionCompleteness": {
+          "level": "Moderate",
+          "score": 0.5,
+          "populatedFields": 4,
+          "evaluatedFields": 8,
+          "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+        },
+        "methodologicalAssignment": {
+          "level": "Limited",
+          "score": 0.51,
+          "matchedTerms": [
+            "access",
+            "agent"
+          ],
+          "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+        }
+      },
+      "sourceNormalization": {
+        "policyVersion": "OOF-AII-NORM-3.2",
+        "sourceRecordModified": false,
+        "rawRecordHash": "69793febd732d9abf74bb5d3b08aa8a72558862fb2986ba57f628bf8902fb1f7",
+        "normalizedFields": {
+          "organization": "Threat Actors, Storm 0940, China Linked Threat Actors, Ai Agent System Deployers, Agentic Threat Actors",
+          "system": "Large Language Models, Artex, Ai Agent Systems",
+          "technology": null,
+          "industry": null,
+          "aiSystemType": null,
+          "impactTypes": [],
+          "affectedParties": [
+            "Microsoft",
+            "Enterprises Relying On Microsoft 365 And Identity Services",
+            "Connectwise Customers",
+            "Connectwise",
+            "Information Security"
+          ]
+        },
+        "transformations": []
+      },
+      "evidenceSnapshot": {
+        "snapshotId": "OOF-AII-703082-EVID-69793febd732",
+        "incidentSourceHash": "69793febd732d9abf74bb5d3b08aa8a72558862fb2986ba57f628bf8902fb1f7",
+        "sources": [
+          {
+            "sourceId": "aiid:1781",
+            "url": "https://incidentdatabase.ai/cite/1781",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "authority": "Specialist database",
+            "independenceKey": "ai incident database responsible ai collaborative",
+            "directness": "Secondary catalogue",
+            "publicationTime": "2026-10-15",
+            "retrievalTime": "2026-11-02T00:00:00Z",
+            "eventTime": "2026-10-15",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "corroboration": {
+          "sourceCount": 1,
+          "independentSourceCount": 1,
+          "status": "Single-source",
+          "contradictionState": "Not evaluated"
+        },
+        "publicEvidenceStatus": "Source-Reported"
+      },
+      "incidentEvidence": {
+        "sourcesUsed": [
+          {
+            "sourceId": "aiid:1781",
+            "url": "https://incidentdatabase.ai/cite/1781",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "sourceType": "Specialist database",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "knownFacts": [
+          "The incident record identifies the event date as 2026-10-15."
+        ],
+        "reportedClaims": [
+          "Microsoft reported that China-aligned hackers used ARTEX, an AI penetration-testing framework, to access customers' Microsoft 365 environments through stolen credentials for ConnectWise's cloud backup services. Agents reportedly changed credentials and privileges in some environments to retain unauthorized access. The activity formed part of a global campaign; the extent of compromise and any data theft remained uncertain."
+        ],
+        "materialUnknowns": [
+          "Independent corroboration is not established in the available incident record."
+        ],
+        "evidenceState": "Single-source"
+      },
+      "oofIncidentReport": {
+        "headline": "ARTEX AI Agents Reportedly Used Stolen Cloud Backup Credentials to Access ConnectWise Customers' Microsoft 365 Environments",
+        "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-10-15). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
+        "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+        "sourceUrl": "https://incidentdatabase.ai/cite/1781",
+        "eventDate": "2026-10-15",
+        "sourceRecordTimestamp": "2026-10-31",
+        "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
+        "evidenceStatus": "Source-Reported",
+        "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
+      },
+      "severityAssessment": {
+        "level": "High",
+        "score": 11,
+        "confidence": 0.67,
+        "dimensions": {
+          "actualHarm": 0,
+          "scale": 3,
+          "reversibility": 0,
+          "autonomy": 2,
+          "propagation": 2,
+          "infrastructureImportance": 0,
+          "financialImpact": 0,
+          "physicalImpact": 0,
+          "informationImpact": 0,
+          "controlFailure": 2,
+          "persistence": 0,
+          "affectedPopulation": 2
+        },
+        "matchedEvidence": {
+          "scale": [
+            "global"
+          ],
+          "autonomy": [
+            "agentic"
+          ],
+          "propagation": [
+            "campaign"
+          ],
+          "controlFailure": [
+            "unauthorized"
+          ]
+        },
+        "rationale": "Automated evidence-based severity is High from 5 supported dimensions: scale, autonomy, propagation, controlFailure, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+        "rubricVersion": "OOF-AII-SEV-1.0"
+      },
+      "architectureAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "primaryArchitecture": {
+          "objectId": "OOF-KO-ARCH-MGIA",
+          "architectureId": "mgia",
+          "label": "MGIA™ — Memory Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
+          "score": 81.14,
+          "matchedTerms": [
+            "access",
+            "agent"
+          ],
+          "role": "Primary",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+          "governanceFocus": "Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1781"
+          ],
+          "confidence": 0.66,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        "contributingArchitectures": [
+          {
+            "objectId": "OOF-KO-ARCH-PGA",
+            "architectureId": "pga",
+            "label": "PGA™ — Prediction Governance Architecture",
+            "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+            "score": 57.76,
+            "matchedTerms": [
+              "agents",
+              "models",
+              "part"
+            ],
+            "role": "Contributing",
+            "governedMechanism": "the reported system and activity",
+            "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining Collective Prediction Governance Standard (CPGS) in this specific incident; relevance does not establish governance failure.",
+            "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+            "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+            "methodologyDepth": "ParentStandard",
+            "supportingEvidence": [
+              "aiid:1781"
+            ],
+            "confidence": 0.6,
+            "uncertainty": "Automated retrieval; no authorized human review performed.",
+            "relevantStandardsModules": [
+              {
+                "objectId": "OOF-KO-STD-PGA-08",
+                "name": "Collective Prediction Governance Standard (CPGS)",
+                "artifactType": "ParentStandard",
+                "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-cpgs.html",
+                "matchedTerms": [
+                  "agents",
+                  "models"
+                ],
+                "score": 16,
+                "governedSpace": null,
+                "coreQuestion": "Under what conditions may predictions originating from multiple participants, models, agents, markets, or forecasting mechanisms be combined and represented as a legitimate collective prediction?",
+                "parentObjectId": null,
+                "canonicalProvenance": {
+                  "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
+                  "contentHash": "bf11b8830d2fa50fc4ec3dc5056734b97a1c42e1994d23552f5bd505ddbbe121",
+                  "authorityState": "CANONICAL_AUTHORITATIVE"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "systemFailureClassification": {
+        "classificationVersion": "OOF-AII-SFC-1.1",
+        "incidentId": "OOF-AII-703082",
+        "systemDomains": [
+          "AI agents"
+        ],
+        "observedOutcome": "Microsoft reported that China-aligned hackers used ARTEX, an AI penetration-testing framework, to access customers' Microsoft 365 environments through stolen credentials for ConnectWise's cloud backup services. Agents reportedly changed credentials and privileges in some environments to retain unauthorized access. The activity formed part of a global campaign; the extent of compromise and any data theft remained uncertain.",
+        "candidateFailureMechanisms": [
+          {
+            "label": "Unauthorized action",
+            "matchedTerms": [
+              "unauthorized access"
+            ],
+            "evidenceReferences": [
+              "aiid:1781"
+            ],
+            "status": "CANDIDATE",
+            "rationale": "Source language suggests a question for review; the technical mechanism and cause are not confirmed."
+          }
+        ],
+        "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+        "evidenceReferences": [
+          "aiid:1781"
+        ],
+        "status": "COMPONENTS_INDICATED",
+        "components": [
+          {
+            "componentId": "agent-planning-delegation",
+            "label": "Agent planning and delegation",
+            "matchedTerms": [
+              "ai agent"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1781"
+            ]
+          },
+          {
+            "componentId": "identity-authorization",
+            "label": "Identity and authorization",
+            "matchedTerms": [
+              "unauthorized"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1781"
+            ]
+          }
+        ],
+        "technicalMechanismStatus": "NOT_CONFIRMED",
+        "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+      },
+      "externalTechnicalMappings": {
+        "status": "NOT_MAPPED",
+        "mappings": [],
+        "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+      },
+      "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governanceRelationship": "MGIA™ — Memory Governance Intelligence Architecture frames the primary governed problem. PGA™ — Prediction Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+      "governanceQuestions": [
+        "Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+        "What operational authority and controls applied to Threat Actors, Storm 0940, China Linked Threat Actors, Ai Agent System Deployers, Agentic Threat Actors at the relevant time?",
+        "What evidence would establish how Large Language Models, Artex, Ai Agent Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "Available reporting on ARTEX AI Agents Reportedly Used Stolen Cloud Backup Credentials to Access ConnectWise Customers' Microsoft 365 Environments indicates that Large Language Models, Artex, Ai Agent Systems raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "preventionGuidance": {
+        "status": "EVIDENCE_LIMITED",
+        "couldThisHappenToYourSystem": {
+          "applicability": "A similar question may be relevant to AI agents when the reported unauthorized action scenario and local operating conditions actually apply.",
+          "knownVsInferred": "This is a conditional test idea based on source-language signals, not a verified cause or proof that the control would prevent the incident."
+        },
+        "whatShouldBeImplemented": {
+          "controlObjective": "Conditionally enforce scoped, current authorization at the relevant access or execution boundary.",
+          "governanceBoundary": "The relevant resource-access or action-execution authorization gate.",
+          "protectiveMechanism": "Before the action, validate actor identity, requested resource and action against an explicit permission; deny and log requests outside scope.",
+          "expectedBehavior": "The valid request follows policy; the revoked or out-of-scope request is denied before the protected action and both decisions are recorded."
+        },
+        "howCanProtectionBeVerified": {
+          "testObjective": "Conditionally enforce scoped, current authorization at the relevant access or execution boundary.",
+          "prerequisite": "Authorized owner, representative safe test environment, defined scope, and a documented expected result.",
+          "testAction": "In an isolated test environment, request the same resource once with valid authorization and once with a revoked or out-of-scope permission.",
+          "expectedSafeBehavior": "The valid request follows policy; the revoked or out-of-scope request is denied before the protected action and both decisions are recorded.",
+          "evidenceToRetain": "Test inputs, configuration, authorization decision, observations, logs, and reviewer decision.",
+          "failureCondition": "The documented expected result is not achieved, cannot be observed, or is not attributable to the tested configuration."
+        },
+        "governanceGapToExamine": "Check whether the candidate scenario applies and whether a relevant control exists; a gap is not established.",
+        "recommendedPreventiveControl": "Before the action, validate actor identity, requested resource and action against an explicit permission; deny and log requests outside scope.",
+        "howToVerify": "In an isolated test environment, request the same resource once with valid authorization and once with a revoked or out-of-scope permission.",
+        "relevantMethodology": [],
+        "evidenceLimitation": "This is a conditional test idea based on source-language signals, not a verified cause or proof that the control would prevent the incident.",
+        "supportingEvidence": [
+          "aiid:1781"
+        ]
+      },
+      "practicalChecklist": [
+        {
+          "item": "Identify accountable authority",
+          "verification": "Record who authorized, operated, and could stop the activity."
+        },
+        {
+          "item": "Reconstruct the evidence chain",
+          "verification": "Link source, system action, observation, consequence, and time."
+        },
+        {
+          "item": "Test the preventive control",
+          "verification": "Demonstrate that the control detects or constrains the reported system and activity under comparable conditions."
+        },
+        {
+          "item": "Record residual uncertainty",
+          "verification": "List unresolved facts and the evidence required to resolve them."
+        }
+      ],
+      "governanceFailurePattern": {
+        "primaryArchitectureId": "mgia",
+        "mechanisms": [
+          "access",
+          "agent"
+        ],
+        "patternKey": "0b5f534a4efdf4b1"
+      },
+      "methodologicalReasoningChain": {
+        "incidentEvidence": [
+          "aiid:1781"
+        ],
+        "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+        "governedSpace": "MGIA™ — Memory Governance Intelligence Architecture",
+        "primaryArchitecture": "OOF-KO-ARCH-MGIA",
+        "contributingArchitectures": [
+          "OOF-KO-ARCH-PGA"
+        ],
+        "parentStandard": null,
+        "coreModule": null,
+        "governedMechanism": "the reported system and activity",
+        "governanceQuestions": [
+          "Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+          "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+          "What operational authority and controls applied to Threat Actors, Storm 0940, China Linked Threat Actors, Ai Agent System Deployers, Agentic Threat Actors at the relevant time?",
+          "What evidence would establish how Large Language Models, Artex, Ai Agent Systems produced or enabled the reported outcome?",
+          "What additional independent evidence is required to resolve the material evidence gaps?"
+        ],
+        "incidentGovernanceInsight": "Available reporting on ARTEX AI Agents Reportedly Used Stolen Cloud Backup Credentials to Access ConnectWise Customers' Microsoft 365 Environments indicates that Large Language Models, Artex, Ai Agent Systems raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+        "deepestJustifiedLevel": "Architecture"
+      },
+      "layerAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "governedMechanisms": [
+          "access",
+          "agent"
+        ],
+        "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+      },
+      "coverageAssessment": {
+        "status": "UNDER_REVIEW",
+        "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+      },
+      "governanceFindings": [
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1781"
+          ],
+          "basis": [
+            "access",
+            "agent"
+          ],
+          "architectureReference": "OOF-KO-ARCH-MGIA",
+          "confidenceState": "Limited",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        },
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1781"
+          ],
+          "basis": [
+            "agents",
+            "models",
+            "part"
+          ],
+          "architectureReference": "OOF-KO-ARCH-PGA",
+          "confidenceState": "Limited",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        }
+      ],
+      "evidenceGaps": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "Country could not be resolved from the available evidence.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "uncertainties": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "Country could not be resolved from the available evidence.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "analysisType": "Automated",
+      "humanReview": {
+        "status": "Not performed",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "oofApproved": false,
+      "createdAt": "2026-11-05T09:35:52Z",
+      "supersedes": "OOF-AII-ASMT-703082-V1",
+      "reassessmentReason": "Incident evidence changed",
+      "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
+      "qualityOutcomes": {
+        "structuralIntegrity": "PASS",
+        "semanticIntegrity": "PASS",
+        "methodologicalSupport": "PASS",
+        "evidenceTransparency": "PASS",
+        "publicationEligibility": "PUBLISHABLE",
+        "sourceRecordEligibility": "PUBLISHABLE",
+        "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
+      }
+    },
+    {
       "assessmentIdentity": "OOF-AII-ASMT-706080-V1",
       "incidentId": "OOF-AII-706080",
       "analysisVersion": 1,
@@ -883727,6 +884981,345 @@
       "createdAt": "2026-11-04T09:25:07Z",
       "supersedes": "OOF-AII-ASMT-719717-V11",
       "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+      "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
+      "qualityOutcomes": {
+        "structuralIntegrity": "PASS",
+        "semanticIntegrity": "PASS",
+        "methodologicalSupport": "PASS",
+        "evidenceTransparency": "PASS",
+        "publicationEligibility": "PUBLISHABLE",
+        "sourceRecordEligibility": "PUBLISHABLE",
+        "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
+      }
+    },
+    {
+      "assessmentIdentity": "OOF-AII-ASMT-719717-V13",
+      "incidentId": "OOF-AII-719717",
+      "analysisVersion": 13,
+      "engineVersion": "3.4.5",
+      "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+      "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
+      "assessmentLabel": "Automated Preliminary Governance Assessment",
+      "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+      "assessmentConfidence": "Limited",
+      "confidenceDimensions": {
+        "sourceCorroboration": {
+          "level": "Single-source",
+          "score": 0.5,
+          "independentSourceCount": 1,
+          "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+        },
+        "extractionCompleteness": {
+          "level": "Moderate",
+          "score": 0.5,
+          "populatedFields": 4,
+          "evaluatedFields": 8,
+          "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+        },
+        "methodologicalAssignment": {
+          "level": "Limited",
+          "score": 0.43,
+          "matchedTerms": [
+            "generation"
+          ],
+          "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+        }
+      },
+      "sourceNormalization": {
+        "policyVersion": "OOF-AII-NORM-3.2",
+        "sourceRecordModified": false,
+        "rawRecordHash": "dd6137041cd9f92e7f957da95f204a61848f4a8fbeb98451b8808fe44f225fb2",
+        "normalizedFields": {
+          "organization": "Z.Ai, Ai Service Providers",
+          "system": "Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems",
+          "technology": null,
+          "industry": null,
+          "aiSystemType": null,
+          "impactTypes": [],
+          "affectedParties": [
+            "Zcode Users",
+            "Software Developers",
+            "Privacy",
+            "Ai Coding Assistant Users",
+            "Information Security"
+          ]
+        },
+        "transformations": []
+      },
+      "evidenceSnapshot": {
+        "snapshotId": "OOF-AII-719717-EVID-dd6137041cd9",
+        "incidentSourceHash": "dd6137041cd9f92e7f957da95f204a61848f4a8fbeb98451b8808fe44f225fb2",
+        "sources": [
+          {
+            "sourceId": "aiid:1714",
+            "url": "https://incidentdatabase.ai/cite/1714",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "authority": "Specialist database",
+            "independenceKey": "ai incident database responsible ai collaborative",
+            "directness": "Secondary catalogue",
+            "publicationTime": "2026-09-18",
+            "retrievalTime": "2026-11-02T00:00:00Z",
+            "eventTime": "2026-09-18",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "corroboration": {
+          "sourceCount": 1,
+          "independentSourceCount": 1,
+          "status": "Single-source",
+          "contradictionState": "Not evaluated"
+        },
+        "publicEvidenceStatus": "Source-Reported"
+      },
+      "incidentEvidence": {
+        "sourcesUsed": [
+          {
+            "sourceId": "aiid:1714",
+            "url": "https://incidentdatabase.ai/cite/1714",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "sourceType": "Specialist database",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "knownFacts": [
+          "The incident record identifies the event date as 2026-09-18."
+        ],
+        "reportedClaims": [
+          "Developers reported that Z.ai's ZCode AI coding assistant uploaded local code repositories to Alibaba Cloud without consent. Z.ai said a default-enabled Codebase Indexing feature caused the behavior, apologized, patched the vulnerability, and later disabled the upload path. One company retracted a separate claim that six workspaces containing sensitive data had been uploaded; Z.ai said independent reviews found no code data retained."
+        ],
+        "materialUnknowns": [
+          "Independent corroboration is not established in the available incident record."
+        ],
+        "evidenceState": "Single-source"
+      },
+      "oofIncidentReport": {
+        "headline": "Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent",
+        "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-09-18). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
+        "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+        "sourceUrl": "https://incidentdatabase.ai/cite/1714",
+        "eventDate": "2026-09-18",
+        "sourceRecordTimestamp": "2026-10-31",
+        "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
+        "evidenceStatus": "Source-Reported",
+        "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
+      },
+      "severityAssessment": {
+        "level": "Moderate",
+        "score": 4,
+        "confidence": 0.67,
+        "dimensions": {
+          "actualHarm": 0,
+          "scale": 0,
+          "reversibility": 0,
+          "autonomy": 0,
+          "propagation": 0,
+          "infrastructureImportance": 0,
+          "financialImpact": 0,
+          "physicalImpact": 0,
+          "informationImpact": 0,
+          "controlFailure": 2,
+          "persistence": 0,
+          "affectedPopulation": 2
+        },
+        "matchedEvidence": {
+          "controlFailure": [
+            "without consent"
+          ]
+        },
+        "rationale": "Automated evidence-based severity is Moderate from 2 supported dimensions: controlFailure, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+        "rubricVersion": "OOF-AII-SEV-1.0"
+      },
+      "architectureAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "primaryArchitecture": {
+          "objectId": "OOF-KO-ARCH-EGA",
+          "architectureId": "ega",
+          "label": "EGA™ — Energy Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+          "score": 10.19,
+          "matchedTerms": [
+            "generation"
+          ],
+          "role": "Primary",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+          "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1714"
+          ],
+          "confidence": 0.57,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        "contributingArchitectures": []
+      },
+      "systemFailureClassification": {
+        "classificationVersion": "OOF-AII-SFC-1.1",
+        "incidentId": "OOF-AII-719717",
+        "systemDomains": [],
+        "observedOutcome": "Developers reported that Z.ai's ZCode AI coding assistant uploaded local code repositories to Alibaba Cloud without consent. Z.ai said a default-enabled Codebase Indexing feature caused the behavior, apologized, patched the vulnerability, and later disabled the upload path. One company retracted a separate claim that six workspaces containing sensitive data had been uploaded; Z.ai said independent reviews found no code data retained.",
+        "candidateFailureMechanisms": [],
+        "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+        "evidenceReferences": [
+          "aiid:1714"
+        ],
+        "status": "COMPONENTS_INDICATED",
+        "components": [
+          {
+            "componentId": "deployment-infrastructure",
+            "label": "Deployment and infrastructure",
+            "matchedTerms": [
+              "vulnerability"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1714"
+            ]
+          }
+        ],
+        "technicalMechanismStatus": "NOT_CONFIRMED",
+        "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+      },
+      "externalTechnicalMappings": {
+        "status": "NOT_MAPPED",
+        "mappings": [],
+        "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+      },
+      "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governanceRelationship": "The available evidence currently supports one primary governed domain: EGA™ — Energy Governance Architecture.",
+      "governanceQuestions": [
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+        "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
+        "What evidence would establish how Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "preventionGuidance": {
+        "status": "EVIDENCE_LIMITED",
+        "couldThisHappenToYourSystem": {
+          "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+          "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
+        },
+        "whatShouldBeImplemented": {
+          "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+          "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+          "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+          "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
+        },
+        "howCanProtectionBeVerified": {
+          "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+          "prerequisite": "An attributable system inventory and evidence log are available.",
+          "testAction": "Compare the report with retained system, authority, and outcome records.",
+          "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+          "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+          "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
+        },
+        "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+        "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+        "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+        "relevantMethodology": [],
+        "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+      },
+      "practicalChecklist": [
+        {
+          "item": "Identify accountable authority",
+          "verification": "Record who authorized, operated, and could stop the activity."
+        },
+        {
+          "item": "Reconstruct the evidence chain",
+          "verification": "Link source, system action, observation, consequence, and time."
+        },
+        {
+          "item": "Test the preventive control",
+          "verification": "Demonstrate that the control detects or constrains the reported system and activity under comparable conditions."
+        },
+        {
+          "item": "Record residual uncertainty",
+          "verification": "List unresolved facts and the evidence required to resolve them."
+        }
+      ],
+      "governanceFailurePattern": {
+        "primaryArchitectureId": "ega",
+        "mechanisms": [
+          "generation"
+        ],
+        "patternKey": "ea8a0c7b96031393"
+      },
+      "methodologicalReasoningChain": {
+        "incidentEvidence": [
+          "aiid:1714"
+        ],
+        "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+        "governedSpace": "EGA™ — Energy Governance Architecture",
+        "primaryArchitecture": "OOF-KO-ARCH-EGA",
+        "contributingArchitectures": [],
+        "parentStandard": null,
+        "coreModule": null,
+        "governedMechanism": "the reported system and activity",
+        "governanceQuestions": [
+          "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+          "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
+          "What evidence would establish how Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems produced or enabled the reported outcome?",
+          "What additional independent evidence is required to resolve the material evidence gaps?"
+        ],
+        "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
+        "deepestJustifiedLevel": "Architecture"
+      },
+      "layerAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "governedMechanisms": [
+          "generation"
+        ],
+        "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+      },
+      "coverageAssessment": {
+        "status": "UNDER_REVIEW",
+        "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+      },
+      "governanceFindings": [
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1714"
+          ],
+          "basis": [
+            "generation"
+          ],
+          "architectureReference": "OOF-KO-ARCH-EGA",
+          "confidenceState": "Limited",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        }
+      ],
+      "evidenceGaps": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "Country could not be resolved from the available evidence.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "uncertainties": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "Country could not be resolved from the available evidence.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "analysisType": "Automated",
+      "humanReview": {
+        "status": "Not performed",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "oofApproved": false,
+      "createdAt": "2026-11-05T09:35:52Z",
+      "supersedes": "OOF-AII-ASMT-719717-V12",
+      "reassessmentReason": "Incident evidence changed",
       "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
       "qualityOutcomes": {
         "structuralIntegrity": "PASS",
@@ -1039809,6 +1041402,357 @@
       }
     },
     {
+      "assessmentIdentity": "OOF-AII-ASMT-846452-V1",
+      "incidentId": "OOF-AII-846452",
+      "analysisVersion": 1,
+      "engineVersion": "3.4.5",
+      "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+      "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
+      "assessmentLabel": "Automated Preliminary Governance Assessment",
+      "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+      "assessmentConfidence": "Moderate",
+      "confidenceDimensions": {
+        "sourceCorroboration": {
+          "level": "Single-source",
+          "score": 0.5,
+          "independentSourceCount": 1,
+          "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+        },
+        "extractionCompleteness": {
+          "level": "Moderate",
+          "score": 0.62,
+          "populatedFields": 5,
+          "evaluatedFields": 8,
+          "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+        },
+        "methodologicalAssignment": {
+          "level": "Moderate",
+          "score": 0.67,
+          "matchedTerms": [
+            "cognition",
+            "decision",
+            "reasoning",
+            "institutional"
+          ],
+          "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+        }
+      },
+      "sourceNormalization": {
+        "policyVersion": "OOF-AII-NORM-3.2",
+        "sourceRecordModified": false,
+        "rawRecordHash": "859a4085b7e8186be39b77844c3e6359c17206fba45267e84e6a9641ae74f950",
+        "normalizedFields": {
+          "organization": "Santiago Schnell, Academics, Chatbot Users",
+          "system": "Chatgpt, Claude, Large Language Models, Chatbots",
+          "technology": null,
+          "industry": null,
+          "aiSystemType": null,
+          "impactTypes": [],
+          "affectedParties": [
+            "Dartmouth College",
+            "Universities",
+            "Educational Communities",
+            "Academic Integrity",
+            "Santiago Schnell"
+          ]
+        },
+        "transformations": []
+      },
+      "evidenceSnapshot": {
+        "snapshotId": "OOF-AII-846452-EVID-859a4085b7e8",
+        "incidentSourceHash": "859a4085b7e8186be39b77844c3e6359c17206fba45267e84e6a9641ae74f950",
+        "sources": [
+          {
+            "sourceId": "aiid:1791",
+            "url": "https://incidentdatabase.ai/cite/1791",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "authority": "Specialist database",
+            "independenceKey": "ai incident database responsible ai collaborative",
+            "directness": "Secondary catalogue",
+            "publicationTime": "2026-08-09",
+            "retrievalTime": "2026-11-02T00:00:00Z",
+            "eventTime": "2026-08-09",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "corroboration": {
+          "sourceCount": 1,
+          "independentSourceCount": 1,
+          "status": "Single-source",
+          "contradictionState": "Not evaluated"
+        },
+        "publicEvidenceStatus": "Source-Reported"
+      },
+      "incidentEvidence": {
+        "sourcesUsed": [
+          {
+            "sourceId": "aiid:1791",
+            "url": "https://incidentdatabase.ai/cite/1791",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "sourceType": "Specialist database",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "knownFacts": [
+          "The incident record identifies the event date as 2026-08-09.",
+          "The incident record identifies the location as United States of America."
+        ],
+        "reportedClaims": [
+          "A faculty review at Dartmouth College in Hanover, New Hampshire, found that provost Santiago Schnell used ChatGPT and Claude in published writing without required disclosure and fell short of institutional standards. The review examined AI logs and correspondence rather than detector scores. Schnell resigned and was leaving the college after the findings were released."
+        ],
+        "materialUnknowns": [
+          "Independent corroboration is not established in the available incident record."
+        ],
+        "evidenceState": "Single-source"
+      },
+      "oofIncidentReport": {
+        "headline": "Dartmouth College Provost's Undisclosed AI-Assisted Writing Was Found to Have Breached Publication Policies",
+        "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-08-09, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
+        "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+        "sourceUrl": "https://incidentdatabase.ai/cite/1791",
+        "eventDate": "2026-08-09",
+        "sourceRecordTimestamp": "2026-10-29",
+        "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
+        "evidenceStatus": "Source-Reported",
+        "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
+      },
+      "severityAssessment": {
+        "level": "Low",
+        "score": 2,
+        "confidence": 0.73,
+        "dimensions": {
+          "actualHarm": 0,
+          "scale": 0,
+          "reversibility": 0,
+          "autonomy": 0,
+          "propagation": 0,
+          "infrastructureImportance": 0,
+          "financialImpact": 0,
+          "physicalImpact": 0,
+          "informationImpact": 0,
+          "controlFailure": 0,
+          "persistence": 0,
+          "affectedPopulation": 2
+        },
+        "matchedEvidence": {},
+        "rationale": "Automated evidence-based severity is Low from 1 supported dimensions: affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+        "rubricVersion": "OOF-AII-SEV-1.0"
+      },
+      "architectureAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "primaryArchitecture": {
+          "objectId": "OOF-KO-ARCH-CLIA",
+          "architectureId": "clia",
+          "label": "CLIA® — Cognitive Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
+          "score": 65.86,
+          "matchedTerms": [
+            "cognition",
+            "decision",
+            "reasoning",
+            "institutional"
+          ],
+          "role": "Primary",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+          "governanceFocus": "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1791"
+          ],
+          "confidence": 0.66,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        "contributingArchitectures": []
+      },
+      "systemFailureClassification": {
+        "classificationVersion": "OOF-AII-SFC-1.1",
+        "incidentId": "OOF-AII-846452",
+        "systemDomains": [
+          "Generative AI"
+        ],
+        "observedOutcome": "A faculty review at Dartmouth College in Hanover, New Hampshire, found that provost Santiago Schnell used ChatGPT and Claude in published writing without required disclosure and fell short of institutional standards. The review examined AI logs and correspondence rather than detector scores. Schnell resigned and was leaving the college after the findings were released.",
+        "candidateFailureMechanisms": [],
+        "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+        "evidenceReferences": [
+          "aiid:1791"
+        ],
+        "status": "COMPONENTS_INDICATED",
+        "components": [
+          {
+            "componentId": "human-oversight",
+            "label": "Human oversight and intervention",
+            "matchedTerms": [
+              "review"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1791"
+            ]
+          }
+        ],
+        "technicalMechanismStatus": "NOT_CONFIRMED",
+        "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+      },
+      "externalTechnicalMappings": {
+        "status": "NOT_MAPPED",
+        "mappings": [],
+        "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+      },
+      "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governanceRelationship": "The available evidence currently supports one primary governed domain: CLIA® — Cognitive Governance Intelligence Architecture.",
+      "governanceQuestions": [
+        "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+        "What operational authority and controls applied to Santiago Schnell, Academics, Chatbot Users at the relevant time?",
+        "What evidence would establish how Chatgpt, Claude, Large Language Models, Chatbots produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
+      ],
+      "incidentGovernanceInsight": "The source-reported case Dartmouth College Provost's Undisclosed AI-Assisted Writing Was Found to Have Breached Publication Policies, involving Chatgpt, Claude, Large Language Models, Chatbots, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "preventionGuidance": {
+        "status": "EVIDENCE_LIMITED",
+        "couldThisHappenToYourSystem": {
+          "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+          "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
+        },
+        "whatShouldBeImplemented": {
+          "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+          "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+          "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+          "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
+        },
+        "howCanProtectionBeVerified": {
+          "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+          "prerequisite": "An attributable system inventory and evidence log are available.",
+          "testAction": "Compare the report with retained system, authority, and outcome records.",
+          "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+          "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+          "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
+        },
+        "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+        "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+        "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+        "relevantMethodology": [],
+        "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+      },
+      "practicalChecklist": [
+        {
+          "item": "Identify accountable authority",
+          "verification": "Record who authorized, operated, and could stop the activity."
+        },
+        {
+          "item": "Reconstruct the evidence chain",
+          "verification": "Link source, system action, observation, consequence, and time."
+        },
+        {
+          "item": "Test the preventive control",
+          "verification": "Demonstrate that the control detects or constrains the reported system and activity under comparable conditions."
+        },
+        {
+          "item": "Record residual uncertainty",
+          "verification": "List unresolved facts and the evidence required to resolve them."
+        }
+      ],
+      "governanceFailurePattern": {
+        "primaryArchitectureId": "clia",
+        "mechanisms": [
+          "cognition",
+          "decision",
+          "reasoning",
+          "institutional"
+        ],
+        "patternKey": "c30a625a1bab0f24"
+      },
+      "methodologicalReasoningChain": {
+        "incidentEvidence": [
+          "aiid:1791"
+        ],
+        "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+        "governedSpace": "CLIA® — Cognitive Governance Intelligence Architecture",
+        "primaryArchitecture": "OOF-KO-ARCH-CLIA",
+        "contributingArchitectures": [],
+        "parentStandard": null,
+        "coreModule": null,
+        "governedMechanism": "the reported system and activity",
+        "governanceQuestions": [
+          "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+          "What operational authority and controls applied to Santiago Schnell, Academics, Chatbot Users at the relevant time?",
+          "What evidence would establish how Chatgpt, Claude, Large Language Models, Chatbots produced or enabled the reported outcome?",
+          "What additional independent evidence is required to resolve the material evidence gaps?"
+        ],
+        "incidentGovernanceInsight": "The source-reported case Dartmouth College Provost's Undisclosed AI-Assisted Writing Was Found to Have Breached Publication Policies, involving Chatgpt, Claude, Large Language Models, Chatbots, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+        "deepestJustifiedLevel": "Architecture"
+      },
+      "layerAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "governedMechanisms": [
+          "cognition",
+          "decision",
+          "reasoning",
+          "institutional"
+        ],
+        "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+      },
+      "coverageAssessment": {
+        "status": "UNDER_REVIEW",
+        "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+      },
+      "governanceFindings": [
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1791"
+          ],
+          "basis": [
+            "cognition",
+            "decision",
+            "reasoning",
+            "institutional"
+          ],
+          "architectureReference": "OOF-KO-ARCH-CLIA",
+          "confidenceState": "Moderate",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        }
+      ],
+      "evidenceGaps": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "uncertainties": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "analysisType": "Automated",
+      "humanReview": {
+        "status": "Not performed",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "oofApproved": false,
+      "createdAt": "2026-11-05T09:35:52Z",
+      "supersedes": null,
+      "reassessmentReason": "Initial automated analysis",
+      "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
+      "qualityOutcomes": {
+        "structuralIntegrity": "PASS",
+        "semanticIntegrity": "PASS",
+        "methodologicalSupport": "PASS",
+        "evidenceTransparency": "PASS",
+        "publicationEligibility": "PUBLISHABLE",
+        "sourceRecordEligibility": "PUBLISHABLE",
+        "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
+      }
+    },
+    {
       "assessmentIdentity": "OOF-AII-ASMT-848916-V1",
       "incidentId": "OOF-AII-848916",
       "analysisVersion": 1,
@@ -1114637,6 +1116581,450 @@
       "createdAt": "2026-11-03T20:35:58Z",
       "supersedes": "OOF-AII-ASMT-941025-V10",
       "reassessmentReason": "Material analysis engine change",
+      "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
+      "qualityOutcomes": {
+        "structuralIntegrity": "PASS",
+        "semanticIntegrity": "PASS",
+        "methodologicalSupport": "PASS",
+        "evidenceTransparency": "PASS",
+        "publicationEligibility": "PUBLISHABLE",
+        "sourceRecordEligibility": "PUBLISHABLE",
+        "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
+      }
+    },
+    {
+      "assessmentIdentity": "OOF-AII-ASMT-948025-V1",
+      "incidentId": "OOF-AII-948025",
+      "analysisVersion": 1,
+      "engineVersion": "3.4.5",
+      "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+      "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
+      "assessmentLabel": "Automated Preliminary Governance Assessment",
+      "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
+      "assessmentConfidence": "Moderate",
+      "confidenceDimensions": {
+        "sourceCorroboration": {
+          "level": "Single-source",
+          "score": 0.5,
+          "independentSourceCount": 1,
+          "disclosure": "Measures source-group corroboration only; it does not establish factual truth."
+        },
+        "extractionCompleteness": {
+          "level": "Moderate",
+          "score": 0.62,
+          "populatedFields": 5,
+          "evaluatedFields": 8,
+          "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
+        },
+        "methodologicalAssignment": {
+          "level": "Moderate",
+          "score": 0.59,
+          "matchedTerms": [
+            "cognition",
+            "decision",
+            "reasoning"
+          ],
+          "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
+        }
+      },
+      "sourceNormalization": {
+        "policyVersion": "OOF-AII-NORM-3.2",
+        "sourceRecordModified": false,
+        "rawRecordHash": "c0e468b4e617dfe01162b80c419cbd4ddc143c3bc915fa14c49aa5e1a917543c",
+        "normalizedFields": {
+          "organization": "Johns Hopkins Bayview Medical Center, Healthcare Workers, Hospitals, Chatbot Users",
+          "system": "Chatbots, Large Language Models",
+          "technology": null,
+          "industry": null,
+          "aiSystemType": null,
+          "impactTypes": [],
+          "affectedParties": [
+            "Johns Hopkins Bayview Medical Center Patients",
+            "Patients",
+            "Privacy"
+          ]
+        },
+        "transformations": []
+      },
+      "evidenceSnapshot": {
+        "snapshotId": "OOF-AII-948025-EVID-c0e468b4e617",
+        "incidentSourceHash": "c0e468b4e617dfe01162b80c419cbd4ddc143c3bc915fa14c49aa5e1a917543c",
+        "sources": [
+          {
+            "sourceId": "aiid:1792",
+            "url": "https://incidentdatabase.ai/cite/1792",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "authority": "Specialist database",
+            "independenceKey": "ai incident database responsible ai collaborative",
+            "directness": "Secondary catalogue",
+            "publicationTime": "2026-09-21",
+            "retrievalTime": "2026-11-02T00:00:00Z",
+            "eventTime": "2026-09-21",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "corroboration": {
+          "sourceCount": 1,
+          "independentSourceCount": 1,
+          "status": "Single-source",
+          "contradictionState": "Not evaluated"
+        },
+        "publicEvidenceStatus": "Source-Reported"
+      },
+      "incidentEvidence": {
+        "sourcesUsed": [
+          {
+            "sourceId": "aiid:1792",
+            "url": "https://incidentdatabase.ai/cite/1792",
+            "publisher": "AI Incident Database (Responsible AI Collaborative)",
+            "sourceType": "Specialist database",
+            "verificationState": "Source Catalogued / OOF Not Assessed"
+          }
+        ],
+        "knownFacts": [
+          "The incident record identifies the event date as 2026-09-21.",
+          "The incident record identifies the location as United States of America."
+        ],
+        "reportedClaims": [
+          "An employee at Johns Hopkins Bayview Medical Center in Baltimore, Maryland, reportedly uploaded a spreadsheet containing patient information to an unapproved public AI tool. The hospital notified 3,182 patients of potential exposure, sought deletion of the data, and reinforced staff training. The tool and its developer were not identified; further disclosure or misuse has not been established."
+        ],
+        "materialUnknowns": [
+          "Independent corroboration is not established in the available incident record."
+        ],
+        "evidenceState": "Single-source"
+      },
+      "oofIncidentReport": {
+        "headline": "A Johns Hopkins Bayview Hospital Employee in Baltimore Reportedly Uploaded Patient Data to an Unapproved AI Tool",
+        "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-09-21, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
+        "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
+        "sourceUrl": "https://incidentdatabase.ai/cite/1792",
+        "eventDate": "2026-09-21",
+        "sourceRecordTimestamp": "2026-10-29",
+        "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
+        "evidenceStatus": "Source-Reported",
+        "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
+      },
+      "severityAssessment": {
+        "level": "Low",
+        "score": 3,
+        "confidence": 0.73,
+        "dimensions": {
+          "actualHarm": 0,
+          "scale": 0,
+          "reversibility": 0,
+          "autonomy": 0,
+          "propagation": 0,
+          "infrastructureImportance": 2,
+          "financialImpact": 0,
+          "physicalImpact": 0,
+          "informationImpact": 0,
+          "controlFailure": 0,
+          "persistence": 0,
+          "affectedPopulation": 1
+        },
+        "matchedEvidence": {
+          "infrastructureImportance": [
+            "hospital"
+          ]
+        },
+        "rationale": "Automated evidence-based severity is Low from 2 supported dimensions: infrastructureImportance, affectedPopulation. This is an automated analysis, not an OOF® approved determination.",
+        "rubricVersion": "OOF-AII-SEV-1.0"
+      },
+      "architectureAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "primaryArchitecture": {
+          "objectId": "OOF-KO-ARCH-CLIA",
+          "architectureId": "clia",
+          "label": "CLIA® — Cognitive Governance Intelligence Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
+          "score": 55.66,
+          "matchedTerms": [
+            "cognition",
+            "decision",
+            "reasoning"
+          ],
+          "role": "Primary",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+          "governanceFocus": "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1792"
+          ],
+          "confidence": 0.66,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        },
+        "contributingArchitectures": [
+          {
+            "objectId": "OOF-KO-ARCH-ASGA",
+            "architectureId": "asga",
+            "label": "ASGA™ — Autonomous Systems Governance Architecture",
+            "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
+            "score": 40.77,
+            "matchedTerms": [
+              "tool"
+            ],
+            "role": "Contributing",
+            "governedMechanism": "the reported system and activity",
+            "reasonForRelevance": "Available reporting describes the reported system and activity. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
+            "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
+            "governanceFocus": "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
+            "methodologyDepth": "Architecture",
+            "supportingEvidence": [
+              "aiid:1792"
+            ],
+            "confidence": 0.61,
+            "uncertainty": "Automated retrieval; no authorized human review performed.",
+            "relevantStandardsModules": []
+          },
+          {
+            "objectId": "OOF-KO-ARCH-PGA",
+            "architectureId": "pga",
+            "label": "PGA™ — Prediction Governance Architecture",
+            "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
+            "score": 39.39,
+            "matchedTerms": [
+              "models",
+              "information",
+              "identified",
+              "further"
+            ],
+            "role": "Contributing",
+            "governedMechanism": "the reported system and activity",
+            "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+            "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+            "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+            "methodologyDepth": "Architecture",
+            "supportingEvidence": [
+              "aiid:1792"
+            ],
+            "confidence": 0.6,
+            "uncertainty": "Automated retrieval; no authorized human review performed.",
+            "relevantStandardsModules": []
+          }
+        ]
+      },
+      "systemFailureClassification": {
+        "classificationVersion": "OOF-AII-SFC-1.1",
+        "incidentId": "OOF-AII-948025",
+        "systemDomains": [],
+        "observedOutcome": "An employee at Johns Hopkins Bayview Medical Center in Baltimore, Maryland, reportedly uploaded a spreadsheet containing patient information to an unapproved public AI tool. The hospital notified 3,182 patients of potential exposure, sought deletion of the data, and reinforced staff training. The tool and its developer were not identified; further disclosure or misuse has not been established.",
+        "candidateFailureMechanisms": [],
+        "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+        "evidenceReferences": [
+          "aiid:1792"
+        ],
+        "status": "COMPONENTS_INDICATED",
+        "components": [
+          {
+            "componentId": "training-dataset-integrity",
+            "label": "Training and dataset integrity",
+            "matchedTerms": [
+              "training"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1792"
+            ]
+          },
+          {
+            "componentId": "tool-execution-external-actions",
+            "label": "Tool execution and external actions",
+            "matchedTerms": [
+              "tool"
+            ],
+            "confidence": "Indicated",
+            "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [
+              "aiid:1792"
+            ]
+          }
+        ],
+        "technicalMechanismStatus": "NOT_CONFIRMED",
+        "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
+      },
+      "externalTechnicalMappings": {
+        "status": "NOT_MAPPED",
+        "mappings": [],
+        "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
+      },
+      "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governanceRelationship": "CLIA® — Cognitive Governance Intelligence Architecture frames the primary governed problem. ASGA™ — Autonomous Systems Governance Architecture, PGA™ — Prediction Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+      "governanceQuestions": [
+        "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+        "What operational authority and controls applied to Johns Hopkins Bayview Medical Center, Healthcare Workers, Hospitals, Chatbot Users at the relevant time?",
+        "What evidence would establish how Chatbots, Large Language Models produced or enabled the reported outcome?"
+      ],
+      "incidentGovernanceInsight": "The source-reported case A Johns Hopkins Bayview Hospital Employee in Baltimore Reportedly Uploaded Patient Data to an Unapproved AI Tool, involving Chatbots, Large Language Models, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "preventionGuidance": {
+        "status": "EVIDENCE_LIMITED",
+        "couldThisHappenToYourSystem": {
+          "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+          "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
+        },
+        "whatShouldBeImplemented": {
+          "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+          "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+          "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+          "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
+        },
+        "howCanProtectionBeVerified": {
+          "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+          "prerequisite": "An attributable system inventory and evidence log are available.",
+          "testAction": "Compare the report with retained system, authority, and outcome records.",
+          "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+          "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+          "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
+        },
+        "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+        "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+        "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+        "relevantMethodology": [],
+        "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
+      },
+      "practicalChecklist": [
+        {
+          "item": "Identify accountable authority",
+          "verification": "Record who authorized, operated, and could stop the activity."
+        },
+        {
+          "item": "Reconstruct the evidence chain",
+          "verification": "Link source, system action, observation, consequence, and time."
+        },
+        {
+          "item": "Test the preventive control",
+          "verification": "Demonstrate that the control detects or constrains the reported system and activity under comparable conditions."
+        },
+        {
+          "item": "Record residual uncertainty",
+          "verification": "List unresolved facts and the evidence required to resolve them."
+        }
+      ],
+      "governanceFailurePattern": {
+        "primaryArchitectureId": "clia",
+        "mechanisms": [
+          "cognition",
+          "decision",
+          "reasoning"
+        ],
+        "patternKey": "c30a625a1bab0f24"
+      },
+      "methodologicalReasoningChain": {
+        "incidentEvidence": [
+          "aiid:1792"
+        ],
+        "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+        "governedSpace": "CLIA® — Cognitive Governance Intelligence Architecture",
+        "primaryArchitecture": "OOF-KO-ARCH-CLIA",
+        "contributingArchitectures": [
+          "OOF-KO-ARCH-ASGA",
+          "OOF-KO-ARCH-PGA"
+        ],
+        "parentStandard": null,
+        "coreModule": null,
+        "governedMechanism": "the reported system and activity",
+        "governanceQuestions": [
+          "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+          "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
+          "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+          "What operational authority and controls applied to Johns Hopkins Bayview Medical Center, Healthcare Workers, Hospitals, Chatbot Users at the relevant time?",
+          "What evidence would establish how Chatbots, Large Language Models produced or enabled the reported outcome?"
+        ],
+        "incidentGovernanceInsight": "The source-reported case A Johns Hopkins Bayview Hospital Employee in Baltimore Reportedly Uploaded Patient Data to an Unapproved AI Tool, involving Chatbots, Large Language Models, raises a preliminary question for CLIA® — Cognitive Governance Intelligence Architecture: Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+        "deepestJustifiedLevel": "Architecture"
+      },
+      "layerAnalysis": {
+        "status": "AUTOMATED_ANALYSIS",
+        "governedMechanisms": [
+          "cognition",
+          "decision",
+          "reasoning"
+        ],
+        "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
+      },
+      "coverageAssessment": {
+        "status": "UNDER_REVIEW",
+        "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
+      },
+      "governanceFindings": [
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1792"
+          ],
+          "basis": [
+            "cognition",
+            "decision",
+            "reasoning"
+          ],
+          "architectureReference": "OOF-KO-ARCH-CLIA",
+          "confidenceState": "Moderate",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        },
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1792"
+          ],
+          "basis": [
+            "tool"
+          ],
+          "architectureReference": "OOF-KO-ARCH-ASGA",
+          "confidenceState": "Moderate",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        },
+        {
+          "type": "Governance Signal",
+          "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+          "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+          "evidenceBasis": [
+            "aiid:1792"
+          ],
+          "basis": [
+            "models",
+            "information",
+            "identified",
+            "further"
+          ],
+          "architectureReference": "OOF-KO-ARCH-PGA",
+          "confidenceState": "Moderate",
+          "status": "Indicated",
+          "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+        }
+      ],
+      "evidenceGaps": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "uncertainties": [
+        "Only one independent source group is represented; corroboration is not established.",
+        "AI technology is not specified in the source record.",
+        "industry is not specified in the source record.",
+        "AI system type is not specified in the source record."
+      ],
+      "analysisType": "Automated",
+      "humanReview": {
+        "status": "Not performed",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "oofApproved": false,
+      "createdAt": "2026-11-05T09:35:52Z",
+      "supersedes": null,
+      "reassessmentReason": "Initial automated analysis",
       "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
       "qualityOutcomes": {
         "structuralIntegrity": "PASS",
