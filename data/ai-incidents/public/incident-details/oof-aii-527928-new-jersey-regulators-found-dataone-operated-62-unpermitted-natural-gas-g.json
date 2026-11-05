@@ -53,12 +53,12 @@
   "createdAt": "2026-09-24T20:52:21.296000Z",
   "updatedAt": "2026-09-24T20:52:21.296000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-527928-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-527928-V13",
     "incidentId": "OOF-AII-527928",
-    "analysisVersion": 11,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -78,10 +78,9 @@
       },
       "methodologicalAssignment": {
         "level": "Limited",
-        "score": 0.51,
+        "score": 0.43,
         "matchedTerms": [
-          "state",
-          "later"
+          "energy"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -156,10 +155,12 @@
     },
     "oofIncidentReport": {
       "headline": "New Jersey Regulators Found DataOne Operated 62 Unpermitted Natural-Gas Generators at Vineland AI Data Center",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that In July 2026, New Jersey inspectors found 62 unpermitted 2,000-kW natural-gas generators powering DataOne's Vineland data center, which has an agreement to provide AI computing power to Microsoft. The state later fined DataOne $1.07 million under the Air Pollution Control Act. Residents also reported persistent noise and raised concerns about air emissions; DataOne disputed the state's decision. (2026-07-29, United States of America).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-07-29, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1709",
       "eventDate": "2026-07-29",
+      "sourceRecordTimestamp": "2026-09-24",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -192,142 +193,39 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-LIGA",
-        "architectureId": "liga",
-        "label": "LIGA™ — Liability Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-        "score": 14.8,
+        "objectId": "OOF-KO-ARCH-EGA",
+        "architectureId": "ega",
+        "label": "EGA™ — Energy Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+        "score": 61.16,
         "matchedTerms": [
-          "state",
-          "later"
+          "energy"
         ],
         "role": "Primary",
-        "governedMechanism": "state, later",
-        "reasonForRelevance": "Available reporting describes state, later. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported state, later concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-        "governanceFocus": "How should state, later be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+        "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1709"
         ],
-        "confidence": 0.61,
+        "confidence": 0.66,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-VFM",
-          "architectureId": "vfm",
-          "label": "VFM® — Value Flow Mechanisms Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 14.8,
-          "matchedTerms": [
-            "state",
-            "persistent"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "state, persistent",
-          "reasonForRelevance": "Available reporting describes state, persistent. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value State Standard (VSS) in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported state, persistent concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-          "governanceFocus": "What is the current governed state of value?",
-          "methodologyDepth": "ParentStandard",
-          "supportingEvidence": [
-            "aiid:1709"
-          ],
-          "confidence": 0.61,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": [
-            {
-              "objectId": "OOF-KO-STD-VFM-05",
-              "name": "Value State Standard (VSS)",
-              "artifactType": "ParentStandard",
-              "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vss.html",
-              "matchedTerms": [
-                "state",
-                "persistent"
-              ],
-              "score": 7,
-              "governedSpace": "Value State",
-              "coreQuestion": "What is the current governed state of value?",
-              "parentObjectId": null,
-              "canonicalProvenance": {
-                "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
-                "contentHash": "73565bc910542863ef9e04d9b0a04b4fb450420de51ae1558afefc656c6ea45a",
-                "authorityState": "CANONICAL_AUTHORITATIVE"
-              }
-            }
-          ]
-        },
-        {
-          "objectId": "OOF-KO-ARCH-INTEGROS",
-          "architectureId": "integros",
-          "label": "INTEGROS® — Integrity Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/integros/About%20Integrity%20Governance%20Architecture%20(INTEGROS%C2%AE).html",
-          "score": 11.5,
-          "matchedTerms": [
-            "state"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "state",
-          "reasonForRelevance": "Available reporting describes state. This makes INTEGROS® — Integrity Governance Architecture relevant to examining INTEGROS® — Integrity Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported state concern falls within the governed questions represented by INTEGROS® — Integrity Governance Architecture.",
-          "governanceFocus": "How should state be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1709"
-          ],
-          "confidence": 0.58,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-MGIA",
-          "architectureId": "mgia",
-          "label": "MGIA™ — Memory Governance Intelligence Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-          "score": 11.5,
-          "matchedTerms": [
-            "state"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "state",
-          "reasonForRelevance": "Available reporting describes state. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported state concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
-          "governanceFocus": "How should state be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1709"
-          ],
-          "confidence": 0.58,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-PGA",
-          "architectureId": "pga",
-          "label": "PGA™ — Prediction Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-          "score": 11.5,
-          "matchedTerms": [
-            "state"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "state",
-          "reasonForRelevance": "Available reporting describes state. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported state concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-          "governanceFocus": "How should state be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1709"
-          ],
-          "confidence": 0.58,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        }
-      ]
+      "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-527928",
+      "systemDomains": [],
+      "observedOutcome": "In July 2026, New Jersey inspectors found 62 unpermitted 2,000-kW natural-gas generators powering DataOne's Vineland data center, which has an agreement to provide AI computing power to Microsoft. The state later fined DataOne $1.07 million under the Air Pollution Control Act. Residents also reported persistent noise and raised concerns about air emissions; DataOne disputed the state's decision.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1709"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -337,7 +235,10 @@
             "state"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1709"
+          ]
         },
         {
           "componentId": "deployment-infrastructure",
@@ -346,7 +247,10 @@
             "infrastructure"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1709"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -357,82 +261,73 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving state, later. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "LIGA™ — Liability Governance Architecture frames the primary governed problem. VFM® — Value Flow Mechanisms Architecture, INTEGROS® — Integrity Governance Architecture, MGIA™ — Memory Governance Intelligence Architecture, PGA™ — Prediction Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: EGA™ — Energy Governance Architecture.",
     "governanceQuestions": [
-      "How should state, later be governed in the conditions described by the available incident evidence?",
-      "What is the current governed state of value?",
-      "How should state be governed in the conditions described by the available incident evidence?",
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Dataone, Data Center Operators at the relevant time?",
-      "What evidence would establish how Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers produced or enabled the reported outcome?"
+      "What evidence would establish how Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case New Jersey Regulators Found DataOne Operated 62 Unpermitted Natural-Gas Generators at Vineland AI Data Center, involving Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers, raises a preliminary question for LIGA™ — Liability Governance Architecture: How should state, later be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case New Jersey Regulators Found DataOne Operated 62 Unpermitted Natural-Gas Generators at Vineland AI Data Center, involving Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Memory and state management, Deployment and infrastructure in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to state, later. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that state, later is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply LIGA™ — Liability Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant state, later scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing state, later were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for state, later, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
       "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "liga",
+      "primaryArchitectureId": "ega",
       "mechanisms": [
-        "state",
-        "later"
+        "energy"
       ],
-      "patternKey": "c4cd38b8cc940e0e"
+      "patternKey": "439c568a82a1fed0"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1709"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving state, later. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "LIGA™ — Liability Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-LIGA",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-VFM",
-        "OOF-KO-ARCH-INTEGROS",
-        "OOF-KO-ARCH-MGIA",
-        "OOF-KO-ARCH-PGA"
-      ],
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "EGA™ — Energy Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-EGA",
+      "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "state, later",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should state, later be governed in the conditions described by the available incident evidence?",
-        "What is the current governed state of value?",
-        "How should state be governed in the conditions described by the available incident evidence?",
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Dataone, Data Center Operators at the relevant time?",
-        "What evidence would establish how Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers produced or enabled the reported outcome?"
+        "What evidence would establish how Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case New Jersey Regulators Found DataOne Operated 62 Unpermitted Natural-Gas Generators at Vineland AI Data Center, involving Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers, raises a preliminary question for LIGA™ — Liability Governance Architecture: How should state, later be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case New Jersey Regulators Found DataOne Operated 62 Unpermitted Natural-Gas Generators at Vineland AI Data Center, involving Unpermitted Energy Infrastructure, Natural Gas Generators, Energy Infrastructure, Dataone Vineland Ai Data Center, Data Centers, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "state",
-        "later"
+        "energy"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -443,77 +338,15 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported state, later.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported state, later.",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1709"
         ],
         "basis": [
-          "state",
-          "later"
+          "energy"
         ],
-        "architectureReference": "OOF-KO-ARCH-LIGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported state, persistent.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported state, persistent.",
-        "evidenceBasis": [
-          "aiid:1709"
-        ],
-        "basis": [
-          "state",
-          "persistent"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to INTEGROS® — Integrity Governance Architecture for the reported state.",
-        "statement": "Available evidence indicated relevance to INTEGROS® — Integrity Governance Architecture for the reported state.",
-        "evidenceBasis": [
-          "aiid:1709"
-        ],
-        "basis": [
-          "state"
-        ],
-        "architectureReference": "OOF-KO-ARCH-INTEGROS",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported state.",
-        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported state.",
-        "evidenceBasis": [
-          "aiid:1709"
-        ],
-        "basis": [
-          "state"
-        ],
-        "architectureReference": "OOF-KO-ARCH-MGIA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported state.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported state.",
-        "evidenceBasis": [
-          "aiid:1709"
-        ],
-        "basis": [
-          "state"
-        ],
-        "architectureReference": "OOF-KO-ARCH-PGA",
+        "architectureReference": "OOF-KO-ARCH-EGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -538,10 +371,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:12:05Z",
-    "supersedes": "OOF-AII-ASMT-527928-V10",
-    "reassessmentReason": "Material analysis engine change",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-527928-V12",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

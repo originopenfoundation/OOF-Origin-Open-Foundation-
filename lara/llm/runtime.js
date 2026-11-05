@@ -2,7 +2,7 @@
 // LaRA owns identity/personality and governing instructions; shared library owns inference.
 const shared=require('../../lib/oof-llm');
 const prompt=require('./prompt');
-const enrich=input=>({...input,consumer_id:'LaRA',instructions:prompt(input)});
+const enrich=input=>({...input,consumer_id:'LaRA',instructions:input.mode==='grounded_explanation'?require('../../lib/oof-grounded-explanation').instructions:input.mode==='evidence_presentation'?require('../../lib/oof-evidence-verification/presentation').instructions:prompt(input)});
 class OpenAICompatibleAdapter extends shared.OpenAICompatibleAdapter{async generateResult(input){return super.generateResult(enrich(input));}}
 class OpenRouterAdapter extends OpenAICompatibleAdapter{constructor(config){super({...config,name:'openrouter'});}}
 class AICommunicationGateway extends shared.AICommunicationGateway{async generateDetailed(input){return super.generateDetailed(enrich(input));}}

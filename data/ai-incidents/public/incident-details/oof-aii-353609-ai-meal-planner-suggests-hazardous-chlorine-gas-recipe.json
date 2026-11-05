@@ -54,12 +54,12 @@
   "createdAt": "2023-11-04T23:57:38Z",
   "updatedAt": "2023-11-04T23:57:38Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-353609-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-353609-V13",
     "incidentId": "OOF-AII-353609",
-    "analysisVersion": 11,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -81,7 +81,7 @@
         "level": "Limited",
         "score": 0.43,
         "matchedTerms": [
-          "safety"
+          "generation"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -185,10 +185,12 @@
     },
     "oofIncidentReport": {
       "headline": "AI Meal Planner Suggests Hazardous Chlorine Gas Recipe",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that Pak 'n' Save's AI-based app, Savey Meal-bot, inadvertently suggested dangerous recipes, including one creating chlorine gas, when users entered non-food household items, raising safety and oversight concerns. (2023-08-10, New Zealand).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2023-08-10, New Zealand). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/594",
       "eventDate": "2023-08-10",
+      "sourceRecordTimestamp": "2023-11-04",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -221,120 +223,62 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-AIG",
-        "architectureId": "aig",
-        "label": "AIG® - Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
-        "score": 8.69,
+        "objectId": "OOF-KO-ARCH-EGA",
+        "architectureId": "ega",
+        "label": "EGA™ — Energy Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+        "score": 13.59,
         "matchedTerms": [
-          "safety"
+          "generation"
         ],
         "role": "Primary",
-        "governedMechanism": "safety",
-        "reasonForRelevance": "Available reporting describes safety. This makes AIG® - Governance Architecture relevant to examining AIG® - Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported safety concern falls within the governed questions represented by AIG® - Governance Architecture.",
-        "governanceFocus": "How should safety be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+        "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:594"
         ],
-        "confidence": 0.56,
+        "confidence": 0.6,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
       "contributingArchitectures": [
         {
-          "objectId": "OOF-KO-ARCH-AGA",
-          "architectureId": "aga",
-          "label": "AGA™ — Accountability Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
-          "score": 7.83,
-          "matchedTerms": [
-            "oversight"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "oversight",
-          "reasonForRelevance": "Available reporting describes oversight. This makes AGA™ — Accountability Governance Architecture relevant to examining AGA™ — Accountability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported oversight concern falls within the governed questions represented by AGA™ — Accountability Governance Architecture.",
-          "governanceFocus": "How should oversight be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:594"
-          ],
-          "confidence": 0.55,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-MGIA",
-          "architectureId": "mgia",
-          "label": "MGIA™ — Memory Governance Intelligence Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-          "score": 7.83,
-          "matchedTerms": [
-            "oversight"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "oversight",
-          "reasonForRelevance": "Available reporting describes oversight. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported oversight concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
-          "governanceFocus": "How should oversight be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:594"
-          ],
-          "confidence": 0.55,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-VFM",
-          "architectureId": "vfm",
-          "label": "VFM® — Value Flow Mechanisms Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-          "score": 7.83,
-          "matchedTerms": [
-            "when"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "when",
-          "reasonForRelevance": "Available reporting describes when. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining VFM® — Value Flow Mechanisms Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported when concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-          "governanceFocus": "How should when be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:594"
-          ],
-          "confidence": 0.55,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
-        {
-          "objectId": "OOF-KO-ARCH-ASGA",
-          "architectureId": "asga",
-          "label": "ASGA™ — Autonomous Systems Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-          "score": 5.79,
+          "objectId": "OOF-KO-ARCH-AIG",
+          "architectureId": "aig",
+          "label": "AIG® - Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
+          "score": 8.98,
           "matchedTerms": [
             "safety"
           ],
           "role": "Contributing",
-          "governedMechanism": "safety",
-          "reasonForRelevance": "Available reporting describes safety. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported safety concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
-          "governanceFocus": "How should safety be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes AIG® - Governance Architecture relevant to examining AIG® - Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by AIG® - Governance Architecture.",
+          "governanceFocus": "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:594"
           ],
-          "confidence": 0.53,
+          "confidence": 0.56,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         }
       ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-353609",
+      "systemDomains": [],
+      "observedOutcome": "Pak 'n' Save's AI-based app, Savey Meal-bot, inadvertently suggested dangerous recipes, including one creating chlorine gas, when users entered non-food household items, raising safety and oversight concerns.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:594"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -344,7 +288,10 @@
             "oversight"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:594"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -355,80 +302,77 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving safety. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "AIG® - Governance Architecture frames the primary governed problem. AGA™ — Accountability Governance Architecture, MGIA™ — Memory Governance Intelligence Architecture, VFM® — Value Flow Mechanisms Architecture, ASGA™ — Autonomous Systems Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "EGA™ — Energy Governance Architecture frames the primary governed problem. AIG® - Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should safety be governed in the conditions described by the available incident evidence?",
-      "How should oversight be governed in the conditions described by the available incident evidence?",
-      "How should when be governed in the conditions described by the available incident evidence?",
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Pak 'N' Save at the relevant time?",
-      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
+      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case AI Meal Planner Suggests Hazardous Chlorine Gas Recipe, involving Pak 'N' Save, raises a preliminary question for AIG® - Governance Architecture: How should safety be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case AI Meal Planner Suggests Hazardous Chlorine Gas Recipe, involving Pak 'N' Save, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Human oversight and intervention in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to safety. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that safety is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply AIG® - Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant safety scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing safety were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for safety, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
       "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "aig",
+      "primaryArchitectureId": "ega",
       "mechanisms": [
-        "safety"
+        "generation"
       ],
-      "patternKey": "5bf26c2ae17b8475"
+      "patternKey": "ea8a0c7b96031393"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:594"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving safety. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "AIG® - Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-AIG",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "EGA™ — Energy Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-EGA",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-AGA",
-        "OOF-KO-ARCH-MGIA",
-        "OOF-KO-ARCH-VFM",
-        "OOF-KO-ARCH-ASGA"
+        "OOF-KO-ARCH-AIG"
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "safety",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should safety be governed in the conditions described by the available incident evidence?",
-        "How should oversight be governed in the conditions described by the available incident evidence?",
-        "How should when be governed in the conditions described by the available incident evidence?",
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Pak 'N' Save at the relevant time?",
-        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?"
+        "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case AI Meal Planner Suggests Hazardous Chlorine Gas Recipe, involving Pak 'N' Save, raises a preliminary question for AIG® - Governance Architecture: How should safety be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case AI Meal Planner Suggests Hazardous Chlorine Gas Recipe, involving Pak 'N' Save, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "safety"
+        "generation"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -439,8 +383,23 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported safety.",
-        "statement": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported safety.",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "evidenceBasis": [
+          "aiid:594"
+        ],
+        "basis": [
+          "generation"
+        ],
+        "architectureReference": "OOF-KO-ARCH-EGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:594"
         ],
@@ -448,66 +407,6 @@
           "safety"
         ],
         "architectureReference": "OOF-KO-ARCH-AIG",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to AGA™ — Accountability Governance Architecture for the reported oversight.",
-        "statement": "Available evidence indicated relevance to AGA™ — Accountability Governance Architecture for the reported oversight.",
-        "evidenceBasis": [
-          "aiid:594"
-        ],
-        "basis": [
-          "oversight"
-        ],
-        "architectureReference": "OOF-KO-ARCH-AGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported oversight.",
-        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported oversight.",
-        "evidenceBasis": [
-          "aiid:594"
-        ],
-        "basis": [
-          "oversight"
-        ],
-        "architectureReference": "OOF-KO-ARCH-MGIA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported when.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported when.",
-        "evidenceBasis": [
-          "aiid:594"
-        ],
-        "basis": [
-          "when"
-        ],
-        "architectureReference": "OOF-KO-ARCH-VFM",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported safety.",
-        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported safety.",
-        "evidenceBasis": [
-          "aiid:594"
-        ],
-        "basis": [
-          "safety"
-        ],
-        "architectureReference": "OOF-KO-ARCH-ASGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -528,10 +427,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:12:05Z",
-    "supersedes": "OOF-AII-ASMT-353609-V10",
-    "reassessmentReason": "Material analysis engine change",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-353609-V12",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

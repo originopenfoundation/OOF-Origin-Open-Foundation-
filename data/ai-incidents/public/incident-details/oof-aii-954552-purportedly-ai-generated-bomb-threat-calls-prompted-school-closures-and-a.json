@@ -60,12 +60,12 @@
   "createdAt": "2026-10-10T23:57:36.644000Z",
   "updatedAt": "2026-10-10T23:57:36.644000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-954552-V1",
+    "assessmentIdentity": "OOF-AII-ASMT-954552-V3",
     "incidentId": "OOF-AII-954552",
-    "analysisVersion": 1,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 3,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -170,10 +170,12 @@
     },
     "oofIncidentReport": {
       "headline": "Purportedly AI-Generated Bomb Threat Calls Prompted School Closures and an Evacuation in Jackson and Hall Counties, Georgia",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that Bomb threat calls that officials described as AI-generated prompted searches of six schools and cancellation of classes across Jackson County, Georgia. A similar call caused the evacuation of Cherokee Bluff High School in neighboring Hall County. Authorities reportedly considered the threats linked. No explosives were found, and the perpetrators and AI system were not publicly identified. (2026-08-14, United States of America).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-08-14, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1745",
       "eventDate": "2026-08-14",
+      "sourceRecordTimestamp": "2026-10-10",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -210,16 +212,16 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 25.03,
+        "score": 25.8,
         "matchedTerms": [
           "information",
           "identified"
         ],
         "role": "Primary",
-        "governedMechanism": "information, identified",
-        "reasonForRelevance": "Available reporting describes information, identified. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported information, identified concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
-        "governanceFocus": "How should information, identified be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes PGA™ — Prediction Governance Architecture relevant to examining PGA™ — Prediction Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by PGA™ — Prediction Governance Architecture.",
+        "governanceFocus": "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1745"
@@ -234,17 +236,17 @@
           "architectureId": "liga",
           "label": "LIGA™ — Liability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 21.04,
+          "score": 21.71,
           "matchedTerms": [
             "identified",
             "considered",
             "states"
           ],
           "role": "Contributing",
-          "governedMechanism": "identified, considered, states",
-          "reasonForRelevance": "Available reporting describes identified, considered, states. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported identified, considered, states concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-          "governanceFocus": "How should identified, considered, states be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
+          "governanceFocus": "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:1745"
@@ -252,22 +254,43 @@
           "confidence": 0.63,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-EGA",
+          "architectureId": "ega",
+          "label": "EGA™ — Energy Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+          "score": 20.39,
+          "matchedTerms": [
+            "generation"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+          "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1745"
+          ],
+          "confidence": 0.62,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
         }
       ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-954552",
+      "systemDomains": [],
+      "observedOutcome": "Bomb threat calls that officials described as AI-generated prompted searches of six schools and cancellation of classes across Jackson County, Georgia. A similar call caused the evacuation of Cherokee Bluff High School in neighboring Hall County. Authorities reportedly considered the threats linked. No explosives were found, and the perpetrators and AI system were not publicly identified.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1745"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
-        {
-          "componentId": "retrieval-context",
-          "label": "Retrieval and context handling",
-          "matchedTerms": [
-            "search"
-          ],
-          "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
-        },
         {
           "componentId": "model-inference-output",
           "label": "Model inference and output generation",
@@ -275,7 +298,10 @@
             "generated"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1745"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -286,39 +312,39 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving information, identified. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture, EGA™ — Energy Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should information, identified be governed in the conditions described by the available incident evidence?",
-      "How should identified, considered, states be governed in the conditions described by the available incident evidence?",
+      "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Synthetic Media Creators, Malicious Actors, Information Manipulation Actors In The United States, Information Manipulation Actors, Hoax Threat Perpetrators at the relevant time?",
-      "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?",
-      "What additional independent evidence is required to resolve the material evidence gaps?"
+      "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "The source-reported case Purportedly AI-Generated Bomb Threat Calls Prompted School Closures and an Evacuation in Jackson and Hall Counties, Georgia, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should information, identified be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case Purportedly AI-Generated Bomb Threat Calls Prompted School Closures and an Evacuation in Jackson and Hall Counties, Georgia, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Retrieval and context handling, Model inference and output generation in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to information, identified. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that information, identified is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply PGA™ — Prediction Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant information, identified scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing information, identified were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for information, identified, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
       "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
@@ -335,23 +361,24 @@
       "incidentEvidence": [
         "aiid:1745"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving information, identified. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "PGA™ — Prediction Governance Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-PGA",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-LIGA"
+        "OOF-KO-ARCH-LIGA",
+        "OOF-KO-ARCH-EGA"
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "information, identified",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should information, identified be governed in the conditions described by the available incident evidence?",
-        "How should identified, considered, states be governed in the conditions described by the available incident evidence?",
+        "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from LIGA™ — Liability Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Synthetic Media Creators, Malicious Actors, Information Manipulation Actors In The United States, Information Manipulation Actors, Hoax Threat Perpetrators at the relevant time?",
-        "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?",
-        "What additional independent evidence is required to resolve the material evidence gaps?"
+        "What evidence would establish how Synthetic Media Generation Technology, Synthetic Audio Generation Technology produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "The source-reported case Purportedly AI-Generated Bomb Threat Calls Prompted School Closures and an Evacuation in Jackson and Hall Counties, Georgia, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: How should information, identified be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case Purportedly AI-Generated Bomb Threat Calls Prompted School Closures and an Evacuation in Jackson and Hall Counties, Georgia, involving Synthetic Media Generation Technology, Synthetic Audio Generation Technology, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -369,8 +396,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, identified.",
-        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported information, identified.",
+        "finding": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to PGA™ — Prediction Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1745"
         ],
@@ -385,8 +412,8 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported identified, considered, states.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported identified, considered, states.",
+        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1745"
         ],
@@ -396,6 +423,21 @@
           "states"
         ],
         "architectureReference": "OOF-KO-ARCH-LIGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "evidenceBasis": [
+          "aiid:1745"
+        ],
+        "basis": [
+          "generation"
+        ],
+        "architectureReference": "OOF-KO-ARCH-EGA",
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -420,10 +462,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:17:00Z",
-    "supersedes": null,
-    "reassessmentReason": "Initial automated analysis",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-954552-V2",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

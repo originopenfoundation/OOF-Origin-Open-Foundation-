@@ -27,8 +27,8 @@ ANALYSIS_PATH = DATA_ROOT / "analysis-store.json"
 KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
 REVIEW_QUEUE_PATH = DATA_ROOT / "human-review-queue.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
-ENGINE_VERSION = "3.4.2"
-QUALITY_GATE_VERSION = "OOF-AII-QG-3.4.2.0"
+ENGINE_VERSION = "3.4.5"
+QUALITY_GATE_VERSION = "OOF-AII-QG-3.4.5.5"
 
 PLACEHOLDER_VALUES = {"", "no", "none", "null", "unknown", "n a", "not specified", "unspecified"}
 # These values are not prohibited in ordinary source prose.  They are rejected only
@@ -91,7 +91,7 @@ SYSTEM_COMPONENT_RULES = {
     "training-dataset-integrity": ("Training and dataset integrity", ("training", "dataset", "bias", "discrimination", "resume")),
     "retrieval-context": ("Retrieval and context handling", ("retrieval", "context", "citation", "search")),
     "model-inference-output": ("Model inference and output generation", ("hallucination", "incorrect", "fabricated", "generated", "chatbot", "large language model", "llm")),
-    "agent-planning-delegation": ("Agent planning and delegation", ("agent", "agentic", "autonomous", "planning", "delegation")),
+    "agent-planning-delegation": ("Agent planning and delegation", ("ai agent", "agentic", "agent planning", "agent delegation")),
     "tool-execution-external-actions": ("Tool execution and external actions", ("executed", "deleted", "modified", "transaction", "tool", "production")),
     "identity-authorization": ("Identity and authorization", ("identity", "impersonation", "deepfake", "cloned voice", "biometric", "unauthorized")),
     "memory-state": ("Memory and state management", ("memory", "retention", "memorized", "state")),
@@ -99,6 +99,18 @@ SYSTEM_COMPONENT_RULES = {
     "monitoring-auditability": ("Monitoring and auditability", ("audit", "monitor", "trace", "logging", "evidence")),
     "physical-execution-robotics": ("Physical-world execution and robotics", ("robot", "drone", "vehicle", "autopilot", "collision", "physical")),
     "deployment-infrastructure": ("Deployment and infrastructure", ("deployment", "infrastructure", "server", "outage", "vulnerability", "malware")),
+}
+
+FAILURE_MECHANISM_RULES = {
+    "Unauthorized action": ("unauthorized access", "unauthorized action", "without authorization", "without permission"),
+    "Incorrect classification": ("misclassified", "incorrectly classified", "misidentified", "false positive", "false negative"),
+    "Unsafe decision": ("unsafe decision", "unsafe recommendation", "dangerous advice"),
+    "Missing safety intervention": ("failed to intervene", "failed to stop", "emergency stop failed"),
+    "Invalid data dependency": ("incorrect data", "inaccurate data", "corrupted data"),
+    "Uncontrolled execution": ("uncontrolled execution", "unsanctioned action", "unapproved action"),
+    "Monitoring failure": ("failed to detect", "monitoring failure", "not detected"),
+    "Authority-boundary violation": ("exceeded authority", "exceeded its authority", "outside its authorized scope"),
+    "Inadequate verification": ("failed to verify", "without verification", "unverified output"),
 }
 
 SEVERITY_SIGNALS = {
@@ -154,6 +166,16 @@ def content_hash(value) -> str:
 def normalized_text(value) -> str:
     text = unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode("ascii")
     return re.sub(r"[^a-z0-9]+", " ", text.casefold()).strip()
+
+
+def has_non_negated_signal(value: str, signal: str) -> bool:
+    """Reject obvious nearby negations; a match still requires human review."""
+    phrase = normalized_text(signal)
+    for match in re.finditer(r"(?<!\w)" + re.escape(phrase) + r"(?!\w)", normalized_text(value)):
+        prefix = normalized_text(value)[max(0, match.start() - 90):match.start()]
+        if not re.search(r"\b(?:no|not|never|denied|without evidence of)\s+(?:\w+\s+){0,3}$", prefix):
+            return True
+    return False
 
 
 def tokens(value) -> list[str]:
@@ -454,14 +476,15 @@ def evidence_snapshot(record: dict) -> dict:
 def original_oof_report(record: dict, evidence: dict) -> dict:
     source = (evidence.get("sources") or [{}])[0]
     publisher = source.get("publisher") or "the identified public source"
-    event_date = str(record.get("occurredAt") or record.get("reportedAt") or "")[:10]
+    event_date = str(record.get("occurredAt") or "")[:10]
     location = record.get("country") if record.get("country") not in (None, "Location not specified") else None
     context = ", ".join(value for value in (event_date, location) if value)
-    opening = f"{publisher} reports that {record.get('summary') or record.get('title')}"
+    opening = f"OOF® provides a preliminary governance interpretation of the incident account catalogued by {publisher}"
     if context:
         opening += f" ({context})."
     elif not opening.endswith("."):
         opening += "."
+    opening += " The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability."
     limitation = (
         "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
         if evidence.get("publicEvidenceStatus") == "Source-Reported"
@@ -473,6 +496,8 @@ def original_oof_report(record: dict, evidence: dict) -> dict:
         "sourceAttribution": publisher,
         "sourceUrl": source.get("url"),
         "eventDate": event_date or None,
+        "sourceRecordTimestamp": str(record.get("reportedAt") or "")[:10] or None,
+        "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
         "evidenceStatus": evidence.get("publicEvidenceStatus"),
         "uncertaintyStatement": limitation,
     }
@@ -484,9 +509,27 @@ def system_failure_classification(record: dict) -> dict:
         "title", "summary", "system", "technology", "aiSystemType", "impactTypes",
     ))
     normalized = normalized_text(source_text)
+    domains = {
+        "Autonomous and driver-assistance vehicles": ("self driving", "driver assistance", "autopilot", "autonomous vehicle"),
+        "AI agents": ("ai agent", "agentic", "coding agent"),
+        "Generative AI": ("generative ai", "large language model", "chatbot", "chatgpt", "deepfake"),
+        "Robotics": ("robot", "robotics"),
+        "Computer vision": ("facial recognition", "computer vision", "image recognition"),
+        "Recommendation systems": ("recommendation algorithm", "recommendation system", "recommendations"),
+        "Decision support": ("decision support", "risk assessment algorithm", "automated decision"),
+        "Industrial control": ("industrial control", "power grid control"),
+    }
+    domain_matches = [label for label, terms in domains.items() if any(re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", normalized) for term in terms)]
+    sources = [source.get("sourceId") for source in record.get("sources", []) if source.get("sourceId")]
+    candidates = []
+    for label, signals in FAILURE_MECHANISM_RULES.items():
+        matches = [signal for signal in signals if has_non_negated_signal(source_text, signal)]
+        if matches and sources:
+            candidates.append({"label": label, "matchedTerms": matches, "evidenceReferences": sources,
+                               "status": "CANDIDATE", "rationale": "Source language suggests a question for review; the technical mechanism and cause are not confirmed."})
     components = []
     for component_id, (label, signals) in SYSTEM_COMPONENT_RULES.items():
-        matched = [signal for signal in signals if normalized_text(signal) in normalized]
+        matched = [signal for signal in signals if re.search(r"(?<!\w)" + re.escape(normalized_text(signal)) + r"(?!\w)", normalized)]
         if not matched:
             continue
         components.append({
@@ -495,9 +538,16 @@ def system_failure_classification(record: dict) -> dict:
             "matchedTerms": matched[:4],
             "confidence": "Indicated" if len(matched) == 1 else "Preliminary",
             "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+            "evidenceReferences": [source.get("sourceId") for source in record.get("sources", []) if source.get("sourceId")],
         })
     return {
-        "classificationVersion": "OOF-AII-SFC-1.0",
+        "classificationVersion": "OOF-AII-SFC-1.1",
+        "incidentId": record.get("id"),
+        "systemDomains": domain_matches,
+        "observedOutcome": record.get("summary") or None,
+        "candidateFailureMechanisms": candidates,
+        "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+        "evidenceReferences": sources,
         "status": "COMPONENTS_INDICATED" if components else "UNRESOLVED",
         "components": components,
         "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -516,6 +566,66 @@ def external_technical_mappings() -> dict:
     }
 
 
+def conditional_control_guidance(classification: dict, primary: dict | None) -> dict | None:
+    """Offer bounded test ideas for evidenced signals, never a diagnosis."""
+    controls = {
+        'Unauthorized action': {
+            'objective': 'Conditionally enforce scoped, current authorization at the relevant access or execution boundary.',
+            'boundary': 'The relevant resource-access or action-execution authorization gate.',
+            'mechanism': 'Before the action, validate actor identity, requested resource and action against an explicit permission; deny and log requests outside scope.',
+            'test': 'In an isolated test environment, request the same resource once with valid authorization and once with a revoked or out-of-scope permission.',
+            'expected': 'The valid request follows policy; the revoked or out-of-scope request is denied before the protected action and both decisions are recorded.',
+        },
+        'Incorrect classification': {
+            'objective': 'Conditionally require independent verification before a consequential classification is acted upon.',
+            'boundary': 'The handoff between classification output and consequential action.',
+            'mechanism': 'Route defined high-impact or uncertain classification results to a qualified reviewer and record the evidence, override, and final decision.',
+            'test': 'In an isolated evaluation, submit labeled representative cases including known misclassifications and verify the review path before any consequential action.',
+            'expected': 'The specified cases reach review, unsupported conclusions are not acted on automatically, and decisions and corrections are traceable.',
+        },
+        'Missing safety intervention': {
+            'objective': 'Conditionally provide an independently testable intervention for the applicable operational boundary.',
+            'boundary': 'The system-specific safety intervention or controlled-stop interface.',
+            'mechanism': 'Define who may intervene, the triggering conditions, and a feasible controlled-stop or safe-state mechanism for the specific system.',
+            'test': 'In a non-production or otherwise safely controlled test, trigger the documented intervention condition and measure the resulting state.',
+            'expected': 'The authorized intervention is available, reaches the specified safe state within the agreed limits, and records the test outcome.',
+        },
+    }
+    selected = next((item for item in classification.get('candidateFailureMechanisms', []) if item.get('label') in controls and item.get('evidenceReferences')), None)
+    components = classification.get('components') or []
+    domains = classification.get('systemDomains') or []
+    if not selected or not components or not domains:
+        return None
+    if selected['label'] == 'Incorrect classification' and set(domains) & {'Autonomous and driver-assistance vehicles', 'Robotics', 'Industrial control'}:
+        return None
+    control = controls[selected['label']]
+    references = (primary or {}).get('relevantStandardsModules') or []
+    methodology = [{'name': item.get('name'), 'artifactType': item.get('artifactType'),
+                    'canonicalUrl': item.get('canonicalUrl'), 'objectId': item.get('objectId')} for item in references[:2]]
+    disclaimer = 'This is a conditional test idea based on source-language signals, not a verified cause or proof that the control would prevent the incident.'
+    return {
+        'status': 'EVIDENCE_LIMITED',
+        'couldThisHappenToYourSystem': {
+            'applicability': f"A similar question may be relevant to {', '.join(domains)} when the reported {selected['label'].lower()} scenario and local operating conditions actually apply.",
+            'knownVsInferred': disclaimer,
+        },
+        'whatShouldBeImplemented': {
+            'controlObjective': control['objective'], 'governanceBoundary': control['boundary'],
+            'protectiveMechanism': control['mechanism'], 'expectedBehavior': control['expected'],
+        },
+        'howCanProtectionBeVerified': {
+            'testObjective': control['objective'], 'prerequisite': 'Authorized owner, representative safe test environment, defined scope, and a documented expected result.',
+            'testAction': control['test'], 'expectedSafeBehavior': control['expected'],
+            'evidenceToRetain': 'Test inputs, configuration, authorization decision, observations, logs, and reviewer decision.',
+            'failureCondition': 'The documented expected result is not achieved, cannot be observed, or is not attributable to the tested configuration.',
+        },
+        'governanceGapToExamine': 'Check whether the candidate scenario applies and whether a relevant control exists; a gap is not established.',
+        'recommendedPreventiveControl': control['mechanism'], 'howToVerify': control['test'],
+        'relevantMethodology': methodology, 'evidenceLimitation': disclaimer,
+        'supportingEvidence': selected['evidenceReferences'],
+    }
+
+
 def prevention_guidance(record: dict, architecture: dict, gaps: list[str], classification: dict, evidence: dict) -> dict:
     primary = architecture.get("primaryArchitecture")
     components = classification.get("components") or []
@@ -524,7 +634,11 @@ def prevention_guidance(record: dict, architecture: dict, gaps: list[str], class
     evidence_limited = evidence.get("corroboration", {}).get("independentSourceCount", 0) < 2
     state = "EVIDENCE_LIMITED" if evidence_limited else "PRELIMINARY"
     limitation = (gaps or ["The recommendation is preliminary and should be adapted after incident-specific evidence review."])[0]
-    if not primary:
+    if evidence.get('publicEvidenceStatus') != 'Contradicted / Disputed':
+        conditional = conditional_control_guidance(classification, primary)
+        if conditional:
+            return conditional
+    if not primary or classification.get("technicalMechanismStatus") != "CONFIRMED":
         return {
             "status": "EVIDENCE_LIMITED",
             "couldThisHappenToYourSystem": {
@@ -653,17 +767,14 @@ def architecture_analysis(record: dict, knowledge: KnowledgeLayer) -> dict:
     for index, candidate in enumerate(selected):
         confidence = min(0.9, 0.48 + candidate["score"] / max(40, maximum * 2) * 0.35)
         references = knowledge.references(candidate["objectId"], record)
-        mechanism = ", ".join(candidate["matchedTerms"][:3]) or "the reported governance problem"
+        mechanism = "the reported system and activity"
         deepest = references[0] if references else None
         methodology_focus = deepest.get("name") if deepest else candidate["label"]
-        governance_focus = (
-            deepest.get("coreQuestion") if deepest and deepest.get("coreQuestion")
-            else f"How should {mechanism} be governed in the conditions described by the available incident evidence?"
-        )
+        governance_focus = f"Which questions from {candidate['label']}, if any, are relevant to the reported system and activity?"
         results.append({
             **candidate,
             "role": "Primary" if index == 0 else "Contributing",
-            "governedMechanism": ", ".join(candidate["matchedTerms"][:5]),
+            "governedMechanism": mechanism,
             "reasonForRelevance": (
                 f"Available reporting describes {mechanism}. This makes {candidate['label']} relevant to examining "
                 f"{methodology_focus} in this specific incident; relevance does not establish governance failure."

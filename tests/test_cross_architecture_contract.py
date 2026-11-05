@@ -19,9 +19,9 @@ class CrossArchitectureContractTests(unittest.TestCase):
         schema = json.loads((ROOT / 'schemas/oof-cross-architecture.v1.schema.json').read_text(encoding='utf-8'))
         self.assertEqual(validate_instance(self.output['reasoning'], schema, ROOT / 'schemas/oof-cross-architecture.v1.schema.json'), [])
 
-    def test_three_capabilities_match_versioned_definition(self):
+    def test_four_capabilities_match_versioned_definition(self):
         schema = json.loads((ROOT / 'schemas/oof-capability.v1.schema.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(self.output['capabilities']), 3)
+        self.assertEqual(len(self.output['capabilities']), 4)
         for capability in self.output['capabilities']:
             self.assertEqual(validate_instance(capability, schema, ROOT / 'schemas/oof-capability.v1.schema.json'), [])
             self.assertEqual(capability['allowed_tools'], [])

@@ -5,13 +5,13 @@
   "summary": "Developers reported that Z.ai's ZCode AI coding assistant uploaded local code repositories to Alibaba Cloud without consent. Z.ai said a default-enabled Codebase Indexing feature caused the behavior, apologized, patched the vulnerability, and later disabled the upload path. One company retracted a separate claim that six workspaces containing sensitive data had been uploaded; Z.ai said independent reviews found no code data retained.",
   "eventType": "Incident",
   "occurredAt": "2026-09-18",
-  "reportedAt": "2026-09-27T00:00:00Z",
+  "reportedAt": "2026-10-31T21:12:14.928000Z",
   "country": "Location not specified",
   "countryCode": null,
   "region": null,
   "coordinates": null,
   "organization": "Z.Ai, Ai Service Providers",
-  "system": "Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems",
+  "system": "Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems",
   "technology": null,
   "industry": null,
   "aiSystemType": null,
@@ -19,10 +19,10 @@
   "impactTypes": [],
   "affectedParties": [
     "Zcode Users",
-    "Information Integrity",
-    "Privacy",
     "Software Developers",
-    "Ai Coding Assistant Users"
+    "Privacy",
+    "Ai Coding Assistant Users",
+    "Information Security"
   ],
   "evidenceConfidence": "Moderate Confidence",
   "verificationState": "Source Catalogued / OOF Not Assessed",
@@ -34,8 +34,8 @@
       "publicationDate": "2026-09-18",
       "sourceType": "Official weekly data export",
       "url": "https://incidentdatabase.ai/cite/1714",
-      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-      "retrievedAt": "2026-10-05T00:00:00Z",
+      "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261102.xlsx",
+      "retrievedAt": "2026-11-02T00:00:00Z",
       "verificationStatus": "Source Catalogued / OOF Not Assessed"
     }
   ],
@@ -53,14 +53,14 @@
   },
   "assessment": null,
   "createdAt": "2026-09-27T00:00:00Z",
-  "updatedAt": "2026-09-27T00:00:00Z",
+  "updatedAt": "2026-10-31T21:12:14.928000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-719717-V10",
+    "assessmentIdentity": "OOF-AII-ASMT-719717-V13",
     "incidentId": "OOF-AII-719717",
-    "analysisVersion": 10,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
@@ -82,7 +82,7 @@
         "level": "Limited",
         "score": 0.43,
         "matchedTerms": [
-          "behavior"
+          "generation"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -90,27 +90,27 @@
     "sourceNormalization": {
       "policyVersion": "OOF-AII-NORM-3.2",
       "sourceRecordModified": false,
-      "rawRecordHash": "b00d48f50dbb287fb82af661b229126b752fdd95d3b2d5ca38fb12c7a9fa5032",
+      "rawRecordHash": "dd6137041cd9f92e7f957da95f204a61848f4a8fbeb98451b8808fe44f225fb2",
       "normalizedFields": {
         "organization": "Z.Ai, Ai Service Providers",
-        "system": "Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems",
+        "system": "Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems",
         "technology": null,
         "industry": null,
         "aiSystemType": null,
         "impactTypes": [],
         "affectedParties": [
           "Zcode Users",
-          "Information Integrity",
-          "Privacy",
           "Software Developers",
-          "Ai Coding Assistant Users"
+          "Privacy",
+          "Ai Coding Assistant Users",
+          "Information Security"
         ]
       },
       "transformations": []
     },
     "evidenceSnapshot": {
-      "snapshotId": "OOF-AII-719717-EVID-b00d48f50dbb",
-      "incidentSourceHash": "b00d48f50dbb287fb82af661b229126b752fdd95d3b2d5ca38fb12c7a9fa5032",
+      "snapshotId": "OOF-AII-719717-EVID-dd6137041cd9",
+      "incidentSourceHash": "dd6137041cd9f92e7f957da95f204a61848f4a8fbeb98451b8808fe44f225fb2",
       "sources": [
         {
           "sourceId": "aiid:1714",
@@ -120,7 +120,7 @@
           "independenceKey": "ai incident database responsible ai collaborative",
           "directness": "Secondary catalogue",
           "publicationTime": "2026-09-18",
-          "retrievalTime": "2026-10-05T00:00:00Z",
+          "retrievalTime": "2026-11-02T00:00:00Z",
           "eventTime": "2026-09-18",
           "verificationState": "Source Catalogued / OOF Not Assessed"
         }
@@ -156,10 +156,12 @@
     },
     "oofIncidentReport": {
       "headline": "Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that Developers reported that Z.ai's ZCode AI coding assistant uploaded local code repositories to Alibaba Cloud without consent. Z.ai said a default-enabled Codebase Indexing feature caused the behavior, apologized, patched the vulnerability, and later disabled the upload path. One company retracted a separate claim that six workspaces containing sensitive data had been uploaded; Z.ai said independent reviews found no code data retained. (2026-09-18).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-09-18). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1714",
       "eventDate": "2026-09-18",
+      "sourceRecordTimestamp": "2026-10-31",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -192,65 +194,41 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-AIG",
-        "architectureId": "aig",
-        "label": "AIG® - Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/aig/About%20AI%20Governance%20Architecture%20(AIG%C2%AE).html",
-        "score": 3.3,
+        "objectId": "OOF-KO-ARCH-EGA",
+        "architectureId": "ega",
+        "label": "EGA™ — Energy Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
+        "score": 10.19,
         "matchedTerms": [
-          "behavior"
+          "generation"
         ],
         "role": "Primary",
-        "governedMechanism": "behavior",
-        "reasonForRelevance": "Available reporting describes behavior. This makes AIG® - Governance Architecture relevant to examining AIG® - Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported behavior concern falls within the governed questions represented by AIG® - Governance Architecture.",
-        "governanceFocus": "How should behavior be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
+        "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1714"
         ],
-        "confidence": 0.51,
+        "confidence": 0.57,
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": []
       },
-      "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-LIGA",
-          "architectureId": "liga",
-          "label": "LIGA™ — Liability Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/liga/liga-about.html",
-          "score": 3.3,
-          "matchedTerms": [
-            "later"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "later",
-          "reasonForRelevance": "Available reporting describes later. This makes LIGA™ — Liability Governance Architecture relevant to examining LIGA™ — Liability Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported later concern falls within the governed questions represented by LIGA™ — Liability Governance Architecture.",
-          "governanceFocus": "How should later be governed in the conditions described by the available incident evidence?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1714"
-          ],
-          "confidence": 0.51,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        }
-      ]
+      "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-719717",
+      "systemDomains": [],
+      "observedOutcome": "Developers reported that Z.ai's ZCode AI coding assistant uploaded local code repositories to Alibaba Cloud without consent. Z.ai said a default-enabled Codebase Indexing feature caused the behavior, apologized, patched the vulnerability, and later disabled the upload path. One company retracted a separate claim that six workspaces containing sensitive data had been uploaded; Z.ai said independent reviews found no code data retained.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1714"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
-        {
-          "componentId": "human-oversight",
-          "label": "Human oversight and intervention",
-          "matchedTerms": [
-            "review"
-          ],
-          "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
-        },
         {
           "componentId": "deployment-infrastructure",
           "label": "Deployment and infrastructure",
@@ -258,7 +236,10 @@
             "vulnerability"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1714"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -269,77 +250,73 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving behavior. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "AIG® - Governance Architecture frames the primary governed problem. LIGA™ — Liability Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "The available evidence currently supports one primary governed domain: EGA™ — Energy Governance Architecture.",
     "governanceQuestions": [
-      "How should behavior be governed in the conditions described by the available incident evidence?",
-      "How should later be governed in the conditions described by the available incident evidence?",
+      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
-      "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
+      "What evidence would establish how Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for AIG® - Governance Architecture: How should behavior be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Human oversight and intervention, Deployment and infrastructure in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to behavior. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that behavior is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply AIG® - Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant behavior scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing behavior were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for behavior, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
       "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "aig",
+      "primaryArchitectureId": "ega",
       "mechanisms": [
-        "behavior"
+        "generation"
       ],
-      "patternKey": "28eb3ba5fbe48fbb"
+      "patternKey": "ea8a0c7b96031393"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1714"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving behavior. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "AIG® - Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-AIG",
-      "contributingArchitectures": [
-        "OOF-KO-ARCH-LIGA"
-      ],
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "EGA™ — Energy Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-EGA",
+      "contributingArchitectures": [],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "behavior",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should behavior be governed in the conditions described by the available incident evidence?",
-        "How should later be governed in the conditions described by the available incident evidence?",
+        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Z.Ai, Ai Service Providers at the relevant time?",
-        "What evidence would establish how Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems produced or enabled the reported outcome?",
+        "What evidence would establish how Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Ai Coding Assistant, Ai Code Generation Systems, Zcode Codebase Indexing Feature, Enterprise Ai Systems raises a preliminary question for AIG® - Governance Architecture: How should behavior be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "incidentGovernanceInsight": "Available reporting on Z.ai's ZCode AI Coding Assistant Reportedly Uploaded Developers' Local Code Repositories to Alibaba Cloud Without Consent indicates that Zcode Codebase Indexing Feature, Zcode Ai Coding Assistant, Enterprise Ai Systems, Ai Code Generation Systems raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "behavior"
+        "generation"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -350,30 +327,15 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported behavior.",
-        "statement": "Available evidence indicated relevance to AIG® - Governance Architecture for the reported behavior.",
+        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1714"
         ],
         "basis": [
-          "behavior"
+          "generation"
         ],
-        "architectureReference": "OOF-KO-ARCH-AIG",
-        "confidenceState": "Limited",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported later.",
-        "statement": "Available evidence indicated relevance to LIGA™ — Liability Governance Architecture for the reported later.",
-        "evidenceBasis": [
-          "aiid:1714"
-        ],
-        "basis": [
-          "later"
-        ],
-        "architectureReference": "OOF-KO-ARCH-LIGA",
+        "architectureReference": "OOF-KO-ARCH-EGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -400,10 +362,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:12:05Z",
-    "supersedes": "OOF-AII-ASMT-719717-V9",
-    "reassessmentReason": "Material analysis engine change",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-05T09:35:52Z",
+    "supersedes": "OOF-AII-ASMT-719717-V12",
+    "reassessmentReason": "Incident evidence changed",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

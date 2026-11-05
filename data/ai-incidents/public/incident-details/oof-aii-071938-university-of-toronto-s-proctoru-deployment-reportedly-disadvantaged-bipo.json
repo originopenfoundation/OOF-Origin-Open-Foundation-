@@ -60,12 +60,12 @@
   "createdAt": "2026-05-18T03:36:33.158000Z",
   "updatedAt": "2026-05-18T03:36:33.158000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-071938-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-071938-V13",
     "incidentId": "OOF-AII-071938",
-    "analysisVersion": 11,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
+    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -84,12 +84,11 @@
         "disclosure": "Measures populated source fields after deterministic normalization; it does not measure correctness."
       },
       "methodologicalAssignment": {
-        "level": "High",
-        "score": 0.75,
+        "level": "Moderate",
+        "score": 0.59,
         "matchedTerms": [
-          "identity",
-          "verification",
-          "integrity"
+          "software",
+          "deployment"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -190,10 +189,12 @@
     },
     "oofIncidentReport": {
       "headline": "University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that University of Toronto students reported that ProctorU and other online exam-monitoring services created discriminatory and stressful check-in experiences for BIPOC students during remote exams. One U of T student said ProctorU's identity-verification process often failed to recognize her passport, forcing manual checks and consuming exam check-in time. ProctorU said human proctors made final identity and integrity decisions. (2020-06-01, Canada).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2020-06-01, Canada). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/140",
       "eventDate": "2020-06-01",
+      "sourceRecordTimestamp": "2026-05-18",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -229,21 +230,20 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-OBIDENITY",
-        "architectureId": "obidenity",
-        "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
-        "score": 74.98,
+        "objectId": "OOF-KO-ARCH-SLGA",
+        "architectureId": "slga",
+        "label": "SLGA™ — Software Lifecycle Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/About%20SLGA%E2%84%A2%20-%20Software%20Lifecycle%20Governance%20Architecture.html",
+        "score": 87.14,
         "matchedTerms": [
-          "identity",
-          "verification",
-          "integrity"
+          "software",
+          "deployment"
         ],
         "role": "Primary",
-        "governedMechanism": "identity, verification, integrity",
-        "reasonForRelevance": "Available reporting describes identity, verification, integrity. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining Identity Integrity Standard (IIS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported identity, verification, integrity concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
-        "governanceFocus": "How should identity, verification, integrity be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes SLGA™ — Software Lifecycle Governance Architecture relevant to examining Software Deployment Standard - (SDPS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by SLGA™ — Software Lifecycle Governance Architecture.",
+        "governanceFocus": "Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:140"
@@ -252,40 +252,21 @@
         "uncertainty": "Automated retrieval; no authorized human review performed.",
         "relevantStandardsModules": [
           {
-            "objectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
-            "name": "Identity Integrity Standard (IIS)",
+            "objectId": "OOF-KO-STD-SLGA-08",
+            "name": "Software Deployment Standard - (SDPS)",
             "artifactType": "ParentStandard",
-            "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis.html",
+            "canonicalUrl": "https://originopenfoundation.org/Software%20Deployment%20Standard%20-%20(SDPS).html",
             "matchedTerms": [
-              "identity",
-              "integrity"
+              "software",
+              "deployment"
             ],
-            "score": 11,
-            "governedSpace": null,
+            "score": 26,
+            "governedSpace": "Software Deployment Governance",
             "coreQuestion": null,
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
-              "contentHash": "212e180d45a12a035d013f64a64bedf07f32c8228a9e70b1089315d53a01d77a",
-              "authorityState": "CANONICAL_AUTHORITATIVE"
-            }
-          },
-          {
-            "objectId": "OOF-OID-OBID-IIS-IUIM-2026-07-12-0001",
-            "name": "Identity Uniqueness Integrity Module (IUIM)",
-            "artifactType": "CoreModule",
-            "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis-iuim.html",
-            "matchedTerms": [
-              "identity",
-              "integrity"
-            ],
-            "score": 16,
-            "governedSpace": "Identity Uniqueness",
-            "coreQuestion": null,
-            "parentObjectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
-            "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
-              "contentHash": "712af4d39fbd7efbefd8341a1adaaee06881c541288159944a55d2d825bb3378",
+              "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
+              "contentHash": "f9a5ae03853d6ff8f1e74c88a34bb100e1479967aed556c57f33f57843196910",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
           }
@@ -293,11 +274,74 @@
       },
       "contributingArchitectures": [
         {
+          "objectId": "OOF-KO-ARCH-OBIDENITY",
+          "architectureId": "obidenity",
+          "label": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/o/obidenity-about.html",
+          "score": 76.45,
+          "matchedTerms": [
+            "identity",
+            "verification",
+            "integrity"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes OBIDENITY® — Origin-Bound Identity Governance Architecture relevant to examining Identity Integrity Standard (IIS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by OBIDENITY® — Origin-Bound Identity Governance Architecture.",
+          "governanceFocus": "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:140"
+          ],
+          "confidence": 0.63,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
+              "name": "Identity Integrity Standard (IIS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis.html",
+              "matchedTerms": [
+                "identity",
+                "integrity"
+              ],
+              "score": 11,
+              "governedSpace": null,
+              "coreQuestion": null,
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
+                "contentHash": "212e180d45a12a035d013f64a64bedf07f32c8228a9e70b1089315d53a01d77a",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            },
+            {
+              "objectId": "OOF-OID-OBID-IIS-IUIM-2026-07-12-0001",
+              "name": "Identity Uniqueness Integrity Module (IUIM)",
+              "artifactType": "CoreModule",
+              "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis-iuim.html",
+              "matchedTerms": [
+                "identity",
+                "integrity"
+              ],
+              "score": 16,
+              "governedSpace": "Identity Uniqueness",
+              "coreQuestion": null,
+              "parentObjectId": "OOF-OID-OBID-IIS-2026-07-12-0002",
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-62333809b45c",
+                "contentHash": "712af4d39fbd7efbefd8341a1adaaee06881c541288159944a55d2d825bb3378",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
+        },
+        {
           "objectId": "OOF-KO-ARCH-ASGA",
           "architectureId": "asga",
           "label": "ASGA™ — Autonomous Systems Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/asga-about.html",
-          "score": 68.88,
+          "score": 70.2,
           "matchedTerms": [
             "identity",
             "verification",
@@ -305,22 +349,30 @@
             "monitoring"
           ],
           "role": "Contributing",
-          "governedMechanism": "identity, verification, integrity, monitoring",
-          "reasonForRelevance": "Available reporting describes identity, verification, integrity. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported identity, verification, integrity concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
-          "governanceFocus": "How should identity, verification, integrity be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes ASGA™ — Autonomous Systems Governance Architecture relevant to examining ASGA™ — Autonomous Systems Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by ASGA™ — Autonomous Systems Governance Architecture.",
+          "governanceFocus": "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:140"
           ],
-          "confidence": 0.64,
+          "confidence": 0.62,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
         }
       ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-071938",
+      "systemDomains": [],
+      "observedOutcome": "University of Toronto students reported that ProctorU and other online exam-monitoring services created discriminatory and stressful check-in experiences for BIPOC students during remote exams. One U of T student said ProctorU's identity-verification process often failed to recognize her passport, forcing manual checks and consuming exam check-in time. ProctorU said human proctors made final identity and integrity decisions.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:140"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
@@ -330,7 +382,10 @@
             "discrimination"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:140"
+          ]
         },
         {
           "componentId": "identity-authorization",
@@ -339,7 +394,10 @@
             "identity"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:140"
+          ]
         },
         {
           "componentId": "human-oversight",
@@ -348,16 +406,10 @@
             "human"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
-        },
-        {
-          "componentId": "monitoring-auditability",
-          "label": "Monitoring and auditability",
-          "matchedTerms": [
-            "monitor"
-          ],
-          "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:140"
+          ]
         },
         {
           "componentId": "deployment-infrastructure",
@@ -366,7 +418,10 @@
             "deployment"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:140"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -377,92 +432,80 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving identity, verification, integrity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "OBIDENITY® — Origin-Bound Identity Governance Architecture frames the primary governed problem. ASGA™ — Autonomous Systems Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "SLGA™ — Software Lifecycle Governance Architecture frames the primary governed problem. OBIDENITY® — Origin-Bound Identity Governance Architecture, ASGA™ — Autonomous Systems Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should identity, verification, integrity be governed in the conditions described by the available incident evidence?",
+      "Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to University Of Toronto at the relevant time?",
-      "What evidence would establish how Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru produced or enabled the reported outcome?",
-      "What additional independent evidence is required to resolve the material evidence gaps?"
+      "What evidence would establish how Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru produced or enabled the reported outcome?"
     ],
-    "incidentGovernanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should identity, verification, integrity be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for SLGA™ — Software Lifecycle Governance Architecture: Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Training and dataset integrity, Identity and authorization, Human oversight and intervention in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to identity, verification, integrity. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that identity, verification, integrity is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply OBIDENITY® — Origin-Bound Identity Governance Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant identity, verification, integrity scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing identity, verification, integrity were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for identity, verification, integrity, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Identity Integrity Standard (IIS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis.html",
-          "objectId": "OOF-OID-OBID-IIS-2026-07-12-0002"
-        },
-        {
-          "name": "Identity Uniqueness Integrity Module (IUIM)",
-          "artifactType": "CoreModule",
-          "canonicalUrl": "https://originopenfoundation.org/content/o/obid-iis-iuim.html",
-          "objectId": "OOF-OID-OBID-IIS-IUIM-2026-07-12-0001"
-        }
-      ],
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+      "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "obidenity",
+      "primaryArchitectureId": "slga",
       "mechanisms": [
-        "identity",
-        "verification",
-        "integrity"
+        "software",
+        "deployment"
       ],
-      "patternKey": "034bc43c7dc0a7fe"
+      "patternKey": "93311412248001b4"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:140"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving identity, verification, integrity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "OBIDENITY® — Origin-Bound Identity Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-OBIDENITY",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedSpace": "SLGA™ — Software Lifecycle Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-SLGA",
       "contributingArchitectures": [
+        "OOF-KO-ARCH-OBIDENITY",
         "OOF-KO-ARCH-ASGA"
       ],
-      "parentStandard": "OOF-OID-OBID-IIS-2026-07-12-0002",
-      "coreModule": "OOF-OID-OBID-IIS-IUIM-2026-07-12-0001",
-      "governedMechanism": "identity, verification, integrity",
+      "parentStandard": "OOF-KO-STD-SLGA-08",
+      "coreModule": null,
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should identity, verification, integrity be governed in the conditions described by the available incident evidence?",
+        "Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from OBIDENITY® — Origin-Bound Identity Governance Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from ASGA™ — Autonomous Systems Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to University Of Toronto at the relevant time?",
-        "What evidence would establish how Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru produced or enabled the reported outcome?",
-        "What additional independent evidence is required to resolve the material evidence gaps?"
+        "What evidence would establish how Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru produced or enabled the reported outcome?"
       ],
-      "incidentGovernanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for OBIDENITY® — Origin-Bound Identity Governance Architecture: How should identity, verification, integrity be governed in the conditions described by the available incident evidence? This automated interpretation does not establish fault, control failure, or legal responsibility.",
-      "deepestJustifiedLevel": "CoreModule"
+      "incidentGovernanceInsight": "The source-reported case University of Toronto's ProctorU Deployment Reportedly Disadvantaged BIPOC Students During Exam Check-Ins, involving Remote Exam Proctoring Software, Proctoru Remote Proctoring Software, Proctoru Identity Verification System, Proctoru, raises a preliminary question for SLGA™ — Software Lifecycle Governance Architecture: Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "identity",
-        "verification",
-        "integrity"
+        "software",
+        "deployment"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -473,8 +516,24 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported identity, verification, integrity.",
-        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported identity, verification, integrity.",
+        "finding": "Available evidence indicated relevance to SLGA™ — Software Lifecycle Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to SLGA™ — Software Lifecycle Governance Architecture for the reported the reported system and activity.",
+        "evidenceBasis": [
+          "aiid:140"
+        ],
+        "basis": [
+          "software",
+          "deployment"
+        ],
+        "architectureReference": "OOF-KO-ARCH-SLGA",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to OBIDENITY® — Origin-Bound Identity Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:140"
         ],
@@ -490,8 +549,8 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported identity, verification, integrity, monitoring.",
-        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported identity, verification, integrity, monitoring.",
+        "finding": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to ASGA™ — Autonomous Systems Governance Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:140"
         ],
@@ -522,10 +581,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:12:05Z",
-    "supersedes": "OOF-AII-ASMT-071938-V10",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-071938-V12",
     "reassessmentReason": "Material analysis engine change",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

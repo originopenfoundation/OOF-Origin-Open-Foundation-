@@ -54,12 +54,12 @@
   "createdAt": "2026-09-04T00:00:00Z",
   "updatedAt": "2026-09-04T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-038344-V11",
+    "assessmentIdentity": "OOF-AII-ASMT-038344-V13",
     "incidentId": "OOF-AII-038344",
-    "analysisVersion": 11,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-c060ca54f268",
-    "knowledgeImpactFingerprint": "ddcb744455c342bd48cbb81ab59abf2cdf031199b7ba496a79b7c7cb4a0edf30",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
+    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
@@ -155,10 +155,12 @@
     },
     "oofIncidentReport": {
       "headline": "Anthropic Claude Opus 5 Coding Agent Reportedly Reset a Live Supabase Production Database During Prisma Migration Work",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that A developer reported that a Claude Opus 5 coding agent reset a live Supabase database while autonomously repairing a personal project's schema. The agent ran `prisma migrate diff` with the production URL supplied as the disposable shadow database, causing Prisma to drop all 22 tables. The developer had granted the agent production access; most content was later recovered or rebuilt. (2026-07-28).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-07-28). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1676",
       "eventDate": "2026-07-28",
+      "sourceRecordTimestamp": "2026-09-04",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -195,17 +197,17 @@
         "architectureId": "mgia",
         "label": "MGIA™ — Memory Governance Intelligence Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/m/mgia-about.html",
-        "score": 103.85,
+        "score": 105.75,
         "matchedTerms": [
           "agent",
           "access",
           "user"
         ],
         "role": "Primary",
-        "governedMechanism": "agent, access, user",
-        "reasonForRelevance": "Available reporting describes agent, access, user. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported agent, access, user concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
-        "governanceFocus": "How should agent, access, user be governed in the conditions described by the available incident evidence?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes MGIA™ — Memory Governance Intelligence Architecture relevant to examining MGIA™ — Memory Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by MGIA™ — Memory Governance Intelligence Architecture.",
+        "governanceFocus": "Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1676"
@@ -220,15 +222,15 @@
           "architectureId": "clia",
           "label": "CLIA® — Cognitive Governance Intelligence Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/c/clia-about.html",
-          "score": 86.11,
+          "score": 87.72,
           "matchedTerms": [
             "agent"
           ],
           "role": "Contributing",
-          "governedMechanism": "agent",
-          "reasonForRelevance": "Available reporting describes agent. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported agent concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
-          "governanceFocus": "How should agent be governed in the conditions described by the available incident evidence?",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes CLIA® — Cognitive Governance Intelligence Architecture relevant to examining CLIA® — Cognitive Governance Intelligence Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by CLIA® — Cognitive Governance Intelligence Architecture.",
+          "governanceFocus": "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
           "methodologyDepth": "Architecture",
           "supportingEvidence": [
             "aiid:1676"
@@ -240,28 +242,42 @@
       ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-038344",
+      "systemDomains": [
+        "AI agents"
+      ],
+      "observedOutcome": "A developer reported that a Claude Opus 5 coding agent reset a live Supabase database while autonomously repairing a personal project's schema. The agent ran `prisma migrate diff` with the production URL supplied as the disposable shadow database, causing Prisma to drop all 22 tables. The developer had granted the agent production access; most content was later recovered or rebuilt.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1676"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
         {
           "componentId": "model-inference-output",
           "label": "Model inference and output generation",
           "matchedTerms": [
-            "large language model",
             "llm"
           ],
-          "confidence": "Preliminary",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1676"
+          ]
         },
         {
           "componentId": "agent-planning-delegation",
           "label": "Agent planning and delegation",
           "matchedTerms": [
-            "agent",
-            "autonomous"
+            "ai agent"
           ],
-          "confidence": "Preliminary",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "confidence": "Indicated",
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1676"
+          ]
         },
         {
           "componentId": "tool-execution-external-actions",
@@ -270,16 +286,10 @@
             "production"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
-        },
-        {
-          "componentId": "deployment-infrastructure",
-          "label": "Deployment and infrastructure",
-          "matchedTerms": [
-            "server"
-          ],
-          "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1676"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -290,39 +300,39 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving agent, access, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
     "governanceRelationship": "MGIA™ — Memory Governance Intelligence Architecture frames the primary governed problem. CLIA® — Cognitive Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "How should agent, access, user be governed in the conditions described by the available incident evidence?",
-      "How should agent be governed in the conditions described by the available incident evidence?",
+      "Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Software Developers, Ai Agent System Deployers, Alone_Ad_3375 (Reddit User) at the relevant time?",
       "What evidence would establish how Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting on Anthropic Claude Opus 5 Coding Agent Reportedly Reset a Live Supabase Production Database During Prisma Migration Work indicates that Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: How should agent, access, user be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "incidentGovernanceInsight": "Available reporting on Anthropic Claude Opus 5 Coding Agent Reportedly Reset a Live Supabase Production Database During Prisma Migration Work indicates that Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Model inference and output generation, Agent planning and delegation, Tool execution and external actions in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to agent, access, user. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that agent, access, user is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply MGIA™ — Memory Governance Intelligence Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant agent, access, user scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing agent, access, user were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for agent, access, user, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
       "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
@@ -340,7 +350,7 @@
       "incidentEvidence": [
         "aiid:1676"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving agent, access, user. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "MGIA™ — Memory Governance Intelligence Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-MGIA",
       "contributingArchitectures": [
@@ -348,15 +358,15 @@
       ],
       "parentStandard": null,
       "coreModule": null,
-      "governedMechanism": "agent, access, user",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "How should agent, access, user be governed in the conditions described by the available incident evidence?",
-        "How should agent be governed in the conditions described by the available incident evidence?",
+        "Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Software Developers, Ai Agent System Deployers, Alone_Ad_3375 (Reddit User) at the relevant time?",
         "What evidence would establish how Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting on Anthropic Claude Opus 5 Coding Agent Reportedly Reset a Live Supabase Production Database During Prisma Migration Work indicates that Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: How should agent, access, user be governed in the conditions described by the available incident evidence? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "incidentGovernanceInsight": "Available reporting on Anthropic Claude Opus 5 Coding Agent Reportedly Reset a Live Supabase Production Database During Prisma Migration Work indicates that Claude Opus 5, Claude, Claude Code, Ai Agent Systems, Llm Integrated Code Assistants, Large Language Models, Supabase, Prisma, Production Database Servers raises a preliminary question for MGIA™ — Memory Governance Intelligence Architecture: Which questions from MGIA™ — Memory Governance Intelligence Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
@@ -375,8 +385,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, access, user.",
-        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported agent, access, user.",
+        "finding": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to MGIA™ — Memory Governance Intelligence Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1676"
         ],
@@ -392,8 +402,8 @@
       },
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
-        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported agent.",
+        "finding": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to CLIA® — Cognitive Governance Intelligence Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1676"
         ],
@@ -427,10 +437,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-24T10:42:34Z",
-    "supersedes": "OOF-AII-ASMT-038344-V10",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-038344-V12",
+    "reassessmentReason": "Material analysis engine change",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

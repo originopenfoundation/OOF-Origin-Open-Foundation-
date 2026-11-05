@@ -79,7 +79,7 @@
 
 <section class="oof-incident-operations" aria-labelledby="incident-operations-title">
 <h2 id="incident-operations-title" data-oof-section-id="true" role="heading" aria-level="2">Operational transparency</h2>
-<p>Acquisition state is displayed from the generated public dataset. A successful source check with zero new incidents is distinct from a failed check.</p>
+<p>Acquisition state comes from the generated public dataset; current workflow status is requested separately from GitHub. If GitHub cannot be reached, the current status is unavailable.</p>
 <dl id="incident-operational-status" class="oof-operational-status"></dl>
 </section>
 
@@ -108,11 +108,19 @@
 
 <form id="incident-filters" class="oof-incident-filters" aria-label="Filter incidents">
 <label>Search<input name="q" type="search" placeholder="Incident, country, system, architecture" /></label>
+<label>Event date from<input name="dateFrom" type="date" /></label>
+<label>Event date to<input name="dateTo" type="date" /></label>
+<label>Analysis view<select name="lens"><option value="">Geography and incidents</option><option value="systems">System components</option><option value="patterns">Shared system contexts</option><option value="timeline">Monthly event timeline</option><option value="yearly">Yearly event timeline</option><option value="architectures">Architectures</option><option value="prevention">Prevention</option></select></label>
+<label>System domain<select name="domain"><option value="">All</option><option>Autonomous and driver-assistance vehicles</option><option>AI agents</option><option>Generative AI</option><option>Robotics</option><option>Computer vision</option><option>Recommendation systems</option><option>Decision support</option><option>Industrial control</option></select></label>
+<label>System component<select name="component"><option value="">All</option><option>Data ingestion and provenance</option><option>Training and dataset integrity</option><option>Retrieval and context handling</option><option>Model inference and output generation</option><option>Agent planning and delegation</option><option>Tool execution and external actions</option><option>Identity and authorization</option><option>Memory and state management</option><option>Human oversight and intervention</option><option>Monitoring and auditability</option><option>Physical-world execution and robotics</option><option>Deployment and infrastructure</option></select></label>
+<label>Candidate mechanism<select name="mechanism"><option value="">All</option><option>Unauthorized action</option><option>Incorrect classification</option><option>Unsafe decision</option><option>Missing safety intervention</option><option>Invalid data dependency</option><option>Uncontrolled execution</option><option>Monitoring failure</option><option>Authority-boundary violation</option><option>Inadequate verification</option></select></label>
+<label>Prevention status<select name="prevention"><option value="">All</option><option value="conditional">Conditional idea available</option><option value="pending">Evidence review needed</option></select></label>
 <label>Severity<select name="severity"><option value="">All</option><option>Critical</option><option>High</option><option>Moderate</option><option>Low</option></select></label>
 <label>Event Type<select name="eventType"><option value="">All</option><option>Incident</option><option>Hazard</option><option>Near Miss</option><option>Emerging Risk</option></select></label>
 <label>Analysis Status<select name="analysisStatus"><option value="">All</option><option value="AUTOMATED_ANALYSIS_AVAILABLE">Automated analysis available</option><option value="GOVERNANCE_ANALYSIS_PENDING">Governance analysis pending</option></select></label>
 <label>Review Status<select name="reviewStatus"><option value="">All</option><option value="Not performed">Not performed</option><option value="Completed">Completed</option></select></label>
 <label>Evidence Status<select name="evidenceStatus"><option value="">All</option><option>Source-Reported</option><option>Independently Corroborated</option><option>Officially Documented</option><option>Evidence Insufficient</option><option>Contradicted / Disputed</option></select></label>
+<label>Source<select name="source"><option value="">All</option></select></label>
 <input name="country" type="hidden" />
 <input name="architecture" type="hidden" />
 <button type="submit">Apply</button>

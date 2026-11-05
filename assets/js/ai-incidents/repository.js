@@ -26,7 +26,11 @@ export class IncidentRepository {
   }
 
   search(signal) {
-    return this.request("incident-search.json", signal);
+    if (this.searchData) return Promise.resolve(this.searchData);
+    return this.request("incident-search.json", signal).then((data) => {
+      this.searchData = data;
+      return data;
+    });
   }
 
   detail(slug) {

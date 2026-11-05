@@ -53,12 +53,12 @@
   "createdAt": "2026-07-31T02:49:03.068000Z",
   "updatedAt": "2026-07-31T02:49:03.068000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-926070-V10",
+    "assessmentIdentity": "OOF-AII-ASMT-926070-V13",
     "incidentId": "OOF-AII-926070",
-    "analysisVersion": 10,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 13,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
+    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Limited",
@@ -153,10 +153,12 @@
     },
     "oofIncidentReport": {
       "headline": "Apartment Owner and Manager UDR Allegedly Used RealPage Algorithms to Set San Diego Rents in Keller v. UDR, Inc.",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that In Keller v. UDR, Inc., plaintiff Jacob Keller alleged that UDR used RealPage pricing tools to set rents or occupancy levels at its San Diego properties after a city prohibition took effect on June 21, 2025. The complaint claims the tools relied on nonpublic competitor data and contributed to inflated rents for UDR tenants. UDR, a large publicly traded apartment owner and operator, had previously acknowledged using YieldStar in decisions concerning certain multifamily units. (2026-06-21).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2026-06-21). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/1618",
       "eventDate": "2026-06-21",
+      "sourceRecordTimestamp": "2026-07-31",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -193,16 +195,16 @@
         "architectureId": "vfm",
         "label": "VFM® — Value Flow Mechanisms Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
-        "score": 35.47,
+        "score": 34.18,
         "matchedTerms": [
           "flow",
           "value"
         ],
         "role": "Primary",
-        "governedMechanism": "flow, value",
-        "reasonForRelevance": "Available reporting describes flow, value. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Change Standard (VCS) in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported flow, value concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
-        "governanceFocus": "When has existing value materially changed, and what change has occurred to it?",
+        "governedMechanism": "the reported system and activity",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value Change Standard (VCS) in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+        "governanceFocus": "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "ParentStandard",
         "supportingEvidence": [
           "aiid:1618"
@@ -224,28 +226,50 @@
             "coreQuestion": "When has existing value materially changed, and what change has occurred to it?",
             "parentObjectId": null,
             "canonicalProvenance": {
-              "knowledgeBuildId": "OOF-KI-1.1-caa45f9f1793",
+              "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
               "contentHash": "7ce46016eff5ed0cf9f6cfb7d79732362c5f06336cbc7f983db31c9feadd8b72",
               "authorityState": "CANONICAL_AUTHORITATIVE"
             }
           }
         ]
       },
-      "contributingArchitectures": []
+      "contributingArchitectures": [
+        {
+          "objectId": "OOF-KO-ARCH-SLGA",
+          "architectureId": "slga",
+          "label": "SLGA™ — Software Lifecycle Governance Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/About%20SLGA%E2%84%A2%20-%20Software%20Lifecycle%20Governance%20Architecture.html",
+          "score": 30.58,
+          "matchedTerms": [
+            "software"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes SLGA™ — Software Lifecycle Governance Architecture relevant to examining SLGA™ — Software Lifecycle Governance Architecture in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by SLGA™ — Software Lifecycle Governance Architecture.",
+          "governanceFocus": "Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "Architecture",
+          "supportingEvidence": [
+            "aiid:1618"
+          ],
+          "confidence": 0.64,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": []
+        }
+      ]
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-926070",
+      "systemDomains": [],
+      "observedOutcome": "In Keller v. UDR, Inc., plaintiff Jacob Keller alleged that UDR used RealPage pricing tools to set rents or occupancy levels at its San Diego properties after a city prohibition took effect on June 21, 2025. The complaint claims the tools relied on nonpublic competitor data and contributed to inflated rents for UDR tenants. UDR, a large publicly traded apartment owner and operator, had previously acknowledged using YieldStar in decisions concerning certain multifamily units.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:1618"
+      ],
       "status": "COMPONENTS_INDICATED",
       "components": [
-        {
-          "componentId": "tool-execution-external-actions",
-          "label": "Tool execution and external actions",
-          "matchedTerms": [
-            "tool"
-          ],
-          "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
-        },
         {
           "componentId": "human-oversight",
           "label": "Human oversight and intervention",
@@ -253,7 +277,10 @@
             "operator"
           ],
           "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
+          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause.",
+          "evidenceReferences": [
+            "aiid:1618"
+          ]
         }
       ],
       "technicalMechanismStatus": "NOT_CONFIRMED",
@@ -264,46 +291,40 @@
       "mappings": [],
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
-    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving flow, value. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "The available evidence currently supports one primary governed domain: VFM® — Value Flow Mechanisms Architecture.",
+    "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+    "governanceRelationship": "VFM® — Value Flow Mechanisms Architecture frames the primary governed problem. SLGA™ — Software Lifecycle Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "When has existing value materially changed, and what change has occurred to it?",
+      "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
+      "Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Udr, Residential Property Management Companies, Landlords at the relevant time?",
       "What evidence would establish how Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems produced or enabled the reported outcome?",
       "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "Available reporting on Apartment Owner and Manager UDR Allegedly Used RealPage Algorithms to Set San Diego Rents in Keller v. UDR, Inc. indicates that Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: When has existing value materially changed, and what change has occurred to it? The current evidence does not yet establish whether the relevant control existed or was effective.",
+    "incidentGovernanceInsight": "Available reporting on Apartment Owner and Manager UDR Allegedly Used RealPage Algorithms to Set San Diego Rents in Keller v. UDR, Inc. indicates that Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
-        "applicability": "This pattern may be relevant where systems use Tool execution and external actions, Human oversight and intervention in conditions comparable to the source-reported context. Applicability requires local system and operational evidence.",
-        "knownVsInferred": "Known: the source record contains descriptors related to flow, value. Inferred: the listed components are relevance signals only; no root cause or vulnerability is confirmed."
+        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
+        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
       },
       "whatShouldBeImplemented": {
-        "controlObjective": "Ensure that flow, value is governed by an evidence-producing control with a named authority and intervention condition.",
-        "governanceBoundary": "Apply VFM® — Value Flow Mechanisms Architecture only to the activity, system scope, and authority actually supported by local evidence.",
-        "protectiveMechanism": "Define detection inputs, decision authority, intervention action, and retained evidence before the control is relied upon.",
-        "expectedBehavior": "The control records its decision, can be reviewed, and escalates uncertainty instead of treating an unverified signal as a confirmed cause."
+        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
+        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
+        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
+        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Test whether the control detects or constrains the relevant flow, value scenario without exceeding its authorized scope.",
-        "prerequisite": "A representative non-production test scenario, authorized test owner, defined control boundary, and evidence log are available.",
-        "testAction": "Run the defined scenario, trigger the control, record the intervention decision, and compare the observed outcome with the expected safe behavior.",
-        "expectedSafeBehavior": "The system remains within its defined boundary, preserves evidence, and routes unresolved conditions to the authorized review path.",
-        "evidenceToRetain": "Test scope, configuration, input and output records, decision and intervention logs, reviewer identity, and residual-risk decision.",
-        "failureCondition": "The control cannot detect, constrain, record, or escalate the defined scenario within its approved boundary."
+        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
+        "prerequisite": "An attributable system inventory and evidence log are available.",
+        "testAction": "Compare the report with retained system, authority, and outcome records.",
+        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
+        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
+        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
       },
-      "governanceGapToExamine": "Examine whether controls governing flow, value were defined, active, and accountable at the time of the reported event.",
-      "recommendedPreventiveControl": "Require an evidence-producing control for flow, value, with a named authority, intervention condition, and review owner.",
-      "howToVerify": "Test the control against a representative failure scenario and retain the decision, intervention, and outcome evidence for independent review.",
-      "relevantMethodology": [
-        {
-          "name": "Value Change Standard (VCS)",
-          "artifactType": "ParentStandard",
-          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vcs.html",
-          "objectId": "OOF-KO-STD-VFM-06"
-        }
-      ],
+      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
+      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
+      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
+      "relevantMethodology": [],
       "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
     },
     "practicalChecklist": [],
@@ -319,20 +340,23 @@
       "incidentEvidence": [
         "aiid:1618"
       ],
-      "governedProblem": "The incident appears to expose a governance problem involving flow, value. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
+      "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
       "governedSpace": "VFM® — Value Flow Mechanisms Architecture",
       "primaryArchitecture": "OOF-KO-ARCH-VFM",
-      "contributingArchitectures": [],
+      "contributingArchitectures": [
+        "OOF-KO-ARCH-SLGA"
+      ],
       "parentStandard": "OOF-KO-STD-VFM-06",
       "coreModule": null,
-      "governedMechanism": "flow, value",
+      "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "When has existing value materially changed, and what change has occurred to it?",
+        "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
+        "Which questions from SLGA™ — Software Lifecycle Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Udr, Residential Property Management Companies, Landlords at the relevant time?",
         "What evidence would establish how Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems produced or enabled the reported outcome?",
         "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "Available reporting on Apartment Owner and Manager UDR Allegedly Used RealPage Algorithms to Set San Diego Rents in Keller v. UDR, Inc. indicates that Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: When has existing value materially changed, and what change has occurred to it? The current evidence does not yet establish whether the relevant control existed or was effective.",
+      "incidentGovernanceInsight": "Available reporting on Apartment Owner and Manager UDR Allegedly Used RealPage Algorithms to Set San Diego Rents in Keller v. UDR, Inc. indicates that Yieldstar, Realpage Revenue Management Software, Algorithmic Rental Pricing Systems, Ai Powered Revenue Management Systems raises a preliminary question for VFM® — Value Flow Mechanisms Architecture: Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity? The current evidence does not yet establish whether the relevant control existed or was effective.",
       "deepestJustifiedLevel": "ParentStandard"
     },
     "layerAnalysis": {
@@ -350,8 +374,8 @@
     "governanceFindings": [
       {
         "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported flow, value.",
-        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported flow, value.",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
         "evidenceBasis": [
           "aiid:1618"
         ],
@@ -360,6 +384,21 @@
           "value"
         ],
         "architectureReference": "OOF-KO-ARCH-VFM",
+        "confidenceState": "Limited",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to SLGA™ — Software Lifecycle Governance Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to SLGA™ — Software Lifecycle Governance Architecture for the reported the reported system and activity.",
+        "evidenceBasis": [
+          "aiid:1618"
+        ],
+        "basis": [
+          "software"
+        ],
+        "architectureReference": "OOF-KO-ARCH-SLGA",
         "confidenceState": "Limited",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
@@ -386,10 +425,10 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:12:05Z",
-    "supersedes": "OOF-AII-ASMT-926070-V9",
-    "reassessmentReason": "Material analysis engine change",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "createdAt": "2026-11-04T09:25:07Z",
+    "supersedes": "OOF-AII-ASMT-926070-V12",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",

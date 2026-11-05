@@ -10,6 +10,9 @@ const conversation=require('./conversation');
 const discoveryEngine=require('../lib/oof-discovery');
 const {interpret}=require('../lib/oof-discovery/interpretation');
 const crossEngine=require('../lib/oof-cross-architecture-reasoning');
+const groundedExplanation=require('../lib/oof-grounded-explanation');
+const localization=require('../lib/oof-localization');
+const evidenceEngine=require('../lib/oof-evidence-verification');
 const {createCapabilities}=require('../lib/oof-capabilities/adapters');
 const {redact}=require('./security/presentation');
 const {generationPolicy,protectedIntent,smallTalk}=require('./llm/policy');
@@ -84,14 +87,17 @@ async function chat(req,res){
   if(!conversation.followup(question)&&passages.length)session.topic=privateQuery(retrievalQuestion);
   const interpretation=interpret(privateQuery(question),{previous:session.discovery?.interpretation,language});
   const crossRequested=!protectedIntent(question)&&!smallTalk(question)&&(input.mode==='cross_architecture'||((input.mode||'auto')==='auto'&&interpretation.problem_signal&&(new Set(interpretation.candidates.map(c=>c.acronym)).size>1||Boolean(session.crossArchitecture)&&interpretation.followup)));
-  const capabilities=createCapabilities(index,{disabled}),authority={session_id:sid,permissions:['knowledge:read']};
+  const evidenceRequested=!protectedIntent(question)&&!smallTalk(question)&&(input.mode==='evidence'||((input.mode||'auto')==='auto'&&evidenceEngine.followup(question)&&Boolean(session.evidenceState||session.crossArchitecture)));
+  if(interpretation.changed_problem){delete session.evidenceState;delete session.crossContext;}
+  session.evidenceVerifier||=evidenceEngine.createVerifier(index,{session_id:sid});
+  const capabilities=createCapabilities(index,{disabled,evidenceVerifier:session.evidenceVerifier}),authority={session_id:sid,permissions:['knowledge:read']};
   const discoveryRequested=!protectedIntent(question)&&!smallTalk(question)&&(crossRequested||discoveryEngine.wantsDiscovery(question,input.mode||'auto',session.discovery));
   const discoveryReceipt=discoveryRequested?await capabilities.execute('problem.discovery',{text:privateQuery(question),previous:session.discovery,language},authority):null;
   const discoveryRun=discoveryReceipt?.output||null;
   const crossReceipt=crossRequested?await capabilities.handoff(discoveryReceipt,'cross.architecture',{interpretation,object_ids:Array.isArray(input.object_ids)?input.object_ids:[]},authority):null;
   const crossArchitecture=crossReceipt?.output||null;
-  if(crossArchitecture)session.crossArchitecture=true;else if(interpretation.changed_problem||input.mode&&input.mode!=='auto')delete session.crossArchitecture;
-  const navigationRequested=input.mode==='navigator'||discoveryRequested;
+  if(crossArchitecture){session.crossArchitecture=true;session.crossContext=crossArchitecture;}else if(interpretation.changed_problem||input.mode&&input.mode!=='auto')delete session.crossArchitecture;
+  const navigationRequested=input.mode==='navigator'||discoveryRequested||evidenceRequested;
   const navigationStart=performance.now();
   const navigation=navigationRequested?(await capabilities.execute('knowledge.navigation',{text:discoveryRun?.navigation_query??retrievalQuestion},authority)).output:null;
   const discovery=discoveryRun?JSON.parse(JSON.stringify(discoveryRun.result)):null;
@@ -109,7 +115,7 @@ async function chat(req,res){
   let inference=generationPolicy({configured:Boolean(gateway.primary),publicReportOnly:publicRequest,identity,canonicalLinkRequest,question,passages,approvedPublicScopes:approvedScopes(index)});
   if(inference.allowed){const egress=publicEgressPolicy({publicRequest,provider:runtimeConfig.provider,consent:input.groq_consent});if(!egress.allowed)inference={...inference,allowed:false,reason:egress.reason};}
   let generation={kind:providerState==='retrieval'?'retrieval':'preview',reason:inference.reason||null,provider:null,model:null,fallback_used:false};
-  if(inference.allowed&&!navigationRequested&&!lifecyclePending){
+  if(inference.allowed&&!navigationRequested&&!lifecyclePending&&!evidenceRequested){
    const controller=new AbortController();const disconnect=()=>{if(!res.writableEnded)controller.abort();};res.once('close',disconnect);session.busy=true;
    try{
     const generated=await gateway.generateDetailed({data_classification:publicRequest?'public':undefined,question:privateQuery(question),language:copy.name,communication_scope:inference.communication_scope,mode,length,passages:passages.map(p=>({...p,relationships:(found.find(x=>x.resource.resource_id===p.resource_id)?.resource.related_resources||[])})),assessment,personality,history:session.messages.slice(-6).map(m=>({role:m.role,text:privateQuery(m.text)})),signal:controller.signal});
@@ -130,13 +136,49 @@ async function chat(req,res){
   if(lifecyclePending&&!navigation){answer=`${lifecyclePending.canonicalName}\n${language==='sk'?'Stav':'Lifecycle status'}: ${lifecyclePending.status}. ${language==='sk'?'Kanonické schválenie nie je overené. Zverejnenie neznamená schválenie ani dokončenie. Chýbajúce štandardy a moduly nemožno domýšľať.':'Canonical approval is not verified. Publication does not establish approval or completion. Missing standards and modules cannot be inferred.'}\n${lifecyclePending.canonicalUrl}`;providerState='retrieval';generation={kind:'retrieval',reason:'pending_lifecycle',provider:null,model:null,fallback_used:false};}
   if(navigation){answer=explainNavigation(navigation,language);providerState='retrieval';generation={kind:'retrieval',reason:'deterministic_navigation',provider:null,model:null,fallback_used:false};sources.splice(0,sources.length,...navigation.results.map(r=>({resource_id:r.resource_id,title:r.title,url:r.url,resource_type:r.artifact_type,object_id:r.object_id,authority_state:r.authority_state,lifecycle_status:r.lifecycle_status,provenance:r.provenance})));}
   if(discovery){answer=discoveryEngine.explain(discovery,language)+'\n\n'+explainNavigation(navigation,language);generation={kind:'retrieval',reason:'deterministic_problem_discovery',provider:null,model:null,fallback_used:false};}
-  if(crossArchitecture){answer=crossEngine.explain(crossArchitecture,language);generation={kind:'retrieval',reason:'deterministic_cross_architecture',provider:null,model:null,fallback_used:false};sources.splice(0,sources.length,...crossArchitecture.knowledge_references.map(r=>({...r,resource_type:r.artifact_type})));}
+  let explanation=null;
+  if(crossArchitecture){
+   answer=localization.crossText(crossArchitecture,language);generation={kind:'retrieval',reason:'deterministic_cross_architecture',provider:null,model:null,fallback_used:false};sources.splice(0,sources.length,...crossArchitecture.knowledge_references.map(r=>({...r,resource_type:r.artifact_type})));
+   if(input.explain_with_model===true&&!evidenceRequested){
+    const gate=generationPolicy({configured:Boolean(gateway.primary),publicReportOnly:publicRequest,question,passages:crossArchitecture.knowledge_references,approvedPublicScopes:approvedScopes(index)});
+    const permitted=gate.allowed&&input.groq_consent===true&&runtimeConfig.provider==='groq';
+    const controller=new AbortController(),disconnect=()=>{if(!res.writableEnded)controller.abort();};res.once('close',disconnect);session.busy=true;
+    try{explanation=await groundedExplanation.explain({index,result:crossArchitecture,language,question:privateQuery(question),gateway,permitted,signal:controller.signal});answer=explanation.answer;
+     if(explanation.kind==='model_validated_plan'){providerState=explanation.generation.provider;generation={...explanation.generation,kind:'model',reason:null,answer:undefined,model_calls:explanation.model_calls};}
+     else{generation.reason=explanation.reason;generation.model_calls=explanation.model_calls;answer+='\n\n'+localization.copy(language).modelFallback;}
+    }finally{session.busy=false;res.removeListener('close',disconnect);}
+    if(res.destroyed)return;
+   }
+  }
   if(generation.reason==='provider_consent_required')answer+=(language==='sk'?'\n\nAI odpoveď sa zapne až po súhlase s odoslaním správy a nedávneho kontextu do Groq. Vyhľadávanie zdrojov môžeš používať aj bez súhlasu.':'\n\nAI answers require consent to send this message and recent context to Groq. Source lookup remains available without consent.');
   answer=redact(answer);
+  let evidenceVerification=null;
+  if(evidenceRequested){
+   const evidenceInput={text:privateQuery(question),previous:session.evidenceState,cross:session.crossContext,claims:input.claims,evidence:input.evidence,navigation_reference_ids:navigation?.results.map(r=>r.resource_id)||[]};
+   try{
+    const receipt=crossReceipt?await capabilities.handoff(crossReceipt,'evidence.verification',evidenceInput,authority):await capabilities.execute('evidence.verification',evidenceInput,authority);
+    evidenceVerification=receipt.output;session.evidenceState=evidenceVerification;
+   }catch{return send(res,400,{error:localization.copy(language).invalidInput});}
+   answer=evidenceEngine.explain(evidenceVerification,language);providerState='retrieval';
+   generation={kind:'retrieval',reason:'deterministic_evidence_verification',provider:null,model:null,fallback_used:false,model_calls:0};
+   sources.splice(0,sources.length,...evidenceVerification.knowledge_references.map(r=>({...r})));
+   if(input.explain_with_model===true){
+    const gate=generationPolicy({configured:Boolean(gateway.primary),publicReportOnly:publicRequest,question,passages:evidenceVerification.knowledge_references,approvedPublicScopes:approvedScopes(index)});
+    const controller=new AbortController(),disconnect=()=>{if(!res.writableEnded)controller.abort();};res.once('close',disconnect);session.busy=true;
+    try{
+     explanation=await require('../lib/oof-evidence-verification/presentation').present({result:evidenceVerification,verifier:session.evidenceVerifier,language,question:privateQuery(question),gateway,permitted:gate.allowed&&input.groq_consent===true&&runtimeConfig.provider==='groq',signal:controller.signal});
+     answer=explanation.answer;
+     if(explanation.kind==='model_validated_plan'){providerState=explanation.generation.provider;generation={...explanation.generation,kind:'model',reason:null,model_calls:explanation.model_calls};}
+     else{generation.reason=explanation.reason;generation.model_calls=explanation.model_calls;answer+='\n\n'+localization.copy(language).modelFallback;}
+    }finally{session.busy=false;res.removeListener('close',disconnect);}
+    if(res.destroyed)return;
+   }
+
+  }
   session.messages.push({role:'user',text:privateQuery(question),language,mode});session.messages.push({role:'assistant',text:answer,language,mode});session.messages=session.messages.slice(-12);
   analytics.query(language,mode,Boolean(passages.length),sources.map(s=>s.title),input.channel==='voice'?'voice':'text',Date.now()-started);
   for(const source of sources)source.communication_state=communicationState(source);
-  const result={answer,discovery,navigation,cross_architecture:crossArchitecture,capability_audit:capabilities.audit(),model_availability:gateway.availability(),public_report_only:publicReportOnly,report_only:index.report_only,identity_resolution:identity?.status||null,communication_style:personality.mode,personality_enabled:personality.enabled,personality_version:personality.version,language,language_name:copy.name,mode:crossArchitecture?'cross_architecture':discovery?'problem_discovery':mode,mode_label:crossArchitecture?'Cross-Architecture Reasoning':discovery?'Problem Discovery':modeLabel,sources,trace:input.showTrace&&assessment?assessment.trace:null,provider:providerState,generation,indexed_resources:index?.resource_count||0};
+  const result={answer,evidence_verification:evidenceVerification,discovery,navigation,cross_architecture:crossArchitecture,explanation,capability_audit:capabilities.audit(),model_availability:gateway.availability(),public_report_only:publicReportOnly,report_only:index.report_only,identity_resolution:identity?.status||null,communication_style:personality.mode,personality_enabled:personality.enabled,personality_version:personality.version,language,language_name:copy.name,mode:evidenceVerification?'evidence_verification':crossArchitecture?'cross_architecture':discovery?'problem_discovery':mode,mode_label:evidenceVerification?localization.copy(language).evidence:crossArchitecture?localization.copy(language).cross:discovery?'Problem Discovery':modeLabel,sources,trace:input.showTrace&&assessment?assessment.trace:null,provider:providerState,generation,indexed_resources:index?.resource_count||0};
   res.writeHead(200,{'Content-Type':'text/event-stream; charset=utf-8','Cache-Control':'no-store','Connection':'keep-alive','X-Content-Type-Options':'nosniff'});
   const delta=18;for(let i=0;i<answer.length;i+=delta){if(res.destroyed)return;res.write(`data: ${JSON.stringify({delta:answer.slice(i,i+delta)})}\n\n`);}
   res.end(`data: ${JSON.stringify({done:result})}\n\n`);
@@ -162,6 +204,6 @@ async function serveStatic(req,res,url){if(req.method!=='GET'&&req.method!=='HEA
   if(file.includes(`${path.sep}lara${path.sep}content${path.sep}`)||path.basename(file)==='.env'||file.endsWith('index-state.json')||file.endsWith('system-events.jsonl')||file.endsWith('disabled-resources.json'))return send(res,404,{error:'Not found'});
   let stat;try{stat=fs.statSync(file);if(!stat.isFile())throw 0;}catch{return send(res,404,{error:'Not found'});}const cacheControl=pathname==='/header.js'||path.extname(file).toLowerCase()==='.html'?'no-cache':'public, max-age=300';res.writeHead(200,{'Content-Type':mime[path.extname(pathname).toLowerCase()]||'application/octet-stream','Content-Length':stat.size,'Cache-Control':cacheControl,'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'});if(req.method==='HEAD')return res.end();fs.createReadStream(file).pipe(res);
 }
-const server=http.createServer({maxHeaderSize:8192},async(req,res)=>{applySecurityHeaders(res,{production:process.env.NODE_ENV==='production'});const url=new URL(req.url,`http://${req.headers.host||'localhost'}`);try{if(origins.apply(req,res,url.pathname))return;if(url.pathname==='/_lara/ready'&&req.method==='GET')return send(res,index?200:503,{ready:Boolean(index)});if(url.pathname==='/_lara/status'&&req.method==='GET')return send(res,200,{available:Boolean(index),report_only:index?.report_only??true,indexed_resources:index?.resource_count||0,llm_configured:Boolean(gateway.primary),configuration_error:configurationError,version:'universal-llm-v2.3',model_availability:gateway.availability(),generation_enabled:Boolean(gateway.primary)&&runtimeConfig.provider==='groq'&&Boolean(index&&approvedScopes(index).length),inference_gate:index&&approvedScopes(index).length?(gateway.primary?(runtimeConfig.provider==='groq'?'public_scoped_consent_required':'public_provider_not_approved'):'not_configured'):(index?.report_only?'report_only':'public_approval_required'),public_communication_scopes:index?approvedScopes(index):[],visitor_consent_required:true,inventory:index?{digest:index.inventory_digest,registry_fingerprint:index.registry_fingerprint,diagnostics:index.diagnostics}:null,revision:process.env.RENDER_GIT_COMMIT||null});if(url.pathname==='/_lara/chat'&&req.method==='POST')return await chat(req,res);if(url.pathname==='/_lara/enquiry'&&req.method==='POST')return await submitEnquiry(req,res);if(url.pathname==='/_lara/identity/create'&&req.method==='POST')return await identityAction(req,res,'create');if(url.pathname==='/_lara/identity/restore'&&req.method==='POST')return await identityAction(req,res,'restore');if(url.pathname.startsWith('/_lara/admin/'))return adminHandler(req,res,url);if(url.pathname==='/_lara/session'&&req.method==='DELETE'){if(!validOrigin(req))return send(res,403,{error:'Allowed frontend origin required'});if(!allow(req,res,'session'))return;const id=sessionId(req);sessions.clear(id);clearCookie(res);return send(res,200,{ok:true});}return await serveStatic(req,res,url);}catch(error){console.error('[LaRA] request failed:',error.name,String(error.message).slice(0,160));if(!res.headersSent)send(res,500,{error:'LaRA is temporarily unavailable'});else res.end();}});
+const server=http.createServer({maxHeaderSize:8192},async(req,res)=>{applySecurityHeaders(res,{production:process.env.NODE_ENV==='production'});const url=new URL(req.url,`http://${req.headers.host||'localhost'}`);try{if(origins.apply(req,res,url.pathname))return;if(url.pathname==='/_lara/ready'&&req.method==='GET')return send(res,index?200:503,{ready:Boolean(index)});if(url.pathname==='/_lara/status'&&req.method==='GET')return send(res,200,{available:Boolean(index),report_only:index?.report_only??true,indexed_resources:index?.resource_count||0,llm_configured:Boolean(gateway.primary),configuration_error:configurationError,version:'universal-llm-v2.4',model_availability:gateway.availability(),generation_enabled:Boolean(gateway.primary)&&runtimeConfig.provider==='groq'&&Boolean(index&&approvedScopes(index).length),inference_gate:index&&approvedScopes(index).length?(gateway.primary?(runtimeConfig.provider==='groq'?'public_scoped_consent_required':'public_provider_not_approved'):'not_configured'):(index?.report_only?'report_only':'public_approval_required'),public_communication_scopes:index?approvedScopes(index):[],visitor_consent_required:true,inventory:index?{digest:index.inventory_digest,registry_fingerprint:index.registry_fingerprint,diagnostics:index.diagnostics}:null,revision:process.env.RENDER_GIT_COMMIT||null});if(url.pathname==='/_lara/chat'&&req.method==='POST')return await chat(req,res);if(url.pathname==='/_lara/enquiry'&&req.method==='POST')return await submitEnquiry(req,res);if(url.pathname==='/_lara/identity/create'&&req.method==='POST')return await identityAction(req,res,'create');if(url.pathname==='/_lara/identity/restore'&&req.method==='POST')return await identityAction(req,res,'restore');if(url.pathname.startsWith('/_lara/admin/'))return adminHandler(req,res,url);if(url.pathname==='/_lara/session'&&req.method==='DELETE'){if(!validOrigin(req))return send(res,403,{error:'Allowed frontend origin required'});if(!allow(req,res,'session'))return;const id=sessionId(req);sessions.clear(id);clearCookie(res);return send(res,200,{ok:true});}return await serveStatic(req,res,url);}catch(error){console.error('[LaRA] request failed:',error.name,String(error.message).slice(0,160));if(!res.headersSent)send(res,500,{error:'LaRA is temporarily unavailable'});else res.end();}});
 server.requestTimeout=Math.max(1_000,Number(process.env.LARA_REQUEST_TIMEOUT_MS)||15_000);server.headersTimeout=Math.min(server.requestTimeout,10_000);server.keepAliveTimeout=5_000;server.maxRequestsPerSocket=100;
 setInterval(()=>{sessions.prune();Object.values(requestLimits).forEach(limiter=>limiter.prune());},60_000).unref();server.listen(PORT,HOST,()=>console.log(`LaRA OOF website/backend listening on http://${HOST}:${PORT}; index=${index?.resource_count||0}; provider=${gateway.primary?runtimeConfig.provider:'none'}`));

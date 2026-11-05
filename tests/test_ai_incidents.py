@@ -1,8 +1,11 @@
 import importlib.util
 import io
 import json
+import sys
 import tempfile
 import unittest
+from unittest import mock
+from urllib.error import HTTPError, URLError
 from datetime import datetime
 from pathlib import Path
 
@@ -16,6 +19,9 @@ SPEC.loader.exec_module(incidents)
 ENGINE_SPEC = importlib.util.spec_from_file_location("incident_intelligence_v2", ROOT / "tools" / "incident_intelligence_v2.py")
 engine = importlib.util.module_from_spec(ENGINE_SPEC)
 ENGINE_SPEC.loader.exec_module(engine)
+MANIFEST_SPEC = importlib.util.spec_from_file_location('incident_manifest', ROOT / 'tools' / 'build_incident_release_manifest.py')
+manifest_tool = importlib.util.module_from_spec(MANIFEST_SPEC)
+MANIFEST_SPEC.loader.exec_module(manifest_tool)
 
 
 def record(source_id="source-1", title="Test incident"):
@@ -35,6 +41,142 @@ def record(source_id="source-1", title="Test incident"):
 
 
 class IncidentDomainTests(unittest.TestCase):
+    def test_release_manifest_rejects_modified_artifact(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            public = root / 'data/ai-incidents/public'
+            public.mkdir(parents=True)
+            (public / 'summary.json').write_text(json.dumps({'totalIncidents': 0, 'automatedAnalyses': 0}), encoding='utf-8')
+            for name in ['incident-index.json', 'incident-search.json']:
+                (public / name).write_text(json.dumps({'items': []}), encoding='utf-8')
+            for name in ['sitemap.xml', 'search-index.json', 'data/oof-site-knowledge-graph.json', 'assets/js/ai-incidents/app.js', 'assets/js/ai-incidents/repository.js', 'assets/css/oof-ai-incidents.css', 'ai-incidents/index.html']:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('test', encoding='utf-8')
+            with mock.patch.object(manifest_tool, 'ROOT', root), mock.patch.object(manifest_tool, 'PUBLIC', public), mock.patch.object(manifest_tool, 'OUTPUT', public / 'release-manifest.json'), mock.patch.object(sys, 'argv', ['manifest']), mock.patch('builtins.print'):
+                manifest_tool.main()
+                (root / 'sitemap.xml').write_text('altered', encoding='utf-8')
+                with mock.patch.object(sys, 'argv', ['manifest', '--verify']), self.assertRaises(SystemExit):
+                    manifest_tool.main()
+
+    def test_source_retry_recovers_from_transient_network_error(self):
+        response = mock.MagicMock()
+        response.__enter__.return_value.read.return_value = b'content'
+        with mock.patch.object(incidents.urllib.request, 'urlopen', side_effect=[URLError('temporary'), response]) as request, mock.patch.object(incidents.time, 'sleep') as sleep:
+            self.assertEqual(incidents.AIIDWeeklyExcelAdapter._request('https://example.test/data'), b'content')
+        self.assertEqual(request.call_count, 2)
+        sleep.assert_called_once_with(1)
+
+    def test_source_does_not_retry_permanent_http_error(self):
+        error = HTTPError('https://example.test/data', 404, 'missing', None, None)
+        with mock.patch.object(incidents.urllib.request, 'urlopen', side_effect=error) as request, mock.patch.object(incidents.time, 'sleep') as sleep:
+            with self.assertRaises(HTTPError):
+                incidents.AIIDWeeklyExcelAdapter._request('https://example.test/data')
+        self.assertEqual(request.call_count, 1)
+        sleep.assert_not_called()
+
+    def test_sync_entrypoint_fails_when_any_source_fails(self):
+        with mock.patch.object(sys, 'argv', ['ai_incidents.py', 'sync']), mock.patch.object(incidents, 'sync', return_value={'sourceErrors': [{'source': 'AIID'}]}), mock.patch('builtins.print'):
+            self.assertEqual(incidents.main(), 1)
+
+    def test_production_sync_generates_incident_pages_before_discovery(self):
+        workflow = (ROOT / '.github/workflows/ai-incident-daily-sync.yml').read_text(encoding='utf-8')
+        self.assertIn('schedule:', workflow)
+        self.assertIn('cron:', workflow)
+        self.assertLess(workflow.index('python tools/build_ai_incident_pages.py'), workflow.index('python tools/build_ai_compatibility.py'))
+        self.assertIn('python tools/validate_ai_compatibility.py', workflow)
+
+    def test_real_vehicle_case_does_not_infer_memory_from_united_states(self):
+        store = json.loads((ROOT / 'data/ai-incidents/incident-store.json').read_text(encoding='utf-8'))
+        item = next(item for item in store['incidents'] if item['id'] == 'OOF-AII-134071')
+        classification = engine.system_failure_classification(item)
+        labels = {component['componentId'] for component in classification['components']}
+        self.assertIn('physical-execution-robotics', labels)
+        self.assertNotIn('memory-state', labels)
+        self.assertNotIn('agent-planning-delegation', labels)
+        self.assertIn('Autonomous and driver-assistance vehicles', classification['systemDomains'])
+        self.assertEqual(classification['candidateFailureMechanisms'], [])
+
+    def test_real_cyber_case_does_not_publish_unrelated_prediction_question(self):
+        store = json.loads((ROOT / 'data/ai-incidents/incident-store.json').read_text(encoding='utf-8'))
+        item = next(item for item in store['incidents'] if item['id'] == 'OOF-AII-403576')
+        result = engine.build_assessment(item, engine.KnowledgeLayer(), 1, None, 'test', '2026-11-03T00:00:00Z')
+        self.assertNotIn('collective prediction', (result.get('incidentGovernanceInsight') or '').lower())
+
+    def test_missing_event_date_is_not_filled_from_record_timestamp(self):
+        item = record(title='Event with unknown date')
+        item['occurredAt'] = None
+        item['reportedAt'] = '2026-10-15T00:00:00Z'
+        report = engine.original_oof_report(item, engine.evidence_snapshot(item))
+        self.assertIsNone(report['eventDate'])
+        self.assertEqual(report['sourceRecordTimestamp'], '2026-10-15')
+        self.assertIn('not established', report['sourceRecordTimestampNote'])
+
+    def test_candidate_mechanism_requires_explicit_source_phrase(self):
+        item = record(title='AI agent tested in the United States')
+        item['summary'] = 'An AI agent was evaluated; the technical cause was not reported.'
+        self.assertEqual(engine.system_failure_classification(item)['candidateFailureMechanisms'], [])
+        item['summary'] = 'A source alleged unauthorized access by an AI agent.'
+        candidate = engine.system_failure_classification(item)['candidateFailureMechanisms'][0]
+        self.assertEqual(candidate['label'], 'Unauthorized action')
+        self.assertEqual(candidate['status'], 'CANDIDATE')
+        self.assertIn('not confirmed', candidate['rationale'])
+        self.assertTrue(candidate['evidenceReferences'])
+        item['summary'] = 'The investigation found no evidence of unauthorized access by the AI agent.'
+        self.assertEqual(engine.system_failure_classification(item)['candidateFailureMechanisms'], [])
+
+    def test_patterns_require_shared_domain_component_and_mechanism(self):
+        def projection(identity, domain, component, mechanism, status='Source-Reported'):
+            return {'id': identity, 'assessment': {'evidenceStatus': status}, 'systemFailure': {
+                'domains': [domain], 'components': [component], 'candidateMechanisms': [mechanism]}}
+        items = [projection('1', 'AI agents', 'Execution', 'Unauthorized action'),
+                 projection('2', 'AI agents', 'Execution', 'Incorrect classification'),
+                 projection('3', 'Robotics', 'Execution', 'Unauthorized action')]
+        self.assertEqual(incidents.build_candidate_patterns(items, 't')['patterns'], [])
+        items.append(projection('4', 'AI agents', 'Execution', 'Unauthorized action', 'Contradicted / Disputed'))
+        self.assertEqual(incidents.build_candidate_patterns(items, 't')['patterns'], [])
+        items.append(projection('5', 'AI agents', 'Execution', 'Unauthorized action'))
+        result = incidents.build_candidate_patterns(items, 't')
+        self.assertEqual(result['patterns'][0]['supportingIncidentIds'], ['1', '5'])
+        self.assertEqual(result['patterns'][0]['status'], 'CANDIDATE')
+        self.assertIsNone(result['patterns'][0]['contradictoryIncidentIds'])
+        self.assertEqual(result['patterns'][0]['patternId'], incidents.build_candidate_patterns(list(reversed(items)), 't')['patterns'][0]['patternId'])
+        updated = incidents.build_candidate_patterns(items + [projection('6', 'AI agents', 'Execution', 'Unauthorized action')], 't2', result)
+        self.assertEqual(updated['patterns'][0]['version'], 2)
+        self.assertEqual(updated['patterns'][0]['history'][0]['supportingIncidentIds'], ['1', '5'])
+        retired = incidents.build_candidate_patterns(items[:1], 't3', updated)
+        self.assertEqual(retired['patterns'][0]['status'], 'INSUFFICIENT_EVIDENCE')
+        self.assertEqual(retired['patterns'][0]['history'][-1]['supportingIncidentIds'], ['1', '5', '6'])
+
+    def test_unconfirmed_mechanism_withholds_specific_prevention(self):
+        item = record(title='Vehicle incident')
+        architecture = {'primaryArchitecture': {'governedMechanism': 'self', 'label': 'Example'}}
+        classification = {'technicalMechanismStatus': 'NOT_CONFIRMED', 'components': []}
+        evidence = {'corroboration': {'independentSourceCount': 1}}
+        result = engine.prevention_guidance(item, architecture, [], classification, evidence)
+        self.assertIn('before control selection', result['recommendedPreventiveControl'].lower())
+        self.assertNotIn('for self', result['recommendedPreventiveControl'].lower())
+
+    def test_supported_signal_produces_only_conditional_test_guidance(self):
+        item = record(title='AI agent alleged unauthorized access')
+        item['summary'] = 'A source alleged unauthorized access by an AI agent.'
+        classification = engine.system_failure_classification(item)
+        evidence = engine.evidence_snapshot(item)
+        result = engine.prevention_guidance(item, {'primaryArchitecture': None}, [], classification, evidence)
+        self.assertEqual(result['status'], 'EVIDENCE_LIMITED')
+        self.assertIn('deny', result['recommendedPreventiveControl'].lower())
+        self.assertIn('not a verified cause', result['evidenceLimitation'])
+        self.assertTrue(result['supportingEvidence'])
+        self.assertTrue(result['howCanProtectionBeVerified']['failureCondition'])
+
+    def test_physical_classification_does_not_assume_human_review_is_safe(self):
+        item = record(title='Autopilot misidentified road object')
+        item['summary'] = 'A self-driving vehicle reportedly misidentified a traffic signal.'
+        classification = engine.system_failure_classification(item)
+        result = engine.prevention_guidance(item, {'primaryArchitecture': None}, [], classification, engine.evidence_snapshot(item))
+        self.assertNotIn('qualified reviewer', result['recommendedPreventiveControl'].lower())
+        self.assertNotIn('supportingEvidence', result)
+
     def test_stable_identity(self):
         self.assertEqual(record()["id"], record()["id"])
 
@@ -271,7 +413,8 @@ class IncidentDomainTests(unittest.TestCase):
             "Source-Reported", "Independently Corroborated", "Officially Documented",
             "Evidence Insufficient", "Contradicted / Disputed",
         })
-        self.assertIn("reports that", assessment["oofIncidentReport"]["report"])
+        self.assertIn("catalogued by", assessment["oofIncidentReport"]["report"])
+        self.assertNotIn(item['summary'], assessment['oofIncidentReport']['report'])
         self.assertTrue(assessment["preventionGuidance"]["recommendedPreventiveControl"])
         self.assertEqual(len(assessment["practicalChecklist"]), 4)
         self.assertFalse(assessment["oofApproved"])

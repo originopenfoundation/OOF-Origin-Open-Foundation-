@@ -52,12 +52,12 @@
   "createdAt": "2015-07-13T00:00:00Z",
   "updatedAt": "2015-07-13T00:00:00Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-222064-V10",
+    "assessmentIdentity": "OOF-AII-ASMT-222064-V11",
     "incidentId": "OOF-AII-222064",
-    "analysisVersion": 10,
-    "engineVersion": "3.4.2",
-    "architectureRegistryVersion": "OOF-KI-1.1-caa45f9f1793",
-    "knowledgeImpactFingerprint": "b24ad0455706f059fe0eaea73088c8e67ac7148677ede7c2cc079b97d6781c99",
+    "analysisVersion": 11,
+    "engineVersion": "3.4.5",
+    "architectureRegistryVersion": "OOF-KI-1.1-62333809b45c",
+    "knowledgeImpactFingerprint": "655cbdc41dbe0b34abe3e644b57c05805195baa6bb87da7b3d64541f7d7afd52",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Evidence Insufficient",
@@ -175,10 +175,12 @@
     },
     "oofIncidentReport": {
       "headline": "Collection of Robotic Surgery Malfunctions",
-      "report": "AI Incident Database (Responsible AI Collaborative) reports that Study on database reports of robotic surgery malfunctions (8,061), including those ending in injury (1,391) and death (144), between 2000 and 2013. (2015-07-13, United States of America).",
+      "report": "OOF® provides a preliminary governance interpretation of the incident account catalogued by AI Incident Database (Responsible AI Collaborative) (2015-07-13, United States of America). The source account and the automated interpretation are distinct; the interpretation does not establish a technical cause, fault, or liability.",
       "sourceAttribution": "AI Incident Database (Responsible AI Collaborative)",
       "sourceUrl": "https://incidentdatabase.ai/cite/5",
       "eventDate": "2015-07-13",
+      "sourceRecordTimestamp": "2015-07-13",
+      "sourceRecordTimestampNote": "This timestamp can represent a source record update; it is not established as the first source publication date.",
       "evidenceStatus": "Source-Reported",
       "uncertaintyStatement": "OOF® has not independently verified this account. The description preserves source attribution and separates reported facts from the automated governance analysis below."
     },
@@ -229,19 +231,17 @@
       "contributingArchitectures": []
     },
     "systemFailureClassification": {
-      "classificationVersion": "OOF-AII-SFC-1.0",
-      "status": "COMPONENTS_INDICATED",
-      "components": [
-        {
-          "componentId": "physical-execution-robotics",
-          "label": "Physical-world execution and robotics",
-          "matchedTerms": [
-            "robot"
-          ],
-          "confidence": "Indicated",
-          "rationale": "The source record contains the listed descriptor(s); this is not a confirmed technical root cause."
-        }
+      "classificationVersion": "OOF-AII-SFC-1.1",
+      "incidentId": "OOF-AII-222064",
+      "systemDomains": [],
+      "observedOutcome": "Study on database reports of robotic surgery malfunctions (8,061), including those ending in injury (1,391) and death (144), between 2000 and 2013.",
+      "candidateFailureMechanisms": [],
+      "failureMechanismRationale": "Source-language matches are preliminary questions, not confirmed mechanisms or causes.",
+      "evidenceReferences": [
+        "aiid:5"
       ],
+      "status": "UNRESOLVED",
+      "components": [],
       "technicalMechanismStatus": "NOT_CONFIRMED",
       "limitation": "Component labels are deterministic relevance signals from the available source record. They do not establish a defect, attack path, root cause, or responsibility."
     },
@@ -252,38 +252,9 @@
     },
     "primaryGovernanceProblem": "Available evidence does not establish a sufficiently specific governed problem for architecture assignment.",
     "governanceRelationship": "No architecture relationship is asserted because the governed space remains unresolved.",
-    "governanceQuestions": [
-      "What operational authority and controls applied to Hospitals, Doctors at the relevant time?",
-      "What evidence would establish how the relevant AI system produced or enabled the reported outcome?",
-      "What additional independent evidence is required to resolve the material evidence gaps?"
-    ],
-    "incidentGovernanceInsight": null,
-    "preventionGuidance": {
-      "status": "EVIDENCE_LIMITED",
-      "couldThisHappenToYourSystem": {
-        "applicability": "The available record does not establish a sufficiently specific system component or operational configuration for case-specific applicability.",
-        "knownVsInferred": "Only the source-catalogued incident description is known here; no technical mechanism is inferred."
-      },
-      "whatShouldBeImplemented": {
-        "controlObjective": "Establish the system, authority, evidence, and operating context before selecting a protective control.",
-        "governanceBoundary": "Identity, authorization, operational scope, and evidence boundaries must be explicit.",
-        "protectiveMechanism": "Use attributable event records and a documented review owner before changing production controls.",
-        "expectedBehavior": "Unknown or incomplete reports remain clearly labelled and are not converted into confirmed causes."
-      },
-      "howCanProtectionBeVerified": {
-        "testObjective": "Verify that the organization can identify missing facts before approving a case-specific control claim.",
-        "prerequisite": "An attributable system inventory and evidence log are available.",
-        "testAction": "Compare the report with retained system, authority, and outcome records.",
-        "expectedSafeBehavior": "The review records uncertainty and withholds unsupported technical conclusions.",
-        "evidenceToRetain": "Source links, reviewer decision, system context, and unresolved-question log.",
-        "failureCondition": "A root cause, control failure, or prevention blueprint is asserted without supporting evidence."
-      },
-      "governanceGapToExamine": "Establish the governed mechanism before selecting a preventive control.",
-      "recommendedPreventiveControl": "Collect sufficient system, operator, decision, and outcome evidence before control selection.",
-      "howToVerify": "Confirm the system identity, operating authority, event sequence, and effect through attributable records.",
-      "relevantMethodology": [],
-      "evidenceLimitation": "Only one independent source group is represented; corroboration is not established."
-    },
+    "governanceQuestions": [],
+    "incidentGovernanceInsight": "Governance Analysis Pending",
+    "preventionGuidance": {},
     "practicalChecklist": [],
     "governanceFailurePattern": {
       "primaryArchitectureId": null,
@@ -338,20 +309,20 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-10-21T20:12:05Z",
-    "supersedes": "OOF-AII-ASMT-222064-V9",
+    "createdAt": "2026-11-03T20:35:58Z",
+    "supersedes": "OOF-AII-ASMT-222064-V10",
     "reassessmentReason": "Material analysis engine change",
-    "qualityGateVersion": "OOF-AII-QG-3.4.2.0",
+    "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
       "semanticIntegrity": "PASS",
       "methodologicalSupport": "REVIEW REQUIRED",
       "evidenceTransparency": "PASS",
-      "publicationEligibility": "PUBLISHABLE",
+      "publicationEligibility": "PENDING",
       "sourceRecordEligibility": "PUBLISHABLE",
-      "preventionGuidanceEligibility": "LIMITED_PUBLICATION"
+      "preventionGuidanceEligibility": "WITHHELD"
     },
-    "analysisStatus": "AUTOMATED_ANALYSIS_AVAILABLE",
+    "analysisStatus": "GOVERNANCE_ANALYSIS_PENDING",
     "reviewStatus": "Not performed",
     "evidenceStatus": "Source-Reported"
   }

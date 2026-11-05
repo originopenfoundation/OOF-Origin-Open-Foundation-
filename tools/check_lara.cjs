@@ -5,5 +5,5 @@ function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e
 for(const file of [...files(path.join(root,'lara')),...files(path.join(root,'lib'))]){const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});if(result.status!==0){process.stderr.write(result.stderr);process.exit(1);}}
 for(const file of ['reports/lara-read-only-consumer-contract.json','reports/lara-integration-readiness.json','objects-core.json','representations.json','relationships.json'])JSON.parse(fs.readFileSync(path.join(root,'data/knowledge',file),'utf8'));
 JSON.parse(fs.readFileSync(path.join(root,'schemas/oof-problem-discovery.v1.schema.json'),'utf8'));
-for(const file of ['oof-cross-architecture.v1.schema.json','oof-capability.v1.schema.json'])JSON.parse(fs.readFileSync(path.join(root,'schemas',file),'utf8'));
+for(const file of ['oof-evidence-verification.v1.schema.json','oof-cross-architecture.v1.schema.json','oof-capability.v1.schema.json'])JSON.parse(fs.readFileSync(path.join(root,'schemas',file),'utf8'));
 console.log('LaRA syntax and required registry JSON checks passed. Runtime readiness and model quality require separate tests.');
