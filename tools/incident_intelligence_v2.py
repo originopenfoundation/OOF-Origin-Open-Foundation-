@@ -270,6 +270,9 @@ class KnowledgeLayer:
         objects_payload = read_json(root / "objects-core.json", {"objects": []})
         relationships_payload = read_json(root / "relationships.json", {"relationships": []})
         self.manifest = read_json(root / "manifest.json", {})
+        # Unfiltered identities are only for checking archived source snapshots.
+        # They never enter ranking, current canonical references or publication.
+        self.source_objects = {item["id"]: item for item in objects_payload.get("objects", [])}
         self.objects = {
             item["id"]: item for item in objects_payload.get("objects", [])
             if item.get("authorityState") == "CANONICAL_AUTHORITATIVE"
@@ -1292,7 +1295,29 @@ def build_review_queue(assessments: list[dict], records: list[dict], generated_a
     }
 
 
-def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[str]:
+def archived_reference_review(reference: dict, architecture_id: str, knowledge: KnowledgeLayer) -> dict | None:
+    """Retain a traceable superseded citation without reasserting its authority."""
+    source = knowledge.source_objects.get(reference.get("objectId"))
+    snapshot = reference.get("canonicalProvenance") or {}
+    digest = snapshot.get("contentHash") or ""
+    if not source or source.get("artifactType") not in {"ParentStandard", "CoreModule"}:
+        return None
+    if (source.get("architectureId") != architecture_id
+        or reference.get("artifactType") != source.get("artifactType")
+        or reference.get("name") != source.get("canonicalName")
+        or reference.get("canonicalUrl") != source.get("canonicalUrl")
+        or not re.fullmatch(r"[a-f0-9]{64}", digest)
+        or digest != (source.get("provenance") or {}).get("contentHash")
+        or not re.fullmatch(r"OOF-KI-1\.1-[a-f0-9]{12}", snapshot.get("knowledgeBuildId") or "")):
+        return None
+    return {"objectId": source["id"], "sourceHash": digest,
+            "status": "ARCHIVED_REFERENCE_REQUIRES_REVIEW",
+            "currentCanonical": False, "historicalAuthorityVerified": False,
+            "reason": "Superseded source citation retained for history; not eligible current canonical evidence."}
+
+
+def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH,
+             historical_reviews: list | None = None) -> list[str]:
     payload = read_json(path, {})
     errors = []
     records = read_json(store_path, {"incidents": []}).get("incidents", [])
@@ -1381,6 +1406,12 @@ def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH) -> list[
                 object_id = reference.get("objectId")
                 canonical = knowledge.objects.get(object_id)
                 if canonical is None:
+                    superseded = assessment.get("analysisVersion", 0) < latest_versions.get(incident_id, 0)
+                    retained = archived_reference_review(reference, item.get("objectId"), knowledge) if superseded else None
+                    if retained:
+                        if historical_reviews is not None:
+                            historical_reviews.append({"assessmentIdentity": identity, **retained})
+                        continue
                     errors.append(f"Methodology reference is not canonical: {identity} -> {object_id}")
                     continue
                 if canonical.get("architectureId") != item.get("objectId"):
@@ -1410,11 +1441,14 @@ def main() -> int:
     if args.command == "build":
         print(json.dumps(build(), indent=2))
     else:
-        errors = validate()
+        historical_reviews = []
+        errors = validate(historical_reviews=historical_reviews)
         if errors:
             print("\n".join(errors))
             return 1
         print(f"Validated {len(latest_assessments())} latest automated incident assessments.")
+        if historical_reviews:
+            print(f"Historical source citations retained with explicit review status: {len(historical_reviews)}; canonical authority not re-established.")
     return 0
 
 
