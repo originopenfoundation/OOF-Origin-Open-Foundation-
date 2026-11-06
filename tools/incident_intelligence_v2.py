@@ -27,7 +27,7 @@ ANALYSIS_PATH = DATA_ROOT / "analysis-store.json"
 KNOWLEDGE_SNAPSHOT_PATH = DATA_ROOT / "knowledge-reassessment-state.json"
 REVIEW_QUEUE_PATH = DATA_ROOT / "human-review-queue.json"
 KNOWLEDGE_ROOT = ROOT / "data" / "knowledge"
-ENGINE_VERSION = "3.4.5"
+ENGINE_VERSION = "3.4.6"
 QUALITY_GATE_VERSION = "OOF-AII-QG-3.4.5.5"
 
 PLACEHOLDER_VALUES = {"", "no", "none", "null", "unknown", "n a", "not specified", "unspecified"}
@@ -176,6 +176,16 @@ def has_non_negated_signal(value: str, signal: str) -> bool:
         if not re.search(r"\b(?:no|not|never|denied|without evidence of)\s+(?:\w+\s+){0,3}$", prefix):
             return True
     return False
+
+
+def has_physical_energy_context(record: dict) -> bool:
+    """Require a relevant physical energy system, not generic lexical overlap."""
+    source = " ".join(str(record.get(field) or "") for field in ("title", "summary", "system", "technology", "industry"))
+    phrases = ("power grid", "electricity grid", "electrical grid", "energy grid", "energy system", "energy infrastructure",
+               "power plant", "power station", "electricity generation", "energy generation", "energy storage",
+               "power generation", "electricity supply", "energy supply", "nuclear reactor", "wind turbine",
+               "solar power", "solar farm", "hydroelectric", "energy transmission", "energy distribution")
+    return any(has_non_negated_signal(source, phrase) for phrase in phrases)
 
 
 def tokens(value) -> list[str]:
@@ -334,6 +344,8 @@ class KnowledgeLayer:
         incident_terms = self._incident_terms(record)
         ranked = []
         for architecture_id, corpus in self.corpora.items():
+            if str(self.architectures[architecture_id].get("acronym") or "").casefold() == "ega" and not has_physical_energy_context(record):
+                continue
             matches = sorted(set(incident_terms) & set(corpus), key=lambda term: (-incident_terms[term] * min(corpus[term], 3), term))
             score = sum(
                 incident_terms[term]
@@ -432,6 +444,12 @@ def evidence_snapshot(record: dict) -> dict:
     independence_keys = set()
     for source in record.get("sources") or []:
         host = urlparse(source.get("url") or "").hostname or ""
+        is_aiid = str(source.get("sourceId") or "").startswith("aiid:") and source.get("sourceType") == "Official weekly data export"
+        match = re.search(r"AIID_Excel_Export-(\d{4})(\d{2})(\d{2})", str(source.get("datasetUrl") or "")) if is_aiid else None
+        snapshot = "-".join(match.groups()) + "T00:00:00Z" if match else None
+        retrieval = source.get("retrievedAt")
+        if snapshot and retrieval == snapshot and not source.get("snapshotDate"):
+            retrieval = None
         independence_key = normalized_text(source.get("publisher") or host or source.get("sourceId"))
         independence_keys.add(independence_key)
         sources.append({
@@ -441,8 +459,9 @@ def evidence_snapshot(record: dict) -> dict:
             "authority": source_authority(source),
             "independenceKey": independence_key,
             "directness": "Secondary catalogue" if "database" in normalized_text(source.get("publisher")) else "Not determined",
-            "publicationTime": source.get("publicationDate"),
-            "retrievalTime": source.get("retrievedAt"),
+            "publicationTime": None if is_aiid else source.get("publicationDate"),
+            "retrievalTime": retrieval,
+            "snapshotTime": source.get("snapshotDate") or snapshot,
             "eventTime": record.get("occurredAt"),
             "verificationState": source.get("verificationStatus"),
         })
