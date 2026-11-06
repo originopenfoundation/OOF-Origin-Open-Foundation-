@@ -6,7 +6,7 @@ The assessment engine reads canonical objects and authoritative relationships fr
 
 ## B. Canonical Source Verification
 
-Knowledge build: `OOF-KI-1.1-62333809b45c`. Every displayed reference is checked for canonical identity, name, URL, architecture ownership and module parentage.
+Knowledge build: `OOF-KI-1.1-230d54617fc6`. Every displayed reference is checked for canonical identity, name, URL, architecture ownership and module parentage.
 
 ## C. Incident Sample Results
 

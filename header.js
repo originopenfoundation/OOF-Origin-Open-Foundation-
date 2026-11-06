@@ -886,8 +886,8 @@ async function loadLaRA() {
     window.LARA_API_BASE=local?window.location.origin:api.origin;
   } catch { window.LARA_API_BASE=local?window.location.origin:null; }
   const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';
-  stylesheet.href=withSiteRoot('assets/lara/lara.css?v=20261011-2');document.head.appendChild(stylesheet);
-  const widget=document.createElement('script');widget.src=withSiteRoot('assets/lara/lara.js?v=20261011-2');
+  stylesheet.href=withSiteRoot('assets/lara/lara.css?v=20261102-23');document.head.appendChild(stylesheet);
+  const widget=document.createElement('script');widget.src=withSiteRoot('assets/lara/lara.js?v=20261102-23');
   widget.defer=true;widget.dataset.laraWidget='true';document.body.appendChild(widget);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadLaRA,{once:true});else loadLaRA();

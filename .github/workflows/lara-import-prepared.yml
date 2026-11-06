@@ -1,0 +1,39 @@
+name: LaRA one-time prepared candidate import
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - '.github/workflows/lara-import-prepared.yml'
+permissions:
+  contents: read
+concurrency:
+  group: lara-v24-prepared-import
+  cancel-in-progress: false
+jobs:
+  import-prepared:
+    if: github.repository == 'originopenfoundation/OOF-Origin-Open-Foundation-' && github.event.pull_request.number == 11 && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'codex/lara-groq-v21'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Verify and import the exact reviewed candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          bundle=reviews/lara-v2.4/LaRA-v2.4-review.bundle
+          expected=98136bbe09e8e7aae652d0e65b4e4b07120e501458367d3c8872eff4be249edc
+          actual=$(sha256sum "$bundle" | cut -d ' ' -f 1)
+          test "$actual" = "$expected"
+          git bundle verify "$bundle"
+          git fetch --no-tags "$bundle" HEAD:refs/remotes/prepared/lara-v24
+          test "$(git rev-parse refs/remotes/prepared/lara-v24)" = 207535f60e866973ac7f39a6c1f1def5052a733c
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git merge --no-ff --no-edit refs/remotes/prepared/lara-v24
+          git diff --exit-code refs/remotes/prepared/lara-v24 HEAD -- . ':!reviews/lara-v2.4/**' ':!.github/workflows/lara-import-prepared.yml'
+          git push origin HEAD:refs/heads/codex/lara-groq-v21

@@ -1,0 +1,20 @@
+# Reference for the EXISTING service. Importing a Blueprint is not required.
+# Keep provider/model/API key in the existing Render Environment, never here.
+services:
+  - type: web
+    name: oof-origin-open-foundation
+    runtime: node
+    plan: free
+    branch: codex/integrate-lara-personality
+    buildCommand: node tools/check_lara.cjs
+    startCommand: node lara/server.js
+    healthCheckPath: /_lara/ready
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: LARA_ALLOWED_ORIGINS
+        value: https://originopenfoundation.org,https://www.originopenfoundation.org

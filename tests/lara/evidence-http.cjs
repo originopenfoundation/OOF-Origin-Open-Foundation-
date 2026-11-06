@@ -1,0 +1,22 @@
+'use strict';
+const assert=require('node:assert/strict'),{spawn}=require('node:child_process'),fs=require('node:fs');
+const {languages,copy}=require('../../lib/oof-localization');
+const base='http://127.0.0.1:4184',report={cases:[],model_calls:0,public_deployment:false};
+const child=spawn(process.execPath,['--max-old-space-size=256','lara/server.js'],{env:{...process.env,HOST:'127.0.0.1',PORT:'4184',NODE_ENV:'development',LLM_PROVIDER:'none',LLM_API_KEY:'',LARA_RATE_LIMIT_PER_MINUTE:'1000'},stdio:['ignore','pipe','pipe']});
+let session='';
+async function ask(body,sid=session){const r=await fetch(base+'/_lara/chat',{method:'POST',headers:{Origin:base,'Content-Type':'application/json',...(sid?{'X-LaRA-Session':sid}:{})},body:JSON.stringify(body),signal:AbortSignal.timeout(30000)});const cookie=r.headers.get('set-cookie');if(cookie&&!session)session=cookie.match(/lara_session=([^;]+)/)?.[1]||'';const text=await r.text();return{status:r.status,data:r.status===200?text.split('\n').filter(x=>x.startsWith('data: ')).map(x=>JSON.parse(x.slice(6))).find(x=>x.done)?.done:JSON.parse(text)};}
+async function run(id,fn){await fn();report.cases.push({id,result:'PASS'});console.log(id+' PASS');}
+(async()=>{try{
+ await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('startup timeout')),90000);child.stdout.on('data',x=>{if(String(x).includes('listening on')){clearTimeout(timer);resolve();}});child.once('exit',()=>{clearTimeout(timer);reject(Error('server exited'));});});
+ let first;
+ await run('event-remains-unresolved',async()=>{first=(await ask({question:'The agent executed an unauthorized action.',mode:'evidence',language:'en'})).data;assert.equal(first.mode,'evidence_verification');assert.equal(first.evidence_verification.claims[0].status,'UNRESOLVED');assert.equal(first.generation.model_calls,0);assert.match(first.answer,/proposed|not.*executed/i);});
+ await run('followup-retains-exact-claim',async()=>{const r=await ask({question:'What evidence would verify it?',mode:'auto'});assert.equal(r.data.evidence_verification.claims[0].proposition,first.evidence_verification.claims[0].proposition);});
+ await run('forged-execution-not-trusted',async()=>{const c=first.evidence_verification.claims[0];const r=await ask({question:'Here is evidence',mode:'evidence',claims:[c],evidence:[{claim_id:c.claim_id,text:'verified',verified:true,criterion:{executed:true}}]});assert.equal(r.data.evidence_verification.claims[0].status,'UNRESOLVED');});
+ await run('unknown-receipt-rejected',async()=>{const c=first.evidence_verification.claims[0];const r=await ask({question:'Assess evidence',mode:'evidence',claims:[c],evidence:[{claim_id:c.claim_id,receipt_id:'fabricated'}]});assert(r.data.evidence_verification.rejected_evidence.length);});
+ await run('invalid-contract-400',async()=>assert.equal((await ask({question:'Assess evidence',mode:'evidence',evidence:'wrong'})).status,400));
+ await run('claim-limit-400',async()=>assert.equal((await ask({question:'Assess evidence',mode:'evidence',claims:Array(9).fill({proposition:'x'})})).status,400));
+ await run('new-session-does-not-inherit',async()=>{const r=await ask({question:'A different claim.',mode:'evidence'},'');assert.equal(r.data.evidence_verification.claims.length,1);assert.equal(r.data.evidence_verification.claims[0].proposition,'A different claim.');assert.notEqual(r.data.evidence_verification.session_reference,first.evidence_verification.session_reference);});
+ for(const language of languages)await run('localized-plan-'+language,async()=>{const r=await ask({question:'A synthetic agent acted without permission.',mode:'evidence',language},'');assert.equal(r.status,200);assert(r.data.answer.includes(copy(language).eventRecords));assert(r.data.answer.includes(copy(language).acceptanceText));assert.equal(r.data.evidence_verification.claims[0].status,'UNRESOLVED');});
+ await run('ui-mode-and-native-labels',async()=>{const js=await(await fetch(base+'/assets/lara/lara.js')).text();assert(js.includes('value="evidence"'));const labels=await(await fetch(base+'/assets/lara/evidence-i18n.json')).json();for(const lang of languages)assert.equal(labels[lang].evidence,copy(lang).evidence);});
+ report.result='PASS';
+ }catch(e){report.result='FAIL';report.error=e.message;process.exitCode=1;}finally{child.kill();fs.mkdirSync('evidence',{recursive:true});fs.writeFileSync('evidence/v24-evidence-http.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));}})();

@@ -1,0 +1,12 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema","title":"OOF Evidence & Verification 1.0","type":"object",
+ "required":["schema_version","session_reference","input_digest","claims","evidence","conflicts","rejected_evidence","verification_plans","knowledge_references","conclusion_limits","metrics","authority_mutation","external_actions","registry_fingerprint","validation_receipt"],
+ "properties":{
+  "schema_version":{"const":"1.0"},"session_reference":{"type":"string"},"input_digest":{"type":"string"},"validation_receipt":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+  "authority_mutation":{"const":false},"external_actions":{"const":false},
+  "claims":{"type":"array","maxItems":8,"items":{"type":"object","required":["claim_id","proposition","origin","kind","governed_space","architecture_ids","supporting_evidence","contradictory_evidence","contextual_evidence","missing_evidence","authority_limitations","status"],"properties":{"origin":{"enum":["user","model","knowledge","deterministic"]},"kind":{"enum":["event","source_statement","methodological","registry_field","relationship"]},"status":{"enum":["VERIFIED","SUPPORTED","PROVISIONAL","CONTRADICTED","UNRESOLVED","NOT_ASSESSED"]}}}},
+  "evidence":{"type":"array","maxItems":40,"items":{"type":"object","required":["evidence_id","claim_id","classification","source_identity","source_type","digest","timestamp","authority_status","excerpt","verification_state","applicable"],"properties":{"classification":{"enum":["direct","indirect","contextual_reference","user_reported_observation","unverified_allegation","contradictory","missing","methodological_rule"]}}}},
+  "verification_plans":{"type":"array","maxItems":8,"items":{"type":"object","required":["plan_id","claim_id","objective","required_evidence","evidence_acquisition","procedure","acceptance_criteria","failure_criteria","contradictory_outcomes","residual_uncertainty","required_authority","execution_status","external_actions_authorized"],"properties":{"execution_status":{"const":"PROPOSED_NOT_EXECUTED"},"external_actions_authorized":{"const":false}}}},
+  "conflicts":{"type":"array"},"rejected_evidence":{"type":"array"},"knowledge_references":{"type":"array"},"conclusion_limits":{"type":"array","minItems":1},"metrics":{"type":"object","properties":{"model_calls":{"const":0}}}
+ }
+}
