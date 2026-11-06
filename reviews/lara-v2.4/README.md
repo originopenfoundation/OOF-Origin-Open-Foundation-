@@ -1,6 +1,6 @@
 # LaRA v2.4 — review package
 
-This folder contains the complete prepared candidate as a Git bundle and the implementation audit. It does not activate the bundled data in the source tree or deploy to Render.
+The complete prepared candidate has now been imported into the source files of `codex/lara-groq-v21` through a verified one-time GitHub Actions Git push. The temporary import workflow was removed afterwards. No merge to `main1` or Render deployment was performed. This folder retains the reviewed bundle and the earlier audit snapshot.
 
 - Published implementation basis: `42cabb23cd022dc8744959d62ef8d832b1cf985c`.
 - Bundled complete candidate: `207535f60e866973ac7f39a6c1f1def5052a733c`.
@@ -26,4 +26,4 @@ The bundle requires the already published commits `42cabb23cd022dc8744959d62ef8d
 
 Local validation: 191 Node tests, 128 Python tests, 22 HTTP cases, and memory smoke passed. Published CI remains incomplete: source-commit provenance and historical V1/V2 references to draft RPAS need remediation. The new local assessment fixes the latest interpretation, but does not resolve validation of all historical assessments. Full multilingual/model acceptance and the A/B/C benchmark remain incomplete after a Groq quota block. Prototype acceptance and production readiness are false.
 
-Direct push of the full candidate currently needs local Git authentication. The GitHub blob API rejected the approximately 62 MB history file. The compressed Git bundle allows the complete candidate to be stored and reviewed here without changing the application data format, canonical authority or history. Keep PR draft and unmerged.
+The GitHub blob and contents APIs rejected the large history file. A one-time GitHub Actions job verified the bundle hash, imported the exact reviewed candidate, and pushed it through Git. All 3,414 assessments and their original JSON format are preserved; the smaller experimental JSON copy was not used. Candidate import commit: `85bb06b3dc8aac1d70a66f288f2c340996b17a1c`; import-workflow removal commit: `39104ac08b3a7876ac946b257d6f3ec3d2257ea0`. Keep PR draft and unmerged pending the remaining acceptance issues.
