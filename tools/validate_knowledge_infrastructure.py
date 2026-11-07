@@ -111,7 +111,7 @@ def validate() -> tuple[list[str], list[str]]:
         errors,
     )
     require(architecture_validation["canonicalSources"] == {"architectureIndex": "data/oof-architecture-registry.json", "completeArchitectureIndex": "oof-structured-architecture-index.html"}, "Canonical architecture sources changed unexpectedly", errors)
-    require(all(item["result"] == "PASS" for item in architecture_validation["architectures"]), "Architecture Core contains unresolved source conflicts", errors)
+    require(all(item["result"] == "PASS" or (item["result"] == "PENDING" and item.get("approvalVerified") is False and item["authorityState"] == "SUPPORTING_CITABLE" and item.get("lifecycleStatus") in {"discovered", "draft", "in-progress", "pending", "published"}) for item in architecture_validation["architectures"]), "Architecture Core contains unresolved source conflicts", errors)
     require(reference_validation["detectedCount"] == reference_validation["expectedCount"] == 4, "Exactly four Reference Architectures must be cross-validated", errors)
     require(all(item["result"] == "PASS" for item in reference_validation["architectures"]), "Reference Architecture validation failed", errors)
     require(readiness["reportOnly"] is True and readiness["prohibitedCutoverApplied"] is False, "LaRA readiness escaped report-only mode", errors)

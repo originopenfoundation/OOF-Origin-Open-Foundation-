@@ -63,7 +63,7 @@ jobs:
           python tools/incident_intelligence_v2.py validate
 
       - name: Run incident intelligence tests
-        run: python -m unittest tests.test_ai_incidents
+        run: python -m unittest tests.test_ai_incidents tests.test_incident_historical_references
 
       - name: Audit incident methodology accuracy
         run: python tools/run_incident_ci_audits.py incident

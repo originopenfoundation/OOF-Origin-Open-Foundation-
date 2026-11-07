@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://originopenfoundation.org/schemas/oof-cross-architecture.v1.schema.json",
+  "title":"Evidence-bounded Cross-Architecture Reasoning",
+  "type":"object",
+  "required":["schema_version","problem_reference","classification","primary_architecture","primary_architecture_alternatives","role_qualification","architectures","verified_relationships","hypotheses","authority_boundaries","distinct_governed_spaces","potential_governance_gaps","unresolved_claims","knowledge_references","confidence_qualification","verification_actions","provenance","report_only","metrics"],
+  "properties":{
+    "schema_version":{"const":"1.0"},"report_only":{"const":true},
+    "problem_reference":{"type":"object","required":["digest","summary","status"]},
+    "classification":{"enum":["UNRESOLVED","SINGLE_ARCHITECTURE","ARCHITECTURE_WITH_SUPPORTING_OBJECTS","MULTIPLE_RELATED_ARCHITECTURES","MULTIPLE_GOVERNED_SPACES"]},
+    "primary_architecture":{"type":["string","null"]},"primary_architecture_alternatives":{"type":"array"},"role_qualification":{"const":"CANDIDATE_ORDER_NOT_NORMATIVE_PRIORITY"},
+    "architectures":{"type":"array","maxItems":6,"items":{"type":"object","required":["object_id","lifecycle_status","approval_status","authority_state","role","governed_space","governed_space_evidence","responsibility","relevance_qualification","does_not_establish","reference_id","provenance"],"properties":{"role":{"enum":["primary","supporting"]},"approval_status":{"enum":["APPROVED","NOT_VERIFIED"]},"provenance":{"type":"object","required":["contentHash","repositoryCommit","sourcePath"]}}}},
+    "verified_relationships":{"type":"array","maxItems":40,"items":{"type":"object","required":["source_id","target_id","type","qualification","relationship_id","evidence"],"properties":{"qualification":{"const":"CANONICAL_RECORD"}}}},
+    "hypotheses":{"type":"array","items":{"type":"object","required":["source_id","target_id","type","qualification","evidence","authority_boundary"],"properties":{"qualification":{"const":"HYPOTHESIS_NOT_CANONICAL"}}}},
+    "authority_boundaries":{"type":"array"},"distinct_governed_spaces":{"type":"array"},"potential_governance_gaps":{"type":"array"},"unresolved_claims":{"type":"array"},
+    "knowledge_references":{"type":"array","items":{"type":"object","required":["object_id","resource_id","url","authority_state","lifecycle_status","provenance"]}},
+    "confidence_qualification":{"const":"EVIDENCE_BOUNDED_NOT_METHODOLOGICAL_ACCEPTANCE"},
+    "verification_actions":{"type":"array","minItems":1},"provenance":{"type":"object","required":["engine","registry_fingerprint","input_digest"]},"metrics":{"type":"object","required":["reasoning_ms","model_calls"],"properties":{"model_calls":{"const":0}}}
+  }
+}

@@ -1,14 +1,27 @@
 'use strict';
-function validate(answer, question, sources) {
+function validate(answer, question, sources, {scope='grounded'}={}) {
   if(typeof answer!=='string'||!answer.trim()||answer.length>20000)return {ok:false,reason:'empty_or_oversized'};
-  if(!sources.length)return {ok:false,reason:'missing_evidence'};
+  if(!sources.length&&scope!=='conversation')return {ok:false,reason:'missing_evidence'};
+  if(scope==='conversation'&&/\b(?:canonical|standard|architecture|module|kanonick|štandard|modul|architekt|genehmigt)\w*/iu.test(answer))return {ok:false,reason:'ungrounded_methodology'};
   // User input is not evidence for a generated canonical claim.
-  const trusted=sources.map(s=>`${s.title} ${s.text}`).join(' ');
-  if(/(?:[\w.+-]+@[\w.-]+\.[a-z]{2,}|\b(?:sk-|gh[pousr]_)[A-Za-z0-9_-]{16,})/i.test(answer))return {ok:false,reason:'private_contact_or_credential'};
+  const trusted=sources.map(s=>`${s.title} ${s.text} ${s.url||''} ${s.object_id||''} ${s.resource_id||''}`).join(' ')+(scope==='conversation'?' LaRA OOF AI':'');
+  if(/(?:[\w.+-]+@[\w.-]+\.[a-z]{2,}|\b(?:sk-|gsk_|gh[pousr]_)[A-Za-z0-9_-]{16,})/i.test(answer))return {ok:false,reason:'private_contact_or_credential'};
+  if(/<\/?think>|(?:system prompt|system instructions)\s*:/iu.test(answer))return {ok:false,reason:'internal_content'};
+  if(/(?:schválil[ao]? som|odoslal[ao]? som|zmenil[ao]? som.*register|ich habe.*(?:genehmigt|gesendet|register.*geändert))/iu.test(answer))return {ok:false,reason:'unsupported_authority_or_action'};
   for(const sentence of answer.split(/[.!?\n]/)){
    if(/\b(?:legally binding|approved by OOF|I (?:have )?(?:approved|submitted|changed|sent)|permanent memory)\b/i.test(sentence)&&!/\b(?:not|cannot|can't|never|no|without)\b/i.test(sentence))return {ok:false,reason:'unsupported_authority_or_action'};
   }
   const normalized=value=>value.toLowerCase().replace(/[®™]/g,'').replace(/\s+/g,' ').trim();
+  // IDs supplied by the verified source are valid citations. Check the whole
+  // identity, so known acronym fragments cannot be recombined into a fake ID.
+  const identityText=value=>value.replace(/[\u2010-\u2015]/g,'-');
+  const objectIds=value=>[...identityText(value).matchAll(/\bOOF-KO-(?:[A-Z0-9]+-)*[A-Z0-9]+\b/g)].map(m=>m[0]);
+  const knownObjectIds=new Set(objectIds(trusted));
+  if(objectIds(answer).some(id=>!knownObjectIds.has(id)))return {ok:false,reason:'unsupported_object_identity'};
+  const approvedUrls=new Set(sources.map(s=>s.url).filter(Boolean));
+  for(const match of answer.matchAll(/https?:\/\/[^\s)<>\]]+/g))if(!approvedUrls.has(match[0].replace(/[.,;]+$/,'')))return {ok:false,reason:'unsupported_citation'};
+  if(scope==='supporting'&&/\b(?:is canonical|official definition|canonical definition|approved by OOF)\b/iu.test(answer))return {ok:false,reason:'supporting_authority_promotion'};
+  if(scope==='conversation')return {ok:true}; // General reasoning is not a canonical methodological claim.
   const evidence=normalized(trusted);
   for(const name of answer.matchAll(/\b(?:[A-Z][A-Za-z0-9®™-]*\s+){1,5}(?:Standard|Architecture|Module)\b/g)){
    const title=normalized(name[0].replace(/^(?:The|A|An)\s+/,''));

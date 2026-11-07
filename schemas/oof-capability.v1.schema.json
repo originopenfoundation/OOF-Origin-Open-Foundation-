@@ -1,0 +1,5 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema","title":"OOF trusted capability definition","type":"object",
+ "required":["id","version","purpose","input_contract","output_contract","knowledge_access","allowed_tools","execution_permissions","resource_limits","failure_behavior","audit_requirements","lifecycle_status"],
+ "properties":{"id":{"type":"string","minLength":1},"version":{"const":"1.0"},"purpose":{"type":"string"},"input_contract":{"type":"string"},"output_contract":{"type":"string"},"knowledge_access":{"type":"string"},"allowed_tools":{"type":"array"},"execution_permissions":{"type":"array"},"resource_limits":{"type":"object","required":["input_bytes","output_bytes","tool_calls","elapsed_ms"]},"failure_behavior":{"const":"STOP_WITHOUT_ACTION_OR_PERMISSION_ELEVATION"},"audit_requirements":{"type":"array"},"lifecycle_status":{"const":"experimental"}}
+}

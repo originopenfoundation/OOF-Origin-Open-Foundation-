@@ -8,6 +8,7 @@ function fixture(){
  const objects=['one','two','blocked'].map(id=>({id,canonicalName:id,visibility:'public',allowedConsumers:['LaRA'],authorityState:id==='blocked'?'QUARANTINED':'CANONICAL_AUTHORITATIVE'}));
  const reps=objects.map(object=>{const html='<h1>'+object.id+' architecture</h1><p>canonical content</p>';write(object.id+'.html',html);return {id:object.id+'-rep',representsObject:object.id,title:object.canonicalName+' architecture',canonicalUrl:'https://originopenfoundation.org/'+object.id+'.html',visibility:'public',allowedConsumers:['LaRA'],authorityState:'CANONICAL_AUTHORITATIVE',authorityDomain:['definition'],provenance:{sourcePath:object.id+'.html',contentHash:crypto.createHash('sha256').update(html).digest('hex')}};});
  write('data/knowledge/reports/lara-read-only-consumer-contract.json',{mode:'read-only',mutationAllowed:false});
+ write('data/knowledge/reports/architecture-canonical-validation.json',{architectures:[]});
  write('data/knowledge/reports/lara-integration-readiness.json',{reportOnly:true,LARA_INTEGRATION_READY:false});
  write('data/knowledge/objects-core.json',{objects});write('data/knowledge/representations.json',{representations:reps});
  write('data/knowledge/relationships.json',{relationships:[{sourceId:'one',targetId:'two',relationshipType:'containsStandard',authorityState:'AUTHORITATIVE'},{sourceId:'two',targetId:'one',relationshipType:'invented',authorityState:'DISCOVERY'}]});
