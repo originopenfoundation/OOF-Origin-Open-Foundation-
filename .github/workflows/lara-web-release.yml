@@ -1,0 +1,121 @@
+name: LaRA verified web release preparation
+on:
+  push:
+    branches: [codex/lara-groq-v21]
+    paths: ['.github/workflows/lara-web-release.yml', 'reviews/lara-v2.4/web-release.bundle']
+permissions:
+  contents: read
+concurrency:
+  group: lara-verified-web-release
+  cancel-in-progress: false
+jobs:
+  prepare-verified-release:
+    if: github.repository == 'originopenfoundation/OOF-Origin-Open-Foundation-' && github.ref == 'refs/heads/codex/lara-groq-v21' && github.run_number == 1 && github.run_attempt <= 3
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install existing incident validation dependencies
+        run: pip install -r requirements-ai-incidents.txt
+      - name: Import the exact reviewed release with current main1
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main1
+          test "$(git rev-parse origin/main1)" = c00f12c471e8959c120fd1e8e1212315e7bae397
+          bundle=reviews/lara-v2.4/web-release.bundle
+          test "$(sha256sum "$bundle" | cut -d ' ' -f 1)" = ccf03efe33604d604c470a5a7415598464a36b754d30db96c4feb905287e9942
+          git bundle verify "$bundle"
+          git fetch --no-tags "$bundle" HEAD:refs/remotes/prepared/lara-web-release
+          test "$(git rev-parse refs/remotes/prepared/lara-web-release)" = 889bc5d4ab3e334b9306a619ebe11b528e82e02b
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git merge --no-ff --no-edit refs/remotes/prepared/lara-web-release
+          git diff --exit-code refs/remotes/prepared/lara-web-release HEAD -- . ':!reviews/lara-v2.4/**' ':!.github/workflows/lara-web-release.yml'
+      - name: Rebuild current public source projections without modifying raw incidents
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          raw_before=$(sha256sum data/ai-incidents/incident-store.json | cut -d ' ' -f 1)
+          python tools/build_architecture_registry.py
+          python tools/build_knowledge_infrastructure.py
+          python tools/incident_intelligence_v2.py build
+          python tools/incident_intelligence_v2.py validate
+          python tools/ai_incidents.py export
+          python tools/ai_incidents.py validate
+          python tools/build_localization.py
+          python tools/build_ai_discovery_guides.py
+          python tools/build_ai_incident_pages.py
+          python tools/build_ai_compatibility.py
+          python tools/build_url_governance.py
+          python tools/build_architecture_registry.py
+          test "$(sha256sum data/ai-incidents/incident-store.json | cut -d ' ' -f 1)" = "$raw_before"
+          git diff --exit-code -- data/oof-global-interest-heat-map.json
+          git add -u
+          git reset -- data/knowledge data/ai-incidents/methodological-accuracy-audit.json data/ai-incidents/v3-2-stage-a-capability-audit.json docs/AI_INCIDENT_KNOWLEDGE_LAYER_METHODOLOGICAL_ACCURACY.md docs/AI_INCIDENT_V3_2_STAGE_A_IMPLEMENTATION_CAPABILITY_AUDIT.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate current LaRA web release source projections"
+          fi
+      - name: Bind derived evidence to the committed source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_knowledge_infrastructure.py
+          python tools/review_historical_incident_references.py
+          python tools/audit_ai_incident_methodology.py
+          python tools/audit_ai_incident_v341.py
+          node tools/build_lara_language_inventory.cjs
+          node tools/build_lara_evidence_i18n.cjs
+          python tools/build_incident_release_manifest.py
+          python tools/build_incident_release_manifest.py --verify
+          git add -u
+          git add data/ai-incidents/historical-reference-review.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Bind LaRA release knowledge and historical reviews to exact source commits"
+          fi
+      - name: Verify application, contracts, historical boundaries and actual HTTP behavior
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/check_lara.cjs
+          node --test tests/lara/*.test.js
+          python -m unittest discover -s tests -p 'test_*.py'
+          python tools/incident_intelligence_v2.py validate
+          python tools/validate_ai_compatibility.py
+          python tools/validate_url_governance.py
+          python tools/validate_knowledge_infrastructure.py
+          python tools/run_incident_ci_audits.py discovery
+          python tools/run_incident_ci_audits.py incident
+          node tests/lara/evidence-http.cjs
+          node tools/lara_navigation_acceptance.cjs evidence/release-navigation.json
+          node tools/lara_discovery_acceptance.cjs evidence/release-discovery.json
+          node tools/lara_cross_acceptance.cjs evidence/release-cross.json
+          node tests/lara/memory-smoke.cjs evidence/release-memory.json
+          python tools/build_knowledge_infrastructure.py
+          node tools/build_lara_language_inventory.cjs
+          node tools/build_lara_evidence_i18n.cjs
+          git diff --exit-code
+      - name: Publish only the verified prepared release
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          git rev-parse 'HEAD^{tree}'
+          git push origin HEAD:refs/heads/codex/lara-groq-v21
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lara-web-release-evidence
+          path: evidence/
