@@ -56,12 +56,12 @@
   "createdAt": "2026-09-03T21:34:17.078000Z",
   "updatedAt": "2026-09-03T21:34:17.078000Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-778902-V15",
+    "assessmentIdentity": "OOF-AII-ASMT-778902-V17",
     "incidentId": "OOF-AII-778902",
-    "analysisVersion": 15,
+    "analysisVersion": 17,
     "engineVersion": "3.4.6",
     "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
-    "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
+    "knowledgeImpactFingerprint": "76534918938da6c15677b1b82ea66e1293ad3f748d1bc7cbb8da6a645ed8a6e7",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
     "assessmentDisclosure": "Generated from available public incident evidence using OOF® governance methodology. It is not an official investigation, legal determination, regulatory finding, certification, or OOF® Approved Assessment.",
     "assessmentConfidence": "Moderate",
@@ -232,7 +232,7 @@
         "architectureId": "pga",
         "label": "PGA™ — Prediction Governance Architecture",
         "canonicalUrl": "https://originopenfoundation.org/content/pga/pga-about.html",
-        "score": 33.22,
+        "score": 33.35,
         "matchedTerms": [
           "support",
           "assessment",
@@ -257,7 +257,7 @@
           "architectureId": "aga",
           "label": "AGA™ — Accountability Governance Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/a/aga-about.html",
-          "score": 22.8,
+          "score": 23.19,
           "matchedTerms": [
             "decision",
             "enforcement"
@@ -300,7 +300,7 @@
           "architectureId": "ora",
           "label": "ORA™ - Operational Reality Architecture",
           "canonicalUrl": "https://originopenfoundation.org/content/o/ora-about.html",
-          "score": 22.8,
+          "score": 23.19,
           "matchedTerms": [
             "decision",
             "enforcement"
@@ -359,6 +359,49 @@
           "confidence": 0.6,
           "uncertainty": "Automated retrieval; no authorized human review performed.",
           "relevantStandardsModules": []
+        },
+        {
+          "objectId": "OOF-KO-ARCH-VFM",
+          "architectureId": "vfm",
+          "label": "VFM® — Value Flow Mechanisms Architecture",
+          "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-about.html",
+          "score": 21.89,
+          "matchedTerms": [
+            "enforcement",
+            "persistent"
+          ],
+          "role": "Contributing",
+          "governedMechanism": "the reported system and activity",
+          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes VFM® — Value Flow Mechanisms Architecture relevant to examining Value State Standard (VSS) in this specific incident; relevance does not establish governance failure.",
+          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by VFM® — Value Flow Mechanisms Architecture.",
+          "governanceFocus": "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?",
+          "methodologyDepth": "ParentStandard",
+          "supportingEvidence": [
+            "aiid:154"
+          ],
+          "confidence": 0.59,
+          "uncertainty": "Automated retrieval; no authorized human review performed.",
+          "relevantStandardsModules": [
+            {
+              "objectId": "OOF-KO-STD-VFM-05",
+              "name": "Value State Standard (VSS)",
+              "artifactType": "ParentStandard",
+              "canonicalUrl": "https://originopenfoundation.org/content/vfm/vfm-vss.html",
+              "matchedTerms": [
+                "persistent",
+                "enforcement"
+              ],
+              "score": 6,
+              "governedSpace": "Value State",
+              "coreQuestion": "What is the current governed state of value?",
+              "parentObjectId": null,
+              "canonicalProvenance": {
+                "knowledgeBuildId": "OOF-KI-1.1-f4775c6f4a7a",
+                "contentHash": "73565bc910542863ef9e04d9b0a04b4fb450420de51ae1558afefc656c6ea45a",
+                "authorityState": "CANONICAL_AUTHORITATIVE"
+              }
+            }
+          ]
         }
       ]
     },
@@ -410,13 +453,13 @@
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. AGA™ — Accountability Governance Architecture, ORA™ - Operational Reality Architecture, CLIA® — Cognitive Governance Intelligence Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "PGA™ — Prediction Governance Architecture frames the primary governed problem. AGA™ — Accountability Governance Architecture, ORA™ - Operational Reality Architecture, CLIA® — Cognitive Governance Intelligence Architecture, VFM® — Value Flow Mechanisms Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
       "Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity?",
       "Which questions from AGA™ — Accountability Governance Architecture, if any, are relevant to the reported system and activity?",
       "Which questions from ORA™ - Operational Reality Architecture, if any, are relevant to the reported system and activity?",
       "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
-      "What operational authority and controls applied to United States Department Of Justice at the relevant time?"
+      "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?"
     ],
     "incidentGovernanceInsight": "The source-reported case Justice Department’s Recidivism Risk Algorithm PATTERN Allegedly Caused Persistent Disparities Along Racial Lines, involving Ai Enabled Decision Support Systems, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
@@ -465,7 +508,8 @@
       "contributingArchitectures": [
         "OOF-KO-ARCH-AGA",
         "OOF-KO-ARCH-ORA",
-        "OOF-KO-ARCH-CLIA"
+        "OOF-KO-ARCH-CLIA",
+        "OOF-KO-ARCH-VFM"
       ],
       "parentStandard": null,
       "coreModule": null,
@@ -475,7 +519,7 @@
         "Which questions from AGA™ — Accountability Governance Architecture, if any, are relevant to the reported system and activity?",
         "Which questions from ORA™ - Operational Reality Architecture, if any, are relevant to the reported system and activity?",
         "Which questions from CLIA® — Cognitive Governance Intelligence Architecture, if any, are relevant to the reported system and activity?",
-        "What operational authority and controls applied to United States Department Of Justice at the relevant time?"
+        "Which questions from VFM® — Value Flow Mechanisms Architecture, if any, are relevant to the reported system and activity?"
       ],
       "incidentGovernanceInsight": "The source-reported case Justice Department’s Recidivism Risk Algorithm PATTERN Allegedly Caused Persistent Disparities Along Racial Lines, involving Ai Enabled Decision Support Systems, raises a preliminary question for PGA™ — Prediction Governance Architecture: Which questions from PGA™ — Prediction Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
@@ -557,6 +601,22 @@
         "confidenceState": "Moderate",
         "status": "Indicated",
         "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
+      },
+      {
+        "type": "Governance Signal",
+        "finding": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
+        "statement": "Available evidence indicated relevance to VFM® — Value Flow Mechanisms Architecture for the reported the reported system and activity.",
+        "evidenceBasis": [
+          "aiid:154"
+        ],
+        "basis": [
+          "enforcement",
+          "persistent"
+        ],
+        "architectureReference": "OOF-KO-ARCH-VFM",
+        "confidenceState": "Moderate",
+        "status": "Indicated",
+        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
       }
     ],
     "evidenceGaps": [
@@ -574,9 +634,9 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-05T22:15:14Z",
-    "supersedes": "OOF-AII-ASMT-778902-V14",
-    "reassessmentReason": "Material analysis engine change",
+    "createdAt": "2026-11-07T13:05:15Z",
+    "supersedes": "OOF-AII-ASMT-778902-V16",
+    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
     "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",
