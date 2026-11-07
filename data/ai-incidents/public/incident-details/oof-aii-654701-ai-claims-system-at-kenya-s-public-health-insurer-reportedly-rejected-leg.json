@@ -29,12 +29,13 @@
     {
       "sourceId": "aiid:1771",
       "publisher": "AI Incident Database (Responsible AI Collaborative)",
-      "publicationDate": "2025-09-02",
+      "publicationDate": null,
       "sourceType": "Official weekly data export",
       "url": "https://incidentdatabase.ai/cite/1771",
       "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261026.xlsx",
-      "retrievedAt": "2026-10-26T00:00:00Z",
-      "verificationStatus": "Source Catalogued / OOF Not Assessed"
+      "retrievedAt": null,
+      "verificationStatus": "Source Catalogued / OOF Not Assessed",
+      "snapshotDate": "2026-10-26T00:00:00Z"
     }
   ],
   "architectureRelevance": {
@@ -53,10 +54,10 @@
   "createdAt": "2026-10-20T18:09:19Z",
   "updatedAt": "2026-10-20T18:09:19Z",
   "automatedAnalysis": {
-    "assessmentIdentity": "OOF-AII-ASMT-654701-V2",
+    "assessmentIdentity": "OOF-AII-ASMT-654701-V3",
     "incidentId": "OOF-AII-654701",
-    "analysisVersion": 2,
-    "engineVersion": "3.4.5",
+    "analysisVersion": 3,
+    "engineVersion": "3.4.6",
     "architectureRegistryVersion": "OOF-KI-1.1-f4775c6f4a7a",
     "knowledgeImpactFingerprint": "2c9e17c2c7e4d4820cc2a4fbfe4b1d6ab97ce1ac4525e26e2de9f24c33dc458b",
     "assessmentLabel": "Automated Preliminary Governance Assessment",
@@ -78,9 +79,10 @@
       },
       "methodologicalAssignment": {
         "level": "Limited",
-        "score": 0.43,
+        "score": 0.51,
         "matchedTerms": [
-          "claims"
+          "authority",
+          "detection"
         ],
         "disclosure": "Measures automated assignment support; substantive correctness requires authorized human review."
       }
@@ -115,8 +117,9 @@
           "authority": "Specialist database",
           "independenceKey": "ai incident database responsible ai collaborative",
           "directness": "Secondary catalogue",
-          "publicationTime": "2025-09-02",
-          "retrievalTime": "2026-10-26T00:00:00Z",
+          "publicationTime": null,
+          "retrievalTime": null,
+          "snapshotTime": "2026-10-26T00:00:00Z",
           "eventTime": "2025-09-02",
           "verificationState": "Source Catalogued / OOF Not Assessed"
         }
@@ -195,19 +198,20 @@
     "architectureAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "primaryArchitecture": {
-        "objectId": "OOF-KO-ARCH-EGA",
-        "architectureId": "ega",
-        "label": "EGA™ — Energy Governance Architecture",
-        "canonicalUrl": "https://originopenfoundation.org/content/ega/ega-governance-layer.html",
-        "score": 44.17,
+        "objectId": "OOF-KO-ARCH-GOA",
+        "architectureId": "goa",
+        "label": "GOA™ - Governance Architecture",
+        "canonicalUrl": "https://originopenfoundation.org/content/a/About%20Governance%20Architecture%20(GOA%E2%84%A2).html",
+        "score": 43.06,
         "matchedTerms": [
-          "claims"
+          "authority",
+          "detection"
         ],
         "role": "Primary",
         "governedMechanism": "the reported system and activity",
-        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes EGA™ — Energy Governance Architecture relevant to examining EGA™ — Energy Governance Architecture in this specific incident; relevance does not establish governance failure.",
-        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by EGA™ — Energy Governance Architecture.",
-        "governanceFocus": "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
+        "reasonForRelevance": "Available reporting describes the reported system and activity. This makes GOA™ - Governance Architecture relevant to examining GOA™ - Governance Architecture in this specific incident; relevance does not establish governance failure.",
+        "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by GOA™ - Governance Architecture.",
+        "governanceFocus": "Which questions from GOA™ - Governance Architecture, if any, are relevant to the reported system and activity?",
         "methodologyDepth": "Architecture",
         "supportingEvidence": [
           "aiid:1771"
@@ -217,29 +221,6 @@
         "relevantStandardsModules": []
       },
       "contributingArchitectures": [
-        {
-          "objectId": "OOF-KO-ARCH-GOA",
-          "architectureId": "goa",
-          "label": "GOA™ - Governance Architecture",
-          "canonicalUrl": "https://originopenfoundation.org/content/a/About%20Governance%20Architecture%20(GOA%E2%84%A2).html",
-          "score": 43.06,
-          "matchedTerms": [
-            "authority",
-            "detection"
-          ],
-          "role": "Contributing",
-          "governedMechanism": "the reported system and activity",
-          "reasonForRelevance": "Available reporting describes the reported system and activity. This makes GOA™ - Governance Architecture relevant to examining GOA™ - Governance Architecture in this specific incident; relevance does not establish governance failure.",
-          "whyItMattersHere": "The reported the reported system and activity concern falls within the governed questions represented by GOA™ - Governance Architecture.",
-          "governanceFocus": "Which questions from GOA™ - Governance Architecture, if any, are relevant to the reported system and activity?",
-          "methodologyDepth": "Architecture",
-          "supportingEvidence": [
-            "aiid:1771"
-          ],
-          "confidence": 0.65,
-          "uncertainty": "Automated retrieval; no authorized human review performed.",
-          "relevantStandardsModules": []
-        },
         {
           "objectId": "OOF-KO-ARCH-AIG",
           "architectureId": "aig",
@@ -300,15 +281,15 @@
       "limitation": "No verified OWASP, MITRE ATLAS, or AVID identifier is asserted for this record. External mappings are published only after exact identifier, version, URL, rationale, and supporting evidence are verified."
     },
     "primaryGovernanceProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-    "governanceRelationship": "EGA™ — Energy Governance Architecture frames the primary governed problem. GOA™ - Governance Architecture, AIG® - Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
+    "governanceRelationship": "GOA™ - Governance Architecture frames the primary governed problem. AIG® - Governance Architecture contribute distinct questions. These relationships do not make the governed domains equivalent.",
     "governanceQuestions": [
-      "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
       "Which questions from GOA™ - Governance Architecture, if any, are relevant to the reported system and activity?",
       "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
       "What operational authority and controls applied to Social Health Authority (Kenya), Healthcare Organizations, Governments, Government Of Kenya, Government Agencies at the relevant time?",
-      "What evidence would establish how Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems produced or enabled the reported outcome?"
+      "What evidence would establish how Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems produced or enabled the reported outcome?",
+      "What additional independent evidence is required to resolve the material evidence gaps?"
     ],
-    "incidentGovernanceInsight": "The source-reported case AI Claims System at Kenya's Public Health Insurer Reportedly Rejected Legitimate Hospital Claims as Fraudulent, involving Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+    "incidentGovernanceInsight": "The source-reported case AI Claims System at Kenya's Public Health Insurer Reportedly Rejected Legitimate Hospital Claims as Fraudulent, involving Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems, raises a preliminary question for GOA™ - Governance Architecture: Which questions from GOA™ - Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
     "preventionGuidance": {
       "status": "EVIDENCE_LIMITED",
       "couldThisHappenToYourSystem": {
@@ -337,40 +318,41 @@
     },
     "practicalChecklist": [],
     "governanceFailurePattern": {
-      "primaryArchitectureId": "ega",
+      "primaryArchitectureId": "goa",
       "mechanisms": [
-        "claims"
+        "authority",
+        "detection"
       ],
-      "patternKey": "681205215effaf55"
+      "patternKey": "5a94480a323e99e9"
     },
     "methodologicalReasoningChain": {
       "incidentEvidence": [
         "aiid:1771"
       ],
       "governedProblem": "The incident appears to expose a governance problem involving the reported system and activity. Available reporting supports preliminary methodological interpretation, not a finding of fault or non-compliance.",
-      "governedSpace": "EGA™ — Energy Governance Architecture",
-      "primaryArchitecture": "OOF-KO-ARCH-EGA",
+      "governedSpace": "GOA™ - Governance Architecture",
+      "primaryArchitecture": "OOF-KO-ARCH-GOA",
       "contributingArchitectures": [
-        "OOF-KO-ARCH-GOA",
         "OOF-KO-ARCH-AIG"
       ],
       "parentStandard": null,
       "coreModule": null,
       "governedMechanism": "the reported system and activity",
       "governanceQuestions": [
-        "Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity?",
         "Which questions from GOA™ - Governance Architecture, if any, are relevant to the reported system and activity?",
         "Which questions from AIG® - Governance Architecture, if any, are relevant to the reported system and activity?",
         "What operational authority and controls applied to Social Health Authority (Kenya), Healthcare Organizations, Governments, Government Of Kenya, Government Agencies at the relevant time?",
-        "What evidence would establish how Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems produced or enabled the reported outcome?"
+        "What evidence would establish how Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems produced or enabled the reported outcome?",
+        "What additional independent evidence is required to resolve the material evidence gaps?"
       ],
-      "incidentGovernanceInsight": "The source-reported case AI Claims System at Kenya's Public Health Insurer Reportedly Rejected Legitimate Hospital Claims as Fraudulent, involving Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems, raises a preliminary question for EGA™ — Energy Governance Architecture: Which questions from EGA™ — Energy Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
+      "incidentGovernanceInsight": "The source-reported case AI Claims System at Kenya's Public Health Insurer Reportedly Rejected Legitimate Hospital Claims as Fraudulent, involving Social Health Authority (Kenya) Ai Claims Adjudication System, Healthcare Administrative Ai Systems, Fraud Detection Systems, Enterprise Ai Systems, raises a preliminary question for GOA™ - Governance Architecture: Which questions from GOA™ - Governance Architecture, if any, are relevant to the reported system and activity? This automated interpretation does not establish fault, control failure, or legal responsibility.",
       "deepestJustifiedLevel": "Architecture"
     },
     "layerAnalysis": {
       "status": "AUTOMATED_ANALYSIS",
       "governedMechanisms": [
-        "claims"
+        "authority",
+        "detection"
       ],
       "observedFactBoundary": "Source facts remain in the immutable incident record; this object contains generated interpretation only."
     },
@@ -379,21 +361,6 @@
       "rationale": "Architecture relevance alone is insufficient to determine coverage or a governance gap."
     },
     "governanceFindings": [
-      {
-        "type": "Governance Signal",
-        "finding": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
-        "statement": "Available evidence indicated relevance to EGA™ — Energy Governance Architecture for the reported the reported system and activity.",
-        "evidenceBasis": [
-          "aiid:1771"
-        ],
-        "basis": [
-          "claims"
-        ],
-        "architectureReference": "OOF-KO-ARCH-EGA",
-        "confidenceState": "Moderate",
-        "status": "Indicated",
-        "limitation": "Architecture relevance does not establish architecture failure, legal fault, liability, or regulatory non-compliance."
-      },
       {
         "type": "Governance Signal",
         "finding": "Available evidence indicated relevance to GOA™ - Governance Architecture for the reported the reported system and activity.",
@@ -446,9 +413,9 @@
       "reviewedAt": null
     },
     "oofApproved": false,
-    "createdAt": "2026-11-04T09:25:07Z",
-    "supersedes": "OOF-AII-ASMT-654701-V1",
-    "reassessmentReason": "New or changed OOF knowledge may affect this incident",
+    "createdAt": "2026-11-05T22:15:14Z",
+    "supersedes": "OOF-AII-ASMT-654701-V2",
+    "reassessmentReason": "Material analysis engine change",
     "qualityGateVersion": "OOF-AII-QG-3.4.5.5",
     "qualityOutcomes": {
       "structuralIntegrity": "PASS",

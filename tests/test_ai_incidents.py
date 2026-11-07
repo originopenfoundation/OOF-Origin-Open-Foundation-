@@ -41,6 +41,61 @@ def record(source_id="source-1", title="Test incident"):
 
 
 class IncidentDomainTests(unittest.TestCase):
+    def test_aiid_dates_do_not_invent_publication_or_retrieval(self):
+        adapter = incidents.AIIDWeeklyExcelAdapter()
+        item = adapter.normalize({'Incident ID': 999, 'title': 'Test incident', 'date': '2026-10-30', '_snapshotUrl': 'https://example.test/AIID_Excel_Export-20261102.xlsx'})
+        source = item['sources'][0]
+        self.assertEqual(item['occurredAt'], '2026-10-30')
+        self.assertIsNone(item['reportedAt'])
+        self.assertIsNone(source['publicationDate'])
+        self.assertEqual(source['snapshotDate'], '2026-11-02T00:00:00Z')
+        self.assertNotEqual(source['retrievedAt'], source['snapshotDate'])
+        legacy = {**source, 'publicationDate': '2026-10-30', 'retrievedAt': '2026-11-02T00:00:00Z'}
+        legacy.pop('snapshotDate')
+        cleaned = incidents.public_source(legacy)
+        self.assertIsNone(cleaned['publicationDate'])
+        self.assertIsNone(cleaned['retrievedAt'])
+        self.assertEqual(cleaned['snapshotDate'], '2026-11-02T00:00:00Z')
+        self.assertEqual(legacy['publicationDate'], '2026-10-30')
+        manual = {'sourceId': 'manual:1', 'publicationDate': '2026-10-31'}
+        self.assertEqual(incidents.public_source(manual)['publicationDate'], '2026-10-31')
+        item['sources'] = [legacy]
+        snapshot = engine.evidence_snapshot(item)['sources'][0]
+        self.assertIsNone(snapshot['publicationTime'])
+        self.assertIsNone(snapshot['retrievalTime'])
+        self.assertEqual(snapshot['snapshotTime'], '2026-11-02T00:00:00Z')
+
+    def test_aiid_legacy_date_correction_does_not_enqueue_every_record(self):
+        item = record()
+        item['sources'] = [{'sourceId': 'aiid:1', 'sourceType': 'Official weekly data export', 'publicationDate': '2026-10-30'}]
+        updated = {**item, 'sources': [{**item['sources'][0], 'publicationDate': None}]}
+        self.assertEqual(incidents.source_record_fingerprint(item), incidents.source_record_fingerprint(updated))
+
+    def test_pending_analysis_is_not_published_as_available(self):
+        item = record()
+        item['automatedAnalysis'] = {'analysisStatus': 'GOVERNANCE_ANALYSIS_PENDING'}
+        self.assertFalse(incidents._list_projection(item)['assessment']['available'])
+        item['automatedAnalysis']['analysisStatus'] = 'AUTOMATED_ANALYSIS_AVAILABLE'
+        self.assertTrue(incidents._list_projection(item)['assessment']['available'])
+
+    def test_public_search_includes_incident_id(self):
+        item = record()
+        self.assertIn(item['id'].casefold(), incidents._list_projection(item)['searchText'])
+
+    def test_ega_requires_supported_physical_energy_context(self):
+        for text in ('AI-altered gun photograph used to threaten a former partner',
+                     'AI coding assistant uploaded developer repositories without consent',
+                     'No evidence of an electricity grid incident'):
+            self.assertFalse(engine.has_physical_energy_context({'title': text}))
+        self.assertTrue(engine.has_physical_energy_context({'title': 'AI outage disrupted an electricity grid'}))
+        layer = engine.KnowledgeLayer.__new__(engine.KnowledgeLayer)
+        layer.architectures = {'ega-id': {'acronym': 'EGA', 'canonicalName': 'Energy Governance Architecture'},
+                               'pga-id': {'acronym': 'PGA', 'canonicalName': 'Prediction Governance Architecture'}}
+        layer.corpora = {'ega-id': {'incident': 1, 'photograph': 1}, 'pga-id': {'photograph': 1}}
+        layer.document_frequency = {'incident': 1, 'photograph': 2}
+        ranked = layer.rank({'title': 'AI-altered gun photograph used to threaten a former partner'})
+        self.assertNotIn('ega', [item['architectureId'] for item in ranked])
+
     def test_release_manifest_rejects_modified_artifact(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -226,7 +281,8 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertEqual(enriched["architectureRelevance"]["status"], "ARCHITECTURE_IDENTIFIED")
         self.assertEqual(enriched["architectureRelevance"]["primaryArchitectureId"], "aig")
         self.assertEqual(normalized["sources"][0]["url"], "https://incidentdatabase.ai/cite/1702")
-        self.assertEqual(normalized["sources"][0]["retrievedAt"], "2026-09-21T00:00:00Z")
+        self.assertEqual(normalized["sources"][0]["snapshotDate"], "2026-09-21T00:00:00Z")
+        self.assertNotEqual(normalized["sources"][0]["retrievedAt"], normalized["sources"][0]["snapshotDate"])
 
     def test_country_and_architecture_are_inferred_from_incident_context(self):
         item = record(title="License plate reader misread a plate in New Mexico")
@@ -535,7 +591,7 @@ class IncidentDomainTests(unittest.TestCase):
             "https://example.test/AIID_Excel_Export-20261026.xlsx", "2026-10-27T00:00:00Z"
         )
         stale = incidents._source_snapshot_freshness(
-            "https://example.test/AIID_Excel_Export-20261020.xlsx", "2026-10-27T00:00:00Z"
+            "https://example.test/AIID_Excel_Export-20261018.xlsx", "2026-10-27T00:00:00Z"
         )
         self.assertEqual(current["status"], "CURRENT")
         self.assertEqual(stale["status"], "STALE")

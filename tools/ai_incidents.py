@@ -44,7 +44,26 @@ ALLOWED_EVENT_TYPES = {"Incident", "Hazard", "Near Miss", "Emerging Risk"}
 ALLOWED_EVIDENCE = {"Verified", "High Confidence", "Moderate Confidence", "Unverified"}
 ALLOWED_SEVERITY = {"Low", "Moderate", "High", "Critical", "Unclassified"}
 DAILY_PROCESSING_LIMIT = 10
-SOURCE_FRESHNESS_SLO_HOURS = 36
+SOURCE_FRESHNESS_SLO_HOURS = 192
+
+
+def source_publication_date(source: dict):
+    # Earlier AIID imports copied the occurrence date into this field. The
+    # weekly incident export does not establish publication of a source report.
+    if str(source.get("sourceId") or "").startswith("aiid:") and source.get("sourceType") == "Official weekly data export":
+        return None
+    return source.get("publicationDate")
+
+
+def public_source(source: dict) -> dict:
+    cleaned = {**source, "publicationDate": source_publication_date(source)}
+    if str(source.get("sourceId") or "").startswith("aiid:") and source.get("sourceType") == "Official weekly data export":
+        match = re.search(r"AIID_Excel_Export-(\d{4})(\d{2})(\d{2})", str(source.get("datasetUrl") or ""))
+        snapshot = "-".join(match.groups()) + "T00:00:00Z" if match else None
+        cleaned["snapshotDate"] = source.get("snapshotDate") or snapshot
+        if snapshot and source.get("retrievedAt") == snapshot and not source.get("snapshotDate"):
+            cleaned["retrievedAt"] = None
+    return cleaned
 
 COUNTRY_ALIASES = {
     "u s": "US", "u s a": "US", "united states": "US", "united states of america": "US",
@@ -117,7 +136,7 @@ def source_record_fingerprint(record: dict) -> str:
             "sourceId": source.get("sourceId"),
             "url": source.get("url"),
             "publisher": source.get("publisher"),
-            "publicationDate": source.get("publicationDate"),
+            "publicationDate": source_publication_date(source),
             "sourceType": source.get("sourceType"),
         })
     projection = {
@@ -479,12 +498,13 @@ class AIIDWeeklyExcelAdapter(SourceAdapter):
         occurred = record.get("date")
         modified = record.get("Date Modified")
         occurred_at = occurred.date().isoformat() if hasattr(occurred, "date") else str(occurred or "")[:10] or None
-        updated_at = modified.isoformat() + "Z" if hasattr(modified, "isoformat") else occurred_at + "T00:00:00Z" if occurred_at else now_iso()
+        updated_at = modified.isoformat() + "Z" if hasattr(modified, "isoformat") else None
         country_code = _normalize_country_code(record.get("Country Code"))
         country_names = _country_names()
         source_url = AIID_INCIDENT_URL.format(incident_id=incident_number)
         snapshot_match = re.search(r"AIID_Excel_Export-(\d{4})(\d{2})(\d{2})", str(record.get("_snapshotUrl") or ""))
-        retrieved_at = "-".join(snapshot_match.groups()) + "T00:00:00Z" if snapshot_match else now_iso()
+        snapshot_at = "-".join(snapshot_match.groups()) + "T00:00:00Z" if snapshot_match else None
+        retrieved_at = now_iso()
         description = str(record.get("description") or "").strip()
         risk_domain = str(record.get("Risk Domain") or "").strip()
         harm_domain = str(record.get("Harm Domain") or "").strip()
@@ -515,10 +535,11 @@ class AIIDWeeklyExcelAdapter(SourceAdapter):
             "sources": [{
                 "sourceId": source_id,
                 "publisher": "AI Incident Database (Responsible AI Collaborative)",
-                "publicationDate": occurred_at,
+                "publicationDate": None,
                 "sourceType": "Official weekly data export",
                 "url": source_url,
                 "datasetUrl": record.get("_snapshotUrl"),
+                "snapshotDate": snapshot_at,
                 "retrievedAt": retrieved_at,
                 "verificationStatus": "Source Catalogued / OOF Not Assessed",
             }],
@@ -533,8 +554,8 @@ class AIIDWeeklyExcelAdapter(SourceAdapter):
                 "rationale": None,
             },
             "assessment": None,
-            "createdAt": updated_at,
-            "updatedAt": updated_at,
+            "createdAt": updated_at or retrieved_at,
+            "updatedAt": updated_at or retrieved_at,
         }
         validate_incident(normalized)
         return normalized
@@ -732,6 +753,7 @@ def public_records(records: list[dict]) -> list[dict]:
             record = dict(record)
             record["architectureRelevance"] = architecture
         record = dict(record)
+        record["sources"] = [public_source(source) for source in record.get("sources") or []]
         if record["id"] in analyses:
             record["automatedAnalysis"] = public_automated_analysis(analyses[record["id"]])
         result.append(record)
@@ -820,7 +842,7 @@ def _list_projection(record: dict) -> dict:
         "source": {
             "publisher": source.get("publisher"),
             "url": source.get("url"),
-            "publicationDate": source.get("publicationDate"),
+            "publicationDate": source_publication_date(source),
         },
         "primaryArchitecture": _architecture_projection(primary),
         "contributingArchitectures": [
@@ -828,7 +850,7 @@ def _list_projection(record: dict) -> dict:
         ],
         "architectureCount": len(architectures),
         "assessment": {
-            "available": bool(analysis),
+            "available": analysis.get("analysisStatus") == "AUTOMATED_ANALYSIS_AVAILABLE",
             "label": analysis.get("assessmentLabel"),
             "confidence": analysis.get("assessmentConfidence"),
             "analysisVersion": analysis.get("analysisVersion"),
@@ -858,7 +880,7 @@ def _list_projection(record: dict) -> dict:
         },
         "preventionFocus": prevention.get("recommendedPreventiveControl"),
         "searchText": " ".join(str(value or "") for value in (
-            record.get("title"), record.get("summary"), record.get("country"),
+            record.get("id"), record.get("title"), record.get("summary"), record.get("country"),
             _normalized_public_field(record, "system"), (primary or {}).get("label"),
             *(item.get("label") for item in architecture_analysis.get("contributingArchitectures", [])),
         )).casefold(),
@@ -893,6 +915,7 @@ def _source_snapshot_freshness(snapshot_url: str | None, generated: str) -> dict
     age_hours = int((generated_at - snapshot_date).total_seconds() // 3600) if snapshot_date else None
     return {
         "sloHours": SOURCE_FRESHNESS_SLO_HOURS,
+        "expectedCadence": "weekly",
         "snapshotDate": snapshot_date.isoformat().replace("+00:00", "Z") if snapshot_date else None,
         "snapshotAgeHours": age_hours,
         "status": "STALE" if age_hours is not None and age_hours > SOURCE_FRESHNESS_SLO_HOURS else "CURRENT" if age_hours is not None else "UNKNOWN",
