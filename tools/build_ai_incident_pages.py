@@ -394,7 +394,7 @@ def build(check: bool = False) -> None:
         target = ROOT / "ai-incidents" / route / "index.html"
         emit(target, page)
     payload = json.loads((ROOT / "data" / "ai-incidents" / "incident-store.json").read_text(encoding="utf-8"))
-    analyses = json.loads((ROOT / "data" / "ai-incidents" / "analysis-store.json").read_text(encoding="utf-8"))
+    analyses = ai_incidents.read_assessments(ROOT / "data" / "ai-incidents" / "analysis-store.json")
     public_records = ai_incidents.public_records(payload.get("incidents", []))
     detail_count = 0
     for record in public_records:

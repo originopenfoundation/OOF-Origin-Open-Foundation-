@@ -9,6 +9,11 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
+try:
+    from tools.incident_analysis_storage import read_assessments
+except ModuleNotFoundError:
+    from incident_analysis_storage import read_assessments
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "ai-incidents"
@@ -25,7 +30,7 @@ def read(path: Path, fallback):
 def run() -> dict:
     index = read(PUBLIC / "incident-index.json", {"items": []})
     summary = read(PUBLIC / "summary.json", {})
-    store = read(DATA / "analysis-store.json", {"assessments": []})
+    store = read_assessments(DATA / "analysis-store.json", {"assessments": []})
     latest = {}
     historical_noise = 0
     for assessment in store.get("assessments", []):

@@ -27,6 +27,11 @@ from typing import Iterable
 
 from openpyxl import load_workbook
 
+try:
+    from tools.incident_analysis_storage import read_assessments
+except ModuleNotFoundError:
+    from incident_analysis_storage import read_assessments
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "data" / "ai-incidents"
@@ -44,6 +49,7 @@ ALLOWED_EVENT_TYPES = {"Incident", "Hazard", "Near Miss", "Emerging Risk"}
 ALLOWED_EVIDENCE = {"Verified", "High Confidence", "Moderate Confidence", "Unverified"}
 ALLOWED_SEVERITY = {"Low", "Moderate", "High", "Critical", "Unclassified"}
 DAILY_PROCESSING_LIMIT = 10
+DAILY_SOURCE_UPDATE_LIMIT = 10
 SOURCE_FRESHNESS_SLO_HOURS = 192
 
 
@@ -186,12 +192,18 @@ def queue_candidates(candidates: Iterable[dict], existing: Iterable[dict], path:
     }
 
 
-def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH) -> dict:
+def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH,
+                            update_limit: int = DAILY_SOURCE_UPDATE_LIMIT) -> dict:
     payload = read_json(path, {"schemaVersion": "1.0", "candidates": []})
     candidates = payload.get("candidates", [])
-    selected = candidates[:limit]
+    # New incidents and source updates have independent bounded workloads.
+    # Preserve FIFO order within each group and retain unknown kinds for review.
+    selected_new = [item for item in candidates if item.get("candidateKind") == "new"][:max(0, limit)]
+    selected_updates = [item for item in candidates if item.get("candidateKind") == "source-change"][:max(0, update_limit)]
+    selected = selected_new + selected_updates
     created, updated = repository.upsert_sources(item["record"] for item in selected) if selected else (0, 0)
-    remaining = candidates[len(selected):]
+    selected_ids = {id(item) for item in selected}
+    remaining = [item for item in candidates if id(item) not in selected_ids]
     write_json(path, {"schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": remaining})
     return {
         "processed": len(selected), "created": created, "updated": updated, "remaining": len(remaining),
@@ -689,7 +701,7 @@ def canonical_architecture_assignment(architecture: dict | None) -> dict | None:
 
 
 def latest_automated_analyses() -> dict[str, dict]:
-    payload = read_json(ANALYSIS_STORE_PATH, {"assessments": []})
+    payload = read_assessments(ANALYSIS_STORE_PATH, {"assessments": []})
     latest = {}
     for assessment in payload.get("assessments", []):
         incident_id = assessment.get("incidentId")

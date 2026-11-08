@@ -514,6 +514,34 @@ class IncidentDomainTests(unittest.TestCase):
             self.assertEqual(processed["remaining"], 2)
             self.assertEqual(len(repository.list()), 10)
 
+    def test_candidate_queue_limits_new_and_updates_independently(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            queue_path = temporary / "queue.json"
+            repository = incidents.FileIncidentRepository(temporary / "store.json")
+            originals = [record(f"existing-{index}", f"Existing {index}") for index in range(3)]
+            repository.upsert_sources(originals)
+            changes = [dict(item, summary="Changed source evidence") for item in originals]
+            new = [record(f"new-{index}", f"New {index}") for index in range(3)]
+            incidents.queue_candidates(changes + new, repository.list(), queue_path)
+            result = incidents.process_candidate_queue(repository, limit=2, update_limit=1, path=queue_path)
+            self.assertEqual((result["processedNew"], result["processedSourceChanges"]), (2, 1))
+            self.assertEqual((result["created"], result["updated"], result["remaining"]), (2, 1, 3))
+            remaining = incidents.read_json(queue_path, {})["candidates"]
+            self.assertEqual(sum(item["candidateKind"] == "new" for item in remaining), 1)
+
+    def test_candidate_queue_remains_available_after_processing_failure(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            queue_path = Path(temporary) / "queue.json"
+            incidents.queue_candidates([record("retry", "Retry")], [], queue_path)
+            before = queue_path.read_bytes()
+            class BrokenRepository:
+                def upsert_sources(self, items):
+                    raise RuntimeError("interrupted")
+            with self.assertRaises(RuntimeError):
+                incidents.process_candidate_queue(BrokenRepository(), path=queue_path)
+            self.assertEqual(queue_path.read_bytes(), before)
+
     def test_country_geometry_codes_cover_france_without_duplicate_primary_codes(self):
         geojson = json.loads((ROOT / "assets" / "data" / "ne_50m_admin_0_countries.geojson").read_text(encoding="utf-8"))
         resolved = []

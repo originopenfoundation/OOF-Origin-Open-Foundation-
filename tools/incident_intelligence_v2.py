@@ -19,6 +19,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
+try:
+    from tools.incident_analysis_storage import read_assessments, write_assessments
+    from tools.incident_relevance import classify_relevance
+except ModuleNotFoundError:
+    from incident_analysis_storage import read_assessments, write_assessments
+    from incident_relevance import classify_relevance
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "data" / "ai-incidents"
@@ -1173,7 +1180,7 @@ def build(
 ) -> dict:
     records = read_json(store_path, {"incidents": []}).get("incidents", [])
     knowledge = KnowledgeLayer(knowledge_root)
-    existing = read_json(analysis_path, {"assessments": []})
+    existing = read_assessments(analysis_path, {"assessments": []})
     assessments = existing.get("assessments", [])
     by_incident = defaultdict(list)
     for assessment in assessments:
@@ -1224,7 +1231,15 @@ def build(
         },
         "assessments": assessments,
     }
-    write_json(analysis_path, payload)
+    if "relevanceByIncident" in existing:
+        old_relevance = existing["relevanceByIncident"]
+        payload["relevanceByIncident"] = {
+            record["id"]: old_relevance[record["id"]]
+            if old_relevance.get(record["id"], {}).get("basis") == "RECORDED_REVIEW"
+            else classify_relevance(record)
+            for record in records
+        }
+    write_assessments(analysis_path, payload)
     write_json(snapshot_path, {
         "schemaVersion": "1.0",
         "engineVersion": ENGINE_VERSION,
@@ -1251,7 +1266,7 @@ def build(
 
 
 def latest_assessments(path: Path = ANALYSIS_PATH) -> dict[str, dict]:
-    payload = read_json(path, {"assessments": []})
+    payload = read_assessments(path, {"assessments": []})
     latest = {}
     for assessment in payload.get("assessments", []):
         current = latest.get(assessment["incidentId"])
@@ -1318,7 +1333,7 @@ def archived_reference_review(reference: dict, architecture_id: str, knowledge: 
 
 def validate(path: Path = ANALYSIS_PATH, store_path: Path = STORE_PATH,
              historical_reviews: list | None = None) -> list[str]:
-    payload = read_json(path, {})
+    payload = read_assessments(path, {})
     errors = []
     records = read_json(store_path, {"incidents": []}).get("incidents", [])
     incident_ids = {record["id"] for record in records}
