@@ -323,6 +323,9 @@ def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, pat
         "processed": len(selected), "created": created, "updated": updated, "remaining": len(remaining),
         "processedNew": sum(item.get("candidateKind") == "new" for item in selected),
         "processedSourceChanges": sum(item.get("candidateKind") == "source-change" for item in selected),
+        "remainingNew": sum(item.get("candidateKind") == "new" for item in remaining),
+        "remainingSourceChanges": sum(item.get("candidateKind") == "source-change" for item in remaining),
+        "remainingSourceReview": sum(item.get("candidateKind") == "source-review" for item in remaining),
         "prioritySource": ordered_sources[0] if selected_new else None,
     }
 
@@ -1463,7 +1466,8 @@ def sync() -> dict:
         "recordsRetrieved": 0, "recordsQueued": 0, "newCandidates": 0, "changedCandidates": 0,
         "recordsProcessed": 0, "processedNew": 0, "processedSourceChanges": 0,
         "recordsCreated": 0, "recordsUpdated": 0, "duplicatesDetected": 0,
-        "queueRemaining": 0, "sourceErrors": [], "sourceWarnings": [], "baselineIncidentCount": baseline_count,
+        "queueRemaining": 0, "queueRemainingNew": 0, "queueRemainingSourceChanges": 0,
+        "queueRemainingSourceReview": 0, "sourceErrors": [], "sourceWarnings": [], "baselineIncidentCount": baseline_count,
     }
     for adapter in adapters:
         attempted = now_iso()
@@ -1498,6 +1502,9 @@ def sync() -> dict:
     totals["recordsCreated"] = queue_result["created"]
     totals["recordsUpdated"] = queue_result["updated"]
     totals["queueRemaining"] = queue_result["remaining"]
+    totals["queueRemainingNew"] = queue_result["remainingNew"]
+    totals["queueRemainingSourceChanges"] = queue_result["remainingSourceChanges"]
+    totals["queueRemainingSourceReview"] = queue_result["remainingSourceReview"]
     totals["processedNew"] = queue_result["processedNew"]
     totals["processedSourceChanges"] = queue_result["processedSourceChanges"]
     totals["afterIncidentCount"] = len(repository.list())

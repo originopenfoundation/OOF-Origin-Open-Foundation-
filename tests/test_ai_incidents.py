@@ -609,6 +609,8 @@ class IncidentDomainTests(unittest.TestCase):
             result = incidents.process_candidate_queue(repository, path=path)
             self.assertEqual(result['created'], 0)
             self.assertEqual(result['remaining'], 1)
+            self.assertEqual(result['remainingSourceReview'], 1)
+            self.assertEqual(result['remainingNew'], 0)
             self.assertEqual(incidents.read_json(path, {})['candidates'][0]['candidateKind'], 'source-review')
             incidents.review_source_candidate('oecd:2026-11-10-1fad', 'accept', 'reviewer', 'Reviewed source and possible duplicates', [], path)
             incidents.queue_candidates([item], [], path)
