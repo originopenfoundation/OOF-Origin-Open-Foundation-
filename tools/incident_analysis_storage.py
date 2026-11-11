@@ -107,6 +107,8 @@ def write_assessments(legacy_path, payload, warning_mib=None):
     active_bytes = (json.dumps(active, ensure_ascii=False, separators=(',', ':')) + '\n').encode('utf-8')
     if max(len(active_bytes), len(archive_bytes)) >= warning_mib * 1024 * 1024:
         raise ValueError('incident analysis file reaches size warning threshold; no data written')
+    if active_path.read_bytes() == active_bytes and archive_path.read_bytes() == archive_bytes:
+        return
     recovery = legacy_path.parent / RECOVERY_NAME
     recovery.mkdir()
     old_active, old_archive = recovery / 'active.old', recovery / 'archive.old'

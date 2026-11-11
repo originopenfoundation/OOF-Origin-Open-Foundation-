@@ -284,6 +284,27 @@ class IncidentDomainTests(unittest.TestCase):
         self.assertEqual(normalized["sources"][0]["snapshotDate"], "2026-09-21T00:00:00Z")
         self.assertNotEqual(normalized["sources"][0]["retrievedAt"], normalized["sources"][0]["snapshotDate"])
 
+    def test_aiid_historical_cursor_progresses_without_repeating_old_batch(self):
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.title = 'Incidents'
+        sheet.append(['AI Incident Database export'])
+        sheet.append(['INCIDENT IDENTITY'])
+        sheet.append(['Incident ID', 'date', 'title', 'Country Code'])
+        for number in range(1, 126):
+            sheet.append([number, datetime(2020, 1, 1), f'Incident {number}', None])
+        output = io.BytesIO()
+        workbook.save(output)
+        first = incidents.AIIDWeeklyExcelAdapter(workbook_bytes=output.getvalue(), snapshot_url='https://example.test/snapshot.xlsx')
+        first_rows = first.fetch_new_records(None)
+        self.assertEqual(first.history_cursor, 16)
+        self.assertEqual(len(first_rows), 110)
+        second = incidents.AIIDWeeklyExcelAdapter(workbook_bytes=output.getvalue(), snapshot_url='https://example.test/snapshot.xlsx', history_cursor=first.history_cursor)
+        second_rows = second.fetch_new_records(None)
+        self.assertEqual(second.history_cursor, 6)
+        self.assertTrue({row['Incident ID'] for row in first_rows if row['Incident ID'] < 26}.isdisjoint(
+            {row['Incident ID'] for row in second_rows if row['Incident ID'] < 26}))
+
     def test_country_and_architecture_are_inferred_from_incident_context(self):
         item = record(title="License plate reader misread a plate in New Mexico")
         item["summary"] = "The automated system produced an incorrect match."
@@ -558,6 +579,84 @@ class IncidentDomainTests(unittest.TestCase):
             self.assertEqual(first['created'], 10)
             self.assertEqual(second['created'], 0)
             self.assertEqual(second['remaining'], 2)
+
+    def test_identifier_collision_cannot_overwrite_an_unrelated_incident(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = incidents.FileIncidentRepository(Path(temporary) / 'store.json')
+            original = record('original-source', 'Original incident')
+            other = record('different-source', 'Unrelated incident')
+            other['id'] = original['id']
+            repository.upsert_sources([original])
+            with self.assertRaisesRegex(ValueError, 'identifier collision'):
+                repository.upsert_sources([other])
+            self.assertEqual(repository.list()[0]['title'], original['title'])
+
+    def test_oecd_candidates_are_attributed_and_held_for_review(self):
+        page = '''<h3 class="title"><a href="/en/incidents/2026-11-10-1fad">Reported case</a></h3>
+        <div class="incident-summary"><p><span>Source-generated summary.</span><span>[AI generated]</span></p></div>'''
+        adapter = incidents.OECDIncidentAdapter(page=page)
+        raw = adapter.fetch_new_records(None)
+        item = adapter.normalize(raw[0])
+        self.assertEqual(item['sources'][0]['sourceId'], 'oecd:2026-11-10-1fad')
+        self.assertEqual(item['sources'][0]['sourceType'], 'OECD AI-generated summary')
+        self.assertIsNone(item['occurredAt'])
+        self.assertTrue(item['sourceReviewRequired'])
+        self.assertNotIn('[AI generated]', item['summary'])
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'queue.json'
+            repository = incidents.FileIncidentRepository(Path(temporary) / 'store.json')
+            incidents.queue_candidates([item], [], path)
+            result = incidents.process_candidate_queue(repository, path=path)
+            self.assertEqual(result['created'], 0)
+            self.assertEqual(result['remaining'], 1)
+            self.assertEqual(incidents.read_json(path, {})['candidates'][0]['candidateKind'], 'source-review')
+            incidents.review_source_candidate('oecd:2026-11-10-1fad', 'accept', 'reviewer', 'Reviewed source and possible duplicates', [], path)
+            incidents.queue_candidates([item], [], path)
+            queued = incidents.read_json(path, {})
+            self.assertEqual(len(queued['candidates']), 1)
+            self.assertEqual(queued['candidates'][0]['candidateKind'], 'new')
+            self.assertFalse(queued['sourceReviewHistory'][0]['oofApproval'])
+            self.assertEqual(incidents.process_candidate_queue(repository, path=path)['created'], 1)
+            self.assertEqual(repository.list()[0]['publicationStatus'], 'Monitored')
+            self.assertEqual(repository.list()[0]['verificationState'], 'Source Catalogued / OOF Not Assessed')
+            self.assertEqual(len(incidents.public_records(repository.list())), 1)
+            incidents.queue_candidates([item], repository.list(), path)
+            self.assertEqual(len(incidents.read_json(path, {})['candidates']), 0)
+
+    def test_oecd_review_rejects_identifier_collision(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'queue.json'
+            existing = record('existing', 'Existing incident')
+            other = record('oecd:case', 'Unrelated external incident')
+            other['id'] = existing['id']
+            other['sourceReviewRequired'] = True
+            incidents.queue_candidates([other], [existing], path)
+            with self.assertRaisesRegex(ValueError, 'collides'):
+                incidents.review_source_candidate('oecd:case', 'accept', 'reviewer', 'Checked', [existing], path)
+
+    def test_changed_reviewed_source_returns_to_review_before_publication(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'queue.json'
+            item = record('oecd:case', 'External incident')
+            item['sourceReviewRequired'] = True
+            incidents.queue_candidates([item], [], path)
+            incidents.review_source_candidate('oecd:case', 'accept', 'reviewer', 'Checked', [], path)
+            updated = dict(item, summary='Materially changed source evidence')
+            incidents.queue_candidates([updated], [], path)
+            queued = incidents.read_json(path, {})['candidates']
+            self.assertEqual(len(queued), 1)
+            self.assertEqual(queued[0]['candidateKind'], 'source-review')
+
+    def test_queue_atomic_write_preserves_prior_data_on_replace_failure(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'queue.json'
+            incidents.write_atomic_json(path, {'candidates': [{'incidentId': 'existing'}]})
+            before = path.read_bytes()
+            with mock.patch.object(incidents.os, 'replace', side_effect=OSError('interrupted')):
+                with self.assertRaises(OSError):
+                    incidents.write_atomic_json(path, {'candidates': []})
+            self.assertEqual(path.read_bytes(), before)
+            self.assertEqual(list(Path(temporary).glob('.incident-write-*.tmp')), [])
 
     def test_new_incident_sources_rotate_and_cursor_survives_refresh(self):
         with tempfile.TemporaryDirectory() as temporary:

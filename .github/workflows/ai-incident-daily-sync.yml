@@ -41,7 +41,7 @@ jobs:
           python tools/ai_incidents.py export
           python tools/ai_incidents.py validate
           python tools/run_incident_ci_audits.py incident
-          python -m unittest tests.test_ai_incidents
+          python -m unittest tests.test_ai_incidents tests.test_incident_storage_capacity tests.test_incident_relevance tests.test_incident_recognition_reference
       - name: Rebuild public incident pages and discovery metadata
         run: |
           python tools/build_localization.py

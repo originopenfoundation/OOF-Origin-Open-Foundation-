@@ -2,6 +2,7 @@ import json
 import shutil
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 from tools.audit_incident_storage_capacity import inventory
@@ -78,6 +79,8 @@ class StorageInventoryTests(unittest.TestCase):
             write_assessments(legacy, combined)
             self.assertEqual(json.loads((out / 'active-intelligence.json').read_text())['assessments'][0]['assessmentIdentity'], 'a3')
             self.assertEqual(len(read_assessments(legacy)['relevanceHistory']), 2)
+            with mock.patch('tools.incident_analysis_storage.os.replace', side_effect=AssertionError('unchanged pair rewritten')):
+                write_assessments(legacy, read_assessments(legacy))
             (out / 'historical-archive.json').write_text('{}', encoding='utf-8')
             with self.assertRaises(ValueError):
                 read_assessments(legacy)

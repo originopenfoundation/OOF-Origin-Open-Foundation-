@@ -11,7 +11,9 @@ import argparse
 import hashlib
 import io
 import json
+import os
 import re
+import tempfile
 import time
 import unicodedata
 import urllib.error
@@ -21,6 +23,7 @@ from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from functools import lru_cache
 from pathlib import Path
 from typing import Iterable
@@ -128,6 +131,22 @@ def write_compact_json(path: Path, value) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
 
 
+def write_atomic_json(path: Path, value) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", newline="\n", dir=path.parent,
+                                         prefix=".incident-write-", suffix=".tmp", delete=False) as output:
+            temporary = Path(output.name)
+            output.write(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
+            output.flush()
+            os.fsync(output.fileno())
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+
+
 def source_record_fingerprint(record: dict) -> str:
     """Fingerprint stable source facts, not per-run retrieval metadata.
 
@@ -158,34 +177,57 @@ def source_record_fingerprint(record: dict) -> str:
 
 def queue_candidates(candidates: Iterable[dict], existing: Iterable[dict], path: Path = CANDIDATE_QUEUE_PATH) -> dict:
     payload = read_json(path, {"schemaVersion": "1.0", "updatedAt": None, "candidates": []})
-    queued = {item["record"]["id"]: item for item in payload.get("candidates", []) if item.get("record", {}).get("id")}
+    def queue_key(record):
+        if record.get("sourceReviewRequired"):
+            sources = record.get("sources") or []
+            return "review:" + str((sources[0] if sources else {}).get("sourceId") or record["id"])
+        return record["id"]
+    queued = {queue_key(item["record"]): item for item in payload.get("candidates", []) if item.get("record", {}).get("id")}
     existing_by_id = {item["id"]: item for item in existing}
     existing_fingerprints = {item["id"]: source_record_fingerprint(item) for item in existing}
+    decisions = {event.get("sourceId"): event for event in payload.get("sourceReviewHistory", [])}
     added = refreshed = new_candidates = changed_candidates = 0
     for record in candidates:
         fingerprint = source_record_fingerprint(record)
+        if record.get("sourceReviewRequired"):
+            sources = record.get("sources") or []
+            source_id = (sources[0] if sources else {}).get("sourceId")
+            decision = decisions.get(source_id) or {}
+            if decision.get("candidateFingerprint") == fingerprint:
+                if decision.get("decision") == "reject":
+                    continue
+                if decision.get("decision") == "accept":
+                    record = {**record, "sourceReviewRequired": False, "publicationStatus": "Monitored",
+                              "verificationState": "Source Catalogued / OOF Not Assessed"}
+            elif decision.get("decision") == "accept":
+                stale = [key for key, item in queued.items() if item.get("candidateKind") != "source-review"
+                         and any(source.get("sourceId") == source_id for source in item.get("record", {}).get("sources", []))]
+                for key in stale:
+                    queued.pop(key)
+        key = queue_key(record)
         if existing_fingerprints.get(record["id"]) == fingerprint:
-            queued.pop(record["id"], None)
+            queued.pop(key, None)
             continue
-        candidate_kind = "new" if record["id"] not in existing_by_id else "source-change"
+        candidate_kind = ("source-review" if record.get("sourceReviewRequired") else
+                          "new" if record["id"] not in existing_by_id else "source-change")
         entry = {
             "incidentId": record["id"], "fingerprint": fingerprint,
-            "discoveredAt": queued.get(record["id"], {}).get("discoveredAt") or now_iso(),
+            "discoveredAt": queued.get(key, {}).get("discoveredAt") or now_iso(),
             "candidateKind": candidate_kind,
             "record": record,
         }
-        if record["id"] in queued:
-            if queued[record["id"]].get("fingerprint") != fingerprint:
+        if key in queued:
+            if queued[key].get("fingerprint") != fingerprint:
                 refreshed += 1
         else:
             added += 1
             if candidate_kind == "new":
                 new_candidates += 1
-            else:
+            elif candidate_kind == "source-change":
                 changed_candidates += 1
-        queued[record["id"]] = entry
+        queued[key] = entry
     ordered = sorted(queued.values(), key=lambda item: (item.get("discoveredAt") or "", item["incidentId"]))
-    write_json(path, {**payload, "schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": ordered})
+    write_atomic_json(path, {**payload, "schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": ordered})
     return {
         "added": added, "refreshed": refreshed, "queued": len(ordered),
         "newCandidates": new_candidates, "changedCandidates": changed_candidates,
@@ -196,6 +238,42 @@ def candidate_source(item: dict) -> str:
     sources = item.get("record", {}).get("sources") or []
     source_id = str((sources[0] if sources else {}).get("sourceId") or "unknown")
     return source_id.split(":", 1)[0].casefold()
+
+
+def review_source_candidate(source_id: str, decision: str, reviewer: str, reason: str,
+                            existing: Iterable[dict], path: Path = CANDIDATE_QUEUE_PATH) -> dict:
+    if decision not in {"accept", "reject"} or not reviewer.strip() or not reason.strip():
+        raise ValueError("source review requires accept/reject, reviewer and reason")
+    payload = read_json(path, {"schemaVersion": "1.0", "candidates": []})
+    matches = [item for item in payload.get("candidates", []) if item.get("candidateKind") == "source-review"
+               and any(source.get("sourceId") == source_id for source in item.get("record", {}).get("sources", []))]
+    if len(matches) != 1:
+        raise ValueError("source review candidate not found or ambiguous")
+    entry = matches[0]
+    records = list(existing)
+    if decision == "accept":
+        for record in records:
+            if record.get("id") == entry["incidentId"] and not any(s.get("sourceId") == source_id for s in record.get("sources", [])):
+                raise ValueError("source candidate identifier collides with an unrelated incident")
+        if any(item is not entry and item.get("incidentId") == entry["incidentId"] for item in payload.get("candidates", [])):
+            raise ValueError("source candidate identifier collides with another queued item")
+    event = {"sourceId": source_id, "incidentId": entry["incidentId"], "decision": decision,
+             "reviewer": reviewer, "reason": reason, "reviewedAt": now_iso(),
+             "candidateFingerprint": entry.get("fingerprint"),
+             "sourceSnapshot": json.loads(json.dumps(entry["record"], ensure_ascii=False)),
+             "oofApproval": False}
+    payload.setdefault("sourceReviewHistory", []).append(event)
+    if decision == "reject":
+        payload["candidates"].remove(entry)
+    else:
+        entry["record"]["sourceReviewRequired"] = False
+        entry["record"]["publicationStatus"] = "Monitored"
+        entry["record"]["verificationState"] = "Source Catalogued / OOF Not Assessed"
+        entry["candidateKind"] = "source-change" if entry["incidentId"] in {r["id"] for r in records} else "new"
+        entry["sourceReview"] = event
+    payload["updatedAt"] = now_iso()
+    write_atomic_json(path, payload)
+    return event
 
 
 def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH,
@@ -233,14 +311,14 @@ def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, pat
         payload["newIncidentBudget"] = budget
         # Persist the reservation before mutating the incident store so a
         # retry cannot exceed the daily publication budget after a crash.
-        write_json(path, {**payload, "updatedAt": now_iso(), "candidates": candidates})
+        write_atomic_json(path, {**payload, "updatedAt": now_iso(), "candidates": candidates})
     created, updated = repository.upsert_sources(item["record"] for item in selected) if selected else (0, 0)
     selected_ids = {id(item) for item in selected}
     remaining = [item for item in candidates if id(item) not in selected_ids]
     rotation = dict(payload.get("sourceRotation") or {})
     if selected_new:
         rotation["lastPrioritySource"] = ordered_sources[0]
-    write_json(path, {**payload, "schemaVersion": "1.0", "updatedAt": now_iso(), "sourceRotation": rotation, "candidates": remaining})
+    write_atomic_json(path, {**payload, "schemaVersion": "1.0", "updatedAt": now_iso(), "sourceRotation": rotation, "candidates": remaining})
     return {
         "processed": len(selected), "created": created, "updated": updated, "remaining": len(remaining),
         "processedNew": sum(item.get("candidateKind") == "new" for item in selected),
@@ -487,9 +565,10 @@ class AIIDWeeklyExcelAdapter(SourceAdapter):
 
     name = "AIIDWeeklyExcelAdapter"
 
-    def __init__(self, workbook_bytes: bytes | None = None, snapshot_url: str | None = None):
+    def __init__(self, workbook_bytes: bytes | None = None, snapshot_url: str | None = None, history_cursor=None):
         self.workbook_bytes = workbook_bytes
         self.snapshot_url = snapshot_url
+        self.history_cursor = history_cursor
 
     @staticmethod
     def _request(url: str) -> bytes:
@@ -537,7 +616,13 @@ class AIIDWeeklyExcelAdapter(SourceAdapter):
         # every currently classified country needed by the public map.
         newest = sorted(rows, key=lambda row: int(row["Incident ID"]), reverse=True)[:100]
         located = [row for row in rows if str(row.get("Country Code") or "").strip()]
-        selected = {int(row["Incident ID"]): row for row in newest + located}
+        historical = []
+        if self.history_cursor != 'complete' and newest:
+            cursor = int(self.history_cursor) if self.history_cursor is not None else min(int(row['Incident ID']) for row in newest)
+            eligible = [row for row in rows if int(row['Incident ID']) < cursor and not str(row.get('Country Code') or '').strip()]
+            historical = sorted(eligible, key=lambda row: int(row['Incident ID']), reverse=True)[:DAILY_PROCESSING_LIMIT]
+            self.history_cursor = min(int(row['Incident ID']) for row in historical) if historical else 'complete'
+        selected = {int(row["Incident ID"]): row for row in newest + located + historical}
         return [{**row, "_snapshotUrl": snapshot_url} for row in selected.values()]
 
     def normalize(self, record: dict) -> dict:
@@ -610,7 +695,95 @@ class AIIDWeeklyExcelAdapter(SourceAdapter):
         return normalized
 
     def metadata(self) -> dict:
-        return {"name": self.name, "mode": "weekly-snapshot", "snapshotUrl": self.snapshot_url}
+        return {"name": self.name, "mode": "weekly-snapshot", "snapshotUrl": self.snapshot_url,
+                "historyCursor": self.history_cursor}
+
+
+class _OECDIncidentListParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.items = []
+        self.current = None
+        self.heading = False
+        self.title = False
+        self.summary_depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        classes = (attrs.get('class') or '').split()
+        if tag == 'h3' and 'title' in classes:
+            self.heading = True
+        elif tag == 'a' and self.heading:
+            href = attrs.get('href') or ''
+            if re.fullmatch(r'/en/incidents/\d{4}-\d{2}-\d{2}-[a-zA-Z0-9-]+', href):
+                if self.current and self.current['title'] and self.current['summary']:
+                    self.items.append(self.current)
+                self.current = {'path': href, 'title': '', 'summary': ''}
+                self.title = True
+        elif tag == 'div':
+            if self.summary_depth:
+                self.summary_depth += 1
+            elif self.current and not self.current['summary'] and 'incident-summary' in classes:
+                self.summary_depth = 1
+
+    def handle_endtag(self, tag):
+        if tag == 'h3':
+            self.heading = False
+        elif tag == 'a':
+            self.title = False
+        elif tag == 'div' and self.summary_depth:
+            self.summary_depth -= 1
+
+    def handle_data(self, data):
+        if self.current and self.title:
+            self.current['title'] += data
+        elif self.current and self.summary_depth and '[AI generated]' not in data:
+            self.current['summary'] += data
+
+    def finish(self):
+        if self.current and self.current['title'] and self.current['summary']:
+            self.items.append(self.current)
+            self.current = None
+        return [{'path': item['path'], 'title': ' '.join(item['title'].split()),
+                 'summary': ' '.join(item['summary'].split())} for item in self.items]
+
+
+class OECDIncidentAdapter(SourceAdapter):
+    """Discover OECD monitor entries for review without asserting unique incidents."""
+    name = 'OECDIncidentAdapter'
+    url = 'https://oecd.ai/en/incidents'
+
+    def __init__(self, page=None):
+        self.page = page
+        self.latest = None
+
+    def fetch_new_records(self, since):
+        del since
+        page = self.page if self.page is not None else AIIDWeeklyExcelAdapter._request(self.url).decode('utf-8')
+        parser = _OECDIncidentListParser()
+        parser.feed(page)
+        items = parser.finish()
+        if not items:
+            raise ValueError('OECD monitor returned no recognizable incident entries')
+        self.latest = items[0]['path']
+        return items
+
+    def normalize(self, record):
+        source_id = 'oecd:' + record['path'].rsplit('/', 1)[-1]
+        result = ManualOOFIncidentAdapter().normalize({
+            'title': record['title'], 'summary': record['summary'],
+            'occurredAt': None, 'publicationStatus': 'Pending Review',
+            'verificationState': 'Pending Review', 'evidenceConfidence': 'Unverified',
+            'source': {'sourceId': source_id, 'publisher': 'OECD AI Incidents Monitor',
+                       'sourceType': 'OECD AI-generated summary',
+                       'url': urljoin('https://oecd.ai', record['path']),
+                       'verificationStatus': 'Pending Review'},
+        })
+        result['sourceReviewRequired'] = True
+        return result
+
+    def metadata(self):
+        return {'name': self.name, 'mode': 'review-only-latest-page', 'latestItem': self.latest}
 
 
 def _country_names() -> dict[str, str]:
@@ -677,6 +850,9 @@ class FileIncidentRepository(IncidentRepository):
             if record_id in by_id:
                 current = by_id[record_id]
                 known_sources = {item["sourceId"] for item in current["sources"]}
+                incoming_sources = {item.get("sourceId") for item in record["sources"]}
+                if duplicate_id is None and not (known_sources & incoming_sources):
+                    raise ValueError(f"Incident identifier collision requires review: {record_id}")
                 new_sources = [item for item in record["sources"] if item["sourceId"] not in known_sources]
                 if new_sources:
                     current["sources"].extend(new_sources)
@@ -696,7 +872,7 @@ class FileIncidentRepository(IncidentRepository):
                 by_dedup[dedup_key(record)] = record_id
                 created += 1
         incidents = sorted(by_id.values(), key=lambda item: item.get("reportedAt") or item["createdAt"], reverse=True)
-        write_json(self.path, {"schemaVersion": "1.0", "incidents": incidents})
+        write_atomic_json(self.path, {"schemaVersion": "1.0", "incidents": incidents})
         return created, updated
 
 
@@ -1282,19 +1458,22 @@ def sync() -> dict:
     repository = FileIncidentRepository()
     state = read_json(SYNC_STATE_PATH, {"sources": {}, "lastDailySummary": None})
     baseline_count = len(repository.list())
-    adapters = [ManualOOFIncidentAdapter(), AIIDWeeklyExcelAdapter()]
+    adapters = [ManualOOFIncidentAdapter(), AIIDWeeklyExcelAdapter(), OECDIncidentAdapter()]
     totals = {
         "recordsRetrieved": 0, "recordsQueued": 0, "newCandidates": 0, "changedCandidates": 0,
         "recordsProcessed": 0, "processedNew": 0, "processedSourceChanges": 0,
         "recordsCreated": 0, "recordsUpdated": 0, "duplicatesDetected": 0,
-        "queueRemaining": 0, "sourceErrors": [], "baselineIncidentCount": baseline_count,
+        "queueRemaining": 0, "sourceErrors": [], "sourceWarnings": [], "baselineIncidentCount": baseline_count,
     }
     for adapter in adapters:
         attempted = now_iso()
         source_state = state["sources"].get(adapter.name, {})
         try:
+            if isinstance(adapter, AIIDWeeklyExcelAdapter):
+                adapter.history_cursor = source_state.get("historyCursor")
             raw = adapter.fetch_new_records(source_state.get("lastSuccessfulSync"))
-            normalized = [enrich_incident(adapter.normalize(item)) for item in raw]
+            normalized = [adapter.normalize(item) for item in raw]
+            normalized = [item if item.get("sourceReviewRequired") else enrich_incident(item) for item in normalized]
             existing = repository.list()
             queue_result = queue_candidates(normalized, existing)
             totals["recordsRetrieved"] += len(raw)
@@ -1309,7 +1488,8 @@ def sync() -> dict:
                 **adapter.metadata(),
             }
         except Exception as error:  # keep source failures isolated
-            totals["sourceErrors"].append({"source": adapter.name, "error": str(error)})
+            failures = totals["sourceWarnings"] if isinstance(adapter, OECDIncidentAdapter) else totals["sourceErrors"]
+            failures.append({"source": adapter.name, "error": str(error)})
             state["sources"][adapter.name] = {
                 **source_state, "lastAttemptedSync": attempted, "syncStatus": "failed", "sourceErrors": [str(error)]
             }
@@ -1321,7 +1501,8 @@ def sync() -> dict:
     totals["processedNew"] = queue_result["processedNew"]
     totals["processedSourceChanges"] = queue_result["processedSourceChanges"]
     totals["afterIncidentCount"] = len(repository.list())
-    totals["status"] = "success" if not totals["sourceErrors"] else "partial-success" if totals["recordsRetrieved"] else "failed"
+    has_issues = bool(totals["sourceErrors"] or totals["sourceWarnings"])
+    totals["status"] = "success" if not has_issues else "partial-success" if totals["recordsRetrieved"] else "failed"
     summary = {"createdAt": now_iso(), **totals}
     history = list(state.get("syncHistory") or [])
     if not history and state.get("lastDailySummary"):
@@ -1329,19 +1510,27 @@ def sync() -> dict:
     history.append(summary)
     state["lastDailySummary"] = summary
     state["syncHistory"] = history[-60:]
-    write_json(SYNC_STATE_PATH, state)
+    write_atomic_json(SYNC_STATE_PATH, state)
     export_public(repository.list())
     state["lastPublicExport"] = now_iso()
-    write_json(SYNC_STATE_PATH, state)
+    write_atomic_json(SYNC_STATE_PATH, state)
     return totals
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=("sync", "validate", "export"))
+    parser.add_argument("command", choices=("sync", "validate", "export", "review-source"))
+    parser.add_argument("--source-id")
+    parser.add_argument("--decision", choices=("accept", "reject"))
+    parser.add_argument("--reviewer")
+    parser.add_argument("--reason")
     args = parser.parse_args()
     repository = FileIncidentRepository()
-    if args.command == "sync":
+    if args.command == "review-source":
+        if not all((args.source_id, args.decision, args.reviewer, args.reason)):
+            parser.error("review-source requires --source-id, --decision, --reviewer and --reason")
+        print(json.dumps(review_source_candidate(args.source_id, args.decision, args.reviewer, args.reason, repository.list()), indent=2))
+    elif args.command == "sync":
         result = sync()
         print(json.dumps(result, indent=2))
         if result.get('sourceErrors'):
