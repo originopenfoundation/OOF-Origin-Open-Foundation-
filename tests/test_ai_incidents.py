@@ -534,13 +534,30 @@ class IncidentDomainTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             queue_path = Path(temporary) / "queue.json"
             incidents.queue_candidates([record("retry", "Retry")], [], queue_path)
-            before = queue_path.read_bytes()
+            before = incidents.read_json(queue_path, {})['candidates']
             class BrokenRepository:
                 def upsert_sources(self, items):
                     raise RuntimeError("interrupted")
             with self.assertRaises(RuntimeError):
                 incidents.process_candidate_queue(BrokenRepository(), path=queue_path)
-            self.assertEqual(queue_path.read_bytes(), before)
+            self.assertEqual(incidents.read_json(queue_path, {})['candidates'], before)
+            repository = incidents.FileIncidentRepository(Path(temporary) / 'store.json')
+            retried = incidents.process_candidate_queue(repository, path=queue_path)
+            self.assertEqual(retried['created'], 1)
+            self.assertEqual(len(incidents.read_json(queue_path, {})['newIncidentBudget']['reservedIncidentIds']), 1)
+
+    def test_daily_new_incident_budget_survives_repeated_runs(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            queue_path = temporary / 'queue.json'
+            repository = incidents.FileIncidentRepository(temporary / 'store.json')
+            candidates = [record(f'budget-{index}', f'Incident {index}') for index in range(12)]
+            incidents.queue_candidates(candidates, [], queue_path)
+            first = incidents.process_candidate_queue(repository, path=queue_path)
+            second = incidents.process_candidate_queue(repository, path=queue_path)
+            self.assertEqual(first['created'], 10)
+            self.assertEqual(second['created'], 0)
+            self.assertEqual(second['remaining'], 2)
 
     def test_new_incident_sources_rotate_and_cursor_survives_refresh(self):
         with tempfile.TemporaryDirectory() as temporary:

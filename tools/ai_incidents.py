@@ -202,6 +202,11 @@ def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, pat
                             update_limit: int = DAILY_SOURCE_UPDATE_LIMIT) -> dict:
     payload = read_json(path, {"schemaVersion": "1.0", "candidates": []})
     candidates = payload.get("candidates", [])
+    today = now_iso()[:10]
+    budget = dict(payload.get("newIncidentBudget") or {})
+    if budget.get("date") != today:
+        budget = {"date": today, "reservedIncidentIds": []}
+    reserved = list(dict.fromkeys(budget.get("reservedIncidentIds") or []))
     # New incidents and source updates have independent bounded workloads.
     # Preserve FIFO order within each group and retain unknown kinds for review.
     new_candidates = sorted(
@@ -213,11 +218,22 @@ def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, pat
     first_index = (sources.index(last_priority) + 1) % len(sources) if last_priority in sources else 0
     ordered_sources = sources[first_index:] + sources[:first_index]
     selected_new = []
+    selected_reserved = [item for item in new_candidates if item.get("incidentId") in reserved]
+    selected_new.extend(selected_reserved[:max(0, limit)])
     for source in ordered_sources:
-        capacity = max(0, limit - len(selected_new))
-        selected_new.extend([item for item in new_candidates if candidate_source(item) == source][:capacity])
+        capacity = min(max(0, limit - len(selected_new)), max(0, DAILY_PROCESSING_LIMIT - len(reserved)))
+        fresh = [item for item in new_candidates if candidate_source(item) == source and item.get("incidentId") not in reserved]
+        chosen = fresh[:capacity]
+        selected_new.extend(chosen)
+        reserved.extend(item["incidentId"] for item in chosen)
     selected_updates = [item for item in candidates if item.get("candidateKind") == "source-change"][:max(0, update_limit)]
     selected = selected_new + selected_updates
+    if selected_new:
+        budget["reservedIncidentIds"] = reserved
+        payload["newIncidentBudget"] = budget
+        # Persist the reservation before mutating the incident store so a
+        # retry cannot exceed the daily publication budget after a crash.
+        write_json(path, {**payload, "updatedAt": now_iso(), "candidates": candidates})
     created, updated = repository.upsert_sources(item["record"] for item in selected) if selected else (0, 0)
     selected_ids = {id(item) for item in selected}
     remaining = [item for item in candidates if id(item) not in selected_ids]
