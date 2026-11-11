@@ -542,6 +542,25 @@ class IncidentDomainTests(unittest.TestCase):
                 incidents.process_candidate_queue(BrokenRepository(), path=queue_path)
             self.assertEqual(queue_path.read_bytes(), before)
 
+    def test_new_incident_sources_rotate_and_cursor_survives_refresh(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            queue_path = temporary / "queue.json"
+            repository = incidents.FileIncidentRepository(temporary / "store.json")
+            candidates = []
+            for source in ("alpha", "beta"):
+                for index in range(3):
+                    item = record(f"{source}-{index}", f"Incident {source} {index}")
+                    item["sources"][0]["sourceId"] = f"{source}:{index}"
+                    candidates.append(item)
+            incidents.queue_candidates(candidates, [], queue_path)
+            first = incidents.process_candidate_queue(repository, limit=2, path=queue_path)
+            self.assertEqual(first['prioritySource'], 'alpha')
+            incidents.queue_candidates(candidates, repository.list(), queue_path)
+            second = incidents.process_candidate_queue(repository, limit=2, path=queue_path)
+            self.assertEqual(second['prioritySource'], 'beta')
+            self.assertEqual((first['created'], second['created']), (2, 2))
+
     def test_country_geometry_codes_cover_france_without_duplicate_primary_codes(self):
         geojson = json.loads((ROOT / "assets" / "data" / "ne_50m_admin_0_countries.geojson").read_text(encoding="utf-8"))
         resolved = []

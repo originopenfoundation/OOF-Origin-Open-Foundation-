@@ -31,7 +31,9 @@ jobs:
           python tools/build_architecture_registry.py
           python tools/build_knowledge_infrastructure.py
       - name: Synchronize configured incident sources
-        run: python tools/ai_incidents.py sync
+        run: |
+          python -c "from tools.incident_analysis_storage import recover_interrupted_write; from pathlib import Path; recover_interrupted_write(Path('data/ai-incidents/analysis-store.json'))"
+          python tools/ai_incidents.py sync
       - name: Validate incident records
         run: |
           python tools/incident_intelligence_v2.py build

@@ -47,7 +47,8 @@ def stage(destination, store_path=STORE, incidents_path=INCIDENTS, warning_mib=8
     relevance = {record['id']: classify_relevance(record) for record in records}
     active = {**metadata, 'relevanceByIncident': relevance,
               'assessments': [item for item in items if item['assessmentIdentity'] in active_ids]}
-    archive = {'schemaVersion': original.get('schemaVersion'), 'assessments': [item for item in items if item['assessmentIdentity'] not in active_ids]}
+    archive = {'schemaVersion': original.get('schemaVersion'), 'relevanceHistory': [],
+               'assessments': [item for item in items if item['assessmentIdentity'] not in active_ids]}
     paths = [destination / 'active-intelligence.json', destination / 'historical-archive.json']
     paths[1].write_text(json.dumps(archive, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8', newline='\n')
     active['archiveSha256'] = hashlib.sha256(paths[1].read_bytes()).hexdigest()

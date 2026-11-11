@@ -1,11 +1,13 @@
 import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
 
 from tools.audit_incident_storage_capacity import inventory
 from tools.stage_incident_storage_migration import stage
-from tools.incident_analysis_storage import read_assessments, write_assessments
+from tools.incident_analysis_storage import read_assessments, write_assessments, recover_interrupted_write
+from tools.incident_relevance import record_review
 
 
 class StorageInventoryTests(unittest.TestCase):
@@ -66,6 +68,16 @@ class StorageInventoryTests(unittest.TestCase):
             write_assessments(legacy, combined)
             self.assertEqual(len(read_assessments(legacy)['assessments']), 3)
             self.assertEqual(json.loads((out / 'active-intelligence.json').read_text())['assessments'][0]['assessmentIdentity'], 'a3')
+            combined = read_assessments(legacy)
+            record_review(combined, 'A', {'status': 'EXCLUDED', 'reason': 'reviewed', 'reviewer': 'reviewer', 'reviewedAt': '2026-11-08T10:00:00Z'})
+            write_assessments(legacy, combined)
+            self.assertEqual(json.loads((out / 'active-intelligence.json').read_text())['assessments'], [])
+            self.assertEqual(len(json.loads((out / 'historical-archive.json').read_text())['assessments']), 3)
+            combined = read_assessments(legacy)
+            record_review(combined, 'A', {'status': 'ACTIVE', 'reason': 'restored', 'reviewer': 'reviewer', 'reviewedAt': '2026-11-08T11:00:00Z'})
+            write_assessments(legacy, combined)
+            self.assertEqual(json.loads((out / 'active-intelligence.json').read_text())['assessments'][0]['assessmentIdentity'], 'a3')
+            self.assertEqual(len(read_assessments(legacy)['relevanceHistory']), 2)
             (out / 'historical-archive.json').write_text('{}', encoding='utf-8')
             with self.assertRaises(ValueError):
                 read_assessments(legacy)
@@ -81,6 +93,26 @@ class StorageInventoryTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 stage(directory / 'staged', store, incidents)
             self.assertFalse((directory / 'staged').exists())
+
+    def test_recover_interrupted_pair_update(self):
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            store, incidents = directory / 'a.json', directory / 'i.json'
+            item = {'incidentId': 'A', 'analysisVersion': 1, 'assessmentIdentity': 'a1'}
+            store.write_text(json.dumps({'assessments': [item]}), encoding='utf-8')
+            incidents.write_text(json.dumps({'incidents': [{'id': 'A'}]}), encoding='utf-8')
+            out = directory / 'staged'
+            stage(out, store, incidents)
+            recovery = out / '.incident-analysis-recovery'
+            recovery.mkdir()
+            shutil.copy2(out / 'active-intelligence.json', recovery / 'active.old')
+            shutil.copy2(out / 'historical-archive.json', recovery / 'archive.old')
+            (out / 'historical-archive.json').write_text('{}', encoding='utf-8')
+            with self.assertRaises(ValueError):
+                read_assessments(out / 'analysis-store.json')
+            self.assertTrue(recover_interrupted_write(out / 'analysis-store.json'))
+            self.assertEqual(len(read_assessments(out / 'analysis-store.json')['assessments']), 1)
+            self.assertFalse(recovery.exists())
 
 
 if __name__ == '__main__':

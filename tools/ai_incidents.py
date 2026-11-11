@@ -185,11 +185,17 @@ def queue_candidates(candidates: Iterable[dict], existing: Iterable[dict], path:
                 changed_candidates += 1
         queued[record["id"]] = entry
     ordered = sorted(queued.values(), key=lambda item: (item.get("discoveredAt") or "", item["incidentId"]))
-    write_json(path, {"schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": ordered})
+    write_json(path, {**payload, "schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": ordered})
     return {
         "added": added, "refreshed": refreshed, "queued": len(ordered),
         "newCandidates": new_candidates, "changedCandidates": changed_candidates,
     }
+
+
+def candidate_source(item: dict) -> str:
+    sources = item.get("record", {}).get("sources") or []
+    source_id = str((sources[0] if sources else {}).get("sourceId") or "unknown")
+    return source_id.split(":", 1)[0].casefold()
 
 
 def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH,
@@ -198,17 +204,32 @@ def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, pat
     candidates = payload.get("candidates", [])
     # New incidents and source updates have independent bounded workloads.
     # Preserve FIFO order within each group and retain unknown kinds for review.
-    selected_new = [item for item in candidates if item.get("candidateKind") == "new"][:max(0, limit)]
+    new_candidates = sorted(
+        (item for item in candidates if item.get("candidateKind") == "new"),
+        key=lambda item: str(item.get("record", {}).get("occurredAt") or ""), reverse=True,
+    )
+    sources = sorted({candidate_source(item) for item in new_candidates})
+    last_priority = payload.get("sourceRotation", {}).get("lastPrioritySource")
+    first_index = (sources.index(last_priority) + 1) % len(sources) if last_priority in sources else 0
+    ordered_sources = sources[first_index:] + sources[:first_index]
+    selected_new = []
+    for source in ordered_sources:
+        capacity = max(0, limit - len(selected_new))
+        selected_new.extend([item for item in new_candidates if candidate_source(item) == source][:capacity])
     selected_updates = [item for item in candidates if item.get("candidateKind") == "source-change"][:max(0, update_limit)]
     selected = selected_new + selected_updates
     created, updated = repository.upsert_sources(item["record"] for item in selected) if selected else (0, 0)
     selected_ids = {id(item) for item in selected}
     remaining = [item for item in candidates if id(item) not in selected_ids]
-    write_json(path, {"schemaVersion": "1.0", "updatedAt": now_iso(), "candidates": remaining})
+    rotation = dict(payload.get("sourceRotation") or {})
+    if selected_new:
+        rotation["lastPrioritySource"] = ordered_sources[0]
+    write_json(path, {**payload, "schemaVersion": "1.0", "updatedAt": now_iso(), "sourceRotation": rotation, "candidates": remaining})
     return {
         "processed": len(selected), "created": created, "updated": updated, "remaining": len(remaining),
         "processedNew": sum(item.get("candidateKind") == "new" for item in selected),
         "processedSourceChanges": sum(item.get("candidateKind") == "source-change" for item in selected),
+        "prioritySource": ordered_sources[0] if selected_new else None,
     }
 
 
@@ -702,9 +723,12 @@ def canonical_architecture_assignment(architecture: dict | None) -> dict | None:
 
 def latest_automated_analyses() -> dict[str, dict]:
     payload = read_assessments(ANALYSIS_STORE_PATH, {"assessments": []})
+    relevance = payload.get("relevanceByIncident") or {}
     latest = {}
     for assessment in payload.get("assessments", []):
         incident_id = assessment.get("incidentId")
+        if relevance.get(incident_id, {}).get("status") in {"INACTIVE", "EXCLUDED"}:
+            continue
         current = latest.get(incident_id)
         if incident_id and (current is None or assessment.get("analysisVersion", 0) > current.get("analysisVersion", 0)):
             latest[incident_id] = assessment

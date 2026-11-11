@@ -1182,6 +1182,13 @@ def build(
     knowledge = KnowledgeLayer(knowledge_root)
     existing = read_assessments(analysis_path, {"assessments": []})
     assessments = existing.get("assessments", [])
+    old_relevance = existing.get("relevanceByIncident", {})
+    relevance = {
+        record["id"]: old_relevance[record["id"]]
+        if old_relevance.get(record["id"], {}).get("basis") == "RECORDED_REVIEW"
+        else classify_relevance(record)
+        for record in records
+    } if "relevanceByIncident" in existing else None
     by_incident = defaultdict(list)
     for assessment in assessments:
         by_incident[assessment["incidentId"]].append(assessment)
@@ -1191,6 +1198,9 @@ def build(
     created = skipped = 0
     failures = []
     for record in records:
+        if relevance is not None and relevance[record["id"]]["status"] in {"INACTIVE", "EXCLUDED"}:
+            skipped += 1
+            continue
         history = sorted(by_incident[record["id"]], key=lambda item: item["analysisVersion"])
         latest = history[-1] if history else None
         required, reason = should_reassess(record, latest, knowledge, changed)
@@ -1231,14 +1241,9 @@ def build(
         },
         "assessments": assessments,
     }
-    if "relevanceByIncident" in existing:
-        old_relevance = existing["relevanceByIncident"]
-        payload["relevanceByIncident"] = {
-            record["id"]: old_relevance[record["id"]]
-            if old_relevance.get(record["id"], {}).get("basis") == "RECORDED_REVIEW"
-            else classify_relevance(record)
-            for record in records
-        }
+    if relevance is not None:
+        payload["relevanceByIncident"] = relevance
+        payload["relevanceHistory"] = existing.get("relevanceHistory", [])
     write_assessments(analysis_path, payload)
     write_json(snapshot_path, {
         "schemaVersion": "1.0",

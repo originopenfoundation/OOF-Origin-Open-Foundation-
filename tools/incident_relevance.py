@@ -19,3 +19,18 @@ def classify_relevance(record, review=None):
     if not any(record.get(field) for field in ('system', 'technology', 'aiSystemType')):
         return {'status': 'REVIEW_REQUIRED', 'reason': 'The affected AI system is not sufficiently identified.', 'basis': 'DETERMINISTIC'}
     return {'status': 'ACTIVE', 'reason': 'Traceable source, reported event and affected system are present; substantive claims remain unverified.', 'basis': 'DETERMINISTIC'}
+
+
+def record_review(payload, incident_id, review):
+    relevance = payload.setdefault('relevanceByIncident', {})
+    if incident_id not in relevance:
+        raise ValueError('unknown incident identity')
+    if not review.get('reviewedAt'):
+        raise ValueError('review timestamp required')
+    next_state = classify_relevance({}, review)
+    previous = dict(relevance[incident_id])
+    payload.setdefault('relevanceHistory', []).append({
+        'incidentId': incident_id, 'previous': previous, 'decision': dict(next_state),
+    })
+    relevance[incident_id] = next_state
+    return next_state
