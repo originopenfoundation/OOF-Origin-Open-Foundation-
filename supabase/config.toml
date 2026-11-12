@@ -1,0 +1,7 @@
+[functions.oof-analytics]
+# Public collector validates origin, payload and database permissions itself.
+verify_jwt = false
+
+[functions.oof-analytics-admin]
+# The function validates the user token with Supabase Auth and an explicit user ID allowlist.
+verify_jwt = false

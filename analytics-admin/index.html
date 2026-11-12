@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>OOF Intelligence &amp; Analytics</title>
+  <link rel="stylesheet" href="/assets/css/analytics-admin.css">
+  <script defer src="/assets/js/analytics-admin-standalone.js"></script>
+</head>
+<body>
+  <main>
+    <header><p class="brand">OOF&reg; OriginOpen&reg; Foundation</p><h1>Intelligence &amp; Analytics</h1></header>
+    <p id="status" role="status" aria-live="polite"></p>
+    <form id="setup" hidden>
+      <h2>Set administrator password</h2>
+      <label for="new-password">New password</label>
+      <input id="new-password" type="password" autocomplete="new-password" minlength="12" required>
+      <button type="submit">Set password</button>
+    </form>
+    <form id="login">
+      <h2>Administrator sign in</h2>
+      <label for="email">Email</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <button type="submit">Sign in</button>
+    </form>
+    <section id="dashboard" hidden>
+      <div class="toolbar"><h2>Overview</h2><div class="actions"><label for="range">Period</label>
+        <select id="range"><option value="7">7 days</option><option value="30" selected>30 days</option><option value="90">90 days</option></select>
+        <button id="refresh" type="button">Refresh</button><button id="export" type="button" disabled>Export</button><button id="logout" type="button">Sign out</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Source</th><th>Metric</th><th>Value</th></tr></thead><tbody id="rows"></tbody></table></div>
+      <div id="breakdown"></div>
+    </section>
+  </main>
+</body>
+</html>
