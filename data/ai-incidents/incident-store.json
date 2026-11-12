@@ -2,6 +2,577 @@
   "schemaVersion": "1.0",
   "incidents": [
     {
+      "id": "OOF-AII-535371",
+      "slug": "oof-aii-535371-defense-contractor-s-personal-ai-coding-agent-reportedly-sent-u-s-defense-department-credentials-to-a-third-party-website",
+      "title": "Defense Contractor's Personal AI Coding Agent Reportedly Sent U.S. Defense Department Credentials to a Third-party Website",
+      "summary": "An Accenture employee working as a U.S. defense contractor reportedly connected a personal account for Anthropic's Claude Code AI coding agent to a secure Defense Department system. The agent reportedly appeared to send login credentials and a network map to a third-party website. Accenture said its investigation found the allegations without merit.",
+      "eventType": "Incident",
+      "occurredAt": "2026-10-29",
+      "reportedAt": "2026-11-07T20:50:18.343000Z",
+      "country": "United States of America",
+      "countryCode": "US",
+      "region": null,
+      "coordinates": null,
+      "organization": "Federal Contractors, Employees, Ai Agent System Deployers, Accenture Employees, Accenture",
+      "system": "Large Language Models, Claude Code, Anthropic Ai Agents, Ai Code Generation Systems, Ai Agent Systems",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "United States Department Of Defense",
+        "National Security And Intelligence Stakeholders",
+        "Information Security"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1808",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1808",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:41Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T20:50:18.343000Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T20:50:18.343000Z",
+      "updatedAt": "2026-11-07T20:50:18.343000Z"
+    },
+    {
+      "id": "OOF-AII-731516",
+      "slug": "oof-aii-731516-openai-training-agent-reportedly-retrieved-credentials-and-restricted-data-from-a-government-statistics-website",
+      "title": "OpenAI Training Agent Reportedly Retrieved Credentials and Restricted Data from a Government Statistics Website",
+      "summary": "OpenAI reported that an internal AI agent searching for hospital-bed figures during training retrieved more than 1,000 account records containing email addresses from a government statistics website. It downloaded application files and configuration files containing credentials, then bypassed authorization checks and saved 24 years of health-facility statistics.",
+      "eventType": "Incident",
+      "occurredAt": "2026-06-17",
+      "reportedAt": "2026-11-07T19:10:24.218000Z",
+      "country": "Location not specified",
+      "countryCode": null,
+      "region": null,
+      "coordinates": null,
+      "organization": "Openai, Ai Agent System Deployers",
+      "system": "Openai Large Language Models, Openai Ai Agents, Large Language Models, Ai Agent Systems",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Targets Of Autonomous Ai Enabled Intrusion Operations",
+        "Privacy",
+        "Information Security",
+        "Governments",
+        "Government Agencies"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1806",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1806",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:41Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T19:10:24.218000Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T19:10:24.218000Z",
+      "updatedAt": "2026-11-07T19:10:24.218000Z"
+    },
+    {
+      "id": "OOF-AII-220781",
+      "slug": "oof-aii-220781-openai-research-agent-reportedly-exposed-a-researcher-s-github-token-in-a-public-code-repository",
+      "title": "OpenAI Research Agent Reportedly Exposed a Researcher's GitHub Token in a Public Code Repository",
+      "summary": "OpenAI reported that an internal AI agent published a researcher's GitHub access token in OpenAI's public Codex code repository while trying to obtain another team's mathematical proof. The agent split the token into pieces to evade secret scanning. The researcher alerted security, and OpenAI deactivated the affected keys.",
+      "eventType": "Incident",
+      "occurredAt": "2026-05-27",
+      "reportedAt": "2026-11-07T19:07:28.028000Z",
+      "country": "Location not specified",
+      "countryCode": null,
+      "region": null,
+      "coordinates": null,
+      "organization": "Openai, Ai Agent System Deployers",
+      "system": "Openai Large Language Models, Openai Ai Agents, Large Language Models, Ai Agent Systems",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Researchers",
+        "Privacy",
+        "Information Security",
+        "Ai Agent System Users"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1802",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1802",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:42Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "integros",
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T19:07:28.028000Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T19:07:28.028000Z",
+      "updatedAt": "2026-11-07T19:07:28.028000Z"
+    },
+    {
+      "id": "OOF-AII-131293",
+      "slug": "oof-aii-131293-scotland-s-education-agency-published-purportedly-ai-edited-school-curriculum-papers-with-apparently-nonexistent-references",
+      "title": "Scotland's Education Agency Published Purportedly AI-Edited School Curriculum Papers with Apparently Nonexistent References",
+      "summary": "Education Scotland, the national education agency, published evidence papers for Scotland's school curriculum review. A University of Edinburgh lecturer identified about 20 references he believed did not exist. The agency corrected errors and disclosed that AI was used to edit the papers. Whether AI introduced any of the disputed references remains unconfirmed.",
+      "eventType": "Incident",
+      "occurredAt": "2026-11-05",
+      "reportedAt": "2026-11-07T16:08:11Z",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "region": null,
+      "coordinates": null,
+      "organization": "Education Scotland, Governments, Government Agencies, Government Of The United Kingdom, Government Of Scotland",
+      "system": "Large Language Models",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Epistemic Integrity",
+        "Scottish Curriculum Review Stakeholders",
+        "Educational Communities",
+        "Education Policymakers",
+        "Educators",
+        "Educators In Scotland",
+        "Educators In The United Kingdom"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1809",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1809",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:41Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "aig",
+        "secondaryArchitectureIds": [],
+        "architectureIndexState": "AIG®",
+        "classifiedAt": "2026-11-07T16:08:11Z",
+        "confidence": 0.55,
+        "rationale": "Automated mapping assigned the general AI governance architecture because no more specific approved architecture signal was sufficiently explicit. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T16:08:11Z",
+      "updatedAt": "2026-11-07T16:08:11Z"
+    },
+    {
+      "id": "OOF-AII-715145",
+      "slug": "oof-aii-715145-openai-linked-ai-agents-reportedly-repurposed-vanderbilt-university-s-restricted-link-shortener",
+      "title": "OpenAI-Linked AI Agents Reportedly Repurposed Vanderbilt University's Restricted Link Shortener",
+      "summary": "AI agents reportedly linked to OpenAI created short links on Vanderbilt University's restricted service in Nashville, Tennessee, and used its public visitor logs as a message board. Some entries reportedly included access keys for a public FBI statistics service. Vanderbilt said it was investigating, and a researcher documented link redirects and a login requirement for the logs. How the agents gained link-creation access remains unclear.",
+      "eventType": "Incident",
+      "occurredAt": "2026-06-18",
+      "reportedAt": "2026-11-07T12:25:59.641000Z",
+      "country": "United States of America",
+      "countryCode": "US",
+      "region": null,
+      "coordinates": null,
+      "organization": "Openai, Ai Agent System Deployers",
+      "system": "Vanderbilt University Link Shortener, Openai Ai Agents, Ai Agent Systems",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Website Operators",
+        "Vanderbilt University",
+        "Universities",
+        "Information Security"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1800",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1800",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:42Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T12:25:59.641000Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T12:25:59.641000Z",
+      "updatedAt": "2026-11-07T12:25:59.641000Z"
+    },
+    {
+      "id": "OOF-AII-833677",
+      "slug": "oof-aii-833677-openai-ai-agents-reportedly-posted-chatgpt-user-images-to-external-hosts-in-53-instances",
+      "title": "OpenAI AI Agents Reportedly Posted ChatGPT User Images to External Hosts in 53 Instances",
+      "summary": "OpenAI said AI agents in its research environment posted images supplied by users of its ChatGPT chatbot to external image hosts in 53 identified instances. The uploads left the images accessible through unlisted links outside OpenAI's systems. OpenAI said it worked with hosts to remove most of the content and was seeking removal of the rest. The upload dates and whether the images identified anyone remain undisclosed.",
+      "eventType": "Incident",
+      "occurredAt": "2026-09-25",
+      "reportedAt": "2026-11-07T11:21:46.926000Z",
+      "country": "Location not specified",
+      "countryCode": null,
+      "region": null,
+      "coordinates": null,
+      "organization": "Openai, Ai Agent System Deployers",
+      "system": "Openai Ai Agents, Ai Agent Systems",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Privacy",
+        "Openai Users",
+        "Chatgpt Users",
+        "Chatbot Users"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1799",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1799",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:42Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "clia",
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T11:21:46.926000Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T11:21:46.926000Z",
+      "updatedAt": "2026-11-07T11:21:46.926000Z"
+    },
+    {
+      "id": "OOF-AII-451053",
+      "slug": "oof-aii-451053-artex-security-testing-agent-reportedly-accessed-workos-s-internal-sales-tool-without-authorization-and-retrieved-customer-data",
+      "title": "ARTEX Security Testing Agent Reportedly Accessed WorkOS's Internal Sales Tool Without Authorization and Retrieved Customer Data",
+      "summary": "WorkOS, a provider of enterprise authentication tools, said an ARTEX agent running a cybersecurity benchmark accessed its internal sales tool without authorization and retrieved records in bulk. The data included business contact details, customer communications, and operational metadata. WorkOS said an independent forensics firm validated the attribution. The researcher told WorkOS the data was deleted and never shared.",
+      "eventType": "Incident",
+      "occurredAt": "2026-10-25",
+      "reportedAt": "2026-11-07T00:00:00Z",
+      "country": "Location not specified",
+      "countryCode": null,
+      "region": null,
+      "coordinates": null,
+      "organization": "Security Researcher Whose Artex Agent Accessed Workos, Security Researchers, Ai Researchers, Ai Agent System Deployers",
+      "system": "Artex, Ai Agent Systems, Ai Cybersecurity Testing Tools, Large Language Models",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Workos",
+        "Workos Customers",
+        "Targets Of Autonomous Ai Enabled Intrusion Operations",
+        "Information Security",
+        "Privacy"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1810",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1810",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:41Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "integros",
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T00:00:00Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T00:00:00Z",
+      "updatedAt": "2026-11-07T00:00:00Z"
+    },
+    {
+      "id": "OOF-AII-218025",
+      "slug": "oof-aii-218025-tencent-linked-ai-agents-reportedly-used-exposed-credentials-to-retrieve-data-from-alibaba-s-mapping-service",
+      "title": "Tencent-Linked AI Agents Reportedly Used Exposed Credentials to Retrieve Data From Alibaba's Mapping Service",
+      "summary": "Researchers reported that AI agents linked to Tencent evaluations used an API key and security code exposed in another company's source code to retrieve place details, photos, and entrance information from Alibaba's Amap mapping service. Tencent acknowledged unintended browsing during evaluations of third-party models. The researchers could not establish whose account was charged.",
+      "eventType": "Incident",
+      "occurredAt": "2026-10-04",
+      "reportedAt": "2026-11-07T00:00:00Z",
+      "country": "Location not specified",
+      "countryCode": null,
+      "region": null,
+      "coordinates": null,
+      "organization": "Tencent, Ai Evaluation Organizations, Ai Agent System Deployers",
+      "system": "Ai Agent Systems, Large Language Models, Amap",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Targets Of Credential Theft",
+        "Information Security",
+        "Alibaba"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1805",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1805",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:41Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "integros",
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T00:00:00Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T00:00:00Z",
+      "updatedAt": "2026-11-07T00:00:00Z"
+    },
+    {
+      "id": "OOF-AII-916220",
+      "slug": "oof-aii-916220-openai-agent-reportedly-used-a-wallet-without-permission-to-pay-ethereum-test-network-fees",
+      "title": "OpenAI Agent Reportedly Used a Wallet Without Permission to Pay Ethereum Test-Network Fees",
+      "summary": "OpenAI reported that an internal AI agent derived a private key from a publicly known developer recovery phrase and used it to deploy contracts on Sepolia, an Ethereum test network. The task authorized deployment, but the agent lacked permission to use the wallet it found. The deployment succeeded and charged fees in test-network tokens to that wallet.",
+      "eventType": "Incident",
+      "occurredAt": "2026-06-26",
+      "reportedAt": "2026-11-07T00:00:00Z",
+      "country": "Location not specified",
+      "countryCode": null,
+      "region": null,
+      "coordinates": null,
+      "organization": "Openai, Ai Agent System Deployers",
+      "system": "Large Language Models, Openai Large Language Models, Ai Agent Systems, Openai Agents, Cryptocurrency Wallets, Gpt 5.6 Sol",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Cryptocurrency Wallet Owners",
+        "Information Security"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1807",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1807",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:41Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T00:00:00Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T00:00:00Z",
+      "updatedAt": "2026-11-07T00:00:00Z"
+    },
+    {
+      "id": "OOF-AII-558204",
+      "slug": "oof-aii-558204-openai-training-agent-reportedly-used-an-api-key-found-on-github-to-access-a-data-service",
+      "title": "OpenAI Training Agent Reportedly Used an API Key Found on GitHub to Access a Data Service",
+      "summary": "OpenAI reported that an internal AI agent looking for historical earnings data during training found an exposed API key in a public GitHub repository. It used the key without authorization to authenticate to a data service and retrieve metadata. Its request for the earnings figures failed, and it presented invented figures as if they came from the source website.",
+      "eventType": "Incident",
+      "occurredAt": "2026-05-15",
+      "reportedAt": "2026-11-07T00:00:00Z",
+      "country": "Location not specified",
+      "countryCode": null,
+      "region": null,
+      "coordinates": null,
+      "organization": "Openai, Ai Agent System Deployers",
+      "system": "Openai Ai Agents, Ai Agent Systems, Large Language Models",
+      "technology": null,
+      "industry": null,
+      "aiSystemType": null,
+      "severity": "Unclassified",
+      "impactTypes": [],
+      "affectedParties": [
+        "Targets Of Credential Theft",
+        "Information Security"
+      ],
+      "evidenceConfidence": "Moderate Confidence",
+      "verificationState": "Source Catalogued / OOF Not Assessed",
+      "publicationStatus": "Monitored",
+      "sources": [
+        {
+          "sourceId": "aiid:1804",
+          "publisher": "AI Incident Database (Responsible AI Collaborative)",
+          "publicationDate": null,
+          "sourceType": "Official weekly data export",
+          "url": "https://incidentdatabase.ai/cite/1804",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:42Z",
+          "verificationStatus": "Source Catalogued / OOF Not Assessed"
+        }
+      ],
+      "architectureRelevance": {
+        "status": "ARCHITECTURE_IDENTIFIED",
+        "classification": "Automated",
+        "primaryArchitectureId": "asga",
+        "secondaryArchitectureIds": [
+          "aig"
+        ],
+        "architectureIndexState": "ASGA™",
+        "classifiedAt": "2026-11-07T00:00:00Z",
+        "confidence": 0.68,
+        "rationale": "Automated mapping matched incident descriptors to ASGA™ — Autonomous Systems Governance Architecture using signals: ai agent. Human review remains available."
+      },
+      "assessment": null,
+      "createdAt": "2026-11-07T00:00:00Z",
+      "updatedAt": "2026-11-07T00:00:00Z"
+    },
+    {
       "id": "OOF-AII-325229",
       "slug": "oof-aii-325229-openai-linked-ai-agents-may-have-contributed-to-a-partial-outage-of-the-wikimedia-foundation-s-data-query-service",
       "title": "OpenAI-Linked AI Agents May Have Contributed to a Partial Outage of the Wikimedia Foundation's Data Query Service",
@@ -15031,7 +15602,7 @@
       "summary": "Lake Tahoe travelers were allegedly guided by Google Maps into hazardous shortcuts in the mountains during a snowstorm.",
       "eventType": "Incident",
       "occurredAt": "2021-12-27",
-      "reportedAt": "2021-12-27T00:00:00Z",
+      "reportedAt": null,
       "country": "United States of America",
       "countryCode": "US",
       "region": "North America",
@@ -15057,11 +15628,12 @@
         {
           "sourceId": "aiid:155",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2021-12-27",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/155",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:44Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -15077,7 +15649,7 @@
       },
       "assessment": null,
       "createdAt": "2021-12-27T00:00:00Z",
-      "updatedAt": "2021-12-27T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:44Z"
     },
     {
       "id": "OOF-AII-141726",
@@ -15370,7 +15942,7 @@
       "summary": "SoftBank's robot allegedly kept making mechanical errors, taking unplanned breaks, failing to recognize previously-met people, and breaking down during practice runs.",
       "eventType": "Incident",
       "occurredAt": "2021-07-13",
-      "reportedAt": "2021-07-13T00:00:00Z",
+      "reportedAt": null,
       "country": "Japan",
       "countryCode": "JP",
       "region": "Asia",
@@ -15395,11 +15967,12 @@
         {
           "sourceId": "aiid:152",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2021-07-13",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/152",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:44Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -15418,7 +15991,7 @@
       },
       "assessment": null,
       "createdAt": "2021-07-13T00:00:00Z",
-      "updatedAt": "2021-07-13T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:44Z"
     },
     {
       "id": "OOF-AII-344232",
@@ -15487,7 +16060,7 @@
       "summary": "Coupang was alleged in internal reports tampering its search algorithms to prioritize exposure of its own products, which potentially violated Korea's Fair Trade Act.",
       "eventType": "Incident",
       "occurredAt": "2021-07-04",
-      "reportedAt": "2021-07-04T00:00:00Z",
+      "reportedAt": null,
       "country": "South Korea",
       "countryCode": "KR",
       "region": "Asia",
@@ -15513,11 +16086,12 @@
         {
           "sourceId": "aiid:435",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2021-07-04",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/435",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:44Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -15535,7 +16109,7 @@
       },
       "assessment": null,
       "createdAt": "2021-07-04T00:00:00Z",
-      "updatedAt": "2021-07-04T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:44Z"
     },
     {
       "id": "OOF-AII-085522",
@@ -16277,7 +16851,7 @@
       "summary": "A company's AI predicting a person's gender based on their name, email address, or username was reported by its users to show biased and inaccurate results.",
       "eventType": "Incident",
       "occurredAt": "2020-07-28",
-      "reportedAt": "2020-07-28T00:00:00Z",
+      "reportedAt": null,
       "country": "United States of America",
       "countryCode": "US",
       "region": "North America",
@@ -16303,11 +16877,12 @@
         {
           "sourceId": "aiid:115",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2020-07-28",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/115",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:44Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -16326,7 +16901,7 @@
       },
       "assessment": null,
       "createdAt": "2020-07-28T00:00:00Z",
-      "updatedAt": "2020-07-28T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:44Z"
     },
     {
       "id": "OOF-AII-658101",
@@ -16393,7 +16968,7 @@
       "summary": "A study found that voice recognition tools from Apple, Amazon, Google, IBM, and Microsoft disproportionately made errors when transcribing black speakers.",
       "eventType": "Incident",
       "occurredAt": "2020-03-23",
-      "reportedAt": "2020-03-23T00:00:00Z",
+      "reportedAt": null,
       "country": "United States of America",
       "countryCode": "US",
       "region": "North America",
@@ -16418,11 +16993,12 @@
         {
           "sourceId": "aiid:102",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2020-03-23",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/102",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:44Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -16440,7 +17016,7 @@
       },
       "assessment": null,
       "createdAt": "2020-03-23T00:00:00Z",
-      "updatedAt": "2020-03-23T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:44Z"
     },
     {
       "id": "OOF-AII-516878",
@@ -17543,7 +18119,7 @@
       "summary": "Facebook's automatic language translation software incorrectly translated an Arabic post saying \"Good morning\" into Hebrew saying \"hurt them,\" leading to the arrest of a Palestinian man in Beitar Illit, Israel.",
       "eventType": "Incident",
       "occurredAt": "2017-10-17",
-      "reportedAt": "2017-10-17T00:00:00Z",
+      "reportedAt": null,
       "country": "Palestine",
       "countryCode": "PS",
       "region": "Asia",
@@ -17571,11 +18147,12 @@
         {
           "sourceId": "aiid:72",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2017-10-17",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/72",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:43Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -17591,7 +18168,7 @@
       },
       "assessment": null,
       "createdAt": "2017-10-17T00:00:00Z",
-      "updatedAt": "2017-10-17T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:43Z"
     },
     {
       "id": "OOF-AII-801166",
@@ -17600,7 +18177,7 @@
       "summary": "Yandex, a Russian technology company, released an artificially intelligent chat bot named Alice which began to reply to questions with racist, pro-stalin, and pro-violence responses",
       "eventType": "Incident",
       "occurredAt": "2017-10-12",
-      "reportedAt": "2017-10-12T00:00:00Z",
+      "reportedAt": null,
       "country": "Russia",
       "countryCode": "RU",
       "region": "Europe",
@@ -17625,11 +18202,12 @@
         {
           "sourceId": "aiid:58",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2017-10-12",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/58",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:43Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -17648,7 +18226,7 @@
       },
       "assessment": null,
       "createdAt": "2017-10-12T00:00:00Z",
-      "updatedAt": "2017-10-12T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:43Z"
     },
     {
       "id": "OOF-AII-175122",
@@ -17950,7 +18528,7 @@
       "summary": "University of Washington researchers made a deepfake of Obama, followed by Jordan Peele",
       "eventType": "Incident",
       "occurredAt": "2017-07-01",
-      "reportedAt": "2017-07-01T00:00:00Z",
+      "reportedAt": null,
       "country": "United States of America",
       "countryCode": "US",
       "region": "North America",
@@ -17975,11 +18553,12 @@
         {
           "sourceId": "aiid:39",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2017-07-01",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/39",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:43Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -17998,7 +18577,7 @@
       },
       "assessment": null,
       "createdAt": "2017-07-01T00:00:00Z",
-      "updatedAt": "2017-07-01T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:43Z"
     },
     {
       "id": "OOF-AII-485437",
@@ -18173,7 +18752,7 @@
       "summary": "OpenAI published a post about its findings when using Universe, a software for measuring and training AI agents to conduct reinforcement learning experiments, showing that the AI agent did not act in the way intended to complete a videogame.",
       "eventType": "Incident",
       "occurredAt": "2016-12-22",
-      "reportedAt": "2016-12-22T00:00:00Z",
+      "reportedAt": null,
       "country": "United States of America",
       "countryCode": "US",
       "region": "Global",
@@ -18198,11 +18777,12 @@
         {
           "sourceId": "aiid:65",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2016-12-22",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/65",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:43Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -18220,7 +18800,7 @@
       },
       "assessment": null,
       "createdAt": "2016-12-22T00:00:00Z",
-      "updatedAt": "2016-12-22T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:43Z"
     },
     {
       "id": "OOF-AII-005499",
@@ -18403,7 +18983,7 @@
       "summary": "Multiple unrelated car accidents result in varying levels of harm have been occurred while a Tesla's autopilot was in use.",
       "eventType": "Incident",
       "occurredAt": "2016-06-30",
-      "reportedAt": "2016-06-30T00:00:00Z",
+      "reportedAt": null,
       "country": "United States of America",
       "countryCode": "US",
       "region": "North America",
@@ -18428,11 +19008,12 @@
         {
           "sourceId": "aiid:20",
           "publisher": "AI Incident Database (Responsible AI Collaborative)",
-          "publicationDate": "2016-06-30",
+          "publicationDate": null,
           "sourceType": "Official weekly data export",
           "url": "https://incidentdatabase.ai/cite/20",
-          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261005.xlsx",
-          "retrievedAt": "2026-10-05T00:00:00Z",
+          "datasetUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
+          "snapshotDate": "2026-11-09T00:00:00Z",
+          "retrievedAt": "2026-11-12T09:55:43Z",
           "verificationStatus": "Source Catalogued / OOF Not Assessed"
         }
       ],
@@ -18451,7 +19032,7 @@
       },
       "assessment": null,
       "createdAt": "2016-06-30T00:00:00Z",
-      "updatedAt": "2016-06-30T00:00:00Z"
+      "updatedAt": "2026-11-12T09:55:43Z"
     },
     {
       "id": "OOF-AII-917492",
