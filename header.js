@@ -3,6 +3,7 @@ let siteSearchWorkerReady = false;
 let siteSearchWorkerLoading = false;
 let siteSearchRequestId = 0;
 const siteSearchDebounceTimers = new Map();
+const siteSearchAnalyticsTimers = new Map();
 const siteSearchPendingQueries = new Map();
 const siteSearchLatestRequests = new Map();
 const navigationStateKey = "oof-navigation-expanded";
@@ -713,6 +714,10 @@ function loadSiteSearchIndex(resultsId = "siteSearchResults") {
     if (message.type === "results") {
       if (siteSearchLatestRequests.get(message.resultsId) !== message.requestId) return;
       renderSiteSearchResults(message.matches || [], message.words || [], message.resultsId);
+      clearTimeout(siteSearchAnalyticsTimers.get(message.resultsId));
+      siteSearchAnalyticsTimers.set(message.resultsId, setTimeout(() => {
+        document.dispatchEvent(new CustomEvent("oof:search-results", { detail: { hasResults: Boolean(message.matches?.length) } }));
+      }, 1500));
       return;
     }
 
@@ -736,6 +741,7 @@ function loadSiteSearchIndex(resultsId = "siteSearchResults") {
 function runSiteSearch(query, resultsId = "siteSearchResults") {
   const results = getById(resultsId);
   if (!results) return;
+  clearTimeout(siteSearchAnalyticsTimers.get(resultsId));
 
   const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   if (words.join("").length < 2) {
@@ -873,6 +879,13 @@ function watchHeaderNavigation() {
 watchHeaderNavigation();
 document.addEventListener("DOMContentLoaded", watchHeaderNavigation);
 loadCloudflareAnalytics();
+if (!document.querySelector('script[data-oof-website-analytics]')) {
+  const tracker = document.createElement('script');
+  tracker.src = withSiteRoot('assets/js/oof-website-analytics.js');
+  tracker.dataset.oofWebsiteAnalytics = 'true';
+  tracker.defer = true;
+  document.head.appendChild(tracker);
+}
 
 // Optional LaRA widget: mount only when the same-origin backend is available.
 async function loadLaRA() {
