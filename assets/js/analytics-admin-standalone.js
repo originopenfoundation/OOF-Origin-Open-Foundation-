@@ -75,7 +75,15 @@
     } catch (error) { current = null; $('#export').disabled = true; status.textContent = error.message; }
   }
   $('#refresh').addEventListener('click', refresh);
-  $('#logout').addEventListener('click', () => { session = null; current = null; dashboard.hidden = true; login.hidden = false; $('#rows').replaceChildren(); $('#breakdown').replaceChildren(); status.textContent = 'Signed out.'; });
+  $('#logout').addEventListener('click', async () => {
+    const token = session;
+    session = null; current = null; dashboard.hidden = true; login.hidden = false;
+    $('#rows').replaceChildren(); $('#breakdown').replaceChildren(); $('#export').disabled = true;
+    try {
+      const response = await request(api + '/auth/v1/logout', { method: 'POST', headers: { apikey: publicKey, Authorization: 'Bearer ' + token } });
+      status.textContent = response.ok ? 'Signed out.' : 'Signed out locally; server session could not be revoked.';
+    } catch { status.textContent = 'Signed out locally; server session could not be revoked.'; }
+  });
   $('#export').addEventListener('click', () => {
     if (!current) return;
     const url = URL.createObjectURL(new Blob([JSON.stringify(current, null, 2)], { type: 'application/json' }));
