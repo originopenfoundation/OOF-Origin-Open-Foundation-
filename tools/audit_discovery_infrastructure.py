@@ -16,7 +16,7 @@ from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_PATH = ROOT / "data" / "oof-discovery-audit.json"
-PUBLIC_EXCLUDES = {"exports", ".tmp", "tmp", "node_modules", "test-results"}
+PUBLIC_EXCLUDES = {"exports", ".tmp", "tmp", "node_modules", "test-results", "analytics-admin"}
 
 
 class LinkParser(HTMLParser):
