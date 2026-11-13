@@ -34,7 +34,8 @@
   const browserPerformance=window.performance;
   const traces={events:[],start(kind){const item={id:window.crypto?.randomUUID?.()||String(Date.now()),kind,started_at:browserPerformance.now()};traces.events.push(item);return item;},finish(item,detail={}){item.total_ms=Math.round(browserPerformance.now()-item.started_at);item.detail=detail;return {...item};}};
   root.querySelector('.lara-form')?.addEventListener('submit',()=>{const trace=traces.start('chat');const done=()=>{traces.finish(trace,{responsive:Boolean(panel?.classList.contains('is-open'))});root.removeEventListener('lara-v27-response',done);};root.addEventListener('lara-v27-response',done,{once:true});},{capture:true});
-  const observer=new MutationObserver(()=>{if(!root.querySelector('.lara-pending'))root.dispatchEvent(new Event('lara-v27-response'));});observer.observe(root.querySelector('.lara-messages'),{childList:true,subtree:true});
   window.LaRAV27={profiles,performance:()=>traces.events.map(item=>({...item})),stopVoice:()=>stop.click(),stopListening:()=>stopListening.click()};
+  const messages=root.querySelector('.lara-messages');
+  if(messages){const observer=new MutationObserver(()=>{if(!root.querySelector('.lara-pending'))root.dispatchEvent(new Event('lara-v27-response'));});observer.observe(messages,{childList:true,subtree:true});}
 })();
 
