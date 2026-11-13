@@ -1,0 +1,4 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');const {PerformanceTrace}=require('../../lara/performance');
+test('performance trace has a correlation id, bounded safe milestones and no message content',()=>{let now=100;const trace=new PerformanceTrace({id:'trace-1',now:()=>now});trace.mark('request_start');now+=20;trace.mark('knowledge_ready');now+=30;trace.mark('response_complete');const result=trace.summary();assert.equal(result.correlation_id,'trace-1');assert.equal(result.total_ms,50);assert.equal(result.marks.knowledge_ready,20);assert.equal(result.contains_message_content,false);assert.throws(()=>trace.mark('raw_message'));});
+
