@@ -204,7 +204,24 @@ async function chat(req,res){
   res.end(`data: ${JSON.stringify({done:result})}\n\n`);
   }finally{release();}
 }
+const { runEngineAnalysis } = require('./engine-analytics');
+
+async function engineAnalysisHandler(req, res) {
+  let analysis;
+  try {
+    analysis = await readBody(req, 60 * 1024);
+  } catch (error) {
+    return send(res, error.status || 400, { error: error.message });
+  }
+  if (!analysis || typeof analysis.capability !== 'string' || Array.isArray(analysis)) {
+    return send(res, 400, { error: 'An analytical capability is required' });
+  }
+  const { status, body } = await runEngineAnalysis(analysis);
+  return send(res, status, body);
+}
+
 function adminHandler(req,res,url){if(!loopback(req))return send(res,403,{error:'Admin routes are available from the server host only'});if(!admin(req))return send(res,401,{error:'Admin authentication required'});
+  if(req.method==='POST'&&url.pathname==='/_lara/admin/engine-analytics')return engineAnalysisHandler(req,res);
   if(req.method==='GET'&&url.pathname==='/_lara/admin/status'){let state={generated_at:null,changed_pages:[],removed_pages:[]};try{state=JSON.parse(fs.readFileSync(statePath,'utf8'));}catch{};return send(res,200,{indexed_resources:index?.resource_count||0,last_index_date:state.generated_at||null,disabled_count:disabled.size,languages:Object.entries(LANGUAGES).map(([id,v])=>({id,name:v.name})),provider:gateway.primary?`${runtimeConfig.provider} configured`:'Extractive fallback',provider_configuration:{provider:runtimeConfig.provider,model:runtimeConfig.model,configured:Boolean(process.env.LLM_API_KEY)},voice_provider:'Browser speech interfaces',learning_counts:Object.fromEntries(Object.entries(learning.export()).map(([k,v])=>[k,v.length])),analytics:analytics.snapshot(),inference:gateway.snapshot(),system_logs:tailLogs(false),error_logs:tailLogs(true)});}
   if(req.method==='GET'&&url.pathname==='/_lara/admin/agents'){const state=scheduler.snapshot();return send(res,200,{scheduler:schedulerEnabled?'process_timer_requires_persistent_host':'manual_authorized_or_external_wakeup_required',persistent_state:Boolean(schedulerPath),jobs:state.jobs,history:state.history,checkpoints:state.checkpoints,automation_enabled:schedulerEnabled});}
   if(req.method==='GET'&&url.pathname==='/_lara/admin/agents/runtime')return send(res,200,{interface_version:'lara.agent.runtime/1.0',...agentRuntime.snapshot()});
