@@ -886,8 +886,9 @@ async function loadLaRA() {
     window.LARA_API_BASE=local?window.location.origin:api.origin;
   } catch { window.LARA_API_BASE=local?window.location.origin:null; }
   const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';
-  stylesheet.href=withSiteRoot('assets/lara/lara.css?v=20261106-24');document.head.appendChild(stylesheet);
-  const widget=document.createElement('script');widget.src=withSiteRoot('assets/lara/lara.js?v=20261106-24');
-  widget.defer=true;widget.dataset.laraWidget='true';document.body.appendChild(widget);
+  stylesheet.href=withSiteRoot('assets/lara/lara.css?v=20261113-27');document.head.appendChild(stylesheet);
+  const enhancementStyles=document.createElement('link');enhancementStyles.rel='stylesheet';enhancementStyles.href=withSiteRoot('assets/lara/lara-v27.css?v=20261113-27');document.head.appendChild(enhancementStyles);
+  const widget=document.createElement('script');widget.src=withSiteRoot('assets/lara/lara.js?v=20261113-27');
+  widget.defer=true;widget.dataset.laraWidget='true';widget.onload=()=>{const enhancement=document.createElement('script');enhancement.src=withSiteRoot('assets/lara/lara-v27.js?v=20261113-27');enhancement.defer=true;document.body.appendChild(enhancement);};document.body.appendChild(widget);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadLaRA,{once:true});else loadLaRA();
