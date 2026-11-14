@@ -11,5 +11,10 @@ function createGateway(env){const base=shared.createGateway(env);const gateway=n
  gateway.generateDetailed=input=>generate({...input,data_classification:env.LLM_EXTERNAL_DATA_APPROVED==='true'?'public':input.data_classification});
  return gateway;}
 function createProvider(env){const primary=shared.createGateway(env).primary;if(!primary)return null;if(primary.name==='groq'){const generate=primary.generateResult.bind(primary);primary.generateResult=input=>generate(enrich({...input,data_classification:env.LLM_EXTERNAL_DATA_APPROVED==='true'?'public':input.data_classification}));return primary;}
+ if(primary.name==='llama.cpp'){
+  const generate=primary.generateResult.bind(primary);
+  primary.generateResult=input=>generate(enrich(input));
+  return primary;
+ }
  return primary.name==='openrouter'?new OpenRouterAdapter(primary.config):new OpenAICompatibleAdapter(primary.config);}
 module.exports={...shared,OpenAICompatibleAdapter,OpenRouterAdapter,OpenRouterProvider:OpenRouterAdapter,AICommunicationGateway,createGateway,createProvider};
