@@ -6,4 +6,5 @@ for(const file of [...files(path.join(root,'lara')),...files(path.join(root,'lib
 for(const file of ['reports/lara-read-only-consumer-contract.json','reports/lara-integration-readiness.json','objects-core.json','representations.json','relationships.json'])JSON.parse(fs.readFileSync(path.join(root,'data/knowledge',file),'utf8'));
 JSON.parse(fs.readFileSync(path.join(root,'schemas/oof-problem-discovery.v1.schema.json'),'utf8'));
 for(const file of ['oof-evidence-verification.v1.schema.json','oof-cross-architecture.v1.schema.json','oof-capability.v1.schema.json'])JSON.parse(fs.readFileSync(path.join(root,'schemas',file),'utf8'));
+require('./check_lara_approval_candidate.cjs');
 console.log('LaRA syntax and required registry JSON checks passed. Runtime readiness and model quality require separate tests.');
