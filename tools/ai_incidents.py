@@ -240,6 +240,14 @@ def candidate_source(item: dict) -> str:
     return source_id.split(":", 1)[0].casefold()
 
 
+def configured_daily_limit(name: str, default: int) -> int:
+    """Allow bounded tuning; do not increase the production default without measurements."""
+    try:
+        return max(0, min(50, int(os.environ.get(name, default))))
+    except (TypeError, ValueError):
+        return default
+
+
 def review_source_candidate(source_id: str, decision: str, reviewer: str, reason: str,
                             existing: Iterable[dict], path: Path = CANDIDATE_QUEUE_PATH) -> dict:
     if decision not in {"accept", "reject"} or not reviewer.strip() or not reason.strip():
@@ -277,7 +285,7 @@ def review_source_candidate(source_id: str, decision: str, reviewer: str, reason
 
 
 def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH,
-                            update_limit: int = DAILY_SOURCE_UPDATE_LIMIT) -> dict:
+                            update_limit: int = DAILY_SOURCE_UPDATE_LIMIT, daily_limit: int = DAILY_PROCESSING_LIMIT) -> dict:
     payload = read_json(path, {"schemaVersion": "1.0", "candidates": []})
     candidates = payload.get("candidates", [])
     today = now_iso()[:10]
@@ -299,7 +307,7 @@ def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, pat
     selected_reserved = [item for item in new_candidates if item.get("incidentId") in reserved]
     selected_new.extend(selected_reserved[:max(0, limit)])
     for source in ordered_sources:
-        capacity = min(max(0, limit - len(selected_new)), max(0, DAILY_PROCESSING_LIMIT - len(reserved)))
+        capacity = min(max(0, limit - len(selected_new)), max(0, daily_limit - len(reserved)))
         fresh = [item for item in new_candidates if candidate_source(item) == source and item.get("incidentId") not in reserved]
         chosen = fresh[:capacity]
         selected_new.extend(chosen)
@@ -960,6 +968,15 @@ def public_automated_analysis(analysis: dict | None) -> dict | None:
     # unavailable until authorized evidence supports it.
     if outcomes.get("preventionGuidanceEligibility") == "WITHHELD":
         public["preventionGuidance"] = {}
+    elif public.get("preventionGuidance"):
+        guidance = dict(public["preventionGuidance"])
+        verification = dict(guidance.get("howCanProtectionBeVerified") or {})
+        control = (guidance.get("whatShouldBeImplemented") or {}).get("controlObjective")
+        if control and verification.get("testObjective") == control:
+            action = verification.get("testAction")
+            verification["testObjective"] = action if action and action != control else "Verification procedure not established."
+        guidance["howCanProtectionBeVerified"] = verification
+        public["preventionGuidance"] = guidance
     public["practicalChecklist"] = []
     return public
 
@@ -1003,8 +1020,7 @@ def _public_architectures(record: dict) -> list[dict]:
             canonical_architecture_assignment(item)
             for item in analysis.get("contributingArchitectures", [])
         ]
-    legacy = record.get("architectureRelevance") or {}
-    return [canonical_architecture_assignment({"architectureId": legacy.get("primaryArchitectureId")})] if legacy.get("primaryArchitectureId") else []
+    return []
 
 
 def _incident_date(record: dict) -> str:
@@ -1476,8 +1492,15 @@ def sync() -> dict:
             if isinstance(adapter, AIIDWeeklyExcelAdapter):
                 adapter.history_cursor = source_state.get("historyCursor")
             raw = adapter.fetch_new_records(source_state.get("lastSuccessfulSync"))
-            normalized = [adapter.normalize(item) for item in raw]
-            normalized = [item if item.get("sourceReviewRequired") else enrich_incident(item) for item in normalized]
+            normalized = []
+            rejected = 0
+            for source_record in raw:
+                try:
+                    item = adapter.normalize(source_record)
+                    normalized.append(item if item.get("sourceReviewRequired") else enrich_incident(item))
+                except (ValueError, TypeError, KeyError) as error:
+                    rejected += 1
+                    totals['sourceWarnings'].append({'source': adapter.name, 'error': f'Record rejected: {error}'})
             existing = repository.list()
             queue_result = queue_candidates(normalized, existing)
             totals["recordsRetrieved"] += len(raw)
@@ -1487,7 +1510,7 @@ def sync() -> dict:
             totals["duplicatesDetected"] += max(0, len(raw) - queue_result["added"] - queue_result["refreshed"])
             state["sources"][adapter.name] = {
                 "lastAttemptedSync": attempted, "lastSuccessfulSync": now_iso(),
-                "recordsRetrieved": len(raw), "recordsQueued": queue_result["added"],
+                "recordsRetrieved": len(raw), "recordsQueued": queue_result["added"], "recordsRejected": rejected,
                 "duplicatesDetected": max(0, len(raw) - queue_result["added"] - queue_result["refreshed"]), "syncStatus": "success", "sourceErrors": [],
                 **adapter.metadata(),
             }
@@ -1497,7 +1520,30 @@ def sync() -> dict:
             state["sources"][adapter.name] = {
                 **source_state, "lastAttemptedSync": attempted, "syncStatus": "failed", "sourceErrors": [str(error)]
             }
-    queue_result = process_candidate_queue(repository)
+    attempted = now_iso()
+    avid_state = state['sources'].get('AVIDReferenceSource', {})
+    try:
+        try:
+            from tools.avid_reference_source import discover
+        except ModuleNotFoundError:
+            from avid_reference_source import discover
+        avid = discover()
+        state['sources']['AVIDReferenceSource'] = {
+            'name': 'AVIDReferenceSource', 'mode': 'bounded-reference-probe',
+            'lastAttemptedSync': attempted, 'lastSuccessfulSync': now_iso(), 'syncStatus': 'success',
+            'recordsRetrieved': avid['recordsRetrieved'], 'latestCommit': avid['latestCommit'],
+            'limitation': avid['limitation'] + ' No private reference store is configured; records are not retained.',
+            'internalReferencesRetained': 0, 'publicIncidentsPublished': 0, 'sourceErrors': [],
+        }
+    except Exception as error:
+        totals['sourceWarnings'].append({'source': 'AVIDReferenceSource', 'error': str(error)})
+        state['sources']['AVIDReferenceSource'] = {**avid_state, 'lastAttemptedSync': attempted,
+                                                   'syncStatus': 'failed', 'sourceErrors': [str(error)]}
+    new_limit = configured_daily_limit("OOF_INCIDENT_DAILY_NEW_LIMIT", DAILY_PROCESSING_LIMIT)
+    update_limit = configured_daily_limit("OOF_INCIDENT_DAILY_UPDATE_LIMIT", DAILY_SOURCE_UPDATE_LIMIT)
+    queue_result = process_candidate_queue(repository, limit=new_limit, update_limit=update_limit, daily_limit=new_limit)
+    totals["configuredNewLimit"] = new_limit
+    totals["configuredUpdateLimit"] = update_limit
     totals["recordsProcessed"] = queue_result["processed"]
     totals["recordsCreated"] = queue_result["created"]
     totals["recordsUpdated"] = queue_result["updated"]

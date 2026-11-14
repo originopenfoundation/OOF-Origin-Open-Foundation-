@@ -1796,7 +1796,7 @@
         "conditionalIdeaAvailable": true,
         "applicability": "A similar question may be relevant to AI agents when the reported unauthorized action scenario and local operating conditions actually apply.",
         "control": "Conditionally enforce scoped, current authorization at the relevant access or execution boundary.",
-        "verification": "Conditionally enforce scoped, current authorization at the relevant access or execution boundary.",
+        "verification": "In an isolated test environment, request the same resource once with valid authorization and once with a revoked or out-of-scope permission.",
         "limitation": "This is a conditional test idea based on source-language signals, not a verified cause or proof that the control would prevent the incident."
       },
       "preventionFocus": "Before the action, validate actor identity, requested resource and action against an explicit permission; deny and log requests outside scope.",

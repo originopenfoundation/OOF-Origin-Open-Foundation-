@@ -643,7 +643,7 @@ def conditional_control_guidance(classification: dict, primary: dict | None) -> 
             'protectiveMechanism': control['mechanism'], 'expectedBehavior': control['expected'],
         },
         'howCanProtectionBeVerified': {
-            'testObjective': control['objective'], 'prerequisite': 'Authorized owner, representative safe test environment, defined scope, and a documented expected result.',
+            'testObjective': control['test'], 'prerequisite': 'Authorized owner, representative safe test environment, defined scope, and a documented expected result.',
             'testAction': control['test'], 'expectedSafeBehavior': control['expected'],
             'evidenceToRetain': 'Test inputs, configuration, authorization decision, observations, logs, and reviewer decision.',
             'failureCondition': 'The documented expected result is not achieved, cannot be observed, or is not attributable to the tested configuration.',
@@ -1146,26 +1146,12 @@ def changed_architectures(previous: dict, knowledge: KnowledgeLayer) -> set[str]
 
 
 def should_reassess(record: dict, latest: dict | None, knowledge: KnowledgeLayer, changed: set[str]) -> tuple[bool, str | None]:
+    del knowledge, changed
     if latest is None:
         return True, "Initial automated analysis"
     current_source_hash = content_hash(immutable_source_view(record))
     if latest.get("evidenceSnapshot", {}).get("incidentSourceHash") != current_source_hash:
         return True, "Incident evidence changed"
-    if latest.get("engineVersion") != ENGINE_VERSION:
-        return True, "Material analysis engine change"
-    if latest.get("qualityGateVersion") != QUALITY_GATE_VERSION:
-        return True, "Production semantic quality gate remediation"
-    if not changed:
-        return False, None
-    prior_ids = {
-        item.get("objectId") for item in [latest.get("architectureAnalysis", {}).get("primaryArchitecture")]
-        + latest.get("architectureAnalysis", {}).get("contributingArchitectures", []) if item
-    }
-    if prior_ids & changed:
-        return True, "Relevant OOF Knowledge Layer object changed"
-    ranked_ids = {item["objectId"] for item in knowledge.rank(record)}
-    if ranked_ids & changed:
-        return True, "New or changed OOF knowledge may affect this incident"
     return False, None
 
 

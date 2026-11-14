@@ -642,7 +642,7 @@ function createIncidentCard(incident, architectureLinks) {
   headingBlock.append(status);
 
   const intelligence = element("div", "oof-incident-card-intelligence");
-  const architecture = incident.primaryArchitecture;
+  const architecture = incident.assessment?.available ? incident.primaryArchitecture : null;
   const architectureUrl = architectureLinks.get(String(architecture?.architectureId || "").toLowerCase()) || architecture?.canonicalUrl;
   const focusHeading = element("h4", "", "Intelligence governance focus");
   const focus = element("p", "");
@@ -650,7 +650,7 @@ function createIncidentCard(incident, architectureLinks) {
     const link = element("a", "", architecture?.label || architecture?.architectureId?.toUpperCase());
     link.href = architectureUrl;
     focus.append(link);
-  } else focus.textContent = "Governed space unresolved";
+  } else focus.textContent = "Architecture undetermined";
   const assignment = element("p", "oof-incident-card-assignment", `Assignment: ${incident.assessment?.coverage || "Review required"}`);
   const insight = element("p", "oof-incident-card-insight", incident.governanceInsight || "Available evidence does not yet support a case-specific governance conclusion.");
   const systemFailure = incident.systemFailure || {};
@@ -667,7 +667,7 @@ function createIncidentCard(incident, architectureLinks) {
   [
     ["Could this happen?", preview.applicability],
     [conditional ? "Conditional control idea" : "Evidence needed before control selection", preview.control],
-    [conditional ? "Conditional verification idea" : "Evidence review", preview.verification],
+    [conditional ? "Conditional verification idea" : "Evidence review", preview.verification && preview.verification !== preview.control ? preview.verification : "Verification procedure not established."],
   ].forEach(([label, value]) => {
     const row = document.createElement("li");
     row.append(element("b", "", label), element("span", "", value || "Prevention analysis pending sufficient evidence."));

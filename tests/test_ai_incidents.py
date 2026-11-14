@@ -41,6 +41,32 @@ def record(source_id="source-1", title="Test incident"):
 
 
 class IncidentDomainTests(unittest.TestCase):
+    def test_methodology_change_does_not_reopen_unchanged_incident(self):
+        item = record()
+        latest = {'evidenceSnapshot': {'incidentSourceHash': engine.content_hash(engine.immutable_source_view(item))},
+                  'engineVersion': 'old', 'qualityGateVersion': 'old'}
+        self.assertEqual(engine.should_reassess(item, latest, None, {'changed-architecture'}), (False, None))
+        item['summary'] = 'A material source correction.'
+        self.assertEqual(engine.should_reassess(item, latest, None, set()), (True, 'Incident evidence changed'))
+
+    def test_pending_analysis_does_not_fall_back_to_legacy_architecture(self):
+        item = record()
+        item['architectureRelevance'] = {'primaryArchitectureId': 'aig'}
+        self.assertIsNone(incidents._list_projection(item)['primaryArchitecture'])
+        item['automatedAnalysis'] = {'analysisStatus': 'GOVERNANCE_ANALYSIS_PENDING', 'architectureAnalysis': {}}
+        self.assertIsNone(incidents._list_projection(item)['primaryArchitecture'])
+
+    def test_duplicate_verification_is_corrected_without_mutating_analysis(self):
+        analysis = {'qualityOutcomes': {'publicationEligibility': 'PUBLISHABLE'},
+                    'preventionGuidance': {'whatShouldBeImplemented': {'controlObjective': 'Apply control'},
+                        'howCanProtectionBeVerified': {'testObjective': 'Apply control', 'testAction': 'Test the control safely'}}}
+        public = incidents.public_automated_analysis(analysis)
+        self.assertEqual(public['preventionGuidance']['howCanProtectionBeVerified']['testObjective'], 'Test the control safely')
+        self.assertEqual(analysis['preventionGuidance']['howCanProtectionBeVerified']['testObjective'], 'Apply control')
+        analysis['preventionGuidance']['howCanProtectionBeVerified']['testAction'] = ''
+        public = incidents.public_automated_analysis(analysis)
+        self.assertEqual(public['preventionGuidance']['howCanProtectionBeVerified']['testObjective'], 'Verification procedure not established.')
+
     def test_aiid_dates_do_not_invent_publication_or_retrieval(self):
         adapter = incidents.AIIDWeeklyExcelAdapter()
         item = adapter.normalize({'Incident ID': 999, 'title': 'Test incident', 'date': '2026-10-30', '_snapshotUrl': 'https://example.test/AIID_Excel_Export-20261102.xlsx'})
@@ -534,6 +560,19 @@ class IncidentDomainTests(unittest.TestCase):
             self.assertEqual(processed["processed"], 10)
             self.assertEqual(processed["remaining"], 2)
             self.assertEqual(len(repository.list()), 10)
+
+    def test_configured_larger_capacity_remains_daily_bounded(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            repository = incidents.FileIncidentRepository(root / 'store.json')
+            queue = root / 'queue.json'
+            incidents.queue_candidates([record(f'larger-{i}', f'Incident {i}') for i in range(23)], [], queue)
+            self.assertEqual(incidents.process_candidate_queue(repository, limit=20, daily_limit=20, path=queue)['created'], 20)
+            self.assertEqual(incidents.process_candidate_queue(repository, limit=20, daily_limit=20, path=queue)['created'], 0)
+        with mock.patch.dict('os.environ', {'OOF_INCIDENT_DAILY_NEW_LIMIT': '999'}):
+            self.assertEqual(incidents.configured_daily_limit('OOF_INCIDENT_DAILY_NEW_LIMIT', 10), 50)
+        with mock.patch.dict('os.environ', {'OOF_INCIDENT_DAILY_NEW_LIMIT': 'invalid'}):
+            self.assertEqual(incidents.configured_daily_limit('OOF_INCIDENT_DAILY_NEW_LIMIT', 10), 10)
 
     def test_candidate_queue_limits_new_and_updates_independently(self):
         with tempfile.TemporaryDirectory() as temporary:

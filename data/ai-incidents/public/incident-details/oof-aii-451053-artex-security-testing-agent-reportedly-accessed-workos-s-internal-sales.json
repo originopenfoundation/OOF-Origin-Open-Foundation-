@@ -357,7 +357,7 @@
         "expectedBehavior": "The valid request follows policy; the revoked or out-of-scope request is denied before the protected action and both decisions are recorded."
       },
       "howCanProtectionBeVerified": {
-        "testObjective": "Conditionally enforce scoped, current authorization at the relevant access or execution boundary.",
+        "testObjective": "In an isolated test environment, request the same resource once with valid authorization and once with a revoked or out-of-scope permission.",
         "prerequisite": "Authorized owner, representative safe test environment, defined scope, and a documented expected result.",
         "testAction": "In an isolated test environment, request the same resource once with valid authorization and once with a revoked or out-of-scope permission.",
         "expectedSafeBehavior": "The valid request follows policy; the revoked or out-of-scope request is denied before the protected action and both decisions are recorded.",
