@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "scope": "Initial inventory of selected independently testable LaRA capabilities",
+  "records": [
+    {
+      "id": "LARA-F001",
+      "name": "Local inference",
+      "component": "LLM",
+      "purpose": "Local inference",
+      "source": "lib/oof-llm/runtime.js",
+      "implementation": "PARTIAL",
+      "activation": "INTERNAL TEST",
+      "verification": "NOT YET VERIFIED",
+      "tests": [
+        "tests/lara/llama-cpp.test.js"
+      ],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "Real CPU JSON/SSE and history recall; full HTTP acceptance unverified.",
+      "lastVerifiedRevision": null
+    },
+    {
+      "id": "LARA-F002",
+      "name": "Groq inference",
+      "component": "LLM",
+      "purpose": "Groq inference",
+      "source": "lara/llm/runtime.js",
+      "implementation": "IMPLEMENTED",
+      "activation": null,
+      "verification": "NOT YET VERIFIED",
+      "tests": [
+        "tests/lara/groq-v21.test.js"
+      ],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "Live provider status unverified.",
+      "lastVerifiedRevision": null
+    },
+    {
+      "id": "LARA-F003",
+      "name": "Conversation context",
+      "component": "Conversation",
+      "purpose": "Conversation context",
+      "source": "lara/conversation.js",
+      "implementation": "PARTIAL",
+      "activation": null,
+      "verification": "NOT YET VERIFIED",
+      "tests": [
+        "tests/lara/foundation-http.test.js"
+      ],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "Provider recall observed; production persistence unverified.",
+      "lastVerifiedRevision": null
+    },
+    {
+      "id": "LARA-F004",
+      "name": "Knowledge navigation",
+      "component": "Knowledge Layer",
+      "purpose": "Knowledge navigation",
+      "source": "lara/knowledge/navigator.js",
+      "implementation": "IMPLEMENTED",
+      "activation": null,
+      "verification": "NOT YET VERIFIED",
+      "tests": [
+        "tests/lara/navigator.test.js"
+      ],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "Live model-grounded chat acceptance open.",
+      "lastVerifiedRevision": null
+    },
+    {
+      "id": "LARA-F005",
+      "name": "Public inference egress",
+      "component": "Authorization",
+      "purpose": "Public inference egress",
+      "source": "lara/llm/public-egress.js",
+      "implementation": "IMPLEMENTED",
+      "activation": null,
+      "verification": "NOT YET VERIFIED",
+      "tests": [
+        "tests/lara/public-egress.test.js"
+      ],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "Local regression only; production approval independently governed.",
+      "lastVerifiedRevision": null
+    },
+    {
+      "id": "LARA-F006",
+      "name": "Restricted agent runtime",
+      "component": "Agents",
+      "purpose": "Restricted agent runtime",
+      "source": "lara/agents/runtime.js",
+      "implementation": "IMPLEMENTED",
+      "activation": null,
+      "verification": "NOT YET VERIFIED",
+      "tests": [
+        "tests/lara/agent-runtime.test.js"
+      ],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "Persistent operation unverified.",
+      "lastVerifiedRevision": null
+    },
+    {
+      "id": "LARA-F007",
+      "name": "Opportunity discovery",
+      "component": "Opportunity",
+      "purpose": "Opportunity discovery",
+      "source": "lara/opportunity/index.js",
+      "implementation": "PARTIAL",
+      "activation": null,
+      "verification": "NOT YET VERIFIED",
+      "tests": [],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "No market validation asserted.",
+      "lastVerifiedRevision": null
+    },
+    {
+      "id": "LARA-F008",
+      "name": "HTTP security acceptance",
+      "component": "HTTP",
+      "purpose": "HTTP security acceptance",
+      "source": "lara/server.js",
+      "implementation": "IMPLEMENTED",
+      "activation": null,
+      "verification": "NOT YET VERIFIED",
+      "tests": [
+        "tests/lara/http-security.test.js"
+      ],
+      "evidence": "Candidate source and test mapping; local results are recorded separately.",
+      "knownDefects": [],
+      "dependencies": [],
+      "limitations": "Most recent rerun exceeded its 25-second limit.",
+      "lastVerifiedRevision": null
+    }
+  ]
+}
