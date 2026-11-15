@@ -18,7 +18,7 @@ import time
 import unicodedata
 import urllib.error
 import urllib.request
-from urllib.parse import quote, urljoin
+from urllib.parse import quote, urljoin, urlparse
 from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
 from dataclasses import dataclass
@@ -240,10 +240,13 @@ def candidate_source(item: dict) -> str:
     return source_id.split(":", 1)[0].casefold()
 
 
-def configured_daily_limit(name: str, default: int) -> int:
-    """Allow bounded tuning; do not increase the production default without measurements."""
+def configured_daily_limit(name: str, default: int | None) -> int | None:
+    """A missing limit means all eligible queued records can be processed."""
+    value = os.environ.get(name)
+    if value is None or value.strip().lower() in {'', 'unlimited', 'none'}:
+        return default
     try:
-        return max(0, min(50, int(os.environ.get(name, default))))
+        return max(0, int(value))
     except (TypeError, ValueError):
         return default
 
@@ -284,15 +287,30 @@ def review_source_candidate(source_id: str, decision: str, reviewer: str, reason
     return event
 
 
-def process_candidate_queue(repository, limit: int = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH,
-                            update_limit: int = DAILY_SOURCE_UPDATE_LIMIT, daily_limit: int = DAILY_PROCESSING_LIMIT) -> dict:
+def process_candidate_queue(repository, limit: int | None = DAILY_PROCESSING_LIMIT, path: Path = CANDIDATE_QUEUE_PATH,
+                            update_limit: int | None = DAILY_SOURCE_UPDATE_LIMIT, daily_limit: int | None = DAILY_PROCESSING_LIMIT) -> dict:
     payload = read_json(path, {"schemaVersion": "1.0", "candidates": []})
     candidates = payload.get("candidates", [])
+    for item in candidates:
+        if item.get('candidateKind') not in {'new', 'source-change'}:
+            continue
+        try:
+            validate_incident(item.get('record') or {})
+        except (ValueError, TypeError, KeyError) as error:
+            item['candidateKind'] = 'source-review'
+            item.setdefault('record', {})['sourceReviewRequired'] = True
+            item['reviewReason'] = f'Pre-publication validation failed: {error}'
     today = now_iso()[:10]
     budget = dict(payload.get("newIncidentBudget") or {})
     if budget.get("date") != today:
         budget = {"date": today, "reservedIncidentIds": []}
     reserved = list(dict.fromkeys(budget.get("reservedIncidentIds") or []))
+    if limit is None:
+        limit = len(candidates)
+    if update_limit is None:
+        update_limit = len(candidates)
+    if daily_limit is None:
+        daily_limit = len(candidates) + len(reserved)
     # New incidents and source updates have independent bounded workloads.
     # Preserve FIFO order within each group and retain unknown kinds for review.
     new_candidates = sorted(
@@ -492,6 +510,9 @@ def validate_incident(record: dict) -> None:
         raise ValueError(f"Unsupported severity: {record['severity']}")
     if not record["sources"]:
         raise ValueError("At least one source with provenance is required")
+    if not any(source.get('sourceId') and urlparse(str(source.get('url') or '')).scheme in {'http', 'https'}
+               and urlparse(str(source.get('url') or '')).netloc for source in record['sources']):
+        raise ValueError("At least one source must have an identifier and an HTTP(S) URL")
 
 
 class SourceAdapter(ABC):
@@ -1539,8 +1560,8 @@ def sync() -> dict:
         totals['sourceWarnings'].append({'source': 'AVIDReferenceSource', 'error': str(error)})
         state['sources']['AVIDReferenceSource'] = {**avid_state, 'lastAttemptedSync': attempted,
                                                    'syncStatus': 'failed', 'sourceErrors': [str(error)]}
-    new_limit = configured_daily_limit("OOF_INCIDENT_DAILY_NEW_LIMIT", DAILY_PROCESSING_LIMIT)
-    update_limit = configured_daily_limit("OOF_INCIDENT_DAILY_UPDATE_LIMIT", DAILY_SOURCE_UPDATE_LIMIT)
+    new_limit = configured_daily_limit("OOF_INCIDENT_DAILY_NEW_LIMIT", None)
+    update_limit = configured_daily_limit("OOF_INCIDENT_DAILY_UPDATE_LIMIT", None)
     queue_result = process_candidate_queue(repository, limit=new_limit, update_limit=update_limit, daily_limit=new_limit)
     totals["configuredNewLimit"] = new_limit
     totals["configuredUpdateLimit"] = update_limit

@@ -41,6 +41,14 @@ def record(source_id="source-1", title="Test incident"):
 
 
 class IncidentDomainTests(unittest.TestCase):
+    def test_incident_requires_traceable_source_before_publication(self):
+        item = record()
+        item['sources'][0]['url'] = ''
+        with self.assertRaises(ValueError):
+            incidents.validate_incident(item)
+        item['sources'][0]['url'] = 'https://example.test/report'
+        incidents.validate_incident(item)
+
     def test_methodology_change_does_not_reopen_unchanged_incident(self):
         item = record()
         latest = {'evidenceSnapshot': {'incidentSourceHash': engine.content_hash(engine.immutable_source_view(item))},
@@ -570,9 +578,27 @@ class IncidentDomainTests(unittest.TestCase):
             self.assertEqual(incidents.process_candidate_queue(repository, limit=20, daily_limit=20, path=queue)['created'], 20)
             self.assertEqual(incidents.process_candidate_queue(repository, limit=20, daily_limit=20, path=queue)['created'], 0)
         with mock.patch.dict('os.environ', {'OOF_INCIDENT_DAILY_NEW_LIMIT': '999'}):
-            self.assertEqual(incidents.configured_daily_limit('OOF_INCIDENT_DAILY_NEW_LIMIT', 10), 50)
+            self.assertEqual(incidents.configured_daily_limit('OOF_INCIDENT_DAILY_NEW_LIMIT', 10), 999)
         with mock.patch.dict('os.environ', {'OOF_INCIDENT_DAILY_NEW_LIMIT': 'invalid'}):
             self.assertEqual(incidents.configured_daily_limit('OOF_INCIDENT_DAILY_NEW_LIMIT', 10), 10)
+
+    def test_unlimited_processes_ready_candidates_but_not_source_review(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            repository = incidents.FileIncidentRepository(root / 'store.json')
+            queue = root / 'queue.json'
+            ready = [record(f'unlimited-{i}', f'Incident {i}') for i in range(25)]
+            pending = record('oecd:pending', 'Source requiring review')
+            pending['sourceReviewRequired'] = True
+            invalid = record('invalid-source', 'Invalid source')
+            invalid['sources'][0]['url'] = ''
+            incidents.queue_candidates(ready + [pending, invalid], [], queue)
+            result = incidents.process_candidate_queue(repository, limit=None, update_limit=None, daily_limit=None, path=queue)
+            self.assertEqual(result['created'], 25)
+            self.assertEqual(result['remainingSourceReview'], 2)
+            self.assertEqual(len(repository.list()), 25)
+        with mock.patch.dict('os.environ', {}, clear=True):
+            self.assertIsNone(incidents.configured_daily_limit('OOF_INCIDENT_DAILY_NEW_LIMIT', None))
 
     def test_candidate_queue_limits_new_and_updates_independently(self):
         with tempfile.TemporaryDirectory() as temporary:
