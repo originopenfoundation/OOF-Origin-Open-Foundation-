@@ -20,10 +20,17 @@ async function reservePort() {
   return port;
 }
 
-async function waitForServer(baseUrl, output) {
-  for (let attempt = 0; attempt < 900; attempt += 1) {
+function request(url, options) {
+  return fetch(url, {...options, signal: AbortSignal.timeout(5000)})
+    .catch(error => { throw new Error(`HTTP test request failed: ${new URL(url).pathname}`, {cause:error}); });
+}
+
+async function waitForServer(baseUrl, output, server) {
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    if (server.exitCode !== null || server.signalCode !== null) break;
     try {
-      const response = await fetch(`${baseUrl}/_lara/status`);
+      const response = await request(`${baseUrl}/_lara/status`);
+      await response.body?.cancel();
       if (response.ok) return;
     } catch {}
     await new Promise(resolve => setTimeout(resolve, 100));
@@ -64,19 +71,20 @@ test('LaRA protects dynamic routes without preventing public discovery', async t
     if (!server.killed) server.kill('SIGTERM');
   });
 
-  await waitForServer(baseUrl, () => output);
+  await waitForServer(baseUrl, () => output, server);
 
   for (const route of ['/robots.txt', '/sitemap.xml', '/content/a/aga-about.html']) {
-    const response = await fetch(`${baseUrl}${route}`);
+    const response = await request(`${baseUrl}${route}`);
     assert.equal(response.status, 200, route);
     assertSecurityHeaders(response);
+    await response.body?.cancel();
   }
 
-  const admin = await fetch(`${baseUrl}/_lara/admin/status`);
+  const admin = await request(`${baseUrl}/_lara/admin/status`);
   assert.equal(admin.status, 401);
   assertSecurityHeaders(admin);
 
-  const malformed = await fetch(`${baseUrl}/_lara/chat`, {
+  const malformed = await request(`${baseUrl}/_lara/chat`, {
     method: 'POST',
     headers: { Origin: ORIGIN, 'Content-Type': 'application/json', 'X-Forwarded-For': '198.51.100.11' },
     body: '{',
@@ -84,7 +92,7 @@ test('LaRA protects dynamic routes without preventing public discovery', async t
   assert.equal(malformed.status, 400);
   assertSecurityHeaders(malformed);
 
-  const requestChat = async address => fetch(`${baseUrl}/_lara/chat`, {
+  const requestChat = async address => request(`${baseUrl}/_lara/chat`, {
     method: 'POST',
     headers: { Origin: ORIGIN, 'Content-Type': 'application/json', 'X-Forwarded-For': address },
     body: JSON.stringify({ question: 'Where can I find the OOF governance architecture?' }),
@@ -101,7 +109,7 @@ test('LaRA protects dynamic routes without preventing public discovery', async t
   const independentVisitor = await requestChat('198.51.100.22');
   assert.equal(independentVisitor.status, 200);
 
-  const tooLarge = await fetch(`${baseUrl}/_lara/chat`, {
+  const tooLarge = await request(`${baseUrl}/_lara/chat`, {
     method: 'POST',
     headers: { Origin: ORIGIN, 'Content-Type': 'application/json', 'X-Forwarded-For': '198.51.100.23' },
     body: JSON.stringify({ question: 'x'.repeat(12_001) }),
