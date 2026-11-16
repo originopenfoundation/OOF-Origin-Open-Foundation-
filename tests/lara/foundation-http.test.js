@@ -46,3 +46,11 @@ test('quota availability crosses status and SSE while sessions survive a control
 test('public scope approval does not bypass visitor consent or authorize a different provider',async()=>{const before=calls.length;const noConsent=await chat(consentProduction,'Hello LaRA');assert.equal(noConsent.done.generation.reason,'provider_consent_required');assert.equal(calls.length,before);const wrongProvider=await chat(consentProduction,'Hello LaRA',null,{groq_consent:true});assert.equal(wrongProvider.done.generation.reason,'public_provider_not_approved');assert.equal(calls.length,before);});
 
 test('canonical registry readiness does not grant public communication or bypass visitor gates',async()=>{const before=calls.length,status=await(await fetch(readyProduction.base+'/_lara/status')).json();assert.equal(status.report_only,false);assert.equal(status.generation_enabled,false);assert.equal(status.inference_gate,'public_approval_required');assert.deepEqual(status.public_communication_scopes,[]);const result=await chat(readyProduction,'Hello LaRA',null,{groq_consent:true});assert.equal(result.done.generation.reason,'report_only');assert.equal(calls.length,before);});
+
+test('English link requests resolve the exact governed title first', async () => {
+ const result=await chat(dev,'Where can I find the Known Standard?');
+ assert.equal(result.http,200);
+ assert.equal(result.done.identity_resolution,'FOUND');
+ assert.equal(result.done.generation.kind,'retrieval');
+ assert.match(result.done.answer,/https:\/\/originopenfoundation\.org\/known\.html/);
+});

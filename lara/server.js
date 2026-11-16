@@ -96,7 +96,10 @@ async function chat(req,res){
   const previous=session.messages.filter(m=>m.role==='user').slice(-4).map(m=>m.text);const mode=classify(question,input.mode||'auto');
   const length=/\b(short|brief(?:ly)?|kratko|stručne|kurz)\b/iu.test(question)?'short':['short','standard','detailed'].includes(input.length)?input.length:'standard';
   const directAnswer=conversation.reply(question,language,session);const retrievalQuestion=conversation.query(question,session);
-  const automaticIdentity=retrievalQuestion==='OOF'?{status:'NOT_FOUND'}:exact(index,retrievalQuestion);
+  const linkTarget = question.match(/^\s*(?:where (?:is|can i find)|find|link to|url for|page for|(?:show me)(?: the link (?:to|for))?)\s+(.+?)\s*[?!.]*\s*$/i)?.[1];
+  const linkedIdentity = linkTarget ? exact(index, linkTarget.replace(/^the\s+/i, '')) : null;
+  const automaticIdentity = linkedIdentity && linkedIdentity.status !== 'NOT_FOUND'
+    ? linkedIdentity : retrievalQuestion === 'OOF' ? {status:'NOT_FOUND'} : exact(index,retrievalQuestion);
   const identity=input.object_id?exact(index,String(input.object_id)):automaticIdentity.status==='NOT_FOUND'?null:automaticIdentity;
   const candidateIndex=identity?{resources:identity.status==='FOUND'?index.resources.filter(r=>r.object_id===identity.object.id):[]}:index;
   const skipRetrieval=directAnswer&&(protectedIntent(question)||smallTalk(question)||!gateway.primary);
@@ -131,7 +134,7 @@ async function chat(req,res){
   if(navigation?.results.length&&!conversation.followup(question))session.topic=privateQuery(retrievalQuestion);
   const interactionId=crypto.randomUUID();const canonicalLinkRequest=/\b(where (is|can i find)|find|link to|url for|page for|canonical link|show me)\b/i.test(question)||/\b(kde nájdem|nájdi|odkaz na|stránk[au] pre|kde je)\b/i.test(question)||/\b(wo finde|link zu|seite für|où trouver|lien vers)\b/i.test(question);
   let answer=identity?.status==='AMBIGUOUS'?({en:'More than one approved resource matches this identity. Please provide its object ID or canonical URL.',sk:'Tejto identite zodpovedá viac schválených zdrojov. Uveď ID objektu alebo kanonickú URL.',de:'Mehrere zugelassene Quellen passen zu dieser Identität. Bitte gib die Objekt-ID oder kanonische URL an.'}[language]||copy.unknown):directAnswer||fallbackAnswer(copy,mode,passages,assessment,length,personality,language),providerState='fallback';
-  if(!directAnswer&&canonicalLinkRequest&&passages.length){answer=`${passages[0].title}\n${passages[0].url}`;providerState='retrieval';}
+  if(!directAnswer&&identity?.status!=='AMBIGUOUS'&&canonicalLinkRequest&&passages.length){answer=`${passages[0].title}\n${passages[0].url}`;providerState='retrieval';}
   let inference=generationPolicy({configured:Boolean(gateway.primary),publicReportOnly:publicRequest,identity,canonicalLinkRequest,question,passages,approvedPublicScopes:approvedScopes(index)});
   if(inference.allowed){const egress=publicEgressPolicy({publicRequest,provider:runtimeConfig.provider,consent:input.groq_consent});if(!egress.allowed)inference={...inference,allowed:false,reason:egress.reason};}
   let generation={kind:providerState==='retrieval'?'retrieval':'preview',reason:inference.reason||null,provider:null,model:null,fallback_used:false};
