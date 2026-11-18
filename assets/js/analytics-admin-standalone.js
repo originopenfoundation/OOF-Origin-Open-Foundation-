@@ -6,18 +6,30 @@
   const $ = selector => document.querySelector(selector);
   const status = $('#status'), login = $('#login'), setup = $('#setup'), dashboard = $('#dashboard');
   const fragments = new URLSearchParams(location.hash.slice(1));
-  let invitation = fragments.get('type') === 'invite' ? fragments.get('access_token') : null;
+  let invitation = ['invite', 'recovery'].includes(fragments.get('type')) ? fragments.get('access_token') : null;
   let session = null, current = null;
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   if (invitation) { login.hidden = true; setup.hidden = false; }
   const headers = { apikey: publicKey, 'Content-Type': 'application/json' };
   const request = (url, options) => fetch(url, { ...options, cache: 'no-store', credentials: 'omit', referrerPolicy: 'no-referrer' });
+  $('#recover').addEventListener('click', async () => {
+    const email = $('#email');
+    if (!email.value || !email.validity.valid) { email.reportValidity(); return; }
+    try {
+      const redirect = 'https://originopenfoundation.org/analytics-admin/';
+      const response = await request(api + '/auth/v1/recover?redirect_to=' + encodeURIComponent(redirect), {
+        method: 'POST', headers, body: JSON.stringify({ email: email.value })
+      });
+      if (!response.ok) throw new Error('Could not send recovery email. Please try again later.');
+      status.textContent = 'If the account exists, a password recovery email has been sent.';
+    } catch (error) { status.textContent = error.message; }
+  });
   setup.addEventListener('submit', async event => {
     event.preventDefault();
     const input = $('#new-password');
     try {
       const response = await request(api + '/auth/v1/user', { method: 'PUT', headers: { ...headers, Authorization: 'Bearer ' + invitation }, body: JSON.stringify({ password: input.value }) });
-      if (!response.ok) throw new Error('The invitation is invalid or expired.');
+      if (!response.ok) throw new Error('The password link is invalid or expired.');
       invitation = null; input.value = ''; setup.hidden = true; login.hidden = false;
       status.textContent = 'Password set. Sign in to continue.';
     } catch (error) { status.textContent = error.message; }
