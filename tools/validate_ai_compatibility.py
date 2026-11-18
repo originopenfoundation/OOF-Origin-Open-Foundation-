@@ -55,7 +55,7 @@ def public_pages() -> list[Path]:
         relative_parts = path.relative_to(ROOT).parts
         if ".git" in path.parts or (
             relative_parts
-            and relative_parts[0] in {"exports", ".tmp", "tmp", "node_modules", "test-results"}
+            and relative_parts[0] in {"exports", ".tmp", "tmp", "node_modules", "test-results", "analytics-admin"}
         ):
             continue
         if "</head>" in path.read_text(encoding="utf-8").lower():

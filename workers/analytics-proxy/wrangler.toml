@@ -1,0 +1,16 @@
+name = "oof-analytics-ingress"
+main = "index.mjs"
+compatibility_date = "2025-01-01"
+workers_dev = true
+preview_urls = false
+
+[[ratelimits]]
+name = "ANALYTICS_RATE_LIMIT"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 60
+  period = 60
+
+# Route activation is a separate production change and requires prior review.
+# Keep OOF_ANALYTICS_PROXY_TOKEN in Worker secrets, not in this file.

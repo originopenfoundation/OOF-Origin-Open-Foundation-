@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 EXPORT_ROOT = ROOT / "exports" / "oof-canonical"
 FORMAT_VERSION = "1.0"
-PUBLIC_EXCLUDES = {"exports", ".git", ".tmp", "tmp", "pdf-pilot"}
+PUBLIC_EXCLUDES = {"exports", ".git", ".tmp", "tmp", "pdf-pilot", "analytics-admin"}
 REGISTRY_FILES = (
     "data/oof-version-registry.json",
     "data/oof-url-registry.json",
