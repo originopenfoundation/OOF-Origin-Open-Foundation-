@@ -421,7 +421,7 @@ def page_json_ld(record: dict) -> dict:
             "@type": "Dataset",
             "@id": record["canonical"] + "#dataset",
             "name": "OOF® Global Interest Heat Map™ public classification dataset",
-            "description": "Privacy-reduced country-level governance methodology interest classifications for a rolling 14-day observation window.",
+            "description": "Privacy-reduced country-level governance methodology interest classifications.",
             "url": canonical_url("data/oof-global-interest-heat-map.json"),
             "distribution": {
                 "@type": "DataDownload",
