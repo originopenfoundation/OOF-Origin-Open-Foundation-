@@ -1,8 +1,8 @@
 {
   "sources": {
     "ManualOOFIncidentAdapter": {
-      "lastAttemptedSync": "2026-11-17T10:49:33Z",
-      "lastSuccessfulSync": "2026-11-17T10:49:33Z",
+      "lastAttemptedSync": "2026-11-18T10:16:59Z",
+      "lastSuccessfulSync": "2026-11-18T10:16:59Z",
       "recordsRetrieved": 0,
       "recordsQueued": 0,
       "recordsRejected": 0,
@@ -13,26 +13,26 @@
       "mode": "incremental"
     },
     "AIIDWeeklyExcelAdapter": {
-      "lastAttemptedSync": "2026-11-17T10:49:33Z",
-      "lastSuccessfulSync": "2026-11-17T10:49:42Z",
+      "lastAttemptedSync": "2026-11-18T10:16:59Z",
+      "lastSuccessfulSync": "2026-11-18T10:17:14Z",
       "recordsRetrieved": 250,
-      "recordsQueued": 0,
+      "recordsQueued": 15,
       "recordsRejected": 0,
-      "duplicatesDetected": 250,
+      "duplicatesDetected": 235,
       "syncStatus": "success",
       "sourceErrors": [],
       "name": "AIIDWeeklyExcelAdapter",
       "mode": "weekly-snapshot",
-      "snapshotUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261109.xlsx",
-      "historyCursor": 1645
+      "snapshotUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261116.xlsx",
+      "historyCursor": 1635
     },
     "OECDIncidentAdapter": {
-      "lastAttemptedSync": "2026-11-17T10:49:42Z",
-      "lastSuccessfulSync": "2026-11-17T10:49:47Z",
+      "lastAttemptedSync": "2026-11-18T10:17:14Z",
+      "lastSuccessfulSync": "2026-11-18T10:17:17Z",
       "recordsRetrieved": 20,
-      "recordsQueued": 20,
+      "recordsQueued": 19,
       "recordsRejected": 0,
-      "duplicatesDetected": 0,
+      "duplicatesDetected": 1,
       "syncStatus": "success",
       "sourceErrors": [],
       "name": "OECDIncidentAdapter",
@@ -42,47 +42,40 @@
     "AVIDReferenceSource": {
       "name": "AVIDReferenceSource",
       "mode": "bounded-reference-probe",
-      "lastAttemptedSync": "2026-11-17T10:49:47Z",
-      "lastSuccessfulSync": "2026-11-16T09:52:56Z",
-      "syncStatus": "failed",
+      "lastAttemptedSync": "2026-11-18T10:17:17Z",
+      "lastSuccessfulSync": "2026-11-18T10:18:24Z",
+      "syncStatus": "success",
       "recordsRetrieved": 301,
       "latestCommit": "8eda5f4e6f74a3738eb980b795c4f813c6e52ca8",
       "limitation": "Bounded recent repository commits only; records are not established incidents or independent corroboration. No private reference store is configured; records are not retained.",
       "internalReferencesRetained": 0,
       "publicIncidentsPublished": 0,
-      "sourceErrors": [
-        "HTTP Error 403: rate limit exceeded"
-      ]
+      "sourceErrors": []
     }
   },
   "lastDailySummary": {
-    "createdAt": "2026-11-17T10:49:47Z",
+    "createdAt": "2026-11-18T10:18:24Z",
     "recordsRetrieved": 270,
-    "recordsQueued": 20,
-    "newCandidates": 0,
-    "changedCandidates": 0,
-    "recordsProcessed": 0,
-    "processedNew": 0,
-    "processedSourceChanges": 0,
-    "recordsCreated": 0,
-    "recordsUpdated": 0,
-    "duplicatesDetected": 250,
-    "queueRemaining": 91,
+    "recordsQueued": 34,
+    "newCandidates": 14,
+    "changedCandidates": 1,
+    "recordsProcessed": 15,
+    "processedNew": 14,
+    "processedSourceChanges": 1,
+    "recordsCreated": 14,
+    "recordsUpdated": 1,
+    "duplicatesDetected": 236,
+    "queueRemaining": 110,
     "queueRemainingNew": 0,
     "queueRemainingSourceChanges": 0,
-    "queueRemainingSourceReview": 91,
+    "queueRemainingSourceReview": 110,
     "sourceErrors": [],
-    "sourceWarnings": [
-      {
-        "source": "AVIDReferenceSource",
-        "error": "HTTP Error 403: rate limit exceeded"
-      }
-    ],
+    "sourceWarnings": [],
     "baselineIncidentCount": 352,
     "configuredNewLimit": null,
     "configuredUpdateLimit": null,
-    "afterIncidentCount": 352,
-    "status": "partial-success"
+    "afterIncidentCount": 366,
+    "status": "success"
   },
   "syncHistory": [
     {
@@ -641,7 +634,31 @@
       "configuredUpdateLimit": null,
       "afterIncidentCount": 352,
       "status": "partial-success"
+    },
+    {
+      "createdAt": "2026-11-18T10:18:24Z",
+      "recordsRetrieved": 270,
+      "recordsQueued": 34,
+      "newCandidates": 14,
+      "changedCandidates": 1,
+      "recordsProcessed": 15,
+      "processedNew": 14,
+      "processedSourceChanges": 1,
+      "recordsCreated": 14,
+      "recordsUpdated": 1,
+      "duplicatesDetected": 236,
+      "queueRemaining": 110,
+      "queueRemainingNew": 0,
+      "queueRemainingSourceChanges": 0,
+      "queueRemainingSourceReview": 110,
+      "sourceErrors": [],
+      "sourceWarnings": [],
+      "baselineIncidentCount": 352,
+      "configuredNewLimit": null,
+      "configuredUpdateLimit": null,
+      "afterIncidentCount": 366,
+      "status": "success"
     }
   ],
-  "lastPublicExport": "2026-11-17T10:49:48Z"
+  "lastPublicExport": "2026-11-18T10:18:26Z"
 }
