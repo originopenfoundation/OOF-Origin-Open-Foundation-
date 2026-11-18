@@ -25,7 +25,8 @@
   fetch(configUrl, { credentials: 'omit', referrerPolicy: 'no-referrer', cache: 'no-cache' }).then(response => response.ok ? response.json() : null).then(async config => {
     if (!config || config.enabled !== true || navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true) return;
     const endpoint = new URL(config.endpoint, location.origin);
-    if (endpoint.origin !== location.origin || endpoint.pathname !== '/_oof/analytics/event' || endpoint.search || endpoint.hash) return;
+    const allowedEndpoint = endpoint.origin === location.origin || endpoint.origin === 'https://oof-analytics-ingress.samuel-malicky2.workers.dev';
+    if (!allowedEndpoint || endpoint.pathname !== '/_oof/analytics/event' || endpoint.search || endpoint.hash) return;
     let identity = null;
     try {
       const response = await fetch('/assets/data/oof-analytics-catalog.json', { credentials: 'omit', referrerPolicy: 'no-referrer' });

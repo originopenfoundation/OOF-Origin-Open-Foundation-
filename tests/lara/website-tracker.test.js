@@ -43,6 +43,14 @@ test('tracker refuses external collectors and does not misattribute deceptive ho
   assert.equal(JSON.parse(spoofed.calls.find(item => item.options?.method === 'POST').options.body).source, 'other_website');
 });
 
+test('tracker accepts only the specifically approved standalone endpoint', async () => {
+  const endpoint = 'https://oof-analytics-ingress.samuel-malicky2.workers.dev/_oof/analytics/event';
+  const valid = await execute({ enabled: true, endpoint });
+  assert.ok(valid.calls.some(call => call.url === endpoint && call.options?.method === 'POST'));
+  const impostor = await execute({ enabled: true, endpoint: 'https://oof-analytics-ingress.samuel-malicky2.workers.dev.attacker.example/_oof/analytics/event' });
+  assert.equal(impostor.calls.length, 1);
+});
+
 test('known canonical pages send only their public canonical identity', async () => {
   const result = await execute({ enabled: true, endpoint: '/_oof/analytics/event' }, '',
     { '/architecture.html': { id: 'OOF-KO-ARCH-AGA', content: 'architecture' } });

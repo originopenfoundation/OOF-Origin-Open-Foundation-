@@ -29,3 +29,13 @@ test('independent collector only accepts bounded categorical data from allowed o
     headers: { origin: 'https://originopenfoundation.org', 'content-type': 'application/json' },
     body: JSON.stringify({ ...event, contentId: undefined }) }))).status, 503);
 });
+
+test('health check requires proxy authentication and never records an event', async () => {
+  const { createCollector } = await import('../../supabase/functions/oof-analytics/core.mjs');
+  let records = 0;
+  const options = { storage: { health: async () => true, record: async () => { records++; } }, catalog: async () => new Map() };
+  const make = () => new Request('https://example.org/event', { method: 'HEAD', headers: { origin: 'https://originopenfoundation.org' } });
+  assert.equal((await createCollector({ ...options, authorize: async () => false })(make())).status, 403);
+  assert.equal((await createCollector({ ...options, authorize: async () => true })(make())).status, 204);
+  assert.equal(records, 0);
+});

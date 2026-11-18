@@ -56,6 +56,7 @@ async function catalog(): Promise<Map<string, string>> {
 }
 
 const storage = {
+  async health() { return await verifyPermissions(); },
   async record(event: { event: string; content: string; contentId?: string; source: string; language: string }) {
     if (!pool || !(await verifyPermissions())) throw new Error('Storage unavailable');
     await pool.query(`INSERT INTO oof_analytics.daily_counts(day,event,content,content_id,source,language,count)

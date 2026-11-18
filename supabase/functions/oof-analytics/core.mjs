@@ -36,8 +36,11 @@ export function createCollector({ storage, catalog, authorize, originRequired = 
     const reply = (status, body = '') => new Response(body, { status, headers: { ...cors, 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
     if ((originRequired && !ALLOWED_ORIGINS.has(origin)) || (origin && !ALLOWED_ORIGINS.has(origin))) return reply(403);
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: { ...cors, 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '600' } });
-    if (request.method !== 'POST') return reply(405);
+    if (!['POST', 'HEAD'].includes(request.method)) return reply(405);
     if (authorize && !await authorize(request)) return reply(403);
+    if (request.method === 'HEAD') {
+      try { return await storage.health() ? new Response(null, { status: 204, headers: { ...cors, 'Cache-Control': 'no-store' } }) : reply(503); } catch { return reply(503); }
+    }
     if (!/^application\/json(?:\s*;|$)/i.test(request.headers.get('content-type') || '')) return reply(415);
     let value;
     try { value = await boundedBody(request); } catch { return reply(400); }
