@@ -18,7 +18,10 @@ from update_global_interest_heat_map import (  # noqa: E402
     canonical_governance_spaces,
     cloudflare_rows,
     classify,
+    classify_legacy,
+    observation_window,
     public_payload,
+    request_json,
     resolve_iso,
     write_refresh_diagnostic,
 )
@@ -38,9 +41,42 @@ def distributed(country: str, visits: list[float], spacing: int = 1) -> list[dic
 
 
 class GlobalInterestHeatMapTests(unittest.TestCase):
+    @patch("update_global_interest_heat_map.time.sleep")
+    @patch("update_global_interest_heat_map.urllib.request.urlopen")
+    def test_transient_source_timeout_is_retried(self, urlopen, sleep) -> None:
+        from io import BytesIO
+        urlopen.side_effect = [TimeoutError("timed out"), BytesIO(b'{"ok": true}')]
+        self.assertEqual(request_json("https://example.org/data"), {"ok": True})
+        self.assertEqual(urlopen.call_count, 2)
+        sleep.assert_called_once_with(1)
+
+    @patch("update_global_interest_heat_map.time.sleep")
+    @patch("update_global_interest_heat_map.urllib.request.urlopen", side_effect=TimeoutError("timed out"))
+    def test_source_timeout_fails_after_bounded_retries(self, urlopen, sleep) -> None:
+        with self.assertRaises(TimeoutError):
+            request_json("https://example.org/data")
+        self.assertEqual(urlopen.call_count, 3)
+        self.assertEqual(sleep.call_count, 2)
+
     def classify_one(self, rows: list[dict], population: int = 1_000_000):
-        public, internal = classify(rows, {"AA": population}, {}, NOW)
+        public, internal = classify_legacy(rows, {"AA": population}, {}, NOW)
         return public, internal["AA"]
+
+    def test_seven_complete_utc_days_and_classification_boundaries(self) -> None:
+        start, end = observation_window(NOW)
+        self.assertEqual(start.isoformat(), "2026-09-23T00:00:00+00:00")
+        self.assertEqual(end.isoformat(), "2026-09-30T00:00:00+00:00")
+        for visits, expected in [(20, None), (21, "emerging"), (139, "emerging"),
+                                 (140, "moderate"), (279, "moderate"), (280, "high"),
+                                 (559, "high"), (560, "very-high")]:
+            with self.subTest(visits=visits):
+                public, internal = classify([row("AA", "2026-09-23", visits)], {}, {}, NOW)
+                self.assertEqual(public[0]["status"] if public else None, expected)
+                self.assertEqual(internal["AA"]["activityTotal"], visits)
+
+    def test_incomplete_current_day_fails_closed(self) -> None:
+        with self.assertRaises(ValueError):
+            classify([row("AA", "2026-09-30", 50)], {}, {}, NOW)
 
     def test_resolve_iso_accepts_codes_and_country_names_but_excludes_antarctica(self) -> None:
         names = {"slovakia": "SK", "antarctica": "AQ"}
@@ -94,7 +130,7 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
 
     def test_public_payload_keeps_raw_and_quality_adjusted_traffic_views_distinct(self) -> None:
         spaces = canonical_governance_spaces()
-        payload = public_payload([{"iso": "AA", "status": "emerging"}], spaces, NOW - timedelta(days=14), NOW)
+        payload = public_payload([{"iso": "AA", "status": "emerging"}], spaces, observation_window(NOW)[0], NOW)
         self.assertEqual(payload["trafficViews"]["raw"]["countryData"], "countries")
         self.assertEqual(payload["trafficViews"]["qualityAdjusted"]["status"], "unavailable")
         self.assertIn("documented evidence", payload["trafficViews"]["qualityAdjusted"]["reason"])
@@ -150,11 +186,11 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
 
     def test_unchanged_revision_still_refreshes_public_metadata(self) -> None:
         spaces = canonical_governance_spaces()
-        payload = public_payload([{"iso": "AA", "status": "emerging"}], spaces, NOW - timedelta(days=14), NOW)
+        payload = public_payload([{"iso": "AA", "status": "emerging"}], spaces, observation_window(NOW)[0], NOW)
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "dataset.json"
             self.assertTrue(atomic_write(target, payload))
-            later = public_payload(payload["countries"], spaces, NOW - timedelta(days=13), NOW + timedelta(days=1))
+            later = public_payload(payload["countries"], spaces, observation_window(NOW + timedelta(days=1))[0], NOW + timedelta(days=1))
             self.assertEqual(payload["dataRevision"], later["dataRevision"])
             self.assertTrue(atomic_write(target, later))
             refreshed = json.loads(target.read_text(encoding="utf-8"))

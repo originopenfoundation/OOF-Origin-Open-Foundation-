@@ -35,6 +35,11 @@ const dataset = {
 };
 
 async function mockDataset(page, overrides = {}) {
+  await page.route("**/_lara/status", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({ model_availability: "unavailable" })
+  }));
   await page.route("**/data/oof-global-interest-heat-map.json", route => route.fulfill({
     status: 200,
     contentType: "application/json",
@@ -68,12 +73,26 @@ test("desktop map supports all states, selection, zoom, reset and small countrie
   expect(consoleErrors).toEqual([]);
 });
 
+test("seven-day dataset presents four distinct categories", async ({ page }) => {
+  await mockDataset(page, { algorithmVersion: "4.0", windowStart: "2026-09-23T00:00:00Z", windowEnd: "2026-09-30T00:00:00Z" });
+  await page.goto("/global-interest-heat-map.html");
+  await expect(page.locator("#global-interest-very-high")).toBeVisible();
+  await expect(page.locator("#global-interest-window")).toContainText("Rolling 7 days");
+  for (const [iso, status] of [["SG", "Very High Interest"], ["SK", "High Interest"], ["US", "Moderate Interest"], ["BR", "Emerging Interest"]]) {
+    await page.locator("#global-interest-country-select").selectOption(iso);
+    await expect(page.locator("#global-interest-country-status")).toContainText(status);
+  }
+  const colors = await page.locator("#global-interest-country-list .oof-global-interest-country-swatch").evaluateAll(nodes => nodes.map(node => getComputedStyle(node).backgroundColor));
+  expect(new Set(colors).size).toBe(4);
+});
+
 test("quality-adjusted view does not reuse raw country classifications without evidence", async ({ page }) => {
   await mockDataset(page);
   await page.goto("/global-interest-heat-map.html");
   await page.getByRole("button", { name: "Quality-Adjusted Traffic Map" }).click();
   await expect(page.locator("#global-interest-view-notice")).toContainText("Unavailable pending sufficient documented evidence");
-  await expect(page.locator("#global-interest-country-list")).toContainText("No countries have a sufficient public signal");
+  await expect(page.locator("#global-interest-country-list")).toContainText("Quality-Adjusted View Temporarily Unavailable");
+  await expect(page.locator("#global-interest-country-list")).not.toContainText("No countries have a sufficient public signal");
   await page.locator("#global-interest-country-select").selectOption("SG");
   await expect(page.locator("#global-interest-country-status")).toContainText("unavailable pending sufficient documented evidence");
 });

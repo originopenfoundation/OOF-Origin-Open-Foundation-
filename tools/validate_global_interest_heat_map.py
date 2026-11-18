@@ -50,9 +50,16 @@ def validate(path: Path) -> dict:
         "windowStart", "windowEnd", "generatedAt", "lastCheckedAt",
         "lastSuccessfulCloudflareRetrievalAt", "lastSuccessfulDatasetGenerationAt", "lastSuccessfulDatasetPublicationAt",
     ):
+        if field == "lastSuccessfulDatasetPublicationAt" and payload[field] is None and payload.get("algorithmVersion") == "4.0":
+            continue
         parse_timestamp(payload[field], field)
-    if payload["schemaVersion"] != "1.3" or payload["algorithmVersion"] != "3.2":
+    if payload["schemaVersion"] != "1.3" or payload["algorithmVersion"] not in {"3.2", "4.0"}:
         raise ValueError("Unsupported Global Interest Heat Map schema or algorithm version")
+    if payload["algorithmVersion"] == "4.0":
+        start = parse_timestamp(payload["windowStart"], "windowStart").astimezone(timezone.utc)
+        end = parse_timestamp(payload["windowEnd"], "windowEnd").astimezone(timezone.utc)
+        if end - start != timedelta(days=7) or any((start.hour, start.minute, start.second, end.hour, end.minute, end.second)):
+            raise ValueError("The observation window must contain seven complete UTC days")
     if not re.fullmatch(r"[a-f0-9]{64}", str(payload["dataRevision"])):
         raise ValueError("dataRevision must be a SHA-256 value")
     if payload["source"] != "Cloudflare Web Analytics":
