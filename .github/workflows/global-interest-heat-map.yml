@@ -21,12 +21,12 @@ concurrency:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
         with:
-          ref: main1
+          ref: ${{ github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -77,19 +77,8 @@ jobs:
       - name: Run desktop and mobile smoke tests
         run: npx playwright test --config=playwright.config.mjs
 
-      - name: Preserve restricted diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: global-interest-diagnostics-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/oof-global-interest-internal.json
-            ${{ runner.temp }}/oof-global-interest-refresh-diagnostic.json
-          retention-days: 14
-          if-no-files-found: warn
-
       - name: Publish changed public dataset atomically
-        if: steps.analytics.outputs.configured == 'true'
+        if: steps.analytics.outputs.configured == 'true' && github.ref == 'refs/heads/main1'
         run: |
           if git diff --quiet -- data/oof-global-interest-heat-map.json; then
             echo "No public classification change."

@@ -149,7 +149,9 @@
     const end = validDate(dataset.windowEnd);
     if (dataWindow) {
       const formatter = new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" });
-      dataWindow.textContent = start && end ? `Rolling 14 days: ${formatter.format(start)} to ${formatter.format(end)}` : "Rolling 14 days";
+      const lastDay = end && dataset.algorithmVersion === "4.0" ? new Date(end.getTime() - 1) : end;
+      const days = start && end ? Math.round((end - start) / 86400000) : null;
+      dataWindow.textContent = start && lastDay ? `Rolling ${days} days: ${formatter.format(start)} to ${formatter.format(lastDay)} (UTC)` : "Observation period unavailable";
     }
     if (dataSource) dataSource.textContent = dataset.source || "Cloudflare Web Analytics";
     if (staleWarning) staleWarning.hidden = !retrieved || Date.now() - retrieved.getTime() <= STALE_AFTER_MS;
@@ -267,7 +269,9 @@
     if (!countries.length) {
       const empty = document.createElement("li");
       empty.className = "oof-global-interest-country-list-empty";
-      empty.textContent = "No countries have a sufficient public signal in this data window.";
+      empty.textContent = viewDefinition() && viewDefinition().status !== "available"
+        ? "Quality-Adjusted View Temporarily Unavailable. This view cannot currently be displayed. Please use the Global Interest Heat Map."
+        : "No countries have a sufficient public signal in this data window.";
       countryList.appendChild(empty);
     }
   }
@@ -352,8 +356,15 @@
   fetch("data/oof-global-interest-heat-map.json", { cache: "no-store" })
     .then(response => { if (!response.ok) throw new Error("Public interest dataset unavailable"); return response.json(); })
     .then(dataset => {
-      if (!dataset || dataset.schemaVersion !== "1.3" || dataset.algorithmVersion !== "3.2" || !Array.isArray(dataset.countries) || !dataset.trafficViews) throw new Error("Public Global Interest Heat Map dataset is invalid");
+      if (!dataset || dataset.schemaVersion !== "1.3" || !["3.2", "4.0"].includes(dataset.algorithmVersion) || !Array.isArray(dataset.countries) || !dataset.trafficViews) throw new Error("Public Global Interest Heat Map dataset is invalid");
       activeDataset = dataset;
+      if (dataset.algorithmVersion === "4.0") {
+        Object.assign(COLORS, { "very-high": "#167a45", high: "#2468b4", moderate: "#d57219" });
+        STATUS_LABELS["very-high"] = "Very High Interest";
+        document.body.classList.add("oof-interest-v4");
+        const legendItem = document.getElementById("global-interest-very-high");
+        if (legendItem) legendItem.hidden = false;
+      }
       applyViewPresentation();
       prepareDataset(dataset);
       return fetch("assets/data/ne_50m_admin_0_countries.geojson", { cache: "force-cache" })

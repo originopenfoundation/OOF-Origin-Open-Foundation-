@@ -9,7 +9,10 @@ import json
 import math
 import os
 import re
+import socket
 import tempfile
+import time
+import urllib.error
 import urllib.request
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
@@ -22,12 +25,12 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATASET = ROOT / "data" / "oof-global-interest-heat-map.json"
 ARCHITECTURE_INDEX = ROOT / "data" / "oof-architecture-registry.json"
 SCHEMA_VERSION = "1.3"
-INTEREST_ALGORITHM_VERSION = "3.2"
+INTEREST_ALGORITHM_VERSION = "4.0"
 GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql"
 POPULATION_METADATA_URL = "https://api.worldbank.org/v2/country?format=json&per_page=400"
 POPULATION_VALUES_URL = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=5000&date=2020:2025"
 HOST = "originopenfoundation.org"
-WINDOW_DAYS = 14
+WINDOW_DAYS = 7
 CLASSIFICATION_CONFIG = {
     "minimumVisits": 3.0,
     "minimumActiveDays": 2,
@@ -46,7 +49,7 @@ CONTINUITY_SIGNAL_REVIEW = {
     "windowDays": 30,
     "enabled": False,
     "status": "evaluated-not-enabled",
-    "limitation": "The public classification continues to use the governed rolling 14-day observation window.",
+    "limitation": "The public classification uses the latest seven complete UTC days.",
 }
 
 
@@ -58,8 +61,17 @@ def request_json(url: str, *, token: str | None = None, payload: dict | None = N
     if token:
         headers["Authorization"] = f"Bearer {token}"
     request = urllib.request.Request(url, data=body, headers=headers, method="POST" if body else "GET")
-    with urllib.request.urlopen(request, timeout=60) as response:
-        return json.load(response)
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as error:
+            if error.code not in (429, 500, 502, 503, 504) or attempt == 2:
+                raise
+        except (urllib.error.URLError, TimeoutError, socket.timeout):
+            if attempt == 2:
+                raise
+        time.sleep(2 ** attempt)
 
 
 def cloudflare_rows(account_id: str, site_tag: str, token: str, start: datetime, end: datetime) -> list[dict]:
@@ -76,7 +88,7 @@ def cloudflare_rows(account_id: str, site_tag: str, token: str, start: datetime,
             limit: 10000
             orderBy: [sum_visits_DESC]
             filter: {{ AND: [
-              {{ datetime_geq: "{start_value}", datetime_leq: "{end_value}" }}
+              {{ datetime_geq: "{start_value}", datetime_lt: "{end_value}" }}
               {{ siteTag: "{site_tag}" }}
               {{ requestHost: "{HOST}" }}
               {{ OR: [{{ bot: 0 }}, {{ bot: 1 }}] }}
@@ -94,14 +106,17 @@ def cloudflare_rows(account_id: str, site_tag: str, token: str, start: datetime,
     accounts = result.get("data", {}).get("viewer", {}).get("accounts", [])
     if not accounts:
         raise RuntimeError("Cloudflare Analytics returned no account data")
-    return accounts[0].get("rows", [])
+    rows = accounts[0].get("rows")
+    if not isinstance(rows, list):
+        raise RuntimeError("Cloudflare Analytics returned no usable rows array")
+    if len(rows) >= 10000:
+        raise RuntimeError("Cloudflare Analytics reached the row limit; refusing a potentially incomplete dataset")
+    return rows
 
 
 def population_data() -> tuple[dict[str, int], dict[str, str], str]:
     metadata_response = request_json(POPULATION_METADATA_URL)
-    values_response = request_json(POPULATION_VALUES_URL)
     metadata = metadata_response[1] if isinstance(metadata_response, list) and len(metadata_response) > 1 else []
-    values = values_response[1] if isinstance(values_response, list) and len(values_response) > 1 else []
     iso3_to_iso2: dict[str, str] = {}
     names_to_iso2: dict[str, str] = {}
     for country in metadata:
@@ -111,18 +126,9 @@ def population_data() -> tuple[dict[str, int], dict[str, str], str]:
         if re.fullmatch(r"[A-Z]{2}", iso2) and region.get("value") != "Aggregates":
             iso3_to_iso2[iso3] = iso2
             names_to_iso2[str(country.get("name") or "").casefold()] = iso2
-    populations: dict[str, int] = {}
-    years: list[int] = []
-    for row in values:
-        value = row.get("value")
-        iso3 = str(row.get("countryiso3code") or "").upper()
-        iso2 = iso3_to_iso2.get(iso3)
-        if iso2 and value is not None and iso2 not in populations:
-            populations[iso2] = int(value)
-            years.append(int(row["date"]))
-    if not populations:
-        raise RuntimeError("Population source returned no usable country data")
-    return populations, names_to_iso2, str(max(years))
+    if not names_to_iso2:
+        raise RuntimeError("Country metadata source returned no usable countries")
+    return {}, names_to_iso2, "not used"
 
 
 def resolve_iso(value: str, names_to_iso2: dict[str, str]) -> str | None:
@@ -173,7 +179,7 @@ def canonical_governance_spaces(path: Path = ARCHITECTURE_INDEX) -> list[dict]:
     return sorted(spaces, key=lambda item: item["id"])
 
 
-def classify(
+def classify_legacy(
     rows: list[dict], populations: dict[str, int], names_to_iso2: dict[str, str], now: datetime
 ) -> tuple[list[dict], dict]:
     countries: dict[str, dict] = defaultdict(lambda: {"visits": 0.0, "days": set(), "daily": defaultdict(float), "exclusionReasons": []})
@@ -281,6 +287,47 @@ def classify(
     return public, internal
 
 
+def observation_window(now: datetime) -> tuple[datetime, datetime]:
+    """The seven most recent complete UTC calendar days, with an exclusive end."""
+    if now.tzinfo is None:
+        raise ValueError("Observation time must be timezone-aware")
+    end = now.astimezone(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    return end - timedelta(days=WINDOW_DAYS), end
+
+
+def classify(rows: list[dict], populations: dict[str, int], names_to_iso2: dict[str, str], now: datetime) -> tuple[list[dict], dict]:
+    start, end = observation_window(now)
+    totals: dict[str, float] = defaultdict(float)
+    unresolved: set[str] = set()
+    for row in rows:
+        dimensions = row.get("dimensions") or {}
+        source = str(dimensions.get("countryName") or "Unknown")
+        iso = resolve_iso(source, names_to_iso2)
+        if not iso:
+            unresolved.add(source)
+            continue
+        try:
+            day = datetime.fromisoformat(str(dimensions.get("date") or "")).date()
+            visits = float((row.get("sum") or {}).get("visits"))
+        except (TypeError, ValueError):
+            raise ValueError("Cloudflare returned an invalid date or activity value")
+        if not start.date() <= day < end.date() or not math.isfinite(visits) or visits < 0:
+            raise ValueError("Cloudflare returned an out-of-window or invalid activity value")
+        totals[iso] += visits
+    public, internal = [], {}
+    for iso, total in sorted(totals.items()):
+        average = total / WINDOW_DAYS
+        status = ("very-high" if average >= 80 else "high" if average >= 40 else
+                  "moderate" if average >= 20 else "emerging" if average >= 3 else "insufficient")
+        internal[iso] = {"classification": status, "activityTotal": total, "dailyAverage": average,
+                         "exclusionReasons": ["below-minimum-signal"] if status == "insufficient" else []}
+        if status != "insufficient":
+            public.append({"iso": iso, "status": status})
+    internal["_coverage"] = {"sourceRows": len(rows), "sourceCountries": len(totals),
+                             "classifiedCountries": len(public), "unresolvedCountries": sorted(unresolved)}
+    return public, internal
+
+
 def revision_for(countries: list[dict], governance_spaces: list[dict]) -> str:
     material = json.dumps({
         "algorithmVersion": INTEREST_ALGORITHM_VERSION,
@@ -293,16 +340,17 @@ def revision_for(countries: list[dict], governance_spaces: list[dict]) -> str:
 
 def public_payload(countries: list[dict], governance_spaces: list[dict], start: datetime, now: datetime) -> dict:
     timestamp = now.isoformat().replace("+00:00", "Z")
+    _, end = observation_window(now)
     return {
         "schemaVersion": SCHEMA_VERSION,
         "algorithmVersion": INTEREST_ALGORITHM_VERSION,
         "windowStart": start.isoformat().replace("+00:00", "Z"),
-        "windowEnd": timestamp,
+        "windowEnd": end.isoformat().replace("+00:00", "Z"),
         "generatedAt": timestamp,
         "lastCheckedAt": timestamp,
         "lastSuccessfulCloudflareRetrievalAt": timestamp,
         "lastSuccessfulDatasetGenerationAt": timestamp,
-        "lastSuccessfulDatasetPublicationAt": timestamp,
+        "lastSuccessfulDatasetPublicationAt": None,
         "dataRevision": revision_for(countries, governance_spaces),
         "source": "Cloudflare Web Analytics",
         "observationUnit": "Aggregated visits; visits are not unique people or unique users.",
@@ -376,12 +424,13 @@ def main() -> None:
     account_id = os.environ["CLOUDFLARE_ACCOUNT_ID"]
     site_tag = os.environ["CLOUDFLARE_WEB_ANALYTICS_SITE_TAG"]
     token = os.environ["CLOUDFLARE_ANALYTICS_API_TOKEN"]
-    start = now - timedelta(days=WINDOW_DAYS)
-    rows = cloudflare_rows(account_id, site_tag, token, start, now)
+    start, end = observation_window(now)
+    rows = cloudflare_rows(account_id, site_tag, token, start, end)
     populations, names_to_iso2, population_year = population_data()
     public_countries, internal_countries = classify(rows, populations, names_to_iso2, now)
     governance_spaces = canonical_governance_spaces()
     payload = public_payload(public_countries, governance_spaces, start, now)
+    payload["windowEnd"] = end.isoformat().replace("+00:00", "Z")
     changed = atomic_write(PUBLIC_DATASET, payload)
     coverage = internal_countries.pop("_coverage")
     if args.internal_output:
@@ -390,7 +439,7 @@ def main() -> None:
             "generatedAt": payload["generatedAt"],
             "lastCheckedAt": payload["lastCheckedAt"],
             "dataWindowStart": start.isoformat().replace("+00:00", "Z"),
-            "dataWindowEnd": payload["generatedAt"],
+            "dataWindowEnd": payload["windowEnd"],
             "algorithmVersion": INTEREST_ALGORITHM_VERSION,
             "populationVersion": f"World Bank SP.POP.TOTL {population_year}",
             "countryCoverage": coverage,
@@ -406,7 +455,7 @@ def main() -> None:
             coverage=coverage,
         )
     action = "Published" if changed else "Checked without public classification changes"
-    print(f"{action}: {len(public_countries)} reliable country classifications from {len(rows)} aggregate rows")
+    print(f"{action}: public classification dataset validated")
 
 
 if __name__ == "__main__":
