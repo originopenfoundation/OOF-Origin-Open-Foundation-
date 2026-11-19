@@ -1,0 +1,72 @@
+#lara-root .lara-settings-panel{border-bottom:1px solid var(--lara-line);background:#fff}#lara-root .lara-settings-panel summary{padding:8px 12px;color:var(--lara-muted);font-size:11px;cursor:pointer}#lara-root .lara-settings-body .lara-controls{border-top:1px solid var(--lara-line)}#lara-root .lara-settings-body .lara-style-label{padding:8px 12px}
+#lara-root .lara-head{padding:12px 14px}#lara-root .lara-title{font-size:14px}#lara-root .lara-avatar-state{font-size:9px}#lara-root .lara-messages{padding:14px 12px;gap:10px}#lara-root .lara-welcome{padding:10px 12px!important;min-height:0}#lara-root .lara-welcome .lara-prose{font-size:13px}#lara-root .lara-message{max-width:92%}
+#lara-root .lara-privacy-consent{display:flex;align-items:flex-start;gap:7px;margin:5px 0 0;font-size:11px;line-height:1.25;color:var(--lara-muted)}#lara-root .lara-privacy-consent input{margin-top:2px;flex:0 0 auto}#lara-root .lara-voice-stop{margin-right:auto;border:1px solid var(--lara-line);border-radius:8px;background:#fff;color:var(--lara-ink);padding:6px 8px;font-size:11px}#lara-root .lara-voice-stop[hidden]{display:none}
+@media(max-width:430px){#lara-root{left:6px;right:6px;bottom:max(6px,env(safe-area-inset-bottom));align-items:stretch}#lara-root .lara-panel{width:100%;height:calc(100dvh - 12px);max-height:calc(100dvh - 12px);border-radius:14px}#lara-root .lara-launch{align-self:flex-end}#lara-root .lara-head{padding:10px 12px}#lara-root .lara-head-identity{min-width:0}#lara-root .lara-title{font-size:13px}#lara-root .lara-footer{padding-bottom:max(10px,env(safe-area-inset-bottom))}#lara-root .lara-input{min-height:44px}#lara-root .lara-actions{gap:8px}#lara-root .lara-message{max-width:96%}}
+@media(max-height:520px) and (orientation:landscape){#lara-root .lara-panel{height:calc(100dvh - 10px);max-height:calc(100dvh - 10px)}#lara-root .lara-head{padding:7px 10px}#lara-root .lara-settings-panel summary{padding:5px 10px}#lara-root .lara-form{padding:7px 10px}#lara-root .lara-input{min-height:40px}}
+
+#lara-root .lara-head .lara-avatar-preview > img.lara-mark { display: none !important; }
+#lara-root .lara-head .lara-live[hidden], #lara-root .lara-listen[hidden] { display: none; }
+#lara-root .lara-avatar-preview > span,
+#lara-root .lara-avatar-preview::before,
+#lara-root .lara-avatar-preview::after { display: none; }
+#lara-root[data-avatar-state="speaking"] .lara-avatar-preview { animation: none; }
+#lara-root .lara-avatar-prototype { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; }
+#lara-root .lara-avatar-head { transform-origin: 50% 72%; transition: transform 240ms ease; }
+#lara-root .lara-avatar-body { transform-origin: 50% 100%; animation: lara-prototype-breathe 4s ease-in-out infinite; }
+#lara-root .lara-avatar-gaze,
+#lara-root .lara-avatar-brows { transition: transform 180ms ease; }
+#lara-root .lara-avatar-mouth { transform: scaleY(var(--lara-mouth-opening, 0)); transform-origin: 50% 65%; transition: transform 75ms ease; }
+
+#lara-root[data-avatar-state="listening"] .lara-avatar-head { transform: rotate(-5deg); }
+#lara-root[data-avatar-state="listening"] .lara-avatar-brows { transform: translateY(-1.5px); }
+#lara-root[data-avatar-state="thinking"] .lara-avatar-head { transform: rotate(5deg); }
+#lara-root[data-avatar-state="thinking"] .lara-avatar-gaze { transform: translate(2px, -1px); }
+#lara-root[data-avatar-state="speaking"] .lara-avatar-head { transform: rotate(-2deg); }
+#lara-root[data-avatar-state="error"] .lara-avatar-head { transform: rotate(4deg); }
+#lara-root[data-avatar-state="error"] .lara-avatar-brows { transform: translateY(2px); }
+
+@keyframes lara-prototype-breathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.08); }
+}
+
+#lara-root .lara-avatar-lids { opacity: 0; animation: lara-lids 5.6s step-end infinite; }
+#lara-root .lara-avatar-eyes { animation: lara-eyes 5.6s step-end infinite; }
+#lara-root .lara-avatar-gaze { animation: lara-gaze 8s ease-in-out infinite; }
+#lara-root:not([data-avatar-state="idle"]) .lara-avatar-gaze { animation: none; }
+#lara-root .lara-messages { min-height: 0; }
+#lara-root .lara-message, #lara-root .lara-sources { overflow-wrap: anywhere; }
+#lara-root .lara-settings-panel { flex-shrink: 1; min-height: 24px; overflow: auto; }
+#lara-root .lara-voice-notice { display: block; padding: 6px 12px; }
+
+@keyframes lara-eyes {
+  0%, 43%, 100% { opacity: 1; }
+  40% { opacity: 0; }
+}
+@keyframes lara-lids {
+  0%, 43%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+@keyframes lara-gaze {
+  0%, 30%, 75%, 100% { transform: translateX(0); }
+  45%, 60% { transform: translateX(1.3px); }
+}
+@media (max-width: 768px), (max-height: 520px) {
+  #lara-root {
+    bottom: calc(var(--lara-viewport-inset, 0px) + max(6px, env(safe-area-inset-bottom)));
+  }
+  #lara-root .lara-panel {
+    max-height: calc(var(--lara-viewport-height, 100dvh) - max(6px, env(safe-area-inset-top)) - max(6px, env(safe-area-inset-bottom)));
+  }
+  #lara-root .lara-settings-panel[open] { max-height: 28%; }
+  #lara-root .lara-input { font-size: 16px; }
+}
+@media (max-width: 430px) {
+  #lara-root {
+    left: max(6px, env(safe-area-inset-left));
+    right: max(6px, env(safe-area-inset-right));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #lara-root .lara-avatar-prototype * { animation: none; transition: none; }
+}
