@@ -4,6 +4,96 @@
   padding: 28px 0 64px;
 }
 
+/* Compact incident dashboard, retaining the site's grey theme. */
+.oof-incident-app .oof-incident-nav {
+  gap: 6px;
+  margin: 16px 0;
+  padding: 8px 0;
+  scrollbar-width: thin;
+}
+.oof-incident-app .oof-incident-nav a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.oof-incident-app .oof-incident-nav a[aria-current="page"] { background: #174c7e; }
+.oof-incident-app .oof-incident-metrics {
+  gap: 8px;
+  border: 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+}
+.oof-incident-app .oof-incident-metrics > div {
+  min-width: 0;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 5px;
+  background: #6e7272;
+}
+.oof-dashboard-filters, .oof-dashboard-operations, .oof-dashboard-intro, .oof-dashboard-extra-metrics, .oof-dashboard-countries {
+  margin: 14px 0;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 5px;
+}
+.oof-dashboard-filters > summary, .oof-dashboard-operations > summary, .oof-dashboard-intro > summary, .oof-dashboard-extra-metrics > summary, .oof-dashboard-countries > summary {
+  padding: 12px 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.oof-dashboard-filters .oof-incident-filters, .oof-dashboard-operations .oof-incident-operations { padding: 12px; margin: 0; }
+.oof-dashboard-intro .oof-incident-intro { padding: 12px; }
+.oof-incident-app .oof-incident-workspace {
+  gap: 14px;
+  border: 0;
+}
+.oof-incident-app .oof-incident-map-pane, .oof-incident-app .oof-incident-list-pane, .oof-dashboard-sources {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 5px;
+  background: #737676;
+}
+.oof-dashboard-sources h2 { margin: 0 0 12px; font-size: 20px; }
+.oof-dashboard-sources ul { list-style: none; padding: 0; margin: 0 0 16px; }
+.oof-dashboard-sources li { padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.2); overflow-wrap: anywhere; }
+.oof-incident-app .oof-incident-card-actions { align-items: start; }
+.oof-card-disclosure { min-width: 0; flex: 1 1 140px; }
+.oof-card-disclosure > summary {
+  padding: 9px 10px;
+  border: 1px solid rgba(255,255,255,.55);
+  background: #646b70;
+  cursor: pointer;
+  font-weight: 700;
+}
+.oof-card-disclosure[open] { flex-basis: 100%; }
+.oof-card-disclosure > :not(summary) { padding: 10px; }
+.oof-incident-app #incident-map { height: 390px; min-height: 260px; background: #858b8e; }
+.oof-incident-app #incident-map .leaflet-control-zoom a,
+.oof-incident-app #incident-map .oof-map-reset button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: #45494b;
+  color: #fff !important;
+  font-size: 22px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.oof-incident-app .oof-incident-map-legend i.low { background: #b3d0ee; }
+.oof-incident-app .oof-incident-map-legend i.moderate { background: #80aee0; }
+.oof-incident-app .oof-incident-map-legend i.high { background: #4c88ce; }
+.oof-incident-app .oof-incident-map-legend i.very-high { background: #2162a8; }
+@media (min-width: 950px) {
+  html[data-ai-incidents-view="dashboard"] .oof-incident-workspace { grid-template-columns: minmax(0, 2fr) minmax(240px, .8fr); align-items: start; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-list-pane { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .oof-incident-app #incident-map { height: 300px; }
+  .oof-incident-app .oof-incident-map-pane, .oof-incident-app .oof-incident-list-pane, .oof-dashboard-sources { padding: 12px; }
+}
+
 .oof-incident-app [hidden] { display: none !important; }
 
 .oof-incident-app a {
@@ -908,4 +998,223 @@
   .oof-system-components { grid-template-columns: 1fr; }
   .oof-incident-directory-list li { grid-template-columns: 1fr; gap: 5px; }
   .oof-incident-directory-list li > span { white-space: normal; }
+}
+
+/* Incident Intelligence dashboard */
+.oof-incident-app { max-width: 1320px !important; }
+.oof-incident-app .oof-incident-header { align-items: center; padding-bottom: 12px; }
+.oof-incident-app .oof-incident-header h1 { font-size: 27px; }
+.oof-incident-app .oof-incident-header > div > p { font-size: 13px; }
+.oof-incident-app .oof-incident-nav { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; }
+.oof-incident-app .oof-incident-nav a { flex: 0 0 auto; }
+.oof-dashboard-kpis { display: grid; grid-template-columns: minmax(0, 3fr) minmax(220px, 1.1fr); gap: 10px; align-items: stretch; }
+.oof-dashboard-kpis > .oof-incident-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.oof-dashboard-kpis .oof-incident-metrics > div { padding: 15px; background: #707678; }
+.oof-dashboard-kpis .oof-incident-metrics dt { min-height: 26px; }
+.oof-dashboard-trend, .oof-dashboard-severity { min-width: 0; padding: 16px; border: 1px solid rgba(255,255,255,.22); border-radius: 5px; background: #737a7c; }
+.oof-dashboard-trend h2, .oof-dashboard-severity h2 { margin: 0 0 12px; font-size: 17px; }
+.oof-trend-bars { display: flex; align-items: end; justify-content: space-around; gap: 7px; height: 72px; }
+.oof-trend-column { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: end; gap: 4px; height: 100%; }
+.oof-trend-column span { display: block; width: min(100%, 28px); border-radius: 3px 3px 0 0; background: #83b7e8; }
+.oof-trend-column small { color: #fff; font-size: 10px; }
+.oof-dashboard-severity { grid-area: severity; }
+.oof-severity-chart { display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 16px; }
+.oof-severity-donut { display: grid; place-items: center; width: 150px; height: 150px; border-radius: 50%; }
+.oof-severity-center { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 98px; height: 98px; border-radius: 50%; background: #737a7c; }
+.oof-severity-center strong { font-size: 26px; }
+.oof-severity-center span, .oof-chart-note { font-size: 11px; }
+.oof-severity-legend { flex: 1; min-width: 120px; list-style: none; margin: 0; padding: 0; }
+.oof-severity-legend li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.2); }
+.oof-severity-legend i { width: 12px; height: 12px; border-radius: 2px; }
+.oof-severity-legend b { margin-left: auto; }
+.oof-chart-note { margin: 14px 0 0; opacity: .85; }
+.oof-dashboard-view-all { margin-left: auto; white-space: nowrap; font-weight: 700; font-size: 12px; }
+.oof-card-architecture { margin-top: 12px !important; font-size: 12px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-list { grid-template-columns: 1fr; gap: 10px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-row { height: auto; padding: 14px; border: 1px solid rgba(255,255,255,.18); border-radius: 4px; background: rgba(255,255,255,.04); }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-pane { grid-area: map; }
+html[data-ai-incidents-view="dashboard"] .oof-dashboard-sources { grid-area: sources; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-list-pane { grid-area: incidents; }
+.oof-incident-detail article > section, .oof-incident-directory article { border-color: rgba(255,255,255,.22); }
+@media (min-width: 1200px) {
+  html[data-ai-incidents-view="dashboard"] .oof-incident-workspace { grid-template-areas: 'map sources' 'incidents severity'; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-list-pane { grid-column: auto; }
+}
+@media (min-width: 960px) {
+  body.oof-sidebar-layout > main.oof-incident-app {
+    width: min(1320px, calc(100vw - 390px));
+    margin-left: 360px;
+    margin-right: 0;
+  }
+}
+@media (max-width: 1199px) {
+  .oof-dashboard-kpis { grid-template-columns: 1fr; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-workspace { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'map' 'sources' 'incidents' 'severity'; }
+}
+@media (max-width: 620px) {
+  .oof-incident-app .oof-incident-header h1 { font-size: 23px; }
+  .oof-dashboard-kpis > .oof-incident-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .oof-incident-app .oof-incident-section-heading { align-items: start; flex-wrap: wrap; gap: 8px; }
+}
+
+/* Dashboard composition follows the reference while keeping the OOF grey shell. */
+html[data-ai-incidents-view="dashboard"] .oof-incident-app { padding-top: 12px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-header { position: relative; display: flex; justify-content: center; text-align: center; min-height: 72px; padding: 0 50px 10px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-header h1 { margin-bottom: 2px; font-size: 25px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-header > div > p { font-size: 13px; }
+.oof-dashboard-search { position: absolute; right: 0; top: 12px; width: 42px; height: 42px; border: 0; border-radius: 4px; background: transparent; cursor: pointer; }
+.oof-dashboard-search::before, .oof-incident-nav a::before, .oof-dashboard-kpis .oof-incident-metrics > div::before, .oof-dashboard-sources h2::before, .oof-dashboard-trend h2::before, .oof-incident-card-visual::before {
+  display: inline-block; flex: none; content: ''; background: currentColor; mask-position: center; mask-repeat: no-repeat; mask-size: contain;
+}
+.oof-dashboard-search::before { width: 24px; height: 24px; color: white; mask-image: url('/assets/icons/lucide/search.svg'); }
+html[data-ai-incidents-view="dashboard"] .oof-incident-nav { display: flex; align-items: stretch; justify-content: space-between; gap: 2px; margin: 0 0 12px; padding: 7px 0; overflow: visible; border-color: rgba(255,255,255,.25); }
+.oof-incident-app .oof-incident-nav a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; }
+.oof-incident-nav a::before { width: 20px; height: 20px; color: #c7e2ff; }
+.oof-incident-nav a[href="/ai-incidents/"]::before { mask-image: url('/assets/icons/lucide/house.svg'); }
+.oof-incident-nav a[href^="/ai-incidents/map/"]::before { mask-image: url('/assets/icons/lucide/map-pin.svg'); }
+.oof-incident-nav a[href^="/ai-incidents/latest/"]::before { mask-image: url('/assets/icons/lucide/layers.svg'); }
+.oof-incident-nav a[data-fixed-target][href*="lens="]::before { mask-image: url('/assets/icons/lucide/chart-no-axes-column-increasing.svg'); }
+.oof-incident-nav a[href^="/ai-incidents/architectures/"]::before { mask-image: url('/assets/icons/lucide/boxes.svg'); }
+.oof-incident-nav a[href*="#dashboard-sources"]::before { mask-image: url('/assets/icons/lucide/database.svg'); }
+.oof-incident-nav a[href^="/ai-incidents/methodology/"]::before { mask-image: url('/assets/icons/lucide/book-open.svg'); }
+.oof-nav-more { position: relative; align-self: center; }
+.oof-nav-more summary { padding: 10px; cursor: pointer; font-weight: 700; }
+.oof-nav-more > div { position: absolute; z-index: 1001; right: 0; top: 100%; min-width: 180px; padding: 6px; border: 1px solid #afb4b5; border-radius: 4px; background: #62696a; box-shadow: 0 5px 15px #3338; }
+.oof-nav-more > div a { display: flex; white-space: nowrap; }
+.oof-nav-more > div a::before { display: none; }
+.oof-dashboard-kpis { grid-template-columns: minmax(0, 2.6fr) minmax(240px, 1.15fr); margin-bottom: 12px; }
+.oof-dashboard-kpis > .oof-incident-metrics { gap: 8px; }
+.oof-dashboard-kpis .oof-incident-metrics > div { display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 10px; align-content: center; min-height: 100px; padding: 12px; background: #858b8d; border-color: #a8afb0; }
+.oof-dashboard-kpis .oof-incident-metrics > div::before { grid-row: 1 / span 2; align-self: center; width: 34px; height: 34px; color: #b5dcff; }
+.oof-dashboard-kpis .oof-incident-metrics > div:has([data-metric="totalIncidents"])::before { mask-image: url('/assets/icons/lucide/layers.svg'); }
+.oof-dashboard-kpis .oof-incident-metrics > div:has([data-metric="countriesAffected"])::before { mask-image: url('/assets/icons/lucide/globe.svg'); }
+.oof-dashboard-kpis .oof-incident-metrics > div:has([data-metric="automatedAnalyses"])::before { mask-image: url('/assets/icons/lucide/chart-no-axes-column-increasing.svg'); }
+.oof-dashboard-kpis .oof-incident-metrics > div:has([data-metric="humanReviewPriorityQueue"])::before { mask-image: url('/assets/icons/lucide/database.svg'); }
+.oof-dashboard-kpis .oof-incident-metrics dt { min-height: 0; font-size: 11px; text-transform: none; }
+.oof-dashboard-kpis .oof-incident-metrics dd { margin-top: 2px; font-size: 28px; }
+.oof-dashboard-trend, .oof-dashboard-severity, .oof-dashboard-sources, .oof-incident-app .oof-incident-map-pane, .oof-incident-app .oof-incident-list-pane { background: #858b8d; border-color: #a8afb0; border-radius: 6px; }
+.oof-dashboard-trend { padding: 12px 16px; }
+.oof-dashboard-trend h2, .oof-dashboard-sources h2 { display: flex; align-items: center; gap: 10px; }
+.oof-dashboard-trend h2::before { width: 24px; height: 24px; mask-image: url('/assets/icons/lucide/activity.svg'); }
+.oof-dashboard-sources h2::before { width: 25px; height: 25px; mask-image: url('/assets/icons/lucide/database.svg'); }
+.oof-trend-line { display: block; width: 100%; height: 58px; overflow: visible; }
+.oof-trend-line polyline { fill: none; stroke: #c8e6ff; stroke-width: 3; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-workspace { gap: 12px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-pane, html[data-ai-incidents-view="dashboard"] .oof-incident-list-pane, .oof-dashboard-sources, .oof-dashboard-severity { padding: 14px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-pane { position: relative; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-pane .oof-incident-section-heading p { display: none; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-pane .oof-incident-section-heading h2 { font-size: 16px; }
+html[data-ai-incidents-view="dashboard"] #incident-map { height: 270px; min-height: 250px; margin-top: 8px; background: #969da0; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-legend { position: absolute; z-index: 400; right: 23px; top: 82px; display: grid; gap: 5px; padding: 10px; border: 1px solid #c2c7c8; border-radius: 5px; background: #666d6e; }
+html[data-ai-incidents-view="dashboard"] .oof-geography-summary { margin-top: 8px; }
+html[data-ai-incidents-view="dashboard"] .oof-geography-summary div { padding: 5px 8px; }
+html[data-ai-incidents-view="dashboard"] .oof-geography-summary b { font-size: 15px; }
+html[data-ai-incidents-view="dashboard"] .oof-dashboard-countries { margin: 6px 0 0; }
+html[data-ai-incidents-view="dashboard"] .oof-dashboard-countries > summary { padding: 6px; font-size: 11px; }
+.oof-dashboard-sources li { padding: 13px 0; }
+.oof-dashboard-sources { align-self: stretch; }
+.oof-dashboard-sources h2, .oof-dashboard-severity h2, html[data-ai-incidents-view="dashboard"] .oof-incident-list-pane h2 { font-size: 19px; }
+.oof-severity-center { background: #858b8d; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-row { display: flex; flex-direction: row; gap: 15px; align-items: stretch; padding: 12px; }
+.oof-incident-card-visual { display: grid; place-items: center; flex: 0 0 150px; min-height: 150px; border-radius: 5px; background: #627982; }
+.oof-incident-card-visual::before { width: 68px; height: 68px; color: #c6e6ff; mask-image: url('/assets/icons/lucide/layers.svg'); }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-main { gap: 4px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-row h3 { order: -1; font-size: 17px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-status { display: flex !important; flex-wrap: wrap; gap: 8px !important; background: transparent; margin-top: 4px !important; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-status div { flex: 1 1 105px; padding: 4px; background: transparent; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-actions { margin-top: 4px; padding-top: 4px; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-actions > details, html[data-ai-incidents-view="dashboard"] .oof-incident-card-actions > a { flex: 1 1 100px; }
+html[data-ai-incidents-view="dashboard"] .oof-card-disclosure > summary, html[data-ai-incidents-view="dashboard"] .oof-incident-card-actions > a { display: block; min-height: 38px; padding: 9px; text-align: center; background: #6d777b; border-radius: 4px; }
+html[data-ai-incidents-view="dashboard"] .oof-card-disclosure[open] { flex-basis: 100%; }
+.oof-dashboard-supplementary { margin-top: 16px; }
+.oof-dashboard-supplementary .oof-incident-source-disclosure { margin: 14px 0; }
+@media (max-width: 1199px) {
+  html[data-ai-incidents-view="dashboard"] .oof-incident-nav { flex-wrap: wrap; justify-content: flex-start; }
+  .oof-dashboard-kpis { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  html[data-ai-incidents-view="dashboard"] .oof-incident-header { min-height: 0; padding: 5px 40px 12px 0; text-align: left; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-header h1 { font-size: 21px; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-header > div > p { font-size: 11px; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-nav a { padding: 7px; font-size: 12px; }
+  .oof-incident-nav a::before { width: 17px; height: 17px; }
+  .oof-dashboard-kpis .oof-incident-metrics > div { grid-template-columns: 28px minmax(0,1fr); gap: 5px; padding: 9px; min-height: 85px; }
+  .oof-dashboard-kpis .oof-incident-metrics > div::before { width: 25px; height: 25px; }
+  .oof-dashboard-kpis .oof-incident-metrics dd { font-size: 23px; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-map-legend { position: static; display: flex; flex-wrap: wrap; margin-top: 6px; padding: 7px; font-size: 9px; }
+  html[data-ai-incidents-view="dashboard"] .oof-geography-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  html[data-ai-incidents-view="dashboard"] .oof-geography-summary span { font-size: 8px; }
+  html[data-ai-incidents-view="dashboard"] .oof-incident-row { flex-direction: column; }
+  .oof-incident-card-visual { flex-basis: auto; min-height: 75px; }
+  .oof-incident-card-visual::before { width: 40px; height: 40px; }
+}
+
+/* Keep the shared incident shell consistent across all view routes. */
+html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-app { padding-top: 12px; }
+html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-header { position: relative; display: flex; justify-content: center; align-items: center; text-align: center; min-height: 72px; padding: 0 50px 10px; }
+html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-header h1 { margin-bottom: 2px; font-size: 25px; }
+html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-header > div > p { font-size: 13px; }
+html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-nav { display: flex; align-items: stretch; justify-content: space-between; gap: 2px; margin: 0 0 12px; padding: 7px 0; overflow: visible; border-color: rgba(255,255,255,.25); }
+html[data-ai-incidents-view="map"] .oof-incident-map-pane { position: relative; }
+html[data-ai-incidents-view="map"] .oof-incident-map-pane .oof-incident-section-heading p { display: none; }
+html[data-ai-incidents-view="map"] #incident-map { height: 390px; min-height: 250px; margin-top: 8px; background: #969da0; }
+html[data-ai-incidents-view="map"] .oof-incident-map-legend { position: absolute; z-index: 400; right: 23px; top: 82px; display: grid; gap: 5px; padding: 10px; border: 1px solid #c2c7c8; border-radius: 5px; background: #666d6e; }
+@media (max-width: 1199px) {
+  html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-nav { flex-wrap: wrap; justify-content: flex-start; }
+}
+@media (max-width: 620px) {
+  html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-header { min-height: 0; padding: 5px 40px 12px 0; text-align: left; }
+  html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-header h1 { font-size: 21px; }
+  html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-header > div > p { font-size: 11px; }
+  html[data-ai-incidents-view]:not([data-ai-incidents-view="dashboard"]) .oof-incident-nav a { padding: 7px; font-size: 12px; }
+  html[data-ai-incidents-view="map"] #incident-map { height: 300px; }
+  html[data-ai-incidents-view="map"] .oof-incident-map-legend { position: static; display: flex; flex-wrap: wrap; margin-top: 6px; padding: 7px; font-size: 9px; }
+}
+
+/* Grey dashboard surfaces matching the surrounding OOF site. */
+.oof-dashboard-kpis .oof-incident-metrics > div,
+.oof-dashboard-trend, .oof-dashboard-severity, .oof-dashboard-sources,
+.oof-incident-app .oof-incident-map-pane, .oof-incident-app .oof-incident-list-pane {
+  color: #fff;
+  background: #6d7374;
+  border-color: #999fa0;
+}
+.oof-dashboard-kpis .oof-incident-metrics > div::before { color: #b5dcff; }
+.oof-dashboard-trend h2::before, .oof-dashboard-sources h2::before { color: #b5dcff; }
+.oof-trend-line polyline { stroke: #a9d9ff; }
+.oof-trend-note { margin: 1px 0 0; color: #eee; font-size: 10px; }
+.oof-dashboard-sources li { display: flex; align-items: center; gap: 12px; border-color: #999fa0; }
+.oof-source-name { flex: 1; }
+.oof-source-count { font-size: 16px; }
+.oof-incident-app .oof-dashboard-sources a,
+.oof-incident-app .oof-incident-list-pane a,
+.oof-incident-app .oof-incident-map-pane a { color: #fff !important; }
+.oof-severity-center { color: #fff; background: #6d7374; }
+.oof-severity-legend li { border-color: #999fa0; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-row { color: #fff; background: #787e7f; border-color: #999fa0; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-eyebrow { color: #eee; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-visual { background: #626e72; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-visual::before { color: #b5dcff; }
+html[data-ai-incidents-view="dashboard"] .oof-card-disclosure > summary,
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-actions > a {
+  color: #fff !important;
+  background: #5d6567;
+  border-color: #a2aaaa;
+}
+html[data-ai-incidents-view="dashboard"] .oof-card-disclosure > :not(summary) { color: #fff; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-prevention-preview li { background: #646d6f; border-left-color: #a9d9ff; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-pane .oof-incident-section-heading h2 {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+html[data-ai-incidents-view="dashboard"] #incident-map { margin-top: 0; background: #858d90; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-map-legend { top: 32px; color: #fff; background: #5d6567; border-color: #999fa0; }
+html[data-ai-incidents-view="dashboard"] .oof-dashboard-countries { border-color: #999fa0; }
+.oof-incident-app .oof-incident-map-legend .neutral { background: #b5c0c8; }
+.oof-incident-app .oof-incident-list-pane .oof-incident-card-eyebrow,
+.oof-incident-app .oof-incident-list-pane .oof-incident-card-mechanism { color: #eee; }
+.oof-incident-app .oof-incident-list-pane .oof-incident-card-status div { color: #fff; background: #666c6d; }
+html[data-ai-incidents-view="dashboard"] .oof-incident-card-status div { background: transparent !important; }
+html[data-ai-incidents-view="map"] .oof-incident-map-legend { color: #fff; }
+@media (max-width: 620px) {
+  html[data-ai-incidents-view="dashboard"] .oof-incident-map-legend { color: #fff; background: #5d6567; }
 }

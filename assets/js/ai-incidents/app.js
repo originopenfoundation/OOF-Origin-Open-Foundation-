@@ -15,6 +15,7 @@ let leafletMap = null;
 let filtersWired = false;
 let activeRequest = null;
 
+enhanceDashboardLayout();
 markCurrentView();
 if (view === "methodology") {
   monitor.hidden = true;
@@ -23,6 +24,235 @@ if (view === "methodology") {
   wireFilters();
   retry.addEventListener("click", start);
   start();
+}
+
+function enhanceDashboardLayout() {
+  const legendLabels = ['1–5 incidents', '6–20 incidents', '21–50 incidents', '51+ incidents', 'No public incident data'];
+  document.querySelectorAll('.oof-incident-map-legend span').forEach((item, index) => {
+    const icon = item.querySelector('i');
+    if (icon && legendLabels[index]) item.replaceChildren(icon, document.createTextNode(legendLabels[index]));
+  });
+  const intro = document.querySelector('.oof-incident-intro');
+  if (intro) {
+    const disclosure = document.createElement('details');
+    disclosure.className = 'oof-dashboard-intro';
+    const title = document.createElement('summary');
+    title.textContent = 'About this intelligence platform';
+    intro.before(disclosure);
+    disclosure.append(title, intro);
+    document.querySelector('.oof-incident-nav')?.after(disclosure);
+  }
+  const nav = document.querySelector('.oof-incident-nav');
+  const overview = nav?.querySelector('a[href="/ai-incidents/"]');
+  if (overview) overview.textContent = 'Overview';
+  if (nav) {
+    const analyses = document.createElement('a');
+    analyses.href = '/ai-incidents/?lens=systems';
+    analyses.textContent = 'Analyses';
+    analyses.dataset.fixedTarget = 'true';
+    nav.querySelector('a[href="/ai-incidents/architectures/"]')?.before(analyses);
+    const sourcesLink = document.createElement('a');
+    sourcesLink.href = '/ai-incidents/#dashboard-sources-title';
+    sourcesLink.textContent = 'Sources';
+    sourcesLink.dataset.fixedTarget = 'true';
+    nav.querySelector('a[href="/ai-incidents/methodology/"]')?.before(sourcesLink);
+    const mainLinks = [overview, nav.querySelector('a[href="/ai-incidents/map/"]'), nav.querySelector('a[href="/ai-incidents/latest/"]'), analyses, nav.querySelector('a[href="/ai-incidents/architectures/"]'), sourcesLink, nav.querySelector('a[href="/ai-incidents/methodology/"]')];
+    const latest = mainLinks[2];
+    if (latest) latest.textContent = 'Incidents';
+    const more = document.createElement('details');
+    more.className = 'oof-nav-more';
+    const label = document.createElement('summary');
+    label.textContent = 'More';
+    const menu = document.createElement('div');
+    [...nav.querySelectorAll('a')].filter((link) => !mainLinks.includes(link)).forEach((link) => menu.append(link));
+    more.append(label, menu);
+    mainLinks.filter(Boolean).forEach((link) => nav.append(link));
+    nav.append(more);
+  }
+  const metrics = document.querySelector('.oof-incident-metrics');
+  if (metrics) {
+    const featured = ['totalIncidents', 'countriesAffected', 'automatedAnalyses', 'humanReviewPriorityQueue'];
+    const extra = document.createElement('dl');
+    extra.className = 'oof-incident-metrics';
+    extra.setAttribute('aria-label', 'Additional incident dataset metrics');
+    [...metrics.children].forEach((item) => {
+      if (!featured.includes(item.querySelector('[data-metric]')?.dataset.metric)) extra.append(item);
+    });
+    featured.forEach((name) => {
+      const item = metrics.querySelector(`[data-metric="${name}"]`)?.parentElement;
+      if (item) metrics.append(item);
+    });
+    const disclosure = document.createElement('details');
+    disclosure.className = 'oof-dashboard-extra-metrics';
+    const title = document.createElement('summary');
+    title.textContent = 'More dataset metrics';
+    disclosure.append(title, extra);
+    metrics.after(disclosure);
+  }
+  const countryTable = document.getElementById('incident-country-table');
+  if (countryTable) {
+    const disclosure = document.createElement('details');
+    disclosure.className = 'oof-dashboard-countries';
+    const title = document.createElement('summary');
+    title.textContent = 'Incident counts by country';
+    countryTable.before(disclosure);
+    const geographySummary = document.getElementById('incident-geography-summary');
+    disclosure.append(title);
+    if (geographySummary) disclosure.append(geographySummary);
+    disclosure.append(countryTable);
+  }
+  const filters = document.getElementById('incident-filters');
+  if (filters) {
+    const disclosure = document.createElement('details');
+    disclosure.className = 'oof-dashboard-filters';
+    const title = document.createElement('summary');
+    title.textContent = 'Search and filters';
+    filters.before(disclosure);
+    disclosure.append(title, filters);
+    if (params.toString()) disclosure.open = true;
+  }
+  const operations = document.querySelector('.oof-incident-operations');
+  if (operations && listPane) {
+    const disclosure = document.createElement('details');
+    disclosure.className = 'oof-dashboard-operations';
+    const title = document.createElement('summary');
+    title.textContent = 'Operational transparency';
+    operations.querySelector('h2')?.remove();
+    operations.before(disclosure);
+    disclosure.append(title, operations);
+    document.querySelector('.oof-incident-workspace')?.after(disclosure);
+  }
+  if (mapPane && view === 'dashboard') {
+    const sources = document.createElement('aside');
+    sources.className = 'oof-dashboard-sources';
+    sources.setAttribute('aria-labelledby', 'dashboard-sources-title');
+    sources.innerHTML = '<h2 id="dashboard-sources-title">Sources</h2><p>Loading source information…</p><a href="/ai-incidents/methodology/#source-collection-and-verification">Source methodology</a>';
+    mapPane.after(sources);
+    const severity = document.createElement('aside');
+    severity.className = 'oof-dashboard-severity';
+    severity.innerHTML = '<h2>Incidents by Severity</h2><p>Loading severity data…</p>';
+    listPane.after(severity);
+    const heading = listPane.querySelector('h2');
+    if (heading) heading.textContent = 'Recent Incidents';
+    const all = document.createElement('a');
+    all.className = 'oof-dashboard-view-all';
+    all.href = '/ai-incidents/latest/';
+    all.textContent = 'View all incidents →';
+    listPane.querySelector('.oof-incident-section-heading')?.append(all);
+  }
+  const subtitle = document.querySelector('.oof-incident-header > div > p');
+  if (subtitle) subtitle.textContent = 'AI Incidents · Risk Analysis · Architectures · Prevention · Verification';
+  if (view !== 'methodology') {
+    const trend = document.createElement('section');
+    trend.className = 'oof-dashboard-trend';
+    trend.innerHTML = '<h2>Incident Trend</h2><p>Loading event dates…</p>';
+    metrics?.after(trend);
+    if (metrics) {
+      const row = document.createElement('div');
+      row.className = 'oof-dashboard-kpis';
+      metrics.before(row);
+      row.append(metrics, trend);
+    }
+    const workspace = document.querySelector('.oof-incident-workspace');
+    const supplementary = document.createElement('div');
+    supplementary.className = 'oof-dashboard-supplementary';
+    ['.oof-dashboard-intro', '.oof-dashboard-extra-metrics', '.oof-dashboard-filters', '.oof-incident-source-disclosure', '.oof-dashboard-operations'].forEach((selector) => {
+      const item = document.querySelector(selector);
+      if (item) supplementary.append(item);
+    });
+    workspace?.after(supplementary);
+    const search = document.createElement('button');
+    search.type = 'button';
+    search.className = 'oof-dashboard-search';
+    search.title = 'Search and filters';
+    search.setAttribute('aria-label', 'Search and filters');
+    search.addEventListener('click', () => {
+      const panel = supplementary.querySelector('.oof-dashboard-filters');
+      if (panel) { panel.open = true; panel.scrollIntoView({block: 'start', behavior: 'smooth'}); panel.querySelector('input[type="search"]')?.focus({preventScroll: true}); }
+    });
+    document.querySelector('.oof-incident-header')?.append(search);
+    const dataTime = document.getElementById('incident-data-time');
+    if (dataTime) supplementary.append(dataTime);
+  }
+}
+
+function renderDashboardCharts(aggregations, summary) {
+  const trends = (aggregations.trends || []).filter((item) => /^\d{4}-\d{2}$/.test(item.period));
+  const trend = document.querySelector('.oof-dashboard-trend');
+  if (trend) {
+    const values = trends.slice(-6);
+    const bars = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    bars.classList.add('oof-trend-line');
+    bars.setAttribute('viewBox', '0 0 240 65');
+    bars.setAttribute('role', 'img');
+    bars.setAttribute('aria-label', values.map((item) => `${item.period}: ${item.total}`).join(', '));
+    const max = Math.max(1, ...values.map((item) => item.total));
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    line.setAttribute('points', values.map((item, index) => `${values.length > 1 ? index * 240 / (values.length - 1) : 0},${60 - item.total / max * 52}`).join(' '));
+    bars.append(line);
+    trend.querySelector('p, .oof-trend-line')?.replaceWith(bars);
+    trend.title = 'Monthly event dates in the public dataset; records without dates are excluded.';
+  }
+  const panel = document.querySelector('.oof-dashboard-severity');
+  if (panel) {
+    const values = ['critical', 'high', 'moderate', 'low'].map((key) => ({key, count: trends.reduce((sum, row) => sum + Number(row[key] || 0), 0)}));
+    const classified = values.reduce((sum, item) => sum + item.count, 0);
+    let offset = 0;
+    const colors = ['#e9a46d', '#3172b6', '#6ea4de', '#bdd3e9'];
+    const stops = values.map((item, index) => {
+      const start = offset;
+      offset += classified ? item.count / classified * 100 : 0;
+      return `${colors[index]} ${start}% ${offset}%`;
+    });
+    const chart = element('div', 'oof-severity-chart');
+    const donut = element('div', 'oof-severity-donut');
+    donut.style.background = classified ? `conic-gradient(${stops.join(',')})` : '#aaa';
+    const center = element('div', 'oof-severity-center');
+    center.append(element('strong', '', String(classified)), element('span', '', 'dated records'));
+    donut.append(center);
+    const legend = element('ul', 'oof-severity-legend');
+    values.forEach((item, index) => {
+      const row = document.createElement('li');
+      const swatch = document.createElement('i');
+      swatch.style.backgroundColor = colors[index];
+      row.append(swatch, element('span', '', item.key[0].toUpperCase() + item.key.slice(1)), element('b', '', String(item.count)));
+      legend.append(row);
+    });
+    chart.append(donut, legend);
+    panel.querySelector('p, .oof-severity-chart')?.replaceWith(chart);
+    let note = panel.querySelector('.oof-chart-note');
+    if (!note) { note = element('p', 'oof-chart-note'); panel.append(note); }
+    note.textContent = `${classified} of ${summary.totalIncidents} public records have both an event month and a listed severity.`;
+  }
+}
+
+function renderDailyTrend(items, generatedAt) {
+  const panel = document.querySelector('.oof-dashboard-trend');
+  const exportDate = new Date(generatedAt || '');
+  if (!panel || Number.isNaN(exportDate.valueOf())) return;
+  const end = Date.UTC(exportDate.getUTCFullYear(), exportDate.getUTCMonth(), exportDate.getUTCDate());
+  const day = 86400000;
+  const counts = Array(30).fill(0);
+  items.forEach((item) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(item.occurredAt || '')) return;
+    const date = Date.parse(`${item.occurredAt}T00:00:00Z`);
+    const index = 29 - Math.round((end - date) / day);
+    if (index >= 0 && index < 30) counts[index] += 1;
+  });
+  const heading = panel.querySelector('h2');
+  if (heading) heading.textContent = '30-Day Trend';
+  const chart = panel.querySelector('.oof-trend-line');
+  const line = chart?.querySelector('polyline');
+  const max = Math.max(1, ...counts);
+  if (line) line.setAttribute('points', counts.map((count, index) => `${index * 240 / 29},${60 - count / max * 52}`).join(' '));
+  const total = counts.reduce((sum, count) => sum + count, 0);
+  const dateLabel = exportDate.toISOString().slice(0, 10);
+  const disclosure = `${total} records with an event date in the 30 days ending ${dateLabel}. Event dates are not the same as publication dates; recent events may be missing.`;
+  panel.title = disclosure;
+  chart?.setAttribute('aria-label', disclosure);
+  let note = panel.querySelector('.oof-trend-note');
+  if (!note) { note = element('p', 'oof-trend-note'); panel.append(note); }
+  note.textContent = `${total} dated events · through ${dateLabel}`;
 }
 
 async function start() {
@@ -37,6 +267,7 @@ async function start() {
       repository.aggregations(signal), loadArchitectureLinks(signal),
     ]);
     renderSummary(summary);
+    renderDashboardCharts(aggregations, summary);
     loadWorkflowStatus(signal);
     let result = page;
     if (requiresSearchProjection()) {
@@ -47,6 +278,13 @@ async function start() {
     await renderRoute(result, mapData, aggregations, architectureLinks, signal);
     if (signal.aborted) return;
     setState("success", "Public incident dataset loaded.");
+    if (view === 'dashboard') {
+      repository.search(signal).then((data) => {
+        if (!signal.aborted) renderDailyTrend(data.items || [], summary.generatedAt);
+      }).catch((error) => {
+        if (error.name !== 'AbortError') console.warn('Daily trend unavailable; showing monthly trend.', error);
+      });
+    }
   } catch (error) {
     if (error.name === "AbortError") return;
     document.getElementById("incident-map")?.setAttribute("aria-busy", "false");
@@ -65,9 +303,10 @@ function setState(kind, message) {
 function markCurrentView() {
   const route = view === "dashboard" ? "/ai-incidents/" : `/ai-incidents/${view}/`;
   document.querySelectorAll(".oof-incident-nav a").forEach((link) => {
+    if (link.dataset.fixedTarget) return;
     const target = new URL(link.href, location.origin);
     if (target.pathname === route) link.setAttribute("aria-current", "page");
-    target.search = params.toString();
+    target.search = target.pathname === '/ai-incidents/' ? '' : params.toString();
     target.searchParams.delete("page");
     link.href = target.pathname + target.search;
   });
@@ -190,6 +429,28 @@ function renderSummary(summary) {
       : "Public dataset synchronization time is unavailable";
   renderOperationalStatus(operational);
   const transparency = summary.sourceTransparency || {};
+  const sourcePanel = document.querySelector('.oof-dashboard-sources');
+  if (sourcePanel) {
+    const list = document.createElement('ul');
+    const publishers = transparency.publishers || [];
+    publishers.forEach((publisher) => {
+      const row = document.createElement('li');
+      const name = element('span', 'oof-source-name', publisher);
+      row.append(name);
+      if (publishers.length === 1 && Number.isFinite(Number(summary.totalIncidents))) {
+        const count = element('strong', 'oof-source-count', Number(summary.totalIncidents).toLocaleString('en'));
+        count.title = 'Public records attributed to this publisher';
+        row.append(count);
+      }
+      list.append(row);
+    });
+    if (!publishers.length) {
+      const row = document.createElement('li');
+      row.textContent = 'Source information unavailable';
+      list.append(row);
+    }
+    sourcePanel.querySelector('ul, p')?.replaceWith(list);
+  }
   const sourceSelect = document.querySelector('#incident-filters select[name="source"]');
   if (sourceSelect) {
     const selected = params.get("source") || "";
@@ -264,11 +525,11 @@ function formatFreshness(freshness, snapshotUrl) {
 
 function incidentCountColor(country) {
   const count = Number(country?.incidentCount || 0);
-  if (count >= 15) return "#a52a35";
-  if (count >= 6) return "#c56b21";
-  if (count >= 3) return "#d1a928";
-  if (count >= 1) return "#0b6e4f";
-  return "#777b79";
+  if (count >= 51) return "#2162a8";
+  if (count >= 21) return "#4c88ce";
+  if (count >= 6) return "#80aee0";
+  if (count >= 1) return "#b3d0ee";
+  return "#b5c0c8";
 }
 
 async function renderMap(mapData, signal) {
@@ -279,8 +540,27 @@ async function renderMap(mapData, signal) {
     mapElement?.setAttribute("aria-busy", "false");
     return;
   }
-  const map = L.map("incident-map", { minZoom: 1, maxZoom: 7, worldCopyJump: true, attributionControl: false }).setView([18, 8], 2);
+  const map = L.map("incident-map", { minZoom: 0, maxZoom: 7, zoomSnap: 0.25, worldCopyJump: true, attributionControl: false, scrollWheelZoom: false });
   leafletMap = map;
+  const resetMap = () => {
+    map.invalidateSize({ pan: false });
+    map.fitBounds([[-58, -170], [78, 180]], { padding: [8, 8], animate: false });
+  };
+  const resetControl = L.Control.extend({
+    options: { position: 'topleft' },
+    onAdd() {
+      const container = L.DomUtil.create('div', 'leaflet-bar oof-map-reset');
+      const button = L.DomUtil.create('button', '', container);
+      button.type = 'button';
+      button.textContent = '↺';
+      button.title = 'Reset map view';
+      button.setAttribute('aria-label', 'Reset map view');
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.on(button, 'click', resetMap);
+      return container;
+    },
+  });
+  map.addControl(new resetControl());
   const countryByCode = new Map(mapData.countries.map((country) => [country.countryCode, country]));
   const response = await fetch("/assets/data/ne_50m_admin_0_countries.geojson", { signal });
   if (!response.ok) throw new Error(`Map geometry request failed (${response.status})`);
@@ -332,7 +612,7 @@ async function renderMap(mapData, signal) {
       });
     },
   }).addTo(map);
-  requestAnimationFrame(() => map.invalidateSize({ pan: false }));
+  requestAnimationFrame(resetMap);
   mapElement?.setAttribute("aria-busy", "false");
 }
 
@@ -603,16 +883,23 @@ function renderIncidents(items, architectureLinks, options) {
   const empty = document.getElementById("incident-empty");
   const pageCount = Math.max(1, Math.ceil(options.total / options.pageSize));
   const currentPage = Math.min(pageCount, options.page);
-  const visibleItems = options.locallyPaged ? items.slice((currentPage - 1) * options.pageSize, currentPage * options.pageSize) : items;
+  let visibleItems = options.locallyPaged ? items.slice((currentPage - 1) * options.pageSize, currentPage * options.pageSize) : items;
+  const overviewPreview = view === 'dashboard' && !requiresSearchProjection() && currentPage === 1;
+  if (overviewPreview) visibleItems = visibleItems.slice(0, 1);
   document.getElementById("incident-result-count").textContent = `${options.total} public record${options.total === 1 ? "" : "s"}`;
   list.replaceChildren();
   empty.hidden = options.total > 0;
   visibleItems.forEach((incident) => list.append(createIncidentCard(incident, architectureLinks)));
-  if (options.total > options.pageSize) list.append(createPagination(currentPage, pageCount));
+  if (!overviewPreview && options.total > options.pageSize) list.append(createPagination(currentPage, pageCount));
 }
 
 function createIncidentCard(incident, architectureLinks) {
   const article = element("article", "oof-incident-row");
+  if (view === 'dashboard') {
+    const visual = element('div', 'oof-incident-card-visual');
+    visual.setAttribute('aria-hidden', 'true');
+    article.append(visual);
+  }
   const headingBlock = element("div", "oof-incident-card-main");
   const eyebrow = element("p", "oof-incident-card-eyebrow");
   eyebrow.append(
@@ -644,6 +931,14 @@ function createIncidentCard(incident, architectureLinks) {
   const intelligence = element("div", "oof-incident-card-intelligence");
   const architecture = incident.assessment?.available ? incident.primaryArchitecture : null;
   const architectureUrl = architectureLinks.get(String(architecture?.architectureId || "").toLowerCase()) || architecture?.canonicalUrl;
+  const architectureLine = element('p', 'oof-card-architecture');
+  architectureLine.append(element('span', '', 'Architecture: '));
+  if (architectureUrl) {
+    const link = element('a', '', architecture?.label || architecture?.architectureId?.toUpperCase());
+    link.href = architectureUrl;
+    architectureLine.append(link);
+  } else architectureLine.append(document.createTextNode('Undetermined'));
+  headingBlock.append(architectureLine);
   const focusHeading = element("h4", "", "Intelligence governance focus");
   const focus = element("p", "");
   if (architectureUrl) {
@@ -659,7 +954,6 @@ function createIncidentCard(incident, architectureLinks) {
     ? "Failure mechanism not established."
     : `Failure mechanism status: ${systemFailure.mechanismStatus}`);
   intelligence.append(focusHeading, focus, assignment, component, mechanism, insight);
-  headingBlock.append(intelligence);
 
   const preview = incident.preventionPreview || {};
   const prevention = element("ol", "oof-incident-prevention-preview");
@@ -673,19 +967,22 @@ function createIncidentCard(incident, architectureLinks) {
     row.append(element("b", "", label), element("span", "", value || "Prevention analysis pending sufficient evidence."));
     prevention.append(row);
   });
-  headingBlock.append(prevention);
-
   const actions = element("div", "oof-incident-card-actions");
-  const view = element("a", "oof-incident-primary-action", "View incident");
-  view.href = incident.detailUrl;
+  const makeDisclosure = (label, content) => {
+    const section = element('details', 'oof-card-disclosure');
+    section.append(element('summary', '', label), content);
+    return section;
+  };
+  actions.append(makeDisclosure('Analysis', intelligence), makeDisclosure('Prevention', prevention));
+  const verification = element('div', 'oof-card-verification');
+  verification.append(element('p', '', preview.verification || 'Verification procedure not established.'));
   const verify = element("a", "oof-incident-secondary-action", "Help verify / Submit evidence");
   verify.href = incident.verifyUrl || `/ai-incidents/verify/?incident=${encodeURIComponent(incident.slug)}`;
-  actions.append(view, verify);
-  if (architectureUrl) {
-    const explore = element("a", "oof-incident-secondary-action", "Explore Prevention Architecture");
-    explore.href = architectureUrl;
-    actions.append(explore);
-  }
+  verification.append(verify);
+  actions.append(makeDisclosure('Verification', verification));
+  const detailAction = element("a", "oof-incident-primary-action", "Details");
+  detailAction.href = incident.detailUrl;
+  actions.append(detailAction);
   headingBlock.append(actions);
   article.append(headingBlock);
   return article;

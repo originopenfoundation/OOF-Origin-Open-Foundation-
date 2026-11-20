@@ -328,6 +328,12 @@ function setupPagePdfDownload() {
   const footer = document.querySelector("#footer .footer2, footer.footer2");
   if (!footer) return;
 
+  // Incident PDFs are not published; do not advertise links that return 404.
+  if (/^\/ai-incidents(?:\/|$)/.test(window.location.pathname)) {
+    footer.querySelector(".page-pdf-download")?.remove();
+    return;
+  }
+
   let download = footer.querySelector(".page-pdf-download");
   if (!download) {
     download = document.createElement("div");
