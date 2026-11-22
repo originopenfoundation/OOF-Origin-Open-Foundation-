@@ -57,6 +57,7 @@ LOCALIZED_LANGUAGES = {
 }
 EXPLICIT_ALIAS_TARGETS = {
     "content/rsga/rsga-rcss-rcam-1.html": "content/rsga/rsga-rcss-rcasm-1.html",
+    "content/uoevr/index.html": "content/u/uoevr-universal-operational-execution-verification-reference-model.html",
 }
 
 
@@ -922,6 +923,8 @@ def main() -> None:
     for record in english_records:
         target_relative = alias_target(record["relative"])
         if target_relative:
+            if record["relative"] == "content/uoevr/index.html":
+                record["path"].write_text(by_relative[target_relative]["path"].read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
             inject_alias_metadata(record, by_relative[target_relative])
     write_knowledge_graph(records)
     write_typed_relationships(records)
