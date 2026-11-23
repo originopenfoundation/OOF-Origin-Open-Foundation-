@@ -16,6 +16,7 @@ let filtersWired = false;
 let activeRequest = null;
 
 enhanceDashboardLayout();
+attachAssistantDock();
 markCurrentView();
 if (view === "methodology") {
   monitor.hidden = true;
@@ -24,6 +25,23 @@ if (view === "methodology") {
   wireFilters();
   retry.addEventListener("click", start);
   start();
+}
+
+function attachAssistantDock() {
+  const header = document.querySelector(".oof-incident-header");
+  if (!header) return;
+  const dock = element("div", "oof-incident-assistant-dock");
+  header.after(dock);
+  const attach = () => {
+    const root = document.getElementById("lara-root");
+    if (!root) return false;
+    dock.append(root);
+    return true;
+  };
+  if (!attach()) {
+    const observer = new MutationObserver(() => { if (attach()) observer.disconnect(); });
+    observer.observe(document.body, {childList: true, subtree: true});
+  }
 }
 
 function enhanceDashboardLayout() {
@@ -895,95 +913,118 @@ function renderIncidents(items, architectureLinks, options) {
 
 function createIncidentCard(incident, architectureLinks) {
   const article = element("article", "oof-incident-row");
-  if (view === 'dashboard') {
-    const visual = element('div', 'oof-incident-card-visual');
-    visual.setAttribute('aria-hidden', 'true');
-    article.append(visual);
-  }
   const headingBlock = element("div", "oof-incident-card-main");
-  const eyebrow = element("p", "oof-incident-card-eyebrow");
-  eyebrow.append(
-    element("span", "oof-incident-id", incident.id),
-    element("span", "", incident.industry || "Industry not specified"),
-    element("span", "", incident.country || "Location not specified"),
-    element("time", "", incident.occurredAt ? `Event: ${incident.occurredAt.slice(0, 10)}` : incident.reportedAt ? `Record timestamp: ${incident.reportedAt.slice(0, 10)} (event date unknown)` : "Event date unknown"),
-  );
-  headingBlock.append(eyebrow);
   const heading = element("h3", "");
   const detailLink = element("a", "", incident.title);
   detailLink.href = incident.detailUrl;
   heading.append(detailLink);
   headingBlock.append(heading);
+  const eyebrow = element("p", "oof-incident-card-eyebrow");
+  eyebrow.append(
+    element("span", "oof-incident-id", incident.id),
+    element("span", "", incident.country || "Location not specified"),
+    element("time", "", incident.occurredAt ? `Event: ${incident.occurredAt.slice(0, 10)}` : incident.reportedAt ? `Record timestamp: ${incident.reportedAt.slice(0, 10)} (event date unknown)` : "Event date unknown"),
+  );
+  headingBlock.append(eyebrow);
 
   const status = element("dl", "oof-incident-card-status");
   [
-    ["Evidence", incident.assessment?.evidenceStatus || "Evidence Insufficient"],
     ["Source", incident.source?.publisher || "Source not identified"],
-    ["Severity", incident.severity || "Insufficient Evidence"],
-    ["Review", incident.assessment?.reviewStatus || "Not performed"],
+    ["Evidence", incident.assessment?.evidenceStatus || "Evidence insufficient"],
+    ["Verification", incident.assessment?.reviewStatus === "Completed" ? "Review completed" : "Not verified"],
+    ["Severity", incident.severity || "Not established"],
   ].forEach(([term, value]) => {
     const group = document.createElement("div");
-    group.append(element("dt", "", term), element("dd", "", value));
+    const description = element("dd", "", value);
+    if (term === "Source" && /^https:\/\//i.test(incident.source?.url || "")) {
+      const link = element("a", "", value);
+      link.href = incident.source.url;
+      description.replaceChildren(link);
+    }
+    group.append(element("dt", "", term), description);
     status.append(group);
   });
   headingBlock.append(status);
 
-  const intelligence = element("div", "oof-incident-card-intelligence");
   const architecture = incident.assessment?.available ? incident.primaryArchitecture : null;
   const architectureUrl = architectureLinks.get(String(architecture?.architectureId || "").toLowerCase()) || architecture?.canonicalUrl;
+  const insightBlock = element("section", "oof-card-insight-block");
+  insightBlock.append(element("h4", "", "Analytical Insight"), element("p", "",
+    incident.assessment?.available ? ([incident.systemFailure?.component ? `System component to examine: ${incident.systemFailure.component}.` : "", incident.preventionFocus || incident.governanceInsight].filter(Boolean).join(" ") || "No case-specific analysis is available.") : "Analysis is not available for this record."));
+  headingBlock.append(insightBlock);
+  const architectureBlock = element("section", "oof-card-architecture-block");
+  architectureBlock.append(element("h4", "", "Relevant Architecture"));
   const architectureLine = element('p', 'oof-card-architecture');
-  architectureLine.append(element('span', '', 'Architecture: '));
   if (architectureUrl) {
     const link = element('a', '', architecture?.label || architecture?.architectureId?.toUpperCase());
     link.href = architectureUrl;
     architectureLine.append(link);
-  } else architectureLine.append(document.createTextNode('Undetermined'));
-  headingBlock.append(architectureLine);
-  const focusHeading = element("h4", "", "Intelligence governance focus");
-  const focus = element("p", "");
-  if (architectureUrl) {
-    const link = element("a", "", architecture?.label || architecture?.architectureId?.toUpperCase());
-    link.href = architectureUrl;
-    focus.append(link);
-  } else focus.textContent = "Architecture undetermined";
-  const assignment = element("p", "oof-incident-card-assignment", `Assignment: ${incident.assessment?.coverage || "Review required"}`);
-  const insight = element("p", "oof-incident-card-insight", incident.governanceInsight || "Available evidence does not yet support a case-specific governance conclusion.");
+    architectureBlock.append(architectureLine, element("p", "oof-card-architecture-status", "Candidate applicability"));
+  } else {
+    architectureLine.textContent = "Not established";
+    architectureBlock.append(architectureLine);
+  }
+  headingBlock.append(architectureBlock);
   const systemFailure = incident.systemFailure || {};
-  const component = element("p", "oof-incident-card-component", `System component: ${systemFailure.component || "Not established"}`);
-  const mechanism = element("p", "oof-incident-card-mechanism", systemFailure.mechanismStatus === "NOT_CONFIRMED" || !systemFailure.mechanismStatus
-    ? "Failure mechanism not established."
-    : `Failure mechanism status: ${systemFailure.mechanismStatus}`);
-  intelligence.append(focusHeading, focus, assignment, component, mechanism, insight);
-
   const preview = incident.preventionPreview || {};
-  const prevention = element("ol", "oof-incident-prevention-preview");
-  const conditional = Boolean(preview.conditionalIdeaAvailable);
-  [
-    ["Could this happen?", preview.applicability],
-    [conditional ? "Conditional control idea" : "Evidence needed before control selection", preview.control],
-    [conditional ? "Conditional verification idea" : "Evidence review", preview.verification && preview.verification !== preview.control ? preview.verification : "Verification procedure not established."],
-  ].forEach(([label, value]) => {
-    const row = document.createElement("li");
-    row.append(element("b", "", label), element("span", "", value || "Prevention analysis pending sufficient evidence."));
-    prevention.append(row);
-  });
   const actions = element("div", "oof-incident-card-actions");
-  const makeDisclosure = (label, content) => {
-    const section = element('details', 'oof-card-disclosure');
-    section.append(element('summary', '', label), content);
-    return section;
+  const panel = element("div", "oof-card-panel");
+  panel.id = `incident-panel-${incident.id}`;
+  panel.hidden = true;
+  const addRow = (container, label, value) => {
+    const row = element("div", "oof-card-panel-row");
+    row.append(element("h5", "", label), element("p", "", value));
+    container.append(row);
   };
-  actions.append(makeDisclosure('Analysis', intelligence), makeDisclosure('Prevention', prevention));
-  const verification = element('div', 'oof-card-verification');
-  verification.append(element('p', '', preview.verification || 'Verification procedure not established.'));
-  const verify = element("a", "oof-incident-secondary-action", "Help verify / Submit evidence");
-  verify.href = incident.verifyUrl || `/ai-incidents/verify/?incident=${encodeURIComponent(incident.slug)}`;
-  verification.append(verify);
-  actions.append(makeDisclosure('Verification', verification));
-  const detailAction = element("a", "oof-incident-primary-action", "Details");
+  const sections = {
+    Analysis: () => {
+      const content = document.createDocumentFragment();
+      addRow(content, "Observed event", incident.summary || "Event details not available.");
+      addRow(content, "Candidate problem", incident.assessment?.available ? (incident.governanceInsight || "No case-specific finding available.") : "Analysis is not available for this record.");
+      addRow(content, "Evidence", incident.assessment?.evidenceStatus || "Evidence status unavailable.");
+      addRow(content, "Possible failure mechanism", (systemFailure.candidateMechanisms || []).join(", ") || "Not established.");
+      addRow(content, "Governance boundaries", architecture?.label || "Not established.");
+      addRow(content, "Uncertainty", preview.limitation || "The available evidence may be incomplete.");
+      return content;
+    },
+    Prevention: () => {
+      const content = document.createDocumentFragment();
+      addRow(content, "Preventive control", preview.control || "Prevention analysis unavailable.");
+      addRow(content, "Applicability", preview.applicability || "Not established.");
+      return content;
+    },
+    Verification: () => {
+      const content = document.createDocumentFragment();
+      addRow(content, "Verification", preview.verification && preview.verification !== preview.control ? preview.verification : "Verification procedure not established.");
+      const verify = element("a", "oof-incident-secondary-action", "Help verify / Submit evidence");
+      verify.href = incident.verifyUrl || `/ai-incidents/verify/?incident=${encodeURIComponent(incident.slug)}`;
+      content.append(verify);
+      return content;
+    },
+  };
+  const buttons = [];
+  Object.entries(sections).forEach(([label, makeContent]) => {
+    const button = element("button", "oof-card-panel-button", label);
+    button.type = "button";
+    button.setAttribute("aria-controls", panel.id);
+    button.setAttribute("aria-expanded", "false");
+    button.addEventListener("click", () => {
+      const opening = button.getAttribute("aria-expanded") !== "true";
+      buttons.forEach((other) => other.setAttribute("aria-expanded", "false"));
+      panel.hidden = !opening;
+      panel.replaceChildren();
+      if (opening) {
+        button.setAttribute("aria-expanded", "true");
+        panel.append(makeContent());
+      }
+    });
+    buttons.push(button);
+    actions.append(button);
+  });
+  const detailAction = element("a", "oof-incident-primary-action", "Full Case");
   detailAction.href = incident.detailUrl;
   actions.append(detailAction);
-  headingBlock.append(actions);
+  headingBlock.append(actions, panel);
   article.append(headingBlock);
   return article;
 }

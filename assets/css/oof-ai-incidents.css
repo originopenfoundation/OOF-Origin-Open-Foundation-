@@ -1214,6 +1214,79 @@ html[data-ai-incidents-view="dashboard"] .oof-dashboard-countries { border-color
 .oof-incident-app .oof-incident-list-pane .oof-incident-card-mechanism { color: #eee; }
 .oof-incident-app .oof-incident-list-pane .oof-incident-card-status div { color: #fff; background: #666c6d; }
 html[data-ai-incidents-view="dashboard"] .oof-incident-card-status div { background: transparent !important; }
+
+/* Incident cards use the existing page shell but keep their own readable surface. */
+.oof-incident-app .oof-incident-row,
+html[data-ai-incidents-view="dashboard"] .oof-incident-app .oof-incident-row {
+  display: block;
+  height: auto;
+  padding: 18px;
+  color: #102b49;
+  background: #edf1f2;
+  border: 1px solid #c5cdd0;
+  border-radius: 6px;
+}
+.oof-incident-app .oof-incident-card-main { display: block; min-width: 0; }
+.oof-incident-app .oof-incident-row h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; overflow-wrap: anywhere; }
+.oof-incident-app .oof-incident-row a { color: #163f69; }
+.oof-incident-app #incident-list .oof-incident-row a { color: #163f69 !important; }
+.oof-incident-app .oof-incident-card-eyebrow { color: #516575; font-size: 11px; line-height: 1.5; }
+.oof-incident-app #incident-list .oof-incident-card-eyebrow,
+.oof-incident-app #incident-list .oof-incident-card-eyebrow span,
+.oof-incident-app #incident-list .oof-incident-card-eyebrow time { color: #516575 !important; }
+.oof-incident-app .oof-incident-card-status,
+html[data-ai-incidents-view="dashboard"] .oof-incident-app .oof-incident-card-status {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin: 15px 0 !important;
+  padding: 12px 0 !important;
+  background: transparent;
+  border-block: 1px solid #cbd5d9;
+}
+.oof-incident-app .oof-incident-card-status div,
+html[data-ai-incidents-view="dashboard"] .oof-incident-app .oof-incident-card-status div {
+  display: block !important;
+  height: auto;
+  padding: 0;
+  color: #102b49;
+  background: transparent !important;
+}
+.oof-incident-app .oof-incident-card-status dt { color: #566b79; font-size: 10px; }
+.oof-incident-app .oof-incident-card-status dd { margin: 4px 0 0; color: #102b49; text-align: left; font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
+.oof-incident-app .oof-card-insight-block,
+.oof-incident-app .oof-card-architecture-block { margin: 14px 0 0; }
+.oof-incident-app .oof-card-insight-block h4,
+.oof-incident-app .oof-card-architecture-block h4 { margin: 0 0 5px; color: #4a6071; font-size: 11px; text-transform: uppercase; }
+.oof-incident-app .oof-card-insight-block p,
+.oof-incident-app .oof-card-architecture-block p { color: #102b49; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.oof-incident-app .oof-card-architecture-status { margin-top: 3px; color: #586b78 !important; font-size: 11px !important; }
+.oof-incident-app .oof-incident-card-actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0 0; padding: 0; }
+.oof-incident-app .oof-incident-card-actions button,
+.oof-incident-app .oof-incident-card-actions a,
+html[data-ai-incidents-view="dashboard"] .oof-incident-app .oof-incident-card-actions > a {
+  display: flex; align-items: center; justify-content: center; box-sizing: border-box;
+  min-height: 44px; padding: 9px 8px; border: 1px solid #b4c3cc; border-radius: 4px;
+  color: #163f69; background: #dfe8eb; font: inherit; font-size: 12px; font-weight: 700;
+  text-align: center; text-decoration: none; cursor: pointer;
+}
+.oof-incident-app .oof-incident-card-actions button[aria-expanded="true"] { color: #fff; background: #19496f; border-color: #19496f; }
+.oof-incident-app .oof-incident-card-actions :focus-visible { outline: 3px solid #1674c5; outline-offset: 2px; }
+.oof-incident-app .oof-card-panel { margin-top: 14px; padding-top: 14px; border-top: 1px solid #cbd5d9; }
+.oof-incident-app .oof-card-panel[hidden] { display: none !important; }
+.oof-incident-app .oof-card-panel-row { margin: 0 0 12px; }
+.oof-incident-app .oof-card-panel-row h5 { margin: 0 0 3px; color: #4a6071; font-size: 11px; }
+.oof-incident-app .oof-card-panel-row p { color: #102b49; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.oof-incident-app .oof-incident-assistant-dock { display: flex; justify-content: flex-end; margin: 8px 0 12px; }
+.oof-incident-app .oof-incident-assistant-dock #lara-root { position: static; align-items: flex-end; max-width: 100%; }
+.oof-incident-app .oof-incident-assistant-dock #lara-root .lara-panel { max-width: 100%; }
+@media (max-width: 600px) {
+  .oof-incident-app .oof-incident-row,
+  html[data-ai-incidents-view="dashboard"] .oof-incident-app .oof-incident-row { padding: 16px; }
+  .oof-incident-app .oof-incident-card-status,
+  html[data-ai-incidents-view="dashboard"] .oof-incident-app .oof-incident-card-status { grid-template-columns: minmax(0, 1fr) !important; gap: 10px !important; }
+  .oof-incident-app .oof-incident-card-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 html[data-ai-incidents-view="map"] .oof-incident-map-legend { color: #fff; }
 @media (max-width: 620px) {
   html[data-ai-incidents-view="dashboard"] .oof-incident-map-legend { color: #fff; background: #5d6567; }
