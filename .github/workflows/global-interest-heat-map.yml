@@ -9,7 +9,15 @@ on:
       - ".github/workflows/global-interest-heat-map.yml"
       - "tools/update_global_interest_heat_map.py"
       - "tools/validate_global_interest_heat_map.py"
+      - "tools/verify_global_interest_publication.py"
+      - "tools/verify_global_interest_internal.py"
       - "tests/test_global_interest_heat_map.py"
+      - "tests/test_verify_global_interest_publication.py"
+      - "tests/test_verify_global_interest_internal.py"
+      - "tests/browser/global-interest-heat-map.spec.mjs"
+      - "assets/js/oof-global-interest-heat-map.js"
+      - "global-interest-heat-map.html"
+      - "style.css"
   workflow_dispatch:
 
 permissions:
@@ -57,7 +65,10 @@ jobs:
 
       - name: Record preserved dataset when analytics is unavailable
         if: steps.analytics.outputs.configured != 'true'
-        run: python tools/update_global_interest_heat_map.py --write-skipped-diagnostic --skip-reason missing-cloudflare-credentials --diagnostic-output "$RUNNER_TEMP/oof-global-interest-refresh-diagnostic.json"
+        run: |
+          python tools/update_global_interest_heat_map.py --write-skipped-diagnostic --skip-reason missing-cloudflare-credentials --diagnostic-output "$RUNNER_TEMP/oof-global-interest-refresh-diagnostic.json"
+          echo "::error title=Global Interest Heat Map refresh unavailable::Cloudflare analytics credentials are missing; the last valid dataset remains published."
+          exit 1
 
       - name: Record failed refresh without changing public freshness
         if: failure() && steps.analytics.outputs.configured == 'true'
@@ -67,7 +78,11 @@ jobs:
         run: python tools/validate_global_interest_heat_map.py
 
       - name: Run classification tests
-        run: python -m unittest tests.test_global_interest_heat_map
+        run: python -m unittest tests.test_global_interest_heat_map tests.test_verify_global_interest_publication tests.test_verify_global_interest_internal
+
+      - name: Verify private country aggregation and public coverage
+        if: steps.analytics.outputs.configured == 'true'
+        run: python tools/verify_global_interest_internal.py --internal "$RUNNER_TEMP/oof-global-interest-internal.json"
 
       - name: Install browser smoke-test runtime
         run: |
@@ -89,6 +104,10 @@ jobs:
           git add data/oof-global-interest-heat-map.json
           git commit -m "Update Global Interest Heat Map"
           git push origin HEAD:main1
+
+      - name: Verify live dataset matches the validated refresh
+        if: steps.analytics.outputs.configured == 'true' && github.ref == 'refs/heads/main1'
+        run: python tools/verify_global_interest_publication.py --max-wait 360
 
       - name: Report refresh failure
         if: failure()

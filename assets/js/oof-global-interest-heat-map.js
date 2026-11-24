@@ -41,6 +41,22 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  function dockAssistant() {
+    const dock = document.querySelector(".oof-global-interest-assistant-dock");
+    if (!dock) return;
+    const attach = () => {
+      const root = document.getElementById("lara-root");
+      if (!root) return false;
+      dock.append(root);
+      return true;
+    };
+    if (!attach()) {
+      const observer = new MutationObserver(() => { if (attach()) observer.disconnect(); });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+  dockAssistant();
+
   function countryCode(feature) {
     const properties = feature && feature.properties ? feature.properties : {};
     const candidates = [properties.ISO_A2_EH, properties.ISO_A2];
@@ -293,7 +309,7 @@
     populateCountryList();
     container.classList.remove("is-fallback");
     container.innerHTML = "";
-    map = L.map(container, { attributionControl: true, zoomControl: false, minZoom: 1, maxZoom: 9, zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 90, maxBounds: [[-85, -190], [85, 190]], maxBoundsViscosity: 1, worldCopyJump: false, preferCanvas: true });
+    map = L.map(container, { attributionControl: true, zoomControl: false, minZoom: 0, maxZoom: 9, zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 90, maxBounds: [[-85, -190], [85, 190]], maxBoundsViscosity: 1, worldCopyJump: false, preferCanvas: true });
     map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
     map.attributionControl.addAttribution('<a href="https://www.naturalearthdata.com" target="_blank" rel="noopener">Natural Earth</a>');
     map.fitBounds(WORLD_BOUNDS, { padding: [8, 8], animate: false });
@@ -312,7 +328,7 @@
           createLabel(feature, 4);
         } else if (hasPublicSignal) {
           // Publicly classified countries remain identifiable in the overview.
-          createLabel(feature, 1);
+          createLabel(feature, 0);
         } else {
           createLabel(feature, minimumLabelZoom(feature));
         }

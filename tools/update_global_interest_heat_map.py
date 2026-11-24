@@ -454,7 +454,7 @@ def main() -> None:
             dataset=payload,
             coverage=coverage,
         )
-    action = "Published" if changed else "Checked without public classification changes"
+    action = "Prepared" if changed else "Checked without public classification changes"
     print(f"{action}: public classification dataset validated")
 
 

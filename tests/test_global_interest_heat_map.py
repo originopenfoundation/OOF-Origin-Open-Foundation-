@@ -78,6 +78,23 @@ class GlobalInterestHeatMapTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             classify([row("AA", "2026-09-30", 50)], {}, {}, NOW)
 
+    def test_fractional_boundaries_are_not_rounded_up(self) -> None:
+        for visits, expected in [(20.999999, None), (21, "emerging"), (139.999999, "emerging"),
+                                 (140, "moderate"), (279.999999, "moderate"), (280, "high"),
+                                 (559.999999, "high"), (560, "very-high")]:
+            with self.subTest(visits=visits):
+                public, _ = classify([row("AA", "2026-09-23", visits)], {}, {}, NOW)
+                self.assertEqual(public[0]["status"] if public else None, expected)
+
+    def test_rolling_window_can_increase_and_decrease_classification(self) -> None:
+        first, _ = classify([row("AA", "2026-09-23", 140)], {}, {}, NOW)
+        next_day = NOW + timedelta(days=1)
+        increased, _ = classify([row("AA", "2026-09-30", 280)], {}, {}, next_day)
+        decreased, _ = classify([row("AA", "2026-09-30", 20)], {}, {}, next_day)
+        self.assertEqual(first[0]["status"], "moderate")
+        self.assertEqual(increased[0]["status"], "high")
+        self.assertEqual(decreased, [])
+
     def test_resolve_iso_accepts_codes_and_country_names_but_excludes_antarctica(self) -> None:
         names = {"slovakia": "SK", "antarctica": "AQ"}
         self.assertEqual(resolve_iso("sk", names), "SK")
