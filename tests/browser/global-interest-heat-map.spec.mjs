@@ -171,7 +171,16 @@ for (const width of [320, 375, 390, 430, 768, 1440]) {
     const map = page.locator("#global-interest-globe.leaflet-container");
     await expect(map).toBeVisible();
     await expect(page.locator(".oof-global-interest-assistant-dock #lara-root")).toBeAttached();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+    const overflow = await page.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      offenders: [...document.querySelectorAll("body *")].map(node => {
+        const box = node.getBoundingClientRect();
+        return {tag: node.tagName, id: node.id, className: typeof node.className === "string" ? node.className : "",
+                left: Math.round(box.left), right: Math.round(box.right), width: Math.round(box.width)};
+      }).filter(node => node.right > innerWidth + 1 && node.left < innerWidth && node.width > 0).slice(0, 15)
+    }));
+    if (overflow.scrollWidth > width) console.log("Horizontal overflow diagnostics:", JSON.stringify(overflow));
+    expect(overflow.scrollWidth).toBeLessThanOrEqual(width);
     const positions = await page.evaluate(() => {
       const bounds = document.querySelector("#global-interest-globe").getBoundingClientRect();
       return [...document.querySelectorAll(".oof-country-label-marker")].filter(node => ["USA", "Brazil"].includes(node.textContent.trim())).map(node => {
