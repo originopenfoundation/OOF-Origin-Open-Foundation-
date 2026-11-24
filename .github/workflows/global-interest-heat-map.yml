@@ -75,7 +75,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Run desktop and mobile smoke tests
-        run: npx playwright test --config=playwright.config.mjs
+        run: npx playwright test tests/browser/global-interest-heat-map.spec.mjs --config=playwright.config.mjs
 
       - name: Publish changed public dataset atomically
         if: steps.analytics.outputs.configured == 'true' && github.ref == 'refs/heads/main1'

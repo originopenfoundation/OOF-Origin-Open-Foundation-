@@ -35,6 +35,12 @@ const dataset = {
 };
 
 async function mockDataset(page, overrides = {}) {
+  // Map smoke tests run on localhost, which must not send production analytics.
+  await page.route("**/assets/data/oof-analytics-config.json", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({ enabled: false })
+  }));
   await page.route("**/_lara/status", route => route.fulfill({
     status: 200,
     contentType: "application/json",
@@ -54,7 +60,9 @@ async function mockDataset(page, overrides = {}) {
 
 test("desktop map supports all states, selection, zoom, reset and small countries", async ({ page }) => {
   const consoleErrors = [];
+  const analyticsRequests = [];
   page.on("console", message => { if (message.type() === "error") consoleErrors.push(message.text()); });
+  page.on("request", request => { if (request.url().includes("/_oof/analytics/event")) analyticsRequests.push(request.url()); });
   await mockDataset(page);
   await page.goto("/global-interest-heat-map.html");
   await expect(page.locator("#global-interest-globe.leaflet-container")).toBeVisible();
@@ -71,6 +79,7 @@ test("desktop map supports all states, selection, zoom, reset and small countrie
   await page.getByRole("button", { name: "Reset map view" }).click();
   await expect(page.locator("#global-interest-country-name")).toHaveText("Select a country");
   expect(consoleErrors).toEqual([]);
+  expect(analyticsRequests).toEqual([]);
 });
 
 test("seven-day dataset presents four distinct categories", async ({ page }) => {
