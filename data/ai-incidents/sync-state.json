@@ -1,8 +1,8 @@
 {
   "sources": {
     "ManualOOFIncidentAdapter": {
-      "lastAttemptedSync": "2026-11-25T11:25:37Z",
-      "lastSuccessfulSync": "2026-11-25T11:25:37Z",
+      "lastAttemptedSync": "2026-11-26T11:00:04Z",
+      "lastSuccessfulSync": "2026-11-26T11:00:04Z",
       "recordsRetrieved": 0,
       "recordsQueued": 0,
       "recordsRejected": 0,
@@ -13,8 +13,8 @@
       "mode": "incremental"
     },
     "AIIDWeeklyExcelAdapter": {
-      "lastAttemptedSync": "2026-11-25T11:25:37Z",
-      "lastSuccessfulSync": "2026-11-25T11:25:46Z",
+      "lastAttemptedSync": "2026-11-26T11:00:04Z",
+      "lastSuccessfulSync": "2026-11-26T11:00:17Z",
       "recordsRetrieved": 250,
       "recordsQueued": 10,
       "recordsRejected": 0,
@@ -24,11 +24,11 @@
       "name": "AIIDWeeklyExcelAdapter",
       "mode": "weekly-snapshot",
       "snapshotUrl": "https://pub-72b2b2fc36ec423189843747af98f80e.r2.dev/AIID_Excel_Export-20261123.xlsx",
-      "historyCursor": 1565
+      "historyCursor": 1555
     },
     "OECDIncidentAdapter": {
-      "lastAttemptedSync": "2026-11-25T11:25:46Z",
-      "lastSuccessfulSync": "2026-11-25T11:25:49Z",
+      "lastAttemptedSync": "2026-11-26T11:00:17Z",
+      "lastSuccessfulSync": "2026-11-26T11:00:20Z",
       "recordsRetrieved": 20,
       "recordsQueued": 20,
       "recordsRejected": 0,
@@ -37,26 +37,24 @@
       "sourceErrors": [],
       "name": "OECDIncidentAdapter",
       "mode": "review-only-latest-page",
-      "latestItem": "/en/incidents/2026-11-24-0068"
+      "latestItem": "/en/incidents/2026-11-25-668a"
     },
     "AVIDReferenceSource": {
       "name": "AVIDReferenceSource",
       "mode": "bounded-reference-probe",
-      "lastAttemptedSync": "2026-11-25T11:25:49Z",
-      "lastSuccessfulSync": "2026-11-22T09:53:34Z",
-      "syncStatus": "failed",
+      "lastAttemptedSync": "2026-11-26T11:00:20Z",
+      "lastSuccessfulSync": "2026-11-26T11:00:43Z",
+      "syncStatus": "success",
       "recordsRetrieved": 301,
       "latestCommit": "8eda5f4e6f74a3738eb980b795c4f813c6e52ca8",
       "limitation": "Bounded recent repository commits only; records are not established incidents or independent corroboration. No private reference store is configured; records are not retained.",
       "internalReferencesRetained": 0,
       "publicIncidentsPublished": 0,
-      "sourceErrors": [
-        "HTTP Error 403: rate limit exceeded"
-      ]
+      "sourceErrors": []
     }
   },
   "lastDailySummary": {
-    "createdAt": "2026-11-25T11:25:49Z",
+    "createdAt": "2026-11-26T11:00:44Z",
     "recordsRetrieved": 270,
     "recordsQueued": 30,
     "newCandidates": 10,
@@ -67,22 +65,17 @@
     "recordsCreated": 10,
     "recordsUpdated": 0,
     "duplicatesDetected": 240,
-    "queueRemaining": 214,
+    "queueRemaining": 234,
     "queueRemainingNew": 0,
     "queueRemainingSourceChanges": 0,
-    "queueRemainingSourceReview": 214,
+    "queueRemainingSourceReview": 234,
     "sourceErrors": [],
-    "sourceWarnings": [
-      {
-        "source": "AVIDReferenceSource",
-        "error": "HTTP Error 403: rate limit exceeded"
-      }
-    ],
-    "baselineIncidentCount": 411,
+    "sourceWarnings": [],
+    "baselineIncidentCount": 421,
     "configuredNewLimit": null,
     "configuredUpdateLimit": null,
-    "afterIncidentCount": 421,
-    "status": "partial-success"
+    "afterIncidentCount": 431,
+    "status": "success"
   },
   "syncHistory": [
     {
@@ -853,7 +846,31 @@
       "configuredUpdateLimit": null,
       "afterIncidentCount": 421,
       "status": "partial-success"
+    },
+    {
+      "createdAt": "2026-11-26T11:00:44Z",
+      "recordsRetrieved": 270,
+      "recordsQueued": 30,
+      "newCandidates": 10,
+      "changedCandidates": 0,
+      "recordsProcessed": 10,
+      "processedNew": 10,
+      "processedSourceChanges": 0,
+      "recordsCreated": 10,
+      "recordsUpdated": 0,
+      "duplicatesDetected": 240,
+      "queueRemaining": 234,
+      "queueRemainingNew": 0,
+      "queueRemainingSourceChanges": 0,
+      "queueRemainingSourceReview": 234,
+      "sourceErrors": [],
+      "sourceWarnings": [],
+      "baselineIncidentCount": 421,
+      "configuredNewLimit": null,
+      "configuredUpdateLimit": null,
+      "afterIncidentCount": 431,
+      "status": "success"
     }
   ],
-  "lastPublicExport": "2026-11-25T11:25:51Z"
+  "lastPublicExport": "2026-11-26T11:00:46Z"
 }
