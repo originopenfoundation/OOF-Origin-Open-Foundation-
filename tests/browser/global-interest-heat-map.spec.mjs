@@ -182,6 +182,12 @@ for (const width of [320, 375, 390, 430, 768, 1440]) {
     }), width);
     if (overflow.scrollWidth > width) console.log("Horizontal overflow diagnostics:", JSON.stringify(overflow));
     expect(overflow.scrollWidth).toBeLessThanOrEqual(width);
+    const title = await page.locator(".top-fixed-header .page-title").evaluate(node => ({
+      clientWidth: node.clientWidth, scrollWidth: node.scrollWidth,
+      right: node.getBoundingClientRect().right
+    }));
+    expect(title.scrollWidth).toBeLessThanOrEqual(title.clientWidth);
+    expect(title.right).toBeLessThanOrEqual(width);
     const positions = await page.evaluate(() => {
       const bounds = document.querySelector("#global-interest-globe").getBoundingClientRect();
       return [...document.querySelectorAll(".oof-country-label-marker")].filter(node => ["USA", "Brazil"].includes(node.textContent.trim())).map(node => {
